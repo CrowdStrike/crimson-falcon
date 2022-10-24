@@ -1,0 +1,36 @@
+# Falcon::MsaAggregationResultItem
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **count** | **Integer** |  |  |
+| **from** | **Float** |  | [optional] |
+| **key_as_string** | **String** |  | [optional] |
+| **label** | **Object** |  | [optional] |
+| **string_from** | **String** |  | [optional] |
+| **string_to** | **String** |  | [optional] |
+| **sub_aggregates** | [**Array&lt;MsaAggregationResult&gt;**](MsaAggregationResult.md) |  | [optional] |
+| **to** | **Float** |  | [optional] |
+| **value** | **Float** |  | [optional] |
+| **value_as_string** | **String** |  | [optional] |
+
+## Example
+
+```ruby
+require 'crowdstrike-falcon'
+
+instance = Falcon::MsaAggregationResultItem.new(
+  count: null,
+  from: null,
+  key_as_string: null,
+  label: null,
+  string_from: null,
+  string_to: null,
+  sub_aggregates: null,
+  to: null,
+  value: null,
+  value_as_string: null
+)
+```
+
