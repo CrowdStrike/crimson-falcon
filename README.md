@@ -1,4 +1,4 @@
-# (Work in Progress) crowdstrike-falcon
+# (Work in Progress) Crimson Falcon
 
 Falcon - the Ruby gem for the CrowdStrike API Specification
 
