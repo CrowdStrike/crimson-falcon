@@ -18,7 +18,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_firewall_policies
 
-> <ResponsesFirewallPoliciesV1> create_firewall_policies(body, opts)
+> <FirewallRespV1> create_firewall_policies(body, opts)
 
 Create Firewall Policies by specifying details about the policy to create
 
@@ -26,7 +26,7 @@ Create Firewall Policies by specifying details about the policy to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -34,7 +34,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FirewallPoliciesApi.new
-body = Falcon::RequestsCreateFirewallPoliciesV1.new({resources: [Falcon::RequestsCreateFirewallPolicyV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreateFirewallPoliciesV1 | 
+body = Falcon::FirewallCreateFirewallPoliciesReqV1.new({resources: [Falcon::FirewallCreateFirewallPolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # FirewallCreateFirewallPoliciesReqV1 | 
 opts = {
   clone_id: 'clone_id_example' # String | The policy ID to be cloned from
 }
@@ -52,7 +52,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesFirewallPoliciesV1>, Integer, Hash)> create_firewall_policies_with_http_info(body, opts)
+> <Array(<FirewallRespV1>, Integer, Hash)> create_firewall_policies_with_http_info(body, opts)
 
 ```ruby
 begin
@@ -60,7 +60,7 @@ begin
   data, status_code, headers = api_instance.create_firewall_policies_with_http_info(body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesFirewallPoliciesV1>
+  p data # => <FirewallRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->create_firewall_policies_with_http_info: #{e}"
 end
@@ -70,12 +70,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateFirewallPoliciesV1**](RequestsCreateFirewallPoliciesV1.md) |  |  |
+| **body** | [**FirewallCreateFirewallPoliciesReqV1**](FirewallCreateFirewallPoliciesReqV1.md) |  |  |
 | **clone_id** | **String** | The policy ID to be cloned from | [optional] |
 
 ### Return type
 
-[**ResponsesFirewallPoliciesV1**](ResponsesFirewallPoliciesV1.md)
+[**FirewallRespV1**](FirewallRespV1.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -97,7 +97,7 @@ Delete a set of Firewall Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -156,7 +156,7 @@ end
 
 ## get_firewall_policies
 
-> <ResponsesFirewallPoliciesV1> get_firewall_policies(ids)
+> <FirewallRespV1> get_firewall_policies(ids)
 
 Retrieve a set of Firewall Policies by specifying their IDs
 
@@ -164,7 +164,7 @@ Retrieve a set of Firewall Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -187,7 +187,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesFirewallPoliciesV1>, Integer, Hash)> get_firewall_policies_with_http_info(ids)
+> <Array(<FirewallRespV1>, Integer, Hash)> get_firewall_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -195,7 +195,7 @@ begin
   data, status_code, headers = api_instance.get_firewall_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesFirewallPoliciesV1>
+  p data # => <FirewallRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->get_firewall_policies_with_http_info: #{e}"
 end
@@ -209,7 +209,7 @@ end
 
 ### Return type
 
-[**ResponsesFirewallPoliciesV1**](ResponsesFirewallPoliciesV1.md)
+[**FirewallRespV1**](FirewallRespV1.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ end
 
 ## perform_firewall_policies_action
 
-> <ResponsesFirewallPoliciesV1> perform_firewall_policies_action(action_name, body)
+> <FirewallRespV1> perform_firewall_policies_action(action_name, body)
 
 Perform the specified action on the Firewall Policies specified in the request
 
@@ -231,7 +231,7 @@ Perform the specified action on the Firewall Policies specified in the request
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -255,7 +255,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesFirewallPoliciesV1>, Integer, Hash)> perform_firewall_policies_action_with_http_info(action_name, body)
+> <Array(<FirewallRespV1>, Integer, Hash)> perform_firewall_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -263,7 +263,7 @@ begin
   data, status_code, headers = api_instance.perform_firewall_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesFirewallPoliciesV1>
+  p data # => <FirewallRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->perform_firewall_policies_action_with_http_info: #{e}"
 end
@@ -278,7 +278,7 @@ end
 
 ### Return type
 
-[**ResponsesFirewallPoliciesV1**](ResponsesFirewallPoliciesV1.md)
+[**FirewallRespV1**](FirewallRespV1.md)
 
 ### Authorization
 
@@ -286,13 +286,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_firewall_policies
 
-> <ResponsesFirewallPoliciesV1> query_combined_firewall_policies(opts)
+> <FirewallRespV1> query_combined_firewall_policies(opts)
 
 Search for Firewall Policies in your environment by providing an FQL filter and paging details. Returns a set of Firewall Policies which match the filter criteria
 
@@ -300,7 +300,7 @@ Search for Firewall Policies in your environment by providing an FQL filter and 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -328,7 +328,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesFirewallPoliciesV1>, Integer, Hash)> query_combined_firewall_policies_with_http_info(opts)
+> <Array(<FirewallRespV1>, Integer, Hash)> query_combined_firewall_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -336,7 +336,7 @@ begin
   data, status_code, headers = api_instance.query_combined_firewall_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesFirewallPoliciesV1>
+  p data # => <FirewallRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->query_combined_firewall_policies_with_http_info: #{e}"
 end
@@ -353,7 +353,7 @@ end
 
 ### Return type
 
-[**ResponsesFirewallPoliciesV1**](ResponsesFirewallPoliciesV1.md)
+[**FirewallRespV1**](FirewallRespV1.md)
 
 ### Authorization
 
@@ -367,7 +367,7 @@ end
 
 ## query_combined_firewall_policy_members
 
-> <ResponsesPolicyMembersRespV1> query_combined_firewall_policy_members(opts)
+> <BasePolicyMembersRespV1> query_combined_firewall_policy_members(opts)
 
 Search for members of a Firewall Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -375,7 +375,7 @@ Search for members of a Firewall Policy in your environment by providing an FQL 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -404,7 +404,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPolicyMembersRespV1>, Integer, Hash)> query_combined_firewall_policy_members_with_http_info(opts)
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_firewall_policy_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -412,7 +412,7 @@ begin
   data, status_code, headers = api_instance.query_combined_firewall_policy_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPolicyMembersRespV1>
+  p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->query_combined_firewall_policy_members_with_http_info: #{e}"
 end
@@ -430,7 +430,7 @@ end
 
 ### Return type
 
-[**ResponsesPolicyMembersRespV1**](ResponsesPolicyMembersRespV1.md)
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -452,7 +452,7 @@ Search for Firewall Policies in your environment by providing an FQL filter and 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -527,7 +527,7 @@ Search for members of a Firewall Policy in your environment by providing an FQL 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -604,7 +604,7 @@ Sets the precedence of Firewall Policies based on the order of IDs specified in 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -612,7 +612,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FirewallPoliciesApi.new
-body = Falcon::RequestsSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # RequestsSetPolicyPrecedenceReqV1 | 
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
   # Sets the precedence of Firewall Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
@@ -645,7 +645,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSetPolicyPrecedenceReqV1**](RequestsSetPolicyPrecedenceReqV1.md) |  |  |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
 
 ### Return type
 
@@ -657,13 +657,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## update_firewall_policies
 
-> <ResponsesFirewallPoliciesV1> update_firewall_policies(body)
+> <FirewallRespV1> update_firewall_policies(body)
 
 Update Firewall Policies by specifying the ID of the policy and details to update
 
@@ -671,7 +671,7 @@ Update Firewall Policies by specifying the ID of the policy and details to updat
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -679,7 +679,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FirewallPoliciesApi.new
-body = Falcon::RequestsUpdateFirewallPoliciesV1.new({resources: [Falcon::RequestsUpdateFirewallPolicyV1.new({id: 'id_example'})]}) # RequestsUpdateFirewallPoliciesV1 | 
+body = Falcon::FirewallUpdateFirewallPoliciesReqV1.new({resources: [Falcon::FirewallUpdateFirewallPolicyReqV1.new({id: 'id_example'})]}) # FirewallUpdateFirewallPoliciesReqV1 | 
 
 begin
   # Update Firewall Policies by specifying the ID of the policy and details to update
@@ -694,7 +694,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesFirewallPoliciesV1>, Integer, Hash)> update_firewall_policies_with_http_info(body)
+> <Array(<FirewallRespV1>, Integer, Hash)> update_firewall_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -702,7 +702,7 @@ begin
   data, status_code, headers = api_instance.update_firewall_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesFirewallPoliciesV1>
+  p data # => <FirewallRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling FirewallPoliciesApi->update_firewall_policies_with_http_info: #{e}"
 end
@@ -712,11 +712,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateFirewallPoliciesV1**](RequestsUpdateFirewallPoliciesV1.md) |  |  |
+| **body** | [**FirewallUpdateFirewallPoliciesReqV1**](FirewallUpdateFirewallPoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesFirewallPoliciesV1**](ResponsesFirewallPoliciesV1.md)
+[**FirewallRespV1**](FirewallRespV1.md)
 
 ### Authorization
 
@@ -724,6 +724,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

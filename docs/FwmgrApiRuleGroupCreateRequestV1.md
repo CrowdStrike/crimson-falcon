@@ -7,17 +7,19 @@
 | **description** | **String** |  |  |
 | **enabled** | **Boolean** |  |  |
 | **name** | **String** |  |  |
+| **platform** | **String** |  |  |
 | **rules** | [**Array&lt;FwmgrApiRuleCreateRequestV1&gt;**](FwmgrApiRuleCreateRequestV1.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrApiRuleGroupCreateRequestV1.new(
   description: null,
   enabled: null,
   name: null,
+  platform: null,
   rules: null
 )
 ```

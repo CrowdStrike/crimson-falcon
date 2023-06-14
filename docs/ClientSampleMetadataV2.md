@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ClientSampleMetadataV2.new(
   file_name: null,

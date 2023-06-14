@@ -10,11 +10,17 @@
 | **bios_manufacturer** | **String** |  | [optional] |
 | **bios_version** | **String** |  | [optional] |
 | **build_number** | **String** |  | [optional] |
+| **chassis_type** | **String** |  | [optional] |
+| **chassis_type_desc** | **String** |  | [optional] |
 | **cid** | **String** |  |  |
 | **config_id_base** | **String** |  | [optional] |
 | **config_id_build** | **String** |  | [optional] |
 | **config_id_platform** | **String** |  | [optional] |
+| **connection_ip** | **String** |  | [optional] |
+| **connection_mac_address** | **String** |  | [optional] |
 | **cpu_signature** | **String** |  | [optional] |
+| **default_gateway_ip** | **String** |  | [optional] |
+| **deployment_type** | **String** |  | [optional] |
 | **detection_suppression_status** | **String** |  | [optional] |
 | **device_id** | **String** |  |  |
 | **device_policies** | [**DeviceMappedDevicePolicies**](DeviceMappedDevicePolicies.md) |  | [optional] |
@@ -25,12 +31,18 @@
 | **group_hash** | **String** |  | [optional] |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **host_hidden_status** | **String** |  | [optional] |
+| **host_utc_offset** | **String** |  | [optional] |
 | **hostname** | **String** |  | [optional] |
 | **instance_id** | **String** |  | [optional] |
 | **internet_exposure** | **String** |  | [optional] |
+| **k8s_cluster_git_version** | **String** |  | [optional] |
+| **k8s_cluster_id** | **String** |  | [optional] |
+| **k8s_cluster_version** | **String** |  | [optional] |
 | **kernel_version** | **String** |  | [optional] |
 | **last_login_timestamp** | **String** |  | [optional] |
+| **last_reboot** | **String** |  | [optional] |
 | **last_seen** | **String** |  | [optional] |
+| **linux_sensor_mode** | **String** |  | [optional] |
 | **local_ip** | **String** |  | [optional] |
 | **mac_address** | **String** |  | [optional] |
 | **machine_domain** | **String** |  | [optional] |
@@ -41,6 +53,7 @@
 | **modified_timestamp** | **String** |  | [optional] |
 | **notes** | **Array&lt;String&gt;** |  | [optional] |
 | **os_build** | **String** |  | [optional] |
+| **os_product_name** | **String** |  | [optional] |
 | **os_version** | **String** |  | [optional] |
 | **ou** | **Array&lt;String&gt;** |  | [optional] |
 | **platform_id** | **String** |  | [optional] |
@@ -78,7 +91,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DeviceapiDeviceSwagger.new(
   agent_load_flags: null,
@@ -87,11 +100,17 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   bios_manufacturer: null,
   bios_version: null,
   build_number: null,
+  chassis_type: null,
+  chassis_type_desc: null,
   cid: null,
   config_id_base: null,
   config_id_build: null,
   config_id_platform: null,
+  connection_ip: null,
+  connection_mac_address: null,
   cpu_signature: null,
+  default_gateway_ip: null,
+  deployment_type: null,
   detection_suppression_status: null,
   device_id: null,
   device_policies: null,
@@ -102,12 +121,18 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   group_hash: null,
   groups: null,
   host_hidden_status: null,
+  host_utc_offset: null,
   hostname: null,
   instance_id: null,
   internet_exposure: null,
+  k8s_cluster_git_version: null,
+  k8s_cluster_id: null,
+  k8s_cluster_version: null,
   kernel_version: null,
   last_login_timestamp: null,
+  last_reboot: null,
   last_seen: null,
+  linux_sensor_mode: null,
   local_ip: null,
   mac_address: null,
   machine_domain: null,
@@ -118,6 +143,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   modified_timestamp: null,
   notes: null,
   os_build: null,
+  os_product_name: null,
   os_version: null,
   ou: null,
   platform_id: null,

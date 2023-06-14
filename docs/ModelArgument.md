@@ -23,7 +23,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ModelArgument.new(
   arg_name: null,

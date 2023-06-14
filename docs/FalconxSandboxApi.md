@@ -7,6 +7,9 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**delete_report**](FalconxSandboxApi.md#delete_report) | **DELETE** /falconx/entities/reports/v1 | Delete report based on the report ID. Operation can be checked for success by polling for the report ID on the report-summaries endpoint. |
 | [**delete_sample_v2**](FalconxSandboxApi.md#delete_sample_v2) | **DELETE** /samples/entities/samples/v2 | Removes a sample, including file, meta and submissions from the collection |
 | [**get_artifacts**](FalconxSandboxApi.md#get_artifacts) | **GET** /falconx/entities/artifacts/v1 | Download IOC packs, PCAP files, memory dumps, and other analysis artifacts. |
+| [**get_memory_dump**](FalconxSandboxApi.md#get_memory_dump) | **GET** /falconx/entities/memory-dump/v1 | Get memory dump content, as binary |
+| [**get_memory_dump_extracted_strings**](FalconxSandboxApi.md#get_memory_dump_extracted_strings) | **GET** /falconx/entities/memory-dump/extracted-strings/v1 | Get extracted strings from a memory dump |
+| [**get_memory_dump_hex_dump**](FalconxSandboxApi.md#get_memory_dump_hex_dump) | **GET** /falconx/entities/memory-dump/hex-dump/v1 | Get hex view of a memory dump |
 | [**get_reports**](FalconxSandboxApi.md#get_reports) | **GET** /falconx/entities/reports/v1 | Get a full sandbox report. |
 | [**get_sample_v2**](FalconxSandboxApi.md#get_sample_v2) | **GET** /samples/entities/samples/v2 | Retrieves the file associated with the given ID (SHA256) |
 | [**get_submissions**](FalconxSandboxApi.md#get_submissions) | **GET** /falconx/entities/submissions/v1 | Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
@@ -28,7 +31,7 @@ Delete report based on the report ID. Operation can be checked for success by po
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -95,7 +98,7 @@ Removes a sample, including file, meta and submissions from the collection
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -154,7 +157,7 @@ end
 
 ## get_artifacts
 
-> get_artifacts(id, opts)
+> <MsaspecQueryResponse> get_artifacts(id, opts)
 
 Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
 
@@ -162,7 +165,7 @@ Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -178,7 +181,8 @@ opts = {
 
 begin
   # Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
-  api_instance.get_artifacts(id, opts)
+  result = api_instance.get_artifacts(id, opts)
+  p result
 rescue Falcon::ApiError => e
   puts "Error when calling FalconxSandboxApi->get_artifacts: #{e}"
 end
@@ -186,9 +190,9 @@ end
 
 #### Using the get_artifacts_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_artifacts_with_http_info(id, opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_artifacts_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -196,7 +200,7 @@ begin
   data, status_code, headers = api_instance.get_artifacts_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconxSandboxApi->get_artifacts_with_http_info: #{e}"
 end
@@ -212,7 +216,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -222,6 +226,225 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: */*, application/octet-stream, application/json, text/plain, text/csv, image/png, image/jpeg, application/gzip
+
+
+## get_memory_dump
+
+> <MsaspecQueryResponse> get_memory_dump(id, opts)
+
+Get memory dump content, as binary
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::FalconxSandboxApi.new
+id = 'id_example' # String | Memory dump id
+opts = {
+  name: 'name_example', # String | The name given to your downloaded file.
+  accept_encoding: 'accept_encoding_example' # String | Format used to compress your downloaded file. Currently, you must provide the value `gzip`, the only valid format.
+}
+
+begin
+  # Get memory dump content, as binary
+  result = api_instance.get_memory_dump(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump: #{e}"
+end
+```
+
+#### Using the get_memory_dump_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_memory_dump_with_http_info(id, opts)
+
+```ruby
+begin
+  # Get memory dump content, as binary
+  data, status_code, headers = api_instance.get_memory_dump_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Memory dump id |  |
+| **name** | **String** | The name given to your downloaded file. | [optional] |
+| **accept_encoding** | **String** | Format used to compress your downloaded file. Currently, you must provide the value &#x60;gzip&#x60;, the only valid format. | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+## get_memory_dump_extracted_strings
+
+> <MsaspecQueryResponse> get_memory_dump_extracted_strings(id, opts)
+
+Get extracted strings from a memory dump
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::FalconxSandboxApi.new
+id = 'id_example' # String | Extracted strings id
+opts = {
+  name: 'name_example', # String | The name given to your downloaded file.
+  accept_encoding: 'accept_encoding_example' # String | Format used to compress your downloaded file. Currently, you must provide the value `gzip`, the only valid format.
+}
+
+begin
+  # Get extracted strings from a memory dump
+  result = api_instance.get_memory_dump_extracted_strings(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump_extracted_strings: #{e}"
+end
+```
+
+#### Using the get_memory_dump_extracted_strings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_memory_dump_extracted_strings_with_http_info(id, opts)
+
+```ruby
+begin
+  # Get extracted strings from a memory dump
+  data, status_code, headers = api_instance.get_memory_dump_extracted_strings_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump_extracted_strings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Extracted strings id |  |
+| **name** | **String** | The name given to your downloaded file. | [optional] |
+| **accept_encoding** | **String** | Format used to compress your downloaded file. Currently, you must provide the value &#x60;gzip&#x60;, the only valid format. | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## get_memory_dump_hex_dump
+
+> <MsaspecQueryResponse> get_memory_dump_hex_dump(id, opts)
+
+Get hex view of a memory dump
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::FalconxSandboxApi.new
+id = 'id_example' # String | Hex dump id
+opts = {
+  name: 'name_example', # String | The name given to your downloaded file.
+  accept_encoding: 'accept_encoding_example' # String | Format used to compress your downloaded file. Currently, you must provide the value `gzip`, the only valid format.
+}
+
+begin
+  # Get hex view of a memory dump
+  result = api_instance.get_memory_dump_hex_dump(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump_hex_dump: #{e}"
+end
+```
+
+#### Using the get_memory_dump_hex_dump_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_memory_dump_hex_dump_with_http_info(id, opts)
+
+```ruby
+begin
+  # Get hex view of a memory dump
+  data, status_code, headers = api_instance.get_memory_dump_hex_dump_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconxSandboxApi->get_memory_dump_hex_dump_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Hex dump id |  |
+| **name** | **String** | The name given to your downloaded file. | [optional] |
+| **accept_encoding** | **String** | Format used to compress your downloaded file. Currently, you must provide the value &#x60;gzip&#x60;, the only valid format. | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
 
 
 ## get_reports
@@ -234,7 +457,7 @@ Get a full sandbox report.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -301,7 +524,7 @@ Retrieves the file associated with the given ID (SHA256)
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -372,7 +595,7 @@ Check the status of a sandbox analysis. Time required for analysis varies but is
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -439,7 +662,7 @@ Get a short summary version of a sandbox report.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -498,7 +721,7 @@ end
 
 ## query_reports
 
-> <MsaQueryResponse> query_reports(opts)
+> <MsaspecQueryResponse> query_reports(opts)
 
 Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria.
 
@@ -506,7 +729,7 @@ Find sandbox reports by providing an FQL filter and paging details. Returns a se
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -534,7 +757,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_reports_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_reports_with_http_info(opts)
 
 ```ruby
 begin
@@ -542,7 +765,7 @@ begin
   data, status_code, headers = api_instance.query_reports_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconxSandboxApi->query_reports_with_http_info: #{e}"
 end
@@ -559,7 +782,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -581,7 +804,7 @@ Retrieves a list with sha256 of samples that exist and customer has rights to ac
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -640,7 +863,7 @@ end
 
 ## query_submissions
 
-> <MsaQueryResponse> query_submissions(opts)
+> <MsaspecQueryResponse> query_submissions(opts)
 
 Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
 
@@ -648,7 +871,7 @@ Find submission IDs for uploaded files by providing an FQL filter and paging det
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -676,7 +899,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_submissions_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_submissions_with_http_info(opts)
 
 ```ruby
 begin
@@ -684,7 +907,7 @@ begin
   data, status_code, headers = api_instance.query_submissions_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconxSandboxApi->query_submissions_with_http_info: #{e}"
 end
@@ -701,7 +924,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -723,7 +946,7 @@ Submit an uploaded file or a URL for sandbox analysis. Time required for analysi
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -776,7 +999,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -790,7 +1013,7 @@ Upload a file for sandbox analysis. After uploading, use `/falconx/entities/subm
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

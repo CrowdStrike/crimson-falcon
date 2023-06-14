@@ -27,7 +27,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainPublicIndicatorV3.new(
   _marker: null,

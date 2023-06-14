@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainAssessmentItems.new(
   os_signals: null,

@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainEntity.new(
   id: null,

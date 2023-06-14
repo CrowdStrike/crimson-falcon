@@ -18,7 +18,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_prevention_policies
 
-> <ResponsesPreventionPoliciesV1> create_prevention_policies(body)
+> <PreventionRespV1> create_prevention_policies(body)
 
 Create Prevention Policies by specifying details about the policy to create
 
@@ -26,7 +26,7 @@ Create Prevention Policies by specifying details about the policy to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -34,7 +34,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
-body = Falcon::RequestsCreatePreventionPoliciesV1.new({resources: [Falcon::RequestsCreatePreventionPolicyV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreatePreventionPoliciesV1 | 
+body = Falcon::PreventionCreatePoliciesReqV1.new({resources: [Falcon::PreventionCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # PreventionCreatePoliciesReqV1 | 
 
 begin
   # Create Prevention Policies by specifying details about the policy to create
@@ -49,7 +49,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPreventionPoliciesV1>, Integer, Hash)> create_prevention_policies_with_http_info(body)
+> <Array(<PreventionRespV1>, Integer, Hash)> create_prevention_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -57,7 +57,7 @@ begin
   data, status_code, headers = api_instance.create_prevention_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPreventionPoliciesV1>
+  p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->create_prevention_policies_with_http_info: #{e}"
 end
@@ -67,11 +67,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreatePreventionPoliciesV1**](RequestsCreatePreventionPoliciesV1.md) |  |  |
+| **body** | [**PreventionCreatePoliciesReqV1**](PreventionCreatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesPreventionPoliciesV1**](ResponsesPreventionPoliciesV1.md)
+[**PreventionRespV1**](PreventionRespV1.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -93,7 +93,7 @@ Delete a set of Prevention Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -152,7 +152,7 @@ end
 
 ## get_prevention_policies
 
-> <ResponsesPreventionPoliciesV1> get_prevention_policies(ids)
+> <PreventionRespV1> get_prevention_policies(ids)
 
 Retrieve a set of Prevention Policies by specifying their IDs
 
@@ -160,7 +160,7 @@ Retrieve a set of Prevention Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -183,7 +183,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPreventionPoliciesV1>, Integer, Hash)> get_prevention_policies_with_http_info(ids)
+> <Array(<PreventionRespV1>, Integer, Hash)> get_prevention_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -191,7 +191,7 @@ begin
   data, status_code, headers = api_instance.get_prevention_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPreventionPoliciesV1>
+  p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->get_prevention_policies_with_http_info: #{e}"
 end
@@ -205,7 +205,7 @@ end
 
 ### Return type
 
-[**ResponsesPreventionPoliciesV1**](ResponsesPreventionPoliciesV1.md)
+[**PreventionRespV1**](PreventionRespV1.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ end
 
 ## perform_prevention_policies_action
 
-> <ResponsesPreventionPoliciesV1> perform_prevention_policies_action(action_name, body)
+> <PreventionRespV1> perform_prevention_policies_action(action_name, body)
 
 Perform the specified action on the Prevention Policies specified in the request
 
@@ -227,7 +227,7 @@ Perform the specified action on the Prevention Policies specified in the request
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -251,7 +251,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPreventionPoliciesV1>, Integer, Hash)> perform_prevention_policies_action_with_http_info(action_name, body)
+> <Array(<PreventionRespV1>, Integer, Hash)> perform_prevention_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -259,7 +259,7 @@ begin
   data, status_code, headers = api_instance.perform_prevention_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPreventionPoliciesV1>
+  p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->perform_prevention_policies_action_with_http_info: #{e}"
 end
@@ -274,7 +274,7 @@ end
 
 ### Return type
 
-[**ResponsesPreventionPoliciesV1**](ResponsesPreventionPoliciesV1.md)
+[**PreventionRespV1**](PreventionRespV1.md)
 
 ### Authorization
 
@@ -282,13 +282,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_prevention_policies
 
-> <ResponsesPreventionPoliciesV1> query_combined_prevention_policies(opts)
+> <PreventionRespV1> query_combined_prevention_policies(opts)
 
 Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
 
@@ -296,7 +296,7 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPreventionPoliciesV1>, Integer, Hash)> query_combined_prevention_policies_with_http_info(opts)
+> <Array(<PreventionRespV1>, Integer, Hash)> query_combined_prevention_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.query_combined_prevention_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPreventionPoliciesV1>
+  p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policies_with_http_info: #{e}"
 end
@@ -349,7 +349,7 @@ end
 
 ### Return type
 
-[**ResponsesPreventionPoliciesV1**](ResponsesPreventionPoliciesV1.md)
+[**PreventionRespV1**](PreventionRespV1.md)
 
 ### Authorization
 
@@ -363,7 +363,7 @@ end
 
 ## query_combined_prevention_policy_members
 
-> <ResponsesPolicyMembersRespV1> query_combined_prevention_policy_members(opts)
+> <BasePolicyMembersRespV1> query_combined_prevention_policy_members(opts)
 
 Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -371,7 +371,7 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -400,7 +400,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPolicyMembersRespV1>, Integer, Hash)> query_combined_prevention_policy_members_with_http_info(opts)
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_prevention_policy_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -408,7 +408,7 @@ begin
   data, status_code, headers = api_instance.query_combined_prevention_policy_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPolicyMembersRespV1>
+  p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policy_members_with_http_info: #{e}"
 end
@@ -426,7 +426,7 @@ end
 
 ### Return type
 
-[**ResponsesPolicyMembersRespV1**](ResponsesPolicyMembersRespV1.md)
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -448,7 +448,7 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -523,7 +523,7 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -600,7 +600,7 @@ Sets the precedence of Prevention Policies based on the order of IDs specified i
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -608,7 +608,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
-body = Falcon::RequestsSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # RequestsSetPolicyPrecedenceReqV1 | 
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
   # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
@@ -641,7 +641,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSetPolicyPrecedenceReqV1**](RequestsSetPolicyPrecedenceReqV1.md) |  |  |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
 
 ### Return type
 
@@ -653,13 +653,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## update_prevention_policies
 
-> <ResponsesPreventionPoliciesV1> update_prevention_policies(body)
+> <PreventionRespV1> update_prevention_policies(body)
 
 Update Prevention Policies by specifying the ID of the policy and details to update
 
@@ -667,7 +667,7 @@ Update Prevention Policies by specifying the ID of the policy and details to upd
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -675,7 +675,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
-body = Falcon::RequestsUpdatePreventionPoliciesV1.new({resources: [Falcon::RequestsUpdatePreventionPolicyV1.new({id: 'id_example', settings: [Falcon::RequestsPreventionSettingV1.new({id: 'id_example', value: 3.56})]})]}) # RequestsUpdatePreventionPoliciesV1 | 
+body = Falcon::PreventionUpdatePoliciesReqV1.new({resources: [Falcon::PreventionUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # PreventionUpdatePoliciesReqV1 | 
 
 begin
   # Update Prevention Policies by specifying the ID of the policy and details to update
@@ -690,7 +690,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPreventionPoliciesV1>, Integer, Hash)> update_prevention_policies_with_http_info(body)
+> <Array(<PreventionRespV1>, Integer, Hash)> update_prevention_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -698,7 +698,7 @@ begin
   data, status_code, headers = api_instance.update_prevention_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPreventionPoliciesV1>
+  p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling PreventionPoliciesApi->update_prevention_policies_with_http_info: #{e}"
 end
@@ -708,11 +708,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdatePreventionPoliciesV1**](RequestsUpdatePreventionPoliciesV1.md) |  |  |
+| **body** | [**PreventionUpdatePoliciesReqV1**](PreventionUpdatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesPreventionPoliciesV1**](ResponsesPreventionPoliciesV1.md)
+[**PreventionRespV1**](PreventionRespV1.md)
 
 ### Authorization
 
@@ -720,6 +720,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

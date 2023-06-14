@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DetectionEnrichmentHost.new(
   id: null,

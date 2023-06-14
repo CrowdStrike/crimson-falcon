@@ -24,7 +24,7 @@ Search for audit events by providing an FQL filter and paging details.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -99,7 +99,7 @@ Gets the details of one or more audit events by id.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -168,7 +168,7 @@ Check current installation token settings.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -232,7 +232,7 @@ Creates a token.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -299,7 +299,7 @@ Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/e
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -366,7 +366,7 @@ Search for tokens by providing an FQL filter and paging details.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -441,7 +441,7 @@ Gets the details of one or more tokens by id.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -510,7 +510,7 @@ Updates one or more tokens. Use this endpoint to edit labels, change expiration,
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

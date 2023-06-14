@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **options** | [**MalqueryExternalHuntOptions**](MalqueryExternalHuntOptions.md) |  | [optional] |
-| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
+| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
 | **patterns** | [**Array&lt;MalquerySearchParameter&gt;**](MalquerySearchParameter.md) | Patterns to search for | [optional] |
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** | Elapsed time since the request started in seconds | [optional] |
@@ -15,13 +15,13 @@
 | **stats** | [**MalqueryStats**](MalqueryStats.md) |  | [optional] |
 | **status** | **String** | Request status. Possible values: inprogress, failed, done | [optional] |
 | **trace_id** | **String** |  |  |
-| **writes** | [**MsaResources**](MsaResources.md) |  | [optional] |
+| **writes** | [**MsaspecWrites**](MsaspecWrites.md) |  | [optional] |
 | **yara_rule** | **String** | YARA rule to be monitored | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MalqueryRequestMetaInfo.new(
   options: null,

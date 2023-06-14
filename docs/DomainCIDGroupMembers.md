@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainCIDGroupMembers.new(
   cid_group_id: null,

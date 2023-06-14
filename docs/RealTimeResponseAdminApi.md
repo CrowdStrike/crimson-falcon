@@ -30,7 +30,7 @@ Batch executes a RTR administrator command across the hosts mapped to the given 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -40,9 +40,9 @@ end
 api_instance = Falcon::RealTimeResponseAdminApi.new
 body = Falcon::DomainBatchExecuteCommandRequest.new({base_command: 'base_command_example', batch_id: 'batch_id_example', command_string: 'command_string_example', optional_hosts: ['optional_hosts_example'], persist_all: false}) # DomainBatchExecuteCommandRequest | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
-  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
+  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
 }
 
 begin
@@ -77,9 +77,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainBatchExecuteCommandRequest**](DomainBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - &#x60;cat&#x60; - &#x60;cd&#x60; - &#x60;clear&#x60; - &#x60;cp&#x60; - &#x60;encrypt&#x60; - &#x60;env&#x60; - &#x60;eventlog&#x60; - &#x60;filehash&#x60; - &#x60;get&#x60; - &#x60;getsid&#x60; - &#x60;help&#x60; - &#x60;history&#x60; - &#x60;ipconfig&#x60; - &#x60;kill&#x60; - &#x60;ls&#x60; - &#x60;map&#x60; - &#x60;memdump&#x60; - &#x60;mkdir&#x60; - &#x60;mount&#x60; - &#x60;mv&#x60; - &#x60;netstat&#x60; - &#x60;ps&#x60; - &#x60;put&#x60; - &#x60;reg query&#x60; - &#x60;reg set&#x60; - &#x60;reg delete&#x60; - &#x60;reg load&#x60; - &#x60;reg unload&#x60; - &#x60;restart&#x60; - &#x60;rm&#x60; - &#x60;run&#x60; - &#x60;runscript&#x60; - &#x60;shutdown&#x60; - &#x60;unmap&#x60; - &#x60;update history&#x60; - &#x60;update install&#x60; - &#x60;update list&#x60; - &#x60;update query&#x60; - &#x60;xmemdump&#x60; - &#x60;zip&#x60;  **&#x60;base_command&#x60;** Active-Responder command type we are going to execute, for example: &#x60;get&#x60; or &#x60;cp&#x60;.  Refer to the RTR documentation for the full list of commands. **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/batch-init-session/v1&#x60;. **&#x60;command_string&#x60;** Full command string for the command. For example  &#x60;get some_file.txt&#x60; **&#x60;optional_hosts&#x60;** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
-| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 10 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
+| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
 
 ### Return type
 
@@ -91,7 +91,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -105,7 +105,7 @@ Get status of an executed RTR administrator command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -174,7 +174,7 @@ Upload a new put-file to use for the RTR `put` command.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -249,7 +249,7 @@ Upload a new custom-script to use for the RTR `runscript` command.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -330,7 +330,7 @@ Delete a put-file based on the ID given.  Can only delete one file at a time.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -397,7 +397,7 @@ Delete a custom-script based on the ID given.  Can only delete one script at a t
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -464,7 +464,7 @@ Execute a RTR administrator command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -517,13 +517,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## r_tr_get_put_files
 
-> <BinservclientMsaPFResponse> r_tr_get_put_files(ids)
+> <EmpowerapiMsaPFResponseV1> r_tr_get_put_files(ids)
 
 Get put-files based on the ID's given. These are used for the RTR `put` command.
 
@@ -531,7 +531,7 @@ Get put-files based on the ID's given. These are used for the RTR `put` command.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -554,7 +554,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BinservclientMsaPFResponse>, Integer, Hash)> r_tr_get_put_files_with_http_info(ids)
+> <Array(<EmpowerapiMsaPFResponseV1>, Integer, Hash)> r_tr_get_put_files_with_http_info(ids)
 
 ```ruby
 begin
@@ -562,7 +562,7 @@ begin
   data, status_code, headers = api_instance.r_tr_get_put_files_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <BinservclientMsaPFResponse>
+  p data # => <EmpowerapiMsaPFResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files_with_http_info: #{e}"
 end
@@ -576,7 +576,7 @@ end
 
 ### Return type
 
-[**BinservclientMsaPFResponse**](BinservclientMsaPFResponse.md)
+[**EmpowerapiMsaPFResponseV1**](EmpowerapiMsaPFResponseV1.md)
 
 ### Authorization
 
@@ -590,7 +590,7 @@ end
 
 ## r_tr_get_put_files_v2
 
-> <DomainMsaPFResponseV2> r_tr_get_put_files_v2(ids)
+> <EmpowerapiMsaPFResponseV2> r_tr_get_put_files_v2(ids)
 
 Get put-files based on the ID's given. These are used for the RTR `put` command.
 
@@ -598,7 +598,7 @@ Get put-files based on the ID's given. These are used for the RTR `put` command.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -621,7 +621,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaPFResponseV2>, Integer, Hash)> r_tr_get_put_files_v2_with_http_info(ids)
+> <Array(<EmpowerapiMsaPFResponseV2>, Integer, Hash)> r_tr_get_put_files_v2_with_http_info(ids)
 
 ```ruby
 begin
@@ -629,7 +629,7 @@ begin
   data, status_code, headers = api_instance.r_tr_get_put_files_v2_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaPFResponseV2>
+  p data # => <EmpowerapiMsaPFResponseV2>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files_v2_with_http_info: #{e}"
 end
@@ -643,7 +643,7 @@ end
 
 ### Return type
 
-[**DomainMsaPFResponseV2**](DomainMsaPFResponseV2.md)
+[**EmpowerapiMsaPFResponseV2**](EmpowerapiMsaPFResponseV2.md)
 
 ### Authorization
 
@@ -657,7 +657,7 @@ end
 
 ## r_tr_get_scripts
 
-> <BinservclientMsaPFResponse> r_tr_get_scripts(ids)
+> <EmpowerapiMsaPFResponseV1> r_tr_get_scripts(ids)
 
 Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
 
@@ -665,7 +665,7 @@ Get custom-scripts based on the ID's given. These are used for the RTR `runscrip
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -688,7 +688,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BinservclientMsaPFResponse>, Integer, Hash)> r_tr_get_scripts_with_http_info(ids)
+> <Array(<EmpowerapiMsaPFResponseV1>, Integer, Hash)> r_tr_get_scripts_with_http_info(ids)
 
 ```ruby
 begin
@@ -696,7 +696,7 @@ begin
   data, status_code, headers = api_instance.r_tr_get_scripts_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <BinservclientMsaPFResponse>
+  p data # => <EmpowerapiMsaPFResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts_with_http_info: #{e}"
 end
@@ -710,7 +710,7 @@ end
 
 ### Return type
 
-[**BinservclientMsaPFResponse**](BinservclientMsaPFResponse.md)
+[**EmpowerapiMsaPFResponseV1**](EmpowerapiMsaPFResponseV1.md)
 
 ### Authorization
 
@@ -724,7 +724,7 @@ end
 
 ## r_tr_get_scripts_v2
 
-> <DomainMsaPFResponseV2> r_tr_get_scripts_v2(ids)
+> <EmpowerapiMsaPFResponseV2> r_tr_get_scripts_v2(ids)
 
 Get custom-scripts based on the ID's given. These are used for the RTR `runscript` command.
 
@@ -732,7 +732,7 @@ Get custom-scripts based on the ID's given. These are used for the RTR `runscrip
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -755,7 +755,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaPFResponseV2>, Integer, Hash)> r_tr_get_scripts_v2_with_http_info(ids)
+> <Array(<EmpowerapiMsaPFResponseV2>, Integer, Hash)> r_tr_get_scripts_v2_with_http_info(ids)
 
 ```ruby
 begin
@@ -763,7 +763,7 @@ begin
   data, status_code, headers = api_instance.r_tr_get_scripts_v2_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaPFResponseV2>
+  p data # => <EmpowerapiMsaPFResponseV2>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts_v2_with_http_info: #{e}"
 end
@@ -777,7 +777,7 @@ end
 
 ### Return type
 
-[**DomainMsaPFResponseV2**](DomainMsaPFResponseV2.md)
+[**EmpowerapiMsaPFResponseV2**](EmpowerapiMsaPFResponseV2.md)
 
 ### Authorization
 
@@ -791,7 +791,7 @@ end
 
 ## r_tr_list_put_files
 
-> <BinservclientMsaPutFileResponse> r_tr_list_put_files(opts)
+> <BinservapiMsaPutFileResponse> r_tr_list_put_files(opts)
 
 Get a list of put-file ID's that are available to the user for the `put` command.
 
@@ -799,7 +799,7 @@ Get a list of put-file ID's that are available to the user for the `put` command
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -827,7 +827,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BinservclientMsaPutFileResponse>, Integer, Hash)> r_tr_list_put_files_with_http_info(opts)
+> <Array(<BinservapiMsaPutFileResponse>, Integer, Hash)> r_tr_list_put_files_with_http_info(opts)
 
 ```ruby
 begin
@@ -835,7 +835,7 @@ begin
   data, status_code, headers = api_instance.r_tr_list_put_files_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <BinservclientMsaPutFileResponse>
+  p data # => <BinservapiMsaPutFileResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_list_put_files_with_http_info: #{e}"
 end
@@ -852,7 +852,7 @@ end
 
 ### Return type
 
-[**BinservclientMsaPutFileResponse**](BinservclientMsaPutFileResponse.md)
+[**BinservapiMsaPutFileResponse**](BinservapiMsaPutFileResponse.md)
 
 ### Authorization
 
@@ -866,7 +866,7 @@ end
 
 ## r_tr_list_scripts
 
-> <BinservclientMsaPutFileResponse> r_tr_list_scripts(opts)
+> <BinservapiMsaPutFileResponse> r_tr_list_scripts(opts)
 
 Get a list of custom-script ID's that are available to the user for the `runscript` command.
 
@@ -874,7 +874,7 @@ Get a list of custom-script ID's that are available to the user for the `runscri
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -902,7 +902,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BinservclientMsaPutFileResponse>, Integer, Hash)> r_tr_list_scripts_with_http_info(opts)
+> <Array(<BinservapiMsaPutFileResponse>, Integer, Hash)> r_tr_list_scripts_with_http_info(opts)
 
 ```ruby
 begin
@@ -910,7 +910,7 @@ begin
   data, status_code, headers = api_instance.r_tr_list_scripts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <BinservclientMsaPutFileResponse>
+  p data # => <BinservapiMsaPutFileResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseAdminApi->r_tr_list_scripts_with_http_info: #{e}"
 end
@@ -927,7 +927,7 @@ end
 
 ### Return type
 
-[**BinservclientMsaPutFileResponse**](BinservclientMsaPutFileResponse.md)
+[**BinservapiMsaPutFileResponse**](BinservapiMsaPutFileResponse.md)
 
 ### Authorization
 
@@ -949,7 +949,7 @@ Upload a new scripts to replace an existing one.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -965,7 +965,7 @@ opts = {
   comments_for_audit_log: 'comments_for_audit_log_example', # String | The audit log comment
   permission_type: 'permission_type_example', # String | Permission for the custom-script. Valid permission values:   - `private`, usable by only the user who uploaded it   - `group`, usable by all RTR Admins   - `public`, usable by all active-responders and RTR admins
   content: 'content_example', # String | The script text that you want to use to upload
-  platform: ['inner_example'] # Array<String> | Platforms for the file. Currently supports: windows, mac, 
+  platform: ['inner_example'] # Array<String> | Platforms for the file. Currently supports: windows, mac, linux, 
 }
 
 begin
@@ -1006,7 +1006,7 @@ end
 | **comments_for_audit_log** | **String** | The audit log comment | [optional] |
 | **permission_type** | **String** | Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins | [optional][default to &#39;none&#39;] |
 | **content** | **String** | The script text that you want to use to upload | [optional] |
-| **platform** | [**Array&lt;String&gt;**](String.md) | Platforms for the file. Currently supports: windows, mac,  | [optional] |
+| **platform** | [**Array&lt;String&gt;**](String.md) | Platforms for the file. Currently supports: windows, mac, linux,  | [optional] |
 
 ### Return type
 

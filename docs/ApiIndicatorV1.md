@@ -30,7 +30,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ApiIndicatorV1.new(
   action: null,

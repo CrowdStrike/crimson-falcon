@@ -31,7 +31,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ApiRuleV1.new(
   action_label: null,

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **display_name** | **String** |  |  |
+| **email_address** | **String** |  | [optional] |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
 | **uid** | **String** |  |  |
@@ -13,10 +14,11 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MessagesAuthor.new(
   display_name: null,
+  email_address: null,
   first_name: null,
   last_name: null,
   uid: null,

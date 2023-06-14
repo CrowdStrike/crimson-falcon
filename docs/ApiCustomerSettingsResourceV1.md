@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ApiCustomerSettingsResourceV1.new(
   max_active_tokens: null,

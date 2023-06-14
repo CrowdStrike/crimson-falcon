@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrApiRuleGroupModifyRequestV1.new(
   diff_operations: null,

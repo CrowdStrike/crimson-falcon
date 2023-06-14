@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **company** | **String** |  | [optional] |
+| **credentials_domain** | **String** |  | [optional] |
 | **credentials_ip** | **String** |  | [optional] |
 | **credentials_url** | **String** |  | [optional] |
 | **display_name** | **String** |  | [optional] |
@@ -27,10 +28,11 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainBreachedItemV1.new(
   company: null,
+  credentials_domain: null,
   credentials_ip: null,
   credentials_url: null,
   display_name: null,

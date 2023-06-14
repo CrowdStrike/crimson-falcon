@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MainAvailableStreamV2.new(
   data_feed_url: null,

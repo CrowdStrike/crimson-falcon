@@ -12,7 +12,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## get_scans
 
-> <MlscannerScanV1Response> get_scans(ids)
+> <MlscannerapiScanV1Response> get_scans(ids)
 
 Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
@@ -20,7 +20,7 @@ Check the status of a volume scan. Time required for analysis increases with the
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -43,7 +43,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MlscannerScanV1Response>, Integer, Hash)> get_scans_with_http_info(ids)
+> <Array(<MlscannerapiScanV1Response>, Integer, Hash)> get_scans_with_http_info(ids)
 
 ```ruby
 begin
@@ -51,7 +51,7 @@ begin
   data, status_code, headers = api_instance.get_scans_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MlscannerScanV1Response>
+  p data # => <MlscannerapiScanV1Response>
 rescue Falcon::ApiError => e
   puts "Error when calling QuickScanApi->get_scans_with_http_info: #{e}"
 end
@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**MlscannerScanV1Response**](MlscannerScanV1Response.md)
+[**MlscannerapiScanV1Response**](MlscannerapiScanV1Response.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ Get scans aggregations as specified via json in request body.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -95,7 +95,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::QuickScanApi.new
-body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
+body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
 
 begin
   # Get scans aggregations as specified via json in request body.
@@ -145,7 +145,7 @@ nil (empty response body)
 
 ## query_submissions_mixin0
 
-> <MlscannerQueryResponse> query_submissions_mixin0(opts)
+> <MlscannerapiQueryResponse> query_submissions_mixin0(opts)
 
 Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
 
@@ -153,7 +153,7 @@ Find IDs for submitted scans by providing an FQL filter and paging details. Retu
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -181,7 +181,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MlscannerQueryResponse>, Integer, Hash)> query_submissions_mixin0_with_http_info(opts)
+> <Array(<MlscannerapiQueryResponse>, Integer, Hash)> query_submissions_mixin0_with_http_info(opts)
 
 ```ruby
 begin
@@ -189,7 +189,7 @@ begin
   data, status_code, headers = api_instance.query_submissions_mixin0_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MlscannerQueryResponse>
+  p data # => <MlscannerapiQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling QuickScanApi->query_submissions_mixin0_with_http_info: #{e}"
 end
@@ -206,7 +206,7 @@ end
 
 ### Return type
 
-[**MlscannerQueryResponse**](MlscannerQueryResponse.md)
+[**MlscannerapiQueryResponse**](MlscannerapiQueryResponse.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ end
 
 ## scan_samples
 
-> <MlscannerQueryResponse> scan_samples(body)
+> <MlscannerapiQueryResponse> scan_samples(body)
 
 Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
@@ -228,7 +228,7 @@ Submit a volume of files for ml scanning. Time required for analysis increases w
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -236,7 +236,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::QuickScanApi.new
-body = Falcon::MlscannerSamplesScanParameters.new({samples: ['samples_example']}) # MlscannerSamplesScanParameters | Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through `/samples/entities/samples/v3`
+body = Falcon::MlscannerapiSamplesScanParameters.new({samples: ['samples_example']}) # MlscannerapiSamplesScanParameters | Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through `/samples/entities/samples/v3`
 
 begin
   # Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
@@ -251,7 +251,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MlscannerQueryResponse>, Integer, Hash)> scan_samples_with_http_info(body)
+> <Array(<MlscannerapiQueryResponse>, Integer, Hash)> scan_samples_with_http_info(body)
 
 ```ruby
 begin
@@ -259,7 +259,7 @@ begin
   data, status_code, headers = api_instance.scan_samples_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MlscannerQueryResponse>
+  p data # => <MlscannerapiQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling QuickScanApi->scan_samples_with_http_info: #{e}"
 end
@@ -269,11 +269,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**MlscannerSamplesScanParameters**](MlscannerSamplesScanParameters.md) | Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through &#x60;/samples/entities/samples/v3&#x60; |  |
+| **body** | [**MlscannerapiSamplesScanParameters**](MlscannerapiSamplesScanParameters.md) | Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through &#x60;/samples/entities/samples/v3&#x60; |  |
 
 ### Return type
 
-[**MlscannerQueryResponse**](MlscannerQueryResponse.md)
+[**MlscannerapiQueryResponse**](MlscannerapiQueryResponse.md)
 
 ### Authorization
 
@@ -281,6 +281,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

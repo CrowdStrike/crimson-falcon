@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainScanScheduleDataV1&gt;**](DomainScanScheduleDataV1.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationScanScheduleResponseV1.new(
   errors: null,

@@ -9,6 +9,7 @@
 | **cid** | **String** |  |  |
 | **created** | **Time** |  |  |
 | **description** | **String** |  | [optional] |
+| **email_state** | **String** |  | [optional] |
 | **_end** | **Time** |  |  |
 | **events_histogram** | [**Array&lt;DomainEventHistogram&gt;**](DomainEventHistogram.md) |  | [optional] |
 | **fine_score** | **Integer** |  |  |
@@ -18,6 +19,9 @@
 | **incident_type** | **Integer** |  | [optional] |
 | **lm_host_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **lm_hosts_capped** | **Boolean** |  | [optional] |
+| **lm_types** | **Integer** |  | [optional] |
+| **lmra_host_ids** | **Array&lt;String&gt;** |  | [optional] |
+| **lmra_hosts_capped** | **Boolean** |  | [optional] |
 | **modified_timestamp** | **Time** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **objectives** | **Array&lt;String&gt;** |  | [optional] |
@@ -33,7 +37,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainIncident.new(
   assigned_to: null,
@@ -41,6 +45,7 @@ instance = Falcon::DomainIncident.new(
   cid: null,
   created: null,
   description: null,
+  email_state: null,
   _end: null,
   events_histogram: null,
   fine_score: null,
@@ -50,6 +55,9 @@ instance = Falcon::DomainIncident.new(
   incident_type: null,
   lm_host_ids: null,
   lm_hosts_capped: null,
+  lm_types: null,
+  lmra_host_ids: null,
+  lmra_hosts_capped: null,
   modified_timestamp: null,
   name: null,
   objectives: null,

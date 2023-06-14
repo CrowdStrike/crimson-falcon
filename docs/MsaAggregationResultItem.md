@@ -18,7 +18,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MsaAggregationResultItem.new(
   count: null,

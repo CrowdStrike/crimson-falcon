@@ -9,9 +9,11 @@
 | **azure_tenant_id** | **String** |  |  |
 | **cid** | **String** |  |  |
 | **cloud_provider** | **String** |  |  |
+| **custom_policy_id** | **String** |  | [optional] |
 | **finding** | **String** |  |  |
-| **policy_id** | **String** |  |  |
+| **policy_id** | **String** |  | [optional] |
 | **policy_statement** | **String** |  |  |
+| **policy_type** | **String** |  | [optional] |
 | **region** | **String** |  |  |
 | **report_date_time** | **String** |  |  |
 | **resource_attributes** | **String** |  |  |
@@ -27,7 +29,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationIOMEvent.new(
   account_id: null,
@@ -35,9 +37,11 @@ instance = Falcon::RegistrationIOMEvent.new(
   azure_tenant_id: null,
   cid: null,
   cloud_provider: null,
+  custom_policy_id: null,
   finding: null,
   policy_id: null,
   policy_statement: null,
+  policy_type: null,
   region: null,
   report_date_time: null,
   resource_attributes: null,

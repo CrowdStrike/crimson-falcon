@@ -13,7 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_ioa_exclusions_v1
 
-> <ResponsesIoaExclusionRespV1> create_ioa_exclusions_v1(body)
+> <IoaExclusionsIoaExclusionsRespV1> create_ioa_exclusions_v1(body)
 
 Create the IOA exclusions
 
@@ -21,7 +21,7 @@ Create the IOA exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -29,7 +29,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IoaExclusionsApi.new
-body = Falcon::RequestsIoaExclusionCreateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # RequestsIoaExclusionCreateReqV1 | 
+body = Falcon::IoaExclusionsIoaExclusionCreateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # IoaExclusionsIoaExclusionCreateReqV1 | 
 
 begin
   # Create the IOA exclusions
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesIoaExclusionRespV1>, Integer, Hash)> create_ioa_exclusions_v1_with_http_info(body)
+> <Array(<IoaExclusionsIoaExclusionsRespV1>, Integer, Hash)> create_ioa_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.create_ioa_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesIoaExclusionRespV1>
+  p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling IoaExclusionsApi->create_ioa_exclusions_v1_with_http_info: #{e}"
 end
@@ -62,11 +62,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsIoaExclusionCreateReqV1**](RequestsIoaExclusionCreateReqV1.md) |  |  |
+| **body** | [**IoaExclusionsIoaExclusionCreateReqV1**](IoaExclusionsIoaExclusionCreateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesIoaExclusionRespV1**](ResponsesIoaExclusionRespV1.md)
+[**IoaExclusionsIoaExclusionsRespV1**](IoaExclusionsIoaExclusionsRespV1.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -88,7 +88,7 @@ Delete the IOA exclusions by id
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -151,7 +151,7 @@ end
 
 ## get_ioa_exclusions_v1
 
-> <ResponsesIoaExclusionRespV1> get_ioa_exclusions_v1(ids)
+> <IoaExclusionsIoaExclusionsRespV1> get_ioa_exclusions_v1(ids)
 
 Get a set of IOA Exclusions by specifying their IDs
 
@@ -159,7 +159,7 @@ Get a set of IOA Exclusions by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesIoaExclusionRespV1>, Integer, Hash)> get_ioa_exclusions_v1_with_http_info(ids)
+> <Array(<IoaExclusionsIoaExclusionsRespV1>, Integer, Hash)> get_ioa_exclusions_v1_with_http_info(ids)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.get_ioa_exclusions_v1_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesIoaExclusionRespV1>
+  p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling IoaExclusionsApi->get_ioa_exclusions_v1_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**ResponsesIoaExclusionRespV1**](ResponsesIoaExclusionRespV1.md)
+[**IoaExclusionsIoaExclusionsRespV1**](IoaExclusionsIoaExclusionsRespV1.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Search for IOA exclusions.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -293,7 +293,7 @@ end
 
 ## update_ioa_exclusions_v1
 
-> <ResponsesIoaExclusionRespV1> update_ioa_exclusions_v1(body)
+> <IoaExclusionsIoaExclusionsRespV1> update_ioa_exclusions_v1(body)
 
 Update the IOA exclusions
 
@@ -301,7 +301,7 @@ Update the IOA exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -309,7 +309,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IoaExclusionsApi.new
-body = Falcon::RequestsIoaExclusionUpdateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], id: 'id_example', ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # RequestsIoaExclusionUpdateReqV1 | 
+body = Falcon::IoaExclusionsIoaExclusionUpdateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], id: 'id_example', ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # IoaExclusionsIoaExclusionUpdateReqV1 | 
 
 begin
   # Update the IOA exclusions
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesIoaExclusionRespV1>, Integer, Hash)> update_ioa_exclusions_v1_with_http_info(body)
+> <Array(<IoaExclusionsIoaExclusionsRespV1>, Integer, Hash)> update_ioa_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.update_ioa_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesIoaExclusionRespV1>
+  p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling IoaExclusionsApi->update_ioa_exclusions_v1_with_http_info: #{e}"
 end
@@ -342,11 +342,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsIoaExclusionUpdateReqV1**](RequestsIoaExclusionUpdateReqV1.md) |  |  |
+| **body** | [**IoaExclusionsIoaExclusionUpdateReqV1**](IoaExclusionsIoaExclusionUpdateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesIoaExclusionRespV1**](ResponsesIoaExclusionRespV1.md)
+[**IoaExclusionsIoaExclusionsRespV1**](IoaExclusionsIoaExclusionsRespV1.md)
 
 ### Authorization
 
@@ -354,6 +354,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

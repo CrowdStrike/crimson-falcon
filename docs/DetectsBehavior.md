@@ -42,7 +42,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DetectsBehavior.new(
   alleged_filetype: null,

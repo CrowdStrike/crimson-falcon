@@ -7,11 +7,13 @@
 | **attribution** | **String** |  | [optional] |
 | **crimes** | **String** |  | [optional] |
 | **customers** | **String** |  | [optional] |
+| **exploitation** | **String** |  | [optional] |
 | **marketing** | **String** |  | [optional] |
 | **monetization** | **String** |  | [optional] |
 | **rich_text_attribution** | **String** |  | [optional] |
 | **rich_text_crimes** | **String** |  | [optional] |
 | **rich_text_customers** | **String** |  | [optional] |
+| **rich_text_exploitation** | **String** |  | [optional] |
 | **rich_text_marketing** | **String** |  | [optional] |
 | **rich_text_monetization** | **String** |  | [optional] |
 | **rich_text_services_offered** | **String** |  | [optional] |
@@ -26,17 +28,19 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainECrimeKillChain.new(
   attribution: null,
   crimes: null,
   customers: null,
+  exploitation: null,
   marketing: null,
   monetization: null,
   rich_text_attribution: null,
   rich_text_crimes: null,
   rich_text_customers: null,
+  rich_text_exploitation: null,
   rich_text_marketing: null,
   rich_text_monetization: null,
   rich_text_services_offered: null,

@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::Resources.new(
   default_subscription_id: null,

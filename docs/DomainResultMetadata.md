@@ -20,7 +20,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainResultMetadata.new(
   execution_delay: null,

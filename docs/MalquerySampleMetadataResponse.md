@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MalquerySampleMetadataResponse.new(
   errors: null,

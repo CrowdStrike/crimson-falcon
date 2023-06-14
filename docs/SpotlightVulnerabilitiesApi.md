@@ -20,7 +20,7 @@ Search for Vulnerabilities in your environment by providing an FQL filter and pa
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -32,7 +32,7 @@ filter = 'filter_example' # String | Filter items using a query in Falcon Query 
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 5000). Use with the after parameter to manage pagination of results.
-  sort: 'sort_example', # String | Sort vulnerabilities by their properties. Common sort options include:  <ul><li>created_timestamp|desc</li><li>closed_timestamp|asc</li></ul>
+  sort: 'sort_example', # String | Sort vulnerabilities by their properties. Common sort options include:  <ul><li>updated_timestamp|asc</li><li>closed_timestamp|asc</li></ul>
   facet: ['inner_example'] # Array<String> | Select various details blocks to be returned for each vulnerability entity. Supported values:  <ul><li>host_info</li><li>remediation</li><li>cve</li><li>evaluation_logic</li></ul>
 }
 
@@ -70,7 +70,7 @@ end
 | **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). Wildcards * are unsupported.   Common filter options include:  &lt;ul&gt;&lt;li&gt;created_timestamp:&gt;&#39;2019-11-25T22:36:12Z&#39;&lt;/li&gt;&lt;li&gt;closed_timestamp:&gt;&#39;2019-11-25T22:36:12Z&#39;&lt;/li&gt;&lt;li&gt;aid:&#39;8e7656b27d8c49a34a1af416424d6231&#39;&lt;/li&gt;&lt;/ul&gt; |  |
 | **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results. | [optional] |
 | **limit** | **Integer** | The number of items to return in this response (default: 100, max: 5000). Use with the after parameter to manage pagination of results. | [optional] |
-| **sort** | **String** | Sort vulnerabilities by their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;created_timestamp|desc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **sort** | **String** | Sort vulnerabilities by their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;updated_timestamp|asc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;/ul&gt; | [optional] |
 | **facet** | [**Array&lt;String&gt;**](String.md) | Select various details blocks to be returned for each vulnerability entity. Supported values:  &lt;ul&gt;&lt;li&gt;host_info&lt;/li&gt;&lt;li&gt;remediation&lt;/li&gt;&lt;li&gt;cve&lt;/li&gt;&lt;li&gt;evaluation_logic&lt;/li&gt;&lt;/ul&gt; | [optional] |
 
 ### Return type
@@ -97,7 +97,7 @@ Get details on remediation by providing one or more IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -164,7 +164,7 @@ Get details on vulnerabilities by providing one or more IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -231,7 +231,7 @@ Search for Vulnerabilities in your environment by providing an FQL filter and pa
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -243,7 +243,7 @@ filter = 'filter_example' # String | Filter items using a query in Falcon Query 
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
-  sort: 'sort_example' # String | Sort vulnerabilities by their properties. Common sort options include:  <ul><li>created_timestamp|desc</li><li>closed_timestamp|asc</li></ul>
+  sort: 'sort_example' # String | Sort vulnerabilities by their properties. Common sort options include:  <ul><li>updated_timestamp|asc</li><li>closed_timestamp|asc</li></ul>
 }
 
 begin
@@ -280,7 +280,7 @@ end
 | **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). Wildcards * are unsupported.   Common filter options include:  &lt;ul&gt;&lt;li&gt;created_timestamp:&gt;&#39;2019-11-25T22:36:12Z&#39;&lt;/li&gt;&lt;li&gt;closed_timestamp:&gt;&#39;2019-11-25T22:36:12Z&#39;&lt;/li&gt;&lt;li&gt;aid:&#39;8e7656b27d8c49a34a1af416424d6231&#39;&lt;/li&gt;&lt;/ul&gt; |  |
 | **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results. | [optional] |
 | **limit** | **Integer** | The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results. | [optional] |
-| **sort** | **String** | Sort vulnerabilities by their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;created_timestamp|desc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **sort** | **String** | Sort vulnerabilities by their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;updated_timestamp|asc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;/ul&gt; | [optional] |
 
 ### Return type
 

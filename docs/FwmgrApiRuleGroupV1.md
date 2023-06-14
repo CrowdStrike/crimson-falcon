@@ -14,6 +14,7 @@
 | **modified_by** | **String** |  |  |
 | **modified_on** | **String** |  |  |
 | **name** | **String** |  |  |
+| **platform** | **String** |  |  |
 | **policy_ids** | **Array&lt;String&gt;** |  |  |
 | **rule_ids** | **Array&lt;String&gt;** |  |  |
 | **tracking** | **String** |  |  |
@@ -21,7 +22,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrApiRuleGroupV1.new(
   created_by: null,
@@ -34,6 +35,7 @@ instance = Falcon::FwmgrApiRuleGroupV1.new(
   modified_by: null,
   modified_on: null,
   name: null,
+  platform: null,
   policy_ids: null,
   rule_ids: null,
   tracking: null

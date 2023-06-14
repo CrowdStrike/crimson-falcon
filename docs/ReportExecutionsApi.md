@@ -20,7 +20,7 @@ Get report entity download
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -79,7 +79,7 @@ end
 
 ## report_executions_get
 
-> <ApiReportExecutionsResponseV1> report_executions_get(ids)
+> <DomainReportExecutionsResponseV1> report_executions_get(ids)
 
 Retrieve report details for the provided report IDs.
 
@@ -87,7 +87,7 @@ Retrieve report details for the provided report IDs.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -110,7 +110,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiReportExecutionsResponseV1>, Integer, Hash)> report_executions_get_with_http_info(ids)
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> report_executions_get_with_http_info(ids)
 
 ```ruby
 begin
@@ -118,7 +118,7 @@ begin
   data, status_code, headers = api_instance.report_executions_get_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiReportExecutionsResponseV1>
+  p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ReportExecutionsApi->report_executions_get_with_http_info: #{e}"
 end
@@ -132,7 +132,7 @@ end
 
 ### Return type
 
-[**ApiReportExecutionsResponseV1**](ApiReportExecutionsResponseV1.md)
+[**DomainReportExecutionsResponseV1**](DomainReportExecutionsResponseV1.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Find all report execution IDs matching the query with filter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -223,7 +223,7 @@ end
 
 ## report_executions_retry
 
-> <ApiReportExecutionsResponseV1> report_executions_retry(body)
+> <DomainReportExecutionsResponseV1> report_executions_retry(body)
 
 This endpoint will be used to retry report executions
 
@@ -231,7 +231,7 @@ This endpoint will be used to retry report executions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -239,7 +239,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ReportExecutionsApi.new
-body = [Falcon::ApiReportExecutionRetryRequestV1.new({id: 'id_example'})] # Array<ApiReportExecutionRetryRequestV1> | 
+body = [Falcon::DomainReportExecutionRetryRequestV1.new({id: 'id_example'})] # Array<DomainReportExecutionRetryRequestV1> | 
 
 begin
   # This endpoint will be used to retry report executions
@@ -254,7 +254,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiReportExecutionsResponseV1>, Integer, Hash)> report_executions_retry_with_http_info(body)
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> report_executions_retry_with_http_info(body)
 
 ```ruby
 begin
@@ -262,7 +262,7 @@ begin
   data, status_code, headers = api_instance.report_executions_retry_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiReportExecutionsResponseV1>
+  p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ReportExecutionsApi->report_executions_retry_with_http_info: #{e}"
 end
@@ -272,11 +272,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**Array&lt;ApiReportExecutionRetryRequestV1&gt;**](ApiReportExecutionRetryRequestV1.md) |  |  |
+| **body** | [**Array&lt;DomainReportExecutionRetryRequestV1&gt;**](DomainReportExecutionRetryRequestV1.md) |  |  |
 
 ### Return type
 
-[**ApiReportExecutionsResponseV1**](ApiReportExecutionsResponseV1.md)
+[**DomainReportExecutionsResponseV1**](DomainReportExecutionsResponseV1.md)
 
 ### Authorization
 

@@ -22,7 +22,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxActor.new(
   created_timestamp: null,

@@ -4,17 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **msa_meta_info** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
+| **meta_info** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
 | **quota** | [**FalconxQuota**](FalconxQuota.md) |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxErrorsOnly.new(
-  msa_meta_info: null,
+  meta_info: null,
   errors: null,
   quota: null
 )

@@ -8,12 +8,12 @@
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** |  |  |
 | **trace_id** | **String** |  |  |
-| **writes** | [**FwmgrMsaResources**](FwmgrMsaResources.md) |  | [optional] |
+| **writes** | [**FwmgrMsaspecWrites**](FwmgrMsaspecWrites.md) |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrApiMetaInfo.new(
   pagination: null,

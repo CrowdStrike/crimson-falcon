@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **active** | **Boolean** |  |  |
 | **actor_type** | **String** |  | [optional] |
+| **capabilities** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
 | **capability** | [**DomainEntity**](DomainEntity.md) |  | [optional] |
 | **created_date** | **Integer** |  |  |
 | **description** | **String** |  | [optional] |
@@ -22,24 +23,29 @@
 | **motivations** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
 | **name** | **String** |  |  |
 | **notify_users** | **Boolean** |  |  |
+| **objectives** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
 | **origins** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
+| **recent_alerting** | **Integer** |  | [optional] |
 | **region** | [**DomainEntity**](DomainEntity.md) |  | [optional] |
 | **rich_text_description** | **String** |  | [optional] |
 | **short_description** | **String** |  |  |
 | **slug** | **String** |  |  |
+| **status** | **String** |  |  |
 | **target_countries** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
 | **target_industries** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
+| **target_regions** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  |  |
 | **thumbnail** | [**DomainImage**](DomainImage.md) |  | [optional] |
 | **url** | **String** |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainActorDocument.new(
   active: null,
   actor_type: null,
+  capabilities: null,
   capability: null,
   created_date: null,
   description: null,
@@ -56,13 +62,17 @@ instance = Falcon::DomainActorDocument.new(
   motivations: null,
   name: null,
   notify_users: null,
+  objectives: null,
   origins: null,
+  recent_alerting: null,
   region: null,
   rich_text_description: null,
   short_description: null,
   slug: null,
+  status: null,
   target_countries: null,
   target_industries: null,
+  target_regions: null,
   thumbnail: null,
   url: null
 )

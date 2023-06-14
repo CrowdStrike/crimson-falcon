@@ -7,7 +7,9 @@
 | **cid** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
+| **index_timestamp** | **String** |  | [optional] |
 | **intel** | [**Array&lt;FalconxIntelReportV1&gt;**](FalconxIntelReportV1.md) |  | [optional] |
+| **intelx** | [**FalconxIntelXReportV1**](FalconxIntelXReportV1.md) |  | [optional] |
 | **ioc_report_broad_csv_artifact_id** | **String** |  | [optional] |
 | **ioc_report_broad_json_artifact_id** | **String** |  | [optional] |
 | **ioc_report_broad_maec_artifact_id** | **String** |  | [optional] |
@@ -30,13 +32,15 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxReportV1.new(
   cid: null,
   created_timestamp: null,
   id: null,
+  index_timestamp: null,
   intel: null,
+  intelx: null,
   ioc_report_broad_csv_artifact_id: null,
   ioc_report_broad_json_artifact_id: null,
   ioc_report_broad_maec_artifact_id: null,

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_id** | **String** |  |  |
-| **aws_permissions_status** | [**Array&lt;K8sregAWSAccountPermissionsStatus&gt;**](K8sregAWSAccountPermissionsStatus.md) |  |  |
+| **aws_permissions_status** | [**Array&lt;K8sregAccountPermissionsStatus&gt;**](K8sregAccountPermissionsStatus.md) |  |  |
 | **cid** | **String** |  |  |
 | **cloudformation_url** | **String** |  | [optional] |
 | **created_at** | **Time** |  |  |
@@ -20,7 +20,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::K8sregAWSAccountResp.new(
   account_id: null,

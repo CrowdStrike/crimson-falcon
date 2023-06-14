@@ -13,7 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## download_sensor_installer_by_id
 
-> File download_sensor_installer_by_id(id)
+> Object download_sensor_installer_by_id(id)
 
 Download sensor installer by SHA256 ID
 
@@ -21,7 +21,7 @@ Download sensor installer by SHA256 ID
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(File, Integer, Hash)> download_sensor_installer_by_id_with_http_info(id)
+> <Array(Object, Integer, Hash)> download_sensor_installer_by_id_with_http_info(id)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.download_sensor_installer_by_id_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => File
+  p data # => Object
 rescue Falcon::ApiError => e
   puts "Error when calling SensorDownloadApi->download_sensor_installer_by_id_with_http_info: #{e}"
 end
@@ -66,7 +66,7 @@ end
 
 ### Return type
 
-**File**
+**Object**
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Get sensor installer details by provided query
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -155,7 +155,7 @@ end
 
 ## get_sensor_installers_by_query
 
-> <MsaQueryResponse> get_sensor_installers_by_query(opts)
+> <MsaspecQueryResponse> get_sensor_installers_by_query(opts)
 
 Get sensor installer IDs by provided query
 
@@ -163,7 +163,7 @@ Get sensor installer IDs by provided query
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -191,7 +191,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_with_http_info(opts)
 
 ```ruby
 begin
@@ -199,7 +199,7 @@ begin
   data, status_code, headers = api_instance.get_sensor_installers_by_query_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorDownloadApi->get_sensor_installers_by_query_with_http_info: #{e}"
 end
@@ -216,7 +216,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ end
 
 ## get_sensor_installers_ccidby_query
 
-> <MsaQueryResponse> get_sensor_installers_ccidby_query
+> <MsaspecQueryResponse> get_sensor_installers_ccidby_query
 
 Get CCID to use with sensor installers
 
@@ -238,7 +238,7 @@ Get CCID to use with sensor installers
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -260,7 +260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> get_sensor_installers_ccidby_query_with_http_info
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_ccidby_query_with_http_info
 
 ```ruby
 begin
@@ -268,7 +268,7 @@ begin
   data, status_code, headers = api_instance.get_sensor_installers_ccidby_query_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorDownloadApi->get_sensor_installers_ccidby_query_with_http_info: #{e}"
 end
@@ -280,7 +280,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Get sensor installer details by provided SHA256 IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

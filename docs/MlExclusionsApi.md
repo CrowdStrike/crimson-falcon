@@ -13,7 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_ml_exclusions_v1
 
-> <ResponsesMlExclusionRespV1> create_ml_exclusions_v1(body)
+> <ExclusionsRespV1> create_ml_exclusions_v1(body)
 
 Create the ML exclusions
 
@@ -21,7 +21,7 @@ Create the ML exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -29,7 +29,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MlExclusionsApi.new
-body = Falcon::RequestsMlExclusionCreateReqV1.new # RequestsMlExclusionCreateReqV1 | 
+body = Falcon::ExclusionsCreateReqV1.new # ExclusionsCreateReqV1 | 
 
 begin
   # Create the ML exclusions
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesMlExclusionRespV1>, Integer, Hash)> create_ml_exclusions_v1_with_http_info(body)
+> <Array(<ExclusionsRespV1>, Integer, Hash)> create_ml_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.create_ml_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesMlExclusionRespV1>
+  p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling MlExclusionsApi->create_ml_exclusions_v1_with_http_info: #{e}"
 end
@@ -62,11 +62,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsMlExclusionCreateReqV1**](RequestsMlExclusionCreateReqV1.md) |  |  |
+| **body** | [**ExclusionsCreateReqV1**](ExclusionsCreateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesMlExclusionRespV1**](ResponsesMlExclusionRespV1.md)
+[**ExclusionsRespV1**](ExclusionsRespV1.md)
 
 ### Authorization
 
@@ -74,13 +74,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## delete_ml_exclusions_v1
 
-> <ResponsesMlExclusionRespV1> delete_ml_exclusions_v1(ids, opts)
+> <ExclusionsRespV1> delete_ml_exclusions_v1(ids, opts)
 
 Delete the ML exclusions by id
 
@@ -88,7 +88,7 @@ Delete the ML exclusions by id
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -114,7 +114,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesMlExclusionRespV1>, Integer, Hash)> delete_ml_exclusions_v1_with_http_info(ids, opts)
+> <Array(<ExclusionsRespV1>, Integer, Hash)> delete_ml_exclusions_v1_with_http_info(ids, opts)
 
 ```ruby
 begin
@@ -122,7 +122,7 @@ begin
   data, status_code, headers = api_instance.delete_ml_exclusions_v1_with_http_info(ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesMlExclusionRespV1>
+  p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling MlExclusionsApi->delete_ml_exclusions_v1_with_http_info: #{e}"
 end
@@ -137,7 +137,7 @@ end
 
 ### Return type
 
-[**ResponsesMlExclusionRespV1**](ResponsesMlExclusionRespV1.md)
+[**ExclusionsRespV1**](ExclusionsRespV1.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ end
 
 ## get_ml_exclusions_v1
 
-> <ResponsesMlExclusionRespV1> get_ml_exclusions_v1(ids)
+> <ExclusionsRespV1> get_ml_exclusions_v1(ids)
 
 Get a set of ML Exclusions by specifying their IDs
 
@@ -159,7 +159,7 @@ Get a set of ML Exclusions by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesMlExclusionRespV1>, Integer, Hash)> get_ml_exclusions_v1_with_http_info(ids)
+> <Array(<ExclusionsRespV1>, Integer, Hash)> get_ml_exclusions_v1_with_http_info(ids)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.get_ml_exclusions_v1_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesMlExclusionRespV1>
+  p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling MlExclusionsApi->get_ml_exclusions_v1_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**ResponsesMlExclusionRespV1**](ResponsesMlExclusionRespV1.md)
+[**ExclusionsRespV1**](ExclusionsRespV1.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Search for ML exclusions.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -293,7 +293,7 @@ end
 
 ## update_ml_exclusions_v1
 
-> <ResponsesMlExclusionRespV1> update_ml_exclusions_v1(body)
+> <ExclusionsRespV1> update_ml_exclusions_v1(body)
 
 Update the ML exclusions
 
@@ -301,7 +301,7 @@ Update the ML exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -309,7 +309,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MlExclusionsApi.new
-body = Falcon::RequestsSvExclusionUpdateReqV1.new({id: 'id_example'}) # RequestsSvExclusionUpdateReqV1 | 
+body = Falcon::SvExclusionsUpdateReqV1.new({id: 'id_example'}) # SvExclusionsUpdateReqV1 | 
 
 begin
   # Update the ML exclusions
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesMlExclusionRespV1>, Integer, Hash)> update_ml_exclusions_v1_with_http_info(body)
+> <Array(<ExclusionsRespV1>, Integer, Hash)> update_ml_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.update_ml_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesMlExclusionRespV1>
+  p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling MlExclusionsApi->update_ml_exclusions_v1_with_http_info: #{e}"
 end
@@ -342,11 +342,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSvExclusionUpdateReqV1**](RequestsSvExclusionUpdateReqV1.md) |  |  |
+| **body** | [**SvExclusionsUpdateReqV1**](SvExclusionsUpdateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesMlExclusionRespV1**](ResponsesMlExclusionRespV1.md)
+[**ExclusionsRespV1**](ExclusionsRespV1.md)
 
 ### Authorization
 
@@ -354,6 +354,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

@@ -20,7 +20,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## entities_perform_action
 
-> <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body)
+> <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body, opts)
 
 Performs the specified action on the provided prevention policy IDs.
 
@@ -28,7 +28,7 @@ Performs the specified action on the provided prevention policy IDs.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -39,10 +39,13 @@ api_instance = Falcon::HostsApi.new
 ids = ['inner_example'] # Array<String> | The group ids to act on
 action_name = 'add_group_member' # String | The action to perform.
 body = Falcon::MsaEntityActionRequest.new # MsaEntityActionRequest | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}
 
 begin
   # Performs the specified action on the provided prevention policy IDs.
-  result = api_instance.entities_perform_action(ids, action_name, body)
+  result = api_instance.entities_perform_action(ids, action_name, body, opts)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling HostsApi->entities_perform_action: #{e}"
@@ -53,12 +56,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeviceapiGroupsResponseV1>, Integer, Hash)> entities_perform_action_with_http_info(ids, action_name, body)
+> <Array(<DeviceapiGroupsResponseV1>, Integer, Hash)> entities_perform_action_with_http_info(ids, action_name, body, opts)
 
 ```ruby
 begin
   # Performs the specified action on the provided prevention policy IDs.
-  data, status_code, headers = api_instance.entities_perform_action_with_http_info(ids, action_name, body)
+  data, status_code, headers = api_instance.entities_perform_action_with_http_info(ids, action_name, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeviceapiGroupsResponseV1>
@@ -74,6 +77,7 @@ end
 | **ids** | [**Array&lt;String&gt;**](String.md) | The group ids to act on |  |
 | **action_name** | **String** | The action to perform. |  |
 | **body** | [**MsaEntityActionRequest**](MsaEntityActionRequest.md) |  |  |
+| **disable_hostname_check** | **Boolean** | Bool to disable hostname check on add-member | [optional][default to false] |
 
 ### Return type
 
@@ -85,13 +89,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## get_device_details
 
-> <DomainDeviceDetailsResponseSwagger> get_device_details(ids)
+> <DeviceapiDeviceDetailsResponseSwagger> get_device_details(ids)
 
 Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
 
@@ -99,7 +103,7 @@ Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -122,7 +126,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainDeviceDetailsResponseSwagger>, Integer, Hash)> get_device_details_with_http_info(ids)
+> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> get_device_details_with_http_info(ids)
 
 ```ruby
 begin
@@ -130,7 +134,7 @@ begin
   data, status_code, headers = api_instance.get_device_details_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainDeviceDetailsResponseSwagger>
+  p data # => <DeviceapiDeviceDetailsResponseSwagger>
 rescue Falcon::ApiError => e
   puts "Error when calling HostsApi->get_device_details_with_http_info: #{e}"
 end
@@ -144,7 +148,7 @@ end
 
 ### Return type
 
-[**DomainDeviceDetailsResponseSwagger**](DomainDeviceDetailsResponseSwagger.md)
+[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
 
 ### Authorization
 
@@ -166,7 +170,7 @@ Get details on one or more hosts by providing host IDs as a query parameter.  Su
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -233,7 +237,7 @@ Get the online status for one or more hosts by specifying each host’s unique I
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -300,7 +304,7 @@ Take various actions on the hosts in your environment. Contain or lift containme
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -369,7 +373,7 @@ Get details on one or more hosts by providing host IDs in a POST body.  Supports
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -422,7 +426,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -436,7 +440,7 @@ Retrieve details about recent login sessions for a set of devices.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -503,7 +507,7 @@ Search for hosts in your environment by platform, hostname, IP, and other criter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -570,7 +574,7 @@ end
 
 ## query_devices_by_filter_scroll
 
-> <DomainDeviceResponse> query_devices_by_filter_scroll(opts)
+> <DeviceapiDeviceResponse> query_devices_by_filter_scroll(opts)
 
 Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
 
@@ -578,7 +582,7 @@ Search for hosts in your environment by platform, hostname, IP, and other criter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -606,7 +610,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainDeviceResponse>, Integer, Hash)> query_devices_by_filter_scroll_with_http_info(opts)
+> <Array(<DeviceapiDeviceResponse>, Integer, Hash)> query_devices_by_filter_scroll_with_http_info(opts)
 
 ```ruby
 begin
@@ -614,7 +618,7 @@ begin
   data, status_code, headers = api_instance.query_devices_by_filter_scroll_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainDeviceResponse>
+  p data # => <DeviceapiDeviceResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling HostsApi->query_devices_by_filter_scroll_with_http_info: #{e}"
 end
@@ -631,7 +635,7 @@ end
 
 ### Return type
 
-[**DomainDeviceResponse**](DomainDeviceResponse.md)
+[**DeviceapiDeviceResponse**](DeviceapiDeviceResponse.md)
 
 ### Authorization
 
@@ -653,7 +657,7 @@ Retrieve history of IP and MAC addresses of devices.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -706,7 +710,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -720,7 +724,7 @@ Retrieve hidden hosts that match the provided filter criteria.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -795,7 +799,7 @@ Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags mu
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

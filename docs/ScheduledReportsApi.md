@@ -11,7 +11,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## scheduled_reports_get
 
-> <ApiScheduledReportsResultV1> scheduled_reports_get(ids)
+> <DomainScheduledReportsResultV1> scheduled_reports_get(ids)
 
 Retrieve scheduled reports for the provided report IDs.
 
@@ -19,7 +19,7 @@ Retrieve scheduled reports for the provided report IDs.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiScheduledReportsResultV1>, Integer, Hash)> scheduled_reports_get_with_http_info(ids)
+> <Array(<DomainScheduledReportsResultV1>, Integer, Hash)> scheduled_reports_get_with_http_info(ids)
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.scheduled_reports_get_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiScheduledReportsResultV1>
+  p data # => <DomainScheduledReportsResultV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ScheduledReportsApi->scheduled_reports_get_with_http_info: #{e}"
 end
@@ -64,7 +64,7 @@ end
 
 ### Return type
 
-[**ApiScheduledReportsResultV1**](ApiScheduledReportsResultV1.md)
+[**DomainScheduledReportsResultV1**](DomainScheduledReportsResultV1.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ end
 
 ## scheduled_reports_launch
 
-> <ApiReportExecutionsResponseV1> scheduled_reports_launch(body)
+> <DomainReportExecutionsResponseV1> scheduled_reports_launch(body)
 
 Launch scheduled reports executions for the provided report IDs.
 
@@ -86,7 +86,7 @@ Launch scheduled reports executions for the provided report IDs.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -94,7 +94,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ScheduledReportsApi.new
-body = [Falcon::ApiReportExecutionLaunchRequestV1.new({id: 'id_example'})] # Array<ApiReportExecutionLaunchRequestV1> | 
+body = [Falcon::DomainReportExecutionLaunchRequestV1.new({id: 'id_example'})] # Array<DomainReportExecutionLaunchRequestV1> | 
 
 begin
   # Launch scheduled reports executions for the provided report IDs.
@@ -109,7 +109,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiReportExecutionsResponseV1>, Integer, Hash)> scheduled_reports_launch_with_http_info(body)
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> scheduled_reports_launch_with_http_info(body)
 
 ```ruby
 begin
@@ -117,7 +117,7 @@ begin
   data, status_code, headers = api_instance.scheduled_reports_launch_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiReportExecutionsResponseV1>
+  p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ScheduledReportsApi->scheduled_reports_launch_with_http_info: #{e}"
 end
@@ -127,11 +127,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**Array&lt;ApiReportExecutionLaunchRequestV1&gt;**](ApiReportExecutionLaunchRequestV1.md) |  |  |
+| **body** | [**Array&lt;DomainReportExecutionLaunchRequestV1&gt;**](DomainReportExecutionLaunchRequestV1.md) |  |  |
 
 ### Return type
 
-[**ApiReportExecutionsResponseV1**](ApiReportExecutionsResponseV1.md)
+[**DomainReportExecutionsResponseV1**](DomainReportExecutionsResponseV1.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Find all report IDs matching the query with filter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

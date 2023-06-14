@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationGCPAccountCreateRequestExtV1.new(
   resources: null

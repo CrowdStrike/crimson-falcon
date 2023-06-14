@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxMalqueryResource.new(
   family: null,

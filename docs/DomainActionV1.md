@@ -5,9 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** | The ID of the customer who created the action |  |
-| **content_format** | **String** | The level of detail in which the content will be delivered |  |
+| **content_format** | **String** | The level of detail in which the content will be delivered. It can be either &#39;standard&#39; or &#39;enhanced&#39; |  |
 | **created_timestamp** | **Time** | The date when the action was created |  |
-| **frequency** | **String** | The time interval between the action&#39;s triggers |  |
+| **frequency** | **String** | The time interval between the action&#39;s triggers. It can be one of the values: &#39;asap&#39;, &#39;daily&#39; or &#39;weekly&#39; |  |
 | **id** | **String** | The ID of the action |  |
 | **recipients** | **Array&lt;String&gt;** | The address list who will be notified by this action. |  |
 | **rule_id** | **String** | The ID of the rule on which this action is attached |  |
@@ -20,7 +20,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainActionV1.new(
   cid: null,

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## get_changes
 
-> <ExternalGetChangesResponse> get_changes(ids)
+> <PublicGetChangesResponse> get_changes(ids)
 
 Retrieve information on changes
 
@@ -20,7 +20,7 @@ Retrieve key attributes of Falcon FileVantage changes for the specified ids.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -43,7 +43,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ExternalGetChangesResponse>, Integer, Hash)> get_changes_with_http_info(ids)
+> <Array(<PublicGetChangesResponse>, Integer, Hash)> get_changes_with_http_info(ids)
 
 ```ruby
 begin
@@ -51,7 +51,7 @@ begin
   data, status_code, headers = api_instance.get_changes_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ExternalGetChangesResponse>
+  p data # => <PublicGetChangesResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FilevantageApi->get_changes_with_http_info: #{e}"
 end
@@ -65,7 +65,7 @@ end
 
 ### Return type
 
-[**ExternalGetChangesResponse**](ExternalGetChangesResponse.md)
+[**PublicGetChangesResponse**](PublicGetChangesResponse.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ end
 
 ## query_changes
 
-> <MsaQueryResponse> query_changes(opts)
+> <MsaspecQueryResponse> query_changes(opts)
 
 Returns one or more change IDs
 
@@ -89,7 +89,7 @@ Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -117,7 +117,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_changes_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_changes_with_http_info(opts)
 
 ```ruby
 begin
@@ -125,7 +125,7 @@ begin
   data, status_code, headers = api_instance.query_changes_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FilevantageApi->query_changes_with_http_info: #{e}"
 end
@@ -142,7 +142,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 

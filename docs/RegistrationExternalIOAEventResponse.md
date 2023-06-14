@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
 | **meta** | [**RegistrationMSAMetaInfoExtension**](RegistrationMSAMetaInfoExtension.md) |  |  |
 | **resources** | [**RegistrationExternalIOAResources**](RegistrationExternalIOAResources.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationExternalIOAEventResponse.new(
   errors: null,

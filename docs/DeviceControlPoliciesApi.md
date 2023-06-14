@@ -6,6 +6,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**create_device_control_policies**](DeviceControlPoliciesApi.md#create_device_control_policies) | **POST** /policy/entities/device-control/v1 | Create Device Control Policies by specifying details about the policy to create |
 | [**delete_device_control_policies**](DeviceControlPoliciesApi.md#delete_device_control_policies) | **DELETE** /policy/entities/device-control/v1 | Delete a set of Device Control Policies by specifying their IDs |
+| [**get_default_device_control_policies**](DeviceControlPoliciesApi.md#get_default_device_control_policies) | **GET** /policy/entities/default-device-control/v1 | Retrieve the configuration for a Default Device Control Policy |
 | [**get_device_control_policies**](DeviceControlPoliciesApi.md#get_device_control_policies) | **GET** /policy/entities/device-control/v1 | Retrieve a set of Device Control Policies by specifying their IDs |
 | [**perform_device_control_policies_action**](DeviceControlPoliciesApi.md#perform_device_control_policies_action) | **POST** /policy/entities/device-control-actions/v1 | Perform the specified action on the Device Control Policies specified in the request |
 | [**query_combined_device_control_policies**](DeviceControlPoliciesApi.md#query_combined_device_control_policies) | **GET** /policy/combined/device-control/v1 | Search for Device Control Policies in your environment by providing an FQL filter and paging details. Returns a set of Device Control Policies which match the filter criteria |
@@ -13,12 +14,13 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_device_control_policies**](DeviceControlPoliciesApi.md#query_device_control_policies) | **GET** /policy/queries/device-control/v1 | Search for Device Control Policies in your environment by providing an FQL filter and paging details. Returns a set of Device Control Policy IDs which match the filter criteria |
 | [**query_device_control_policy_members**](DeviceControlPoliciesApi.md#query_device_control_policy_members) | **GET** /policy/queries/device-control-members/v1 | Search for members of a Device Control Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
 | [**set_device_control_policies_precedence**](DeviceControlPoliciesApi.md#set_device_control_policies_precedence) | **POST** /policy/entities/device-control-precedence/v1 | Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_default_device_control_policies**](DeviceControlPoliciesApi.md#update_default_device_control_policies) | **PATCH** /policy/entities/default-device-control/v1 | Update the configuration for a Default Device Control Policy |
 | [**update_device_control_policies**](DeviceControlPoliciesApi.md#update_device_control_policies) | **PATCH** /policy/entities/device-control/v1 | Update Device Control Policies by specifying the ID of the policy and details to update |
 
 
 ## create_device_control_policies
 
-> <ResponsesDeviceControlPoliciesV1> create_device_control_policies(body)
+> <DeviceControlRespV2> create_device_control_policies(body)
 
 Create Device Control Policies by specifying details about the policy to create
 
@@ -26,7 +28,7 @@ Create Device Control Policies by specifying details about the policy to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -34,7 +36,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::DeviceControlPoliciesApi.new
-body = Falcon::RequestsCreateDeviceControlPoliciesV1.new({resources: [Falcon::RequestsCreateDeviceControlPolicyV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreateDeviceControlPoliciesV1 | 
+body = Falcon::DeviceControlCreatePoliciesV1.new({resources: [Falcon::DeviceControlCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # DeviceControlCreatePoliciesV1 | 
 
 begin
   # Create Device Control Policies by specifying details about the policy to create
@@ -49,7 +51,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesDeviceControlPoliciesV1>, Integer, Hash)> create_device_control_policies_with_http_info(body)
+> <Array(<DeviceControlRespV2>, Integer, Hash)> create_device_control_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -57,7 +59,7 @@ begin
   data, status_code, headers = api_instance.create_device_control_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesDeviceControlPoliciesV1>
+  p data # => <DeviceControlRespV2>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->create_device_control_policies_with_http_info: #{e}"
 end
@@ -67,11 +69,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateDeviceControlPoliciesV1**](RequestsCreateDeviceControlPoliciesV1.md) |  |  |
+| **body** | [**DeviceControlCreatePoliciesV1**](DeviceControlCreatePoliciesV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesDeviceControlPoliciesV1**](ResponsesDeviceControlPoliciesV1.md)
+[**DeviceControlRespV2**](DeviceControlRespV2.md)
 
 ### Authorization
 
@@ -79,7 +81,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -93,7 +95,7 @@ Delete a set of Device Control Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -150,9 +152,73 @@ end
 - **Accept**: application/json
 
 
+## get_default_device_control_policies
+
+> <DeviceControlRespV1> get_default_device_control_policies
+
+Retrieve the configuration for a Default Device Control Policy
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::DeviceControlPoliciesApi.new
+
+begin
+  # Retrieve the configuration for a Default Device Control Policy
+  result = api_instance.get_default_device_control_policies
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DeviceControlPoliciesApi->get_default_device_control_policies: #{e}"
+end
+```
+
+#### Using the get_default_device_control_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceControlRespV1>, Integer, Hash)> get_default_device_control_policies_with_http_info
+
+```ruby
+begin
+  # Retrieve the configuration for a Default Device Control Policy
+  data, status_code, headers = api_instance.get_default_device_control_policies_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceControlRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling DeviceControlPoliciesApi->get_default_device_control_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_device_control_policies
 
-> <ResponsesDeviceControlPoliciesV1> get_device_control_policies(ids)
+> <DeviceControlRespV1> get_device_control_policies(ids)
 
 Retrieve a set of Device Control Policies by specifying their IDs
 
@@ -160,7 +226,7 @@ Retrieve a set of Device Control Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -183,7 +249,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesDeviceControlPoliciesV1>, Integer, Hash)> get_device_control_policies_with_http_info(ids)
+> <Array(<DeviceControlRespV1>, Integer, Hash)> get_device_control_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -191,7 +257,7 @@ begin
   data, status_code, headers = api_instance.get_device_control_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesDeviceControlPoliciesV1>
+  p data # => <DeviceControlRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->get_device_control_policies_with_http_info: #{e}"
 end
@@ -205,7 +271,7 @@ end
 
 ### Return type
 
-[**ResponsesDeviceControlPoliciesV1**](ResponsesDeviceControlPoliciesV1.md)
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
 
 ### Authorization
 
@@ -219,7 +285,7 @@ end
 
 ## perform_device_control_policies_action
 
-> <ResponsesDeviceControlPoliciesV1> perform_device_control_policies_action(action_name, body)
+> <DeviceControlRespV1> perform_device_control_policies_action(action_name, body)
 
 Perform the specified action on the Device Control Policies specified in the request
 
@@ -227,7 +293,7 @@ Perform the specified action on the Device Control Policies specified in the req
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -251,7 +317,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesDeviceControlPoliciesV1>, Integer, Hash)> perform_device_control_policies_action_with_http_info(action_name, body)
+> <Array(<DeviceControlRespV1>, Integer, Hash)> perform_device_control_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -259,7 +325,7 @@ begin
   data, status_code, headers = api_instance.perform_device_control_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesDeviceControlPoliciesV1>
+  p data # => <DeviceControlRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->perform_device_control_policies_action_with_http_info: #{e}"
 end
@@ -274,7 +340,7 @@ end
 
 ### Return type
 
-[**ResponsesDeviceControlPoliciesV1**](ResponsesDeviceControlPoliciesV1.md)
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
 
 ### Authorization
 
@@ -282,13 +348,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_device_control_policies
 
-> <ResponsesDeviceControlPoliciesV1> query_combined_device_control_policies(opts)
+> <DeviceControlRespV1> query_combined_device_control_policies(opts)
 
 Search for Device Control Policies in your environment by providing an FQL filter and paging details. Returns a set of Device Control Policies which match the filter criteria
 
@@ -296,7 +362,7 @@ Search for Device Control Policies in your environment by providing an FQL filte
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -324,7 +390,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesDeviceControlPoliciesV1>, Integer, Hash)> query_combined_device_control_policies_with_http_info(opts)
+> <Array(<DeviceControlRespV1>, Integer, Hash)> query_combined_device_control_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -332,7 +398,7 @@ begin
   data, status_code, headers = api_instance.query_combined_device_control_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesDeviceControlPoliciesV1>
+  p data # => <DeviceControlRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->query_combined_device_control_policies_with_http_info: #{e}"
 end
@@ -349,7 +415,7 @@ end
 
 ### Return type
 
-[**ResponsesDeviceControlPoliciesV1**](ResponsesDeviceControlPoliciesV1.md)
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
 
 ### Authorization
 
@@ -363,7 +429,7 @@ end
 
 ## query_combined_device_control_policy_members
 
-> <ResponsesPolicyMembersRespV1> query_combined_device_control_policy_members(opts)
+> <BasePolicyMembersRespV1> query_combined_device_control_policy_members(opts)
 
 Search for members of a Device Control Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -371,7 +437,7 @@ Search for members of a Device Control Policy in your environment by providing a
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -400,7 +466,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPolicyMembersRespV1>, Integer, Hash)> query_combined_device_control_policy_members_with_http_info(opts)
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_device_control_policy_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -408,7 +474,7 @@ begin
   data, status_code, headers = api_instance.query_combined_device_control_policy_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPolicyMembersRespV1>
+  p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->query_combined_device_control_policy_members_with_http_info: #{e}"
 end
@@ -426,7 +492,7 @@ end
 
 ### Return type
 
-[**ResponsesPolicyMembersRespV1**](ResponsesPolicyMembersRespV1.md)
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -448,7 +514,7 @@ Search for Device Control Policies in your environment by providing an FQL filte
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -523,7 +589,7 @@ Search for members of a Device Control Policy in your environment by providing a
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -600,7 +666,7 @@ Sets the precedence of Device Control Policies based on the order of IDs specifi
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -608,7 +674,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::DeviceControlPoliciesApi.new
-body = Falcon::RequestsSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # RequestsSetPolicyPrecedenceReqV1 | 
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
   # Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
@@ -641,7 +707,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSetPolicyPrecedenceReqV1**](RequestsSetPolicyPrecedenceReqV1.md) |  |  |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
 
 ### Return type
 
@@ -653,21 +719,21 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
-## update_device_control_policies
+## update_default_device_control_policies
 
-> <ResponsesDeviceControlPoliciesV1> update_device_control_policies(body)
+> <DeviceControlRespV1> update_default_device_control_policies(body)
 
-Update Device Control Policies by specifying the ID of the policy and details to update
+Update the configuration for a Default Device Control Policy
 
 ### Examples
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -675,7 +741,74 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::DeviceControlPoliciesApi.new
-body = Falcon::RequestsUpdateDeviceControlPoliciesV1.new({resources: [Falcon::RequestsUpdateDeviceControlPolicyV1.new({id: 'id_example', settings: Falcon::RequestsDeviceControlPolicySettingsV1.new({classes: [Falcon::RequestsDeviceControlPolicyClassSettingsV1.new({action: 'FULL_ACCESS', exceptions: [Falcon::RequestsDeviceControlPolicyExceptionV1.new], id: 'id_example'})], delete_exceptions: ['delete_exceptions_example'], end_user_notification: 'SILENT', enforcement_mode: 'MONITOR_ONLY'})})]}) # RequestsUpdateDeviceControlPoliciesV1 | 
+body = Falcon::DeviceControlReqUpdateDefaultDCPolicyV1.new # DeviceControlReqUpdateDefaultDCPolicyV1 | 
+
+begin
+  # Update the configuration for a Default Device Control Policy
+  result = api_instance.update_default_device_control_policies(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DeviceControlPoliciesApi->update_default_device_control_policies: #{e}"
+end
+```
+
+#### Using the update_default_device_control_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceControlRespV1>, Integer, Hash)> update_default_device_control_policies_with_http_info(body)
+
+```ruby
+begin
+  # Update the configuration for a Default Device Control Policy
+  data, status_code, headers = api_instance.update_default_device_control_policies_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceControlRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling DeviceControlPoliciesApi->update_default_device_control_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DeviceControlReqUpdateDefaultDCPolicyV1**](DeviceControlReqUpdateDefaultDCPolicyV1.md) |  |  |
+
+### Return type
+
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_device_control_policies
+
+> <DeviceControlRespV1> update_device_control_policies(body)
+
+Update Device Control Policies by specifying the ID of the policy and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::DeviceControlPoliciesApi.new
+body = Falcon::DeviceControlUpdatePoliciesReqV1.new({resources: [Falcon::DeviceControlUpdatePolicyReqV1.new({id: 'id_example', settings: Falcon::DeviceControlSettingsReqV1.new({classes: [Falcon::DeviceControlUSBClassExceptionsReqV1.new({action: 'FULL_ACCESS', exceptions: [Falcon::DeviceControlExceptionReqV1.new], id: 'id_example'})], delete_exceptions: ['delete_exceptions_example'], end_user_notification: 'SILENT', enforcement_mode: 'MONITOR_ONLY'})})]}) # DeviceControlUpdatePoliciesReqV1 | 
 
 begin
   # Update Device Control Policies by specifying the ID of the policy and details to update
@@ -690,7 +823,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesDeviceControlPoliciesV1>, Integer, Hash)> update_device_control_policies_with_http_info(body)
+> <Array(<DeviceControlRespV1>, Integer, Hash)> update_device_control_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -698,7 +831,7 @@ begin
   data, status_code, headers = api_instance.update_device_control_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesDeviceControlPoliciesV1>
+  p data # => <DeviceControlRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling DeviceControlPoliciesApi->update_device_control_policies_with_http_info: #{e}"
 end
@@ -708,11 +841,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateDeviceControlPoliciesV1**](RequestsUpdateDeviceControlPoliciesV1.md) |  |  |
+| **body** | [**DeviceControlUpdatePoliciesReqV1**](DeviceControlUpdatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesDeviceControlPoliciesV1**](ResponsesDeviceControlPoliciesV1.md)
+[**DeviceControlRespV1**](DeviceControlRespV1.md)
 
 ### Authorization
 
@@ -720,6 +853,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

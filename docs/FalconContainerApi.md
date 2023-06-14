@@ -9,7 +9,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## get_credentials
 
-> <MsaEntitiesResponse> get_credentials
+> <DomainRegistryCredentialsResponse> get_credentials
 
 Gets the registry credentials
 
@@ -17,7 +17,7 @@ Gets the registry credentials
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -39,7 +39,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaEntitiesResponse>, Integer, Hash)> get_credentials_with_http_info
+> <Array(<DomainRegistryCredentialsResponse>, Integer, Hash)> get_credentials_with_http_info
 
 ```ruby
 begin
@@ -47,7 +47,7 @@ begin
   data, status_code, headers = api_instance.get_credentials_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaEntitiesResponse>
+  p data # => <DomainRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconContainerApi->get_credentials_with_http_info: #{e}"
 end
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MsaEntitiesResponse**](MsaEntitiesResponse.md)
+[**DomainRegistryCredentialsResponse**](DomainRegistryCredentialsResponse.md)
 
 ### Authorization
 

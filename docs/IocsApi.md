@@ -12,7 +12,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## devices_count
 
-> <ApiMsaReplyIOCDevicesCount> devices_count(type, value)
+> <IocapiMsaReplyIOCDevicesCount> devices_count(type, value)
 
 Number of hosts in your customer account that have observed a given custom IOC
 
@@ -20,7 +20,7 @@ Number of hosts in your customer account that have observed a given custom IOC
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaReplyIOCDevicesCount>, Integer, Hash)> devices_count_with_http_info(type, value)
+> <Array(<IocapiMsaReplyIOCDevicesCount>, Integer, Hash)> devices_count_with_http_info(type, value)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.devices_count_with_http_info(type, value)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaReplyIOCDevicesCount>
+  p data # => <IocapiMsaReplyIOCDevicesCount>
 rescue Falcon::ApiError => e
   puts "Error when calling IocsApi->devices_count_with_http_info: #{e}"
 end
@@ -67,7 +67,7 @@ end
 
 ### Return type
 
-[**ApiMsaReplyIOCDevicesCount**](ApiMsaReplyIOCDevicesCount.md)
+[**IocapiMsaReplyIOCDevicesCount**](IocapiMsaReplyIOCDevicesCount.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ end
 
 ## devices_ran_on
 
-> <ApiMsaReplyDevicesRanOn> devices_ran_on(type, value, opts)
+> <IocapiMsaReplyDevicesRanOn> devices_ran_on(type, value, opts)
 
 Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1
 
@@ -89,7 +89,7 @@ Find hosts that have observed a given custom IOC. For details about those hosts,
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -117,7 +117,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaReplyDevicesRanOn>, Integer, Hash)> devices_ran_on_with_http_info(type, value, opts)
+> <Array(<IocapiMsaReplyDevicesRanOn>, Integer, Hash)> devices_ran_on_with_http_info(type, value, opts)
 
 ```ruby
 begin
@@ -125,7 +125,7 @@ begin
   data, status_code, headers = api_instance.devices_ran_on_with_http_info(type, value, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaReplyDevicesRanOn>
+  p data # => <IocapiMsaReplyDevicesRanOn>
 rescue Falcon::ApiError => e
   puts "Error when calling IocsApi->devices_ran_on_with_http_info: #{e}"
 end
@@ -142,7 +142,7 @@ end
 
 ### Return type
 
-[**ApiMsaReplyDevicesRanOn**](ApiMsaReplyDevicesRanOn.md)
+[**IocapiMsaReplyDevicesRanOn**](IocapiMsaReplyDevicesRanOn.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ end
 
 ## entities_processes
 
-> <ApiMsaProcessDetailResponse> entities_processes(ids)
+> <ProcessesapiMsaProcessDetailResponse> entities_processes(ids)
 
 For the provided ProcessID retrieve the process details
 
@@ -164,7 +164,7 @@ For the provided ProcessID retrieve the process details
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -187,7 +187,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaProcessDetailResponse>, Integer, Hash)> entities_processes_with_http_info(ids)
+> <Array(<ProcessesapiMsaProcessDetailResponse>, Integer, Hash)> entities_processes_with_http_info(ids)
 
 ```ruby
 begin
@@ -195,7 +195,7 @@ begin
   data, status_code, headers = api_instance.entities_processes_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaProcessDetailResponse>
+  p data # => <ProcessesapiMsaProcessDetailResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IocsApi->entities_processes_with_http_info: #{e}"
 end
@@ -209,7 +209,7 @@ end
 
 ### Return type
 
-[**ApiMsaProcessDetailResponse**](ApiMsaProcessDetailResponse.md)
+[**ProcessesapiMsaProcessDetailResponse**](ProcessesapiMsaProcessDetailResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ end
 
 ## processes_ran_on
 
-> <ApiMsaReplyProcessesRanOn> processes_ran_on(type, value, device_id, opts)
+> <IocapiMsaReplyProcessesRanOn> processes_ran_on(type, value, device_id, opts)
 
 Search for processes associated with a custom IOC
 
@@ -231,7 +231,7 @@ Search for processes associated with a custom IOC
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -260,7 +260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaReplyProcessesRanOn>, Integer, Hash)> processes_ran_on_with_http_info(type, value, device_id, opts)
+> <Array(<IocapiMsaReplyProcessesRanOn>, Integer, Hash)> processes_ran_on_with_http_info(type, value, device_id, opts)
 
 ```ruby
 begin
@@ -268,7 +268,7 @@ begin
   data, status_code, headers = api_instance.processes_ran_on_with_http_info(type, value, device_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaReplyProcessesRanOn>
+  p data # => <IocapiMsaReplyProcessesRanOn>
 rescue Falcon::ApiError => e
   puts "Error when calling IocsApi->processes_ran_on_with_http_info: #{e}"
 end
@@ -286,7 +286,7 @@ end
 
 ### Return type
 
-[**ApiMsaReplyProcessesRanOn**](ApiMsaReplyProcessesRanOn.md)
+[**IocapiMsaReplyProcessesRanOn**](IocapiMsaReplyProcessesRanOn.md)
 
 ### Authorization
 

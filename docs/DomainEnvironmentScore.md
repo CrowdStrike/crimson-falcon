@@ -4,16 +4,20 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
+| **adjusted_score** | **Integer** |  |  |
+| **cid** | **String** |  |  |
+| **id** | **String** |  | [optional] |
 | **score** | **Integer** |  |  |
 | **timestamp** | **Time** |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainEnvironmentScore.new(
+  adjusted_score: null,
+  cid: null,
   id: null,
   score: null,
   timestamp: null

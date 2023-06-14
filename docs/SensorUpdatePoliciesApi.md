@@ -15,7 +15,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_combined_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies) | **GET** /policy/combined/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
 | [**query_combined_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies_v2) | **GET** /policy/combined/sensor-update/v2 | Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
 | [**query_combined_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policy_members) | **GET** /policy/combined/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_sensor_update_kernels_distinct**](SensorUpdatePoliciesApi.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct_field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
+| [**query_sensor_update_kernels_distinct**](SensorUpdatePoliciesApi.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct-field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
 | [**query_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_sensor_update_policies) | **GET** /policy/queries/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria |
 | [**query_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_sensor_update_policy_members) | **GET** /policy/queries/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
 | [**reveal_uninstall_token**](SensorUpdatePoliciesApi.md#reveal_uninstall_token) | **POST** /policy/combined/reveal-uninstall-token/v1 | Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39; |
@@ -26,7 +26,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_sensor_update_policies
 
-> <ResponsesSensorUpdatePoliciesV1> create_sensor_update_policies(body)
+> <SensorUpdateRespV1> create_sensor_update_policies(body)
 
 Create Sensor Update Policies by specifying details about the policy to create
 
@@ -34,7 +34,7 @@ Create Sensor Update Policies by specifying details about the policy to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -42,7 +42,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsCreateSensorUpdatePoliciesV1.new({resources: [Falcon::RequestsCreateSensorUpdatePolicyV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreateSensorUpdatePoliciesV1 | 
+body = Falcon::SensorUpdateCreatePoliciesReqV1.new({resources: [Falcon::SensorUpdateCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # SensorUpdateCreatePoliciesReqV1 | 
 
 begin
   # Create Sensor Update Policies by specifying details about the policy to create
@@ -57,7 +57,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV1>, Integer, Hash)> create_sensor_update_policies_with_http_info(body)
+> <Array(<SensorUpdateRespV1>, Integer, Hash)> create_sensor_update_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -65,7 +65,7 @@ begin
   data, status_code, headers = api_instance.create_sensor_update_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV1>
+  p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies_with_http_info: #{e}"
 end
@@ -75,11 +75,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateSensorUpdatePoliciesV1**](RequestsCreateSensorUpdatePoliciesV1.md) |  |  |
+| **body** | [**SensorUpdateCreatePoliciesReqV1**](SensorUpdateCreatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV1**](ResponsesSensorUpdatePoliciesV1.md)
+[**SensorUpdateRespV1**](SensorUpdateRespV1.md)
 
 ### Authorization
 
@@ -87,13 +87,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## create_sensor_update_policies_v2
 
-> <ResponsesSensorUpdatePoliciesV2> create_sensor_update_policies_v2(body)
+> <SensorUpdateRespV2> create_sensor_update_policies_v2(body)
 
 Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
 
@@ -101,7 +101,7 @@ Create Sensor Update Policies by specifying details about the policy to create w
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -109,7 +109,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsCreateSensorUpdatePoliciesV2.new({resources: [Falcon::RequestsCreateSensorUpdatePolicyV2.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreateSensorUpdatePoliciesV2 | 
+body = Falcon::SensorUpdateCreatePoliciesReqV2.new({resources: [Falcon::SensorUpdateCreatePolicyReqV2.new({name: 'name_example', platform_name: 'Windows'})]}) # SensorUpdateCreatePoliciesReqV2 | 
 
 begin
   # Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
@@ -124,7 +124,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV2>, Integer, Hash)> create_sensor_update_policies_v2_with_http_info(body)
+> <Array(<SensorUpdateRespV2>, Integer, Hash)> create_sensor_update_policies_v2_with_http_info(body)
 
 ```ruby
 begin
@@ -132,7 +132,7 @@ begin
   data, status_code, headers = api_instance.create_sensor_update_policies_v2_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV2>
+  p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies_v2_with_http_info: #{e}"
 end
@@ -142,11 +142,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateSensorUpdatePoliciesV2**](RequestsCreateSensorUpdatePoliciesV2.md) |  |  |
+| **body** | [**SensorUpdateCreatePoliciesReqV2**](SensorUpdateCreatePoliciesReqV2.md) |  |  |
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV2**](ResponsesSensorUpdatePoliciesV2.md)
+[**SensorUpdateRespV2**](SensorUpdateRespV2.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -168,7 +168,7 @@ Delete a set of Sensor Update Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -227,7 +227,7 @@ end
 
 ## get_sensor_update_policies
 
-> <ResponsesSensorUpdatePoliciesV1> get_sensor_update_policies(ids)
+> <SensorUpdateRespV1> get_sensor_update_policies(ids)
 
 Retrieve a set of Sensor Update Policies by specifying their IDs
 
@@ -235,7 +235,7 @@ Retrieve a set of Sensor Update Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -258,7 +258,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV1>, Integer, Hash)> get_sensor_update_policies_with_http_info(ids)
+> <Array(<SensorUpdateRespV1>, Integer, Hash)> get_sensor_update_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -266,7 +266,7 @@ begin
   data, status_code, headers = api_instance.get_sensor_update_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV1>
+  p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies_with_http_info: #{e}"
 end
@@ -280,7 +280,7 @@ end
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV1**](ResponsesSensorUpdatePoliciesV1.md)
+[**SensorUpdateRespV1**](SensorUpdateRespV1.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ end
 
 ## get_sensor_update_policies_v2
 
-> <ResponsesSensorUpdatePoliciesV2> get_sensor_update_policies_v2(ids)
+> <SensorUpdateRespV2> get_sensor_update_policies_v2(ids)
 
 Retrieve a set of Sensor Update Policies with additional support for uninstall protection by specifying their IDs
 
@@ -302,7 +302,7 @@ Retrieve a set of Sensor Update Policies with additional support for uninstall p
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -325,7 +325,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV2>, Integer, Hash)> get_sensor_update_policies_v2_with_http_info(ids)
+> <Array(<SensorUpdateRespV2>, Integer, Hash)> get_sensor_update_policies_v2_with_http_info(ids)
 
 ```ruby
 begin
@@ -333,7 +333,7 @@ begin
   data, status_code, headers = api_instance.get_sensor_update_policies_v2_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV2>
+  p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies_v2_with_http_info: #{e}"
 end
@@ -347,7 +347,7 @@ end
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV2**](ResponsesSensorUpdatePoliciesV2.md)
+[**SensorUpdateRespV2**](SensorUpdateRespV2.md)
 
 ### Authorization
 
@@ -361,7 +361,7 @@ end
 
 ## perform_sensor_update_policies_action
 
-> <ResponsesSensorUpdatePoliciesV1> perform_sensor_update_policies_action(action_name, body)
+> <SensorUpdateRespV1> perform_sensor_update_policies_action(action_name, body)
 
 Perform the specified action on the Sensor Update Policies specified in the request
 
@@ -369,7 +369,7 @@ Perform the specified action on the Sensor Update Policies specified in the requ
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -393,7 +393,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV1>, Integer, Hash)> perform_sensor_update_policies_action_with_http_info(action_name, body)
+> <Array(<SensorUpdateRespV1>, Integer, Hash)> perform_sensor_update_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -401,7 +401,7 @@ begin
   data, status_code, headers = api_instance.perform_sensor_update_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV1>
+  p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->perform_sensor_update_policies_action_with_http_info: #{e}"
 end
@@ -416,7 +416,7 @@ end
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV1**](ResponsesSensorUpdatePoliciesV1.md)
+[**SensorUpdateRespV1**](SensorUpdateRespV1.md)
 
 ### Authorization
 
@@ -424,13 +424,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_sensor_update_builds
 
-> <ResponsesSensorUpdateBuildsV1> query_combined_sensor_update_builds(opts)
+> <SensorUpdateBuildsRespV1> query_combined_sensor_update_builds(opts)
 
 Retrieve available builds for use with Sensor Update Policies
 
@@ -438,7 +438,7 @@ Retrieve available builds for use with Sensor Update Policies
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -447,7 +447,8 @@ end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
 opts = {
-  platform: 'linux' # String | The platform to return builds for
+  platform: 'linux', # String | The platform to return builds for
+  stage: ['inner_example'] # Array<String> | The stages to return builds for
 }
 
 begin
@@ -463,7 +464,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdateBuildsV1>, Integer, Hash)> query_combined_sensor_update_builds_with_http_info(opts)
+> <Array(<SensorUpdateBuildsRespV1>, Integer, Hash)> query_combined_sensor_update_builds_with_http_info(opts)
 
 ```ruby
 begin
@@ -471,7 +472,7 @@ begin
   data, status_code, headers = api_instance.query_combined_sensor_update_builds_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdateBuildsV1>
+  p data # => <SensorUpdateBuildsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_builds_with_http_info: #{e}"
 end
@@ -482,10 +483,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **platform** | **String** | The platform to return builds for | [optional] |
+| **stage** | [**Array&lt;String&gt;**](String.md) | The stages to return builds for | [optional] |
 
 ### Return type
 
-[**ResponsesSensorUpdateBuildsV1**](ResponsesSensorUpdateBuildsV1.md)
+[**SensorUpdateBuildsRespV1**](SensorUpdateBuildsRespV1.md)
 
 ### Authorization
 
@@ -499,7 +501,7 @@ end
 
 ## query_combined_sensor_update_kernels
 
-> <ResponsesSensorUpdateKernelsV1> query_combined_sensor_update_kernels(opts)
+> <SensorUpdateKernelsRespV1> query_combined_sensor_update_kernels(opts)
 
 Retrieve kernel compatibility info for Sensor Update Builds
 
@@ -507,7 +509,7 @@ Retrieve kernel compatibility info for Sensor Update Builds
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -518,7 +520,7 @@ api_instance = Falcon::SensorUpdatePoliciesApi.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
-  limit: 56 # Integer | The maximum records to return. [1-5000]
+  limit: 56 # Integer | The maximum records to return. [1-500]
 }
 
 begin
@@ -534,7 +536,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdateKernelsV1>, Integer, Hash)> query_combined_sensor_update_kernels_with_http_info(opts)
+> <Array(<SensorUpdateKernelsRespV1>, Integer, Hash)> query_combined_sensor_update_kernels_with_http_info(opts)
 
 ```ruby
 begin
@@ -542,7 +544,7 @@ begin
   data, status_code, headers = api_instance.query_combined_sensor_update_kernels_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdateKernelsV1>
+  p data # => <SensorUpdateKernelsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_kernels_with_http_info: #{e}"
 end
@@ -554,11 +556,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
-| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 
 ### Return type
 
-[**ResponsesSensorUpdateKernelsV1**](ResponsesSensorUpdateKernelsV1.md)
+[**SensorUpdateKernelsRespV1**](SensorUpdateKernelsRespV1.md)
 
 ### Authorization
 
@@ -572,7 +574,7 @@ end
 
 ## query_combined_sensor_update_policies
 
-> <ResponsesSensorUpdatePoliciesV1> query_combined_sensor_update_policies(opts)
+> <SensorUpdateRespV1> query_combined_sensor_update_policies(opts)
 
 Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
@@ -580,7 +582,7 @@ Search for Sensor Update Policies in your environment by providing an FQL filter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -608,7 +610,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV1>, Integer, Hash)> query_combined_sensor_update_policies_with_http_info(opts)
+> <Array(<SensorUpdateRespV1>, Integer, Hash)> query_combined_sensor_update_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -616,7 +618,7 @@ begin
   data, status_code, headers = api_instance.query_combined_sensor_update_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV1>
+  p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies_with_http_info: #{e}"
 end
@@ -633,7 +635,7 @@ end
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV1**](ResponsesSensorUpdatePoliciesV1.md)
+[**SensorUpdateRespV1**](SensorUpdateRespV1.md)
 
 ### Authorization
 
@@ -647,7 +649,7 @@ end
 
 ## query_combined_sensor_update_policies_v2
 
-> <ResponsesSensorUpdatePoliciesV2> query_combined_sensor_update_policies_v2(opts)
+> <SensorUpdateRespV2> query_combined_sensor_update_policies_v2(opts)
 
 Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
@@ -655,7 +657,7 @@ Search for Sensor Update Policies with additional support for uninstall protecti
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -683,7 +685,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV2>, Integer, Hash)> query_combined_sensor_update_policies_v2_with_http_info(opts)
+> <Array(<SensorUpdateRespV2>, Integer, Hash)> query_combined_sensor_update_policies_v2_with_http_info(opts)
 
 ```ruby
 begin
@@ -691,7 +693,7 @@ begin
   data, status_code, headers = api_instance.query_combined_sensor_update_policies_v2_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV2>
+  p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies_v2_with_http_info: #{e}"
 end
@@ -708,7 +710,7 @@ end
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV2**](ResponsesSensorUpdatePoliciesV2.md)
+[**SensorUpdateRespV2**](SensorUpdateRespV2.md)
 
 ### Authorization
 
@@ -722,7 +724,7 @@ end
 
 ## query_combined_sensor_update_policy_members
 
-> <ResponsesPolicyMembersRespV1> query_combined_sensor_update_policy_members(opts)
+> <BasePolicyMembersRespV1> query_combined_sensor_update_policy_members(opts)
 
 Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -730,7 +732,7 @@ Search for members of a Sensor Update Policy in your environment by providing an
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -759,7 +761,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPolicyMembersRespV1>, Integer, Hash)> query_combined_sensor_update_policy_members_with_http_info(opts)
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_sensor_update_policy_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -767,7 +769,7 @@ begin
   data, status_code, headers = api_instance.query_combined_sensor_update_policy_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPolicyMembersRespV1>
+  p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policy_members_with_http_info: #{e}"
 end
@@ -785,7 +787,7 @@ end
 
 ### Return type
 
-[**ResponsesPolicyMembersRespV1**](ResponsesPolicyMembersRespV1.md)
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -807,7 +809,7 @@ Retrieve kernel compatibility info for Sensor Update Builds
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -819,7 +821,7 @@ distinct_field = 'distinct_field_example' # String | The field name to get disti
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
-  limit: 56 # Integer | The maximum records to return. [1-5000]
+  limit: 56 # Integer | The maximum records to return. [1-500]
 }
 
 begin
@@ -856,7 +858,7 @@ end
 | **distinct_field** | **String** | The field name to get distinct values for |  |
 | **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
-| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 
 ### Return type
 
@@ -882,7 +884,7 @@ Search for Sensor Update Policies in your environment by providing an FQL filter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -957,7 +959,7 @@ Search for members of a Sensor Update Policy in your environment by providing an
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1026,7 +1028,7 @@ end
 
 ## reveal_uninstall_token
 
-> <ResponsesRevealUninstallTokenRespV1> reveal_uninstall_token(body)
+> <UninstallTokenRespV1> reveal_uninstall_token(body)
 
 Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value 'MAINTENANCE' as the value for 'device_id'
 
@@ -1034,7 +1036,7 @@ Reveals an uninstall token for a specific device. To retrieve the bulk maintenan
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1042,7 +1044,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsRevealUninstallTokenV1.new({device_id: 'device_id_example'}) # RequestsRevealUninstallTokenV1 | 
+body = Falcon::UninstallTokenRevealUninstallTokenReqV1.new({device_id: 'device_id_example'}) # UninstallTokenRevealUninstallTokenReqV1 | 
 
 begin
   # Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value 'MAINTENANCE' as the value for 'device_id'
@@ -1057,7 +1059,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRevealUninstallTokenRespV1>, Integer, Hash)> reveal_uninstall_token_with_http_info(body)
+> <Array(<UninstallTokenRespV1>, Integer, Hash)> reveal_uninstall_token_with_http_info(body)
 
 ```ruby
 begin
@@ -1065,7 +1067,7 @@ begin
   data, status_code, headers = api_instance.reveal_uninstall_token_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRevealUninstallTokenRespV1>
+  p data # => <UninstallTokenRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->reveal_uninstall_token_with_http_info: #{e}"
 end
@@ -1075,11 +1077,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsRevealUninstallTokenV1**](RequestsRevealUninstallTokenV1.md) |  |  |
+| **body** | [**UninstallTokenRevealUninstallTokenReqV1**](UninstallTokenRevealUninstallTokenReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesRevealUninstallTokenRespV1**](ResponsesRevealUninstallTokenRespV1.md)
+[**UninstallTokenRespV1**](UninstallTokenRespV1.md)
 
 ### Authorization
 
@@ -1087,7 +1089,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1101,7 +1103,7 @@ Sets the precedence of Sensor Update Policies based on the order of IDs specifie
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1109,7 +1111,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # RequestsSetPolicyPrecedenceReqV1 | 
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
   # Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
@@ -1142,7 +1144,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSetPolicyPrecedenceReqV1**](RequestsSetPolicyPrecedenceReqV1.md) |  |  |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
 
 ### Return type
 
@@ -1154,13 +1156,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## update_sensor_update_policies
 
-> <ResponsesSensorUpdatePoliciesV1> update_sensor_update_policies(body)
+> <SensorUpdateRespV1> update_sensor_update_policies(body)
 
 Update Sensor Update Policies by specifying the ID of the policy and details to update
 
@@ -1168,7 +1170,7 @@ Update Sensor Update Policies by specifying the ID of the policy and details to 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1176,7 +1178,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsUpdateSensorUpdatePoliciesV1.new({resources: [Falcon::RequestsUpdateSensorUpdatePolicyV1.new({id: 'id_example'})]}) # RequestsUpdateSensorUpdatePoliciesV1 | 
+body = Falcon::SensorUpdateUpdatePoliciesReqV1.new({resources: [Falcon::SensorUpdateUpdatePolicyReqV1.new({id: 'id_example'})]}) # SensorUpdateUpdatePoliciesReqV1 | 
 
 begin
   # Update Sensor Update Policies by specifying the ID of the policy and details to update
@@ -1191,7 +1193,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV1>, Integer, Hash)> update_sensor_update_policies_with_http_info(body)
+> <Array(<SensorUpdateRespV1>, Integer, Hash)> update_sensor_update_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -1199,7 +1201,7 @@ begin
   data, status_code, headers = api_instance.update_sensor_update_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV1>
+  p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies_with_http_info: #{e}"
 end
@@ -1209,11 +1211,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateSensorUpdatePoliciesV1**](RequestsUpdateSensorUpdatePoliciesV1.md) |  |  |
+| **body** | [**SensorUpdateUpdatePoliciesReqV1**](SensorUpdateUpdatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV1**](ResponsesSensorUpdatePoliciesV1.md)
+[**SensorUpdateRespV1**](SensorUpdateRespV1.md)
 
 ### Authorization
 
@@ -1221,13 +1223,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## update_sensor_update_policies_v2
 
-> <ResponsesSensorUpdatePoliciesV2> update_sensor_update_policies_v2(body)
+> <SensorUpdateRespV2> update_sensor_update_policies_v2(body)
 
 Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 
@@ -1235,7 +1237,7 @@ Update Sensor Update Policies by specifying the ID of the policy and details to 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1243,7 +1245,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorUpdatePoliciesApi.new
-body = Falcon::RequestsUpdateSensorUpdatePoliciesV2.new({resources: [Falcon::RequestsUpdateSensorUpdatePolicyV2.new({id: 'id_example'})]}) # RequestsUpdateSensorUpdatePoliciesV2 | 
+body = Falcon::SensorUpdateUpdatePoliciesReqV2.new({resources: [Falcon::SensorUpdateUpdatePolicyReqV2.new({id: 'id_example'})]}) # SensorUpdateUpdatePoliciesReqV2 | 
 
 begin
   # Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
@@ -1258,7 +1260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSensorUpdatePoliciesV2>, Integer, Hash)> update_sensor_update_policies_v2_with_http_info(body)
+> <Array(<SensorUpdateRespV2>, Integer, Hash)> update_sensor_update_policies_v2_with_http_info(body)
 
 ```ruby
 begin
@@ -1266,7 +1268,7 @@ begin
   data, status_code, headers = api_instance.update_sensor_update_policies_v2_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSensorUpdatePoliciesV2>
+  p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies_v2_with_http_info: #{e}"
 end
@@ -1276,11 +1278,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateSensorUpdatePoliciesV2**](RequestsUpdateSensorUpdatePoliciesV2.md) |  |  |
+| **body** | [**SensorUpdateUpdatePoliciesReqV2**](SensorUpdateUpdatePoliciesReqV2.md) |  |  |
 
 ### Return type
 
-[**ResponsesSensorUpdatePoliciesV2**](ResponsesSensorUpdatePoliciesV2.md)
+[**SensorUpdateRespV2**](SensorUpdateRespV2.md)
 
 ### Authorization
 
@@ -1288,6 +1290,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

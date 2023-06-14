@@ -7,6 +7,7 @@
 | **cid** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
+| **index_timestamp** | **String** |  | [optional] |
 | **origin** | **String** |  | [optional] |
 | **sandbox** | [**Array&lt;FalconxSandboxParametersV1&gt;**](FalconxSandboxParametersV1.md) |  | [optional] |
 | **send_email_notification** | **Boolean** |  | [optional] |
@@ -19,12 +20,13 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxSubmissionV1.new(
   cid: null,
   created_timestamp: null,
   id: null,
+  index_timestamp: null,
   origin: null,
   sandbox: null,
   send_email_notification: null,

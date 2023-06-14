@@ -14,7 +14,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## crowd_score
 
-> <ApiMsaEnvironmentScoreResponse> crowd_score(opts)
+> <DomainMsaEnvironmentScoreResponse> crowd_score(opts)
 
 Query environment wide CrowdScore and return the entity data
 
@@ -22,7 +22,7 @@ Query environment wide CrowdScore and return the entity data
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -32,9 +32,9 @@ end
 api_instance = Falcon::IncidentsApi.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | The maximum records to return. [1-2500]
-  sort: 'score.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'adjusted_score.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
 }
 
 begin
@@ -50,7 +50,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaEnvironmentScoreResponse>, Integer, Hash)> crowd_score_with_http_info(opts)
+> <Array(<DomainMsaEnvironmentScoreResponse>, Integer, Hash)> crowd_score_with_http_info(opts)
 
 ```ruby
 begin
@@ -58,7 +58,7 @@ begin
   data, status_code, headers = api_instance.crowd_score_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaEnvironmentScoreResponse>
+  p data # => <DomainMsaEnvironmentScoreResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->crowd_score_with_http_info: #{e}"
 end
@@ -69,13 +69,13 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). | [optional] |
-| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **offset** | **Integer** | Starting index of overall result set from which to return ids. | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-2500] | [optional] |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
 
 ### Return type
 
-[**ApiMsaEnvironmentScoreResponse**](ApiMsaEnvironmentScoreResponse.md)
+[**DomainMsaEnvironmentScoreResponse**](DomainMsaEnvironmentScoreResponse.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ end
 
 ## get_behaviors
 
-> <ApiMsaExternalBehaviorResponse> get_behaviors(body)
+> <DomainMsaExternalBehaviorResponse> get_behaviors(body)
 
 Get details on behaviors by providing behavior IDs
 
@@ -97,7 +97,7 @@ Get details on behaviors by providing behavior IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -120,7 +120,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaExternalBehaviorResponse>, Integer, Hash)> get_behaviors_with_http_info(body)
+> <Array(<DomainMsaExternalBehaviorResponse>, Integer, Hash)> get_behaviors_with_http_info(body)
 
 ```ruby
 begin
@@ -128,7 +128,7 @@ begin
   data, status_code, headers = api_instance.get_behaviors_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaExternalBehaviorResponse>
+  p data # => <DomainMsaExternalBehaviorResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->get_behaviors_with_http_info: #{e}"
 end
@@ -142,7 +142,7 @@ end
 
 ### Return type
 
-[**ApiMsaExternalBehaviorResponse**](ApiMsaExternalBehaviorResponse.md)
+[**DomainMsaExternalBehaviorResponse**](DomainMsaExternalBehaviorResponse.md)
 
 ### Authorization
 
@@ -156,7 +156,7 @@ end
 
 ## get_incidents
 
-> <ApiMsaExternalIncidentResponse> get_incidents(body)
+> <DomainMsaExternalIncidentResponse> get_incidents(body)
 
 Get details on incidents by providing incident IDs
 
@@ -164,7 +164,7 @@ Get details on incidents by providing incident IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -187,7 +187,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaExternalIncidentResponse>, Integer, Hash)> get_incidents_with_http_info(body)
+> <Array(<DomainMsaExternalIncidentResponse>, Integer, Hash)> get_incidents_with_http_info(body)
 
 ```ruby
 begin
@@ -195,7 +195,7 @@ begin
   data, status_code, headers = api_instance.get_incidents_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaExternalIncidentResponse>
+  p data # => <DomainMsaExternalIncidentResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->get_incidents_with_http_info: #{e}"
 end
@@ -209,7 +209,7 @@ end
 
 ### Return type
 
-[**ApiMsaExternalIncidentResponse**](ApiMsaExternalIncidentResponse.md)
+[**DomainMsaExternalIncidentResponse**](DomainMsaExternalIncidentResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ end
 
 ## perform_incident_action
 
-> <MsaReplyMetaOnly> perform_incident_action(body)
+> <DomainMsaIncidentPerformActionResponse> perform_incident_action(body, opts)
 
 Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
 
@@ -231,7 +231,7 @@ Perform a set of actions on one or more incidents, such as adding tags or commen
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -239,11 +239,15 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IncidentsApi.new
-body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
+body = Falcon::DomainEntityActionRequest.new({ids: ['ids_example']}) # DomainEntityActionRequest | Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against.
+opts = {
+  update_detects: true, # Boolean | If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false
+  overwrite_detects: true # Boolean | If true and update-detects is true, the assigned-to-uuid or status for ALL detections associated with the incident(s) will be overwritten. If false, only detects that have default values for assigned-to-uuid and/or status will be updated. Defaults to false. Ignored if 'update-detects' is missing or false.
+}
 
 begin
   # Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
-  result = api_instance.perform_incident_action(body)
+  result = api_instance.perform_incident_action(body, opts)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->perform_incident_action: #{e}"
@@ -254,15 +258,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> perform_incident_action_with_http_info(body)
+> <Array(<DomainMsaIncidentPerformActionResponse>, Integer, Hash)> perform_incident_action_with_http_info(body, opts)
 
 ```ruby
 begin
   # Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
-  data, status_code, headers = api_instance.perform_incident_action_with_http_info(body)
+  data, status_code, headers = api_instance.perform_incident_action_with_http_info(body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <DomainMsaIncidentPerformActionResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->perform_incident_action_with_http_info: #{e}"
 end
@@ -272,11 +276,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) |  |  |
+| **body** | [**DomainEntityActionRequest**](DomainEntityActionRequest.md) | Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against. |  |
+| **update_detects** | **Boolean** | If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false | [optional][default to false] |
+| **overwrite_detects** | **Boolean** | If true and update-detects is true, the assigned-to-uuid or status for ALL detections associated with the incident(s) will be overwritten. If false, only detects that have default values for assigned-to-uuid and/or status will be updated. Defaults to false. Ignored if &#39;update-detects&#39; is missing or false. | [optional][default to false] |
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**DomainMsaIncidentPerformActionResponse**](DomainMsaIncidentPerformActionResponse.md)
 
 ### Authorization
 
@@ -298,7 +304,7 @@ Search for behaviors by providing an FQL filter, sorting, and paging details
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -308,9 +314,9 @@ end
 api_instance = Falcon::IncidentsApi.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'timestamp.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'cmdline.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
 }
 
 begin
@@ -345,7 +351,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). | [optional] |
-| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **offset** | **Integer** | Starting index of overall result set from which to return ids. | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
 
@@ -365,7 +371,7 @@ end
 
 ## query_incidents
 
-> <ApiMsaIncidentQueryResponse> query_incidents(opts)
+> <DomainMsaIncidentQueryResponse> query_incidents(opts)
 
 Search for incidents by providing an FQL filter, sorting, and paging details
 
@@ -373,7 +379,7 @@ Search for incidents by providing an FQL filter, sorting, and paging details
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -384,7 +390,7 @@ api_instance = Falcon::IncidentsApi.new
 opts = {
   sort: 'assigned_to.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
-  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56 # Integer | The maximum records to return. [1-500]
 }
 
@@ -401,7 +407,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiMsaIncidentQueryResponse>, Integer, Hash)> query_incidents_with_http_info(opts)
+> <Array(<DomainMsaIncidentQueryResponse>, Integer, Hash)> query_incidents_with_http_info(opts)
 
 ```ruby
 begin
@@ -409,7 +415,7 @@ begin
   data, status_code, headers = api_instance.query_incidents_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ApiMsaIncidentQueryResponse>
+  p data # => <DomainMsaIncidentQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IncidentsApi->query_incidents_with_http_info: #{e}"
 end
@@ -421,12 +427,12 @@ end
 | ---- | ---- | ----------- | ----- |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
 | **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). | [optional] |
-| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **offset** | **Integer** | Starting index of overall result set from which to return ids. | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 
 ### Return type
 
-[**ApiMsaIncidentQueryResponse**](ApiMsaIncidentQueryResponse.md)
+[**DomainMsaIncidentQueryResponse**](DomainMsaIncidentQueryResponse.md)
 
 ### Authorization
 

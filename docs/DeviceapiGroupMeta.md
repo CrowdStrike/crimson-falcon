@@ -5,14 +5,16 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **version** | **Integer** |  | [optional] |
+| **version_string** | **String** |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DeviceapiGroupMeta.new(
-  version: null
+  version: null,
+  version_string: null
 )
 ```
 

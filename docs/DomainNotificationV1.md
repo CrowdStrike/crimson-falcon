@@ -32,7 +32,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainNotificationV1.new(
   assigned_to_uid: null,

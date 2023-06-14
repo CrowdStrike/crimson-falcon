@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainRuleQueryResponseV1.new(
   errors: null,

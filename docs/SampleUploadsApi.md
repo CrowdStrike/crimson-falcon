@@ -4,9 +4,381 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**archive_delete_v1**](SampleUploadsApi.md#archive_delete_v1) | **DELETE** /archives/entities/archives/v1 | Delete an archive that was uploaded previously |
+| [**archive_get_v1**](SampleUploadsApi.md#archive_get_v1) | **GET** /archives/entities/archives/v1 | Retrieves the archives upload operation statuses. Status &#x60;done&#x60; means that archive was processed successfully. Status &#x60;error&#x60; means that archive was not processed successfully. |
+| [**archive_list_v1**](SampleUploadsApi.md#archive_list_v1) | **GET** /archives/entities/archive-files/v1 | Retrieves the archives files in chunks. |
+| [**archive_upload_v1**](SampleUploadsApi.md#archive_upload_v1) | **POST** /archives/entities/archives/v1 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of &#x60;/archives/entities/archives/v2&#x60; |
+| [**archive_upload_v2**](SampleUploadsApi.md#archive_upload_v2) | **POST** /archives/entities/archives/v2 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. |
 | [**delete_sample_v3**](SampleUploadsApi.md#delete_sample_v3) | **DELETE** /samples/entities/samples/v3 | Removes a sample, including file, meta and submissions from the collection |
+| [**extraction_create_v1**](SampleUploadsApi.md#extraction_create_v1) | **POST** /archives/entities/extractions/v1 | Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis. |
+| [**extraction_get_v1**](SampleUploadsApi.md#extraction_get_v1) | **GET** /archives/entities/extractions/v1 | Retrieves the files extraction operation statuses. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
+| [**extraction_list_v1**](SampleUploadsApi.md#extraction_list_v1) | **GET** /archives/entities/extraction-files/v1 | Retrieves the files extractions in chunks. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
 | [**get_sample_v3**](SampleUploadsApi.md#get_sample_v3) | **GET** /samples/entities/samples/v3 | Retrieves the file associated with the given ID (SHA256) |
 | [**upload_sample_v3**](SampleUploadsApi.md#upload_sample_v3) | **POST** /samples/entities/samples/v3 | Upload a file for further cloud analysis. After uploading, call the specific analysis API endpoint. |
+
+
+## archive_delete_v1
+
+> archive_delete_v1(id)
+
+Delete an archive that was uploaded previously
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+id = 'id_example' # String | The archive SHA256.
+
+begin
+  # Delete an archive that was uploaded previously
+  api_instance.archive_delete_v1(id)
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_delete_v1: #{e}"
+end
+```
+
+#### Using the archive_delete_v1_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> archive_delete_v1_with_http_info(id)
+
+```ruby
+begin
+  # Delete an archive that was uploaded previously
+  data, status_code, headers = api_instance.archive_delete_v1_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_delete_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The archive SHA256. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## archive_get_v1
+
+> <ClientArchiveCreateResponseV1> archive_get_v1(id, opts)
+
+Retrieves the archives upload operation statuses. Status `done` means that archive was processed successfully. Status `error` means that archive was not processed successfully.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+id = 'id_example' # String | The archive SHA256.
+opts = {
+  include_files: true # Boolean | If `true` includes processed archive files in response.
+}
+
+begin
+  # Retrieves the archives upload operation statuses. Status `done` means that archive was processed successfully. Status `error` means that archive was not processed successfully.
+  result = api_instance.archive_get_v1(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_get_v1: #{e}"
+end
+```
+
+#### Using the archive_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientArchiveCreateResponseV1>, Integer, Hash)> archive_get_v1_with_http_info(id, opts)
+
+```ruby
+begin
+  # Retrieves the archives upload operation statuses. Status `done` means that archive was processed successfully. Status `error` means that archive was not processed successfully.
+  data, status_code, headers = api_instance.archive_get_v1_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientArchiveCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The archive SHA256. |  |
+| **include_files** | **Boolean** | If &#x60;true&#x60; includes processed archive files in response. | [optional][default to false] |
+
+### Return type
+
+[**ClientArchiveCreateResponseV1**](ClientArchiveCreateResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## archive_list_v1
+
+> <ClientArchiveListFilesResponseV1> archive_list_v1(id, opts)
+
+Retrieves the archives files in chunks.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+id = 'id_example' # String | The archive SHA256.
+opts = {
+  limit: 56, # Integer | Max number of files to retrieve.
+  offset: 'offset_example' # String | Offset from where to get files.
+}
+
+begin
+  # Retrieves the archives files in chunks.
+  result = api_instance.archive_list_v1(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_list_v1: #{e}"
+end
+```
+
+#### Using the archive_list_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientArchiveListFilesResponseV1>, Integer, Hash)> archive_list_v1_with_http_info(id, opts)
+
+```ruby
+begin
+  # Retrieves the archives files in chunks.
+  data, status_code, headers = api_instance.archive_list_v1_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientArchiveListFilesResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_list_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The archive SHA256. |  |
+| **limit** | **Integer** | Max number of files to retrieve. | [optional][default to 100] |
+| **offset** | **String** | Offset from where to get files. | [optional] |
+
+### Return type
+
+[**ClientArchiveListFilesResponseV1**](ClientArchiveListFilesResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## archive_upload_v1
+
+> <ClientArchiveCreateResponseV1> archive_upload_v1(name, body, opts)
+
+Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of `/archives/entities/archives/v2`
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+name = 'name_example' # String | Name of the archive.
+body = [37] # Array<Integer> | Content of the uploaded archive in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 100 MB.  Accepted file formats:  - Portable executables: `.zip`, `.7z`.
+opts = {
+  password: 'password_example', # String | Archive password.
+  is_confidential: true, # Boolean | Defines visibility of this file, either via the API or the Falcon console.  - `true`: File is only shown to users within your customer account - `false`: File can be seen by other CrowdStrike customers   Default: `true`.
+  comment: 'comment_example' # String | A descriptive comment to identify the file for other users.
+}
+
+begin
+  # Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of `/archives/entities/archives/v2`
+  result = api_instance.archive_upload_v1(name, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_upload_v1: #{e}"
+end
+```
+
+#### Using the archive_upload_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientArchiveCreateResponseV1>, Integer, Hash)> archive_upload_v1_with_http_info(name, body, opts)
+
+```ruby
+begin
+  # Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of `/archives/entities/archives/v2`
+  data, status_code, headers = api_instance.archive_upload_v1_with_http_info(name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientArchiveCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_upload_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | Name of the archive. |  |
+| **body** | [**Array&lt;Integer&gt;**](Integer.md) | Content of the uploaded archive in binary format. For example, use &#x60;--data-binary @$FILE_PATH&#x60; when using cURL. Max file size: 100 MB.  Accepted file formats:  - Portable executables: &#x60;.zip&#x60;, &#x60;.7z&#x60;. |  |
+| **password** | **String** | Archive password. | [optional] |
+| **is_confidential** | **Boolean** | Defines visibility of this file, either via the API or the Falcon console.  - &#x60;true&#x60;: File is only shown to users within your customer account - &#x60;false&#x60;: File can be seen by other CrowdStrike customers   Default: &#x60;true&#x60;. | [optional][default to true] |
+| **comment** | **String** | A descriptive comment to identify the file for other users. | [optional] |
+
+### Return type
+
+[**ClientArchiveCreateResponseV1**](ClientArchiveCreateResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/octet-stream, application/zip, application/x-7z-compressed, application/x-zip-compressed
+- **Accept**: application/json
+
+
+## archive_upload_v2
+
+> <ClientArchiveCreateResponseV1> archive_upload_v2(file, name, opts)
+
+Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+file = File.new('/path/to/some/file') # File | Content of the uploaded archive. For example, use `--form file=@$FILE_PATH;type=` when using cURL. Supported file types are `application/zip` and `application/x-7z-compressed`.
+name = 'name_example' # String | Name of the archive. For example, use `--form name=` when using cURL.
+opts = {
+  password: 'password_example', # String | Archive password. For example, use `--form password=` when using cURL.
+  is_confidential: true, # Boolean | Defines visibility of this file in Falcon MalQuery, either via the API or the Falcon console. For example, use `--form is_confidential=` when using cURL.  - `true`: File is only shown to users within your customer account - `false`: File can be seen by other CrowdStrike customers   Default: `true`.
+  comment: 'comment_example' # String | A descriptive comment to identify the file for other users. For example, use `--form comment=` when using cURL.
+}
+
+begin
+  # Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis.
+  result = api_instance.archive_upload_v2(file, name, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_upload_v2: #{e}"
+end
+```
+
+#### Using the archive_upload_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientArchiveCreateResponseV1>, Integer, Hash)> archive_upload_v2_with_http_info(file, name, opts)
+
+```ruby
+begin
+  # Uploads an archive and extracts files list from it. Operation is asynchronous use `/archives/entities/archives/v1` to check the status. After uploading, use `/archives/entities/extractions/v1` to copy the file to internal storage making it available for content analysis.
+  data, status_code, headers = api_instance.archive_upload_v2_with_http_info(file, name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientArchiveCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->archive_upload_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **file** | **File** | Content of the uploaded archive. For example, use &#x60;--form file&#x3D;@$FILE_PATH;type&#x3D;&#x60; when using cURL. Supported file types are &#x60;application/zip&#x60; and &#x60;application/x-7z-compressed&#x60;. |  |
+| **name** | **String** | Name of the archive. For example, use &#x60;--form name&#x3D;&#x60; when using cURL. |  |
+| **password** | **String** | Archive password. For example, use &#x60;--form password&#x3D;&#x60; when using cURL. | [optional] |
+| **is_confidential** | **Boolean** | Defines visibility of this file in Falcon MalQuery, either via the API or the Falcon console. For example, use &#x60;--form is_confidential&#x3D;&#x60; when using cURL.  - &#x60;true&#x60;: File is only shown to users within your customer account - &#x60;false&#x60;: File can be seen by other CrowdStrike customers   Default: &#x60;true&#x60;. | [optional][default to true] |
+| **comment** | **String** | A descriptive comment to identify the file for other users. For example, use &#x60;--form comment&#x3D;&#x60; when using cURL. | [optional] |
+
+### Return type
+
+[**ClientArchiveCreateResponseV1**](ClientArchiveCreateResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
 
 
 ## delete_sample_v3
@@ -19,7 +391,7 @@ Removes a sample, including file, meta and submissions from the collection
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -76,6 +448,217 @@ end
 - **Accept**: application/json
 
 
+## extraction_create_v1
+
+> <ClientExtractionCreateResponseV1> extraction_create_v1(body)
+
+Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+body = Falcon::ClientExtractionCreateRequestV1.new # ClientExtractionCreateRequestV1 | 
+
+begin
+  # Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
+  result = api_instance.extraction_create_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_create_v1: #{e}"
+end
+```
+
+#### Using the extraction_create_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientExtractionCreateResponseV1>, Integer, Hash)> extraction_create_v1_with_http_info(body)
+
+```ruby
+begin
+  # Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
+  data, status_code, headers = api_instance.extraction_create_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientExtractionCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_create_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientExtractionCreateRequestV1**](ClientExtractionCreateRequestV1.md) |  |  |
+
+### Return type
+
+[**ClientExtractionCreateResponseV1**](ClientExtractionCreateResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## extraction_get_v1
+
+> <ClientExtractionCreateResponseV1> extraction_get_v1(id, opts)
+
+Retrieves the files extraction operation statuses. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+id = 'id_example' # String | The extraction operation ID.
+opts = {
+  include_files: true # Boolean | If `true` includes processed archive files in response.
+}
+
+begin
+  # Retrieves the files extraction operation statuses. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+  result = api_instance.extraction_get_v1(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_get_v1: #{e}"
+end
+```
+
+#### Using the extraction_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientExtractionCreateResponseV1>, Integer, Hash)> extraction_get_v1_with_http_info(id, opts)
+
+```ruby
+begin
+  # Retrieves the files extraction operation statuses. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+  data, status_code, headers = api_instance.extraction_get_v1_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientExtractionCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The extraction operation ID. |  |
+| **include_files** | **Boolean** | If &#x60;true&#x60; includes processed archive files in response. | [optional][default to false] |
+
+### Return type
+
+[**ClientExtractionCreateResponseV1**](ClientExtractionCreateResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## extraction_list_v1
+
+> <ClientExtractionListFilesResponseV1> extraction_list_v1(id, opts)
+
+Retrieves the files extractions in chunks. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::SampleUploadsApi.new
+id = 'id_example' # String | The extraction operation ID.
+opts = {
+  limit: 56, # Integer | Max number of file extractions to retrieve.
+  offset: 'offset_example' # String | Offset from where to get file extractions.
+}
+
+begin
+  # Retrieves the files extractions in chunks. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+  result = api_instance.extraction_list_v1(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_list_v1: #{e}"
+end
+```
+
+#### Using the extraction_list_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientExtractionListFilesResponseV1>, Integer, Hash)> extraction_list_v1_with_http_info(id, opts)
+
+```ruby
+begin
+  # Retrieves the files extractions in chunks. Status `done` means that all files were processed successfully. Status `error` means that at least one of the file could not be processed.
+  data, status_code, headers = api_instance.extraction_list_v1_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientExtractionListFilesResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SampleUploadsApi->extraction_list_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The extraction operation ID. |  |
+| **limit** | **Integer** | Max number of file extractions to retrieve. | [optional][default to 0] |
+| **offset** | **String** | Offset from where to get file extractions. | [optional] |
+
+### Return type
+
+[**ClientExtractionListFilesResponseV1**](ClientExtractionListFilesResponseV1.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_sample_v3
 
 > String get_sample_v3(ids, opts)
@@ -86,7 +669,7 @@ Retrieves the file associated with the given ID (SHA256)
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -157,7 +740,7 @@ Upload a file for further cloud analysis. After uploading, call the specific ana
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

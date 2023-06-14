@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrFirewallFieldValue.new(
   final_value: null,

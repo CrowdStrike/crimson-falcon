@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DeviceapiUpdateDeviceDetailsResponseV1.new(
   code: null,

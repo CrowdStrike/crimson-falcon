@@ -4,13 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **meta_info** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **meta_info** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 | **pagination** | [**RegistrationMSAPagingExtension**](RegistrationMSAPagingExtension.md) |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationMSAMetaInfoExtension.new(
   meta_info: null,

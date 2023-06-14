@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **meta** | [**DomainMetaInfo**](DomainMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainSignalProperties&gt;**](DomainSignalProperties.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainAssessmentsResponse.new(
   errors: null,

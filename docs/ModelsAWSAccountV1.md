@@ -26,7 +26,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ModelsAWSAccountV1.new(
   access_health: null,

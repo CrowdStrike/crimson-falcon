@@ -24,13 +24,13 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**revoke_user_role_ids**](UserManagementApi.md#revoke_user_role_ids) | **DELETE** /user-roles/entities/user-roles/v1 | Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user |
 | [**update_user**](UserManagementApi.md#update_user) | **PATCH** /users/entities/users/v1 | Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an existing user&#39;s first or last name |
 | [**update_user_v1**](UserManagementApi.md#update_user_v1) | **PATCH** /user-management/entities/users/v1 | Modify an existing user&#39;s first or last name. |
-| [**user_action_v1**](UserManagementApi.md#user_action_v1) | **POST** /user-management/entities/user-actions/v1 | Apply actions to one or more User. Available action names: reset_2fa, reset_password. |
-| [**user_roles_action_v1**](UserManagementApi.md#user_roles_action_v1) | **POST** /user-management/entities/user-role-actions/v1 | Grant or Revoke one or more role(s) to a user against a CID. |
+| [**user_action_v1**](UserManagementApi.md#user_action_v1) | **POST** /user-management/entities/user-actions/v1 | Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in &#x60;ids&#x60; param as part of request payload. |
+| [**user_roles_action_v1**](UserManagementApi.md#user_roles_action_v1) | **POST** /user-management/entities/user-role-actions/v1 | Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke |
 
 
 ## combined_user_roles_v1
 
-> <DomainMsaUserGrantsResponse> combined_user_roles_v1(user_uuid, opts)
+> <FlightcontrolapiUserGrantResponse> combined_user_roles_v1(user_uuid, opts)
 
 Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
@@ -38,7 +38,7 @@ Get User Grant(s). This endpoint lists both direct as well as flight control gra
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -50,7 +50,7 @@ user_uuid = 'user_uuid_example' # String | User UUID to get available roles for.
 opts = {
   cid: 'cid_example', # String | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
   direct_only: true, # Boolean | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
-  filter: 'role_id', # String | The filter expression that should be used to limit the results
+  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'cid|asc' # String | The property to sort by
@@ -69,7 +69,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaUserGrantsResponse>, Integer, Hash)> combined_user_roles_v1_with_http_info(user_uuid, opts)
+> <Array(<FlightcontrolapiUserGrantResponse>, Integer, Hash)> combined_user_roles_v1_with_http_info(user_uuid, opts)
 
 ```ruby
 begin
@@ -77,7 +77,7 @@ begin
   data, status_code, headers = api_instance.combined_user_roles_v1_with_http_info(user_uuid, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaUserGrantsResponse>
+  p data # => <FlightcontrolapiUserGrantResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->combined_user_roles_v1_with_http_info: #{e}"
 end
@@ -90,14 +90,14 @@ end
 | **user_uuid** | **String** | User UUID to get available roles for. |  |
 | **cid** | **String** | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view. | [optional] |
 | **direct_only** | **Boolean** | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params) | [optional][default to false] |
-| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional][default to 0] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional][default to 100] |
 | **sort** | **String** | The property to sort by | [optional][default to &#39;role_name|asc&#39;] |
 
 ### Return type
 
-[**DomainMsaUserGrantsResponse**](DomainMsaUserGrantsResponse.md)
+[**FlightcontrolapiUserGrantResponse**](FlightcontrolapiUserGrantResponse.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ Deprecated : Please use POST /user-management/entities/users/v1. Create a new us
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -178,7 +178,7 @@ end
 
 ## create_user_v1
 
-> <DomainMsaEntitiesUsersResponse> create_user_v1(body, opts)
+> <FlightcontrolapiUserResponse> create_user_v1(body, opts)
 
 Create a new user. After creating a user, assign one or more roles with POST '/user-management/entities/user-role-actions/v1'
 
@@ -186,7 +186,7 @@ Create a new user. After creating a user, assign one or more roles with POST '/u
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -212,7 +212,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaEntitiesUsersResponse>, Integer, Hash)> create_user_v1_with_http_info(body, opts)
+> <Array(<FlightcontrolapiUserResponse>, Integer, Hash)> create_user_v1_with_http_info(body, opts)
 
 ```ruby
 begin
@@ -220,7 +220,7 @@ begin
   data, status_code, headers = api_instance.create_user_v1_with_http_info(body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaEntitiesUsersResponse>
+  p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->create_user_v1_with_http_info: #{e}"
 end
@@ -235,7 +235,7 @@ end
 
 ### Return type
 
-[**DomainMsaEntitiesUsersResponse**](DomainMsaEntitiesUsersResponse.md)
+[**FlightcontrolapiUserResponse**](FlightcontrolapiUserResponse.md)
 
 ### Authorization
 
@@ -257,7 +257,7 @@ Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -316,7 +316,7 @@ end
 
 ## delete_user_v1
 
-> <MsaReplyMetaOnly> delete_user_v1(user_uuid)
+> <MsaspecResponseFields> delete_user_v1(user_uuid)
 
 Delete a user permanently.
 
@@ -324,7 +324,7 @@ Delete a user permanently.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -347,7 +347,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> delete_user_v1_with_http_info(user_uuid)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> delete_user_v1_with_http_info(user_uuid)
 
 ```ruby
 begin
@@ -355,7 +355,7 @@ begin
   data, status_code, headers = api_instance.delete_user_v1_with_http_info(user_uuid)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->delete_user_v1_with_http_info: #{e}"
 end
@@ -369,7 +369,7 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ end
 
 ## entities_roles_v1
 
-> <DomainMsaEntitiesRolesResponse> entities_roles_v1(ids, opts)
+> <FlightcontrolapiGetRolesResponse> entities_roles_v1(ids, opts)
 
 Get info about a role
 
@@ -391,7 +391,7 @@ Get info about a role
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -417,7 +417,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaEntitiesRolesResponse>, Integer, Hash)> entities_roles_v1_with_http_info(ids, opts)
+> <Array(<FlightcontrolapiGetRolesResponse>, Integer, Hash)> entities_roles_v1_with_http_info(ids, opts)
 
 ```ruby
 begin
@@ -425,7 +425,7 @@ begin
   data, status_code, headers = api_instance.entities_roles_v1_with_http_info(ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaEntitiesRolesResponse>
+  p data # => <FlightcontrolapiGetRolesResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->entities_roles_v1_with_http_info: #{e}"
 end
@@ -440,7 +440,7 @@ end
 
 ### Return type
 
-[**DomainMsaEntitiesRolesResponse**](DomainMsaEntitiesRolesResponse.md)
+[**FlightcontrolapiGetRolesResponse**](FlightcontrolapiGetRolesResponse.md)
 
 ### Authorization
 
@@ -462,7 +462,7 @@ Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -526,7 +526,7 @@ Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -593,7 +593,7 @@ Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role I
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -660,7 +660,7 @@ Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Ass
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -721,7 +721,7 @@ end
 
 ## queries_roles_v1
 
-> <MsaQueryResponse> queries_roles_v1(opts)
+> <MsaspecQueryResponse> queries_roles_v1(opts)
 
 Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to `/user-management/entities/roles/v1`.
 
@@ -729,7 +729,7 @@ Show role IDs for all roles available in your customer account. For more informa
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -739,7 +739,8 @@ end
 api_instance = Falcon::UserManagementApi.new
 opts = {
   cid: 'cid_example', # String | Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
-  user_uuid: 'user_uuid_example' # String | User UUID to get available roles for. Empty User UUID would returns all roles IDs available for customer.
+  user_uuid: 'user_uuid_example', # String | User UUID to get available roles for. Empty User UUID would returns all roles IDs available for customer.
+  action: 'action_example' # String | Actionable purpose of the query
 }
 
 begin
@@ -755,7 +756,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> queries_roles_v1_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> queries_roles_v1_with_http_info(opts)
 
 ```ruby
 begin
@@ -763,7 +764,7 @@ begin
   data, status_code, headers = api_instance.queries_roles_v1_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->queries_roles_v1_with_http_info: #{e}"
 end
@@ -775,10 +776,11 @@ end
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** | Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view. | [optional] |
 | **user_uuid** | **String** | User UUID to get available roles for. Empty User UUID would returns all roles IDs available for customer. | [optional] |
+| **action** | **String** | Actionable purpose of the query | [optional][default to &#39;grant&#39;] |
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -792,7 +794,7 @@ end
 
 ## query_user_v1
 
-> <MsaQueryResponse> query_user_v1(opts)
+> <MsaspecQueryResponse> query_user_v1(opts)
 
 List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/user-management/entities/users/GET/v1`.
 
@@ -800,7 +802,7 @@ List user IDs for all users in your customer account. For more information on ea
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -809,10 +811,10 @@ end
 
 api_instance = Falcon::UserManagementApi.new
 opts = {
-  filter: 'assigned_cids', # String | The filter expression that should be used to limit the results
+  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'first_name|asc' # String | The property to sort by
+  sort: 'cid_name|asc' # String | The property to sort by
 }
 
 begin
@@ -828,7 +830,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_user_v1_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_user_v1_with_http_info(opts)
 
 ```ruby
 begin
@@ -836,7 +838,7 @@ begin
   data, status_code, headers = api_instance.query_user_v1_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->query_user_v1_with_http_info: #{e}"
 end
@@ -846,14 +848,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional][default to 0] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional][default to 100] |
 | **sort** | **String** | The property to sort by | [optional][default to &#39;uid|asc&#39;] |
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -875,7 +877,7 @@ Deprecated : Please use POST /user-management/entities/users/GET/v1. List the us
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -939,7 +941,7 @@ Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info ab
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1006,7 +1008,7 @@ Deprecated : Please use GET /user-management/queries/users/v1. Get a user's ID b
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1073,7 +1075,7 @@ Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1129,7 +1131,7 @@ This endpoint does not need any parameter.
 
 ## retrieve_users_getv1
 
-> <DomainMsaEntitiesUsersResponse> retrieve_users_getv1(body)
+> <FlightcontrolapiUserResponse> retrieve_users_getv1(body)
 
 Get info about users including their name, UID and CID by providing user UUIDs
 
@@ -1137,7 +1139,7 @@ Get info about users including their name, UID and CID by providing user UUIDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1145,7 +1147,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::UserManagementApi.new
-body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | Maximum of 5000 User UUIDs can be specified per request.
+body = Falcon::MsaspecIdsRequest.new({ids: ['ids_example']}) # MsaspecIdsRequest | Maximum of 5000 User UUIDs can be specified per request.
 
 begin
   # Get info about users including their name, UID and CID by providing user UUIDs
@@ -1160,7 +1162,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaEntitiesUsersResponse>, Integer, Hash)> retrieve_users_getv1_with_http_info(body)
+> <Array(<FlightcontrolapiUserResponse>, Integer, Hash)> retrieve_users_getv1_with_http_info(body)
 
 ```ruby
 begin
@@ -1168,7 +1170,7 @@ begin
   data, status_code, headers = api_instance.retrieve_users_getv1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaEntitiesUsersResponse>
+  p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->retrieve_users_getv1_with_http_info: #{e}"
 end
@@ -1178,11 +1180,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) | Maximum of 5000 User UUIDs can be specified per request. |  |
+| **body** | [**MsaspecIdsRequest**](MsaspecIdsRequest.md) | Maximum of 5000 User UUIDs can be specified per request. |  |
 
 ### Return type
 
-[**DomainMsaEntitiesUsersResponse**](DomainMsaEntitiesUsersResponse.md)
+[**FlightcontrolapiUserResponse**](FlightcontrolapiUserResponse.md)
 
 ### Authorization
 
@@ -1204,7 +1206,7 @@ Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Rev
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1273,7 +1275,7 @@ Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an exis
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1334,7 +1336,7 @@ end
 
 ## update_user_v1
 
-> <DomainMsaEntitiesUsersResponse> update_user_v1(user_uuid, body)
+> <FlightcontrolapiUserResponse> update_user_v1(user_uuid, body)
 
 Modify an existing user's first or last name.
 
@@ -1342,7 +1344,7 @@ Modify an existing user's first or last name.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1366,7 +1368,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainMsaEntitiesUsersResponse>, Integer, Hash)> update_user_v1_with_http_info(user_uuid, body)
+> <Array(<FlightcontrolapiUserResponse>, Integer, Hash)> update_user_v1_with_http_info(user_uuid, body)
 
 ```ruby
 begin
@@ -1374,7 +1376,7 @@ begin
   data, status_code, headers = api_instance.update_user_v1_with_http_info(user_uuid, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainMsaEntitiesUsersResponse>
+  p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->update_user_v1_with_http_info: #{e}"
 end
@@ -1389,7 +1391,7 @@ end
 
 ### Return type
 
-[**DomainMsaEntitiesUsersResponse**](DomainMsaEntitiesUsersResponse.md)
+[**FlightcontrolapiUserResponse**](FlightcontrolapiUserResponse.md)
 
 ### Authorization
 
@@ -1403,15 +1405,15 @@ end
 
 ## user_action_v1
 
-> <MsaReplyMetaOnly> user_action_v1(body)
+> <MsaspecResponseFields> user_action_v1(body)
 
-Apply actions to one or more User. Available action names: reset_2fa, reset_password.
+Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in `ids` param as part of request payload.
 
 ### Examples
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1419,10 +1421,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::UserManagementApi.new
-body = Falcon::DomainUserActionRequest.new({action: Falcon::DomainUserAction.new({action_name: 'reset_password'}), ids: ['ids_example']}) # DomainUserActionRequest | User UUIDs and Action Name params are required. Allowed values for Action Name param includes 'reset_2fa' and 'reset_password'
+body = Falcon::DomainUserActionRequest.new({action: Falcon::DomainUserAction.new, ids: ['ids_example']}) # DomainUserActionRequest | User UUIDs and Action Name params are required. Allowed values for Action Name param includes 'reset_2fa' and 'reset_password'
 
 begin
-  # Apply actions to one or more User. Available action names: reset_2fa, reset_password.
+  # Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in `ids` param as part of request payload.
   result = api_instance.user_action_v1(body)
   p result
 rescue Falcon::ApiError => e
@@ -1434,15 +1436,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> user_action_v1_with_http_info(body)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> user_action_v1_with_http_info(body)
 
 ```ruby
 begin
-  # Apply actions to one or more User. Available action names: reset_2fa, reset_password.
+  # Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in `ids` param as part of request payload.
   data, status_code, headers = api_instance.user_action_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->user_action_v1_with_http_info: #{e}"
 end
@@ -1456,7 +1458,7 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
@@ -1470,15 +1472,15 @@ end
 
 ## user_roles_action_v1
 
-> <MsaReplyMetaOnly> user_roles_action_v1(body)
+> <MsaspecResponseFields> user_roles_action_v1(body)
 
-Grant or Revoke one or more role(s) to a user against a CID.
+Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
 
 ### Examples
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1489,7 +1491,7 @@ api_instance = Falcon::UserManagementApi.new
 body = Falcon::DomainActionUserRolesRequest.new # DomainActionUserRolesRequest | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
 
 begin
-  # Grant or Revoke one or more role(s) to a user against a CID.
+  # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
   result = api_instance.user_roles_action_v1(body)
   p result
 rescue Falcon::ApiError => e
@@ -1501,15 +1503,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> user_roles_action_v1_with_http_info(body)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> user_roles_action_v1_with_http_info(body)
 
 ```ruby
 begin
-  # Grant or Revoke one or more role(s) to a user against a CID.
+  # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
   data, status_code, headers = api_instance.user_roles_action_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling UserManagementApi->user_roles_action_v1_with_http_info: #{e}"
 end
@@ -1523,7 +1525,7 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 

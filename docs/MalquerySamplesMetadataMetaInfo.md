@@ -4,17 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
+| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** |  | [optional] |
 | **status** | **String** |  | [optional] |
 | **trace_id** | **String** |  |  |
-| **writes** | [**MsaResources**](MsaResources.md) |  | [optional] |
+| **writes** | [**MsaspecWrites**](MsaspecWrites.md) |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MalquerySamplesMetadataMetaInfo.new(
   pagination: null,

@@ -18,7 +18,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_rt_response_policies
 
-> <ResponsesRTResponsePoliciesV1> create_rt_response_policies(body)
+> <RemoteResponseRespV1> create_rt_response_policies(body)
 
 Create Response Policies by specifying details about the policy to create
 
@@ -26,7 +26,7 @@ Create Response Policies by specifying details about the policy to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -34,7 +34,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ResponsePoliciesApi.new
-body = Falcon::RequestsCreateRTResponsePoliciesV1.new({resources: [Falcon::RequestsCreateRTResponsePolicyV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RequestsCreateRTResponsePoliciesV1 | 
+body = Falcon::RemoteResponseCreatePoliciesV1.new({resources: [Falcon::RemoteResponseCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RemoteResponseCreatePoliciesV1 | 
 
 begin
   # Create Response Policies by specifying details about the policy to create
@@ -49,7 +49,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRTResponsePoliciesV1>, Integer, Hash)> create_rt_response_policies_with_http_info(body)
+> <Array(<RemoteResponseRespV1>, Integer, Hash)> create_rt_response_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -57,7 +57,7 @@ begin
   data, status_code, headers = api_instance.create_rt_response_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRTResponsePoliciesV1>
+  p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->create_rt_response_policies_with_http_info: #{e}"
 end
@@ -67,11 +67,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateRTResponsePoliciesV1**](RequestsCreateRTResponsePoliciesV1.md) |  |  |
+| **body** | [**RemoteResponseCreatePoliciesV1**](RemoteResponseCreatePoliciesV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesRTResponsePoliciesV1**](ResponsesRTResponsePoliciesV1.md)
+[**RemoteResponseRespV1**](RemoteResponseRespV1.md)
 
 ### Authorization
 
@@ -79,7 +79,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -93,7 +93,7 @@ Delete a set of Response Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -152,7 +152,7 @@ end
 
 ## get_rt_response_policies
 
-> <ResponsesRTResponsePoliciesV1> get_rt_response_policies(ids)
+> <RemoteResponseRespV1> get_rt_response_policies(ids)
 
 Retrieve a set of Response Policies by specifying their IDs
 
@@ -160,7 +160,7 @@ Retrieve a set of Response Policies by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -183,7 +183,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRTResponsePoliciesV1>, Integer, Hash)> get_rt_response_policies_with_http_info(ids)
+> <Array(<RemoteResponseRespV1>, Integer, Hash)> get_rt_response_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -191,7 +191,7 @@ begin
   data, status_code, headers = api_instance.get_rt_response_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRTResponsePoliciesV1>
+  p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->get_rt_response_policies_with_http_info: #{e}"
 end
@@ -205,7 +205,7 @@ end
 
 ### Return type
 
-[**ResponsesRTResponsePoliciesV1**](ResponsesRTResponsePoliciesV1.md)
+[**RemoteResponseRespV1**](RemoteResponseRespV1.md)
 
 ### Authorization
 
@@ -219,7 +219,7 @@ end
 
 ## perform_rt_response_policies_action
 
-> <ResponsesRTResponsePoliciesV1> perform_rt_response_policies_action(action_name, body)
+> <RemoteResponseRespV1> perform_rt_response_policies_action(action_name, body)
 
 Perform the specified action on the Response Policies specified in the request
 
@@ -227,7 +227,7 @@ Perform the specified action on the Response Policies specified in the request
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -251,7 +251,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRTResponsePoliciesV1>, Integer, Hash)> perform_rt_response_policies_action_with_http_info(action_name, body)
+> <Array(<RemoteResponseRespV1>, Integer, Hash)> perform_rt_response_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -259,7 +259,7 @@ begin
   data, status_code, headers = api_instance.perform_rt_response_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRTResponsePoliciesV1>
+  p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->perform_rt_response_policies_action_with_http_info: #{e}"
 end
@@ -274,7 +274,7 @@ end
 
 ### Return type
 
-[**ResponsesRTResponsePoliciesV1**](ResponsesRTResponsePoliciesV1.md)
+[**RemoteResponseRespV1**](RemoteResponseRespV1.md)
 
 ### Authorization
 
@@ -282,13 +282,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_rt_response_policies
 
-> <ResponsesRTResponsePoliciesV1> query_combined_rt_response_policies(opts)
+> <RemoteResponseRespV1> query_combined_rt_response_policies(opts)
 
 Search for Response Policies in your environment by providing an FQL filter and paging details. Returns a set of Response Policies which match the filter criteria
 
@@ -296,7 +296,7 @@ Search for Response Policies in your environment by providing an FQL filter and 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRTResponsePoliciesV1>, Integer, Hash)> query_combined_rt_response_policies_with_http_info(opts)
+> <Array(<RemoteResponseRespV1>, Integer, Hash)> query_combined_rt_response_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.query_combined_rt_response_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRTResponsePoliciesV1>
+  p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policies_with_http_info: #{e}"
 end
@@ -349,7 +349,7 @@ end
 
 ### Return type
 
-[**ResponsesRTResponsePoliciesV1**](ResponsesRTResponsePoliciesV1.md)
+[**RemoteResponseRespV1**](RemoteResponseRespV1.md)
 
 ### Authorization
 
@@ -363,7 +363,7 @@ end
 
 ## query_combined_rt_response_policy_members
 
-> <ResponsesPolicyMembersRespV1> query_combined_rt_response_policy_members(opts)
+> <BasePolicyMembersRespV1> query_combined_rt_response_policy_members(opts)
 
 Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -371,7 +371,7 @@ Search for members of a Response policy in your environment by providing an FQL 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -400,7 +400,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesPolicyMembersRespV1>, Integer, Hash)> query_combined_rt_response_policy_members_with_http_info(opts)
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_rt_response_policy_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -408,7 +408,7 @@ begin
   data, status_code, headers = api_instance.query_combined_rt_response_policy_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesPolicyMembersRespV1>
+  p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policy_members_with_http_info: #{e}"
 end
@@ -426,7 +426,7 @@ end
 
 ### Return type
 
-[**ResponsesPolicyMembersRespV1**](ResponsesPolicyMembersRespV1.md)
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
 
 ### Authorization
 
@@ -448,7 +448,7 @@ Search for Response Policies in your environment by providing an FQL filter with
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -523,7 +523,7 @@ Search for members of a Response policy in your environment by providing an FQL 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -600,7 +600,7 @@ Sets the precedence of Response Policies based on the order of IDs specified in 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -608,7 +608,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ResponsePoliciesApi.new
-body = Falcon::RequestsSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # RequestsSetPolicyPrecedenceReqV1 | 
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
   # Sets the precedence of Response Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
@@ -641,7 +641,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSetPolicyPrecedenceReqV1**](RequestsSetPolicyPrecedenceReqV1.md) |  |  |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
 
 ### Return type
 
@@ -653,13 +653,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## update_rt_response_policies
 
-> <ResponsesRTResponsePoliciesV1> update_rt_response_policies(body)
+> <RemoteResponseRespV1> update_rt_response_policies(body)
 
 Update Response Policies by specifying the ID of the policy and details to update
 
@@ -667,7 +667,7 @@ Update Response Policies by specifying the ID of the policy and details to updat
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -675,7 +675,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ResponsePoliciesApi.new
-body = Falcon::RequestsUpdateRTResponsePoliciesV1.new({resources: [Falcon::RequestsUpdateRTResponsePolicyV1.new({id: 'id_example', settings: [Falcon::RequestsPreventionSettingV1.new({id: 'id_example', value: 3.56})]})]}) # RequestsUpdateRTResponsePoliciesV1 | 
+body = Falcon::RemoteResponseUpdatePoliciesReqV1.new({resources: [Falcon::RemoteResponseUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # RemoteResponseUpdatePoliciesReqV1 | 
 
 begin
   # Update Response Policies by specifying the ID of the policy and details to update
@@ -690,7 +690,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesRTResponsePoliciesV1>, Integer, Hash)> update_rt_response_policies_with_http_info(body)
+> <Array(<RemoteResponseRespV1>, Integer, Hash)> update_rt_response_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -698,7 +698,7 @@ begin
   data, status_code, headers = api_instance.update_rt_response_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesRTResponsePoliciesV1>
+  p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ResponsePoliciesApi->update_rt_response_policies_with_http_info: #{e}"
 end
@@ -708,11 +708,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateRTResponsePoliciesV1**](RequestsUpdateRTResponsePoliciesV1.md) |  |  |
+| **body** | [**RemoteResponseUpdatePoliciesReqV1**](RemoteResponseUpdatePoliciesReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesRTResponsePoliciesV1**](ResponsesRTResponsePoliciesV1.md)
+[**RemoteResponseRespV1**](RemoteResponseRespV1.md)
 
 ### Authorization
 
@@ -720,6 +720,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

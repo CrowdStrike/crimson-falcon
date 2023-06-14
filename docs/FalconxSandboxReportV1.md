@@ -14,6 +14,7 @@
 | **error_message** | **String** |  | [optional] |
 | **error_origin** | **String** |  | [optional] |
 | **error_type** | **String** |  | [optional] |
+| **exact_deep_hash** | **String** |  | [optional] |
 | **extracted_files** | [**Array&lt;FalconxExtractedFile&gt;**](FalconxExtractedFile.md) |  | [optional] |
 | **extracted_interesting_strings** | [**Array&lt;FalconxExtractedInterestingString&gt;**](FalconxExtractedInterestingString.md) |  | [optional] |
 | **file_imports** | [**Array&lt;FalconxFileImport&gt;**](FalconxFileImport.md) |  | [optional] |
@@ -23,11 +24,15 @@
 | **file_type_short** | **Array&lt;String&gt;** |  | [optional] |
 | **http_requests** | [**Array&lt;FalconxHTTPRequest&gt;**](FalconxHTTPRequest.md) |  | [optional] |
 | **incidents** | [**Array&lt;FalconxIncident&gt;**](FalconxIncident.md) |  | [optional] |
+| **intelligence_mitre_attacks** | [**Array&lt;FalconxMITREAttack&gt;**](FalconxMITREAttack.md) |  | [optional] |
 | **ioc_report_broad_artifact_id** | **String** |  | [optional] |
 | **ioc_report_strict_artifact_id** | **String** |  | [optional] |
+| **memory_dumps** | [**Array&lt;FalconxMemoryDumpData&gt;**](FalconxMemoryDumpData.md) |  | [optional] |
+| **memory_dumps_artifact_id** | **String** |  | [optional] |
 | **memory_forensics** | [**Array&lt;FalconxMemoryForensic&gt;**](FalconxMemoryForensic.md) |  | [optional] |
 | **memory_strings_artifact_id** | **String** |  | [optional] |
 | **mitre_attacks** | [**Array&lt;FalconxMITREAttack&gt;**](FalconxMITREAttack.md) |  | [optional] |
+| **network_settings** | **String** |  | [optional] |
 | **packer** | **String** |  | [optional] |
 | **pcap_report_artifact_id** | **String** |  | [optional] |
 | **processes** | [**Array&lt;FalconxProcess&gt;**](FalconxProcess.md) |  | [optional] |
@@ -41,6 +46,7 @@
 | **suricata_alerts** | [**Array&lt;FalconxSuricataAlert&gt;**](FalconxSuricataAlert.md) |  | [optional] |
 | **target_url** | **String** |  | [optional] |
 | **threat_score** | **Integer** |  | [optional] |
+| **urls** | [**Array&lt;FalconxUrlData&gt;**](FalconxUrlData.md) |  | [optional] |
 | **verdict** | **String** |  | [optional] |
 | **version_info** | [**Array&lt;FalconxVersionInfo&gt;**](FalconxVersionInfo.md) |  | [optional] |
 | **windows_version_bitness** | **Integer** |  | [optional] |
@@ -52,7 +58,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxReportV1.new(
   architecture: null,
@@ -65,6 +71,7 @@ instance = Falcon::FalconxSandboxReportV1.new(
   error_message: null,
   error_origin: null,
   error_type: null,
+  exact_deep_hash: null,
   extracted_files: null,
   extracted_interesting_strings: null,
   file_imports: null,
@@ -74,11 +81,15 @@ instance = Falcon::FalconxSandboxReportV1.new(
   file_type_short: null,
   http_requests: null,
   incidents: null,
+  intelligence_mitre_attacks: null,
   ioc_report_broad_artifact_id: null,
   ioc_report_strict_artifact_id: null,
+  memory_dumps: null,
+  memory_dumps_artifact_id: null,
   memory_forensics: null,
   memory_strings_artifact_id: null,
   mitre_attacks: null,
+  network_settings: null,
   packer: null,
   pcap_report_artifact_id: null,
   processes: null,
@@ -92,6 +103,7 @@ instance = Falcon::FalconxSandboxReportV1.new(
   suricata_alerts: null,
   target_url: null,
   threat_score: null,
+  urls: null,
   verdict: null,
   version_info: null,
   windows_version_bitness: null,

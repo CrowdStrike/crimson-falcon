@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainSignalProperties.new(
   aid: null,

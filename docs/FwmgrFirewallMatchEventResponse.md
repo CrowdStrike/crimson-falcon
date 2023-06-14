@@ -23,6 +23,7 @@
 | **match_count_since_last_event** | **String** |  |  |
 | **network_profile** | **String** |  |  |
 | **pid** | **String** |  |  |
+| **platform** | **String** |  |  |
 | **policy_id** | **String** |  |  |
 | **policy_name** | **String** |  |  |
 | **protocol** | **String** |  |  |
@@ -41,7 +42,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrFirewallMatchEventResponse.new(
   aid: null,
@@ -63,6 +64,7 @@ instance = Falcon::FwmgrFirewallMatchEventResponse.new(
   match_count_since_last_event: null,
   network_profile: null,
   pid: null,
+  platform: null,
   policy_id: null,
   policy_name: null,
   protocol: null,

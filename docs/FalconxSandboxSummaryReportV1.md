@@ -12,6 +12,7 @@
 | **error_type** | **String** |  | [optional] |
 | **file_type** | **String** |  | [optional] |
 | **incidents** | [**Array&lt;FalconxIncident&gt;**](FalconxIncident.md) |  | [optional] |
+| **network_settings** | **String** |  | [optional] |
 | **sample_flags** | **Array&lt;String&gt;** |  | [optional] |
 | **sha256** | **String** |  | [optional] |
 | **submission_type** | **String** |  | [optional] |
@@ -23,7 +24,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxSummaryReportV1.new(
   classification_tags: null,
@@ -34,6 +35,7 @@ instance = Falcon::FalconxSandboxSummaryReportV1.new(
   error_type: null,
   file_type: null,
   incidents: null,
+  network_settings: null,
   sample_flags: null,
   sha256: null,
   submission_type: null,

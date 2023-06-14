@@ -19,7 +19,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DeviceapiGroupResponseV1.new(
   assignment_rule: null,

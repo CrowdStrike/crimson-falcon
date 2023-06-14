@@ -18,6 +18,7 @@
 | **hostname** | **String** | The hostname of the host where the login took place. | [optional] |
 | **id** | **String** | The unique ID of the login. | [optional] |
 | **is_suspicious** | **Boolean** | Whether the failed login is considered suspicious based on criteria including login failures and locations (true or false). | [optional] |
+| **local_admin_privileges** | **String** | Whether the account has local administrator privileges (Yes, No). | [optional] |
 | **local_ip** | **String** | The external IP address of the asset where the login took place. | [optional] |
 | **login_domain** | **String** | The domain of the asset where the login took place. | [optional] |
 | **login_event_count** | **Integer** | Number of times a login attempt happened in the specified aggregation time interval for this login (1-hour window for logins in the past day, or 24-hour window for logins older than a day). | [optional] |
@@ -31,7 +32,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainDiscoverAPILogin.new(
   account_id: null,
@@ -48,6 +49,7 @@ instance = Falcon::DomainDiscoverAPILogin.new(
   hostname: null,
   id: null,
   is_suspicious: null,
+  local_admin_privileges: null,
   local_ip: null,
   login_domain: null,
   login_event_count: null,

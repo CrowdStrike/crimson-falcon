@@ -42,7 +42,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainDevice.new(
   platform_id_numeric: null,

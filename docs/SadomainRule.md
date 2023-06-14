@@ -25,7 +25,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::SadomainRule.new(
   breach_monitoring_enabled: null,

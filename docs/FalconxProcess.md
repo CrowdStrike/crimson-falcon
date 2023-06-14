@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **amsi_calls** | [**Array&lt;FalconxAMSICall&gt;**](FalconxAMSICall.md) |  | [optional] |
 | **command_line** | **String** |  | [optional] |
 | **file_accesses** | [**Array&lt;FalconxFileAccess&gt;**](FalconxFileAccess.md) |  | [optional] |
 | **handles** | [**Array&lt;FalconxHandle&gt;**](FalconxHandle.md) |  | [optional] |
@@ -23,9 +24,10 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxProcess.new(
+  amsi_calls: null,
   command_line: null,
   file_accesses: null,
   handles: null,

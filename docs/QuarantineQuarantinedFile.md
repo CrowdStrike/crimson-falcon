@@ -12,8 +12,10 @@
 | **extracted** | **Boolean** |  | [optional] |
 | **hostname** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
+| **is_on_removable_disk** | **Boolean** |  | [optional] |
 | **paths** | [**Array&lt;QuarantineQuarantinedFilePath&gt;**](QuarantineQuarantinedFilePath.md) |  | [optional] |
 | **primary_module** | **Boolean** |  | [optional] |
+| **release_path_for_removable_media** | **String** |  | [optional] |
 | **sandbox_report_id** | **String** |  | [optional] |
 | **sandbox_report_state** | **String** |  | [optional] |
 | **sha256** | **String** |  | [optional] |
@@ -23,7 +25,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::QuarantineQuarantinedFile.new(
   aid: null,
@@ -34,8 +36,10 @@ instance = Falcon::QuarantineQuarantinedFile.new(
   extracted: null,
   hostname: null,
   id: null,
+  is_on_removable_disk: null,
   paths: null,
   primary_module: null,
+  release_path_for_removable_media: null,
   sandbox_report_id: null,
   sandbox_report_state: null,
   sha256: null,

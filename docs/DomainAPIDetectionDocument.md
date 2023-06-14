@@ -11,6 +11,7 @@
 | **behaviors_processed** | **Array&lt;String&gt;** |  |  |
 | **cid** | **String** |  |  |
 | **created_timestamp** | **Time** |  |  |
+| **date_updated** | **String** |  | [optional] |
 | **detection_id** | **String** |  |  |
 | **device** | [**DetectsDeviceDetailIndexed**](DetectsDeviceDetailIndexed.md) |  |  |
 | **email_sent** | **Boolean** |  |  |
@@ -30,7 +31,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainAPIDetectionDocument.new(
   adversary_ids: null,
@@ -40,6 +41,7 @@ instance = Falcon::DomainAPIDetectionDocument.new(
   behaviors_processed: null,
   cid: null,
   created_timestamp: null,
+  date_updated: null,
   detection_id: null,
   device: null,
   email_sent: null,

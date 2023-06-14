@@ -21,7 +21,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ApiIndicatorCreateReqV1.new(
   action: null,

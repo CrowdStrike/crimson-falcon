@@ -16,7 +16,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ApiRuleTypeV1.new(
   channel: null,

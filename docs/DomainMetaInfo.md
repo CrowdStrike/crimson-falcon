@@ -4,17 +4,21 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **msa_meta_info** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
-| **quota** | [**DomainQuota**](DomainQuota.md) |  | [optional] |
+| **pagination** | [**DomainAssessmentPaging**](DomainAssessmentPaging.md) |  | [optional] |
+| **powered_by** | **String** |  | [optional] |
+| **query_time** | **Float** |  |  |
+| **trace_id** | **String** |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainMetaInfo.new(
-  msa_meta_info: null,
-  quota: null
+  pagination: null,
+  powered_by: null,
+  query_time: null,
+  trace_id: null
 )
 ```
 

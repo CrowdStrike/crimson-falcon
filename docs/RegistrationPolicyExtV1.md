@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_id** | **String** |  |  |
+| **account_ids** | **Array&lt;String&gt;** |  |  |
 | **enabled** | **Boolean** |  |  |
 | **policy_id** | **Integer** |  |  |
 | **regions** | **Array&lt;String&gt;** |  |  |
@@ -14,10 +15,11 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationPolicyExtV1.new(
   account_id: null,
+  account_ids: null,
   enabled: null,
   policy_id: null,
   regions: null,

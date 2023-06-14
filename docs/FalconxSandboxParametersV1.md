@@ -19,7 +19,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxParametersV1.new(
   action_script: null,

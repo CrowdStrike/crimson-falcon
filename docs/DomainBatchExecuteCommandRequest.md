@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainBatchExecuteCommandRequest.new(
   base_command: null,

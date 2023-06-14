@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;K8sregAWSAccountResp&gt;**](K8sregAWSAccountResp.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::K8sregGetAWSAccountsResp.new(
   errors: null,

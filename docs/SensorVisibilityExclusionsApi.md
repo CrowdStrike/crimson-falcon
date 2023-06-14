@@ -13,7 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_sv_exclusions_v1
 
-> <ResponsesMlExclusionRespV1> create_sv_exclusions_v1(body)
+> <ExclusionsRespV1> create_sv_exclusions_v1(body)
 
 Create the sensor visibility exclusions
 
@@ -21,7 +21,7 @@ Create the sensor visibility exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -29,7 +29,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorVisibilityExclusionsApi.new
-body = Falcon::RequestsSvExclusionCreateReqV1.new # RequestsSvExclusionCreateReqV1 | 
+body = Falcon::SvExclusionsCreateReqV1.new # SvExclusionsCreateReqV1 | 
 
 begin
   # Create the sensor visibility exclusions
@@ -44,7 +44,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesMlExclusionRespV1>, Integer, Hash)> create_sv_exclusions_v1_with_http_info(body)
+> <Array(<ExclusionsRespV1>, Integer, Hash)> create_sv_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -52,7 +52,7 @@ begin
   data, status_code, headers = api_instance.create_sv_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesMlExclusionRespV1>
+  p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorVisibilityExclusionsApi->create_sv_exclusions_v1_with_http_info: #{e}"
 end
@@ -62,11 +62,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSvExclusionCreateReqV1**](RequestsSvExclusionCreateReqV1.md) |  |  |
+| **body** | [**SvExclusionsCreateReqV1**](SvExclusionsCreateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesMlExclusionRespV1**](ResponsesMlExclusionRespV1.md)
+[**ExclusionsRespV1**](ExclusionsRespV1.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -88,7 +88,7 @@ Delete the sensor visibility exclusions by id
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -151,7 +151,7 @@ end
 
 ## get_sensor_visibility_exclusions_v1
 
-> <ResponsesSvExclusionRespV1> get_sensor_visibility_exclusions_v1(ids)
+> <SvExclusionsRespV1> get_sensor_visibility_exclusions_v1(ids)
 
 Get a set of Sensor Visibility Exclusions by specifying their IDs
 
@@ -159,7 +159,7 @@ Get a set of Sensor Visibility Exclusions by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSvExclusionRespV1>, Integer, Hash)> get_sensor_visibility_exclusions_v1_with_http_info(ids)
+> <Array(<SvExclusionsRespV1>, Integer, Hash)> get_sensor_visibility_exclusions_v1_with_http_info(ids)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.get_sensor_visibility_exclusions_v1_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSvExclusionRespV1>
+  p data # => <SvExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorVisibilityExclusionsApi->get_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**ResponsesSvExclusionRespV1**](ResponsesSvExclusionRespV1.md)
+[**SvExclusionsRespV1**](SvExclusionsRespV1.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Search for sensor visibility exclusions.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -293,7 +293,7 @@ end
 
 ## update_sensor_visibility_exclusions_v1
 
-> <ResponsesSvExclusionRespV1> update_sensor_visibility_exclusions_v1(body)
+> <SvExclusionsRespV1> update_sensor_visibility_exclusions_v1(body)
 
 Update the sensor visibility exclusions
 
@@ -301,7 +301,7 @@ Update the sensor visibility exclusions
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -309,7 +309,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::SensorVisibilityExclusionsApi.new
-body = Falcon::RequestsSvExclusionUpdateReqV1.new({id: 'id_example'}) # RequestsSvExclusionUpdateReqV1 | 
+body = Falcon::SvExclusionsUpdateReqV1.new({id: 'id_example'}) # SvExclusionsUpdateReqV1 | 
 
 begin
   # Update the sensor visibility exclusions
@@ -324,7 +324,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesSvExclusionRespV1>, Integer, Hash)> update_sensor_visibility_exclusions_v1_with_http_info(body)
+> <Array(<SvExclusionsRespV1>, Integer, Hash)> update_sensor_visibility_exclusions_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -332,7 +332,7 @@ begin
   data, status_code, headers = api_instance.update_sensor_visibility_exclusions_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesSvExclusionRespV1>
+  p data # => <SvExclusionsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling SensorVisibilityExclusionsApi->update_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
@@ -342,11 +342,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsSvExclusionUpdateReqV1**](RequestsSvExclusionUpdateReqV1.md) |  |  |
+| **body** | [**SvExclusionsUpdateReqV1**](SvExclusionsUpdateReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesSvExclusionRespV1**](ResponsesSvExclusionRespV1.md)
+[**SvExclusionsRespV1**](SvExclusionsRespV1.md)
 
 ### Authorization
 
@@ -354,6 +354,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

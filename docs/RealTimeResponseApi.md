@@ -39,7 +39,7 @@ Batch executes a RTR active-responder command across the hosts mapped to the giv
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -49,9 +49,9 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 body = Falcon::DomainBatchExecuteCommandRequest.new({base_command: 'base_command_example', batch_id: 'batch_id_example', command_string: 'command_string_example', optional_hosts: ['optional_hosts_example'], persist_all: false}) # DomainBatchExecuteCommandRequest | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
-  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
+  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
 }
 
 begin
@@ -86,9 +86,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainBatchExecuteCommandRequest**](DomainBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - &#x60;cat&#x60; - &#x60;cd&#x60; - &#x60;clear&#x60; - &#x60;cp&#x60; - &#x60;encrypt&#x60; - &#x60;env&#x60; - &#x60;eventlog&#x60; - &#x60;filehash&#x60; - &#x60;get&#x60; - &#x60;getsid&#x60; - &#x60;help&#x60; - &#x60;history&#x60; - &#x60;ipconfig&#x60; - &#x60;kill&#x60; - &#x60;ls&#x60; - &#x60;map&#x60; - &#x60;memdump&#x60; - &#x60;mkdir&#x60; - &#x60;mount&#x60; - &#x60;mv&#x60; - &#x60;netstat&#x60; - &#x60;ps&#x60; - &#x60;reg query&#x60; - &#x60;reg set&#x60; - &#x60;reg delete&#x60; - &#x60;reg load&#x60; - &#x60;reg unload&#x60; - &#x60;restart&#x60; - &#x60;rm&#x60; - &#x60;runscript&#x60; - &#x60;shutdown&#x60; - &#x60;unmap&#x60; - &#x60;update history&#x60; - &#x60;update install&#x60; - &#x60;update list&#x60; - &#x60;update query&#x60; - &#x60;xmemdump&#x60; - &#x60;zip&#x60;  **&#x60;base_command&#x60;** Active-Responder command type we are going to execute, for example: &#x60;get&#x60; or &#x60;cp&#x60;.  Refer to the RTR documentation for the full list of commands. **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/batch-init-session/v1&#x60;. **&#x60;command_string&#x60;** Full command string for the command. For example  &#x60;get some_file.txt&#x60; **&#x60;optional_hosts&#x60;** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
-| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 10 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
+| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
 
 ### Return type
 
@@ -100,7 +100,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -114,7 +114,7 @@ Batch executes a RTR read-only command across the hosts mapped to the given batc
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -124,9 +124,9 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 body = Falcon::DomainBatchExecuteCommandRequest.new({base_command: 'base_command_example', batch_id: 'batch_id_example', command_string: 'command_string_example', optional_hosts: ['optional_hosts_example'], persist_all: false}) # DomainBatchExecuteCommandRequest | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - `cat` - `cd` - `clear` - `env` - `eventlog` - `filehash` - `getsid` - `help` - `history` - `ipconfig` - `ls` - `mount` - `netstat` - `ps` - `reg query`  **`base_command`** read-only command type we are going to execute, for example: `ls` or `cd`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `cd C:\\some_directory` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
-  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
+  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
 }
 
 begin
@@ -161,9 +161,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainBatchExecuteCommandRequest**](DomainBatchExecuteCommandRequest.md) | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#rtr_commands): - &#x60;cat&#x60; - &#x60;cd&#x60; - &#x60;clear&#x60; - &#x60;env&#x60; - &#x60;eventlog&#x60; - &#x60;filehash&#x60; - &#x60;getsid&#x60; - &#x60;help&#x60; - &#x60;history&#x60; - &#x60;ipconfig&#x60; - &#x60;ls&#x60; - &#x60;mount&#x60; - &#x60;netstat&#x60; - &#x60;ps&#x60; - &#x60;reg query&#x60;  **&#x60;base_command&#x60;** read-only command type we are going to execute, for example: &#x60;ls&#x60; or &#x60;cd&#x60;.  Refer to the RTR documentation for the full list of commands. **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/batch-init-session/v1&#x60;. **&#x60;command_string&#x60;** Full command string for the command. For example  &#x60;cd C:\\some_directory&#x60; **&#x60;optional_hosts&#x60;** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
-| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 10 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
+| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
 
 ### Return type
 
@@ -175,7 +175,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -189,7 +189,7 @@ Batch executes `get` command across hosts to retrieve files. After this call is 
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -199,9 +199,9 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 body = Falcon::DomainBatchGetCommandRequest.new({batch_id: 'batch_id_example', file_path: 'file_path_example', optional_hosts: ['optional_hosts_example']}) # DomainBatchGetCommandRequest | **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`file_path`** Full path to the file that is to be retrieved from each host in the batch. **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
-  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
+  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
 }
 
 begin
@@ -236,9 +236,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainBatchGetCommandRequest**](DomainBatchGetCommandRequest.md) | **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/batch-init-session/v1&#x60;. **&#x60;file_path&#x60;** Full path to the file that is to be retrieved from each host in the batch. **&#x60;optional_hosts&#x60;** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
-| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 10 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
+| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
 
 ### Return type
 
@@ -250,7 +250,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -264,7 +264,7 @@ Retrieves the status of the specified batch get command.  Will return successful
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -274,8 +274,8 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 batch_get_cmd_req_id = 'batch_get_cmd_req_id_example' # String | Batch Get Command Request ID received from `/real-time-response/combined/get-command/v1`
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example' # String | Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example' # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 }
 
 begin
@@ -310,8 +310,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **batch_get_cmd_req_id** | **String** | Batch Get Command Request ID received from &#x60;/real-time-response/combined/get-command/v1&#x60; |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
 
 ### Return type
 
@@ -337,7 +337,7 @@ Batch initialize a RTR session on multiple hosts.  Before any RTR commands can b
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -347,9 +347,9 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 body = Falcon::DomainBatchInitSessionRequest.new({existing_batch_id: 'existing_batch_id_example', host_ids: ['host_ids_example'], queue_offline: false}) # DomainBatchInitSessionRequest | **`host_ids`** List of host agent ID's to initialize a RTR session on. A maximum of 10000 hosts can be in a single batch session. **`existing_batch_id`** Optional batch ID. Use an existing batch ID if you want to initialize new hosts and add them to the existing batch **`queue_offline`** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
-  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 10 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example', # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
+  host_timeout_duration: 'host_timeout_duration_example' # String | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is < 5 minutes. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. 
 }
 
 begin
@@ -384,9 +384,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainBatchInitSessionRequest**](DomainBatchInitSessionRequest.md) | **&#x60;host_ids&#x60;** List of host agent ID&#39;s to initialize a RTR session on. A maximum of 10000 hosts can be in a single batch session. **&#x60;existing_batch_id&#x60;** Optional batch ID. Use an existing batch ID if you want to initialize new hosts and add them to the existing batch **&#x60;queue_offline&#x60;** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
-| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 10 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
+| **host_timeout_duration** | **String** | Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.  | [optional][default to &#39;tiny bit less than overall request timeout&#39;] |
 
 ### Return type
 
@@ -398,7 +398,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -412,7 +412,7 @@ Batch refresh a RTR session on multiple hosts. RTR sessions will expire after 10
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -420,10 +420,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::RealTimeResponseApi.new
-body = Falcon::DomainBatchRefreshSessionRequest.new({batch_id: 'batch_id_example', hosts_to_remove: ['hosts_to_remove_example']}) # DomainBatchRefreshSessionRequest | **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/init-sessions/v1`. **`hosts_to_remove`** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire.
+body = Falcon::DomainBatchRefreshSessionRequest.new({batch_id: 'batch_id_example', hosts_to_remove: ['hosts_to_remove_example']}) # DomainBatchRefreshSessionRequest | **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`hosts_to_remove`** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example' # String | Timeout duration for for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example' # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 }
 
 begin
@@ -457,9 +457,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**DomainBatchRefreshSessionRequest**](DomainBatchRefreshSessionRequest.md) | **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/init-sessions/v1&#x60;. **&#x60;hosts_to_remove&#x60;** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
+| **body** | [**DomainBatchRefreshSessionRequest**](DomainBatchRefreshSessionRequest.md) | **&#x60;batch_id&#x60;** Batch ID to execute the command on.  Received from &#x60;/real-time-response/combined/batch-init-session/v1&#x60;. **&#x60;hosts_to_remove&#x60;** Hosts to remove from the batch session.  Heartbeats will no longer happen on these hosts and the sessions will expire. |  |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
 
 ### Return type
 
@@ -471,7 +471,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -485,7 +485,7 @@ Get aggregates on session data.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -493,7 +493,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::RealTimeResponseApi.new
-body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | Supported aggregations:  - `term` - `date_range`  Supported aggregation members:  **`date_ranges`** If peforming a date range query specify the **`from`** and **`to`** date ranges.  These can be in common date formats like `2019-07-18` or `now` **`field`** Term you want to aggregate on.  If doing a `date_range` query, this is the date field you want to apply the date ranges to **`filter`** Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). **`name`** Name of the aggregation **`size`** Size limit to apply to the queries.
+body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | Supported aggregations:  - `term` - `date_range`  Supported aggregation members:  **`date_ranges`** If peforming a date range query specify the **`from`** and **`to`** date ranges.  These can be in common date formats like `2019-07-18` or `now` **`field`** Term you want to aggregate on.  If doing a `date_range` query, this is the date field you want to apply the date ranges to **`filter`** Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). **`name`** Name of the aggregation **`size`** Size limit to apply to the queries.
 
 begin
   # Get aggregates on session data.
@@ -538,7 +538,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -552,7 +552,7 @@ Get status of an executed active-responder command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -621,7 +621,7 @@ Get status of an executed command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -690,7 +690,7 @@ Delete a RTR session file.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -759,7 +759,7 @@ Delete a RTR session file.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -828,7 +828,7 @@ Delete a queued session command
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -897,7 +897,7 @@ Delete a session.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -964,7 +964,7 @@ Execute an active responder command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1017,7 +1017,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1031,7 +1031,7 @@ Execute a command on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1084,13 +1084,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## r_tr_get_extracted_file_contents
 
-> File r_tr_get_extracted_file_contents(session_id, sha256, opts)
+> Array&lt;Integer&gt; r_tr_get_extracted_file_contents(session_id, sha256, opts)
 
 Get RTR extracted file contents for specified session and sha256.
 
@@ -1098,7 +1098,7 @@ Get RTR extracted file contents for specified session and sha256.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1125,7 +1125,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(File, Integer, Hash)> r_tr_get_extracted_file_contents_with_http_info(session_id, sha256, opts)
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> r_tr_get_extracted_file_contents_with_http_info(session_id, sha256, opts)
 
 ```ruby
 begin
@@ -1133,7 +1133,7 @@ begin
   data, status_code, headers = api_instance.r_tr_get_extracted_file_contents_with_http_info(session_id, sha256, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => File
+  p data # => Array&lt;Integer&gt;
 rescue Falcon::ApiError => e
   puts "Error when calling RealTimeResponseApi->r_tr_get_extracted_file_contents_with_http_info: #{e}"
 end
@@ -1149,7 +1149,7 @@ end
 
 ### Return type
 
-**File**
+**Array&lt;Integer&gt;**
 
 ### Authorization
 
@@ -1171,7 +1171,7 @@ Initialize a new session with the RTR cloud.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1181,8 +1181,8 @@ end
 api_instance = Falcon::RealTimeResponseApi.new
 body = Falcon::DomainInitRequest.new({device_id: 'device_id_example', origin: 'origin_example', queue_offline: false}) # DomainInitRequest | **`device_id`** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host **`queue_offline`** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online.
 opts = {
-  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes.
-  timeout_duration: 'timeout_duration_example' # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 10 minutes.
+  timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
+  timeout_duration: 'timeout_duration_example' # String | Timeout duration for how long to wait for the request in duration syntax. Example, `10s`. Valid units: `ns, us, ms, s, m, h`. Maximum is 5 minutes.
 }
 
 begin
@@ -1217,8 +1217,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**DomainInitRequest**](DomainInitRequest.md) | **&#x60;device_id&#x60;** The host agent ID to initialize the RTR session on.  RTR will retrieve an existing session for the calling user on this host **&#x60;queue_offline&#x60;** If we should queue this session if the host is offline.  Any commands run against an offline-queued session will be queued up and executed when the host comes online. |  |
-| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 10 minutes. | [optional][default to 30] |
-| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 10 minutes. | [optional][default to &#39;30s&#39;] |
+| **timeout** | **Integer** | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes. | [optional][default to 30] |
+| **timeout_duration** | **String** | Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes. | [optional][default to &#39;30s&#39;] |
 
 ### Return type
 
@@ -1230,7 +1230,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1244,7 +1244,7 @@ Get a list of session_ids.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1319,7 +1319,7 @@ Get a list of files for the specified RTR session.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1386,7 +1386,7 @@ Get a list of files for the specified RTR session.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1453,7 +1453,7 @@ Get queued session metadata by session ID.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1506,7 +1506,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1520,7 +1520,7 @@ Get session metadata by session id.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1573,7 +1573,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -1587,7 +1587,7 @@ Refresh a session timeout on a single host.
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -1640,6 +1640,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

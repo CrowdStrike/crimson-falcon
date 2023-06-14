@@ -6,13 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **batch_get_cmd_req_id** | **String** |  |  |
 | **combined** | [**DomainMultiCommandExecuteResponse**](DomainMultiCommandExecuteResponse.md) |  |  |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainBatchGetCommandResponse.new(
   batch_get_cmd_req_id: null,

@@ -11,6 +11,7 @@
 | **deleted** | **Boolean** |  | [optional] |
 | **enforce** | **Boolean** |  |  |
 | **is_default_policy** | **Boolean** |  | [optional] |
+| **local_logging** | **Boolean** |  |  |
 | **modified_by** | **String** |  | [optional] |
 | **modified_on** | **String** |  | [optional] |
 | **platform_id** | **String** |  |  |
@@ -22,7 +23,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrFirewallPolicyContainerV1.new(
   created_by: null,
@@ -32,6 +33,7 @@ instance = Falcon::FwmgrFirewallPolicyContainerV1.new(
   deleted: null,
   enforce: null,
   is_default_policy: null,
+  local_logging: null,
   modified_by: null,
   modified_on: null,
   platform_id: null,

@@ -5,15 +5,14 @@ All URIs are relative to *https://api.crowdstrike.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_queries_alerts_v1**](AlertsApi.md#get_queries_alerts_v1) | **GET** /alerts/queries/alerts/v1 | retrieves all Alerts ids that match a given query |
-| [**patch_entities_alerts_v1**](AlertsApi.md#patch_entities_alerts_v1) | **PATCH** /alerts/entities/alerts/v1 | Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  remove_tag - remove a tag from 1 or more detection(s) assign_to_user_id - assign 1 or more detection(s) to a user identified by user id (eg: user1@example.com) unassign - unassign an previously assigned user from 1 or more detection(s). The value passed to this action is ignored. new_behavior_processed - adds a newly processed behavior to 1 or more detection(s) update_status - update status for 1 or more detection(s) assign_to_uuid - assign 1 or more detection(s) to a user identified by UUID add_tag - add a tag to 1 or more detection(s) remove_tags_by_prefix - remove tags with given prefix from 1 or more detection(s) append_comment - appends new comment to existing comments assign_to_name - assign 1 or more detection(s) to a user identified by user name show_in_ui - shows 1 or more detection(s) on UI if set to true, hides otherwise. an empty/nil value is also valid skip_side_effects - internal only command to skip side effects during Beta phase  |
-| [**patch_entities_alerts_v2**](AlertsApi.md#patch_entities_alerts_v2) | **PATCH** /alerts/entities/alerts/v2 | Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.   |
+| [**patch_entities_alerts_v2**](AlertsApi.md#patch_entities_alerts_v2) | **PATCH** /alerts/entities/alerts/v2 | Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
 | [**post_aggregates_alerts_v1**](AlertsApi.md#post_aggregates_alerts_v1) | **POST** /alerts/aggregates/alerts/v1 | retrieves aggregates for Alerts across all CIDs |
 | [**post_entities_alerts_v1**](AlertsApi.md#post_entities_alerts_v1) | **POST** /alerts/entities/alerts/v1 | retrieves all Alerts given their ids |
 
 
 ## get_queries_alerts_v1
 
-> <MsaQueryResponse> get_queries_alerts_v1(opts)
+> <MsaspecQueryResponse> get_queries_alerts_v1(opts)
 
 retrieves all Alerts ids that match a given query
 
@@ -21,7 +20,7 @@ retrieves all Alerts ids that match a given query
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -50,7 +49,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> get_queries_alerts_v1_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_queries_alerts_v1_with_http_info(opts)
 
 ```ruby
 begin
@@ -58,7 +57,7 @@ begin
   data, status_code, headers = api_instance.get_queries_alerts_v1_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling AlertsApi->get_queries_alerts_v1_with_http_info: #{e}"
 end
@@ -76,7 +75,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -88,84 +87,17 @@ end
 - **Accept**: application/json
 
 
-## patch_entities_alerts_v1
-
-> <MsaReplyMetaOnly> patch_entities_alerts_v1(body)
-
-Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  remove_tag - remove a tag from 1 or more detection(s) assign_to_user_id - assign 1 or more detection(s) to a user identified by user id (eg: user1@example.com) unassign - unassign an previously assigned user from 1 or more detection(s). The value passed to this action is ignored. new_behavior_processed - adds a newly processed behavior to 1 or more detection(s) update_status - update status for 1 or more detection(s) assign_to_uuid - assign 1 or more detection(s) to a user identified by UUID add_tag - add a tag to 1 or more detection(s) remove_tags_by_prefix - remove tags with given prefix from 1 or more detection(s) append_comment - appends new comment to existing comments assign_to_name - assign 1 or more detection(s) to a user identified by user name show_in_ui - shows 1 or more detection(s) on UI if set to true, hides otherwise. an empty/nil value is also valid skip_side_effects - internal only command to skip side effects during Beta phase 
-
-### Examples
-
-```ruby
-require 'time'
-require 'crowdstrike-falcon'
-# setup authorization
-Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = Falcon::AlertsApi.new
-body = Falcon::DetectsapiPatchEntitiesInvestigatablesV1Request.new({ids: ['ids_example']}) # DetectsapiPatchEntitiesInvestigatablesV1Request | request body takes a list of action parameter request that is applied against all \"ids\" provided
-
-begin
-  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  remove_tag - remove a tag from 1 or more detection(s) assign_to_user_id - assign 1 or more detection(s) to a user identified by user id (eg: user1@example.com) unassign - unassign an previously assigned user from 1 or more detection(s). The value passed to this action is ignored. new_behavior_processed - adds a newly processed behavior to 1 or more detection(s) update_status - update status for 1 or more detection(s) assign_to_uuid - assign 1 or more detection(s) to a user identified by UUID add_tag - add a tag to 1 or more detection(s) remove_tags_by_prefix - remove tags with given prefix from 1 or more detection(s) append_comment - appends new comment to existing comments assign_to_name - assign 1 or more detection(s) to a user identified by user name show_in_ui - shows 1 or more detection(s) on UI if set to true, hides otherwise. an empty/nil value is also valid skip_side_effects - internal only command to skip side effects during Beta phase 
-  result = api_instance.patch_entities_alerts_v1(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v1: #{e}"
-end
-```
-
-#### Using the patch_entities_alerts_v1_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> patch_entities_alerts_v1_with_http_info(body)
-
-```ruby
-begin
-  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  remove_tag - remove a tag from 1 or more detection(s) assign_to_user_id - assign 1 or more detection(s) to a user identified by user id (eg: user1@example.com) unassign - unassign an previously assigned user from 1 or more detection(s). The value passed to this action is ignored. new_behavior_processed - adds a newly processed behavior to 1 or more detection(s) update_status - update status for 1 or more detection(s) assign_to_uuid - assign 1 or more detection(s) to a user identified by UUID add_tag - add a tag to 1 or more detection(s) remove_tags_by_prefix - remove tags with given prefix from 1 or more detection(s) append_comment - appends new comment to existing comments assign_to_name - assign 1 or more detection(s) to a user identified by user name show_in_ui - shows 1 or more detection(s) on UI if set to true, hides otherwise. an empty/nil value is also valid skip_side_effects - internal only command to skip side effects during Beta phase 
-  data, status_code, headers = api_instance.patch_entities_alerts_v1_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
-rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v1_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**DetectsapiPatchEntitiesInvestigatablesV1Request**](DetectsapiPatchEntitiesInvestigatablesV1Request.md) | request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided |  |
-
-### Return type
-
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## patch_entities_alerts_v2
 
 > <MsaspecResponseFields> patch_entities_alerts_v2(body)
 
-Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  
+Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
 
 ### Examples
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -173,10 +105,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::AlertsApi.new
-body = Falcon::DetectsapiPatchEntitiesInvestigatablesV2Request.new({ids: ['ids_example']}) # DetectsapiPatchEntitiesInvestigatablesV2Request | request body takes a list of action parameter request that is applied against all \"ids\" provided
+body = Falcon::DetectsapiPatchEntitiesAlertsV2Request.new({ids: ['ids_example']}) # DetectsapiPatchEntitiesAlertsV2Request | request body takes a list of action parameter request that is applied against all \"ids\" provided
 
 begin
-  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  
+  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
   result = api_instance.patch_entities_alerts_v2(body)
   p result
 rescue Falcon::ApiError => e
@@ -192,7 +124,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does.  
+  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
   data, status_code, headers = api_instance.patch_entities_alerts_v2_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
@@ -206,7 +138,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**DetectsapiPatchEntitiesInvestigatablesV2Request**](DetectsapiPatchEntitiesInvestigatablesV2Request.md) | request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided |  |
+| **body** | [**DetectsapiPatchEntitiesAlertsV2Request**](DetectsapiPatchEntitiesAlertsV2Request.md) | request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided |  |
 
 ### Return type
 
@@ -224,7 +156,7 @@ end
 
 ## post_aggregates_alerts_v1
 
-> <MsaAggregatesResponse> post_aggregates_alerts_v1(body)
+> <ApiAggregatesResponse> post_aggregates_alerts_v1(body)
 
 retrieves aggregates for Alerts across all CIDs
 
@@ -232,7 +164,7 @@ retrieves aggregates for Alerts across all CIDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -240,7 +172,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::AlertsApi.new
-body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | request body takes a list of aggregation query requests
+body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | request body takes a list of aggregation query requests
 
 begin
   # retrieves aggregates for Alerts across all CIDs
@@ -255,7 +187,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaAggregatesResponse>, Integer, Hash)> post_aggregates_alerts_v1_with_http_info(body)
+> <Array(<ApiAggregatesResponse>, Integer, Hash)> post_aggregates_alerts_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -263,7 +195,7 @@ begin
   data, status_code, headers = api_instance.post_aggregates_alerts_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaAggregatesResponse>
+  p data # => <ApiAggregatesResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling AlertsApi->post_aggregates_alerts_v1_with_http_info: #{e}"
 end
@@ -277,7 +209,7 @@ end
 
 ### Return type
 
-[**MsaAggregatesResponse**](MsaAggregatesResponse.md)
+[**ApiAggregatesResponse**](ApiAggregatesResponse.md)
 
 ### Authorization
 
@@ -291,7 +223,7 @@ end
 
 ## post_entities_alerts_v1
 
-> <DetectsapiPostEntitiesInvestigatablesV1Response> post_entities_alerts_v1(body)
+> <DetectsapiPostEntitiesAlertsV1Response> post_entities_alerts_v1(body)
 
 retrieves all Alerts given their ids
 
@@ -299,7 +231,7 @@ retrieves all Alerts given their ids
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -307,7 +239,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::AlertsApi.new
-body = Falcon::DetectsapiPostEntitiesInvestigatablesV1Request.new({ids: ['ids_example']}) # DetectsapiPostEntitiesInvestigatablesV1Request | 
+body = Falcon::DetectsapiPostEntitiesAlertsV1Request.new({ids: ['ids_example']}) # DetectsapiPostEntitiesAlertsV1Request | 
 
 begin
   # retrieves all Alerts given their ids
@@ -322,7 +254,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DetectsapiPostEntitiesInvestigatablesV1Response>, Integer, Hash)> post_entities_alerts_v1_with_http_info(body)
+> <Array(<DetectsapiPostEntitiesAlertsV1Response>, Integer, Hash)> post_entities_alerts_v1_with_http_info(body)
 
 ```ruby
 begin
@@ -330,7 +262,7 @@ begin
   data, status_code, headers = api_instance.post_entities_alerts_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DetectsapiPostEntitiesInvestigatablesV1Response>
+  p data # => <DetectsapiPostEntitiesAlertsV1Response>
 rescue Falcon::ApiError => e
   puts "Error when calling AlertsApi->post_entities_alerts_v1_with_http_info: #{e}"
 end
@@ -340,11 +272,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**DetectsapiPostEntitiesInvestigatablesV1Request**](DetectsapiPostEntitiesInvestigatablesV1Request.md) |  |  |
+| **body** | [**DetectsapiPostEntitiesAlertsV1Request**](DetectsapiPostEntitiesAlertsV1Request.md) |  |  |
 
 ### Return type
 
-[**DetectsapiPostEntitiesInvestigatablesV1Response**](DetectsapiPostEntitiesInvestigatablesV1Response.md)
+[**DetectsapiPostEntitiesAlertsV1Response**](DetectsapiPostEntitiesAlertsV1Response.md)
 
 ### Authorization
 

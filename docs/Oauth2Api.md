@@ -18,7 +18,13 @@ Generate an OAuth2 access token
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
 
 api_instance = Falcon::Oauth2Api.new
 client_id = 'client_id_example' # String | The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
@@ -68,17 +74,17 @@ end
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/x-www-form-urlencoded
+- **Content-Type**: application/x-www-form-urlencoded, text/html
 - **Accept**: application/json
 
 
 ## oauth2_revoke_token
 
-> <MsaReplyMetaOnly> oauth2_revoke_token(token)
+> <MsaReplyMetaOnly> oauth2_revoke_token(token, opts)
 
 Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
 
@@ -86,7 +92,7 @@ Revoke a previously issued OAuth2 access token before the end of its standard 30
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure HTTP basic authorization: basicAuth
@@ -96,10 +102,13 @@ end
 
 api_instance = Falcon::Oauth2Api.new
 token = 'token_example' # String | The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (`Authorization: basic <encoded API client ID and secret>`) in your request header.
+opts = {
+  client_id: 'client_id_example' # String | The OAuth2 client ID you are revoking the token for.
+}
 
 begin
   # Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
-  result = api_instance.oauth2_revoke_token(token)
+  result = api_instance.oauth2_revoke_token(token, opts)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling Oauth2Api->oauth2_revoke_token: #{e}"
@@ -110,12 +119,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> oauth2_revoke_token_with_http_info(token)
+> <Array(<MsaReplyMetaOnly>, Integer, Hash)> oauth2_revoke_token_with_http_info(token, opts)
 
 ```ruby
 begin
   # Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
-  data, status_code, headers = api_instance.oauth2_revoke_token_with_http_info(token)
+  data, status_code, headers = api_instance.oauth2_revoke_token_with_http_info(token, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
@@ -129,6 +138,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **token** | **String** | The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (&#x60;Authorization: basic &lt;encoded API client ID and secret&gt;&#x60;) in your request header. |  |
+| **client_id** | **String** | The OAuth2 client ID you are revoking the token for. | [optional] |
 
 ### Return type
 

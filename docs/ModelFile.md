@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ModelFile.new(
   cloud_request_id: null,

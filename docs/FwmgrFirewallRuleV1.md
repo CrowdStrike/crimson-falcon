@@ -15,6 +15,8 @@
 | **enabled** | **Boolean** |  |  |
 | **family** | **String** |  |  |
 | **fields** | [**Array&lt;FwmgrFirewallFieldValue&gt;**](FwmgrFirewallFieldValue.md) |  |  |
+| **fqdn** | **String** |  |  |
+| **fqdn_enabled** | **Boolean** |  |  |
 | **icmp** | [**FwmgrFirewallICMP**](FwmgrFirewallICMP.md) |  |  |
 | **id** | **String** |  |  |
 | **local_address** | [**Array&lt;FwmgrFirewallAddressRange&gt;**](FwmgrFirewallAddressRange.md) |  |  |
@@ -33,7 +35,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::FwmgrFirewallRuleV1.new(
   action: null,
@@ -47,6 +49,8 @@ instance = Falcon::FwmgrFirewallRuleV1.new(
   enabled: null,
   family: null,
   fields: null,
+  fqdn: null,
+  fqdn_enabled: null,
   icmp: null,
   id: null,
   local_address: null,

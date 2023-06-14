@@ -4,13 +4,13 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **paging** | [**MsaPaging**](MsaPaging.md) |  |  |
+| **paging** | [**MsaspecPaging**](MsaspecPaging.md) |  |  |
 | **next_token** | **String** |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationMSAPagingExtension.new(
   paging: null,

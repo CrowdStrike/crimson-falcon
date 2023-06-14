@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **action_parameters** | [**Array&lt;MsaActionParameter&gt;**](MsaActionParameter.md) |  | [optional] |
+| **action_parameters** | [**Array&lt;MsaspecActionParameter&gt;**](MsaspecActionParameter.md) |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MsaEntityActionRequest.new(
   action_parameters: null

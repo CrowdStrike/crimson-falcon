@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **entitlements** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  | [optional] |
 | **id** | **Integer** |  |  |
 | **name** | **String** |  | [optional] |
 | **slug** | **String** |  | [optional] |
@@ -13,9 +14,10 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainSimpleActor.new(
+  entitlements: null,
   id: null,
   name: null,
   slug: null,

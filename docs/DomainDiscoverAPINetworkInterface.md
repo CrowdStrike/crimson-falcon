@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainDiscoverAPINetworkInterface.new(
   interface_alias: null,

@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
 | **meta** | [**DomainMetaInfo**](DomainMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainAPIEvaluationLogicV1&gt;**](DomainAPIEvaluationLogicV1.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainSPAPIEvaluationLogicEntitiesResponseV1.new(
   errors: null,

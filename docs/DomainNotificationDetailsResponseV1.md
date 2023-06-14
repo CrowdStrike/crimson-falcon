@@ -5,13 +5,13 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;DomainReconAPIError&gt;**](DomainReconAPIError.md) |  |  |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainDetailedNotificationV1&gt;**](DomainDetailedNotificationV1.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainNotificationDetailsResponseV1.new(
   errors: null,

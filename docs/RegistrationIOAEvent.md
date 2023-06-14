@@ -5,13 +5,13 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **additional_event_data** | **String** |  | [optional] |
-| **aggregate** | [**DomainIOAEventAggregate**](DomainIOAEventAggregate.md) |  | [optional] |
+| **aggregate** | [**IoaEventAggregate**](IoaEventAggregate.md) |  | [optional] |
 | **api_version** | **String** |  | [optional] |
 | **cid** | **String** |  |  |
-| **cloud_account_id** | [**DomainCloudAccountID**](DomainCloudAccountID.md) |  | [optional] |
+| **cloud_account_id** | [**IoaCloudAccountID**](IoaCloudAccountID.md) |  | [optional] |
 | **cloud_provider** | **String** |  |  |
 | **cloud_region** | **String** |  | [optional] |
-| **enrichments** | [**DomainIOAEnrichments**](DomainIOAEnrichments.md) |  | [optional] |
+| **enrichments** | [**IoaEnrichments**](IoaEnrichments.md) |  | [optional] |
 | **error_code** | **String** |  | [optional] |
 | **error_message** | **String** |  | [optional] |
 | **event_category** | **String** |  | [optional] |
@@ -46,7 +46,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::RegistrationIOAEvent.new(
   additional_event_data: null,

@@ -4,14 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
 | **meta** | [**DomainSPAPIQueryMeta**](DomainSPAPIQueryMeta.md) |  |  |
 | **resources** | [**Array&lt;DomainBaseAPIVulnerabilityV2&gt;**](DomainBaseAPIVulnerabilityV2.md) |  |  |
 
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainSPAPICombinedVulnerabilitiesResponse.new(
   errors: null,

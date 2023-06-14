@@ -9,11 +9,11 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**case_add_attachment**](MessageCenterApi.md#case_add_attachment) | **POST** /message-center/entities/case-attachment/v1 | Upload an attachment for the case. |
 | [**case_download_attachment**](MessageCenterApi.md#case_download_attachment) | **GET** /message-center/entities/case-attachment/v1 | retrieves an attachment for the case, given the attachment id |
 | [**create_case**](MessageCenterApi.md#create_case) | **POST** /message-center/entities/case/v1 | create a new case |
+| [**create_case_v2**](MessageCenterApi.md#create_case_v2) | **POST** /message-center/entities/case/v2 | create a new case |
 | [**get_case_activity_by_ids**](MessageCenterApi.md#get_case_activity_by_ids) | **POST** /message-center/entities/case-activities/GET/v1 | Retrieve activities for given id&#39;s |
 | [**get_case_entities_by_ids**](MessageCenterApi.md#get_case_entities_by_ids) | **POST** /message-center/entities/cases/GET/v1 | Retrieve message center cases |
 | [**query_activity_by_case_id**](MessageCenterApi.md#query_activity_by_case_id) | **GET** /message-center/queries/case-activities/v1 | Retrieve activities id&#39;s for a case |
 | [**query_cases_ids_by_filter**](MessageCenterApi.md#query_cases_ids_by_filter) | **GET** /message-center/queries/cases/v1 | Retrieve case id&#39;s that match the provided filter criteria |
-| [**update_case**](MessageCenterApi.md#update_case) | **PATCH** /message-center/entities/case/v1 | update an existing case |
 
 
 ## aggregate_cases
@@ -26,7 +26,7 @@ Retrieve aggregate case values based on the matched filter
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -34,7 +34,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MessageCenterApi.new
-body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', min_doc_count: 3.56, missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
+body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
   # Retrieve aggregate case values based on the matched filter
@@ -93,7 +93,7 @@ Add an activity to case. Only activities of type comment are allowed via API
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -101,7 +101,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MessageCenterApi.new
-body = Falcon::ApiActivityCreationRequest.new({body: 'body_example', case_id: 'case_id_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # ApiActivityCreationRequest | 
+body = Falcon::DomainActivityCreationRequest.new({body: 'body_example', case_id: 'case_id_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # DomainActivityCreationRequest | 
 
 begin
   # Add an activity to case. Only activities of type comment are allowed via API
@@ -134,7 +134,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**ApiActivityCreationRequest**](ApiActivityCreationRequest.md) |  |  |
+| **body** | [**DomainActivityCreationRequest**](DomainActivityCreationRequest.md) |  |  |
 
 ### Return type
 
@@ -162,7 +162,7 @@ Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Fil
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -233,7 +233,7 @@ retrieves an attachment for the case, given the attachment id
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -300,7 +300,7 @@ create a new case
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -308,7 +308,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MessageCenterApi.new
-body = Falcon::ApiCaseCreationRequest.new({body: 'body_example', detections: [Falcon::MessagesDetection.new({id: 'id_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # ApiCaseCreationRequest | 
+body = Falcon::DomainCaseCreationRequest.new({body: 'body_example', detections: [Falcon::MessagesDetection.new({id: 'id_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # DomainCaseCreationRequest | 
 
 begin
   # create a new case
@@ -341,7 +341,74 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**ApiCaseCreationRequest**](ApiCaseCreationRequest.md) |  |  |
+| **body** | [**DomainCaseCreationRequest**](DomainCaseCreationRequest.md) |  |  |
+
+### Return type
+
+[**MsaReplyAffectedEntities**](MsaReplyAffectedEntities.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_case_v2
+
+> <MsaReplyAffectedEntities> create_case_v2(body)
+
+create a new case
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+# setup authorization
+Falcon.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = Falcon::MessageCenterApi.new
+body = Falcon::DomainCaseCreationRequestV2.new({body: 'body_example', detections: [Falcon::MessagesAlert.new({id: 'id_example', product: 'product_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example'}) # DomainCaseCreationRequestV2 | 
+
+begin
+  # create a new case
+  result = api_instance.create_case_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling MessageCenterApi->create_case_v2: #{e}"
+end
+```
+
+#### Using the create_case_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaReplyAffectedEntities>, Integer, Hash)> create_case_v2_with_http_info(body)
+
+```ruby
+begin
+  # create a new case
+  data, status_code, headers = api_instance.create_case_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaReplyAffectedEntities>
+rescue Falcon::ApiError => e
+  puts "Error when calling MessageCenterApi->create_case_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DomainCaseCreationRequestV2**](DomainCaseCreationRequestV2.md) |  |  |
 
 ### Return type
 
@@ -367,7 +434,7 @@ Retrieve activities for given id's
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -434,7 +501,7 @@ Retrieve message center cases
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -501,7 +568,7 @@ Retrieve activities id's for a case
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -513,7 +580,7 @@ case_id = 'case_id_example' # String | Case ID
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'activity.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
-  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query.
+  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
 
@@ -551,7 +618,7 @@ end
 | **case_id** | **String** | Case ID |  |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
-| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. | [optional] |
+| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
 
 ### Return type
@@ -578,7 +645,7 @@ Retrieve case id's that match the provided filter criteria
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -589,7 +656,7 @@ api_instance = Falcon::MessageCenterApi.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'case.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
-  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query.
+  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
 
@@ -626,7 +693,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
-| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. | [optional] |
+| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
 
 ### Return type
@@ -640,72 +707,5 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## update_case
-
-> <MsaReplyAffectedEntities> update_case(body)
-
-update an existing case
-
-### Examples
-
-```ruby
-require 'time'
-require 'crowdstrike-falcon'
-# setup authorization
-Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
-
-api_instance = Falcon::MessageCenterApi.new
-body = Falcon::ApiCaseUpdateRequest.new({body: 'body_example', detections: [Falcon::MessagesDetection.new({id: 'id_example', url: 'url_example'})], id: 'id_example', incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})]}) # ApiCaseUpdateRequest | 
-
-begin
-  # update an existing case
-  result = api_instance.update_case(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->update_case: #{e}"
-end
-```
-
-#### Using the update_case_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<MsaReplyAffectedEntities>, Integer, Hash)> update_case_with_http_info(body)
-
-```ruby
-begin
-  # update an existing case
-  data, status_code, headers = api_instance.update_case_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <MsaReplyAffectedEntities>
-rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->update_case_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApiCaseUpdateRequest**](ApiCaseUpdateRequest.md) |  |  |
-
-### Return type
-
-[**MsaReplyAffectedEntities**](MsaReplyAffectedEntities.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 

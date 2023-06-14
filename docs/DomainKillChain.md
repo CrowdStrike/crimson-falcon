@@ -24,7 +24,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainKillChain.new(
   actions_and_objectives: null,

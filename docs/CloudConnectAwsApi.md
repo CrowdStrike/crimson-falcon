@@ -25,7 +25,7 @@ Create or update Global Settings which are applicable to all provisioned AWS acc
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -92,7 +92,7 @@ Delete a set of AWS Accounts by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -159,7 +159,7 @@ Retrieve a set of AWS Accounts by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -226,7 +226,7 @@ Retrieve a set of Global Settings which are applicable to all provisioned AWS ac
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -290,7 +290,7 @@ Provision AWS Accounts by specifying details about the accounts to provision
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -361,7 +361,7 @@ Search for provisioned AWS Accounts by providing an FQL filter and paging detail
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -370,7 +370,7 @@ end
 
 api_instance = Falcon::CloudConnectAwsApi.new
 opts = {
-  limit: 56, # Integer | The maximum records to return. [1-500]. Defaults to 100.
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
   offset: 56, # Integer | The offset to start retrieving records from
   sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
   filter: 'filter_example' # String | The filter expression that should be used to limit the results
@@ -407,7 +407,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Integer** | The maximum records to return. [1-500]. Defaults to 100. | [optional][default to 100] |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
 | **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
 | **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
@@ -436,7 +436,7 @@ Search for provisioned AWS Accounts by providing an FQL filter and paging detail
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -445,7 +445,7 @@ end
 
 api_instance = Falcon::CloudConnectAwsApi.new
 opts = {
-  limit: 56, # Integer | The maximum records to return. [1-500]. Defaults to 100.
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
   offset: 56, # Integer | The offset to start retrieving records from
   sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
   filter: 'filter_example' # String | The filter expression that should be used to limit the results
@@ -482,7 +482,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Integer** | The maximum records to return. [1-500]. Defaults to 100. | [optional][default to 100] |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
 | **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
 | **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
@@ -511,7 +511,7 @@ Update AWS Accounts by specifying the ID of the account and details to update
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -578,7 +578,7 @@ Performs an Access Verification check on the specified AWS Account IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2

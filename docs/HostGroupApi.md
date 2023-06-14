@@ -17,7 +17,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## create_host_groups
 
-> <ResponsesHostGroupsV1> create_host_groups(body)
+> <HostGroupsRespV1> create_host_groups(body)
 
 Create Host Groups by specifying details about the group to create
 
@@ -25,7 +25,7 @@ Create Host Groups by specifying details about the group to create
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -33,7 +33,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::HostGroupApi.new
-body = Falcon::RequestsCreateGroupsV1.new({resources: [Falcon::RequestsCreateGroupV1.new({group_type: 'static', name: 'name_example'})]}) # RequestsCreateGroupsV1 | 
+body = Falcon::HostGroupsCreateGroupsReqV1.new({resources: [Falcon::HostGroupsCreateGroupReqV1.new({group_type: 'static', name: 'name_example'})]}) # HostGroupsCreateGroupsReqV1 | 
 
 begin
   # Create Host Groups by specifying details about the group to create
@@ -48,7 +48,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupsV1>, Integer, Hash)> create_host_groups_with_http_info(body)
+> <Array(<HostGroupsRespV1>, Integer, Hash)> create_host_groups_with_http_info(body)
 
 ```ruby
 begin
@@ -56,7 +56,7 @@ begin
   data, status_code, headers = api_instance.create_host_groups_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupsV1>
+  p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->create_host_groups_with_http_info: #{e}"
 end
@@ -66,11 +66,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsCreateGroupsV1**](RequestsCreateGroupsV1.md) |  |  |
+| **body** | [**HostGroupsCreateGroupsReqV1**](HostGroupsCreateGroupsReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesHostGroupsV1**](ResponsesHostGroupsV1.md)
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -92,7 +92,7 @@ Delete a set of Host Groups by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -151,7 +151,7 @@ end
 
 ## get_host_groups
 
-> <ResponsesHostGroupsV1> get_host_groups(ids)
+> <HostGroupsRespV1> get_host_groups(ids)
 
 Retrieve a set of Host Groups by specifying their IDs
 
@@ -159,7 +159,7 @@ Retrieve a set of Host Groups by specifying their IDs
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -182,7 +182,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupsV1>, Integer, Hash)> get_host_groups_with_http_info(ids)
+> <Array(<HostGroupsRespV1>, Integer, Hash)> get_host_groups_with_http_info(ids)
 
 ```ruby
 begin
@@ -190,7 +190,7 @@ begin
   data, status_code, headers = api_instance.get_host_groups_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupsV1>
+  p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->get_host_groups_with_http_info: #{e}"
 end
@@ -204,7 +204,7 @@ end
 
 ### Return type
 
-[**ResponsesHostGroupsV1**](ResponsesHostGroupsV1.md)
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ end
 
 ## perform_group_action
 
-> <ResponsesHostGroupsV1> perform_group_action(action_name, body, opts)
+> <HostGroupsRespV1> perform_group_action(action_name, body, opts)
 
 Perform the specified action on the Host Groups specified in the request
 
@@ -226,7 +226,7 @@ Perform the specified action on the Host Groups specified in the request
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -253,7 +253,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupsV1>, Integer, Hash)> perform_group_action_with_http_info(action_name, body, opts)
+> <Array(<HostGroupsRespV1>, Integer, Hash)> perform_group_action_with_http_info(action_name, body, opts)
 
 ```ruby
 begin
@@ -261,7 +261,7 @@ begin
   data, status_code, headers = api_instance.perform_group_action_with_http_info(action_name, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupsV1>
+  p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->perform_group_action_with_http_info: #{e}"
 end
@@ -277,7 +277,7 @@ end
 
 ### Return type
 
-[**ResponsesHostGroupsV1**](ResponsesHostGroupsV1.md)
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
 
 ### Authorization
 
@@ -285,13 +285,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
 ## query_combined_group_members
 
-> <ResponsesHostGroupMembersV1> query_combined_group_members(opts)
+> <HostGroupsMembersRespV1> query_combined_group_members(opts)
 
 Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -299,7 +299,7 @@ Search for members of a Host Group in your environment by providing an FQL filte
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -328,7 +328,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupMembersV1>, Integer, Hash)> query_combined_group_members_with_http_info(opts)
+> <Array(<HostGroupsMembersRespV1>, Integer, Hash)> query_combined_group_members_with_http_info(opts)
 
 ```ruby
 begin
@@ -336,7 +336,7 @@ begin
   data, status_code, headers = api_instance.query_combined_group_members_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupMembersV1>
+  p data # => <HostGroupsMembersRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->query_combined_group_members_with_http_info: #{e}"
 end
@@ -354,7 +354,7 @@ end
 
 ### Return type
 
-[**ResponsesHostGroupMembersV1**](ResponsesHostGroupMembersV1.md)
+[**HostGroupsMembersRespV1**](HostGroupsMembersRespV1.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ end
 
 ## query_combined_host_groups
 
-> <ResponsesHostGroupsV1> query_combined_host_groups(opts)
+> <HostGroupsRespV1> query_combined_host_groups(opts)
 
 Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
 
@@ -376,7 +376,7 @@ Search for Host Groups in your environment by providing an FQL filter and paging
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -404,7 +404,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupsV1>, Integer, Hash)> query_combined_host_groups_with_http_info(opts)
+> <Array(<HostGroupsRespV1>, Integer, Hash)> query_combined_host_groups_with_http_info(opts)
 
 ```ruby
 begin
@@ -412,7 +412,7 @@ begin
   data, status_code, headers = api_instance.query_combined_host_groups_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupsV1>
+  p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->query_combined_host_groups_with_http_info: #{e}"
 end
@@ -429,7 +429,7 @@ end
 
 ### Return type
 
-[**ResponsesHostGroupsV1**](ResponsesHostGroupsV1.md)
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
 
 ### Authorization
 
@@ -451,7 +451,7 @@ Search for members of a Host Group in your environment by providing an FQL filte
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -528,7 +528,7 @@ Search for Host Groups in your environment by providing an FQL filter and paging
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -595,7 +595,7 @@ end
 
 ## update_host_groups
 
-> <ResponsesHostGroupsV1> update_host_groups(body)
+> <HostGroupsRespV1> update_host_groups(body)
 
 Update Host Groups by specifying the ID of the group and details to update
 
@@ -603,7 +603,7 @@ Update Host Groups by specifying the ID of the group and details to update
 
 ```ruby
 require 'time'
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
   # Configure OAuth2 access token for authorization: oauth2
@@ -611,7 +611,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::HostGroupApi.new
-body = Falcon::RequestsUpdateGroupsV1.new({resources: [Falcon::RequestsUpdateGroupV1.new({id: 'id_example'})]}) # RequestsUpdateGroupsV1 | 
+body = Falcon::HostGroupsUpdateGroupsReqV1.new({resources: [Falcon::HostGroupsUpdateGroupReqV1.new({id: 'id_example'})]}) # HostGroupsUpdateGroupsReqV1 | 
 
 begin
   # Update Host Groups by specifying the ID of the group and details to update
@@ -626,7 +626,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ResponsesHostGroupsV1>, Integer, Hash)> update_host_groups_with_http_info(body)
+> <Array(<HostGroupsRespV1>, Integer, Hash)> update_host_groups_with_http_info(body)
 
 ```ruby
 begin
@@ -634,7 +634,7 @@ begin
   data, status_code, headers = api_instance.update_host_groups_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ResponsesHostGroupsV1>
+  p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostGroupApi->update_host_groups_with_http_info: #{e}"
 end
@@ -644,11 +644,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RequestsUpdateGroupsV1**](RequestsUpdateGroupsV1.md) |  |  |
+| **body** | [**HostGroupsUpdateGroupsReqV1**](HostGroupsUpdateGroupsReqV1.md) |  |  |
 
 ### Return type
 
-[**ResponsesHostGroupsV1**](ResponsesHostGroupsV1.md)
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
 
 ### Authorization
 
@@ -656,6 +656,6 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

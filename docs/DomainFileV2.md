@@ -22,7 +22,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainFileV2.new(
   cloud_request_id: null,

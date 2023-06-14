@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainQueuedSessionJob.new(
   commands: null,

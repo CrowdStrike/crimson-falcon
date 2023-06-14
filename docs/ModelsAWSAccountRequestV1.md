@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::ModelsAWSAccountRequestV1.new(
   cloudtrail_bucket_owner_id: null,

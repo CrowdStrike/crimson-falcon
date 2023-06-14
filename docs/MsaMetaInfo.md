@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MsaMetaInfo.new(
   pagination: null,

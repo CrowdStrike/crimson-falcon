@@ -24,7 +24,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::MessagesCase.new(
   aids: null,

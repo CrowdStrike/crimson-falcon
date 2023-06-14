@@ -54,7 +54,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DetectsDeviceDetailIndexed.new(
   agent_load_flags: null,

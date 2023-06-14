@@ -7,7 +7,7 @@
 | **aid** | **String** |  |  |
 | **base_command** | **String** |  | [optional] |
 | **complete** | **Boolean** |  |  |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
 | **offline_queued** | **Boolean** |  |  |
 | **query_time** | **Float** |  |  |
 | **sequence_id** | **Integer** |  | [optional] |
@@ -19,7 +19,7 @@
 ## Example
 
 ```ruby
-require 'crowdstrike-falcon'
+require 'crimson-falcon'
 
 instance = Falcon::DomainMultiStatusSensorResponse.new(
   aid: null,
