@@ -20,7 +20,6 @@ Get event body for the provided event ID
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -87,7 +86,6 @@ Get events entities for specified ids.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -154,7 +152,6 @@ Get rules entities for specified ids.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -221,7 +218,6 @@ Get events ids that match the provided filter criteria.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -298,7 +294,6 @@ Get rules ids that match the provided filter criteria.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -33,7 +33,6 @@ Create Sensor Update Policies by specifying details about the policy to create
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -100,7 +99,6 @@ Create Sensor Update Policies by specifying details about the policy to create w
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -167,7 +165,6 @@ Delete a set of Sensor Update Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -234,7 +231,6 @@ Retrieve a set of Sensor Update Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -301,7 +297,6 @@ Retrieve a set of Sensor Update Policies with additional support for uninstall p
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -368,7 +363,6 @@ Perform the specified action on the Sensor Update Policies specified in the requ
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -437,7 +431,6 @@ Retrieve available builds for use with Sensor Update Policies
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -508,7 +501,6 @@ Retrieve kernel compatibility info for Sensor Update Builds
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -581,7 +573,6 @@ Search for Sensor Update Policies in your environment by providing an FQL filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -656,7 +647,6 @@ Search for Sensor Update Policies with additional support for uninstall protecti
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -731,7 +721,6 @@ Search for members of a Sensor Update Policy in your environment by providing an
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -808,7 +797,6 @@ Retrieve kernel compatibility info for Sensor Update Builds
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -883,7 +871,6 @@ Search for Sensor Update Policies in your environment by providing an FQL filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -958,7 +945,6 @@ Search for members of a Sensor Update Policy in your environment by providing an
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1035,7 +1021,6 @@ Reveals an uninstall token for a specific device. To retrieve the bulk maintenan
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1102,7 +1087,6 @@ Sets the precedence of Sensor Update Policies based on the order of IDs specifie
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1169,7 +1153,6 @@ Update Sensor Update Policies by specifying the ID of the policy and details to 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1236,7 +1219,6 @@ Update Sensor Update Policies by specifying the ID of the policy and details to 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

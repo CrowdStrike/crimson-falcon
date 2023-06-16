@@ -18,7 +18,6 @@ Retrieve scheduled reports for the provided report IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -85,7 +84,6 @@ Launch scheduled reports executions for the provided report IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -152,7 +150,6 @@ Find all report IDs matching the query with filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

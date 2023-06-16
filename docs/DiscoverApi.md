@@ -27,7 +27,6 @@ Get details on accounts by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -94,7 +93,6 @@ Get details on applications by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -161,7 +159,6 @@ Get details on assets by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -228,7 +225,6 @@ Get details on logins by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -295,7 +291,6 @@ Search for accounts in your environment by providing an FQL (Falcon Query Langua
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -370,7 +365,6 @@ Search for active discovery networks in your environment by providing an FQL fil
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -447,7 +441,6 @@ Search for active discovery rules in your environment by providing an FQL filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -524,7 +517,6 @@ Search for active discovery scanners in your environment by providing an FQL fil
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -601,7 +593,6 @@ Search for active discovery scans in your environment by providing an FQL filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -678,7 +669,6 @@ Search for applications in your environment by providing an FQL filter and pagin
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -753,7 +743,6 @@ Search for assets in your environment by providing an FQL (Falcon Query Language
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -828,7 +817,6 @@ Search for logins in your environment by providing an FQL (Falcon Query Language
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

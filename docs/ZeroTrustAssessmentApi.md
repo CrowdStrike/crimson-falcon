@@ -18,7 +18,6 @@ Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -85,7 +84,6 @@ Get Zero Trust Assessment data for one or more hosts by providing a customer ID 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -160,7 +158,6 @@ Get the Zero Trust Assessment audit report for one customer ID (CID).
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

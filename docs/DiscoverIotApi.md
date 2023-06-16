@@ -17,7 +17,6 @@ Get details on IoT assets by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -84,7 +83,6 @@ Search for IoT assets in your environment by providing an FQL (Falcon Query Lang
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

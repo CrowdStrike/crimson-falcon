@@ -21,7 +21,6 @@ Query environment wide CrowdScore and return the entity data
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -96,7 +95,6 @@ Get details on behaviors by providing behavior IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,7 +161,6 @@ Get details on incidents by providing incident IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -230,7 +227,6 @@ Perform a set of actions on one or more incidents, such as adding tags or commen
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -303,7 +299,6 @@ Search for behaviors by providing an FQL filter, sorting, and paging details
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -378,7 +373,6 @@ Search for incidents by providing an FQL filter, sorting, and paging details
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

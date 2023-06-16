@@ -19,7 +19,6 @@ Get detect aggregates as specified via json in request body.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -86,7 +85,6 @@ View information about detections
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -153,7 +151,6 @@ Search for detection IDs that match a given query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -230,7 +227,6 @@ Modify the state, assignee, and visibility of detections
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

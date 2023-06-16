@@ -16,7 +16,6 @@ Identity Protection GraphQL API. Allows to retrieve entities, timeline activitie
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

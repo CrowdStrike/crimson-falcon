@@ -24,7 +24,6 @@ Create or update Global Settings which are applicable to all provisioned AWS acc
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -91,7 +90,6 @@ Delete a set of AWS Accounts by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -158,7 +156,6 @@ Retrieve a set of AWS Accounts by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -225,7 +222,6 @@ Retrieve a set of Global Settings which are applicable to all provisioned AWS ac
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -289,7 +285,6 @@ Provision AWS Accounts by specifying details about the accounts to provision
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -360,7 +355,6 @@ Search for provisioned AWS Accounts by providing an FQL filter and paging detail
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -435,7 +429,6 @@ Search for provisioned AWS Accounts by providing an FQL filter and paging detail
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -510,7 +503,6 @@ Update AWS Accounts by specifying the ID of the account and details to update
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -577,7 +569,6 @@ Performs an Access Verification check on the specified AWS Account IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

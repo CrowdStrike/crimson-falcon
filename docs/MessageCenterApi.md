@@ -25,7 +25,6 @@ Retrieve aggregate case values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -92,7 +91,6 @@ Add an activity to case. Only activities of type comment are allowed via API
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -161,7 +159,6 @@ Upload an attachment for the case. Maximum upload size allowed is *15 MB*.   Fil
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -232,7 +229,6 @@ retrieves an attachment for the case, given the attachment id
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -299,7 +295,6 @@ create a new case
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -366,7 +361,6 @@ create a new case
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -433,7 +427,6 @@ Retrieve activities for given id's
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -500,7 +493,6 @@ Retrieve message center cases
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -567,7 +559,6 @@ Retrieve activities id's for a case
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -644,7 +635,6 @@ Retrieve case id's that match the provided filter criteria
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

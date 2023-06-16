@@ -33,7 +33,6 @@ Creates a new AWS account in our system for a customer and generates the install
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -100,7 +99,6 @@ Creates a new Azure Subscription in our system
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -167,7 +165,6 @@ Delete AWS accounts.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -234,7 +231,6 @@ Deletes a new Azure Subscription in our system
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -303,7 +299,6 @@ Provides a list of AWS accounts.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -380,7 +375,6 @@ Provides the script to run for a given tenant id and subscription IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -451,7 +445,6 @@ Gets the Azure tenant Config
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -524,7 +517,6 @@ Provides all the azure subscriptions and tenants
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -599,7 +591,6 @@ Provides the clusters acknowledged by the Kubernetes Protection service
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -680,7 +671,6 @@ Returns a combined list of provisioned cloud accounts and known kubernetes clust
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -759,7 +749,6 @@ Provides a sample Helm values.yaml file for a customer to install alongside the 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -830,7 +819,6 @@ Provides the cloud locations acknowledged by the Kubernetes Protection service
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -899,7 +887,6 @@ Gets static bash scripts that are used during registration
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -963,7 +950,6 @@ Provides the azure subscriptions registered to Kubernetes Protection
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1042,7 +1028,6 @@ Adds the client ID for the given tenant ID to our system
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1111,7 +1096,6 @@ Regenerate API key for docker registry integrations
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1175,7 +1159,6 @@ Triggers a dry run or a full scan of a customer's kubernetes footprint
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1242,7 +1225,6 @@ Updates the AWS account per the query parameters provided
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

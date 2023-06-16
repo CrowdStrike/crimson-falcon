@@ -19,7 +19,6 @@ Number of hosts in your customer account that have observed a given custom IOC
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -88,7 +87,6 @@ Find hosts that have observed a given custom IOC. For details about those hosts,
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,7 +161,6 @@ For the provided ProcessID retrieve the process details
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -230,7 +227,6 @@ Search for processes associated with a custom IOC
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

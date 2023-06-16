@@ -25,7 +25,6 @@ Create Firewall Policies by specifying details about the policy to create
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -96,7 +95,6 @@ Delete a set of Firewall Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,7 +161,6 @@ Retrieve a set of Firewall Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -230,7 +227,6 @@ Perform the specified action on the Firewall Policies specified in the request
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -299,7 +295,6 @@ Search for Firewall Policies in your environment by providing an FQL filter and 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -374,7 +369,6 @@ Search for members of a Firewall Policy in your environment by providing an FQL 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -451,7 +445,6 @@ Search for Firewall Policies in your environment by providing an FQL filter and 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -526,7 +519,6 @@ Search for members of a Firewall Policy in your environment by providing an FQL 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -603,7 +595,6 @@ Sets the precedence of Firewall Policies based on the order of IDs specified in 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -670,7 +661,6 @@ Update Firewall Policies by specifying the ID of the policy and details to updat
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -16,7 +16,6 @@ Gets the registry credentials
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

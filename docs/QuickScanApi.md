@@ -19,7 +19,6 @@ Check the status of a volume scan. Time required for analysis increases with the
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -86,7 +85,6 @@ Get scans aggregations as specified via json in request body.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -152,7 +150,6 @@ Find IDs for submitted scans by providing an FQL filter and paging details. Retu
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -227,7 +224,6 @@ Submit a volume of files for ml scanning. Time required for analysis increases w
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

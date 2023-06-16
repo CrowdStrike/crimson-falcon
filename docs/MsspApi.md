@@ -44,7 +44,6 @@ Add new CID group member.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -111,7 +110,6 @@ Create a link between user group and CID group, with zero or more additional rol
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -178,7 +176,6 @@ Add new user group member. Maximum 500 members allowed per user group.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -245,7 +242,6 @@ Create new CID groups. Name is a required field but description is an optional f
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -312,7 +308,6 @@ Create new user groups. Name is a required field but description is an optional 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -379,7 +374,6 @@ Delete CID group members.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -446,7 +440,6 @@ Delete CID groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -513,7 +506,6 @@ Delete user group members entry.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -580,7 +572,6 @@ Delete user groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -647,7 +638,6 @@ Delete links or additional roles between user groups and CID groups. User group 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -714,7 +704,6 @@ Get link to child customer by child CID(s)
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -781,7 +770,6 @@ Get link to child customer by child CID(s)
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -848,7 +836,6 @@ Deprecated : Please use GET /mssp/entities/cid-groups/v2. Get CID groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -915,7 +902,6 @@ Get CID Groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -982,7 +968,6 @@ Deprecated : Please use GET /mssp/entities/cid-group-members/v2. Get CID group m
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1049,7 +1034,6 @@ Get CID group members by CID Group ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1116,7 +1100,6 @@ Get link between user group and CID group by ID. Link ID is a string consisting 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1183,7 +1166,6 @@ Deprecated : Please use GET /mssp/entities/user-group-members/v2. Get user group
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1250,7 +1232,6 @@ Get user group members by user group ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1317,7 +1298,6 @@ Deprecated : Please use GET /entities/user-groups/v2. Get user groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1384,7 +1364,6 @@ Get user groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1451,7 +1430,6 @@ Query for customers linked as children
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1526,7 +1504,6 @@ Query a CID groups members by associated CID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1601,7 +1578,6 @@ Query CID groups.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1676,7 +1652,6 @@ Query links between user groups and CID groups. At least one of CID group ID or 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1755,7 +1730,6 @@ Query user group member by user UUID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1830,7 +1804,6 @@ Query user groups.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1905,7 +1878,6 @@ Update existing CID groups. CID group ID is expected for each CID group definiti
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1972,7 +1944,6 @@ Update existing user group(s). User group ID is expected for each user group def
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

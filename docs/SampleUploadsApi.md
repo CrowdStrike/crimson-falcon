@@ -26,7 +26,6 @@ Delete an archive that was uploaded previously
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -92,7 +91,6 @@ Retrieves the archives upload operation statuses. Status `done` means that archi
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,7 +161,6 @@ Retrieves the archives files in chunks.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -236,7 +233,6 @@ Uploads an archive and extracts files list from it. Operation is asynchronous us
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -313,7 +309,6 @@ Uploads an archive and extracts files list from it. Operation is asynchronous us
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -390,7 +385,6 @@ Removes a sample, including file, meta and submissions from the collection
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -457,7 +451,6 @@ Extracts files from an uploaded archive and copies them to internal storage maki
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -524,7 +517,6 @@ Retrieves the files extraction operation statuses. Status `done` means that all 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -595,7 +587,6 @@ Retrieves the files extractions in chunks. Status `done` means that all files we
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -668,7 +659,6 @@ Retrieves the file associated with the given ID (SHA256)
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -739,7 +729,6 @@ Upload a file for further cloud analysis. After uploading, call the specific ana
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

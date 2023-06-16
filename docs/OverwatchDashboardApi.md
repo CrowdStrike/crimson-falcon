@@ -20,7 +20,6 @@ Get the total number of detections pushed across all customers
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -87,7 +86,6 @@ Get aggregate OverWatch detection event info by providing an aggregate query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -154,7 +152,6 @@ Get OverWatch detection event collection info by providing an aggregate query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -221,7 +218,6 @@ Get the total number of incidents pushed across all customers
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -288,7 +284,6 @@ Get the total number of OverWatch events across all customers
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

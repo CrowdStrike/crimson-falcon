@@ -29,7 +29,6 @@ Retrieve aggregate allowlist ticket values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -96,7 +95,6 @@ Retrieve aggregate blocklist ticket values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -165,7 +163,6 @@ Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -232,7 +229,6 @@ Retrieve aggregate host/devices count based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -299,7 +295,6 @@ Retrieve aggregate escalation ticket values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -366,7 +361,6 @@ Retrieve aggregate incident values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -433,7 +427,6 @@ Retrieve aggregate remediation ticket values based on the matched filter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -500,7 +493,6 @@ Retrieve device count collection Ids that match the provided FQL filter, criteri
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -575,7 +567,6 @@ Retrieve allowlist tickets that match the provided filter criteria with scrollin
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -650,7 +641,6 @@ Retrieve block listtickets that match the provided filter criteria with scrollin
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -725,7 +715,6 @@ Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolli
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -800,7 +789,6 @@ Retrieve escalation tickets that match the provided filter criteria with scrolli
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -875,7 +863,6 @@ Retrieve incidents that match the provided filter criteria with scrolling enable
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -950,7 +937,6 @@ Retrieve remediation tickets that match the provided filter criteria with scroll
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

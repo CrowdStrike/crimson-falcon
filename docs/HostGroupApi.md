@@ -24,7 +24,6 @@ Create Host Groups by specifying details about the group to create
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -91,7 +90,6 @@ Delete a set of Host Groups by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -158,7 +156,6 @@ Retrieve a set of Host Groups by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -225,7 +222,6 @@ Perform the specified action on the Host Groups specified in the request
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -298,7 +294,6 @@ Search for members of a Host Group in your environment by providing an FQL filte
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -375,7 +370,6 @@ Search for Host Groups in your environment by providing an FQL filter and paging
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -450,7 +444,6 @@ Search for members of a Host Group in your environment by providing an FQL filte
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -527,7 +520,6 @@ Search for Host Groups in your environment by providing an FQL filter and paging
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -602,7 +594,6 @@ Update Host Groups by specifying the ID of the group and details to update
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

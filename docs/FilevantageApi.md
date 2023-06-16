@@ -19,7 +19,6 @@ Retrieve key attributes of Falcon FileVantage changes for the specified ids.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -88,7 +87,6 @@ Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

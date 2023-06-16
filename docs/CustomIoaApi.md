@@ -34,7 +34,6 @@ Create a rule within a rule group. Returns the rule.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -101,7 +100,6 @@ Create a rule group for a platform with a name and an optional description. Retu
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -168,7 +166,6 @@ Delete rule groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -239,7 +236,6 @@ Delete rules from a rule group by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -312,7 +308,6 @@ Get pattern severities by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -379,7 +374,6 @@ Get platforms by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -446,7 +440,6 @@ Get rule groups by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -513,7 +506,6 @@ Get rule types by ID.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -580,7 +572,6 @@ Get rules by ID and optionally with cid and/or version in the following format: 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -647,7 +638,6 @@ Get rules by ID and optionally with cid and/or version in the following format: 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -714,7 +704,6 @@ Get all pattern severity IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -785,7 +774,6 @@ Get all platform IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -856,7 +844,6 @@ Find all rule groups matching the query with optional filter.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -933,7 +920,6 @@ Finds all rule group IDs matching the query with optional filter.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1010,7 +996,6 @@ Get all rule type IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1081,7 +1066,6 @@ Finds all rule IDs matching the query with optional filter.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1158,7 +1142,6 @@ Update a rule group. The following properties can be modified: name, description
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1225,7 +1208,6 @@ Update rules within a rule group. Return the updated rules.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1292,7 +1274,6 @@ Validates field values and checks for matches if a test string is provided.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

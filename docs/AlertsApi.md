@@ -19,7 +19,6 @@ retrieves all Alerts ids that match a given query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -96,7 +95,6 @@ Perform actions on detections identified by detection ID(s) in request. Each act
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,7 +161,6 @@ retrieves aggregates for Alerts across all CIDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -230,7 +227,6 @@ retrieves all Alerts given their ids
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

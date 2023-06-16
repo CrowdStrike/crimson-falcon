@@ -16,7 +16,6 @@ Retrieve known vulnerabilities for the provided image
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

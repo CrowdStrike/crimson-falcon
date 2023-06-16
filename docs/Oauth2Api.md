@@ -17,7 +17,6 @@ Generate an OAuth2 access token
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -91,7 +90,6 @@ Revoke a previously issued OAuth2 access token before the end of its standard 30
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -20,7 +20,6 @@ Download sensor installer by SHA256 ID
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -87,7 +86,6 @@ Get sensor installer details by provided query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -162,7 +160,6 @@ Get sensor installer IDs by provided query
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -237,7 +234,6 @@ Get CCID to use with sensor installers
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -301,7 +297,6 @@ Get sensor installer details by provided SHA256 IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

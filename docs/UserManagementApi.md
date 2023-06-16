@@ -37,7 +37,6 @@ Get User Grant(s). This endpoint lists both direct as well as flight control gra
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -118,7 +117,6 @@ Deprecated : Please use POST /user-management/entities/users/v1. Create a new us
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -185,7 +183,6 @@ Create a new user. After creating a user, assign one or more roles with POST '/u
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -256,7 +253,6 @@ Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -323,7 +319,6 @@ Delete a user permanently.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -390,7 +385,6 @@ Get info about a role
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -461,7 +455,6 @@ Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -525,7 +518,6 @@ Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -592,7 +584,6 @@ Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role I
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -659,7 +650,6 @@ Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Ass
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -728,7 +718,6 @@ Show role IDs for all roles available in your customer account. For more informa
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -801,7 +790,6 @@ List user IDs for all users in your customer account. For more information on ea
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -876,7 +864,6 @@ Deprecated : Please use POST /user-management/entities/users/GET/v1. List the us
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -940,7 +927,6 @@ Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info ab
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1007,7 +993,6 @@ Deprecated : Please use GET /user-management/queries/users/v1. Get a user's ID b
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1074,7 +1059,6 @@ Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1138,7 +1122,6 @@ Get info about users including their name, UID and CID by providing user UUIDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1205,7 +1188,6 @@ Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Rev
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1274,7 +1256,6 @@ Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an exis
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1343,7 +1324,6 @@ Modify an existing user's first or last name.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1412,7 +1392,6 @@ Apply actions to one or more User. Available action names: reset_2fa, reset_pass
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1479,7 +1458,6 @@ Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

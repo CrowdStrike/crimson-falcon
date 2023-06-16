@@ -38,7 +38,6 @@ Returns JSON object(s) that contain the base64 encoded certificate for a service
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -111,7 +110,6 @@ Creates a new account in our system for a customer and generates a script for th
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -178,7 +176,6 @@ Creates a new account in our system for a customer and generates a script for th
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -245,7 +242,6 @@ Deletes an existing AWS account or organization in our system.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -316,7 +312,6 @@ Deletes an Azure subscription from the system.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -389,7 +384,6 @@ Get list of detected behaviors
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -484,7 +478,6 @@ Get misconfigurations based on the ID - including custom policy detections in ad
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -551,7 +544,6 @@ Get list of active misconfiguration ids - including custom policy detections in 
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -626,7 +618,6 @@ Get list of active misconfigurations
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -713,7 +704,6 @@ Returns information about the current status of an AWS account.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -798,7 +788,6 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -867,7 +856,6 @@ Return a URL for customer to visit in their cloud environment to grant us access
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -940,7 +928,6 @@ Return information about Azure account registration
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1019,7 +1006,6 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1094,7 +1080,6 @@ Given an array of policy IDs, returns detailed policies information.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1161,7 +1146,6 @@ Given a policy ID, returns detailed policy information.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1228,7 +1212,6 @@ Returns information about current policy settings.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1301,7 +1284,6 @@ Returns scan schedule configuration for one or more cloud platforms.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1370,7 +1352,6 @@ Patches a existing account in our system for a customer.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1437,7 +1418,6 @@ Update an Azure service account in our system by with the user-created client_id
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1508,7 +1488,6 @@ Update an Azure default subscription_id in our system for given tenant_id
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1579,7 +1558,6 @@ Updates a policy setting - can be used to override policy severity or to disable
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1646,7 +1624,6 @@ Updates scan schedule configuration for one or more cloud platforms.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

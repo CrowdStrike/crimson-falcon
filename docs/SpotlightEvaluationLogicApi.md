@@ -18,7 +18,6 @@ Search for evaluation logic in your environment by providing a FQL filter and pa
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -93,7 +92,6 @@ Get details on evaluation logic items by providing one or more IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -160,7 +158,6 @@ Search for evaluation logic in your environment by providing a FQL filter and pa
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

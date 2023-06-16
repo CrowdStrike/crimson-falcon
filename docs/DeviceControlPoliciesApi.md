@@ -27,7 +27,6 @@ Create Device Control Policies by specifying details about the policy to create
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -94,7 +93,6 @@ Delete a set of Device Control Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -161,7 +159,6 @@ Retrieve the configuration for a Default Device Control Policy
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -225,7 +222,6 @@ Retrieve a set of Device Control Policies by specifying their IDs
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -292,7 +288,6 @@ Perform the specified action on the Device Control Policies specified in the req
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -361,7 +356,6 @@ Search for Device Control Policies in your environment by providing an FQL filte
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -436,7 +430,6 @@ Search for members of a Device Control Policy in your environment by providing a
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -513,7 +506,6 @@ Search for Device Control Policies in your environment by providing an FQL filte
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -588,7 +580,6 @@ Search for members of a Device Control Policy in your environment by providing a
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -665,7 +656,6 @@ Sets the precedence of Device Control Policies based on the order of IDs specifi
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -732,7 +722,6 @@ Update the configuration for a Default Device Control Policy
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -799,7 +788,6 @@ Update Device Control Policies by specifying the ID of the policy and details to
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

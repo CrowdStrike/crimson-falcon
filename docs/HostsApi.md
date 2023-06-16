@@ -27,7 +27,6 @@ Performs the specified action on the provided prevention policy IDs.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -102,7 +101,6 @@ Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -169,7 +167,6 @@ Get details on one or more hosts by providing host IDs as a query parameter.  Su
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -236,7 +233,6 @@ Get the online status for one or more hosts by specifying each host’s unique I
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -303,7 +299,6 @@ Take various actions on the hosts in your environment. Contain or lift containme
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -372,7 +367,6 @@ Get details on one or more hosts by providing host IDs in a POST body.  Supports
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -439,7 +433,6 @@ Retrieve details about recent login sessions for a set of devices.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -506,7 +499,6 @@ Search for hosts in your environment by platform, hostname, IP, and other criter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -581,7 +573,6 @@ Search for hosts in your environment by platform, hostname, IP, and other criter
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -656,7 +647,6 @@ Retrieve history of IP and MAC addresses of devices.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -723,7 +713,6 @@ Retrieve hidden hosts that match the provided filter criteria.
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -798,7 +787,6 @@ Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags mu
 ### Examples
 
 ```ruby
-require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
