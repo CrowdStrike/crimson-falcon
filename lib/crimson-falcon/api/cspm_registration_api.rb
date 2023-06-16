@@ -123,7 +123,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-    # @param body [RegistrationAWSAccountCreateRequestExtV2] 
+    # @param body [RegistrationAWSAccountCreateRequestExtV2]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationAWSAccountResponseV2]
     def create_cspm_aws_account(body, opts = {})
@@ -132,7 +132,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-    # @param body [RegistrationAWSAccountCreateRequestExtV2] 
+    # @param body [RegistrationAWSAccountCreateRequestExtV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def create_cspm_aws_account_with_http_info(body, opts = {})
@@ -189,7 +189,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-    # @param body [RegistrationAzureAccountCreateRequestExternalV1] 
+    # @param body [RegistrationAzureAccountCreateRequestExternalV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationAzureAccountResponseV1]
     def create_cspm_azure_account(body, opts = {})
@@ -198,7 +198,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-    # @param body [RegistrationAzureAccountCreateRequestExternalV1] 
+    # @param body [RegistrationAzureAccountCreateRequestExternalV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def create_cspm_azure_account_with_http_info(body, opts = {})
@@ -319,7 +319,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Azure subscription IDs to remove
     # @option opts [Array<String>] :tenant_ids Tenant ids to remove
-    # @option opts [String] :retain_tenant 
+    # @option opts [String] :retain_tenant
     # @return [MsaBaseEntitiesResponse]
     def delete_cspm_azure_account(opts = {})
       data, _status_code, _headers = delete_cspm_azure_account_with_http_info(opts)
@@ -330,7 +330,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Azure subscription IDs to remove
     # @option opts [Array<String>] :tenant_ids Tenant ids to remove
-    # @option opts [String] :retain_tenant 
+    # @option opts [String] :retain_tenant
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_cspm_azure_account_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -579,7 +579,7 @@ module Falcon
 
     # Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string 
+    # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
     # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp (default to 'timestamp|desc')
     # @option opts [Integer] :limit The max number of detections to return (default to 500)
     # @option opts [Integer] :offset Offset returned detections
@@ -591,7 +591,7 @@ module Falcon
 
     # Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string 
+    # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
     # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp (default to 'timestamp|desc')
     # @option opts [Integer] :limit The max number of detections to return (default to 500)
     # @option opts [Integer] :offset Offset returned detections
@@ -699,7 +699,7 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
-      pattern = Regexp.new(/^[0-9a-z-_]{2,}$/)
+      pattern = Regexp.new(/^[0-9a-z\-_]{2,}$/)
       if @api_client.config.client_side_validation && !opts[:'region'].nil? && opts[:'region'] !~ pattern
         fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling CspmRegistrationApi.get_configuration_detections, must conform to the pattern #{pattern}."
       end
@@ -941,7 +941,7 @@ module Falcon
     # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs
-    # @option opts [String] :use_existing_cloudtrail 
+    # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :region Region
     # @return [RegistrationAWSAccountConsoleURL]
     def get_cspm_aws_console_setup_urls(opts = {})
@@ -952,7 +952,7 @@ module Falcon
     # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs
-    # @option opts [String] :use_existing_cloudtrail 
+    # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :region Region
     # @return [Array<(RegistrationAWSAccountConsoleURL, Integer, Hash)>] RegistrationAWSAccountConsoleURL data, response status code and response headers
     def get_cspm_aws_console_setup_urls_with_http_info(opts = {})
@@ -1111,7 +1111,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :tenant_id Tenant ID to generate script for. Defaults to most recently registered tenant.
     # @option opts [Array<String>] :subscription_ids Subscription IDs to generate script for. Defaults to all.
-    # @option opts [String] :account_type 
+    # @option opts [String] :account_type
     # @option opts [String] :template Template to be rendered
     # @return [RegistrationAzureProvisionGetUserScriptResponseV1]
     def get_cspm_azure_user_scripts_attachment(opts = {})
@@ -1123,7 +1123,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :tenant_id Tenant ID to generate script for. Defaults to most recently registered tenant.
     # @option opts [Array<String>] :subscription_ids Subscription IDs to generate script for. Defaults to all.
-    # @option opts [String] :account_type 
+    # @option opts [String] :account_type
     # @option opts [String] :template Template to be rendered
     # @return [Array<(RegistrationAzureProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationAzureProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_cspm_azure_user_scripts_attachment_with_http_info(opts = {})
@@ -1466,7 +1466,7 @@ module Falcon
     end
 
     # Patches a existing account in our system for a customer.
-    # @param body [RegistrationAWSAccountPatchRequest] 
+    # @param body [RegistrationAWSAccountPatchRequest]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationAWSAccountResponseV2]
     def patch_cspm_aws_account(body, opts = {})
@@ -1475,7 +1475,7 @@ module Falcon
     end
 
     # Patches a existing account in our system for a customer.
-    # @param body [RegistrationAWSAccountPatchRequest] 
+    # @param body [RegistrationAWSAccountPatchRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def patch_cspm_aws_account_with_http_info(body, opts = {})
@@ -1714,7 +1714,7 @@ module Falcon
     end
 
     # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
-    # @param body [RegistrationPolicyRequestExtV1] 
+    # @param body [RegistrationPolicyRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationPolicySettingsResponseV1]
     def update_cspm_policy_settings(body, opts = {})
@@ -1723,7 +1723,7 @@ module Falcon
     end
 
     # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
-    # @param body [RegistrationPolicyRequestExtV1] 
+    # @param body [RegistrationPolicyRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationPolicySettingsResponseV1, Integer, Hash)>] RegistrationPolicySettingsResponseV1 data, response status code and response headers
     def update_cspm_policy_settings_with_http_info(body, opts = {})
@@ -1780,7 +1780,7 @@ module Falcon
     end
 
     # Updates scan schedule configuration for one or more cloud platforms.
-    # @param body [RegistrationScanScheduleUpdateRequestV1] 
+    # @param body [RegistrationScanScheduleUpdateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationScanScheduleResponseV1]
     def update_cspm_scan_schedule(body, opts = {})
@@ -1789,7 +1789,7 @@ module Falcon
     end
 
     # Updates scan schedule configuration for one or more cloud platforms.
-    # @param body [RegistrationScanScheduleUpdateRequestV1] 
+    # @param body [RegistrationScanScheduleUpdateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationScanScheduleResponseV1, Integer, Hash)>] RegistrationScanScheduleResponseV1 data, response status code and response headers
     def update_cspm_scan_schedule_with_http_info(body, opts = {})

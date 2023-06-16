@@ -28,8 +28,9 @@
 Gemfile
 .travis.yml
 git_push.sh
+README.md
 
 ### Lib Files ###
-lib/api_client.rb
-lib/cloud.rb
-lib/configuration.rb
+lib/crimson-falcon/api_client.rb
+lib/crimson-falcon/cloud.rb
+lib/crimson-falcon/configuration.rb

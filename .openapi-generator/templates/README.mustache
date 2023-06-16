@@ -1,6 +1,6 @@
 # {{gemName}}
 
-{{moduleName}} - the Ruby gem for the {{appName}}
+The Ruby gem for the {{appName}}
 
 {{#appDescriptionWithNewLines}}
 {{{.}}}
@@ -65,29 +65,14 @@ Please follow the [installation](#installation) procedure and then run the follo
 require '{{{gemName}}}'
 {{#apiInfo}}{{#apis}}{{#-first}}{{#operations}}{{#operation}}{{#-first}}{{#hasAuthMethods}}
 # Setup authorization
-{{{moduleName}}}.configure do |config|{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-  # Configure HTTP basic authorization: {{{name}}}
-  config.username = 'YOUR_USERNAME'
-  config.password = 'YOUR_PASSWORD'{{/isBasicBasic}}{{#isBasicBearer}}
-  # Configure Bearer authorization{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}: {{{name}}}
-  config.access_token = 'YOUR_BEARER_TOKEN'
-  # Configure a proc to get access tokens in lieu of the static access_token configuration
-  config.access_token_getter = -> { 'YOUR TOKEN GETTER PROC' } {{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
-  # Configure API key authorization: {{{name}}}
-  config.api_key['{{{name}}}'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['{{{name}}}'] = 'Bearer'{{/isApiKey}}{{#isOAuth}}
-  # Configure OAuth2 access token for authorization: {{{name}}}
-  config.access_token = 'YOUR ACCESS TOKEN'
-  # Configure a proc to get access tokens in lieu of the static access_token configuration
-  config.access_token_getter = -> { 'YOUR TOKEN GETTER PROC' } {{/isOAuth}}
-  {{#isFaraday}}
-  # Configure faraday connection
-  config.configure_faraday_connection { |connection| 'YOUR CONNECTION CONFIG PROC' }
-  {{/isFaraday}}
-{{/authMethods}}end
+{{{moduleName}}}.configure do |config|
+  config.client_id = "xxx"
+  config.client_secret = "xxx"
+  config.cloud = "us-2"
+end
 {{/hasAuthMethods}}
 
+# Create a new API instance
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{#requiredParams}}
 {{{paramName}}} = {{{vendorExtensions.x-ruby-example}}} # {{{dataType}}} | {{{description}}}
@@ -120,38 +105,3 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{moduleName}}::{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{{summary}}}
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
-
-## Documentation for Models
-
-{{#models}}{{#model}} - [{{moduleName}}::{{classname}}]({{modelDocPath}}{{classname}}.md)
-{{/model}}{{/models}}
-
-## Documentation for Authorization
-
-{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
-{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
-{{#authMethods}}
-### {{name}}
-
-{{#isApiKey}}
-
-- **Type**: API key
-- **API key parameter name**: {{keyParamName}}
-- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
-{{/isApiKey}}
-{{#isBasic}}
-{{#isBasicBasic}}- **Type**: HTTP basic authentication
-{{/isBasicBasic}}{{#isBasicBearer}}- **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
-{{/isBasicBearer}}
-{{/isBasic}}
-{{#isOAuth}}
-
-- **Type**: OAuth
-- **Flow**: {{flow}}
-- **Authorization URL**: {{authorizationUrl}}
-- **Scopes**: {{^scopes}}N/A{{/scopes}}
-{{#scopes}}  - {{scope}}: {{description}}
-{{/scopes}}
-{{/isOAuth}}
-
-{{/authMethods}}

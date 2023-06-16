@@ -1,6 +1,5 @@
 .rspec
 .rubocop.yml
-README.md
 Rakefile
 crimson-falcon.gemspec
 docs/AlertsApi.md
@@ -961,9 +960,7 @@ lib/crimson-falcon/api/spotlight_vulnerabilities_api.rb
 lib/crimson-falcon/api/tailored_intelligence_api.rb
 lib/crimson-falcon/api/user_management_api.rb
 lib/crimson-falcon/api/zero_trust_assessment_api.rb
-lib/crimson-falcon/api_client.rb
 lib/crimson-falcon/api_error.rb
-lib/crimson-falcon/configuration.rb
 lib/crimson-falcon/models/api_action_resp_v1.rb
 lib/crimson-falcon/models/api_action_v1.rb
 lib/crimson-falcon/models/api_aggregates_response.rb
