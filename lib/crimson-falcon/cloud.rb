@@ -16,7 +16,8 @@ module Falcon
     attr_reader :cloud
 
     def initialize(cloud)
-      raise ArgumentError, "Invalid cloud: #{cloud}" unless VALID_CLOUDS.key?(cloud)
+      message = "Invalid cloud '#{cloud}'. Valid clouds are: #{VALID_CLOUDS.keys.map { |c| "'#{c}'" }.join(", ")}"
+      raise ArgumentError, message unless VALID_CLOUDS.key?(cloud)
 
       @cloud = cloud
     end
