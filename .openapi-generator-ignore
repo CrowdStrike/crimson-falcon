@@ -28,3 +28,8 @@
 Gemfile
 .travis.yml
 git_push.sh
+
+### Lib Files ###
+lib/api_client.rb
+lib/cloud.rb
+lib/configuration.rb
