@@ -15,6 +15,7 @@ require 'crimson-falcon/api_client'
 require 'crimson-falcon/api_error'
 require 'crimson-falcon/version'
 require 'crimson-falcon/configuration'
+require 'crimson-falcon/cloud'
 
 # Models
 require 'crimson-falcon/models/api_action_resp_v1'
@@ -925,7 +926,7 @@ module Falcon
     #   Falcon.configure do |config|
     #     config.client_id = "xxx"
     #     config.client_secret = "xxx"
-    #     config.cloud = "us-1"
+    #     config.cloud = "us-2"
     #   end
     # If no block given, return the default Configuration object.
     def configure

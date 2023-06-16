@@ -7,6 +7,7 @@ require '{{gemName}}/api_client'
 require '{{gemName}}/api_error'
 require '{{gemName}}/version'
 require '{{gemName}}/configuration'
+require '{{gemName}}/cloud'
 
 # Models
 {{^useAutoload}}
@@ -49,8 +50,9 @@ module {{moduleName}}
   class << self
     # Customize default settings for the SDK using block.
     #   {{moduleName}}.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
+    #     config.client_id = "xxx"
+    #     config.client_secret = "xxx"
+    #     config.cloud = "us-2"
     #   end
     # If no block given, return the default Configuration object.
     def configure
