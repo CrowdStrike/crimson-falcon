@@ -16,6 +16,7 @@ Update installation token settings.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

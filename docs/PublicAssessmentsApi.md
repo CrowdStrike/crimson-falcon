@@ -16,6 +16,7 @@ Search for assessments in your environment by providing an FQL filter and paging
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

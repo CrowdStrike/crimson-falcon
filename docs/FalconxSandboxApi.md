@@ -30,6 +30,7 @@ Delete report based on the report ID. Operation can be checked for success by po
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -96,6 +97,7 @@ Removes a sample, including file, meta and submissions from the collection
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -162,6 +164,7 @@ Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -234,6 +237,7 @@ Get memory dump content, as binary
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -306,6 +310,7 @@ Get extracted strings from a memory dump
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -378,6 +383,7 @@ Get hex view of a memory dump
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -450,6 +456,7 @@ Get a full sandbox report.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -516,6 +523,7 @@ Retrieves the file associated with the given ID (SHA256)
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -586,6 +594,7 @@ Check the status of a sandbox analysis. Time required for analysis varies but is
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -652,6 +661,7 @@ Get a short summary version of a sandbox report.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -718,6 +728,7 @@ Find sandbox reports by providing an FQL filter and paging details. Returns a se
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -792,6 +803,7 @@ Retrieves a list with sha256 of samples that exist and customer has rights to ac
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -858,6 +870,7 @@ Find submission IDs for uploaded files by providing an FQL filter and paging det
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -932,6 +945,7 @@ Submit an uploaded file or a URL for sandbox analysis. Time required for analysi
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -998,6 +1012,7 @@ Upload a file for sandbox analysis. After uploading, use `/falconx/entities/subm
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

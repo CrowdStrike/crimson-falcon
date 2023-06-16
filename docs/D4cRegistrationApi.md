@@ -31,6 +31,7 @@ Creates a new account in our system for a customer and generates a script for th
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -97,6 +98,7 @@ Creates a new account in our system for a customer and generates a new service a
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -163,6 +165,7 @@ Creates a new account in our system for a customer and generates a script for th
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -229,6 +232,7 @@ Deletes an existing AWS account or organization in our system.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -299,6 +303,7 @@ Returns JSON object(s) that contain the base64 encoded certificate for a service
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -371,6 +376,7 @@ Returns information about the current status of an AWS account.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -451,6 +457,7 @@ Return a URL for customer to visit in their cloud environment to grant us access
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -519,6 +526,7 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -587,6 +595,7 @@ Returns information about the current status of an GCP account.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -667,6 +676,7 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -735,6 +745,7 @@ Return information about Azure account registration
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -813,6 +824,7 @@ Return available tenant ids for discover for cloud
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -876,6 +888,7 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -939,6 +952,7 @@ Return a script for customer to run in their cloud environment to grant us acces
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1011,6 +1025,7 @@ Returns static install scripts for Horizon.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1085,6 +1100,7 @@ Update an Azure service account in our system by with the user-created client_id
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

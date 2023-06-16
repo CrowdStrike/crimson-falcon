@@ -21,6 +21,7 @@ Returns count of potentially affected quarantined files for each action.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -87,6 +88,7 @@ Get quarantine file aggregates as specified via json in request body.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -153,6 +155,7 @@ Get quarantine file metadata for specified ids.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -219,6 +222,7 @@ Get quarantine file ids that match the provided filter criteria.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -295,6 +299,7 @@ Apply quarantine file actions by query.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -361,6 +366,7 @@ Apply action by quarantine file ids
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -20,6 +20,7 @@ Create a registry entity using the provided details
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -86,6 +87,7 @@ Delete the registry entity identified by the entity UUID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -152,6 +154,7 @@ Retrieve registry entities identified by the customer id
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -224,6 +227,7 @@ Retrieve the registry entity identified by the entity UUID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -290,6 +294,7 @@ Update the registry entity, as identified by the entity UUID, using the provided
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

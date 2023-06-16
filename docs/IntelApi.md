@@ -34,6 +34,7 @@ Retrieve specific actors using their actor IDs.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -104,6 +105,7 @@ Retrieve specific indicators using their indicator IDs.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -170,6 +172,7 @@ Retrieve specific reports using their report IDs.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -240,6 +243,7 @@ Return a Report PDF attachment
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -309,6 +313,7 @@ Retrieve details for rule sets for the specified ids.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -375,6 +380,7 @@ Download earlier rule sets.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -446,6 +452,7 @@ Download the latest rule set.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -521,6 +528,7 @@ Export Mitre ATT&CK information for a given actor.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -588,6 +596,7 @@ Get vulnerabilities
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -654,6 +663,7 @@ Retrieves report and observable IDs associated with the given actor and attacks
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -719,6 +729,7 @@ Get info about actors that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -797,6 +808,7 @@ Get actor IDs that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -873,6 +885,7 @@ Get info about indicators that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -953,6 +966,7 @@ Get indicators IDs that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1033,6 +1047,7 @@ Get info about reports that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1111,6 +1126,7 @@ Get report IDs that match provided FQL filters.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1187,6 +1203,7 @@ Search for rule IDs that match provided filter criteria.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1273,6 +1290,7 @@ Gets MITRE tactics and techniques for the given actor
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1338,6 +1356,7 @@ Get vulnerabilities IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

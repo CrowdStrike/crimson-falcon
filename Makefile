@@ -45,4 +45,29 @@ clean:
 
 # Define the rebuild target
 .PHONY: rebuild
-rebuild: uninstall clean build install
+rebuild: uninstall build install clean
+
+.PHONY: fix-regex
+
+# Directory where the ruby files are located
+DIR := lib/crimson-falcon/
+
+fix-regex:
+ifeq ($(shell uname -s),Darwin) # If the operating system is macOS
+	find $(DIR) -name "*.rb" -print0 | while IFS= read -r -d '' file; do \
+		sed -i '' -E 's/\[0-9a-z-_]/[0-9a-z\\-_]/g' "$$file" ; \
+	done
+else # If the operating system is Linux
+	find $(DIR) -name "*.rb" -print0 | while IFS= read -r -d '' file; do \
+		sed -i 's/\[0-9a-z-_]/[0-9a-z\\-_]/g' "$$file" ; \
+	done
+endif
+
+.PHONY: generate
+
+generate:
+	openapi-generator generate -i .openapi-generator/swagger.json -g ruby -c .openapi-generator/config.yml -t .openapi-generator/templates
+
+.PHONY: post-generate
+
+post-generate: generate fix-regex

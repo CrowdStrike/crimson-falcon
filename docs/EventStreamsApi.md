@@ -17,6 +17,7 @@ Discover all event streams in your environment
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -87,6 +88,7 @@ Refresh an active event stream. Use the URL shown in a GET /sensors/entities/dat
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -23,6 +23,7 @@ Search for audit events by providing an FQL filter and paging details.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -97,6 +98,7 @@ Gets the details of one or more audit events by id.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -165,6 +167,7 @@ Check current installation token settings.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -228,6 +231,7 @@ Creates a token.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -294,6 +298,7 @@ Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/e
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -360,6 +365,7 @@ Search for tokens by providing an FQL filter and paging details.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -434,6 +440,7 @@ Gets the details of one or more tokens by id.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -502,6 +509,7 @@ Updates one or more tokens. Use this endpoint to edit labels, change expiration,
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

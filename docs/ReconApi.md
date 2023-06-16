@@ -41,6 +41,7 @@ Get notification exposed data record aggregates as specified via JSON in request
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -107,6 +108,7 @@ Get notification aggregates as specified via JSON in request body.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -173,6 +175,7 @@ Create actions for a monitoring rule. Accepts a list of actions that will be att
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -239,6 +242,7 @@ Launch asynchronous export job. Use the job ID to poll the status of the job usi
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -305,6 +309,7 @@ Create monitoring rules.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -371,6 +376,7 @@ Delete an action from a monitoring rule based on the action ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -437,6 +443,7 @@ Delete export jobs (and their associated file(s)) based on their IDs.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -503,6 +510,7 @@ Delete notifications based on IDs. Notifications cannot be recovered after they 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -569,6 +577,7 @@ Delete monitoring rules.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -639,6 +648,7 @@ Get actions based on their IDs. IDs can be retrieved using the GET /queries/acti
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -705,6 +715,7 @@ Get the status of export jobs based on their IDs. Export jobs can be launched by
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -771,6 +782,7 @@ Download the file associated with a job ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -837,6 +849,7 @@ Get detailed notifications based on their IDs. These include the raw intelligenc
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -903,6 +916,7 @@ Get detailed notifications based on their IDs. These include the raw intelligenc
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -969,6 +983,7 @@ Get notifications exposed data records based on their IDs. IDs can be retrieved 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1035,6 +1050,7 @@ Get notifications based on their IDs. IDs can be retrieved using the GET /querie
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1101,6 +1117,7 @@ Get notifications based on their IDs. IDs can be retrieved using the GET /querie
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1167,6 +1184,7 @@ Get monitoring rules based on their IDs. IDs can be retrieved using the GET /que
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1233,6 +1251,7 @@ Preview rules notification count and distribution. This will return aggregations
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1299,6 +1318,7 @@ Query actions based on provided criteria. Use the IDs from this response to get 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1375,6 +1395,7 @@ Query notifications exposed data records based on provided criteria. Use the IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1451,6 +1472,7 @@ Query notifications based on provided criteria. Use the IDs from this response t
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1527,6 +1549,7 @@ Query monitoring rules based on provided criteria. Use the IDs from this respons
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1603,6 +1626,7 @@ Update an action for a monitoring rule.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1669,6 +1693,7 @@ Update notification status or assignee. Accepts bulk requests
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1735,6 +1760,7 @@ Update monitoring rules.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

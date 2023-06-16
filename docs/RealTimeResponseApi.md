@@ -38,6 +38,7 @@ Batch executes a RTR active-responder command across the hosts mapped to the giv
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -112,6 +113,7 @@ Batch executes a RTR read-only command across the hosts mapped to the given batc
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -186,6 +188,7 @@ Batch executes `get` command across hosts to retrieve files. After this call is 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -260,6 +263,7 @@ Retrieves the status of the specified batch get command.  Will return successful
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -332,6 +336,7 @@ Batch initialize a RTR session on multiple hosts.  Before any RTR commands can b
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -406,6 +411,7 @@ Batch refresh a RTR session on multiple hosts. RTR sessions will expire after 10
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -478,6 +484,7 @@ Get aggregates on session data.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -544,6 +551,7 @@ Get status of an executed active-responder command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -612,6 +620,7 @@ Get status of an executed command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -680,6 +689,7 @@ Delete a RTR session file.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -748,6 +758,7 @@ Delete a RTR session file.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -816,6 +827,7 @@ Delete a queued session command
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -884,6 +896,7 @@ Delete a session.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -950,6 +963,7 @@ Execute an active responder command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1016,6 +1030,7 @@ Execute a command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1082,6 +1097,7 @@ Get RTR extracted file contents for specified session and sha256.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1154,6 +1170,7 @@ Initialize a new session with the RTR cloud.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1226,6 +1243,7 @@ Get a list of session_ids.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1300,6 +1318,7 @@ Get a list of files for the specified RTR session.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1366,6 +1385,7 @@ Get a list of files for the specified RTR session.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1432,6 +1452,7 @@ Get queued session metadata by session ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1498,6 +1519,7 @@ Get session metadata by session id.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1564,6 +1586,7 @@ Refresh a session timeout on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

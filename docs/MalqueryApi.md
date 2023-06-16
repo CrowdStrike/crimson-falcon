@@ -24,6 +24,7 @@ Download a file indexed by MalQuery. Specify the file using its SHA256. Only one
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -89,6 +90,7 @@ Fetch a zip archive with password 'infected' containing the samples. Call this o
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -154,6 +156,7 @@ Retrieve indexed files metadata by their hash
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -220,6 +223,7 @@ Get information about search and download quotas in your environment
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -283,6 +287,7 @@ Check the status and results of an asynchronous request, such as hunt or exact-s
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -349,6 +354,7 @@ Schedule samples for download. Use the result id with the /request endpoint to c
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -415,6 +421,7 @@ Search Falcon MalQuery for a combination of hex patterns and strings in order to
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -481,6 +488,7 @@ Search Falcon MalQuery quickly, but with more potential for false positives. Sea
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -547,6 +555,7 @@ Schedule a YARA-based search for execution. Returns a request id which can be us
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

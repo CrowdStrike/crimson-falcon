@@ -16,6 +16,7 @@ Trigger on-boarding process for a mobile device
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

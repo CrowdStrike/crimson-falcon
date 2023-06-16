@@ -19,6 +19,7 @@ Search for Vulnerabilities in your environment by providing an FQL filter and pa
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -95,6 +96,7 @@ Get details on remediation by providing one or more IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -161,6 +163,7 @@ Get details on vulnerabilities by providing one or more IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -227,6 +230,7 @@ Search for Vulnerabilities in your environment by providing an FQL filter and pa
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

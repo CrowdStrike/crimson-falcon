@@ -25,6 +25,7 @@ Create Prevention Policies by specifying details about the policy to create
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -91,6 +92,7 @@ Delete a set of Prevention Policies by specifying their IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -157,6 +159,7 @@ Retrieve a set of Prevention Policies by specifying their IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -223,6 +226,7 @@ Perform the specified action on the Prevention Policies specified in the request
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -291,6 +295,7 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -365,6 +370,7 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -441,6 +447,7 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -515,6 +522,7 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -591,6 +599,7 @@ Sets the precedence of Prevention Policies based on the order of IDs specified i
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -657,6 +666,7 @@ Update Prevention Policies by specifying the ID of the policy and details to upd
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

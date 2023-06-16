@@ -17,6 +17,7 @@ Fetch field schema by ID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -85,6 +86,7 @@ Get list of field IDs given a particular query.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

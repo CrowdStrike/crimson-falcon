@@ -29,6 +29,7 @@ Batch executes a RTR administrator command across the hosts mapped to the given 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -103,6 +104,7 @@ Get status of an executed RTR administrator command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -171,6 +173,7 @@ Upload a new put-file to use for the RTR `put` command.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -245,6 +248,7 @@ Upload a new custom-script to use for the RTR `runscript` command.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -325,6 +329,7 @@ Delete a put-file based on the ID given.  Can only delete one file at a time.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -391,6 +396,7 @@ Delete a custom-script based on the ID given.  Can only delete one script at a t
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -457,6 +463,7 @@ Execute a RTR administrator command on a single host.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -523,6 +530,7 @@ Get put-files based on the ID's given. These are used for the RTR `put` command.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -589,6 +597,7 @@ Get put-files based on the ID's given. These are used for the RTR `put` command.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -655,6 +664,7 @@ Get custom-scripts based on the ID's given. These are used for the RTR `runscrip
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -721,6 +731,7 @@ Get custom-scripts based on the ID's given. These are used for the RTR `runscrip
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -787,6 +798,7 @@ Get a list of put-file ID's that are available to the user for the `put` command
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -861,6 +873,7 @@ Get a list of custom-script ID's that are available to the user for the `runscri
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -935,6 +948,7 @@ Upload a new scripts to replace an existing one.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

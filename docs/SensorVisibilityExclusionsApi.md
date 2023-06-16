@@ -20,6 +20,7 @@ Create the sensor visibility exclusions
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -86,6 +87,7 @@ Delete the sensor visibility exclusions by id
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -156,6 +158,7 @@ Get a set of Sensor Visibility Exclusions by specifying their IDs
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -222,6 +225,7 @@ Search for sensor visibility exclusions.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -296,6 +300,7 @@ Update the sensor visibility exclusions
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|

@@ -48,6 +48,7 @@ Aggregate events for customer
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -114,6 +115,7 @@ Aggregate rules within a policy for customer
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -180,6 +182,7 @@ Aggregate rule groups for customer
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -246,6 +249,7 @@ Aggregate rules for customer
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -312,6 +316,7 @@ Create new network locations provided, and return the ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -386,6 +391,7 @@ Create new rule group on a platform for a customer with a name and description, 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -460,6 +466,7 @@ Validates the request of creating a new rule group on a platform for a customer 
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -534,6 +541,7 @@ Delete network location entities by ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -600,6 +608,7 @@ Delete rule group entities by ID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -670,6 +679,7 @@ Get events entities by ID and optionally version
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -736,6 +746,7 @@ Get the firewall field specifications by ID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -804,6 +815,7 @@ This endpoint returns a summary of network locations that includes name, descrip
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -872,6 +884,7 @@ This endpoint returns the complete network locations objects that includes all t
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -938,6 +951,7 @@ Get platforms by ID, e.g., windows or mac or droid
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1004,6 +1018,7 @@ Get policy container entities by policy ID
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1070,6 +1085,7 @@ Get rule group entities by ID. These groups do not contain their rule entites, j
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1136,6 +1152,7 @@ Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1202,6 +1219,7 @@ Find all event IDs matching the query with filter
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1280,6 +1298,7 @@ Get the firewall field specification IDs for the provided platform
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1354,6 +1373,7 @@ This endpoint returns a list of network location IDs based of query parameter.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1432,6 +1452,7 @@ Get the list of platform names
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1502,6 +1523,7 @@ Find all firewall rule IDs matching the query with filter, and return them in pr
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1580,6 +1602,7 @@ Find all rule group IDs matching the query with filter
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1658,6 +1681,7 @@ Find all rule IDs matching the query with filter
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1736,6 +1760,7 @@ Updates the network locations provided, and return the ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1806,6 +1831,7 @@ Updates the network locations metadata such as polling_intervals for the cid
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1876,6 +1902,7 @@ Updates the network locations precedence according to the list of ids provided.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -1946,6 +1973,7 @@ Update an identified policy container, including local logging functionality.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -2012,6 +2040,7 @@ Update an identified policy container. WARNING: This endpoint is deprecated in f
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -2078,6 +2107,7 @@ Update name, description, or enabled status of a rule group, or create, edit, de
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -2148,6 +2178,7 @@ Validates the request of updating name, description, or enabled status of a rule
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -2218,6 +2249,7 @@ Updates the network locations provided, and return the ID.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
@@ -2288,6 +2320,7 @@ Validates that the test pattern matches the executable filepath glob pattern.
 ### Examples
 
 ```ruby
+require 'time'
 require 'crimson-falcon'
 # setup authorization
 Falcon.configure do |config|
