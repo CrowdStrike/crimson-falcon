@@ -21,10 +21,12 @@ Number of hosts in your customer account that have observed a given custom IOC
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::IocsApi.new
@@ -71,7 +73,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -90,10 +92,12 @@ Find hosts that have observed a given custom IOC. For details about those hosts,
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::IocsApi.new
@@ -146,7 +150,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -165,10 +169,12 @@ For the provided ProcessID retrieve the process details
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::IocsApi.new
@@ -213,7 +219,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -232,10 +238,12 @@ Search for processes associated with a custom IOC
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::IocsApi.new
@@ -290,7 +298,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 

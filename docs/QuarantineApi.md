@@ -23,10 +23,12 @@ Returns count of potentially affected quarantined files for each action.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -71,7 +73,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -90,10 +92,12 @@ Get quarantine file aggregates as specified via json in request body.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -138,7 +142,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -157,10 +161,12 @@ Get quarantine file metadata for specified ids.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -205,7 +211,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -224,10 +230,12 @@ Get quarantine file ids that match the provided filter criteria.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -282,7 +290,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -301,10 +309,12 @@ Apply quarantine file actions by query.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -349,7 +359,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -368,10 +378,12 @@ Apply action by quarantine file ids
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::QuarantineApi.new
@@ -416,7 +428,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 

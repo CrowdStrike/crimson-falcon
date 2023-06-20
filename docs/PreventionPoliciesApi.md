@@ -27,10 +27,12 @@ Create Prevention Policies by specifying details about the policy to create
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -75,7 +77,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -94,10 +96,12 @@ Delete a set of Prevention Policies by specifying their IDs
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -142,7 +146,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -161,10 +165,12 @@ Retrieve a set of Prevention Policies by specifying their IDs
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -209,7 +215,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -228,10 +234,12 @@ Perform the specified action on the Prevention Policies specified in the request
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -278,7 +286,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -297,10 +305,12 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -353,7 +363,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -372,10 +382,12 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -430,7 +442,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -449,10 +461,12 @@ Search for Prevention Policies in your environment by providing an FQL filter an
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -505,7 +519,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -524,10 +538,12 @@ Search for members of a Prevention Policy in your environment by providing an FQ
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -582,7 +598,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -601,10 +617,12 @@ Sets the precedence of Prevention Policies based on the order of IDs specified i
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -649,7 +667,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -668,10 +686,12 @@ Update Prevention Policies by specifying the ID of the policy and details to upd
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::PreventionPoliciesApi.new
@@ -716,7 +736,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 

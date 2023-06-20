@@ -33,10 +33,12 @@ Creates a new account in our system for a customer and generates a script for th
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -81,7 +83,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -100,10 +102,12 @@ Creates a new account in our system for a customer and generates a new service a
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -148,7 +152,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -167,10 +171,12 @@ Creates a new account in our system for a customer and generates a script for th
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -215,7 +221,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -234,10 +240,12 @@ Deletes an existing AWS account or organization in our system.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -286,7 +294,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -305,10 +313,12 @@ Returns JSON object(s) that contain the base64 encoded certificate for a service
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -359,7 +369,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -378,10 +388,12 @@ Returns information about the current status of an AWS account.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -440,7 +452,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -459,10 +471,12 @@ Return a URL for customer to visit in their cloud environment to grant us access
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -509,7 +523,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -528,10 +542,12 @@ Return a script for customer to run in their cloud environment to grant us acces
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -578,7 +594,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -597,10 +613,12 @@ Returns information about the current status of an GCP account.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -659,7 +677,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -678,10 +696,12 @@ Return a script for customer to run in their cloud environment to grant us acces
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -728,7 +748,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -747,10 +767,12 @@ Return information about Azure account registration
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -807,7 +829,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -826,10 +848,12 @@ Return available tenant ids for discover for cloud
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -871,7 +895,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -890,10 +914,12 @@ Return a script for customer to run in their cloud environment to grant us acces
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -935,7 +961,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -954,10 +980,12 @@ Return a script for customer to run in their cloud environment to grant us acces
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -1008,7 +1036,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -1027,10 +1055,12 @@ Returns static install scripts for Horizon.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -1083,7 +1113,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -1102,10 +1132,12 @@ Update an Azure service account in our system by with the user-created client_id
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::D4cRegistrationApi.new
@@ -1156,7 +1188,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 

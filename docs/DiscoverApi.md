@@ -29,10 +29,12 @@ Get details on accounts by providing one or more IDs.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -77,7 +79,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -96,10 +98,12 @@ Get details on applications by providing one or more IDs.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -144,7 +148,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -163,10 +167,12 @@ Get details on assets by providing one or more IDs.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -211,7 +217,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -230,10 +236,12 @@ Get details on logins by providing one or more IDs.
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -278,7 +286,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -297,10 +305,12 @@ Search for accounts in your environment by providing an FQL (Falcon Query Langua
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -353,7 +363,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -372,10 +382,12 @@ Search for active discovery networks in your environment by providing an FQL fil
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -430,7 +442,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -449,10 +461,12 @@ Search for active discovery rules in your environment by providing an FQL filter
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -507,7 +521,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -526,10 +540,12 @@ Search for active discovery scanners in your environment by providing an FQL fil
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -584,7 +600,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -603,10 +619,12 @@ Search for active discovery scans in your environment by providing an FQL filter
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -661,7 +679,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -680,10 +698,12 @@ Search for applications in your environment by providing an FQL filter and pagin
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -736,7 +756,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -755,10 +775,12 @@ Search for assets in your environment by providing an FQL (Falcon Query Language
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -811,7 +833,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 
@@ -830,10 +852,12 @@ Search for logins in your environment by providing an FQL (Falcon Query Language
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::DiscoverApi.new
@@ -886,7 +910,7 @@ end
 
 ### Authorization
 
-[oauth2](../README.md#oauth2)
+**oauth2**
 
 ### HTTP request headers
 

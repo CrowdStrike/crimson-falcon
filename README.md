@@ -63,7 +63,7 @@ require 'crimson-falcon'
 Falcon.configure do |config|
   config.client_id = "Your_Client_ID"
   config.client_secret = "Your_Client_Secret"
-  config.cloud = "Your_Cloud_Instance"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 # Create a new API instance
@@ -98,7 +98,7 @@ Welcome aboard the Crimson Falcon! Fly high, code with grace.
 
 ## Crimson Falcon API Docs
 
-> :recycle: ***This documentation is automatically generated from the CrowdStrike API specification.*** :recycle:
+> :recycle: ***API Docs are automatically generated from the CrowdStrike API specification.*** :recycle:
 
 ---
 
