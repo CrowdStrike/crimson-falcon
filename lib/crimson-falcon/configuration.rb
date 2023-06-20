@@ -1,19 +1,124 @@
+=begin
+Crimson Falcon - Ruby Client SDK
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <https://unlicense.org>
+
+=end
+
 module Falcon
+  # The `Falcon::Configuration` class defines the configuration settings for the
+  # CrowdStrike API client. The `ATTRIBUTES` constant is an array of symbols that
+  # represent the configuration options, such as the HTTP scheme, API host, and base
+  # path. The `Configuration` class provides default values for these options, but
+  # they can be overridden by setting the corresponding instance variables. The
+  # `Configuration` class is used by the CrowdStrike API client to ensure that API
+  # requests are sent to the correct endpoint and with the correct settings.
   class Configuration
     ATTRIBUTES = [
-      :scheme, :host, :base_path, :client_id, :client_secret, :member_cid, :cloud,
-      :access_token, :access_token_getter, :return_binary_data, :debugging, :logger,
-      :temp_folder_path, :timeout, :client_side_validation, :verify_ssl, :verify_ssl_host,
-      :ssl_ca_cert, :cert_file, :key_file, :params_encoding, :inject_format, :force_ending_format
+      # The HTTP scheme (http or https) to use for API requests
+      :scheme,
+
+      # The API host to send requests to (defaults to api.crowdstrike.com)
+      :host,
+
+      # The base path for API requests (defaults to /)
+      :base_path,
+
+      # The client ID to use for authentication
+      :client_id,
+
+      # The client secret to use for authentication
+      :client_secret,
+
+      # The member CID to use for authentication
+      :member_cid,
+
+      # The cloud to use for API requests (defaults to us-1)
+      :cloud,
+
+      # The access token to use for authentication (overrides access_token_getter)
+      :access_token,
+
+      # A lambda that returns the access token to use for authentication
+      :access_token_getter,
+
+      # The user agent string to use for API requests
+      :user_agent_override,
+
+      # Whether to return binary data in the response
+      :return_binary_data,
+
+      # Whether to enable debugging mode
+      :debugging,
+
+      # The logger to use for debugging
+      :logger,
+
+      # The path to a temporary folder to use for file uploads
+      :temp_folder_path,
+
+      # The timeout for API requests, in seconds
+      :timeout,
+
+      # Whether to perform client-side validation of API requests
+      :client_side_validation,
+
+      # Whether to verify the SSL certificate of the API host
+      :verify_ssl,
+
+      # Whether to verify the SSL hostname of the API host
+      :verify_ssl_host,
+
+      # The path to the SSL CA certificate file to use for SSL verification
+      :ssl_ca_cert,
+
+      # The path to the client certificate file to use for SSL verification
+      :cert_file,
+
+      # The path to the client key file to use for SSL verification
+      :key_file,
+
+      # The encoding to use for query string and form parameter values
+      :params_encoding,
+
+      # The format to inject into the API path
+      :inject_format,
+
+      # The format to use for API requests that don't specify a format
+      :force_ending_format,
     ].freeze
 
     ATTRIBUTES.each { |attr| attr_accessor attr }
 
     def initialize
-      @scheme = 'https'
-      @cloud = 'us-1'
-      @host = 'api.crowdstrike.com'
-      @base_path = ''
+      @scheme = "https"
+      @cloud = "us-1"
+      @host = "api.crowdstrike.com"
+      @base_path = ""
+      @user_agent_override = nil
       @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
@@ -38,7 +143,7 @@ module Falcon
     end
 
     def scheme=(scheme)
-      @scheme = scheme.sub(/:\/\//, '')
+      @scheme = scheme.sub(/:\/\//, "")
     end
 
     # When cloud is set, update host
@@ -48,13 +153,13 @@ module Falcon
     end
 
     def base_path=(base_path)
-      @base_path = "/#{base_path}".gsub(/\/+/, '/')
-      @base_path = '' if @base_path == '/'
+      @base_path = "/#{base_path}".gsub(/\/+/, "/")
+      @base_path = "" if @base_path == "/"
     end
 
     # Returns base URL for specified operation based on server settings
     def base_url
-      "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
+      "#{scheme}://#{[host, base_path].join("/").gsub(/\/+/, "/")}".sub(/\/+\z/, "")
     end
 
     def api_key_with_prefix(param_name, param_alias = nil)
@@ -74,13 +179,12 @@ module Falcon
 
     def auth_settings
       {
-        'oauth2' =>
-          {
-            type: 'oauth2',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token_with_refresh}"
-          },
+        "oauth2" => {
+          type: "oauth2",
+          in: "header",
+          key: "Authorization",
+          value: "Bearer #{access_token_with_refresh}",
+        },
       }
     end
   end

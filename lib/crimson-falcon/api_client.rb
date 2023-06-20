@@ -1,11 +1,49 @@
-require 'date'
-require 'json'
-require 'logger'
-require 'tempfile'
-require 'time'
-require 'typhoeus'
+=begin
+Crimson Falcon - Ruby Client SDK
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <https://unlicense.org>
+
+=end
+
+require "date"
+require "json"
+require "logger"
+require "tempfile"
+require "time"
+require "typhoeus"
 
 module Falcon
+  # The `Falcon::ApiClient` class provides a Ruby client for the CrowdStrike Falcon
+  # API. It uses the `Typhoeus` HTTP library to send HTTP requests to the API and
+  # returns the response as a Ruby object. The `Falcon::ApiClient` class provides
+  # methods for making requests to various endpoints of the API, such as retrieving
+  # detections, hosts, and incidents. It also handles authentication by obtaining an
+  # access token from the CrowdStrike OAuth2 API and including it in the HTTP
+  # requests. This file is a key component of the CrowdStrike API client and is used
+  # to interact with the CrowdStrike Falcon platform programmatically.
   class ApiClient
     # The Configuration object holding settings to be used in the API client.
     attr_accessor :config
@@ -19,10 +57,10 @@ module Falcon
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
       @config = config
-      @user_agent = "crowdstrike-crimson/#{VERSION}"
+      @user_agent = @config.user_agent_override || "crowdstrike-crimson/#{VERSION}"
       @default_headers = {
-        'Content-Type' => 'application/json',
-        'User-Agent' => @user_agent
+        "Content-Type" => "application/json",
+        "User-Agent" => @user_agent,
       }
       @config.access_token = get_access_token(@config.member_cid) if @config.access_token.nil? && @config.access_token_getter.nil?
     end
@@ -35,8 +73,8 @@ module Falcon
     #
     # @return [String] The access token.
     def get_access_token(member_cid = nil)
-      raise 'Missing client_id' unless @config.client_id
-      raise 'Missing client_secret' unless @config.client_secret
+      raise "Missing client_id" unless @config.client_id
+      raise "Missing client_secret" unless @config.client_secret
 
       opts = {}
       opts[:member_cid] = member_cid if member_cid
@@ -46,7 +84,7 @@ module Falcon
       oauth2_response = oauth2_api.oauth2_access_token(@config.client_id, @config.client_secret, opts)
 
       # Return the access token
-      oauth2_response.access_token || raise('Missing access_token')
+      oauth2_response.access_token || raise("Missing access_token")
     end
 
     # Call an API with given options.
@@ -57,52 +95,88 @@ module Falcon
       request = build_request(http_method, path, opts)
       response = request.run
 
-      # print the data, rc, and headers for debugging
-      @config.logger.debug "response_data: #{response.body}"
-
-      # Handle Refresh Token
+      # Handle Refresh Token (Unauthorized)
       if response.code == 401
-        @config.access_token = get_access_token(@config.member_cid)
+        refresh_access_token(opts)
         request = build_request(http_method, path, opts)
         response = request.run
       end
 
       # Handle Redirect to proper cloud (For Auth only)
-      if [301, 302, 303, 307, 308].include?(response.code) && path.start_with?('/oauth2')
-        # Cloud should be in 'X-Cs-Region' header
-        @config.logger.debug "Redirecting to #{response.headers['X-Cs-Region']}"
-        cloud = response.headers['X-Cs-Region']
-        @config.cloud = cloud || raise('Missing cloud')
+      if redirect_to_cloud?(response, path)
+        redirect_to_cloud(response)
         request = build_request(http_method, path, opts)
         response = request.run
       end
 
-      if @config.debugging
-        @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
-      end
+      # Print the response body (for debugging purposes)
+      print_response_body(response) if @config.debugging
 
-      unless response.success?
-        if response.timed_out?
-          fail ApiError.new('Connection timed out')
-        elsif response.code == 0
-          # Errors from libcurl will be made visible here
-          fail ApiError.new(:code => 0,
-                            :message => response.return_message)
-        else
-          fail ApiError.new(:code => response.code,
-                            :response_headers => response.headers,
-                            :response_body => response.body),
-               response.status_message
-        end
-      end
+      # Raise an error if the response is not successful
+      raise_error(response)
 
-      if opts[:return_type]
-        data = deserialize(response, opts[:return_type])
-      else
-        data = nil
-      end
+      # Deserialize the response if a return type is specified
+      data = deserialize(response, opts[:return_type]) if opts[:return_type]
+
       return data, response.code, response.headers
     end
+
+    private
+
+    # Refreshes the access token and updates the configuration.
+    #
+    # @param opts [Hash] The options to use for the API request.
+    # @return [void]
+    def refresh_access_token(opts)
+      @config.access_token = get_access_token(@config.member_cid)
+    end
+
+    # Checks if the response should be redirected to a different cloud based on the response code and path.
+    #
+    # @param response [HTTP::Response] The HTTP response to check.
+    # @param path [String] The path of the original request.
+    # @return [Boolean] `true` if the response should be redirected, `false` otherwise.
+    def redirect_to_cloud?(response, path)
+      [301, 302, 303, 307, 308].include?(response.code) && path.start_with?("/oauth2")
+    end
+
+    # Redirects the response to a different cloud based on the 'X-Cs-Region' header in the response.
+    #
+    # @param response [HTTP::Response] The HTTP response to redirect.
+    # @return [void]
+    def redirect_to_cloud(response)
+      # Cloud should be in 'X-Cs-Region' header
+      cloud = response.headers["X-Cs-Region"] || raise("Missing cloud")
+      @config.cloud = cloud
+      @config.logger.debug "Redirecting to #{cloud}"
+    end
+
+    # Prints the response body for debugging.
+    #
+    # @param response [HTTP::Response] The HTTP response to print.
+    # @return [void]
+    def print_response_body(response)
+      @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
+    end
+
+    # Raises an error if the response is not successful.
+    #
+    # @param response [HTTP::Response] The HTTP response to check.
+    # @return [void]
+    def raise_error(response)
+      return if response.success?
+
+      if response.timed_out?
+        raise ApiError.new("Connection timed out")
+      elsif response.code == 0
+        # Errors from libcurl will be made visible here
+        raise ApiError.new(:code => 0, :message => response.return_message)
+      else
+        raise ApiError.new(:code => response.code, :response_headers => response.headers, :response_body => response.body), response.status_message
+      end
+    end
+
+    public
 
     # Builds the HTTP request
     #
@@ -138,7 +212,7 @@ module Falcon
         :sslcert => @config.cert_file,
         :sslkey => @config.key_file,
         :verbose => @config.debugging,
-        :followlocation => follow_location
+        :followlocation => follow_location,
       }
 
       # set custom cert, if provided
@@ -155,7 +229,7 @@ module Falcon
       p req_opts if @config.debugging
       puts url if @config.debugging
       request = Typhoeus::Request.new(url, req_opts)
-      download_file(request) if opts[:return_type] == 'File'
+      download_file(request) if opts[:return_type] == "File"
       request
     end
 
@@ -167,8 +241,8 @@ module Falcon
     # @return [String] HTTP body data in the form of string
     def build_request_body(header_params, form_params, body)
       # http form
-      if header_params['Content-Type'] == 'application/x-www-form-urlencoded' ||
-          header_params['Content-Type'] == 'multipart/form-data'
+      if header_params["Content-Type"] == "application/x-www-form-urlencoded" ||
+         header_params["Content-Type"] == "multipart/form-data"
         data = {}
         form_params.each do |key, value|
           case value
@@ -198,14 +272,14 @@ module Falcon
       tempfile = nil
       encoding = nil
       request.on_headers do |response|
-        content_disposition = response.headers['Content-Disposition']
+        content_disposition = response.headers["Content-Disposition"]
         if content_disposition && content_disposition =~ /filename=/i
           filename = content_disposition[/filename=['"]?([^'"\s]+)['"]?/, 1]
           prefix = sanitize_filename(filename)
         else
-          prefix = 'download-'
+          prefix = "download-"
         end
-        prefix = prefix + '-' unless prefix.end_with?('-')
+        prefix = prefix + "-" unless prefix.end_with?("-")
         encoding = response.body.encoding
         tempfile = Tempfile.open(prefix, @config.temp_folder_path, encoding: encoding)
         @tempfile = tempfile
@@ -217,9 +291,9 @@ module Falcon
       request.on_complete do |response|
         if tempfile
           tempfile.close
-          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder "\
-                              "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file "\
-                              "will be deleted automatically with GC. It's also recommended to delete the temp file "\
+          @config.logger.info "Temp file written to #{tempfile.path}, please copy the file to a proper folder " \
+                              "with e.g. `FileUtils.cp(tempfile.path, '/new/file/path')` otherwise the temp file " \
+                              "will be deleted automatically with GC. It's also recommended to delete the temp file " \
                               "explicitly with `tempfile.delete`"
         end
       end
@@ -234,7 +308,7 @@ module Falcon
     # @param [String] mime MIME
     # @return [Boolean] True if the MIME is application/json
     def json_mime?(mime)
-      (mime == '*/*') || !(mime =~ /Application\/.*json(?!p)(;.*)?/i).nil?
+      (mime == "*/*") || !(mime =~ /Application\/.*json(?!p)(;.*)?/i).nil?
     end
 
     # Deserialize the response to the given return type.
@@ -246,15 +320,15 @@ module Falcon
 
       # handle file downloading - return the File instance processed in request callbacks
       # note that response body is empty when the file is written in chunks in request on_body callback
-      return @tempfile if return_type == 'File'
+      return @tempfile if return_type == "File"
 
       return nil if body.nil? || body.empty?
 
       # return response body directly for String return type
-      return body if return_type == 'String'
+      return body if return_type == "String"
 
       # ensuring a default content type
-      content_type = response.headers['Content-Type'] || 'application/json'
+      content_type = response.headers["Content-Type"] || "application/json"
 
       fail "Content-Type is not supported: #{content_type}" unless json_mime?(content_type)
 
@@ -278,21 +352,21 @@ module Falcon
     def convert_to_type(data, return_type)
       return nil if data.nil?
       case return_type
-      when 'String'
+      when "String"
         data.to_s
-      when 'Integer'
+      when "Integer"
         data.to_i
-      when 'Float'
+      when "Float"
         data.to_f
-      when 'Boolean'
+      when "Boolean"
         data == true
-      when 'Time'
+      when "Time"
         # parse date time (expecting ISO 8601 format)
         Time.parse data
-      when 'Date'
+      when "Date"
         # parse date time (expecting ISO 8601 format)
         Date.parse data
-      when 'Object'
+      when "Object"
         # generic object (usually a Hash), return directly
         data
       when /\AArray<(.+)>\z/
@@ -318,12 +392,12 @@ module Falcon
     # @param [String] filename the filename to be sanitized
     # @return [String] the sanitized filename
     def sanitize_filename(filename)
-      filename.gsub(/.*[\/\\]/, '')
+      filename.gsub(/.*[\/\\]/, "")
     end
 
     def build_request_url(path, opts = {})
       # Add leading and trailing slashes to path
-      path = "/#{path}".gsub(/\/+/, '/')
+      path = "/#{path}".gsub(/\/+/, "/")
       @config.base_url + path
     end
 
@@ -337,9 +411,9 @@ module Falcon
         auth_setting = @config.auth_settings[auth_name]
         next unless auth_setting
         case auth_setting[:in]
-        when 'header' then header_params[auth_setting[:key]] = auth_setting[:value]
-        when 'query'  then query_params[auth_setting[:key]] = auth_setting[:value]
-        else fail ArgumentError, 'Authentication token must be in `query` or `header`'
+        when "header" then header_params[auth_setting[:key]] = auth_setting[:value]
+        when "query" then query_params[auth_setting[:key]] = auth_setting[:value]
+        else fail ArgumentError, "Authentication token must be in `query` or `header`"
         end
       end
     end
@@ -349,7 +423,7 @@ module Falcon
     # @param [String] user_agent User agent (e.g. openapi-generator/ruby/1.0.0)
     def user_agent=(user_agent)
       @user_agent = user_agent
-      @default_headers['User-Agent'] = @user_agent
+      @default_headers["User-Agent"] = @user_agent
     end
 
     # Return Accept header based on an array of accepts provided.
@@ -359,7 +433,7 @@ module Falcon
       return nil if accepts.nil? || accepts.empty?
       # use JSON when present, otherwise use all of the provided
       json_accept = accepts.find { |s| json_mime?(s) }
-      json_accept || accepts.join(',')
+      json_accept || accepts.join(",")
     end
 
     # Return Content-Type header based on an array of content types provided.
@@ -403,13 +477,13 @@ module Falcon
     def build_collection_param(param, collection_format)
       case collection_format
       when :csv
-        param.join(',')
+        param.join(",")
       when :ssv
-        param.join(' ')
+        param.join(" ")
       when :tsv
         param.join("\t")
       when :pipes
-        param.join('|')
+        param.join("|")
       when :multi
         # return the array directly as typhoeus will handle it as expected
         param
