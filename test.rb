@@ -1,22 +1,25 @@
-require 'crimson-falcon'
+require "crimson-falcon"
 
 Falcon.configure do |config|
-  config.access_token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6InB1YmxpYzo3ODdlZjkxZC01YzMxLTQ3YzktYjg0Ni1kNDIzNTk1M2FmYWEiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOltdLCJjbGllbnRfaWQiOiI1MzYxMmQyYTUzMDI0YzRhOTZmODZmMTNkNWYyMzE5ZSIsImV4cCI6MTY4Njc1NDMzNCwiZXh0Ijp7InN1Yl90eXBlIjoiY2xpZW50In0sImlhdCI6MTY4Njc1MjUzNCwiaXNzIjoiaHR0cHM6Ly9hcGkuY3Jvd2RzdHJpa2UuY29tLnRvZG8vIiwianRpIjoiMmY1YzllYjYtMDY3Mi00ZGRjLThhNzktMDk5NjBkYmFlYmMzIiwibmJmIjoxNjg2NzUyNTM0LCJzY3AiOltdLCJzdWIiOiI1MzYxMmQyYTUzMDI0YzRhOTZmODZmMTNkNWYyMzE5ZSIsInN1Yl90eXBlIjoiY2xpZW50In0.rIRFlBwSOhGwcPe-tu1bGixAaTDsqku9COI7rXFsWmQNyXQKMtwXB-W8rrDtqHEl7kbZU5pX7QZEX4qY3paQubzR9PB6VGJBYPLH6iTmSuMFMXnUjb4CaQ2LRejVIi58AkqHpq9uvFqu9oqOwrFSbrYlWawqYn1t6VD5z5WZ5sx9uZYGkjdEXrpqk41IgqS8KrKf7Nv16QOGBWtlD-HOuuTiKrEMEcYyUkaxHSigIbjCvFNJtpM4YeuDnPqaGX_AN8ji3D7Sy4EXPXdM7hNLI-N5UdZvHg6Jc42_3UAkIzkBSYyvYOcoAqQLIhgXZ0cn_nx1M1B-SCIgLGU8Rjnh_jnbs22-tUtdUel-iqWaVAfRtVJ8YdaV8-j1dLARgPb61dJl3A_6V6c4s-41e4kOw7x8Ww36qy42LtIyOS0eV0zxHoAAXVW085fqEmE-eNzsDwH6xLnrc4LbUcVwwGXXlbIRFL8npgBxlNY8Dr0F8lfZw0Hbha5XHSTHlXGLzl00sLRq1D-UKLccQhL0lrsFV2xLscx6V6jYwsv0N0FIkr25r8jayGJSdFRkLaA0vGYpBWMqvBen67KDVUFgH1aIGsKN8ihwM3GmLO7nOlACWDiZxCY7M8s7OXMbwUtslEyFPqg8waNShiqEPVlutDsujkx-399hOXHEh0x4D68qHLI'
-  config.host = 'api.us-2.crowdstrike.com'
-  config.debugging = true
+  config.client_id = "XXXX"
+  config.client_secret = "XXXX"
+  # config.cloud = 'us-2'
+  # config.debugging = true
 end
 
 # Create new api instance of Falcon::SensorUpdatePoliciesApi
 api_instance = Falcon::SensorUpdatePoliciesApi.new
 
 opts = {
-  platform: 'windows'
+  platform: "windows",
 }
 
 begin
   #Get sensor update policy settings by platform
   result = api_instance.query_combined_sensor_update_builds(opts)
-  p result
+  result.resources.each do |resource|
+    puts resource.sensor_version
+  end
 rescue Falcon::ApiError => e
   puts "Exception when calling SensorUpdatePoliciesApi->query_combined_sensor_update_builds: #{e}"
 end
