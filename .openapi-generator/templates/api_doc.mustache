@@ -28,22 +28,13 @@ All URIs are relative to *{{basePath}}*
 ```ruby
 require 'time'
 require '{{{gemName}}}'
-{{#hasAuthMethods}}
-# setup authorization
-{{{moduleName}}}.configure do |config|{{#authMethods}}{{#isBasic}}{{#isBasicBasic}}
-  # Configure HTTP basic authorization: {{{name}}}
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'{{/isBasicBasic}}{{#isBasicBearer}}
-  # Configure Bearer authorization{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}: {{{name}}}
-  config.access_token = 'YOUR_BEARER_TOKEN'{{/isBasicBearer}}{{/isBasic}}{{#isApiKey}}
-  # Configure API key authorization: {{{name}}}
-  config.api_key['{{{name}}}'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['{{{name}}}'] = 'Bearer'{{/isApiKey}}{{#isOAuth}}
-  # Configure OAuth2 access token for authorization: {{{name}}}
-  config.access_token = 'YOUR ACCESS TOKEN'{{/isOAuth}}
-{{/authMethods}}end
-{{/hasAuthMethods}}
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
 
 api_instance = {{{moduleName}}}::{{{classname}}}.new
 {{^vendorExtensions.x-group-parameters}}
@@ -121,7 +112,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}[{{name}}](../README.md#{{name}}){{^-last}}, {{/-last}}{{/authMethods}}
+{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}**{{name}}**{{^-last}}, {{/-last}}{{/authMethods}}
 
 ### HTTP request headers
 

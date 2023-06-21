@@ -19,11 +19,12 @@ Generate an OAuth2 access token
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::Oauth2Api.new
@@ -74,7 +75,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+**basicAuth**
 
 ### HTTP request headers
 
@@ -93,11 +94,12 @@ Revoke a previously issued OAuth2 access token before the end of its standard 30
 ```ruby
 require 'time'
 require 'crimson-falcon'
-# setup authorization
+
+# Setup authorization
 Falcon.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
 api_instance = Falcon::Oauth2Api.new
@@ -146,7 +148,7 @@ end
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+**basicAuth**
 
 ### HTTP request headers
 

@@ -123,58 +123,58 @@ module Falcon
 
     private
 
-    # Refreshes the access token and updates the configuration.
-    #
-    # @param opts [Hash] The options to use for the API request.
-    # @return [void]
-    def refresh_access_token(opts)
-      @config.access_token = get_access_token(@config.member_cid)
-    end
-
-    # Checks if the response should be redirected to a different cloud based on the response code and path.
-    #
-    # @param response [HTTP::Response] The HTTP response to check.
-    # @param path [String] The path of the original request.
-    # @return [Boolean] `true` if the response should be redirected, `false` otherwise.
-    def redirect_to_cloud?(response, path)
-      [301, 302, 303, 307, 308].include?(response.code) && path.start_with?("/oauth2")
-    end
-
-    # Redirects the response to a different cloud based on the 'X-Cs-Region' header in the response.
-    #
-    # @param response [HTTP::Response] The HTTP response to redirect.
-    # @return [void]
-    def redirect_to_cloud(response)
-      # Cloud should be in 'X-Cs-Region' header
-      cloud = response.headers["X-Cs-Region"] || raise("Missing cloud")
-      @config.cloud = cloud
-      @config.logger.debug "Redirecting to #{cloud}"
-    end
-
-    # Prints the response body for debugging.
-    #
-    # @param response [HTTP::Response] The HTTP response to print.
-    # @return [void]
-    def print_response_body(response)
-      @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
-    end
-
-    # Raises an error if the response is not successful.
-    #
-    # @param response [HTTP::Response] The HTTP response to check.
-    # @return [void]
-    def raise_error(response)
-      return if response.success?
-
-      if response.timed_out?
-        raise ApiError.new("Connection timed out")
-      elsif response.code == 0
-        # Errors from libcurl will be made visible here
-        raise ApiError.new(:code => 0, :message => response.return_message)
-      else
-        raise ApiError.new(:code => response.code, :response_headers => response.headers, :response_body => response.body), response.status_message
+      # Refreshes the access token and updates the configuration.
+      #
+      # @param opts [Hash] The options to use for the API request.
+      # @return [void]
+      def refresh_access_token(opts)
+        @config.access_token = get_access_token(@config.member_cid)
       end
-    end
+
+      # Checks if the response should be redirected to a different cloud based on the response code and path.
+      #
+      # @param response [HTTP::Response] The HTTP response to check.
+      # @param path [String] The path of the original request.
+      # @return [Boolean] `true` if the response should be redirected, `false` otherwise.
+      def redirect_to_cloud?(response, path)
+        [301, 302, 303, 307, 308].include?(response.code) && path.start_with?("/oauth2")
+      end
+
+      # Redirects the response to a different cloud based on the 'X-Cs-Region' header in the response.
+      #
+      # @param response [HTTP::Response] The HTTP response to redirect.
+      # @return [void]
+      def redirect_to_cloud(response)
+        # Cloud should be in 'X-Cs-Region' header
+        cloud = response.headers["X-Cs-Region"] || raise("Missing cloud")
+        @config.cloud = cloud
+        @config.logger.debug "Redirecting to #{cloud}"
+      end
+
+      # Prints the response body for debugging.
+      #
+      # @param response [HTTP::Response] The HTTP response to print.
+      # @return [void]
+      def print_response_body(response)
+        @config.logger.debug "HTTP response body ~BEGIN~\n#{response.body}\n~END~\n"
+      end
+
+      # Raises an error if the response is not successful.
+      #
+      # @param response [HTTP::Response] The HTTP response to check.
+      # @return [void]
+      def raise_error(response)
+        return if response.success?
+
+        if response.timed_out?
+          raise ApiError.new("Connection timed out")
+        elsif response.code == 0
+          # Errors from libcurl will be made visible here
+          raise ApiError.new(:code => 0, :message => response.return_message)
+        else
+          raise ApiError.new(:code => response.code, :response_headers => response.headers, :response_body => response.body), response.status_message
+        end
+      end
 
     public
 
