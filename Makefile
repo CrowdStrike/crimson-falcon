@@ -40,7 +40,7 @@ rebuild: uninstall build install clean
 #------------------------
 # SDK Generation tasks
 #------------------------
-.PHONY: build-sdk fix-regex clean-generated-files
+.PHONY: build-sdk fix-regex clean-generated-files rubocop
 
 build-sdk:
 	@echo "Generating SDK..."
@@ -58,10 +58,14 @@ else # If the operating system is Linux
 	done
 endif
 
+rubocop:
+	@echo "Running rubocop..."
+	@rubocop -a
+
 clean-generated-files:
 	@echo "Cleaning up generated files..."
 	@rm -rf docs/* lib/crimson-falcon/models/* lib/crimson-falcon/api/* spec/*
 
 .PHONY: generate
-generate: clean-generated-files build-sdk fix-regex
+generate: clean-generated-files build-sdk fix-regex rubocop
 	@echo "SDK generated successfully."

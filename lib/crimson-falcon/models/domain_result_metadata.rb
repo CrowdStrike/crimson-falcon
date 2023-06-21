@@ -394,7 +394,5 @@ module Falcon
         value
       end
     end
-
   end
-
 end

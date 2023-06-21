@@ -83,7 +83,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'text/html'])
       if !content_type.nil?
-          header_params['Content-Type'] = content_type
+        header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -154,7 +154,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded'])
       if !content_type.nil?
-          header_params['Content-Type'] = content_type
+        header_params['Content-Type'] = content_type
       end
 
       # form parameters

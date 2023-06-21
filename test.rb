@@ -15,7 +15,7 @@ opts = {
 }
 
 begin
-  #Get sensor update policy settings by platform
+  # Get sensor update policy settings by platform
   result = api_instance.query_combined_sensor_update_builds(opts)
   result.resources.each do |resource|
     puts resource.sensor_version
