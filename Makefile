@@ -34,8 +34,11 @@ uninstall:
 	@echo "Uninstalling gem..."
 	@$(UNINSTALL_COMMAND)
 
+clean:
+	@echo "Cleaning up..."
+	@$(CLEAN_COMMAND)
+
 rebuild: uninstall build install clean
-	@echo "Rebuilding gem..."
 
 #------------------------
 # SDK Generation tasks
