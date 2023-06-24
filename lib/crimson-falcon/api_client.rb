@@ -34,6 +34,7 @@ require "logger"
 require "tempfile"
 require "time"
 require "typhoeus"
+require "jwt"
 
 module Falcon
   # The `Falcon::ApiClient` class provides a Ruby client for the CrowdStrike Falcon
@@ -56,35 +57,20 @@ module Falcon
     # Initializes the ApiClient
     # @option config [Configuration] Configuration for initializing the object, default to Configuration.default
     def initialize(config = Configuration.default)
+      # Default user agent string
+      @USER_AGENT = "crowdstrike-crimson/#{VERSION}"
       @config = config
-      @user_agent = @config.user_agent_override || "crowdstrike-crimson/#{VERSION}"
+      @user_agent = @config.user_agent_override ? "#{@config.user_agent_override} #{@USER_AGENT}" : @USER_AGENT
       @default_headers = {
         "Content-Type" => "application/json",
         "User-Agent" => @user_agent,
       }
-      @config.access_token = get_access_token(@config.member_cid) if @config.access_token.nil? && @config.access_token_getter.nil?
+      @access_token_expiration = nil
+      @config.access_token = get_access_token if @config.access_token.nil?
     end
 
     def self.default
       @@default ||= ApiClient.new
-    end
-
-    # Gets an access token from the server using the client ID and client secret.
-    #
-    # @return [String] The access token.
-    def get_access_token(member_cid = nil)
-      raise "Missing client_id" unless @config.client_id
-      raise "Missing client_secret" unless @config.client_secret
-
-      opts = {}
-      opts[:member_cid] = member_cid if member_cid
-
-      # Call the oauth2_api endpoint to get an access token
-      oauth2_api = Oauth2Api.new(self)
-      oauth2_response = oauth2_api.oauth2_access_token(@config.client_id, @config.client_secret, opts)
-
-      # Return the access token
-      oauth2_response.access_token || raise("Missing access_token")
     end
 
     # Call an API with given options.
@@ -92,22 +78,11 @@ module Falcon
     # @return [Array<(Object, Integer, Hash)>] an array of 3 elements:
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
+      # Debug access_token expiration
+      @config.logger.debug "ACCESS TOKEN EXPIRED" if access_token_expired?
+      get_access_token if @config.access_token.nil? || access_token_expired?
       request = build_request(http_method, path, opts)
       response = request.run
-
-      # Handle Refresh Token (Unauthorized)
-      if response.code == 401
-        refresh_access_token(opts)
-        request = build_request(http_method, path, opts)
-        response = request.run
-      end
-
-      # Handle Redirect to proper cloud (For Auth only)
-      if redirect_to_cloud?(response, path)
-        redirect_to_cloud(response)
-        request = build_request(http_method, path, opts)
-        response = request.run
-      end
 
       # Print the response body (for debugging purposes)
       print_response_body(response) if @config.debugging
@@ -122,22 +97,66 @@ module Falcon
     end
 
     private
-
-      # Refreshes the access token and updates the configuration.
+      # Gets an access token from the server using the client ID and client secret.
       #
-      # @param opts [Hash] The options to use for the API request.
-      # @return [void]
-      def refresh_access_token(opts)
-        @config.access_token = get_access_token(@config.member_cid)
+      # @return [String] The access token.
+      def get_access_token
+        raise "Missing client_id" unless @config.client_id
+        raise "Missing client_secret" unless @config.client_secret
+
+        # Build the request options
+        opts = build_oauth2_options
+
+        # Make the request
+        path = "/oauth2/token"
+        oauth2_response = build_request(:POST, path, opts).run
+
+        # Handle Redirect to proper cloud (For Auth only)
+        if redirect_to_cloud?(oauth2_response)
+          redirect_to_cloud(oauth2_response)
+          oauth2_response = build_request(:POST, path, opts).run
+        end
+
+        # Print the response body (for debugging purposes)
+        print_response_body(oauth2_response) if @config.debugging
+
+        # Raise an error if the response is not successful
+        raise_error(oauth2_response)
+
+        # Deserialize the response
+        data = deserialize(oauth2_response, opts[:return_type]) if opts[:return_type]
+
+        # Set the access token expiration time
+        @access_token_expiration = Time.now + data.expires_in
+
+        # Return the access token
+        data.access_token
       end
 
-      # Checks if the response should be redirected to a different cloud based on the response code and path.
+      # Determines if the access token has expired by checking the expiration time.
+      #
+      # @return [Boolean] `true` if the access token has expired, `false` otherwise.
+      # @note If someone manually sets `@config` access token, we need to account for that by using JWT decode.
+      #   If we have an access token, but no expiration, we need to decode it to get the expiration.
+      def access_token_expired?
+        @access_token_expiration ||= get_access_token_expiration
+        Time.now >= @access_token_expiration
+      end
+
+      # Decodes the access token and retrieves the expiration time.
+      #
+      # @return [Time] The expiration time of the access token.
+      def get_access_token_expiration
+        decoded_token = JWT.decode(@config.access_token, nil, false)
+        @access_token_expiration = Time.at(decoded_token.first['exp'])
+      end
+
+      # Checks if the response should be redirected to a different cloud based on the response code.
       #
       # @param response [HTTP::Response] The HTTP response to check.
-      # @param path [String] The path of the original request.
       # @return [Boolean] `true` if the response should be redirected, `false` otherwise.
-      def redirect_to_cloud?(response, path)
-        [301, 302, 303, 307, 308].include?(response.code) && path.start_with?("/oauth2")
+      def redirect_to_cloud?(response)
+        [301, 302, 303, 307, 308].include?(response.code)
       end
 
       # Redirects the response to a different cloud based on the 'X-Cs-Region' header in the response.
@@ -146,9 +165,9 @@ module Falcon
       # @return [void]
       def redirect_to_cloud(response)
         # Cloud should be in 'X-Cs-Region' header
-        cloud = response.headers["X-Cs-Region"] || raise("Missing cloud")
+        cloud = response.headers["X-Cs-Region"] || raise("Missing cloud value in 'X-Cs-Region' header")
         @config.cloud = cloud
-        @config.logger.debug "Redirecting to #{cloud}"
+        @config.logger.debug "Redirecting to #{cloud}" if @config.debugging
       end
 
       # Prints the response body for debugging.
@@ -174,6 +193,38 @@ module Falcon
         else
           raise ApiError.new(:code => response.code, :response_headers => response.headers, :response_body => response.body), response.status_message
         end
+      end
+
+      # Builds the OAuth2 options for the API request.
+      #
+      # @return [Hash] The options to use for the OAuth2 API request.
+      # @note This method sets the header parameters and form parameters required for the OAuth2 API request.
+      # @note The client ID and client secret are set in the form parameters.
+      # @note The member CID is set in the form parameters if it is available in the configuration.
+      # @note The return type is set to 'DomainAccessTokenResponseV1'.
+      # @note The authentication name is set to 'basicAuth'.
+      def build_oauth2_options
+        header_params = {
+          "Content-Type" => "application/x-www-form-urlencoded",
+          "Accept" => "application/json",
+        }
+
+        form_params = {
+          "client_id" => @config.client_id,
+          "client_secret" => @config.client_secret,
+        }
+        form_params["member_cid"] = @config.member_cid if @config.member_cid
+
+        return_type = "DomainAccessTokenResponseV1"
+
+        auth_names = ["basicAuth"]
+
+        {
+          header_params: header_params,
+          form_params: form_params,
+          return_type: return_type,
+          auth_names: auth_names,
+        }
       end
 
     public
