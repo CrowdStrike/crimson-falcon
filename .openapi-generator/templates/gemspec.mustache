@@ -26,11 +26,11 @@ Gem::Specification.new do |s|
   {{^isFaraday}}
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
   {{/isFaraday}}
-
+  s.add_runtime_dependency 'jwt', '~> 2.2', '>= 2.2.2'
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  s.files         = %w[README.md LICENSE crimson-falcon.gemspec Rakefile]
+  s.files         += Dir.glob("lib/**/*")
   s.test_files    = `find spec/*`.split("\n")
-  s.executables   = []
   s.require_paths = ["lib"]
 end
