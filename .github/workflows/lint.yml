@@ -15,14 +15,12 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
       with:
         ruby-version: 3.0 # Use the Ruby version you want here.
 
     - name: Install dependencies
-      run: |
-        gem install bundler
-        bundle install --jobs 4 --retry 3
+      run: bundle install
 
     - name: Run RuboCop
-      run: bundle exec rubocop
+      run: rubocop
