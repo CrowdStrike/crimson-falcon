@@ -17,11 +17,11 @@ gem install {{{gemName}}}
 ```
 
 Add this to the Gemfile:
-
+<!-- x-release-please-start-version -->
 ```ruby
     gem '{{{gemName}}}', '~> {{{gemVersion}}}'
 ```
-
+<!-- x-release-please-end -->
 ### From Source to Gem: Building the Ruby Code
 
 To build the Ruby code into a gem:
@@ -31,17 +31,17 @@ gem build {{{gemName}}}.gemspec
 ```
 
 Then install the gem locally:
-
+<!-- x-release-please-start-version -->
 ```shell
 gem install ./{{{gemName}}}-{{{gemVersion}}}.gem
 ```
-
+<!-- x-release-please-end -->
 Finally, add this to the Gemfile:
-
+<!-- x-release-please-start-version -->
 ```ruby
     gem '{{{gemName}}}', '~> {{{gemVersion}}}'
 ```
-
+<!-- x-release-please-end -->
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: <https://{{gitHost}}/{{gitUserId}}{{^gitUserId}}YOUR_GIT_USERNAME{{/gitUserId}}/{{gitRepoId}}{{^gitRepoId}}YOUR_GIT_REPO{{/gitRepoId}}>, then add the following in the Gemfile:

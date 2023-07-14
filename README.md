@@ -22,7 +22,6 @@ Add this to the Gemfile:
     gem 'crimson-falcon', '~> 0.1.2'
 ```
 <!-- x-release-please-end -->
-
 ### From Source to Gem: Building the Ruby Code
 
 To build the Ruby code into a gem:
