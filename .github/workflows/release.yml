@@ -19,6 +19,9 @@ jobs:
           package-name: crimson-falcon
           bump-minor-pre-major: true
           version-file: "lib/crimson-falcon/version.rb"
+          extra-files: |
+            .openapi-generator/config.yml
+            README.md
       # The following steps are only executed if a release is created.
       - name: Check out code
         uses: actions/checkout@v3
