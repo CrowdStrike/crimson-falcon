@@ -46,17 +46,15 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/CrowdStrike/crimson-falcon"
   s.summary     = "CrowdStrike Falcon"
   s.description = "Use CrowdStrike Falcon APIs to interact with Falcon platform."
-  s.license     = "MIT"
+  s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.7"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
-  # Add jwt dependency for api_client
   s.add_runtime_dependency 'jwt', '~> 2.2', '>= 2.2.2'
-
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  s.files = %w[README.md LICENSE crimson-falcon.gemspec Rakefile]
+  s.files += Dir.glob("lib/**/*")
   s.test_files    = `find spec/*`.split("\n")
-  s.executables   = []
   s.require_paths = ["lib"]
 end

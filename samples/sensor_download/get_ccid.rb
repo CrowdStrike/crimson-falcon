@@ -35,4 +35,3 @@ begin
 rescue Falcon::ApiError => e
   puts "Exception when calling SensorDownloadApi->get_sensor_installers_ccidby_query: #{e}"
 end
-

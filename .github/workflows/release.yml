@@ -1,0 +1,48 @@
+name: release-please
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release-please
+        with:
+          release-type: ruby
+          package-name: crimson-falcon
+          bump-minor-pre-major: true
+          version-file: "lib/crimson-falcon/version.rb"
+      # The following steps are only executed if a release is created.
+      - name: Check out code
+        uses: actions/checkout@v3
+        if: ${{ steps.release-please.outputs.release_created }}
+
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        with:
+          ruby-version: 3.0
+        if: ${{ steps.release-please.outputs.release_created }}
+
+      - name: Install dependencies
+        run: bundle install
+        if: ${{ steps.release-please.outputs.release_created }}
+
+      - name: Build gem
+        run: make build
+        if: ${{ steps.release-please.outputs.release_created }}
+
+      - name: Ensure gem installs
+        run: make install
+        if: ${{ steps.release-please.outputs.release_created }}
+
+      - name: Publish gem
+        run: gem push crimson-falcon-*.gem
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
