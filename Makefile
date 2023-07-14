@@ -2,7 +2,7 @@
 GEM_NAME = crimson-falcon
 
 # Define the version of your gem
-GEM_VERSION = 0.1.1
+GEM_VERSION := $(shell ruby -r './lib/crimson-falcon/version.rb' -e 'puts Falcon::VERSION')
 
 # Define the path to your gemspec file
 GEMSPEC_PATH = $(GEM_NAME).gemspec
