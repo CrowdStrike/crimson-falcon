@@ -464,7 +464,7 @@ module Falcon
     end
 
     # Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
-    # @param body [ClientExtractionCreateRequestV1] 
+    # @param body [ClientExtractionCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ClientExtractionCreateResponseV1]
     def extraction_create_v1(body, opts = {})
@@ -473,7 +473,7 @@ module Falcon
     end
 
     # Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
-    # @param body [ClientExtractionCreateRequestV1] 
+    # @param body [ClientExtractionCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ClientExtractionCreateResponseV1, Integer, Hash)>] ClientExtractionCreateResponseV1 data, response status code and response headers
     def extraction_create_v1_with_http_info(body, opts = {})

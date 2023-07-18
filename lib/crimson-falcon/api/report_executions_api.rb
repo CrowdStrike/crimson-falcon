@@ -236,7 +236,7 @@ module Falcon
     end
 
     # This endpoint will be used to retry report executions
-    # @param body [Array<DomainReportExecutionRetryRequestV1>] 
+    # @param body [Array<DomainReportExecutionRetryRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainReportExecutionsResponseV1]
     def report_executions_retry(body, opts = {})
@@ -245,7 +245,7 @@ module Falcon
     end
 
     # This endpoint will be used to retry report executions
-    # @param body [Array<DomainReportExecutionRetryRequestV1>] 
+    # @param body [Array<DomainReportExecutionRetryRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainReportExecutionsResponseV1, Integer, Hash)>] DomainReportExecutionsResponseV1 data, response status code and response headers
     def report_executions_retry_with_http_info(body, opts = {})

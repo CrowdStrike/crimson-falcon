@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Prevention Policies by specifying details about the policy to create
-    # @param body [PreventionCreatePoliciesReqV1] 
+    # @param body [PreventionCreatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [PreventionRespV1]
     def create_prevention_policies(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Create Prevention Policies by specifying details about the policy to create
-    # @param body [PreventionCreatePoliciesReqV1] 
+    # @param body [PreventionCreatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def create_prevention_policies_with_http_info(body, opts = {})
@@ -233,7 +233,7 @@ module Falcon
 
     # Perform the specified action on the Prevention Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [PreventionRespV1]
     def perform_prevention_policies_action(action_name, body, opts = {})
@@ -243,7 +243,7 @@ module Falcon
 
     # Perform the specified action on the Prevention Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def perform_prevention_policies_action_with_http_info(action_name, body, opts = {})
@@ -640,7 +640,7 @@ module Falcon
     end
 
     # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def set_prevention_policies_precedence(body, opts = {})
@@ -649,7 +649,7 @@ module Falcon
     end
 
     # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_prevention_policies_precedence_with_http_info(body, opts = {})
@@ -706,7 +706,7 @@ module Falcon
     end
 
     # Update Prevention Policies by specifying the ID of the policy and details to update
-    # @param body [PreventionUpdatePoliciesReqV1] 
+    # @param body [PreventionUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [PreventionRespV1]
     def update_prevention_policies(body, opts = {})
@@ -715,7 +715,7 @@ module Falcon
     end
 
     # Update Prevention Policies by specifying the ID of the policy and details to update
-    # @param body [PreventionUpdatePoliciesReqV1] 
+    # @param body [PreventionUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def update_prevention_policies_with_http_info(body, opts = {})

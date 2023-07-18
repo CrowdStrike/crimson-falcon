@@ -56,7 +56,7 @@ describe 'ResponsePoliciesApi' do
 
   # unit tests for create_rt_response_policies
   # Create Response Policies by specifying details about the policy to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RemoteResponseRespV1]
   describe 'create_rt_response_policies test' do
@@ -90,7 +90,7 @@ describe 'ResponsePoliciesApi' do
   # unit tests for perform_rt_response_policies_action
   # Perform the specified action on the Response Policies specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RemoteResponseRespV1]
   describe 'perform_rt_response_policies_action test' do
@@ -159,7 +159,7 @@ describe 'ResponsePoliciesApi' do
 
   # unit tests for set_rt_response_policies_precedence
   # Sets the precedence of Response Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'set_rt_response_policies_precedence test' do
@@ -170,7 +170,7 @@ describe 'ResponsePoliciesApi' do
 
   # unit tests for update_rt_response_policies
   # Update Response Policies by specifying the ID of the policy and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RemoteResponseRespV1]
   describe 'update_rt_response_policies test' do

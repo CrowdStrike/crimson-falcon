@@ -67,7 +67,7 @@ describe 'TailoredIntelligenceApi' do
 
   # unit tests for get_events_entities
   # Get events entities for specified ids.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainEventEntitiesResponse]
   describe 'get_events_entities test' do
@@ -78,7 +78,7 @@ describe 'TailoredIntelligenceApi' do
 
   # unit tests for get_rules_entities
   # Get rules entities for specified ids.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainRuleEntitiesResponse]
   describe 'get_rules_entities test' do

@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Creates a new AWS account in our system for a customer and generates the installation script
-    # @param body [K8sregCreateAWSAccReq] 
+    # @param body [K8sregCreateAWSAccReq]
     # @param [Hash] opts the optional parameters
     # @return [K8sregCreateAWSAccResp]
     def create_aws_account(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Creates a new AWS account in our system for a customer and generates the installation script
-    # @param body [K8sregCreateAWSAccReq] 
+    # @param body [K8sregCreateAWSAccReq]
     # @param [Hash] opts the optional parameters
     # @return [Array<(K8sregCreateAWSAccResp, Integer, Hash)>] K8sregCreateAWSAccResp data, response status code and response headers
     def create_aws_account_with_http_info(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Creates a new Azure Subscription in our system
-    # @param body [K8sregCreateAzureSubReq] 
+    # @param body [K8sregCreateAzureSubReq]
     # @param [Hash] opts the optional parameters
     # @return [MsaBaseEntitiesResponse]
     def create_azure_subscription(body, opts = {})
@@ -117,7 +117,7 @@ module Falcon
     end
 
     # Creates a new Azure Subscription in our system
-    # @param body [K8sregCreateAzureSubReq] 
+    # @param body [K8sregCreateAzureSubReq]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def create_azure_subscription_with_http_info(body, opts = {})

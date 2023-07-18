@@ -60,7 +60,7 @@ describe 'RealTimeResponseApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :timeout Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
   # @option opts [String] :timeout_duration Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes.
-  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. 
+  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.
   # @return [DomainMultiCommandExecuteResponseWrapper]
   describe 'batch_active_responder_cmd test' do
     it 'should work' do
@@ -74,7 +74,7 @@ describe 'RealTimeResponseApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :timeout Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
   # @option opts [String] :timeout_duration Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes.
-  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. 
+  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.
   # @return [DomainMultiCommandExecuteResponseWrapper]
   describe 'batch_cmd test' do
     it 'should work' do
@@ -88,7 +88,7 @@ describe 'RealTimeResponseApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :timeout Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
   # @option opts [String] :timeout_duration Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes.
-  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. 
+  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.
   # @return [DomainBatchGetCommandResponse]
   describe 'batch_get_cmd test' do
     it 'should work' do
@@ -115,7 +115,7 @@ describe 'RealTimeResponseApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :timeout Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
   # @option opts [String] :timeout_duration Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes.
-  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. 
+  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.
   # @return [DomainBatchInitSessionResponse]
   describe 'batch_init_sessions test' do
     it 'should work' do

@@ -69,7 +69,7 @@ describe 'CspmRegistrationApi' do
 
   # unit tests for create_cspm_aws_account
   # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAWSAccountResponseV2]
   describe 'create_cspm_aws_account test' do
@@ -80,7 +80,7 @@ describe 'CspmRegistrationApi' do
 
   # unit tests for create_cspm_azure_account
   # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAzureAccountResponseV1]
   describe 'create_cspm_azure_account test' do
@@ -106,7 +106,7 @@ describe 'CspmRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids Azure subscription IDs to remove
   # @option opts [Array<String>] :tenant_ids Tenant ids to remove
-  # @option opts [String] :retain_tenant 
+  # @option opts [String] :retain_tenant
   # @return [MsaBaseEntitiesResponse]
   describe 'delete_cspm_azure_account test' do
     it 'should work' do
@@ -152,7 +152,7 @@ describe 'CspmRegistrationApi' do
   # unit tests for get_configuration_detection_ids_v2
   # Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string 
+  # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
   # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp
   # @option opts [Integer] :limit The max number of detections to return
   # @option opts [Integer] :offset Offset returned detections
@@ -217,7 +217,7 @@ describe 'CspmRegistrationApi' do
   # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS account IDs
-  # @option opts [String] :use_existing_cloudtrail 
+  # @option opts [String] :use_existing_cloudtrail
   # @option opts [String] :region Region
   # @return [RegistrationAWSAccountConsoleURL]
   describe 'get_cspm_aws_console_setup_urls test' do
@@ -247,7 +247,7 @@ describe 'CspmRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :tenant_id Tenant ID to generate script for. Defaults to most recently registered tenant.
   # @option opts [Array<String>] :subscription_ids Subscription IDs to generate script for. Defaults to all.
-  # @option opts [String] :account_type 
+  # @option opts [String] :account_type
   # @option opts [String] :template Template to be rendered
   # @return [RegistrationAzureProvisionGetUserScriptResponseV1]
   describe 'get_cspm_azure_user_scripts_attachment test' do
@@ -304,7 +304,7 @@ describe 'CspmRegistrationApi' do
 
   # unit tests for patch_cspm_aws_account
   # Patches a existing account in our system for a customer.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAWSAccountResponseV2]
   describe 'patch_cspm_aws_account test' do
@@ -339,7 +339,7 @@ describe 'CspmRegistrationApi' do
 
   # unit tests for update_cspm_policy_settings
   # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationPolicySettingsResponseV1]
   describe 'update_cspm_policy_settings test' do
@@ -350,7 +350,7 @@ describe 'CspmRegistrationApi' do
 
   # unit tests for update_cspm_scan_schedule
   # Updates scan schedule configuration for one or more cloud platforms.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationScanScheduleResponseV1]
   describe 'update_cspm_scan_schedule test' do

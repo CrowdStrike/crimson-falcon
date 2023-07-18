@@ -56,7 +56,7 @@ describe 'InstallationTokensSettingsApi' do
 
   # unit tests for customer_settings_update
   # Update installation token settings.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'customer_settings_update test' do

@@ -56,7 +56,7 @@ describe 'FirewallPoliciesApi' do
 
   # unit tests for create_firewall_policies
   # Create Firewall Policies by specifying details about the policy to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :clone_id The policy ID to be cloned from
   # @return [FirewallRespV1]
@@ -91,7 +91,7 @@ describe 'FirewallPoliciesApi' do
   # unit tests for perform_firewall_policies_action
   # Perform the specified action on the Firewall Policies specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [FirewallRespV1]
   describe 'perform_firewall_policies_action test' do
@@ -160,7 +160,7 @@ describe 'FirewallPoliciesApi' do
 
   # unit tests for set_firewall_policies_precedence
   # Sets the precedence of Firewall Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'set_firewall_policies_precedence test' do
@@ -171,7 +171,7 @@ describe 'FirewallPoliciesApi' do
 
   # unit tests for update_firewall_policies
   # Update Firewall Policies by specifying the ID of the policy and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [FirewallRespV1]
   describe 'update_firewall_policies test' do

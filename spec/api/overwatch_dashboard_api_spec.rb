@@ -67,7 +67,7 @@ describe 'OverwatchDashboardApi' do
 
   # unit tests for aggregates_events
   # Get aggregate OverWatch detection event info by providing an aggregate query
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregates_events test' do
@@ -78,7 +78,7 @@ describe 'OverwatchDashboardApi' do
 
   # unit tests for aggregates_events_collections
   # Get OverWatch detection event collection info by providing an aggregate query
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregates_events_collections test' do

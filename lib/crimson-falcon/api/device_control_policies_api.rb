@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Device Control Policies by specifying details about the policy to create
-    # @param body [DeviceControlCreatePoliciesV1] 
+    # @param body [DeviceControlCreatePoliciesV1]
     # @param [Hash] opts the optional parameters
     # @return [DeviceControlRespV2]
     def create_device_control_policies(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Create Device Control Policies by specifying details about the policy to create
-    # @param body [DeviceControlCreatePoliciesV1] 
+    # @param body [DeviceControlCreatePoliciesV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceControlRespV2, Integer, Hash)>] DeviceControlRespV2 data, response status code and response headers
     def create_device_control_policies_with_http_info(body, opts = {})
@@ -288,7 +288,7 @@ module Falcon
 
     # Perform the specified action on the Device Control Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [DeviceControlRespV1]
     def perform_device_control_policies_action(action_name, body, opts = {})
@@ -298,7 +298,7 @@ module Falcon
 
     # Perform the specified action on the Device Control Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def perform_device_control_policies_action_with_http_info(action_name, body, opts = {})
@@ -695,7 +695,7 @@ module Falcon
     end
 
     # Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def set_device_control_policies_precedence(body, opts = {})
@@ -704,7 +704,7 @@ module Falcon
     end
 
     # Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_device_control_policies_precedence_with_http_info(body, opts = {})
@@ -761,7 +761,7 @@ module Falcon
     end
 
     # Update the configuration for a Default Device Control Policy
-    # @param body [DeviceControlReqUpdateDefaultDCPolicyV1] 
+    # @param body [DeviceControlReqUpdateDefaultDCPolicyV1]
     # @param [Hash] opts the optional parameters
     # @return [DeviceControlRespV1]
     def update_default_device_control_policies(body, opts = {})
@@ -770,7 +770,7 @@ module Falcon
     end
 
     # Update the configuration for a Default Device Control Policy
-    # @param body [DeviceControlReqUpdateDefaultDCPolicyV1] 
+    # @param body [DeviceControlReqUpdateDefaultDCPolicyV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def update_default_device_control_policies_with_http_info(body, opts = {})
@@ -827,7 +827,7 @@ module Falcon
     end
 
     # Update Device Control Policies by specifying the ID of the policy and details to update
-    # @param body [DeviceControlUpdatePoliciesReqV1] 
+    # @param body [DeviceControlUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [DeviceControlRespV1]
     def update_device_control_policies(body, opts = {})
@@ -836,7 +836,7 @@ module Falcon
     end
 
     # Update Device Control Policies by specifying the ID of the policy and details to update
-    # @param body [DeviceControlUpdatePoliciesReqV1] 
+    # @param body [DeviceControlUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def update_device_control_policies_with_http_info(body, opts = {})

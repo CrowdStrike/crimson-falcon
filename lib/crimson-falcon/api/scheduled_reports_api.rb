@@ -104,7 +104,7 @@ module Falcon
     end
 
     # Launch scheduled reports executions for the provided report IDs.
-    # @param body [Array<DomainReportExecutionLaunchRequestV1>] 
+    # @param body [Array<DomainReportExecutionLaunchRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainReportExecutionsResponseV1]
     def scheduled_reports_launch(body, opts = {})
@@ -113,7 +113,7 @@ module Falcon
     end
 
     # Launch scheduled reports executions for the provided report IDs.
-    # @param body [Array<DomainReportExecutionLaunchRequestV1>] 
+    # @param body [Array<DomainReportExecutionLaunchRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainReportExecutionsResponseV1, Integer, Hash)>] DomainReportExecutionsResponseV1 data, response status code and response headers
     def scheduled_reports_launch_with_http_info(body, opts = {})

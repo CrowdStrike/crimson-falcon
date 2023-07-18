@@ -56,7 +56,7 @@ describe 'D4cRegistrationApi' do
 
   # unit tests for create_d4_c_aws_account
   # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAWSAccountResponseV2]
   describe 'create_d4_c_aws_account test' do
@@ -67,7 +67,7 @@ describe 'D4cRegistrationApi' do
 
   # unit tests for create_d4_cgcp_account
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationGCPAccountResponseV1]
   describe 'create_d4_cgcp_account test' do
@@ -78,7 +78,7 @@ describe 'D4cRegistrationApi' do
 
   # unit tests for create_discover_cloud_azure_account
   # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAzureAccountResponseV1]
   describe 'create_discover_cloud_azure_account test' do
@@ -233,7 +233,7 @@ describe 'D4cRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :single_account Get static script for single account
   # @option opts [String] :organization_id AWS organization ID
-  # @option opts [String] :delete 
+  # @option opts [String] :delete
   # @option opts [String] :account_type Account type (e.g.: commercial,gov) Only applicable when registering AWS commercial account in a Gov environment
   # @return [RegistrationStaticScriptsResponse]
   describe 'get_horizon_d4_c_scripts test' do

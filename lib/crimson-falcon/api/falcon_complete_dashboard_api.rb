@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Retrieve aggregate allowlist ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_allow_list(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Retrieve aggregate allowlist ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_allow_list_with_http_info(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Retrieve aggregate blocklist ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_block_list(body, opts = {})
@@ -117,7 +117,7 @@ module Falcon
     end
 
     # Retrieve aggregate blocklist ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_block_list_with_http_info(body, opts = {})
@@ -175,7 +175,7 @@ module Falcon
 
     # Retrieve aggregate detection values based on the matched filter
     # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_detections(body, opts = {})
@@ -185,7 +185,7 @@ module Falcon
 
     # Retrieve aggregate detection values based on the matched filter
     # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_detections_with_http_info(body, opts = {})
@@ -242,7 +242,7 @@ module Falcon
     end
 
     # Retrieve aggregate host/devices count based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_device_count_collection(body, opts = {})
@@ -251,7 +251,7 @@ module Falcon
     end
 
     # Retrieve aggregate host/devices count based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_device_count_collection_with_http_info(body, opts = {})
@@ -308,7 +308,7 @@ module Falcon
     end
 
     # Retrieve aggregate escalation ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_escalations(body, opts = {})
@@ -317,7 +317,7 @@ module Falcon
     end
 
     # Retrieve aggregate escalation ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_escalations_with_http_info(body, opts = {})
@@ -374,7 +374,7 @@ module Falcon
     end
 
     # Retrieve aggregate incident values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_fc_incidents(body, opts = {})
@@ -383,7 +383,7 @@ module Falcon
     end
 
     # Retrieve aggregate incident values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_fc_incidents_with_http_info(body, opts = {})
@@ -440,7 +440,7 @@ module Falcon
     end
 
     # Retrieve aggregate remediation ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_remediations(body, opts = {})
@@ -449,7 +449,7 @@ module Falcon
     end
 
     # Retrieve aggregate remediation ticket values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_remediations_with_http_info(body, opts = {})

@@ -91,7 +91,7 @@ describe 'InstallationTokensApi' do
 
   # unit tests for tokens_create
   # Creates a token.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiTokenDetailsResponseV1]
   describe 'tokens_create test' do
@@ -139,7 +139,7 @@ describe 'InstallationTokensApi' do
   # unit tests for tokens_update
   # Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
   # @param ids The token ids to update.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'tokens_update test' do

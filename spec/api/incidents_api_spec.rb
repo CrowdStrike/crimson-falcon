@@ -70,7 +70,7 @@ describe 'IncidentsApi' do
 
   # unit tests for get_behaviors
   # Get details on behaviors by providing behavior IDs
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainMsaExternalBehaviorResponse]
   describe 'get_behaviors test' do
@@ -81,7 +81,7 @@ describe 'IncidentsApi' do
 
   # unit tests for get_incidents
   # Get details on incidents by providing incident IDs
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainMsaExternalIncidentResponse]
   describe 'get_incidents test' do

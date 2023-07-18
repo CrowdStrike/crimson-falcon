@@ -56,7 +56,7 @@ describe 'OdsApi' do
 
   # unit tests for aggregate_query_scan_host_metadata
   # Get aggregates on ODS scan-hosts data.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_query_scan_host_metadata test' do
@@ -67,7 +67,7 @@ describe 'OdsApi' do
 
   # unit tests for aggregate_scans
   # Get aggregates on ODS scan data.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_scans test' do
@@ -78,7 +78,7 @@ describe 'OdsApi' do
 
   # unit tests for aggregate_scheduled_scans
   # Get aggregates on ODS scheduled-scan data.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_scheduled_scans test' do
@@ -89,7 +89,7 @@ describe 'OdsApi' do
 
   # unit tests for cancel_scans
   # Cancel ODS scans for the given scan ids.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaspecQueryResponse]
   describe 'cancel_scans test' do
@@ -100,7 +100,7 @@ describe 'OdsApi' do
 
   # unit tests for create_scan
   # Create ODS scan and start or schedule scan for the given scan request.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [EntitiesODSScanResponse]
   describe 'create_scan test' do
@@ -223,7 +223,7 @@ describe 'OdsApi' do
 
   # unit tests for schedule_scan
   # Create ODS scan and start or schedule scan for the given scan request.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [EntitiesODSScheduleScanResponse]
   describe 'schedule_scan test' do

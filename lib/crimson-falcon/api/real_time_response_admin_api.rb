@@ -943,7 +943,7 @@ module Falcon
     # @option opts [String] :comments_for_audit_log The audit log comment
     # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins (default to 'none')
     # @option opts [String] :content The script text that you want to use to upload
-    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, 
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
     # @return [MsaReplyMetaOnly]
     def r_tr_update_scripts(id, opts = {})
       data, _status_code, _headers = r_tr_update_scripts_with_http_info(id, opts)
@@ -959,7 +959,7 @@ module Falcon
     # @option opts [String] :comments_for_audit_log The audit log comment
     # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins (default to 'none')
     # @option opts [String] :content The script text that you want to use to upload
-    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, 
+    # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_update_scripts_with_http_info(id, opts = {})
       if @api_client.config.debugging

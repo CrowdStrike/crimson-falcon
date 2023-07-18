@@ -56,7 +56,7 @@ describe 'MobileEnrollmentApi' do
 
   # unit tests for request_device_enrollment_v3
   # Trigger on-boarding process for a mobile device
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :action_name Action to perform
   # @option opts [String] :filter FQL filter

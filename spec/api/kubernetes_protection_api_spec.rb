@@ -56,7 +56,7 @@ describe 'KubernetesProtectionApi' do
 
   # unit tests for create_aws_account
   # Creates a new AWS account in our system for a customer and generates the installation script
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [K8sregCreateAWSAccResp]
   describe 'create_aws_account test' do
@@ -67,7 +67,7 @@ describe 'KubernetesProtectionApi' do
 
   # unit tests for create_azure_subscription
   # Creates a new Azure Subscription in our system
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaBaseEntitiesResponse]
   describe 'create_azure_subscription test' do

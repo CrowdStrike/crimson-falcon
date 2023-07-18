@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-    # @param body [RegistrationAWSAccountCreateRequestD4CExtV2] 
+    # @param body [RegistrationAWSAccountCreateRequestD4CExtV2]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationAWSAccountResponseV2]
     def create_d4_c_aws_account(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
-    # @param body [RegistrationAWSAccountCreateRequestD4CExtV2] 
+    # @param body [RegistrationAWSAccountCreateRequestD4CExtV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def create_d4_c_aws_account_with_http_info(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-    # @param body [RegistrationGCPAccountCreateRequestExtV1] 
+    # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountResponseV1]
     def create_d4_cgcp_account(body, opts = {})
@@ -117,7 +117,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-    # @param body [RegistrationGCPAccountCreateRequestExtV1] 
+    # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
     def create_d4_cgcp_account_with_http_info(body, opts = {})
@@ -174,7 +174,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-    # @param body [RegistrationAzureAccountCreateRequestExternalV1] 
+    # @param body [RegistrationAzureAccountCreateRequestExternalV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationAzureAccountResponseV1]
     def create_discover_cloud_azure_account(body, opts = {})
@@ -183,7 +183,7 @@ module Falcon
     end
 
     # Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
-    # @param body [RegistrationAzureAccountCreateRequestExternalV1] 
+    # @param body [RegistrationAzureAccountCreateRequestExternalV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def create_discover_cloud_azure_account_with_http_info(body, opts = {})
@@ -1028,7 +1028,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :single_account Get static script for single account
     # @option opts [String] :organization_id AWS organization ID
-    # @option opts [String] :delete 
+    # @option opts [String] :delete
     # @option opts [String] :account_type Account type (e.g.: commercial,gov) Only applicable when registering AWS commercial account in a Gov environment
     # @return [RegistrationStaticScriptsResponse]
     def get_horizon_d4_c_scripts(opts = {})
@@ -1040,7 +1040,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :single_account Get static script for single account
     # @option opts [String] :organization_id AWS organization ID
-    # @option opts [String] :delete 
+    # @option opts [String] :delete
     # @option opts [String] :account_type Account type (e.g.: commercial,gov) Only applicable when registering AWS commercial account in a Gov environment
     # @return [Array<(RegistrationStaticScriptsResponse, Integer, Hash)>] RegistrationStaticScriptsResponse data, response status code and response headers
     def get_horizon_d4_c_scripts_with_http_info(opts = {})

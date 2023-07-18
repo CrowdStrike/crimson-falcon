@@ -58,7 +58,7 @@ describe 'HostsApi' do
   # Performs the specified action on the provided prevention policy IDs.
   # @param ids The group ids to act on
   # @param action_name The action to perform.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member
   # @return [DeviceapiGroupsResponseV1]
@@ -115,7 +115,7 @@ describe 'HostsApi' do
 
   # unit tests for post_device_details_v2
   # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceapiDeviceDetailsResponseSwagger]
   describe 'post_device_details_v2 test' do
@@ -126,7 +126,7 @@ describe 'HostsApi' do
 
   # unit tests for query_device_login_history
   # Retrieve details about recent login sessions for a set of devices.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceapiLoginHistoryResponseV1]
   describe 'query_device_login_history test' do
@@ -165,7 +165,7 @@ describe 'HostsApi' do
 
   # unit tests for query_get_network_address_history_v1
   # Retrieve history of IP and MAC addresses of devices.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceapiNetworkAddressHistoryResponseV1]
   describe 'query_get_network_address_history_v1 test' do
@@ -190,7 +190,7 @@ describe 'HostsApi' do
 
   # unit tests for update_device_tags
   # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceapiUpdateDeviceTagsSwaggerV1]
   describe 'update_device_tags test' do

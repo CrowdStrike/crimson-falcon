@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Firewall Policies by specifying details about the policy to create
-    # @param body [FirewallCreateFirewallPoliciesReqV1] 
+    # @param body [FirewallCreateFirewallPoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id The policy ID to be cloned from
     # @return [FirewallRespV1]
@@ -52,7 +52,7 @@ module Falcon
     end
 
     # Create Firewall Policies by specifying details about the policy to create
-    # @param body [FirewallCreateFirewallPoliciesReqV1] 
+    # @param body [FirewallCreateFirewallPoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id The policy ID to be cloned from
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
@@ -244,7 +244,7 @@ module Falcon
 
     # Perform the specified action on the Firewall Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [FirewallRespV1]
     def perform_firewall_policies_action(action_name, body, opts = {})
@@ -254,7 +254,7 @@ module Falcon
 
     # Perform the specified action on the Firewall Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2] 
+    # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def perform_firewall_policies_action_with_http_info(action_name, body, opts = {})
@@ -651,7 +651,7 @@ module Falcon
     end
 
     # Sets the precedence of Firewall Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def set_firewall_policies_precedence(body, opts = {})
@@ -660,7 +660,7 @@ module Falcon
     end
 
     # Sets the precedence of Firewall Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1] 
+    # @param body [BaseSetPolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_firewall_policies_precedence_with_http_info(body, opts = {})
@@ -717,7 +717,7 @@ module Falcon
     end
 
     # Update Firewall Policies by specifying the ID of the policy and details to update
-    # @param body [FirewallUpdateFirewallPoliciesReqV1] 
+    # @param body [FirewallUpdateFirewallPoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [FirewallRespV1]
     def update_firewall_policies(body, opts = {})
@@ -726,7 +726,7 @@ module Falcon
     end
 
     # Update Firewall Policies by specifying the ID of the policy and details to update
-    # @param body [FirewallUpdateFirewallPoliciesReqV1] 
+    # @param body [FirewallUpdateFirewallPoliciesReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def update_firewall_policies_with_http_info(body, opts = {})

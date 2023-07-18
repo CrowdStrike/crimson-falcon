@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1] 
+    # @param body [ApiCustomerSettingsPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def customer_settings_update(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1] 
+    # @param body [ApiCustomerSettingsPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def customer_settings_update_with_http_info(body, opts = {})

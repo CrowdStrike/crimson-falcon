@@ -56,7 +56,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for create_sensor_update_policies
   # Create Sensor Update Policies by specifying details about the policy to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SensorUpdateRespV1]
   describe 'create_sensor_update_policies test' do
@@ -67,7 +67,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for create_sensor_update_policies_v2
   # Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SensorUpdateRespV2]
   describe 'create_sensor_update_policies_v2 test' do
@@ -112,7 +112,7 @@ describe 'SensorUpdatePoliciesApi' do
   # unit tests for perform_sensor_update_policies_action
   # Perform the specified action on the Sensor Update Policies specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SensorUpdateRespV1]
   describe 'perform_sensor_update_policies_action test' do
@@ -234,7 +234,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for reveal_uninstall_token
   # Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39;
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [UninstallTokenRespV1]
   describe 'reveal_uninstall_token test' do
@@ -245,7 +245,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for set_sensor_update_policies_precedence
   # Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'set_sensor_update_policies_precedence test' do
@@ -256,7 +256,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for update_sensor_update_policies
   # Update Sensor Update Policies by specifying the ID of the policy and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SensorUpdateRespV1]
   describe 'update_sensor_update_policies test' do
@@ -267,7 +267,7 @@ describe 'SensorUpdatePoliciesApi' do
 
   # unit tests for update_sensor_update_policies_v2
   # Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SensorUpdateRespV2]
   describe 'update_sensor_update_policies_v2 test' do

@@ -56,7 +56,7 @@ describe 'CloudConnectAwsApi' do
 
   # unit tests for create_or_update_aws_settings
   # Create or update Global Settings which are applicable to all provisioned AWS accounts
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ModelsCustomerConfigurationsV1]
   describe 'create_or_update_aws_settings test' do
@@ -99,7 +99,7 @@ describe 'CloudConnectAwsApi' do
 
   # unit tests for provision_aws_accounts
   # Provision AWS Accounts by specifying details about the accounts to provision
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :mode Mode for provisioning. Allowed values are &#x60;manual&#x60; or &#x60;cloudformation&#x60;. Defaults to manual if not defined.
   # @return [ModelsAWSAccountsV1]
@@ -139,7 +139,7 @@ describe 'CloudConnectAwsApi' do
 
   # unit tests for update_aws_accounts
   # Update AWS Accounts by specifying the ID of the account and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ModelsAWSAccountsV1]
   describe 'update_aws_accounts test' do

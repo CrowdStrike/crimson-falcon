@@ -107,7 +107,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
+    # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
     # @param body [DomainMSSPRoleRequestV1] &#39;user_group_id&#39;, &#39;cid_group_id&#39; and &#39;role_ids&#39; fields are required. Remaining are populated by system.
     # @param [Hash] opts the optional parameters
     # @return [DomainMSSPRoleResponseV1]
@@ -116,7 +116,7 @@ module Falcon
       data
     end
 
-    # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
+    # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
     # @param body [DomainMSSPRoleRequestV1] &#39;user_group_id&#39;, &#39;cid_group_id&#39; and &#39;role_ids&#39; fields are required. Remaining are populated by system.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMSSPRoleResponseV1, Integer, Hash)>] DomainMSSPRoleResponseV1 data, response status code and response headers
@@ -756,7 +756,7 @@ module Falcon
     end
 
     # Get link to child customer by child CID(s)
-    # @param body [MsaspecIdsRequest] 
+    # @param body [MsaspecIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainChildrenResponseV1]
     def get_children_v2(body, opts = {})
@@ -765,7 +765,7 @@ module Falcon
     end
 
     # Get link to child customer by child CID(s)
-    # @param body [MsaspecIdsRequest] 
+    # @param body [MsaspecIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainChildrenResponseV1, Integer, Hash)>] DomainChildrenResponseV1 data, response status code and response headers
     def get_children_v2_with_http_info(body, opts = {})
