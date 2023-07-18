@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create or update Global Settings which are applicable to all provisioned AWS accounts
-    # @param body [ModelsModifyAWSCustomerSettingsV1] 
+    # @param body [ModelsModifyAWSCustomerSettingsV1]
     # @param [Hash] opts the optional parameters
     # @return [ModelsCustomerConfigurationsV1]
     def create_or_update_aws_settings(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Create or update Global Settings which are applicable to all provisioned AWS accounts
-    # @param body [ModelsModifyAWSCustomerSettingsV1] 
+    # @param body [ModelsModifyAWSCustomerSettingsV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsCustomerConfigurationsV1, Integer, Hash)>] ModelsCustomerConfigurationsV1 data, response status code and response headers
     def create_or_update_aws_settings_with_http_info(body, opts = {})
@@ -291,7 +291,7 @@ module Falcon
     end
 
     # Provision AWS Accounts by specifying details about the accounts to provision
-    # @param body [ModelsCreateAWSAccountsV1] 
+    # @param body [ModelsCreateAWSAccountsV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :mode Mode for provisioning. Allowed values are &#x60;manual&#x60; or &#x60;cloudformation&#x60;. Defaults to manual if not defined. (default to 'manual')
     # @return [ModelsAWSAccountsV1]
@@ -301,7 +301,7 @@ module Falcon
     end
 
     # Provision AWS Accounts by specifying details about the accounts to provision
-    # @param body [ModelsCreateAWSAccountsV1] 
+    # @param body [ModelsCreateAWSAccountsV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :mode Mode for provisioning. Allowed values are &#x60;manual&#x60; or &#x60;cloudformation&#x60;. Defaults to manual if not defined. (default to 'manual')
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
@@ -498,7 +498,7 @@ module Falcon
     end
 
     # Update AWS Accounts by specifying the ID of the account and details to update
-    # @param body [ModelsUpdateAWSAccountsV1] 
+    # @param body [ModelsUpdateAWSAccountsV1]
     # @param [Hash] opts the optional parameters
     # @return [ModelsAWSAccountsV1]
     def update_aws_accounts(body, opts = {})
@@ -507,7 +507,7 @@ module Falcon
     end
 
     # Update AWS Accounts by specifying the ID of the account and details to update
-    # @param body [ModelsUpdateAWSAccountsV1] 
+    # @param body [ModelsUpdateAWSAccountsV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
     def update_aws_accounts_with_http_info(body, opts = {})

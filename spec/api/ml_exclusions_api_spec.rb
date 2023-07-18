@@ -56,7 +56,7 @@ describe 'MlExclusionsApi' do
 
   # unit tests for create_ml_exclusions_v1
   # Create the ML exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ExclusionsRespV1]
   describe 'create_ml_exclusions_v1 test' do
@@ -104,7 +104,7 @@ describe 'MlExclusionsApi' do
 
   # unit tests for update_ml_exclusions_v1
   # Update the ML exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ExclusionsRespV1]
   describe 'update_ml_exclusions_v1 test' do

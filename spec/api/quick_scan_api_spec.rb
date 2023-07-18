@@ -67,7 +67,7 @@ describe 'QuickScanApi' do
 
   # unit tests for get_scans_aggregates
   # Get scans aggregations as specified via json in request body.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'get_scans_aggregates test' do

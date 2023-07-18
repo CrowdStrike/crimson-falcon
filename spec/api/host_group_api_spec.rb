@@ -56,7 +56,7 @@ describe 'HostGroupApi' do
 
   # unit tests for create_host_groups
   # Create Host Groups by specifying details about the group to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [HostGroupsRespV1]
   describe 'create_host_groups test' do
@@ -90,7 +90,7 @@ describe 'HostGroupApi' do
   # unit tests for perform_group_action
   # Perform the specified action on the Host Groups specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member
   # @return [HostGroupsRespV1]
@@ -160,7 +160,7 @@ describe 'HostGroupApi' do
 
   # unit tests for update_host_groups
   # Update Host Groups by specifying the ID of the group and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [HostGroupsRespV1]
   describe 'update_host_groups test' do

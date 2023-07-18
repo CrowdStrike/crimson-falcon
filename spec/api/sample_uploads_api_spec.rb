@@ -133,7 +133,7 @@ describe 'SampleUploadsApi' do
 
   # unit tests for extraction_create_v1
   # Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ClientExtractionCreateResponseV1]
   describe 'extraction_create_v1 test' do

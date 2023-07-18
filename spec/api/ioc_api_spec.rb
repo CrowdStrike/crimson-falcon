@@ -79,7 +79,7 @@ describe 'IocApi' do
 
   # unit tests for get_indicators_report
   # Launch an indicators report creation job
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaEntitiesResponse]
   describe 'get_indicators_report test' do
@@ -90,7 +90,7 @@ describe 'IocApi' do
 
   # unit tests for indicator_aggregate_v1
   # Get Indicators aggregates as specified via json in the request body.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter The filter to narrow down the aggregation data
   # @option opts [Boolean] :from_parent The filter for returning either only indicators for the request customer or its MSSP parents
@@ -119,7 +119,7 @@ describe 'IocApi' do
 
   # unit tests for indicator_create_v1
   # Create Indicators.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
   # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs
@@ -173,7 +173,7 @@ describe 'IocApi' do
 
   # unit tests for indicator_update_v1
   # Update Indicators.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
   # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs

@@ -48,6 +48,9 @@ Gem::Specification.new do |s|
   s.description = "Use CrowdStrike Falcon APIs to interact with Falcon platform."
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.7"
+  s.metadata = {
+    "documentation_uri" => "https://github.com/CrowdStrike/crimson-falcon/blob/main/README.md#crimson-falcon-api-docs"
+  }
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
   s.add_runtime_dependency 'jwt', '~> 2.2', '>= 2.2.2'

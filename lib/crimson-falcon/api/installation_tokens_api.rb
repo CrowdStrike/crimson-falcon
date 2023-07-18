@@ -222,7 +222,7 @@ module Falcon
     end
 
     # Creates a token.
-    # @param body [ApiTokenCreateRequestV1] 
+    # @param body [ApiTokenCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiTokenDetailsResponseV1]
     def tokens_create(body, opts = {})
@@ -231,7 +231,7 @@ module Falcon
     end
 
     # Creates a token.
-    # @param body [ApiTokenCreateRequestV1] 
+    # @param body [ApiTokenCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiTokenDetailsResponseV1, Integer, Hash)>] ApiTokenDetailsResponseV1 data, response status code and response headers
     def tokens_create_with_http_info(body, opts = {})
@@ -476,7 +476,7 @@ module Falcon
 
     # Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
     # @param ids [Array<String>] The token ids to update.
-    # @param body [ApiTokenPatchRequestV1] 
+    # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def tokens_update(ids, body, opts = {})
@@ -486,7 +486,7 @@ module Falcon
 
     # Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
     # @param ids [Array<String>] The token ids to update.
-    # @param body [ApiTokenPatchRequestV1] 
+    # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def tokens_update_with_http_info(ids, body, opts = {})

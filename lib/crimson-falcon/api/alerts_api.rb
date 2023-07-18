@@ -119,7 +119,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
     # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
     # @param [Hash] opts the optional parameters
     # @return [MsaspecResponseFields]
@@ -128,7 +128,7 @@ module Falcon
       data
     end
 
-    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
     # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
@@ -252,7 +252,7 @@ module Falcon
     end
 
     # retrieves all Alerts given their ids
-    # @param body [DetectsapiPostEntitiesAlertsV1Request] 
+    # @param body [DetectsapiPostEntitiesAlertsV1Request]
     # @param [Hash] opts the optional parameters
     # @return [DetectsapiPostEntitiesAlertsV1Response]
     def post_entities_alerts_v1(body, opts = {})
@@ -261,7 +261,7 @@ module Falcon
     end
 
     # retrieves all Alerts given their ids
-    # @param body [DetectsapiPostEntitiesAlertsV1Request] 
+    # @param body [DetectsapiPostEntitiesAlertsV1Request]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DetectsapiPostEntitiesAlertsV1Response, Integer, Hash)>] DetectsapiPostEntitiesAlertsV1Response data, response status code and response headers
     def post_entities_alerts_v1_with_http_info(body, opts = {})

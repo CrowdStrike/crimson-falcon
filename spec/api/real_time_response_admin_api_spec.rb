@@ -60,7 +60,7 @@ describe 'RealTimeResponseAdminApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :timeout Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
   # @option opts [String] :timeout_duration Timeout duration for how long to wait for the request in duration syntax. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. Maximum is 5 minutes.
-  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;. 
+  # @option opts [String] :host_timeout_duration Timeout duration for how long a host has time to complete processing. Default value is a bit less than the overall timeout value. It cannot be greater than the overall request timeout. Maximum is &lt; 5 minutes. Example, &#x60;10s&#x60;. Valid units: &#x60;ns, us, ms, s, m, h&#x60;.
   # @return [DomainMultiCommandExecuteResponseWrapper]
   describe 'batch_admin_cmd test' do
     it 'should work' do
@@ -226,7 +226,7 @@ describe 'RealTimeResponseAdminApi' do
   # @option opts [String] :comments_for_audit_log The audit log comment
   # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
   # @option opts [String] :content The script text that you want to use to upload
-  # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, 
+  # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
   # @return [MsaReplyMetaOnly]
   describe 'r_tr_update_scripts test' do
     it 'should work' do

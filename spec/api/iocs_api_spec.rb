@@ -56,7 +56,7 @@ describe 'IocsApi' do
 
   # unit tests for devices_count
   # Number of hosts in your customer account that have observed a given custom IOC
-  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
   # @param value The string representation of the indicator
   # @param [Hash] opts the optional parameters
   # @return [IocapiMsaReplyIOCDevicesCount]
@@ -68,7 +68,7 @@ describe 'IocsApi' do
 
   # unit tests for devices_ran_on
   # Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1
-  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
   # @param value The string representation of the indicator
   # @param [Hash] opts the optional parameters
   # @option opts [String] :limit The first process to return, where 0 is the latest offset. Use with the offset parameter to manage pagination of results.
@@ -93,7 +93,7 @@ describe 'IocsApi' do
 
   # unit tests for processes_ran_on
   # Search for processes associated with a custom IOC
-  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
   # @param value The string representation of the indicator
   # @param device_id Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
   # @param [Hash] opts the optional parameters

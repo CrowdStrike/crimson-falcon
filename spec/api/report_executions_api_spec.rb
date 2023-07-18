@@ -93,7 +93,7 @@ describe 'ReportExecutionsApi' do
 
   # unit tests for report_executions_retry
   # This endpoint will be used to retry report executions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainReportExecutionsResponseV1]
   describe 'report_executions_retry test' do

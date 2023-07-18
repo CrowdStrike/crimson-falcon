@@ -28,6 +28,7 @@
 Gemfile
 .travis.yml
 git_push.sh
+.rubocop.yml
 
 ### Lib Files ###
 lib/crimson-falcon/api_client.rb

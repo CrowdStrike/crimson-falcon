@@ -56,7 +56,7 @@ describe 'FalconContainerImageApi' do
 
   # unit tests for create_registry_entities
   # Create a registry entity using the provided details
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainExternalRegistryResponse]
   describe 'create_registry_entities test' do
@@ -103,7 +103,7 @@ describe 'FalconContainerImageApi' do
   # unit tests for update_registry_entities
   # Update the registry entity, as identified by the entity UUID, using the provided details
   # @param id Registry entity UUID
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainExternalRegistryResponse]
   describe 'update_registry_entities test' do

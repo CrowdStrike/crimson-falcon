@@ -104,7 +104,7 @@ module Falcon
     end
 
     # Get scans aggregations as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest] 
+    # @param body [MsaAggregateQueryRequest]
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def get_scans_aggregates(body, opts = {})
@@ -113,7 +113,7 @@ module Falcon
     end
 
     # Get scans aggregations as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest] 
+    # @param body [MsaAggregateQueryRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_scans_aggregates_with_http_info(body, opts = {})

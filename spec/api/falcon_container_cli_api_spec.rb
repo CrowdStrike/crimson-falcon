@@ -56,7 +56,7 @@ describe 'FalconContainerCliApi' do
 
   # unit tests for read_image_vulnerabilities
   # Retrieve known vulnerabilities for the provided image
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [CoreEntitiesResponse]
   describe 'read_image_vulnerabilities test' do

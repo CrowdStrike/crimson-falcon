@@ -104,7 +104,7 @@ module Falcon
     end
 
     # Get events entities for specified ids.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainEventEntitiesResponse]
     def get_events_entities(body, opts = {})
@@ -113,7 +113,7 @@ module Falcon
     end
 
     # Get events entities for specified ids.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainEventEntitiesResponse, Integer, Hash)>] DomainEventEntitiesResponse data, response status code and response headers
     def get_events_entities_with_http_info(body, opts = {})
@@ -170,7 +170,7 @@ module Falcon
     end
 
     # Get rules entities for specified ids.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainRuleEntitiesResponse]
     def get_rules_entities(body, opts = {})
@@ -179,7 +179,7 @@ module Falcon
     end
 
     # Get rules entities for specified ids.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainRuleEntitiesResponse, Integer, Hash)>] DomainRuleEntitiesResponse data, response status code and response headers
     def get_rules_entities_with_http_info(body, opts = {})

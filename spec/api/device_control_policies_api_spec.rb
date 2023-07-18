@@ -56,7 +56,7 @@ describe 'DeviceControlPoliciesApi' do
 
   # unit tests for create_device_control_policies
   # Create Device Control Policies by specifying details about the policy to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV2]
   describe 'create_device_control_policies test' do
@@ -100,7 +100,7 @@ describe 'DeviceControlPoliciesApi' do
   # unit tests for perform_device_control_policies_action
   # Perform the specified action on the Device Control Policies specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'perform_device_control_policies_action test' do
@@ -169,7 +169,7 @@ describe 'DeviceControlPoliciesApi' do
 
   # unit tests for set_device_control_policies_precedence
   # Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'set_device_control_policies_precedence test' do
@@ -180,7 +180,7 @@ describe 'DeviceControlPoliciesApi' do
 
   # unit tests for update_default_device_control_policies
   # Update the configuration for a Default Device Control Policy
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'update_default_device_control_policies test' do
@@ -191,7 +191,7 @@ describe 'DeviceControlPoliciesApi' do
 
   # unit tests for update_device_control_policies
   # Update Device Control Policies by specifying the ID of the policy and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DeviceControlRespV1]
   describe 'update_device_control_policies test' do

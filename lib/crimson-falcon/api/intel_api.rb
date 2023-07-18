@@ -107,7 +107,7 @@ module Falcon
     end
 
     # Retrieve specific indicators using their indicator IDs.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainPublicIndicatorsV3Response]
     def get_intel_indicator_entities(body, opts = {})
@@ -116,7 +116,7 @@ module Falcon
     end
 
     # Retrieve specific indicators using their indicator IDs.
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainPublicIndicatorsV3Response, Integer, Hash)>] DomainPublicIndicatorsV3Response data, response status code and response headers
     def get_intel_indicator_entities_with_http_info(body, opts = {})
@@ -572,7 +572,7 @@ module Falcon
     end
 
     # Get vulnerabilities
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainVulnerabilityResponse]
     def get_vulnerabilities(body, opts = {})
@@ -581,7 +581,7 @@ module Falcon
     end
 
     # Get vulnerabilities
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainVulnerabilityResponse, Integer, Hash)>] DomainVulnerabilityResponse data, response status code and response headers
     def get_vulnerabilities_with_http_info(body, opts = {})
@@ -638,7 +638,7 @@ module Falcon
     end
 
     # Retrieves report and observable IDs associated with the given actor and attacks
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def post_mitre_attacks(body, opts = {})
@@ -647,7 +647,7 @@ module Falcon
     end
 
     # Retrieves report and observable IDs associated with the given actor and attacks
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def post_mitre_attacks_with_http_info(body, opts = {})

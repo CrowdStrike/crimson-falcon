@@ -67,7 +67,7 @@ describe 'QuarantineApi' do
 
   # unit tests for get_aggregate_files
   # Get quarantine file aggregates as specified via json in request body.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'get_aggregate_files test' do
@@ -78,7 +78,7 @@ describe 'QuarantineApi' do
 
   # unit tests for get_quarantine_files
   # Get quarantine file metadata for specified ids.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainMsaQfResponse]
   describe 'get_quarantine_files test' do
@@ -104,7 +104,7 @@ describe 'QuarantineApi' do
 
   # unit tests for update_qf_by_query
   # Apply quarantine file actions by query.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaReplyMetaOnly]
   describe 'update_qf_by_query test' do
@@ -115,7 +115,7 @@ describe 'QuarantineApi' do
 
   # unit tests for update_quarantined_detects_by_ids
   # Apply action by quarantine file ids
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaReplyMetaOnly]
   describe 'update_quarantined_detects_by_ids test' do

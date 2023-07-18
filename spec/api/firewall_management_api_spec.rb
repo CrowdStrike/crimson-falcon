@@ -100,7 +100,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for create_network_locations
   # Create new network locations provided, and return the ID.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :clone_id A network location ID from which to copy location. If this is provided then the body of the request is ignored.
   # @option opts [Boolean] :add_fw_rules A boolean to determine whether the cloned location needs to be added to the same firewall rules that original location is added to.
@@ -114,7 +114,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for create_rule_group
   # Create new rule group on a platform for a customer with a name and description, and return the ID
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
   # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library.
@@ -128,7 +128,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for create_rule_group_validation
   # Validates the request of creating a new rule group on a platform for a customer with a name and description
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
   # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewall Rule Groups Library.
@@ -256,7 +256,7 @@ describe 'FirewallManagementApi' do
   # unit tests for query_events
   # Find all event IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: 
+  # @option opts [String] :sort Possible order by fields:
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -286,7 +286,7 @@ describe 'FirewallManagementApi' do
   # Get a list of network location IDs
   # This endpoint returns a list of network location IDs based of query parameter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: 
+  # @option opts [String] :sort Possible order by fields:
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: name
   # @option opts [String] :q Match query criteria, which includes all the filter string fields
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -315,7 +315,7 @@ describe 'FirewallManagementApi' do
   # Find all firewall rule IDs matching the query with filter, and return them in precedence order
   # @param [Hash] opts the optional parameters
   # @option opts [String] :id The ID of the policy container within which to query
-  # @option opts [String] :sort Possible order by fields: 
+  # @option opts [String] :sort Possible order by fields:
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -330,7 +330,7 @@ describe 'FirewallManagementApi' do
   # unit tests for query_rule_groups
   # Find all rule group IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: 
+  # @option opts [String] :sort Possible order by fields:
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -346,7 +346,7 @@ describe 'FirewallManagementApi' do
   # unit tests for query_rules
   # Find all rule IDs matching the query with filter
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: 
+  # @option opts [String] :sort Possible order by fields:
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -361,7 +361,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_network_locations
   # Updates the network locations provided, and return the ID.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrMsaspecQueryResponse]
@@ -373,7 +373,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_network_locations_metadata
   # Updates the network locations metadata such as polling_intervals for the cid
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrMsaspecQueryResponse]
@@ -385,7 +385,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_network_locations_precedence
   # Updates the network locations precedence according to the list of ids provided.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrMsaspecQueryResponse]
@@ -397,7 +397,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_policy_container
   # Update an identified policy container, including local logging functionality.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [FwmgrMsaspecResponseFields]
   describe 'update_policy_container test' do
@@ -408,7 +408,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_policy_container_v1
   # Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [FwmgrMsaspecResponseFields]
   describe 'update_policy_container_v1 test' do
@@ -419,7 +419,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_rule_group
   # Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrApiQueryResponse]
@@ -431,7 +431,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for update_rule_group_validation
   # Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrMsaspecQueryResponse]
@@ -443,7 +443,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for upsert_network_locations
   # Updates the network locations provided, and return the ID.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrMsaspecQueryResponse]
@@ -455,7 +455,7 @@ describe 'FirewallManagementApi' do
 
   # unit tests for validate_filepath_pattern
   # Validates that the test pattern matches the executable filepath glob pattern.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [FwmgrApiValidateFilepathResponse]
   describe 'validate_filepath_pattern test' do

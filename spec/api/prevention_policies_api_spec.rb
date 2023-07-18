@@ -56,7 +56,7 @@ describe 'PreventionPoliciesApi' do
 
   # unit tests for create_prevention_policies
   # Create Prevention Policies by specifying details about the policy to create
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [PreventionRespV1]
   describe 'create_prevention_policies test' do
@@ -90,7 +90,7 @@ describe 'PreventionPoliciesApi' do
   # unit tests for perform_prevention_policies_action
   # Perform the specified action on the Prevention Policies specified in the request
   # @param action_name The action to perform
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [PreventionRespV1]
   describe 'perform_prevention_policies_action test' do
@@ -159,7 +159,7 @@ describe 'PreventionPoliciesApi' do
 
   # unit tests for set_prevention_policies_precedence
   # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaQueryResponse]
   describe 'set_prevention_policies_precedence test' do
@@ -170,7 +170,7 @@ describe 'PreventionPoliciesApi' do
 
   # unit tests for update_prevention_policies
   # Update Prevention Policies by specifying the ID of the policy and details to update
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [PreventionRespV1]
   describe 'update_prevention_policies test' do

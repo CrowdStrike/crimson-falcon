@@ -306,7 +306,7 @@ module Falcon
     end
 
     # Create new network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationCreateRequestV1] 
+    # @param body [FwmgrApiNetworkLocationCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A network location ID from which to copy location. If this is provided then the body of the request is ignored.
     # @option opts [Boolean] :add_fw_rules A boolean to determine whether the cloned location needs to be added to the same firewall rules that original location is added to.
@@ -318,7 +318,7 @@ module Falcon
     end
 
     # Create new network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationCreateRequestV1] 
+    # @param body [FwmgrApiNetworkLocationCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A network location ID from which to copy location. If this is provided then the body of the request is ignored.
     # @option opts [Boolean] :add_fw_rules A boolean to determine whether the cloned location needs to be added to the same firewall rules that original location is added to.
@@ -381,7 +381,7 @@ module Falcon
     end
 
     # Create new rule group on a platform for a customer with a name and description, and return the ID
-    # @param body [FwmgrApiRuleGroupCreateRequestV1] 
+    # @param body [FwmgrApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
     # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library.
@@ -393,7 +393,7 @@ module Falcon
     end
 
     # Create new rule group on a platform for a customer with a name and description, and return the ID
-    # @param body [FwmgrApiRuleGroupCreateRequestV1] 
+    # @param body [FwmgrApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
     # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewal Rule Groups Library.
@@ -456,7 +456,7 @@ module Falcon
     end
 
     # Validates the request of creating a new rule group on a platform for a customer with a name and description
-    # @param body [FwmgrApiRuleGroupCreateRequestV1] 
+    # @param body [FwmgrApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
     # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewall Rule Groups Library.
@@ -468,7 +468,7 @@ module Falcon
     end
 
     # Validates the request of creating a new rule group on a platform for a customer with a name and description
-    # @param body [FwmgrApiRuleGroupCreateRequestV1] 
+    # @param body [FwmgrApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :clone_id A rule group ID from which to copy rules. If this is provided then the &#39;rules&#39; property of the body is ignored.
     # @option opts [String] :library If this flag is set to true then the rules will be cloned from the clone_id from the CrowdStrike Firewall Rule Groups Library.
@@ -1159,7 +1159,7 @@ module Falcon
 
     # Find all event IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1173,7 +1173,7 @@ module Falcon
 
     # Find all event IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1297,7 +1297,7 @@ module Falcon
     # Get a list of network location IDs
     # This endpoint returns a list of network location IDs based of query parameter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: name
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1312,7 +1312,7 @@ module Falcon
     # Get a list of network location IDs
     # This endpoint returns a list of network location IDs based of query parameter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: name
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1433,7 +1433,7 @@ module Falcon
     # Find all firewall rule IDs matching the query with filter, and return them in precedence order
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The ID of the policy container within which to query
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1447,7 +1447,7 @@ module Falcon
     # Find all firewall rule IDs matching the query with filter, and return them in precedence order
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The ID of the policy container within which to query
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1505,7 +1505,7 @@ module Falcon
 
     # Find all rule group IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1519,7 +1519,7 @@ module Falcon
 
     # Find all rule group IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1578,7 +1578,7 @@ module Falcon
 
     # Find all rule IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1592,7 +1592,7 @@ module Falcon
 
     # Find all rule IDs matching the query with filter
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: 
+    # @option opts [String] :sort Possible order by fields:
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields, plus TODO
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
@@ -1650,7 +1650,7 @@ module Falcon
     end
 
     # Updates the network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationModifyRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrMsaspecQueryResponse]
@@ -1660,7 +1660,7 @@ module Falcon
     end
 
     # Updates the network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationModifyRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
@@ -1719,7 +1719,7 @@ module Falcon
     end
 
     # Updates the network locations metadata such as polling_intervals for the cid
-    # @param body [FwmgrApiNetworkLocationModifyMetadataRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyMetadataRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrMsaspecQueryResponse]
@@ -1729,7 +1729,7 @@ module Falcon
     end
 
     # Updates the network locations metadata such as polling_intervals for the cid
-    # @param body [FwmgrApiNetworkLocationModifyMetadataRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyMetadataRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
@@ -1788,7 +1788,7 @@ module Falcon
     end
 
     # Updates the network locations precedence according to the list of ids provided.
-    # @param body [FwmgrApiNetworkLocationModifyPrecedenceRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyPrecedenceRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrMsaspecQueryResponse]
@@ -1798,7 +1798,7 @@ module Falcon
     end
 
     # Updates the network locations precedence according to the list of ids provided.
-    # @param body [FwmgrApiNetworkLocationModifyPrecedenceRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyPrecedenceRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
@@ -1857,7 +1857,7 @@ module Falcon
     end
 
     # Update an identified policy container, including local logging functionality.
-    # @param body [FwmgrApiPolicyContainerUpsertRequestV1] 
+    # @param body [FwmgrApiPolicyContainerUpsertRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [FwmgrMsaspecResponseFields]
     def update_policy_container(body, opts = {})
@@ -1866,7 +1866,7 @@ module Falcon
     end
 
     # Update an identified policy container, including local logging functionality.
-    # @param body [FwmgrApiPolicyContainerUpsertRequestV1] 
+    # @param body [FwmgrApiPolicyContainerUpsertRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(FwmgrMsaspecResponseFields, Integer, Hash)>] FwmgrMsaspecResponseFields data, response status code and response headers
     def update_policy_container_with_http_info(body, opts = {})
@@ -1923,7 +1923,7 @@ module Falcon
     end
 
     # Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
-    # @param body [FwmgrApiPolicyContainerUpsertRequestV1] 
+    # @param body [FwmgrApiPolicyContainerUpsertRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [FwmgrMsaspecResponseFields]
     def update_policy_container_v1(body, opts = {})
@@ -1932,7 +1932,7 @@ module Falcon
     end
 
     # Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
-    # @param body [FwmgrApiPolicyContainerUpsertRequestV1] 
+    # @param body [FwmgrApiPolicyContainerUpsertRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(FwmgrMsaspecResponseFields, Integer, Hash)>] FwmgrMsaspecResponseFields data, response status code and response headers
     def update_policy_container_v1_with_http_info(body, opts = {})
@@ -1989,7 +1989,7 @@ module Falcon
     end
 
     # Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-    # @param body [FwmgrApiRuleGroupModifyRequestV1] 
+    # @param body [FwmgrApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrApiQueryResponse]
@@ -1999,7 +1999,7 @@ module Falcon
     end
 
     # Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-    # @param body [FwmgrApiRuleGroupModifyRequestV1] 
+    # @param body [FwmgrApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
@@ -2058,7 +2058,7 @@ module Falcon
     end
 
     # Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-    # @param body [FwmgrApiRuleGroupModifyRequestV1] 
+    # @param body [FwmgrApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrMsaspecQueryResponse]
@@ -2068,7 +2068,7 @@ module Falcon
     end
 
     # Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
-    # @param body [FwmgrApiRuleGroupModifyRequestV1] 
+    # @param body [FwmgrApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
@@ -2127,7 +2127,7 @@ module Falcon
     end
 
     # Updates the network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationModifyRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrMsaspecQueryResponse]
@@ -2137,7 +2137,7 @@ module Falcon
     end
 
     # Updates the network locations provided, and return the ID.
-    # @param body [FwmgrApiNetworkLocationModifyRequestV1] 
+    # @param body [FwmgrApiNetworkLocationModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
@@ -2196,7 +2196,7 @@ module Falcon
     end
 
     # Validates that the test pattern matches the executable filepath glob pattern.
-    # @param body [FwmgrApiFilepathTestRequest] 
+    # @param body [FwmgrApiFilepathTestRequest]
     # @param [Hash] opts the optional parameters
     # @return [FwmgrApiValidateFilepathResponse]
     def validate_filepath_pattern(body, opts = {})
@@ -2205,7 +2205,7 @@ module Falcon
     end
 
     # Validates that the test pattern matches the executable filepath glob pattern.
-    # @param body [FwmgrApiFilepathTestRequest] 
+    # @param body [FwmgrApiFilepathTestRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(FwmgrApiValidateFilepathResponse, Integer, Hash)>] FwmgrApiValidateFilepathResponse data, response status code and response headers
     def validate_filepath_pattern_with_http_info(body, opts = {})

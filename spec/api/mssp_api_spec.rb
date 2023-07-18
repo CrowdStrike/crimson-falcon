@@ -66,7 +66,7 @@ describe 'MsspApi' do
   end
 
   # unit tests for add_role
-  # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
+  # Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
   # @param body &#39;user_group_id&#39;, &#39;cid_group_id&#39; and &#39;role_ids&#39; fields are required. Remaining are populated by system.
   # @param [Hash] opts the optional parameters
   # @return [DomainMSSPRoleResponseV1]
@@ -177,7 +177,7 @@ describe 'MsspApi' do
 
   # unit tests for get_children_v2
   # Get link to child customer by child CID(s)
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainChildrenResponseV1]
   describe 'get_children_v2 test' do

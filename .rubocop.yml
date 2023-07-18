@@ -122,7 +122,7 @@ Layout/TrailingEmptyLines:
 
 # No trailing whitespace.
 Layout/TrailingWhitespace:
-  Enabled: false
+  Enabled: true
 
 # Use quotes for string literals when they are enough.
 Style/RedundantPercentQ:

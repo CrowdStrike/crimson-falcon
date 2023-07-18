@@ -67,7 +67,7 @@ describe 'ScheduledReportsApi' do
 
   # unit tests for scheduled_reports_launch
   # Launch scheduled reports executions for the provided report IDs.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainReportExecutionsResponseV1]
   describe 'scheduled_reports_launch test' do

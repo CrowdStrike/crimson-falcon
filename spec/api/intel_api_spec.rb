@@ -68,7 +68,7 @@ describe 'IntelApi' do
 
   # unit tests for get_intel_indicator_entities
   # Retrieve specific indicators using their indicator IDs.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainPublicIndicatorsV3Response]
   describe 'get_intel_indicator_entities test' do
@@ -154,7 +154,7 @@ describe 'IntelApi' do
 
   # unit tests for get_vulnerabilities
   # Get vulnerabilities
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainVulnerabilityResponse]
   describe 'get_vulnerabilities test' do
@@ -165,7 +165,7 @@ describe 'IntelApi' do
 
   # unit tests for post_mitre_attacks
   # Retrieves report and observable IDs associated with the given actor and attacks
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'post_mitre_attacks test' do

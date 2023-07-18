@@ -113,7 +113,7 @@ module Falcon
     end
 
     # Get details on behaviors by providing behavior IDs
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaExternalBehaviorResponse]
     def get_behaviors(body, opts = {})
@@ -122,7 +122,7 @@ module Falcon
     end
 
     # Get details on behaviors by providing behavior IDs
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaExternalBehaviorResponse, Integer, Hash)>] DomainMsaExternalBehaviorResponse data, response status code and response headers
     def get_behaviors_with_http_info(body, opts = {})
@@ -179,7 +179,7 @@ module Falcon
     end
 
     # Get details on incidents by providing incident IDs
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaExternalIncidentResponse]
     def get_incidents(body, opts = {})
@@ -188,7 +188,7 @@ module Falcon
     end
 
     # Get details on incidents by providing incident IDs
-    # @param body [MsaIdsRequest] 
+    # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaExternalIncidentResponse, Integer, Hash)>] DomainMsaExternalIncidentResponse data, response status code and response headers
     def get_incidents_with_http_info(body, opts = {})

@@ -56,7 +56,7 @@ describe 'CustomIoaApi' do
 
   # unit tests for create_rule
   # Create a rule within a rule group. Returns the rule.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRulesResponse]
   describe 'create_rule test' do
@@ -67,7 +67,7 @@ describe 'CustomIoaApi' do
 
   # unit tests for create_rule_group_mixin0
   # Create a rule group for a platform with a name and an optional description. Returns the rule group.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRuleGroupsResponse]
   describe 'create_rule_group_mixin0 test' do
@@ -250,7 +250,7 @@ describe 'CustomIoaApi' do
 
   # unit tests for update_rule_group_mixin0
   # Update a rule group. The following properties can be modified: name, description, enabled.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRuleGroupsResponse]
   describe 'update_rule_group_mixin0 test' do
@@ -261,7 +261,7 @@ describe 'CustomIoaApi' do
 
   # unit tests for update_rules
   # Update rules within a rule group. Return the updated rules.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRulesResponse]
   describe 'update_rules test' do
@@ -272,7 +272,7 @@ describe 'CustomIoaApi' do
 
   # unit tests for validate
   # Validates field values and checks for matches if a test string is provided.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiValidationResponseV1]
   describe 'validate test' do

@@ -70,7 +70,7 @@ describe 'AlertsApi' do
   end
 
   # unit tests for patch_entities_alerts_v2
-  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+  # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
   # @param body request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
   # @param [Hash] opts the optional parameters
   # @return [MsaspecResponseFields]
@@ -93,7 +93,7 @@ describe 'AlertsApi' do
 
   # unit tests for post_entities_alerts_v1
   # retrieves all Alerts given their ids
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DetectsapiPostEntitiesAlertsV1Response]
   describe 'post_entities_alerts_v1 test' do

@@ -56,7 +56,7 @@ describe 'IoaExclusionsApi' do
 
   # unit tests for create_ioa_exclusions_v1
   # Create the IOA exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [IoaExclusionsIoaExclusionsRespV1]
   describe 'create_ioa_exclusions_v1 test' do
@@ -104,7 +104,7 @@ describe 'IoaExclusionsApi' do
 
   # unit tests for update_ioa_exclusions_v1
   # Update the IOA exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [IoaExclusionsIoaExclusionsRespV1]
   describe 'update_ioa_exclusions_v1 test' do

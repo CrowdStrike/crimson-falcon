@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create a rule within a rule group. Returns the rule.
-    # @param body [ApiRuleCreateV1] 
+    # @param body [ApiRuleCreateV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
     def create_rule(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Create a rule within a rule group. Returns the rule.
-    # @param body [ApiRuleCreateV1] 
+    # @param body [ApiRuleCreateV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def create_rule_with_http_info(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Create a rule group for a platform with a name and an optional description. Returns the rule group.
-    # @param body [ApiRuleGroupCreateRequestV1] 
+    # @param body [ApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiRuleGroupsResponse]
     def create_rule_group_mixin0(body, opts = {})
@@ -117,7 +117,7 @@ module Falcon
     end
 
     # Create a rule group for a platform with a name and an optional description. Returns the rule group.
-    # @param body [ApiRuleGroupCreateRequestV1] 
+    # @param body [ApiRuleGroupCreateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def create_rule_group_mixin0_with_http_info(body, opts = {})
@@ -1092,7 +1092,7 @@ module Falcon
     end
 
     # Update a rule group. The following properties can be modified: name, description, enabled.
-    # @param body [ApiRuleGroupModifyRequestV1] 
+    # @param body [ApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiRuleGroupsResponse]
     def update_rule_group_mixin0(body, opts = {})
@@ -1101,7 +1101,7 @@ module Falcon
     end
 
     # Update a rule group. The following properties can be modified: name, description, enabled.
-    # @param body [ApiRuleGroupModifyRequestV1] 
+    # @param body [ApiRuleGroupModifyRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def update_rule_group_mixin0_with_http_info(body, opts = {})
@@ -1158,7 +1158,7 @@ module Falcon
     end
 
     # Update rules within a rule group. Return the updated rules.
-    # @param body [ApiRuleUpdatesRequestV1] 
+    # @param body [ApiRuleUpdatesRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
     def update_rules(body, opts = {})
@@ -1167,7 +1167,7 @@ module Falcon
     end
 
     # Update rules within a rule group. Return the updated rules.
-    # @param body [ApiRuleUpdatesRequestV1] 
+    # @param body [ApiRuleUpdatesRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def update_rules_with_http_info(body, opts = {})
@@ -1224,7 +1224,7 @@ module Falcon
     end
 
     # Validates field values and checks for matches if a test string is provided.
-    # @param body [ApiValidationRequestV1] 
+    # @param body [ApiValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiValidationResponseV1]
     def validate(body, opts = {})
@@ -1233,7 +1233,7 @@ module Falcon
     end
 
     # Validates field values and checks for matches if a test string is provided.
-    # @param body [ApiValidationRequestV1] 
+    # @param body [ApiValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiValidationResponseV1, Integer, Hash)>] ApiValidationResponseV1 data, response status code and response headers
     def validate_with_http_info(body, opts = {})

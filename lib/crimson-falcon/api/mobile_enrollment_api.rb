@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Trigger on-boarding process for a mobile device
-    # @param body [ApiPostEnrollmentDetails] 
+    # @param body [ApiPostEnrollmentDetails]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action_name Action to perform
     # @option opts [String] :filter FQL filter
@@ -53,7 +53,7 @@ module Falcon
     end
 
     # Trigger on-boarding process for a mobile device
-    # @param body [ApiPostEnrollmentDetails] 
+    # @param body [ApiPostEnrollmentDetails]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :action_name Action to perform
     # @option opts [String] :filter FQL filter

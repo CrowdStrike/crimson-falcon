@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def aggregate_notifications_exposed_data_records_v1(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_exposed_data_records_v1_with_http_info(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Get notification aggregates as specified via JSON in request body.
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def aggregate_notifications_v1(body, opts = {})
@@ -117,7 +117,7 @@ module Falcon
     end
 
     # Get notification aggregates as specified via JSON in request body.
-    # @param body [Array<MsaAggregateQueryRequest>] 
+    # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_v1_with_http_info(body, opts = {})
@@ -174,7 +174,7 @@ module Falcon
     end
 
     # Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
-    # @param body [DomainRegisterActionsRequest] 
+    # @param body [DomainRegisterActionsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainActionEntitiesResponseV1]
     def create_actions_v1(body, opts = {})
@@ -183,7 +183,7 @@ module Falcon
     end
 
     # Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
-    # @param body [DomainRegisterActionsRequest] 
+    # @param body [DomainRegisterActionsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def create_actions_v1_with_http_info(body, opts = {})
@@ -240,7 +240,7 @@ module Falcon
     end
 
     # Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
-    # @param body [Array<DomainLaunchExportJobRequestV1>] 
+    # @param body [Array<DomainLaunchExportJobRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainLaunchExportJobResponseV1]
     def create_export_jobs_v1(body, opts = {})
@@ -249,7 +249,7 @@ module Falcon
     end
 
     # Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
-    # @param body [Array<DomainLaunchExportJobRequestV1>] 
+    # @param body [Array<DomainLaunchExportJobRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainLaunchExportJobResponseV1, Integer, Hash)>] DomainLaunchExportJobResponseV1 data, response status code and response headers
     def create_export_jobs_v1_with_http_info(body, opts = {})
@@ -306,7 +306,7 @@ module Falcon
     end
 
     # Create monitoring rules.
-    # @param body [Array<SadomainCreateRuleRequestV1>] 
+    # @param body [Array<SadomainCreateRuleRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainRulesEntitiesResponseV1]
     def create_rules_v1(body, opts = {})
@@ -315,7 +315,7 @@ module Falcon
     end
 
     # Create monitoring rules.
-    # @param body [Array<SadomainCreateRuleRequestV1>] 
+    # @param body [Array<SadomainCreateRuleRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def create_rules_v1_with_http_info(body, opts = {})
@@ -1181,7 +1181,7 @@ module Falcon
     end
 
     # Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
-    # @param body [DomainRulePreviewRequest] 
+    # @param body [DomainRulePreviewRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def preview_rule_v1(body, opts = {})
@@ -1190,7 +1190,7 @@ module Falcon
     end
 
     # Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
-    # @param body [DomainRulePreviewRequest] 
+    # @param body [DomainRulePreviewRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def preview_rule_v1_with_http_info(body, opts = {})
@@ -1559,7 +1559,7 @@ module Falcon
     end
 
     # Update an action for a monitoring rule.
-    # @param body [DomainUpdateActionRequest] 
+    # @param body [DomainUpdateActionRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainActionEntitiesResponseV1]
     def update_action_v1(body, opts = {})
@@ -1568,7 +1568,7 @@ module Falcon
     end
 
     # Update an action for a monitoring rule.
-    # @param body [DomainUpdateActionRequest] 
+    # @param body [DomainUpdateActionRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def update_action_v1_with_http_info(body, opts = {})
@@ -1625,7 +1625,7 @@ module Falcon
     end
 
     # Update notification status or assignee. Accepts bulk requests
-    # @param body [Array<DomainUpdateNotificationRequestV1>] 
+    # @param body [Array<DomainUpdateNotificationRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationEntitiesResponseV1]
     def update_notifications_v1(body, opts = {})
@@ -1634,7 +1634,7 @@ module Falcon
     end
 
     # Update notification status or assignee. Accepts bulk requests
-    # @param body [Array<DomainUpdateNotificationRequestV1>] 
+    # @param body [Array<DomainUpdateNotificationRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationEntitiesResponseV1, Integer, Hash)>] DomainNotificationEntitiesResponseV1 data, response status code and response headers
     def update_notifications_v1_with_http_info(body, opts = {})
@@ -1691,7 +1691,7 @@ module Falcon
     end
 
     # Update monitoring rules.
-    # @param body [Array<DomainUpdateRuleRequestV1>] 
+    # @param body [Array<DomainUpdateRuleRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [DomainRulesEntitiesResponseV1]
     def update_rules_v1(body, opts = {})
@@ -1700,7 +1700,7 @@ module Falcon
     end
 
     # Update monitoring rules.
-    # @param body [Array<DomainUpdateRuleRequestV1>] 
+    # @param body [Array<DomainUpdateRuleRequestV1>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def update_rules_v1_with_http_info(body, opts = {})

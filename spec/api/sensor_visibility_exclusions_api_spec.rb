@@ -56,7 +56,7 @@ describe 'SensorVisibilityExclusionsApi' do
 
   # unit tests for create_sv_exclusions_v1
   # Create the sensor visibility exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ExclusionsRespV1]
   describe 'create_sv_exclusions_v1 test' do
@@ -104,7 +104,7 @@ describe 'SensorVisibilityExclusionsApi' do
 
   # unit tests for update_sensor_visibility_exclusions_v1
   # Update the sensor visibility exclusions
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [SvExclusionsRespV1]
   describe 'update_sensor_visibility_exclusions_v1 test' do

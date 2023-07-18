@@ -42,7 +42,7 @@ module Falcon
       @api_client = api_client
     end
     # Create the IOA exclusions
-    # @param body [IoaExclusionsIoaExclusionCreateReqV1] 
+    # @param body [IoaExclusionsIoaExclusionCreateReqV1]
     # @param [Hash] opts the optional parameters
     # @return [IoaExclusionsIoaExclusionsRespV1]
     def create_ioa_exclusions_v1(body, opts = {})
@@ -51,7 +51,7 @@ module Falcon
     end
 
     # Create the IOA exclusions
-    # @param body [IoaExclusionsIoaExclusionCreateReqV1] 
+    # @param body [IoaExclusionsIoaExclusionCreateReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(IoaExclusionsIoaExclusionsRespV1, Integer, Hash)>] IoaExclusionsIoaExclusionsRespV1 data, response status code and response headers
     def create_ioa_exclusions_v1_with_http_info(body, opts = {})
@@ -306,7 +306,7 @@ module Falcon
     end
 
     # Update the IOA exclusions
-    # @param body [IoaExclusionsIoaExclusionUpdateReqV1] 
+    # @param body [IoaExclusionsIoaExclusionUpdateReqV1]
     # @param [Hash] opts the optional parameters
     # @return [IoaExclusionsIoaExclusionsRespV1]
     def update_ioa_exclusions_v1(body, opts = {})
@@ -315,7 +315,7 @@ module Falcon
     end
 
     # Update the IOA exclusions
-    # @param body [IoaExclusionsIoaExclusionUpdateReqV1] 
+    # @param body [IoaExclusionsIoaExclusionUpdateReqV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(IoaExclusionsIoaExclusionsRespV1, Integer, Hash)>] IoaExclusionsIoaExclusionsRespV1 data, response status code and response headers
     def update_ioa_exclusions_v1_with_http_info(body, opts = {})

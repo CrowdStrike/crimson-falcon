@@ -114,7 +114,7 @@ Welcome aboard the Crimson Falcon! Fly high, code with grace.
 
 - **Operation**: [**patch_entities_alerts_v2**](docs/AlertsApi.md#patch_entities_alerts_v2)
 - **PATCH**: /alerts/entities/alerts/v2
-- **Description**: Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+- **Description**: Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
 
 ---
 
@@ -2594,7 +2594,7 @@ Welcome aboard the Crimson Falcon! Fly high, code with grace.
 
 - **Operation**: [**add_role**](docs/MsspApi.md#add_role)
 - **POST**: /mssp/entities/mssp-roles/v1
-- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
+- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
 
 ---
 

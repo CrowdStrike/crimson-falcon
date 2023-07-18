@@ -56,7 +56,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for aggregate_cases
   # Retrieve aggregate case values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_cases test' do
@@ -67,7 +67,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for case_add_activity
   # Add an activity to case. Only activities of type comment are allowed via API
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaReplyMetaOnly]
   describe 'case_add_activity test' do
@@ -103,7 +103,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for create_case
   # create a new case
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaReplyAffectedEntities]
   describe 'create_case test' do
@@ -114,7 +114,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for create_case_v2
   # create a new case
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaReplyAffectedEntities]
   describe 'create_case_v2 test' do
@@ -125,7 +125,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for get_case_activity_by_ids
   # Retrieve activities for given id&#39;s
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiMessageCenterActivityResponse]
   describe 'get_case_activity_by_ids test' do
@@ -136,7 +136,7 @@ describe 'MessageCenterApi' do
 
   # unit tests for get_case_entities_by_ids
   # Retrieve message center cases
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiMessageCenterCasesResponse]
   describe 'get_case_entities_by_ids test' do

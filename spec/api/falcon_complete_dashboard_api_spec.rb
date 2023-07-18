@@ -56,7 +56,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_allow_list
   # Retrieve aggregate allowlist ticket values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_allow_list test' do
@@ -67,7 +67,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_block_list
   # Retrieve aggregate blocklist ticket values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_block_list test' do
@@ -79,7 +79,7 @@ describe 'FalconCompleteDashboardApi' do
   # unit tests for aggregate_detections
   # Retrieve aggregate detection values based on the matched filter
   # Fields allowed to aggregate on:  - indexed_time   - created_time   - detect_time   - ldt   - cid   - aid   - platform_name   - os_version   - device_tags   - host_name   - status   - severity   - adversary_ids   - behavior_ids   - behavior_names   - num_blocked_processes   - num_quarantined_files   - pattern_ids   - first_behavior_time   - last_behavior_time   - show_in_ui   - seconds_to_triaged   - seconds_to_resolved   - assigned_to_uid   - public_tags   - vertical_tags
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_detections test' do
@@ -90,7 +90,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_device_count_collection
   # Retrieve aggregate host/devices count based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_device_count_collection test' do
@@ -101,7 +101,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_escalations
   # Retrieve aggregate escalation ticket values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_escalations test' do
@@ -112,7 +112,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_fc_incidents
   # Retrieve aggregate incident values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_fc_incidents test' do
@@ -123,7 +123,7 @@ describe 'FalconCompleteDashboardApi' do
 
   # unit tests for aggregate_remediations
   # Retrieve aggregate remediation ticket values based on the matched filter
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [MsaAggregatesResponse]
   describe 'aggregate_remediations test' do

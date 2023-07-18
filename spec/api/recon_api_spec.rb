@@ -56,7 +56,7 @@ describe 'ReconApi' do
 
   # unit tests for aggregate_notifications_exposed_data_records_v1
   # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainAggregatesResponse]
   describe 'aggregate_notifications_exposed_data_records_v1 test' do
@@ -67,7 +67,7 @@ describe 'ReconApi' do
 
   # unit tests for aggregate_notifications_v1
   # Get notification aggregates as specified via JSON in request body.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainAggregatesResponse]
   describe 'aggregate_notifications_v1 test' do
@@ -78,7 +78,7 @@ describe 'ReconApi' do
 
   # unit tests for create_actions_v1
   # Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainActionEntitiesResponseV1]
   describe 'create_actions_v1 test' do
@@ -89,7 +89,7 @@ describe 'ReconApi' do
 
   # unit tests for create_export_jobs_v1
   # Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainLaunchExportJobResponseV1]
   describe 'create_export_jobs_v1 test' do
@@ -100,7 +100,7 @@ describe 'ReconApi' do
 
   # unit tests for create_rules_v1
   # Create monitoring rules.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainRulesEntitiesResponseV1]
   describe 'create_rules_v1 test' do
@@ -255,7 +255,7 @@ describe 'ReconApi' do
 
   # unit tests for preview_rule_v1
   # Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainAggregatesResponse]
   describe 'preview_rule_v1 test' do
@@ -326,7 +326,7 @@ describe 'ReconApi' do
 
   # unit tests for update_action_v1
   # Update an action for a monitoring rule.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainActionEntitiesResponseV1]
   describe 'update_action_v1 test' do
@@ -337,7 +337,7 @@ describe 'ReconApi' do
 
   # unit tests for update_notifications_v1
   # Update notification status or assignee. Accepts bulk requests
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainNotificationEntitiesResponseV1]
   describe 'update_notifications_v1 test' do
@@ -348,7 +348,7 @@ describe 'ReconApi' do
 
   # unit tests for update_rules_v1
   # Update monitoring rules.
-  # @param body 
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [DomainRulesEntitiesResponseV1]
   describe 'update_rules_v1 test' do
