@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.1.2...v0.2.0) (2023-07-18)
+
+
+### Features
+
+* new hosts sample - list hosts by sensor version ([7573ee1](https://github.com/CrowdStrike/crimson-falcon/commit/7573ee114cb1661db113fba443d5b48e2414e792))
+
+
+### Bug Fixes
+
+* add correct url for doc link + rubocop update ([15df0e9](https://github.com/CrowdStrike/crimson-falcon/commit/15df0e9c3e5117dac7739388c13400d5a79262c3))
+* put cli first, before env, updated options ([8801084](https://github.com/CrowdStrike/crimson-falcon/commit/880108458a7c7cbb00d21d39a7d8fea6ee3921b6))
+
 ## [0.1.2](https://github.com/CrowdStrike/crimson-falcon/compare/v0.1.1...v0.1.2) (2023-07-14)
 
 
