@@ -6,19 +6,15 @@ require_relative "../shared/options"
 
 # Sets up the command line options
 # Use -h or --help to see the options
-# In this case, we need to add a new option for :member_cid
 options_parser = Options::BaseOptions.new
-options_parser.add_option("-m", "--member-cid MEMBER_CID", "The member CID for the OAuth2 access token") do |member_cid|
-  options_parser.options[:member_cid] = member_cid
-end
 options_parser.parse!
 
 # Get API credentials from environment variables, cli options, or prompt for input
-falcon_client_id = ENV["FALCON_CLIENT_ID"] || options_parser.options[:client_id] || Prompt.ask("Missing FALCON_CLIENT_ID environment variable. " \
+falcon_client_id = options_parser.options[:client_id] || ENV["FALCON_CLIENT_ID"] || Prompt.ask("Missing FALCON_CLIENT_ID environment variable. " \
 "Please provide your OAuth2 API Client ID for authentication with CrowdStrike Falcon platform\n" \
 "Falcon Client ID: ")
 
-falcon_client_secret = ENV["FALCON_CLIENT_SECRET"] || options_parser.options[:client_secret] || Prompt.ask("Missing FALCON_CLIENT_SECRET environment variable. " \
+falcon_client_secret = options_parser.options[:client_secret] || ENV["FALCON_CLIENT_SECRET"] || Prompt.ask("Missing FALCON_CLIENT_SECRET environment variable. " \
 "Please provide your OAuth2 API Client Secret for authentication with CrowdStrike Falcon platform\n" \
 "Falcon Client Secret: ", true)
 

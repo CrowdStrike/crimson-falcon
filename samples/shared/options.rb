@@ -12,12 +12,12 @@ module Options
       @options = { cloud: 'us-1' }
 
       @opts = OptionParser.new do |opts|
-        opts.banner = "Usage: #{@base_file} -i FALCON_CLIENT_ID -s FALCON_CLIENT_SECRET [options]"
+        opts.banner = "Usage: #{@base_file} -k FALCON_CLIENT_ID -s FALCON_CLIENT_SECRET [options]"
 
         opts.summary_width = 40
         opts.separator ""
 
-        opts.on("-i", "--client-id FALCON_CLIENT_ID", "OAuth2 API Client ID.") do |client_id|
+        opts.on("-k", "--client-id FALCON_CLIENT_ID", "OAuth2 API Client ID.") do |client_id|
           @options[:client_id] = client_id
         end
 
@@ -27,6 +27,10 @@ module Options
 
         opts.on("-c", "--cloud FALCON_CLOUD", ["us-1", "us-2", "eu-1", "us-gov-1"], "Falcon cloud region (default: us-1) | valid: us-1, us-2, eu-1, us-gov-1.") do |cloud|
           @options[:cloud] = cloud
+        end
+
+        opts.on("-m", "--member-cid MEMBER_CID", "Member CID for MSSP") do |member_cid|
+          options_parser.options[:member_cid] = member_cid
         end
 
         opts.on_tail("-h", "--help", "Show this message") do
