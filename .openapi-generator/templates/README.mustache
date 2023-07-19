@@ -1,5 +1,7 @@
 # Crimson Falcon - The CrowdStrike Falcon SDK for Ruby
 
+[![Gem Version](https://badge.fury.io/rb/crimson-falcon.svg)](https://badge.fury.io/rb/crimson-falcon)
+
 *Empower* your Ruby applications with the robust capabilities of the CrowdStrike Falcon platform,
 using the Crimson Falcon SDK. This sophisticated Ruby gem, designed to align with the CrowdStrike
 API Specification, facilitates smooth and efficient interaction with a wide range of API endpoints
@@ -8,7 +10,7 @@ consistency, and enhanced functionality in your cybersecurity workflows.
 
 ## Installation
 
-### From RubyGems (Coming Soon)
+### From RubyGems
 
 To install from RubyGems, use the following command:
 
