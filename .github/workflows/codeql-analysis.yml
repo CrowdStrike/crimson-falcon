@@ -24,7 +24,6 @@ on:
 
 jobs:
   analyze:
-    if: ${{ vars.ENABLE_CODEQL == 'true' }}
     name: Analyze
     runs-on: ubuntu-latest
     permissions:
