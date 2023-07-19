@@ -2,15 +2,24 @@
 
 [![Gem Version](https://badge.fury.io/rb/crimson-falcon.svg)](https://badge.fury.io/rb/crimson-falcon)
 
-*Empower* your Ruby applications with the robust capabilities of the CrowdStrike Falcon platform,
-using the Crimson Falcon SDK. This sophisticated Ruby gem, designed to align with the CrowdStrike
-API Specification, facilitates smooth and efficient interaction with a wide range of API endpoints
-within your Falcon environment. Utilizing this SDK allows for seamless integration, operational
-consistency, and enhanced functionality in your cybersecurity workflows.
+Welcome to Crimson Falcon, the Ruby SDK for the CrowdStrike Falcon Platform. This is where the power of the CrowdStrike Falcon Platform meets the elegance and simplicity of Ruby.
+
+"Why Ruby?" you might ask.
+
+Well, Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write. It's unique balance of simplicity, productivity, and just sheer fun, makes coding feel less like a task and more like a hobby. It's like your favorite pair of comfy shoes - familiar, comfortable, and always reliable. :wink:
+
+That's what we aim to achieve with Crimson Falcon - a tool that brings together the robust capabilities of CrowdStrike Falcon with the friendly charm of Ruby.
+
+Ready to bring some fun to your cybersecurity game with Ruby and Crimson Falcon? Let's jump right in!
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Contribute to Crimson Falcon](#contribute-to-crimson-falcon)
+- [Crimson Falcon API Docs](#crimson-falcon-api-docs)
 
 ## Installation
 
-### From RubyGems
+### From RubyGems (*This is the way*)
 
 To install from RubyGems, use the following command:
 
@@ -97,6 +106,16 @@ end
 ```
 
 Welcome aboard the Crimson Falcon! Fly high, code with grace.
+
+## Contribute to Crimson Falcon
+
+We are always excited to have contributions from the community! It's what makes open source truly powerful. If you are looking to help out, that's awesome and we thank you in advance.
+
+To get started, please read our [Contributing Guide](./CONTRIBUTING.md) that explains the development process, the project structure, how to propose bugfixes and improvements, and how to build and test your changes to the project. It's a set of directions that will help establish a baseline of expectation for any contributions.
+
+Please make sure you also follow our [Code of Conduct](./CODE_OF_CONDUCT.md). It outlines our expectations for participant behavior as well as the steps for reporting unacceptable behavior.
+
+We appreciate your interest in our project and look forward to collaborating with you!
 
 ## Crimson Falcon API Docs
 
