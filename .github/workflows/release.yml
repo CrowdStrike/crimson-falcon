@@ -17,8 +17,10 @@ jobs:
         with:
           release-type: ruby
           package-name: crimson-falcon
-          bump-minor-pre-major: true
           version-file: "lib/crimson-falcon/version.rb"
+          pull-request-header: ':rocket: Prepare for Launch: New Release Incoming!'
+          # Override the changelog section to include miscellaneous changes.
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           extra-files: |
             .openapi-generator/config.yml
             README.md
