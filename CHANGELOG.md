@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/CrowdStrike/crimson-falcon/compare/v0.2.0...v0.2.1) (2023-07-20)
+
+
+### Bug Fixes
+
+* update gsub regex to prevent ReDoS ([#22](https://github.com/CrowdStrike/crimson-falcon/issues/22)) ([f2c205e](https://github.com/CrowdStrike/crimson-falcon/commit/f2c205e7251dd82b378789b746959fc349f364fd))
+* update json_mime logic to prevent ReDoS issues ([#20](https://github.com/CrowdStrike/crimson-falcon/issues/20)) ([de40575](https://github.com/CrowdStrike/crimson-falcon/commit/de4057575b1ef4852bd204b10fe19654fd05da4e))
+
 ## [0.2.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.1.2...v0.2.0) (2023-07-18)
 
 
