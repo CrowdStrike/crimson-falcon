@@ -359,8 +359,16 @@ module Falcon
     # @param [String] mime MIME
     # @return [Boolean] True if the MIME is application/json
     def json_mime?(mime)
-      (mime == "*/*") || !(mime =~ /Application\/.*json(?!p)(;.*)?/i).nil?
+      mime = mime.downcase
+      return true if mime == '*/*'
+
+      mime_type, subtype = mime.split('/')
+      return false unless mime_type == 'application'
+
+      subtype_main = subtype.split(';').first
+      subtype_main == 'json' || subtype_main == 'jsonp'
     end
+
 
     # Deserialize the response to the given return type.
     #
