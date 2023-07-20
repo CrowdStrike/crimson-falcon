@@ -451,7 +451,7 @@ module Falcon
     # @param [String] filename the filename to be sanitized
     # @return [String] the sanitized filename
     def sanitize_filename(filename)
-      filename.gsub(/.*[\/\\]/, "")
+      File.basename(filename.gsub("\\", "/")) unless filename.nil?
     end
 
     def build_request_url(path, opts = {})
