@@ -10,6 +10,7 @@
 | **finding** | [**DomainAPIFindingWithRuleV1**](DomainAPIFindingWithRuleV1.md) |  |  |
 | **host** | [**DomainAPIHostInfoFacetV1**](DomainAPIHostInfoFacetV1.md) |  | [optional] |
 | **id** | **String** |  |  |
+| **logic** | [**Array&lt;DomainAPIEvaluationLogicItemV1&gt;**](DomainAPIEvaluationLogicItemV1.md) |  | [optional] |
 | **updated_timestamp** | **String** |  |  |
 
 ## Example
@@ -24,6 +25,7 @@ instance = Falcon::DomainAPIFindingFacetV1.new(
   finding: null,
   host: null,
   id: null,
+  logic: null,
   updated_timestamp: null
 )
 ```

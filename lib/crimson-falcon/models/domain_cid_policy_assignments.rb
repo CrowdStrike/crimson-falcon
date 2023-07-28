@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -44,6 +42,8 @@ module Falcon
     attr_accessor :cid
 
     attr_accessor :cis_benchmark
+
+    attr_accessor :cisa_benchmark
 
     attr_accessor :cloud_asset_type
 
@@ -64,6 +64,8 @@ module Falcon
     attr_accessor :fql_policy
 
     attr_accessor :is_remediable
+
+    attr_accessor :iso_benchmark
 
     attr_accessor :name
 
@@ -92,6 +94,7 @@ module Falcon
         :'attack_types' => :'attack_types',
         :'cid' => :'cid',
         :'cis_benchmark' => :'cis_benchmark',
+        :'cisa_benchmark' => :'cisa_benchmark',
         :'cloud_asset_type' => :'cloud_asset_type',
         :'cloud_asset_type_id' => :'cloud_asset_type_id',
         :'cloud_provider' => :'cloud_provider',
@@ -102,6 +105,7 @@ module Falcon
         :'default_severity' => :'default_severity',
         :'fql_policy' => :'fql_policy',
         :'is_remediable' => :'is_remediable',
+        :'iso_benchmark' => :'iso_benchmark',
         :'name' => :'name',
         :'nist_benchmark' => :'nist_benchmark',
         :'pci_benchmark' => :'pci_benchmark',
@@ -127,6 +131,7 @@ module Falcon
         :'attack_types' => :'Array<String>',
         :'cid' => :'String',
         :'cis_benchmark' => :'Array<DomainBenchmark>',
+        :'cisa_benchmark' => :'Array<DomainBenchmark>',
         :'cloud_asset_type' => :'String',
         :'cloud_asset_type_id' => :'Integer',
         :'cloud_provider' => :'String',
@@ -137,6 +142,7 @@ module Falcon
         :'default_severity' => :'String',
         :'fql_policy' => :'String',
         :'is_remediable' => :'Boolean',
+        :'iso_benchmark' => :'Array<DomainBenchmark>',
         :'name' => :'String',
         :'nist_benchmark' => :'Array<DomainBenchmark>',
         :'pci_benchmark' => :'Array<DomainBenchmark>',
@@ -191,6 +197,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'cisa_benchmark')
+        if (value = attributes[:'cisa_benchmark']).is_a?(Array)
+          self.cisa_benchmark = value
+        end
+      end
+
       if attributes.key?(:'cloud_asset_type')
         self.cloud_asset_type = attributes[:'cloud_asset_type']
       end
@@ -229,6 +241,12 @@ module Falcon
 
       if attributes.key?(:'is_remediable')
         self.is_remediable = attributes[:'is_remediable']
+      end
+
+      if attributes.key?(:'iso_benchmark')
+        if (value = attributes[:'iso_benchmark']).is_a?(Array)
+          self.iso_benchmark = value
+        end
       end
 
       if attributes.key?(:'name')
@@ -307,6 +325,7 @@ module Falcon
           attack_types == o.attack_types &&
           cid == o.cid &&
           cis_benchmark == o.cis_benchmark &&
+          cisa_benchmark == o.cisa_benchmark &&
           cloud_asset_type == o.cloud_asset_type &&
           cloud_asset_type_id == o.cloud_asset_type_id &&
           cloud_provider == o.cloud_provider &&
@@ -317,6 +336,7 @@ module Falcon
           default_severity == o.default_severity &&
           fql_policy == o.fql_policy &&
           is_remediable == o.is_remediable &&
+          iso_benchmark == o.iso_benchmark &&
           name == o.name &&
           nist_benchmark == o.nist_benchmark &&
           pci_benchmark == o.pci_benchmark &&
@@ -338,7 +358,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_scope, attack_types, cid, cis_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_subtype, created_at, default_severity, fql_policy, is_remediable, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
+      [account_scope, attack_types, cid, cis_benchmark, cisa_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_subtype, created_at, default_severity, fql_policy, is_remediable, iso_benchmark, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
     end
 
     # Builds the object from hash

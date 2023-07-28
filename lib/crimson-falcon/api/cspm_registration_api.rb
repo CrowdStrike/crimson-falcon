@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'cgi'
@@ -582,7 +580,8 @@ module Falcon
     # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
     # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp (default to 'timestamp|desc')
     # @option opts [Integer] :limit The max number of detections to return (default to 500)
-    # @option opts [Integer] :offset Offset returned detections
+    # @option opts [Integer] :offset Offset returned detections. Cannot be combined with next_token filter
+    # @option opts [String] :next_token String to get next page of results. Cannot be combined with any filter except limit.
     # @return [RegistrationIOMEventIDsResponseV2]
     def get_configuration_detection_ids_v2(opts = {})
       data, _status_code, _headers = get_configuration_detection_ids_v2_with_http_info(opts)
@@ -594,7 +593,8 @@ module Falcon
     # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
     # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp (default to 'timestamp|desc')
     # @option opts [Integer] :limit The max number of detections to return (default to 500)
-    # @option opts [Integer] :offset Offset returned detections
+    # @option opts [Integer] :offset Offset returned detections. Cannot be combined with next_token filter
+    # @option opts [String] :next_token String to get next page of results. Cannot be combined with any filter except limit.
     # @return [Array<(RegistrationIOMEventIDsResponseV2, Integer, Hash)>] RegistrationIOMEventIDsResponseV2 data, response status code and response headers
     def get_configuration_detection_ids_v2_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -621,6 +621,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'next_token'] = opts[:'next_token'] if !opts[:'next_token'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

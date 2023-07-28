@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -47,7 +45,11 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :cloud_labels
+
     attr_accessor :cloud_provider
+
+    attr_accessor :cloud_scopes
 
     attr_accessor :custom_policy_id
 
@@ -101,7 +103,9 @@ module Falcon
         :'agent_id' => :'agent_id',
         :'azure_tenant_id' => :'azure_tenant_id',
         :'cid' => :'cid',
+        :'cloud_labels' => :'cloud_labels',
         :'cloud_provider' => :'cloud_provider',
+        :'cloud_scopes' => :'cloud_scopes',
         :'custom_policy_id' => :'custom_policy_id',
         :'finding' => :'finding',
         :'id' => :'id',
@@ -140,7 +144,9 @@ module Falcon
         :'agent_id' => :'String',
         :'azure_tenant_id' => :'String',
         :'cid' => :'String',
+        :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',
+        :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'custom_policy_id' => :'Integer',
         :'finding' => :'Object',
         :'id' => :'String',
@@ -207,8 +213,20 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'cloud_labels')
+        if (value = attributes[:'cloud_labels']).is_a?(Array)
+          self.cloud_labels = value
+        end
+      end
+
       if attributes.key?(:'cloud_provider')
         self.cloud_provider = attributes[:'cloud_provider']
+      end
+
+      if attributes.key?(:'cloud_scopes')
+        if (value = attributes[:'cloud_scopes']).is_a?(Array)
+          self.cloud_scopes = value
+        end
       end
 
       if attributes.key?(:'custom_policy_id')
@@ -425,7 +443,9 @@ module Falcon
           agent_id == o.agent_id &&
           azure_tenant_id == o.azure_tenant_id &&
           cid == o.cid &&
+          cloud_labels == o.cloud_labels &&
           cloud_provider == o.cloud_provider &&
+          cloud_scopes == o.cloud_scopes &&
           custom_policy_id == o.custom_policy_id &&
           finding == o.finding &&
           id == o.id &&
@@ -459,7 +479,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_provider, custom_policy_id, finding, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
+      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
     end
 
     # Builds the object from hash

@@ -8,6 +8,7 @@
 | **attack_types** | **Array&lt;String&gt;** |  | [optional] |
 | **cid** | **String** |  | [optional] |
 | **cis_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
+| **cisa_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **cloud_asset_type** | **String** |  | [optional] |
 | **cloud_asset_type_id** | **Integer** |  | [optional] |
 | **cloud_provider** | **String** |  | [optional] |
@@ -18,6 +19,7 @@
 | **default_severity** | **String** |  | [optional] |
 | **fql_policy** | **String** |  | [optional] |
 | **is_remediable** | **Boolean** |  |  |
+| **iso_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **nist_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **pci_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
@@ -39,6 +41,7 @@ instance = Falcon::DomainCIDPolicyAssignments.new(
   attack_types: null,
   cid: null,
   cis_benchmark: null,
+  cisa_benchmark: null,
   cloud_asset_type: null,
   cloud_asset_type_id: null,
   cloud_provider: null,
@@ -49,6 +52,7 @@ instance = Falcon::DomainCIDPolicyAssignments.new(
   default_severity: null,
   fql_policy: null,
   is_remediable: null,
+  iso_benchmark: null,
   name: null,
   nist_benchmark: null,
   pci_benchmark: null,

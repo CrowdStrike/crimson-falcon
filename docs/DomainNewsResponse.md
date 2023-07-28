@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) | Array of API Errors |  |
 | **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainNewsDocument&gt;**](DomainNewsDocument.md) |  |  |
 

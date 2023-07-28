@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -43,6 +41,10 @@ module Falcon
     # The ID of the notifications
     attr_accessor :id
 
+    attr_accessor :idp_send_status
+
+    attr_accessor :message
+
     # The notification status. This can be one of: `new`, `in-progress`, `closed-false-positive`, `closed-true-positive`.
     attr_accessor :status
 
@@ -51,6 +53,8 @@ module Falcon
       {
         :'assigned_to_uuid' => :'assigned_to_uuid',
         :'id' => :'id',
+        :'idp_send_status' => :'idp_send_status',
+        :'message' => :'message',
         :'status' => :'status'
       }
     end
@@ -65,6 +69,8 @@ module Falcon
       {
         :'assigned_to_uuid' => :'String',
         :'id' => :'String',
+        :'idp_send_status' => :'String',
+        :'message' => :'String',
         :'status' => :'String'
       }
     end
@@ -98,6 +104,14 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'idp_send_status')
+        self.idp_send_status = attributes[:'idp_send_status']
+      end
+
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -115,6 +129,14 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @idp_send_status.nil?
+        invalid_properties.push('invalid value for "idp_send_status", idp_send_status cannot be nil.')
+      end
+
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -127,6 +149,8 @@ module Falcon
     def valid?
       return false if @assigned_to_uuid.nil?
       return false if @id.nil?
+      return false if @idp_send_status.nil?
+      return false if @message.nil?
       return false if @status.nil?
       true
     end
@@ -138,6 +162,8 @@ module Falcon
       self.class == o.class &&
           assigned_to_uuid == o.assigned_to_uuid &&
           id == o.id &&
+          idp_send_status == o.idp_send_status &&
+          message == o.message &&
           status == o.status
     end
 
@@ -150,7 +176,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigned_to_uuid, id, status].hash
+      [assigned_to_uuid, id, idp_send_status, message, status].hash
     end
 
     # Builds the object from hash

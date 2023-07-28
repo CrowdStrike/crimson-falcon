@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -112,6 +110,9 @@ module Falcon
 
     # The number of sources that discovered the asset.
     attr_accessor :discoverer_count
+
+    # A list of agent IDs of the Falcon sensors installed on the source hosts that discovered the asset via ICS Asset discovery mechanism
+    attr_accessor :discoverer_ics_collector_ids
 
     # The product type descriptions of the sources that discovered the asset.
     attr_accessor :discoverer_product_type_descs
@@ -327,6 +328,7 @@ module Falcon
         :'device_slots' => :'device_slots',
         :'device_type' => :'device_type',
         :'discoverer_count' => :'discoverer_count',
+        :'discoverer_ics_collector_ids' => :'discoverer_ics_collector_ids',
         :'discoverer_product_type_descs' => :'discoverer_product_type_descs',
         :'disk_sizes' => :'disk_sizes',
         :'encrypted_drives' => :'encrypted_drives',
@@ -425,6 +427,7 @@ module Falcon
         :'device_slots' => :'Array<DomainDiscoverAPIDeviceSlot>',
         :'device_type' => :'String',
         :'discoverer_count' => :'Integer',
+        :'discoverer_ics_collector_ids' => :'Array<String>',
         :'discoverer_product_type_descs' => :'Array<String>',
         :'disk_sizes' => :'Array<DomainDiscoverAPIDiskSize>',
         :'encrypted_drives' => :'Array<String>',
@@ -613,6 +616,12 @@ module Falcon
 
       if attributes.key?(:'discoverer_count')
         self.discoverer_count = attributes[:'discoverer_count']
+      end
+
+      if attributes.key?(:'discoverer_ics_collector_ids')
+        if (value = attributes[:'discoverer_ics_collector_ids']).is_a?(Array)
+          self.discoverer_ics_collector_ids = value
+        end
       end
 
       if attributes.key?(:'discoverer_product_type_descs')
@@ -943,6 +952,7 @@ module Falcon
           device_slots == o.device_slots &&
           device_type == o.device_type &&
           discoverer_count == o.discoverer_count &&
+          discoverer_ics_collector_ids == o.discoverer_ics_collector_ids &&
           discoverer_product_type_descs == o.discoverer_product_type_descs &&
           disk_sizes == o.disk_sizes &&
           encrypted_drives == o.encrypted_drives &&
@@ -1016,7 +1026,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, aid, available_disk_space, average_memory_usage, average_processor_usage, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, confidence, country, cpu_processor_name, credential_guard_status, current_local_ip, data_providers, data_providers_count, device_class, device_family, device_guard_status, device_slots, device_type, discoverer_count, discoverer_product_type_descs, disk_sizes, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_seen_timestamp, groups, hostname, ics_id, id, internet_exposure, iommu_protection_status, kernel_dma_protection_status, kernel_version, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, logical_core_count, mac_addresses, machine_domain, max_memory_usage, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, number_of_disk_drives, os_is_eol, os_version, ou, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, reduced_functionality_mode, secure_boot_enabled_status, secure_boot_requested_status, secure_memory_overwrite_requested_status, site_name, subnet, system_guard_status, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, uefi_memory_protection_status, unencrypted_drives, unencrypted_drives_count, used_disk_space, virtual_zone, virtualization_based_security_status, vlan, xdome_id].hash
+      [agent_version, aid, available_disk_space, average_memory_usage, average_processor_usage, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, confidence, country, cpu_processor_name, credential_guard_status, current_local_ip, data_providers, data_providers_count, device_class, device_family, device_guard_status, device_slots, device_type, discoverer_count, discoverer_ics_collector_ids, discoverer_product_type_descs, disk_sizes, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_seen_timestamp, groups, hostname, ics_id, id, internet_exposure, iommu_protection_status, kernel_dma_protection_status, kernel_version, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, logical_core_count, mac_addresses, machine_domain, max_memory_usage, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, number_of_disk_drives, os_is_eol, os_version, ou, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, reduced_functionality_mode, secure_boot_enabled_status, secure_boot_requested_status, secure_memory_overwrite_requested_status, site_name, subnet, system_guard_status, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, uefi_memory_protection_status, unencrypted_drives, unencrypted_drives_count, used_disk_space, virtual_zone, virtualization_based_security_status, vlan, xdome_id].hash
     end
 
     # Builds the object from hash

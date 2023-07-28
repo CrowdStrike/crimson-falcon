@@ -28,8 +28,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
+CrowdStrike Swagger API Version: 2023-07-27T23:00:01Z
 =end
 
 module Falcon

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **interactivity** | **Boolean** |  |  |
 | **action_script** | **String** |  | [optional] |
 | **command_line** | **String** |  | [optional] |
 | **document_password** | **String** |  | [optional] |
@@ -22,6 +23,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxParametersV1.new(
+  interactivity: null,
   action_script: null,
   command_line: null,
   document_password: null,

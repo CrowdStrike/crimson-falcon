@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'cgi'
@@ -371,7 +369,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Delete CID group members.
+    # Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
     # @param body [DomainCIDGroupMembersRequestV1] Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
     # @param [Hash] opts the optional parameters
     # @return [DomainCIDGroupMembersResponseV1]
@@ -380,7 +378,7 @@ module Falcon
       data
     end
 
-    # Delete CID group members.
+    # Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
     # @param body [DomainCIDGroupMembersRequestV1] Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
@@ -433,6 +431,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MsspApi#delete_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+    # @param body [DomainCIDGroupMembersRequestV1] Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
+    # @param [Hash] opts the optional parameters
+    # @return [DomainCIDGroupMembersResponseV1]
+    def delete_cid_group_members_v2(body, opts = {})
+      data, _status_code, _headers = delete_cid_group_members_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+    # @param body [DomainCIDGroupMembersRequestV1] Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
+    def delete_cid_group_members_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MsspApi.delete_cid_group_members_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.delete_cid_group_members_v2"
+      end
+      # resource path
+      local_var_path = '/mssp/entities/cid-group-members/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainCIDGroupMembersResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MsspApi.delete_cid_group_members_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MsspApi#delete_cid_group_members_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

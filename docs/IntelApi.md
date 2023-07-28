@@ -21,7 +21,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_intel_report_entities**](IntelApi.md#query_intel_report_entities) | **GET** /intel/combined/reports/v1 | Get info about reports that match provided FQL filters. |
 | [**query_intel_report_ids**](IntelApi.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters. |
 | [**query_intel_rule_ids**](IntelApi.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria. |
-| [**query_mitre_attacks**](IntelApi.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor |
+| [**query_mitre_attacks**](IntelApi.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071 |
 | [**query_vulnerabilities**](IntelApi.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs |
 
 
@@ -764,7 +764,7 @@ opts = {
   offset: 56, # Integer | Set the starting row number to return actors from. Defaults to 0.
   limit: 56, # Integer | Set the number of actors to return. The value must be between 1 and 5000.
   sort: 'sort_example', # String | Order fields in ascending or descending order.  Ex: created_date|asc.
-  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions.
+  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions, target_regions.id, target_regions.slug, target_regions.value.
   q: 'q_example', # String | Perform a generic substring search across all fields.
   fields: ['inner_example'] # Array<String> | The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\<collection\\>\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_.
 }
@@ -803,7 +803,7 @@ end
 | **offset** | **Integer** | Set the starting row number to return actors from. Defaults to 0. | [optional] |
 | **limit** | **Integer** | Set the number of actors to return. The value must be between 1 and 5000. | [optional] |
 | **sort** | **String** | Order fields in ascending or descending order.  Ex: created_date|asc. | [optional] |
-| **filter** | **String** | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions. | [optional] |
+| **filter** | **String** | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions, target_regions.id, target_regions.slug, target_regions.value. | [optional] |
 | **q** | **String** | Perform a generic substring search across all fields. | [optional] |
 | **fields** | [**Array&lt;String&gt;**](String.md) | The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\&lt;collection\\&gt;\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_. | [optional] |
 
@@ -845,7 +845,7 @@ opts = {
   offset: 56, # Integer | Set the starting row number to return actors IDs from. Defaults to 0.
   limit: 56, # Integer | Set the number of actor IDs to return. The value must be between 1 and 5000.
   sort: 'sort_example', # String | Order fields in ascending or descending order.  Ex: created_date|asc.
-  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions.
+  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions, target_regions.id, target_regions.slug, target_regions.value.
   q: 'q_example' # String | Perform a generic substring search across all fields.
 }
 
@@ -883,7 +883,7 @@ end
 | **offset** | **Integer** | Set the starting row number to return actors IDs from. Defaults to 0. | [optional] |
 | **limit** | **Integer** | Set the number of actor IDs to return. The value must be between 1 and 5000. | [optional] |
 | **sort** | **String** | Order fields in ascending or descending order.  Ex: created_date|asc. | [optional] |
-| **filter** | **String** | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions. | [optional] |
+| **filter** | **String** | Filter your query by specifying FQL filter parameters. Filter parameters include:  actor_type, capabilities, capability, capability.id, capability.slug, capability.value, created_date, description, ecrime_kill_chain.attribution, ecrime_kill_chain.crimes, ecrime_kill_chain.customers, ecrime_kill_chain.marketing, ecrime_kill_chain.monetization, ecrime_kill_chain.services_offered, ecrime_kill_chain.services_used, ecrime_kill_chain.technical_tradecraft, ecrime_kill_chain.victims, first_activity_date, group, group.id, group.slug, group.value, id, kill_chain.actions_and_objectives, kill_chain.actions_on_objectives, kill_chain.command_and_control, kill_chain.delivery, kill_chain.exploitation, kill_chain.installation, kill_chain.objectives, kill_chain.reconnaissance, kill_chain.weaponization, known_as, last_activity_date, last_modified_date, motivations, motivations.id, motivations.slug, motivations.value, name, objectives, origins, origins.id, origins.slug, origins.value, region, region.id, region.slug, region.value, short_description, slug, status, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, target_regions, target_regions.id, target_regions.slug, target_regions.value. | [optional] |
 | **q** | **String** | Perform a generic substring search across all fields. | [optional] |
 
 ### Return type
@@ -1317,9 +1317,9 @@ end
 
 ## query_mitre_attacks
 
-> query_mitre_attacks(id)
+> <DomainQueryMitreAttacksResponse> query_mitre_attacks(opts)
 
-Gets MITRE tactics and techniques for the given actor
+Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
 
 ### Examples
 
@@ -1335,11 +1335,15 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IntelApi.new
-id = 'id_example' # String | The actor ID(derived from the actor's name) for which to retrieve a list of attacks.
+opts = {
+  id: 'id_example', # String | The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed
+  ids: ['inner_example'] # Array<String> | The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Multiple values are allowed
+}
 
 begin
-  # Gets MITRE tactics and techniques for the given actor
-  api_instance.query_mitre_attacks(id)
+  # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
+  result = api_instance.query_mitre_attacks(opts)
+  p result
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->query_mitre_attacks: #{e}"
 end
@@ -1347,17 +1351,17 @@ end
 
 #### Using the query_mitre_attacks_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> query_mitre_attacks_with_http_info(id)
+> <Array(<DomainQueryMitreAttacksResponse>, Integer, Hash)> query_mitre_attacks_with_http_info(opts)
 
 ```ruby
 begin
-  # Gets MITRE tactics and techniques for the given actor
-  data, status_code, headers = api_instance.query_mitre_attacks_with_http_info(id)
+  # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
+  data, status_code, headers = api_instance.query_mitre_attacks_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <DomainQueryMitreAttacksResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->query_mitre_attacks_with_http_info: #{e}"
 end
@@ -1367,11 +1371,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** | The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks. |  |
+| **id** | **String** | The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks, for example: fancy-bear. Multiple values are allowed | [optional] |
 
 ### Return type
 
-nil (empty response body)
+[**DomainQueryMitreAttacksResponse**](DomainQueryMitreAttacksResponse.md)
 
 ### Authorization
 

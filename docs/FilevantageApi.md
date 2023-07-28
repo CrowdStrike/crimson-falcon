@@ -30,7 +30,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FilevantageApi.new
-ids = ['inner_example'] # Array<String> | Comma separated values of change ids
+ids = ['inner_example'] # Array<String> | One or more change ids in the form of ids=ID1&ids=ID2
 
 begin
   # Retrieve information on changes
@@ -63,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | Comma separated values of change ids |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2 |  |
 
 ### Return type
 

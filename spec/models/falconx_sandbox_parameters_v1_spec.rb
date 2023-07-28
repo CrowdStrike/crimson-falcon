@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'spec_helper'
@@ -47,6 +45,12 @@ describe Falcon::FalconxSandboxParametersV1 do
       expect(instance).to be_instance_of(Falcon::FalconxSandboxParametersV1)
     end
   end
+  describe 'test attribute "interactivity"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "action_script"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

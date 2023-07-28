@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -37,6 +35,7 @@ require 'time'
 
 module Falcon
   class DomainAPIRemediationIDs
+    # Refers to a remediation unique identifier that points to remediation details addressing this vulnerability
     attr_accessor :ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

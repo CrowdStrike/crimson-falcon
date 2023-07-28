@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'cgi'
@@ -339,7 +337,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IncidentsApi.query_behaviors ...'
       end
-      allowable_values = ["cmdline.asc", "cmdline.desc", "detection_ids.asc", "detection_ids.desc", "display_name.asc", "display_name.desc", "domain.asc", "domain.desc", "filepath.asc", "filepath.desc", "timestamp.asc", "timestamp.desc"]
+      allowable_values = ["alert_ids.asc", "alert_ids.desc", "cmdline.asc", "cmdline.desc", "detection_ids.asc", "detection_ids.desc", "display_name.asc", "display_name.desc", "domain.asc", "domain.desc", "filepath.asc", "filepath.desc", "timestamp.asc", "timestamp.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

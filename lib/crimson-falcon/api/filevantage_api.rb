@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'cgi'
@@ -43,7 +41,7 @@ module Falcon
     end
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] Comma separated values of change ids
+    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
     # @param [Hash] opts the optional parameters
     # @return [PublicGetChangesResponse]
     def get_changes(ids, opts = {})
@@ -53,7 +51,7 @@ module Falcon
 
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] Comma separated values of change ids
+    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
     # @param [Hash] opts the optional parameters
     # @return [Array<(PublicGetChangesResponse, Integer, Hash)>] PublicGetChangesResponse data, response status code and response headers
     def get_changes_with_http_info(ids, opts = {})

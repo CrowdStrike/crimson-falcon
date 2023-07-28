@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'spec_helper'
@@ -155,7 +153,8 @@ describe 'CspmRegistrationApi' do
   # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
   # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp
   # @option opts [Integer] :limit The max number of detections to return
-  # @option opts [Integer] :offset Offset returned detections
+  # @option opts [Integer] :offset Offset returned detections. Cannot be combined with next_token filter
+  # @option opts [String] :next_token String to get next page of results. Cannot be combined with any filter except limit.
   # @return [RegistrationIOMEventIDsResponseV2]
   describe 'get_configuration_detection_ids_v2 test' do
     it 'should work' do

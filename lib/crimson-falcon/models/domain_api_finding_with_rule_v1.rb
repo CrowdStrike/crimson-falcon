@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -37,6 +35,9 @@ require 'time'
 
 module Falcon
   class DomainAPIFindingWithRuleV1
+    # Example values: NOT_AVAILABLE, AVAILABLE, DISABLE_RULE, UNSUPPORTED_RULE, OVERRIDE_STATUS
+    attr_accessor :evaluation_logic_type
+
     attr_accessor :evaluation_reason
 
     attr_accessor :host_id
@@ -50,6 +51,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'evaluation_logic_type' => :'evaluation_logic_type',
         :'evaluation_reason' => :'evaluation_reason',
         :'host_id' => :'host_id',
         :'rule' => :'rule',
@@ -66,6 +68,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'evaluation_logic_type' => :'String',
         :'evaluation_reason' => :'String',
         :'host_id' => :'String',
         :'rule' => :'DomainAPIFindingRuleV1',
@@ -94,6 +97,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'evaluation_logic_type')
+        self.evaluation_logic_type = attributes[:'evaluation_logic_type']
+      end
 
       if attributes.key?(:'evaluation_reason')
         self.evaluation_reason = attributes[:'evaluation_reason']
@@ -134,6 +141,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          evaluation_logic_type == o.evaluation_logic_type &&
           evaluation_reason == o.evaluation_reason &&
           host_id == o.host_id &&
           rule == o.rule &&
@@ -150,7 +158,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [evaluation_reason, host_id, rule, status, status_since_timestamp].hash
+      [evaluation_logic_type, evaluation_reason, host_id, rule, status, status_since_timestamp].hash
     end
 
     # Builds the object from hash

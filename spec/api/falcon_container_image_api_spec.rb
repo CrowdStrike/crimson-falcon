@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'spec_helper'
@@ -71,6 +69,20 @@ describe 'FalconContainerImageApi' do
   # @param [Hash] opts the optional parameters
   # @return [DomainExternalRegistryListResponse]
   describe 'delete_registry_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_combined_images
+  # Get image assessment results by providing an FQL filter and paging details
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, registry, repository, tag, vulnerability_severity
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve [1-100]
+  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :sort The fields to sort the records on. Supported columns:  [first_seen registry repository tag vulnerability_severity]
+  # @return [ImagesExtCombinedImagesResponse]
+  describe 'get_combined_images test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

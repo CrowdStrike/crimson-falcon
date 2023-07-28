@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -60,8 +58,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<DomainReconAPIError>',
-        :'meta' => :'MsaspecMetaInfo',
+        :'errors' => :'Array<MsaspecError>',
+        :'meta' => :'DomainMsaMetaInfo',
         :'resources' => :'Array<String>'
       }
     end
@@ -108,10 +106,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @errors.nil?
-        invalid_properties.push('invalid value for "errors", errors cannot be nil.')
-      end
-
       if @meta.nil?
         invalid_properties.push('invalid value for "meta", meta cannot be nil.')
       end
@@ -126,7 +120,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @errors.nil?
       return false if @meta.nil?
       return false if @resources.nil?
       true

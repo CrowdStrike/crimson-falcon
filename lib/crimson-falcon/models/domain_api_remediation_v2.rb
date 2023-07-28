@@ -28,8 +28,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-CrowdStrike Swagger API Version: 2023-05-30T23:10:32Z
-
 =end
 
 require 'date'
@@ -37,16 +35,22 @@ require 'time'
 
 module Falcon
   class DomainAPIRemediationV2
+    # Expanded description of the remediation
     attr_accessor :action
 
+    # Refers to an unique identifier for a given remediation
     attr_accessor :id
 
+    # Link to the remediation page for the vendor
     attr_accessor :link
 
+    # Relevant reference for the remediation that can be used to get additional details for the remediation. For example, a KB number that needs to be installed for a KB_SECURITY_UPDATE
     attr_accessor :reference
 
+    # Short description of the remediation
     attr_accessor :title
 
+    # Link to the vendor advisory - Note: This field is populated if there are extra steps that are required to complete the remediation
     attr_accessor :vendor_url
 
     # Attribute mapping from ruby-style variable name to JSON key.
