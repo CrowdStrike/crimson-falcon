@@ -3,7 +3,7 @@ additionalProperties:
   gemAuthorEmail: "cloud-integrations@crowdstrike.com"
   gemDescription: "Use CrowdStrike Falcon APIs to interact with Falcon platform."
   gemSummary: "CrowdStrike Falcon"
-  gemLicense: "Unlicense"
+  gemLicense: "MIT License"
   gemHomepage: "https://github.com/CrowdStrike/crimson-falcon"
   gemVersion: "0.2.1" # x-release-please-version
   gemName: "crimson-falcon"
