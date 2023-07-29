@@ -36,9 +36,9 @@ module Falcon
 
     attr_accessor :cid
 
-    attr_accessor :complex_check_operator
-
     attr_accessor :created_timestamp
+
+    attr_accessor :data_provider
 
     attr_accessor :id
 
@@ -51,8 +51,8 @@ module Falcon
       {
         :'aid' => :'aid',
         :'cid' => :'cid',
-        :'complex_check_operator' => :'complex_check_operator',
         :'created_timestamp' => :'created_timestamp',
+        :'data_provider' => :'data_provider',
         :'id' => :'id',
         :'logic' => :'logic',
         :'updated_timestamp' => :'updated_timestamp'
@@ -69,8 +69,8 @@ module Falcon
       {
         :'aid' => :'String',
         :'cid' => :'String',
-        :'complex_check_operator' => :'String',
         :'created_timestamp' => :'String',
+        :'data_provider' => :'String',
         :'id' => :'String',
         :'logic' => :'Array<DomainAPIEvaluationLogicItemV1>',
         :'updated_timestamp' => :'String'
@@ -106,12 +106,12 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'complex_check_operator')
-        self.complex_check_operator = attributes[:'complex_check_operator']
-      end
-
       if attributes.key?(:'created_timestamp')
         self.created_timestamp = attributes[:'created_timestamp']
+      end
+
+      if attributes.key?(:'data_provider')
+        self.data_provider = attributes[:'data_provider']
       end
 
       if attributes.key?(:'id')
@@ -154,8 +154,8 @@ module Falcon
       self.class == o.class &&
           aid == o.aid &&
           cid == o.cid &&
-          complex_check_operator == o.complex_check_operator &&
           created_timestamp == o.created_timestamp &&
+          data_provider == o.data_provider &&
           id == o.id &&
           logic == o.logic &&
           updated_timestamp == o.updated_timestamp
@@ -170,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, complex_check_operator, created_timestamp, id, logic, updated_timestamp].hash
+      [aid, cid, created_timestamp, data_provider, id, logic, updated_timestamp].hash
     end
 
     # Builds the object from hash

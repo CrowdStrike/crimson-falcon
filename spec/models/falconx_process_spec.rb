@@ -72,12 +72,6 @@ describe Falcon::FalconxProcess do
     end
   end
 
-  describe 'test attribute "modules"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "mutants"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

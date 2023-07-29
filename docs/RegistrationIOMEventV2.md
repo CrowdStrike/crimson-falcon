@@ -9,9 +9,7 @@
 | **agent_id** | **String** |  | [optional] |
 | **azure_tenant_id** | **String** |  | [optional] |
 | **cid** | **String** |  |  |
-| **cloud_labels** | [**Array&lt;ClassificationLabel&gt;**](ClassificationLabel.md) |  | [optional] |
 | **cloud_provider** | **String** |  |  |
-| **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
 | **custom_policy_id** | **Integer** |  | [optional] |
 | **finding** | **Object** |  |  |
 | **id** | **String** |  |  |
@@ -46,9 +44,7 @@ instance = Falcon::RegistrationIOMEventV2.new(
   agent_id: null,
   azure_tenant_id: null,
   cid: null,
-  cloud_labels: null,
   cloud_provider: null,
-  cloud_scopes: null,
   custom_policy_id: null,
   finding: null,
   id: null,

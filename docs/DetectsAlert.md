@@ -13,6 +13,7 @@
 | **composite_id** | **String** |  | [optional] |
 | **confidence** | **Integer** |  | [optional] |
 | **crawl_edge_ids** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
+| **crawl_traversal** | [**Array&lt;ThreatgraphCrawlEdgesRequest&gt;**](ThreatgraphCrawlEdgesRequest.md) |  | [optional] |
 | **crawl_vertex_ids** | **Hash&lt;String, Array&lt;String&gt;&gt;** |  | [optional] |
 | **crawled_timestamp** | **Time** |  | [optional] |
 | **created_timestamp** | **Time** |  | [optional] |
@@ -54,6 +55,7 @@ instance = Falcon::DetectsAlert.new(
   composite_id: null,
   confidence: null,
   crawl_edge_ids: null,
+  crawl_traversal: null,
   crawl_vertex_ids: null,
   crawled_timestamp: null,
   created_timestamp: null,

@@ -16,7 +16,6 @@
 | **attack_tool_command** | **String** |  | [optional] |
 | **attack_types** | **Array&lt;String&gt;** |  | [optional] |
 | **cis_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
-| **cisa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
 | **cli_command** | **String** |  | [optional] |
 | **cloud_asset_type** | **String** |  | [optional] |
 | **cloud_document** | **String** |  | [optional] |
@@ -34,7 +33,6 @@
 | **internal_only** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  |  |
 | **is_remediable** | **Boolean** |  |  |
-| **iso_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
 | **mitre_attack_cloud_matrix** | **String** |  | [optional] |
 | **mitre_attack_cloud_subtype** | **String** |  | [optional] |
 | **nist_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
@@ -74,7 +72,6 @@ instance = Falcon::DomainPolicyInfo.new(
   attack_tool_command: null,
   attack_types: null,
   cis_benchmark_ids: null,
-  cisa_benchmark_ids: null,
   cli_command: null,
   cloud_asset_type: null,
   cloud_document: null,
@@ -92,7 +89,6 @@ instance = Falcon::DomainPolicyInfo.new(
   internal_only: null,
   is_enabled: null,
   is_remediable: null,
-  iso_benchmark_ids: null,
   mitre_attack_cloud_matrix: null,
   mitre_attack_cloud_subtype: null,
   nist_benchmark_ids: null,

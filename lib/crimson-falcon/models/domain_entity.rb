@@ -32,16 +32,12 @@ require 'time'
 
 module Falcon
   class DomainEntity
-    # numerical id ensuring data integrity
     attr_accessor :id
 
-    # name of the entity
     attr_accessor :name
 
-    # search and url friendly value, usually lowercase representation of value with spaces replaced with dashes, except for countries where 2 letters codes are used
     attr_accessor :slug
 
-    # string value of the generic entity which is searchable and filterable
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.

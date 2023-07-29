@@ -32,20 +32,14 @@ require 'time'
 
 module Falcon
   class DomainDiscoverParams
-    attr_accessor :application_filters
-
     attr_accessor :application_group_id
-
-    attr_accessor :application_vendors
 
     attr_accessor :requirement_criteria
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'application_filters' => :'application_filters',
         :'application_group_id' => :'application_group_id',
-        :'application_vendors' => :'application_vendors',
         :'requirement_criteria' => :'requirement_criteria'
       }
     end
@@ -58,9 +52,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'application_filters' => :'String',
         :'application_group_id' => :'String',
-        :'application_vendors' => :'String',
         :'requirement_criteria' => :'String'
       }
     end
@@ -86,16 +78,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'application_filters')
-        self.application_filters = attributes[:'application_filters']
-      end
-
       if attributes.key?(:'application_group_id')
         self.application_group_id = attributes[:'application_group_id']
-      end
-
-      if attributes.key?(:'application_vendors')
-        self.application_vendors = attributes[:'application_vendors']
       end
 
       if attributes.key?(:'requirement_criteria')
@@ -107,16 +91,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @application_filters.nil?
-        invalid_properties.push('invalid value for "application_filters", application_filters cannot be nil.')
-      end
-
       if @application_group_id.nil?
         invalid_properties.push('invalid value for "application_group_id", application_group_id cannot be nil.')
-      end
-
-      if @application_vendors.nil?
-        invalid_properties.push('invalid value for "application_vendors", application_vendors cannot be nil.')
       end
 
       if @requirement_criteria.nil?
@@ -129,9 +105,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @application_filters.nil?
       return false if @application_group_id.nil?
-      return false if @application_vendors.nil?
       return false if @requirement_criteria.nil?
       true
     end
@@ -141,9 +115,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          application_filters == o.application_filters &&
           application_group_id == o.application_group_id &&
-          application_vendors == o.application_vendors &&
           requirement_criteria == o.requirement_criteria
     end
 
@@ -156,7 +128,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_filters, application_group_id, application_vendors, requirement_criteria].hash
+      [application_group_id, requirement_criteria].hash
     end
 
     # Builds the object from hash

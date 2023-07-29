@@ -52,7 +52,7 @@ describe 'FilevantageApi' do
   # unit tests for get_changes
   # Retrieve information on changes
   # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-  # @param ids One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
+  # @param ids Comma separated values of change ids
   # @param [Hash] opts the optional parameters
   # @return [PublicGetChangesResponse]
   describe 'get_changes test' do

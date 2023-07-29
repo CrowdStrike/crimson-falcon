@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ids** | **Array&lt;String&gt;** | Refers to a remediation unique identifier that points to remediation details addressing this vulnerability | [optional] |
+| **ids** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 

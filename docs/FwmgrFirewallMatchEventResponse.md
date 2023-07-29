@@ -8,7 +8,6 @@
 | **cid** | **String** |  |  |
 | **command_line** | **String** |  |  |
 | **connection_direction** | **String** |  |  |
-| **domain_name_list** | **String** |  |  |
 | **event_type** | **String** |  |  |
 | **flags** | [**FwmgrFirewallFlags**](FwmgrFirewallFlags.md) |  |  |
 | **hidden** | **Boolean** |  |  |
@@ -50,7 +49,6 @@ instance = Falcon::FwmgrFirewallMatchEventResponse.new(
   cid: null,
   command_line: null,
   connection_direction: null,
-  domain_name_list: null,
   event_type: null,
   flags: null,
   hidden: null,

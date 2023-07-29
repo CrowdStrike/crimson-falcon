@@ -49,8 +49,6 @@ module Falcon
 
     attr_accessor :client_id
 
-    attr_accessor :cloud_scopes
-
     attr_accessor :conditions
 
     attr_accessor :credentials_end_date
@@ -59,8 +57,6 @@ module Falcon
 
     # Default Azure Subscription ID to provision shared IOA infrastructure.
     attr_accessor :default_subscription_id
-
-    attr_accessor :environment
 
     attr_accessor :object_id
 
@@ -79,9 +75,6 @@ module Falcon
     # Azure Subscription ID.
     attr_accessor :subscription_id
 
-    # Azure Subscription Name.
-    attr_accessor :subscription_name
-
     # Azure Tenant ID to use.
     attr_accessor :tenant_id
 
@@ -98,12 +91,10 @@ module Falcon
         :'azure_permissions_status' => :'azure_permissions_status',
         :'cid' => :'cid',
         :'client_id' => :'client_id',
-        :'cloud_scopes' => :'cloud_scopes',
         :'conditions' => :'conditions',
         :'credentials_end_date' => :'credentials_end_date',
         :'credentials_type' => :'credentials_type',
         :'default_subscription_id' => :'default_subscription_id',
-        :'environment' => :'environment',
         :'object_id' => :'object_id',
         :'public_certificate' => :'public_certificate',
         :'public_certificate_raw' => :'public_certificate_raw',
@@ -111,7 +102,6 @@ module Falcon
         :'show_modal' => :'show_modal',
         :'status' => :'status',
         :'subscription_id' => :'subscription_id',
-        :'subscription_name' => :'subscription_name',
         :'tenant_id' => :'tenant_id',
         :'years_valid' => :'years_valid'
       }
@@ -133,12 +123,10 @@ module Falcon
         :'azure_permissions_status' => :'Array<DomainPermission>',
         :'cid' => :'String',
         :'client_id' => :'String',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'conditions' => :'Array<DomainCondition>',
         :'credentials_end_date' => :'Time',
         :'credentials_type' => :'String',
         :'default_subscription_id' => :'String',
-        :'environment' => :'String',
         :'object_id' => :'String',
         :'public_certificate' => :'String',
         :'public_certificate_raw' => :'String',
@@ -146,7 +134,6 @@ module Falcon
         :'show_modal' => :'Boolean',
         :'status' => :'String',
         :'subscription_id' => :'String',
-        :'subscription_name' => :'String',
         :'tenant_id' => :'String',
         :'years_valid' => :'Integer'
       }
@@ -207,12 +194,6 @@ module Falcon
         self.client_id = attributes[:'client_id']
       end
 
-      if attributes.key?(:'cloud_scopes')
-        if (value = attributes[:'cloud_scopes']).is_a?(Array)
-          self.cloud_scopes = value
-        end
-      end
-
       if attributes.key?(:'conditions')
         if (value = attributes[:'conditions']).is_a?(Array)
           self.conditions = value
@@ -229,10 +210,6 @@ module Falcon
 
       if attributes.key?(:'default_subscription_id')
         self.default_subscription_id = attributes[:'default_subscription_id']
-      end
-
-      if attributes.key?(:'environment')
-        self.environment = attributes[:'environment']
       end
 
       if attributes.key?(:'object_id')
@@ -263,10 +240,6 @@ module Falcon
 
       if attributes.key?(:'subscription_id')
         self.subscription_id = attributes[:'subscription_id']
-      end
-
-      if attributes.key?(:'subscription_name')
-        self.subscription_name = attributes[:'subscription_name']
       end
 
       if attributes.key?(:'tenant_id')
@@ -339,12 +312,10 @@ module Falcon
           azure_permissions_status == o.azure_permissions_status &&
           cid == o.cid &&
           client_id == o.client_id &&
-          cloud_scopes == o.cloud_scopes &&
           conditions == o.conditions &&
           credentials_end_date == o.credentials_end_date &&
           credentials_type == o.credentials_type &&
           default_subscription_id == o.default_subscription_id &&
-          environment == o.environment &&
           object_id == o.object_id &&
           public_certificate == o.public_certificate &&
           public_certificate_raw == o.public_certificate_raw &&
@@ -352,7 +323,6 @@ module Falcon
           show_modal == o.show_modal &&
           status == o.status &&
           subscription_id == o.subscription_id &&
-          subscription_name == o.subscription_name &&
           tenant_id == o.tenant_id &&
           years_valid == o.years_valid
     end
@@ -366,7 +336,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, object_id, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid].hash
+      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, conditions, credentials_end_date, credentials_type, default_subscription_id, object_id, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, tenant_id, years_valid].hash
     end
 
     # Builds the object from hash

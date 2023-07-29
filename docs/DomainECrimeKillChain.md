@@ -4,26 +4,26 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **attribution** | **String** | Free form text describing attribution of the ecrime actor | [optional] |
-| **crimes** | **String** | Free form text describing actor&#39;s crimes | [optional] |
-| **customers** | **String** | Free form text describing ecrime actor&#39;s customers and affiliates | [optional] |
-| **exploitation** | **String** | Comma separated values of vulnerabilities by CVE codes that are exploited by actor | [optional] |
-| **marketing** | **String** | Free form text describing ecrime actor&#39;s marketing campaigns and advertisement | [optional] |
-| **monetization** | **String** | Legacy field, not used and empty | [optional] |
-| **rich_text_attribution** | **String** | Rich text version of the attribution field | [optional] |
-| **rich_text_crimes** | **String** | Rich text version of the crimes field | [optional] |
-| **rich_text_customers** | **String** | Rich text version of the customers field | [optional] |
-| **rich_text_exploitation** | **String** | Rich text version of the exploitation field | [optional] |
-| **rich_text_marketing** | **String** | Rich text version of the marketing field | [optional] |
-| **rich_text_monetization** | **String** | Legacy field, not used and empty | [optional] |
-| **rich_text_services_offered** | **String** | Rich text version of the services_offered field | [optional] |
-| **rich_text_services_used** | **String** | Rich text version of the services_used field | [optional] |
-| **rich_text_technical_tradecraft** | **String** | Rich text version of the technical_tradecraft field | [optional] |
-| **rich_text_victims** | **String** | Rich text version of the victims field | [optional] |
-| **services_offered** | **String** | Free form text describing ecrime actor&#39;s services offered and monetized | [optional] |
-| **services_used** | **String** | Free form text describing ecrime actor&#39;s used services provided by other actors or groups | [optional] |
-| **technical_tradecraft** | **String** | Free form text describing methods and descriptions of techniques used by actor | [optional] |
-| **victims** | **String** | Free form text describing victims or their characteristics of the ecrime actor | [optional] |
+| **attribution** | **String** |  | [optional] |
+| **crimes** | **String** |  | [optional] |
+| **customers** | **String** |  | [optional] |
+| **exploitation** | **String** |  | [optional] |
+| **marketing** | **String** |  | [optional] |
+| **monetization** | **String** |  | [optional] |
+| **rich_text_attribution** | **String** |  | [optional] |
+| **rich_text_crimes** | **String** |  | [optional] |
+| **rich_text_customers** | **String** |  | [optional] |
+| **rich_text_exploitation** | **String** |  | [optional] |
+| **rich_text_marketing** | **String** |  | [optional] |
+| **rich_text_monetization** | **String** |  | [optional] |
+| **rich_text_services_offered** | **String** |  | [optional] |
+| **rich_text_services_used** | **String** |  | [optional] |
+| **rich_text_technical_tradecraft** | **String** |  | [optional] |
+| **rich_text_victims** | **String** |  | [optional] |
+| **services_offered** | **String** |  | [optional] |
+| **services_used** | **String** |  | [optional] |
+| **technical_tradecraft** | **String** |  | [optional] |
+| **victims** | **String** |  | [optional] |
 
 ## Example
 

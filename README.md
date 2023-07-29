@@ -227,22 +227,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::ConfigurationAssessmentApi`
-
-- **Operation**: [**get_combined_assessments_query**](docs/ConfigurationAssessmentApi.md#get_combined_assessments_query)
-- **GET**: /configuration-assessment/combined/assessments/v1
-- **Description**: Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria
-
----
-
-**Class**: `Falcon::ConfigurationAssessmentEvaluationLogicApi`
-
-- **Operation**: [**get_evaluation_logic_mixin0**](docs/ConfigurationAssessmentEvaluationLogicApi.md#get_evaluation_logic_mixin0)
-- **GET**: /configuration-assessment/entities/evaluation-logic/v1
-- **Description**: Get details on evaluation logic items by providing one or more finding IDs.
-
----
-
 **Class**: `Falcon::CspmRegistrationApi`
 
 - **Operation**: [**azure_download_certificate**](docs/CspmRegistrationApi.md#azure_download_certificate)
@@ -501,7 +485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoaApi`
 
-- **Operation**: [**get_rules_mixin0**](docs/CustomIoaApi.md#get_rules_mixin0)
+- **Operation**: [**get_rules_mixin0_mixin65**](docs/CustomIoaApi.md#get_rules_mixin0_mixin65)
 - **GET**: /ioarules/entities/rules/v1
 - **Description**: Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size.
 
@@ -549,7 +533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoaApi`
 
-- **Operation**: [**query_rules_mixin0**](docs/CustomIoaApi.md#query_rules_mixin0)
+- **Operation**: [**query_rules_mixin0_mixin65**](docs/CustomIoaApi.md#query_rules_mixin0_mixin65)
 - **GET**: /ioarules/queries/rules/v1
 - **Description**: Finds all rule IDs matching the query with optional filter.
 
@@ -877,6 +861,38 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DiscoverApi`
 
+- **Operation**: [**query_active_discovery_networks**](docs/DiscoverApi.md#query_active_discovery_networks)
+- **GET**: /discover/queries/active-discovery-networks/v1
+- **Description**: Search for active discovery networks in your environment by providing an FQL filter and paging details. returns a set of network IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::DiscoverApi`
+
+- **Operation**: [**query_active_discovery_rules**](docs/DiscoverApi.md#query_active_discovery_rules)
+- **GET**: /discover/queries/active-discovery-rules/v1
+- **Description**: Search for active discovery rules in your environment by providing an FQL filter and paging details. returns a set of rule IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::DiscoverApi`
+
+- **Operation**: [**query_active_discovery_scanners**](docs/DiscoverApi.md#query_active_discovery_scanners)
+- **GET**: /discover/queries/active-discovery-scanners/v1
+- **Description**: Search for active discovery scanners in your environment by providing an FQL filter and paging details. returns a set of scanner IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::DiscoverApi`
+
+- **Operation**: [**query_active_discovery_scans**](docs/DiscoverApi.md#query_active_discovery_scans)
+- **GET**: /discover/queries/active-discovery-scans/v1
+- **Description**: Search for active discovery scans in your environment by providing an FQL filter and paging details. returns a set of scan IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::DiscoverApi`
+
 - **Operation**: [**query_applications**](docs/DiscoverApi.md#query_applications)
 - **GET**: /discover/queries/applications/v1
 - **Description**: Search for applications in your environment by providing an FQL filter and paging details. returns a set of application IDs which match the filter criteria.
@@ -1096,14 +1112,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**delete_registry_entities**](docs/FalconContainerImageApi.md#delete_registry_entities)
 - **DELETE**: /container-security/entities/registries/v1
 - **Description**: Delete the registry entity identified by the entity UUID
-
----
-
-**Class**: `Falcon::FalconContainerImageApi`
-
-- **Operation**: [**get_combined_images**](docs/FalconContainerImageApi.md#get_combined_images)
-- **GET**: /container-security/combined/image-assessment/images/v1
-- **Description**: Get image assessment results by providing an FQL filter and paging details
 
 ---
 
@@ -1795,30 +1803,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::IdentityEntitiesApi`
-
-- **Operation**: [**get_sensor_aggregates**](docs/IdentityEntitiesApi.md#get_sensor_aggregates)
-- **POST**: /identity-protection/aggregates/devices/GET/v1
-- **Description**: Get sensor aggregates as specified via json in request body.
-
----
-
-**Class**: `Falcon::IdentityEntitiesApi`
-
-- **Operation**: [**get_sensor_details**](docs/IdentityEntitiesApi.md#get_sensor_details)
-- **POST**: /identity-protection/entities/devices/GET/v1
-- **Description**: Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs.
-
----
-
-**Class**: `Falcon::IdentityEntitiesApi`
-
-- **Operation**: [**query_sensors_by_filter**](docs/IdentityEntitiesApi.md#query_sensors_by_filter)
-- **GET**: /identity-protection/queries/devices/v1
-- **Description**: Search for sensors in your environment by hostname, IP, and other criteria.
-
----
-
 **Class**: `Falcon::IdentityProtectionApi`
 
 - **Operation**: [**api_preempt_proxy_post_graphql**](docs/IdentityProtectionApi.md#api_preempt_proxy_post_graphql)
@@ -2087,7 +2071,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**query_mitre_attacks**](docs/IntelApi.md#query_mitre_attacks)
 - **GET**: /intel/queries/mitre/v1
-- **Description**: Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
+- **Description**: Gets MITRE tactics and techniques for the given actor
 
 ---
 
@@ -2096,14 +2080,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**query_vulnerabilities**](docs/IntelApi.md#query_vulnerabilities)
 - **GET**: /intel/queries/vulnerabilities/v1
 - **Description**: Get vulnerabilities IDs
-
----
-
-**Class**: `Falcon::InventoriesApi`
-
-- **Operation**: [**create_inventory**](docs/InventoriesApi.md#create_inventory)
-- **POST**: /snapshots/entities/inventories/v1
-- **Description**: Create inventory from data received from snapshot
 
 ---
 
@@ -2671,15 +2647,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**delete_cid_group_members**](docs/MsspApi.md#delete_cid_group_members)
 - **DELETE**: /mssp/entities/cid-group-members/v1
-- **Description**: Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
-
----
-
-**Class**: `Falcon::MsspApi`
-
-- **Operation**: [**delete_cid_group_members_v2**](docs/MsspApi.md#delete_cid_group_members_v2)
-- **DELETE**: /mssp/entities/cid-group-members/v2
-- **Description**: Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+- **Description**: Delete CID group members.
 
 ---
 
@@ -3123,11 +3091,11 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::ProvisionApi`
+**Class**: `Falcon::PublicAssessmentsApi`
 
-- **Operation**: [**get_credentials_mixin0**](docs/ProvisionApi.md#get_credentials_mixin0)
-- **GET**: /snapshots/entities/image-registry-credentials/v1
-- **Description**: Gets the registry credentials
+- **Operation**: [**get_combined_assessments_query**](docs/PublicAssessmentsApi.md#get_combined_assessments_query)
+- **GET**: /configuration-assessment/combined/assessments/v1
+- **Description**: Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria
 
 ---
 
@@ -4163,6 +4131,62 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**combined_query_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#combined_query_evaluation_logic)
+- **GET**: /spotlight/combined/evaluation-logic/v1
+- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
+
+---
+
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**get_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#get_evaluation_logic)
+- **GET**: /spotlight/entities/evaluation-logic/v1
+- **Description**: Get details on evaluation logic items by providing one or more IDs.
+
+---
+
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**query_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#query_evaluation_logic)
+- **GET**: /spotlight/queries/evaluation-logic/v1
+- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**combined_query_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#combined_query_vulnerabilities)
+- **GET**: /spotlight/combined/vulnerabilities/v1
+- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**get_remediations_v2**](docs/SpotlightVulnerabilitiesApi.md#get_remediations_v2)
+- **GET**: /spotlight/entities/remediations/v2
+- **Description**: Get details on remediation by providing one or more IDs
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**get_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#get_vulnerabilities)
+- **GET**: /spotlight/entities/vulnerabilities/v2
+- **Description**: Get details on vulnerabilities by providing one or more IDs
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#query_vulnerabilities)
+- **GET**: /spotlight/queries/vulnerabilities/v1
+- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
+
+---
+
 **Class**: `Falcon::TailoredIntelligenceApi`
 
 - **Operation**: [**get_events_body**](docs/TailoredIntelligenceApi.md#get_events_body)
@@ -4376,62 +4400,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**user_roles_action_v1**](docs/UserManagementApi.md#user_roles_action_v1)
 - **POST**: /user-management/entities/user-role-actions/v1
 - **Description**: Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**combined_query_vulnerabilities**](docs/VulnerabilitiesApi.md#combined_query_vulnerabilities)
-- **GET**: /spotlight/combined/vulnerabilities/v1
-- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**get_remediations_v2**](docs/VulnerabilitiesApi.md#get_remediations_v2)
-- **GET**: /spotlight/entities/remediations/v2
-- **Description**: Get details on remediation by providing one or more IDs
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**get_vulnerabilities**](docs/VulnerabilitiesApi.md#get_vulnerabilities)
-- **GET**: /spotlight/entities/vulnerabilities/v2
-- **Description**: Get details on vulnerabilities by providing one or more IDs
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**query_vulnerabilities**](docs/VulnerabilitiesApi.md#query_vulnerabilities)
-- **GET**: /spotlight/queries/vulnerabilities/v1
-- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
-
----
-
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
-
-- **Operation**: [**combined_query_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#combined_query_evaluation_logic)
-- **GET**: /spotlight/combined/evaluation-logic/v1
-- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
-
----
-
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
-
-- **Operation**: [**get_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#get_evaluation_logic)
-- **GET**: /spotlight/entities/evaluation-logic/v1
-- **Description**: Get details on evaluation logic items by providing one or more IDs.
-
----
-
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
-
-- **Operation**: [**query_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#query_evaluation_logic)
-- **GET**: /spotlight/queries/evaluation-logic/v1
-- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
 
 ---
 

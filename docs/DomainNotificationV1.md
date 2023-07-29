@@ -19,7 +19,6 @@
 | **item_site** | **String** | The site where the intelligence item was found | [optional] |
 | **item_site_id** | **String** | The ID of the site where the intelligence item was found | [optional] |
 | **item_type** | **String** | Type of the item which matched the rule: &#x60;post&#x60;, &#x60;reply&#x60;, &#x60;botnet_config&#x60;, &#x60;breach&#x60;, etc. |  |
-| **logs** | [**Array&lt;SadomainNotificationLog&gt;**](SadomainNotificationLog.md) |  | [optional] |
 | **raw_intel_id** | **String** | ID of the raw intel item that matched the rule |  |
 | **rule_id** | **String** | The ID of the rule that generated this notification |  |
 | **rule_name** | **String** | The name of the rule that generated this notification |  |
@@ -51,7 +50,6 @@ instance = Falcon::DomainNotificationV1.new(
   item_site: null,
   item_site_id: null,
   item_type: null,
-  logs: null,
   raw_intel_id: null,
   rule_id: null,
   rule_name: null,

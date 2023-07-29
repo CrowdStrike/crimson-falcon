@@ -51,9 +51,6 @@ module Falcon
 
     attr_accessor :serial_number
 
-    # true indicates using blob syntax USB serial numbers
-    attr_accessor :use_wildcard
-
     # Hexadecimal VendorID used to apply the exception
     attr_accessor :vendor_id
 
@@ -75,7 +72,6 @@ module Falcon
         :'product_id_decimal' => :'product_id_decimal',
         :'product_name' => :'product_name',
         :'serial_number' => :'serial_number',
-        :'use_wildcard' => :'use_wildcard',
         :'vendor_id' => :'vendor_id',
         :'vendor_id_decimal' => :'vendor_id_decimal',
         :'vendor_name' => :'vendor_name'
@@ -99,7 +95,6 @@ module Falcon
         :'product_id_decimal' => :'String',
         :'product_name' => :'String',
         :'serial_number' => :'String',
-        :'use_wildcard' => :'Boolean',
         :'vendor_id' => :'String',
         :'vendor_id_decimal' => :'String',
         :'vendor_name' => :'String'
@@ -163,10 +158,6 @@ module Falcon
         self.serial_number = attributes[:'serial_number']
       end
 
-      if attributes.key?(:'use_wildcard')
-        self.use_wildcard = attributes[:'use_wildcard']
-      end
-
       if attributes.key?(:'vendor_id')
         self.vendor_id = attributes[:'vendor_id']
       end
@@ -207,7 +198,6 @@ module Falcon
           product_id_decimal == o.product_id_decimal &&
           product_name == o.product_name &&
           serial_number == o.serial_number &&
-          use_wildcard == o.use_wildcard &&
           vendor_id == o.vendor_id &&
           vendor_id_decimal == o.vendor_id_decimal &&
           vendor_name == o.vendor_name
@@ -222,7 +212,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, combined_id, description, expiration_time, id, product_id, product_id_decimal, product_name, serial_number, use_wildcard, vendor_id, vendor_id_decimal, vendor_name].hash
+      [action, combined_id, description, expiration_time, id, product_id, product_id_decimal, product_name, serial_number, vendor_id, vendor_id_decimal, vendor_name].hash
     end
 
     # Builds the object from hash

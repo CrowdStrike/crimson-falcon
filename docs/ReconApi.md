@@ -1752,7 +1752,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ReconApi.new
-body = [Falcon::DomainUpdateNotificationRequestV1.new({assigned_to_uuid: 'assigned_to_uuid_example', id: 'id_example', idp_send_status: 'idp_send_status_example', message: 'message_example', status: 'status_example'})] # Array<DomainUpdateNotificationRequestV1> | 
+body = [Falcon::DomainUpdateNotificationRequestV1.new({assigned_to_uuid: 'assigned_to_uuid_example', id: 'id_example', status: 'status_example'})] # Array<DomainUpdateNotificationRequestV1> | 
 
 begin
   # Update notification status or assignee. Accepts bulk requests

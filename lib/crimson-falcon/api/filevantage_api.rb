@@ -38,7 +38,7 @@ module Falcon
     end
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
+    # @param ids [Array<String>] Comma separated values of change ids
     # @param [Hash] opts the optional parameters
     # @return [PublicGetChangesResponse]
     def get_changes(ids, opts = {})
@@ -48,7 +48,7 @@ module Falcon
 
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
+    # @param ids [Array<String>] Comma separated values of change ids
     # @param [Hash] opts the optional parameters
     # @return [Array<(PublicGetChangesResponse, Integer, Hash)>] PublicGetChangesResponse data, response status code and response headers
     def get_changes_with_http_info(ids, opts = {})

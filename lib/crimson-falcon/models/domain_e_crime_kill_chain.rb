@@ -32,64 +32,44 @@ require 'time'
 
 module Falcon
   class DomainECrimeKillChain
-    # Free form text describing attribution of the ecrime actor
     attr_accessor :attribution
 
-    # Free form text describing actor's crimes
     attr_accessor :crimes
 
-    # Free form text describing ecrime actor's customers and affiliates
     attr_accessor :customers
 
-    # Comma separated values of vulnerabilities by CVE codes that are exploited by actor
     attr_accessor :exploitation
 
-    # Free form text describing ecrime actor's marketing campaigns and advertisement
     attr_accessor :marketing
 
-    # Legacy field, not used and empty
     attr_accessor :monetization
 
-    # Rich text version of the attribution field
     attr_accessor :rich_text_attribution
 
-    # Rich text version of the crimes field
     attr_accessor :rich_text_crimes
 
-    # Rich text version of the customers field
     attr_accessor :rich_text_customers
 
-    # Rich text version of the exploitation field
     attr_accessor :rich_text_exploitation
 
-    # Rich text version of the marketing field
     attr_accessor :rich_text_marketing
 
-    # Legacy field, not used and empty
     attr_accessor :rich_text_monetization
 
-    # Rich text version of the services_offered field
     attr_accessor :rich_text_services_offered
 
-    # Rich text version of the services_used field
     attr_accessor :rich_text_services_used
 
-    # Rich text version of the technical_tradecraft field
     attr_accessor :rich_text_technical_tradecraft
 
-    # Rich text version of the victims field
     attr_accessor :rich_text_victims
 
-    # Free form text describing ecrime actor's services offered and monetized
     attr_accessor :services_offered
 
-    # Free form text describing ecrime actor's used services provided by other actors or groups
     attr_accessor :services_used
 
-    # Free form text describing methods and descriptions of techniques used by actor
     attr_accessor :technical_tradecraft
 
-    # Free form text describing victims or their characteristics of the ecrime actor
     attr_accessor :victims
 
     # Attribute mapping from ruby-style variable name to JSON key.

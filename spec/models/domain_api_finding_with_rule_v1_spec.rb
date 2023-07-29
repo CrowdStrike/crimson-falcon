@@ -42,12 +42,6 @@ describe Falcon::DomainAPIFindingWithRuleV1 do
       expect(instance).to be_instance_of(Falcon::DomainAPIFindingWithRuleV1)
     end
   end
-  describe 'test attribute "evaluation_logic_type"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "evaluation_reason"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

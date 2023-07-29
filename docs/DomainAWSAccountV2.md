@@ -9,7 +9,6 @@
 | **id** | **Integer** |  |  |
 | **updated_at** | **Time** |  |  |
 | **account_id** | **String** | 12 digit AWS provided unique identifier for the account. | [optional] |
-| **account_name** | **String** | AWS account name | [optional] |
 | **account_type** | **String** |  | [optional] |
 | **active_regions** | **Array&lt;String&gt;** |  | [optional] |
 | **aws_cloudtrail_bucket_name** | **String** | AWS CloudTrail bucket name to store logs. | [optional] |
@@ -18,13 +17,11 @@
 | **aws_permissions_status** | [**Array&lt;DomainPermission&gt;**](DomainPermission.md) | Permissions status returned via API. |  |
 | **behavior_assessment_enabled** | **Boolean** |  | [optional] |
 | **cid** | **String** |  | [optional] |
-| **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
 | **cloudformation_url** | **String** |  | [optional] |
 | **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
 | **cspm_enabled** | **Boolean** |  | [optional] |
 | **d4c** | [**DomainAWSD4CAccountV1**](DomainAWSD4CAccountV1.md) |  | [optional] |
 | **d4c_migrated** | **Boolean** |  | [optional] |
-| **environment** | **String** |  | [optional] |
 | **eventbus_name** | **String** |  | [optional] |
 | **external_id** | **String** | ID assigned for use with cross account IAM role access. | [optional] |
 | **iam_role_arn** | **String** | The full arn of the IAM role created in this account to control access. | [optional] |
@@ -55,7 +52,6 @@ instance = Falcon::DomainAWSAccountV2.new(
   id: null,
   updated_at: null,
   account_id: null,
-  account_name: null,
   account_type: null,
   active_regions: null,
   aws_cloudtrail_bucket_name: null,
@@ -64,13 +60,11 @@ instance = Falcon::DomainAWSAccountV2.new(
   aws_permissions_status: null,
   behavior_assessment_enabled: null,
   cid: null,
-  cloud_scopes: null,
   cloudformation_url: null,
   conditions: null,
   cspm_enabled: null,
   d4c: null,
   d4c_migrated: null,
-  environment: null,
   eventbus_name: null,
   external_id: null,
   iam_role_arn: null,

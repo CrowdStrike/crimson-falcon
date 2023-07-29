@@ -29,7 +29,6 @@
 | **device_slots** | [**Array&lt;DomainDiscoverAPIDeviceSlot&gt;**](DomainDiscoverAPIDeviceSlot.md) | The slots of IoT Asset | [optional] |
 | **device_type** | **String** | The Device Type of IoT Asset | [optional] |
 | **discoverer_count** | **Integer** | The number of sources that discovered the asset. | [optional] |
-| **discoverer_ics_collector_ids** | **Array&lt;String&gt;** | A list of agent IDs of the Falcon sensors installed on the source hosts that discovered the asset via ICS Asset discovery mechanism | [optional] |
 | **discoverer_product_type_descs** | **Array&lt;String&gt;** | The product type descriptions of the sources that discovered the asset. | [optional] |
 | **disk_sizes** | [**Array&lt;DomainDiscoverAPIDiskSize&gt;**](DomainDiscoverAPIDiskSize.md) | The names and sizes of the disks on the asset | [optional] |
 | **encrypted_drives** | **Array&lt;String&gt;** | The list of encrypted drives on the asset | [optional] |
@@ -124,7 +123,6 @@ instance = Falcon::DomainDiscoverAPIIoTHost.new(
   device_slots: null,
   device_type: null,
   discoverer_count: null,
-  discoverer_ics_collector_ids: null,
   discoverer_product_type_descs: null,
   disk_sizes: null,
   encrypted_drives: null,

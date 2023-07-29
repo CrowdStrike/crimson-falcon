@@ -14,8 +14,6 @@
 | **exposure_date** | **Time** | The date when the data was leaked online | [optional] |
 | **fields** | **Array&lt;String&gt;** | The set of fields which were breached: &#39;email&#39;, &#39;password&#39;, &#39;login_id&#39;, &#39;phone&#39;, etc. |  |
 | **files** | [**Array&lt;DomainFileDetailsV1&gt;**](DomainFileDetailsV1.md) | Metadata regarding the file(s) where exposed data records where found. | [optional] |
-| **idp_send_date** | **Time** |  | [optional] |
-| **idp_send_status** | **String** |  | [optional] |
 | **name** | **String** | The name of the breach |  |
 | **obtained_by** | **String** | Exposed Data Event Threat Actor/Group: Moniker(s) or real name(s) of the individual/group who unveiled confidential data. | [optional] |
 | **url** | **String** | Where the leak was found. | [optional] |
@@ -36,8 +34,6 @@ instance = Falcon::DomainMatchedBreachSummaryV1.new(
   exposure_date: null,
   fields: null,
   files: null,
-  idp_send_date: null,
-  idp_send_status: null,
   name: null,
   obtained_by: null,
   url: null

@@ -42,14 +42,10 @@ module Falcon
 
     attr_accessor :cid
 
-    attr_accessor :cloud_scopes
-
     attr_accessor :cspm_enabled
 
     # GCP Display Name
     attr_accessor :display_name
-
-    attr_accessor :environment
 
     # GCP folder ID
     attr_accessor :folder_id
@@ -95,10 +91,8 @@ module Falcon
         :'id' => :'ID',
         :'updated_at' => :'UpdatedAt',
         :'cid' => :'cid',
-        :'cloud_scopes' => :'cloud_scopes',
         :'cspm_enabled' => :'cspm_enabled',
         :'display_name' => :'display_name',
-        :'environment' => :'environment',
         :'folder_id' => :'folder_id',
         :'folder_name' => :'folder_name',
         :'gcp_permissions_status' => :'gcp_permissions_status',
@@ -128,10 +122,8 @@ module Falcon
         :'id' => :'Integer',
         :'updated_at' => :'Time',
         :'cid' => :'String',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'cspm_enabled' => :'Boolean',
         :'display_name' => :'String',
-        :'environment' => :'String',
         :'folder_id' => :'String',
         :'folder_name' => :'String',
         :'gcp_permissions_status' => :'Array<DomainPermission>',
@@ -189,22 +181,12 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'cloud_scopes')
-        if (value = attributes[:'cloud_scopes']).is_a?(Array)
-          self.cloud_scopes = value
-        end
-      end
-
       if attributes.key?(:'cspm_enabled')
         self.cspm_enabled = attributes[:'cspm_enabled']
       end
 
       if attributes.key?(:'display_name')
         self.display_name = attributes[:'display_name']
-      end
-
-      if attributes.key?(:'environment')
-        self.environment = attributes[:'environment']
       end
 
       if attributes.key?(:'folder_id')
@@ -325,10 +307,8 @@ module Falcon
           id == o.id &&
           updated_at == o.updated_at &&
           cid == o.cid &&
-          cloud_scopes == o.cloud_scopes &&
           cspm_enabled == o.cspm_enabled &&
           display_name == o.display_name &&
-          environment == o.environment &&
           folder_id == o.folder_id &&
           folder_name == o.folder_name &&
           gcp_permissions_status == o.gcp_permissions_status &&
@@ -353,7 +333,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_id, service_account_private_key_id, status].hash
+      [created_at, deleted_at, id, updated_at, cid, cspm_enabled, display_name, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_id, service_account_private_key_id, status].hash
     end
 
     # Builds the object from hash

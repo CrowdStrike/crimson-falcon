@@ -32,7 +32,6 @@ require 'time'
 
 module Falcon
   class DomainAPIRemediationIDs
-    # Refers to a remediation unique identifier that points to remediation details addressing this vulnerability
     attr_accessor :ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

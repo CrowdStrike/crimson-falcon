@@ -34,27 +34,13 @@ module Falcon
   class FalconxSandboxReportV1
     attr_accessor :architecture
 
-    attr_accessor :certificates
-
-    attr_accessor :certificates_validation_message
-
     attr_accessor :classification
 
     attr_accessor :classification_tags
 
     attr_accessor :contacted_hosts
 
-    attr_accessor :dll_characteristics
-
     attr_accessor :dns_requests
-
-    attr_accessor :entrypoint
-
-    attr_accessor :entrypoint_preview_count
-
-    attr_accessor :entrypoint_preview_instructions
-
-    attr_accessor :entrypoint_section
 
     attr_accessor :environment_description
 
@@ -72,15 +58,9 @@ module Falcon
 
     attr_accessor :extracted_interesting_strings
 
-    attr_accessor :file_data_directories
-
     attr_accessor :file_imports
 
     attr_accessor :file_metadata
-
-    attr_accessor :file_resources
-
-    attr_accessor :file_sections
 
     attr_accessor :file_size
 
@@ -90,12 +70,6 @@ module Falcon
 
     attr_accessor :http_requests
 
-    attr_accessor :icon
-
-    attr_accessor :image_base
-
-    attr_accessor :image_file_characteristics
-
     attr_accessor :incidents
 
     attr_accessor :intelligence_mitre_attacks
@@ -104,12 +78,6 @@ module Falcon
 
     attr_accessor :ioc_report_strict_artifact_id
 
-    attr_accessor :is_certificates_valid
-
-    attr_accessor :language
-
-    attr_accessor :major_os_version
-
     attr_accessor :memory_dumps
 
     attr_accessor :memory_dumps_artifact_id
@@ -117,8 +85,6 @@ module Falcon
     attr_accessor :memory_forensics
 
     attr_accessor :memory_strings_artifact_id
-
-    attr_accessor :minor_os_version
 
     attr_accessor :mitre_attacks
 
@@ -144,8 +110,6 @@ module Falcon
 
     attr_accessor :submit_url
 
-    attr_accessor :subsystem
-
     attr_accessor :suricata_alerts
 
     attr_accessor :target_url
@@ -157,8 +121,6 @@ module Falcon
     attr_accessor :verdict
 
     attr_accessor :version_info
-
-    attr_accessor :visualization
 
     attr_accessor :windows_version_bitness
 
@@ -174,17 +136,10 @@ module Falcon
     def self.attribute_map
       {
         :'architecture' => :'architecture',
-        :'certificates' => :'certificates',
-        :'certificates_validation_message' => :'certificates_validation_message',
         :'classification' => :'classification',
         :'classification_tags' => :'classification_tags',
         :'contacted_hosts' => :'contacted_hosts',
-        :'dll_characteristics' => :'dll_characteristics',
         :'dns_requests' => :'dns_requests',
-        :'entrypoint' => :'entrypoint',
-        :'entrypoint_preview_count' => :'entrypoint_preview_count',
-        :'entrypoint_preview_instructions' => :'entrypoint_preview_instructions',
-        :'entrypoint_section' => :'entrypoint_section',
         :'environment_description' => :'environment_description',
         :'environment_id' => :'environment_id',
         :'error_message' => :'error_message',
@@ -193,30 +148,20 @@ module Falcon
         :'exact_deep_hash' => :'exact_deep_hash',
         :'extracted_files' => :'extracted_files',
         :'extracted_interesting_strings' => :'extracted_interesting_strings',
-        :'file_data_directories' => :'file_data_directories',
         :'file_imports' => :'file_imports',
         :'file_metadata' => :'file_metadata',
-        :'file_resources' => :'file_resources',
-        :'file_sections' => :'file_sections',
         :'file_size' => :'file_size',
         :'file_type' => :'file_type',
         :'file_type_short' => :'file_type_short',
         :'http_requests' => :'http_requests',
-        :'icon' => :'icon',
-        :'image_base' => :'image_base',
-        :'image_file_characteristics' => :'image_file_characteristics',
         :'incidents' => :'incidents',
         :'intelligence_mitre_attacks' => :'intelligence_mitre_attacks',
         :'ioc_report_broad_artifact_id' => :'ioc_report_broad_artifact_id',
         :'ioc_report_strict_artifact_id' => :'ioc_report_strict_artifact_id',
-        :'is_certificates_valid' => :'is_certificates_valid',
-        :'language' => :'language',
-        :'major_os_version' => :'major_os_version',
         :'memory_dumps' => :'memory_dumps',
         :'memory_dumps_artifact_id' => :'memory_dumps_artifact_id',
         :'memory_forensics' => :'memory_forensics',
         :'memory_strings_artifact_id' => :'memory_strings_artifact_id',
-        :'minor_os_version' => :'minor_os_version',
         :'mitre_attacks' => :'mitre_attacks',
         :'network_settings' => :'network_settings',
         :'packer' => :'packer',
@@ -229,14 +174,12 @@ module Falcon
         :'submission_type' => :'submission_type',
         :'submit_name' => :'submit_name',
         :'submit_url' => :'submit_url',
-        :'subsystem' => :'subsystem',
         :'suricata_alerts' => :'suricata_alerts',
         :'target_url' => :'target_url',
         :'threat_score' => :'threat_score',
         :'urls' => :'urls',
         :'verdict' => :'verdict',
         :'version_info' => :'version_info',
-        :'visualization' => :'visualization',
         :'windows_version_bitness' => :'windows_version_bitness',
         :'windows_version_edition' => :'windows_version_edition',
         :'windows_version_name' => :'windows_version_name',
@@ -254,17 +197,10 @@ module Falcon
     def self.openapi_types
       {
         :'architecture' => :'String',
-        :'certificates' => :'Array<FalconxCertificate>',
-        :'certificates_validation_message' => :'String',
         :'classification' => :'Array<String>',
         :'classification_tags' => :'Array<String>',
         :'contacted_hosts' => :'Array<FalconxContactedHost>',
-        :'dll_characteristics' => :'Array<String>',
         :'dns_requests' => :'Array<FalconxDNSRequest>',
-        :'entrypoint' => :'String',
-        :'entrypoint_preview_count' => :'Integer',
-        :'entrypoint_preview_instructions' => :'Array<String>',
-        :'entrypoint_section' => :'String',
         :'environment_description' => :'String',
         :'environment_id' => :'Integer',
         :'error_message' => :'String',
@@ -273,30 +209,20 @@ module Falcon
         :'exact_deep_hash' => :'String',
         :'extracted_files' => :'Array<FalconxExtractedFile>',
         :'extracted_interesting_strings' => :'Array<FalconxExtractedInterestingString>',
-        :'file_data_directories' => :'Array<FalconxFileDataDirectory>',
         :'file_imports' => :'Array<FalconxFileImport>',
         :'file_metadata' => :'FalconxFileMetadata',
-        :'file_resources' => :'Array<FalconxFileResource>',
-        :'file_sections' => :'Array<FalconxFileSection>',
         :'file_size' => :'Integer',
         :'file_type' => :'String',
         :'file_type_short' => :'Array<String>',
         :'http_requests' => :'Array<FalconxHTTPRequest>',
-        :'icon' => :'String',
-        :'image_base' => :'String',
-        :'image_file_characteristics' => :'Array<String>',
         :'incidents' => :'Array<FalconxIncident>',
         :'intelligence_mitre_attacks' => :'Array<FalconxMITREAttack>',
         :'ioc_report_broad_artifact_id' => :'String',
         :'ioc_report_strict_artifact_id' => :'String',
-        :'is_certificates_valid' => :'Boolean',
-        :'language' => :'String',
-        :'major_os_version' => :'Integer',
         :'memory_dumps' => :'Array<FalconxMemoryDumpData>',
         :'memory_dumps_artifact_id' => :'String',
         :'memory_forensics' => :'Array<FalconxMemoryForensic>',
         :'memory_strings_artifact_id' => :'String',
-        :'minor_os_version' => :'Integer',
         :'mitre_attacks' => :'Array<FalconxMITREAttack>',
         :'network_settings' => :'String',
         :'packer' => :'String',
@@ -309,14 +235,12 @@ module Falcon
         :'submission_type' => :'String',
         :'submit_name' => :'String',
         :'submit_url' => :'String',
-        :'subsystem' => :'String',
         :'suricata_alerts' => :'Array<FalconxSuricataAlert>',
         :'target_url' => :'String',
         :'threat_score' => :'Integer',
         :'urls' => :'Array<FalconxUrlData>',
         :'verdict' => :'String',
         :'version_info' => :'Array<FalconxVersionInfo>',
-        :'visualization' => :'String',
         :'windows_version_bitness' => :'Integer',
         :'windows_version_edition' => :'String',
         :'windows_version_name' => :'String',
@@ -350,16 +274,6 @@ module Falcon
         self.architecture = attributes[:'architecture']
       end
 
-      if attributes.key?(:'certificates')
-        if (value = attributes[:'certificates']).is_a?(Array)
-          self.certificates = value
-        end
-      end
-
-      if attributes.key?(:'certificates_validation_message')
-        self.certificates_validation_message = attributes[:'certificates_validation_message']
-      end
-
       if attributes.key?(:'classification')
         if (value = attributes[:'classification']).is_a?(Array)
           self.classification = value
@@ -378,34 +292,10 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'dll_characteristics')
-        if (value = attributes[:'dll_characteristics']).is_a?(Array)
-          self.dll_characteristics = value
-        end
-      end
-
       if attributes.key?(:'dns_requests')
         if (value = attributes[:'dns_requests']).is_a?(Array)
           self.dns_requests = value
         end
-      end
-
-      if attributes.key?(:'entrypoint')
-        self.entrypoint = attributes[:'entrypoint']
-      end
-
-      if attributes.key?(:'entrypoint_preview_count')
-        self.entrypoint_preview_count = attributes[:'entrypoint_preview_count']
-      end
-
-      if attributes.key?(:'entrypoint_preview_instructions')
-        if (value = attributes[:'entrypoint_preview_instructions']).is_a?(Array)
-          self.entrypoint_preview_instructions = value
-        end
-      end
-
-      if attributes.key?(:'entrypoint_section')
-        self.entrypoint_section = attributes[:'entrypoint_section']
       end
 
       if attributes.key?(:'environment_description')
@@ -444,12 +334,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'file_data_directories')
-        if (value = attributes[:'file_data_directories']).is_a?(Array)
-          self.file_data_directories = value
-        end
-      end
-
       if attributes.key?(:'file_imports')
         if (value = attributes[:'file_imports']).is_a?(Array)
           self.file_imports = value
@@ -458,18 +342,6 @@ module Falcon
 
       if attributes.key?(:'file_metadata')
         self.file_metadata = attributes[:'file_metadata']
-      end
-
-      if attributes.key?(:'file_resources')
-        if (value = attributes[:'file_resources']).is_a?(Array)
-          self.file_resources = value
-        end
-      end
-
-      if attributes.key?(:'file_sections')
-        if (value = attributes[:'file_sections']).is_a?(Array)
-          self.file_sections = value
-        end
       end
 
       if attributes.key?(:'file_size')
@@ -489,20 +361,6 @@ module Falcon
       if attributes.key?(:'http_requests')
         if (value = attributes[:'http_requests']).is_a?(Array)
           self.http_requests = value
-        end
-      end
-
-      if attributes.key?(:'icon')
-        self.icon = attributes[:'icon']
-      end
-
-      if attributes.key?(:'image_base')
-        self.image_base = attributes[:'image_base']
-      end
-
-      if attributes.key?(:'image_file_characteristics')
-        if (value = attributes[:'image_file_characteristics']).is_a?(Array)
-          self.image_file_characteristics = value
         end
       end
 
@@ -526,18 +384,6 @@ module Falcon
         self.ioc_report_strict_artifact_id = attributes[:'ioc_report_strict_artifact_id']
       end
 
-      if attributes.key?(:'is_certificates_valid')
-        self.is_certificates_valid = attributes[:'is_certificates_valid']
-      end
-
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
-      end
-
-      if attributes.key?(:'major_os_version')
-        self.major_os_version = attributes[:'major_os_version']
-      end
-
       if attributes.key?(:'memory_dumps')
         if (value = attributes[:'memory_dumps']).is_a?(Array)
           self.memory_dumps = value
@@ -556,10 +402,6 @@ module Falcon
 
       if attributes.key?(:'memory_strings_artifact_id')
         self.memory_strings_artifact_id = attributes[:'memory_strings_artifact_id']
-      end
-
-      if attributes.key?(:'minor_os_version')
-        self.minor_os_version = attributes[:'minor_os_version']
       end
 
       if attributes.key?(:'mitre_attacks')
@@ -620,10 +462,6 @@ module Falcon
         self.submit_url = attributes[:'submit_url']
       end
 
-      if attributes.key?(:'subsystem')
-        self.subsystem = attributes[:'subsystem']
-      end
-
       if attributes.key?(:'suricata_alerts')
         if (value = attributes[:'suricata_alerts']).is_a?(Array)
           self.suricata_alerts = value
@@ -654,10 +492,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'visualization')
-        self.visualization = attributes[:'visualization']
-      end
-
       if attributes.key?(:'windows_version_bitness')
         self.windows_version_bitness = attributes[:'windows_version_bitness']
       end
@@ -683,17 +517,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @is_certificates_valid.nil?
-        invalid_properties.push('invalid value for "is_certificates_valid", is_certificates_valid cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @is_certificates_valid.nil?
       true
     end
 
@@ -703,17 +532,10 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           architecture == o.architecture &&
-          certificates == o.certificates &&
-          certificates_validation_message == o.certificates_validation_message &&
           classification == o.classification &&
           classification_tags == o.classification_tags &&
           contacted_hosts == o.contacted_hosts &&
-          dll_characteristics == o.dll_characteristics &&
           dns_requests == o.dns_requests &&
-          entrypoint == o.entrypoint &&
-          entrypoint_preview_count == o.entrypoint_preview_count &&
-          entrypoint_preview_instructions == o.entrypoint_preview_instructions &&
-          entrypoint_section == o.entrypoint_section &&
           environment_description == o.environment_description &&
           environment_id == o.environment_id &&
           error_message == o.error_message &&
@@ -722,30 +544,20 @@ module Falcon
           exact_deep_hash == o.exact_deep_hash &&
           extracted_files == o.extracted_files &&
           extracted_interesting_strings == o.extracted_interesting_strings &&
-          file_data_directories == o.file_data_directories &&
           file_imports == o.file_imports &&
           file_metadata == o.file_metadata &&
-          file_resources == o.file_resources &&
-          file_sections == o.file_sections &&
           file_size == o.file_size &&
           file_type == o.file_type &&
           file_type_short == o.file_type_short &&
           http_requests == o.http_requests &&
-          icon == o.icon &&
-          image_base == o.image_base &&
-          image_file_characteristics == o.image_file_characteristics &&
           incidents == o.incidents &&
           intelligence_mitre_attacks == o.intelligence_mitre_attacks &&
           ioc_report_broad_artifact_id == o.ioc_report_broad_artifact_id &&
           ioc_report_strict_artifact_id == o.ioc_report_strict_artifact_id &&
-          is_certificates_valid == o.is_certificates_valid &&
-          language == o.language &&
-          major_os_version == o.major_os_version &&
           memory_dumps == o.memory_dumps &&
           memory_dumps_artifact_id == o.memory_dumps_artifact_id &&
           memory_forensics == o.memory_forensics &&
           memory_strings_artifact_id == o.memory_strings_artifact_id &&
-          minor_os_version == o.minor_os_version &&
           mitre_attacks == o.mitre_attacks &&
           network_settings == o.network_settings &&
           packer == o.packer &&
@@ -758,14 +570,12 @@ module Falcon
           submission_type == o.submission_type &&
           submit_name == o.submit_name &&
           submit_url == o.submit_url &&
-          subsystem == o.subsystem &&
           suricata_alerts == o.suricata_alerts &&
           target_url == o.target_url &&
           threat_score == o.threat_score &&
           urls == o.urls &&
           verdict == o.verdict &&
           version_info == o.version_info &&
-          visualization == o.visualization &&
           windows_version_bitness == o.windows_version_bitness &&
           windows_version_edition == o.windows_version_edition &&
           windows_version_name == o.windows_version_name &&
@@ -782,7 +592,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architecture, certificates, certificates_validation_message, classification, classification_tags, contacted_hosts, dll_characteristics, dns_requests, entrypoint, entrypoint_preview_count, entrypoint_preview_instructions, entrypoint_section, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_data_directories, file_imports, file_metadata, file_resources, file_sections, file_size, file_type, file_type_short, http_requests, icon, image_base, image_file_characteristics, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, is_certificates_valid, language, major_os_version, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, minor_os_version, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, subsystem, suricata_alerts, target_url, threat_score, urls, verdict, version_info, visualization, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
+      [architecture, classification, classification_tags, contacted_hosts, dns_requests, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_imports, file_metadata, file_size, file_type, file_type_short, http_requests, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, suricata_alerts, target_url, threat_score, urls, verdict, version_info, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
     end
 
     # Builds the object from hash

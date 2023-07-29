@@ -5,7 +5,6 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **aid** | **String** |  | [optional] |
-| **alert_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **behavior_id** | **String** |  | [optional] |
 | **cid** | **String** |  | [optional] |
 | **cmdline** | **String** |  | [optional] |
@@ -40,7 +39,6 @@ require 'crimson-falcon'
 
 instance = Falcon::DomainBehavior.new(
   aid: null,
-  alert_ids: null,
   behavior_id: null,
   cid: null,
   cmdline: null,

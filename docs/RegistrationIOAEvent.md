@@ -27,9 +27,9 @@
 | **read_only** | **Boolean** |  | [optional] |
 | **recipient_account_id** | **String** |  | [optional] |
 | **request_id** | **String** |  | [optional] |
-| **request_parameters** | **Object** |  | [optional] |
-| **resources** | **Array&lt;Object&gt;** |  | [optional] |
-| **response_elements** | **Object** |  | [optional] |
+| **request_parameters** | **String** |  | [optional] |
+| **resources** | **String** |  | [optional] |
+| **response_elements** | **String** |  | [optional] |
 | **service** | **String** |  |  |
 | **service_event_details** | **String** |  | [optional] |
 | **severity** | **String** |  |  |
@@ -38,7 +38,7 @@
 | **state** | **String** |  |  |
 | **user_agent** | **String** |  | [optional] |
 | **user_id** | **String** |  | [optional] |
-| **user_identity** | **Object** |  | [optional] |
+| **user_identity** | **String** |  | [optional] |
 | **vertex_id** | **String** |  |  |
 | **vertex_type** | **String** |  |  |
 | **vpc_endpoint_id** | **String** |  | [optional] |

@@ -32,7 +32,6 @@ require 'time'
 
 module Falcon
   class DomainActorsResponse
-    # Array of API Errors
     attr_accessor :errors
 
     attr_accessor :meta

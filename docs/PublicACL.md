@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **acl_permission_change** | [**Array&lt;PublicACLChange&gt;**](PublicACLChange.md) |  | [optional] |
+| **acl_permission_change** | [**Array&lt;PublicBasic&gt;**](PublicBasic.md) |  | [optional] |
 | **entity** | **String** |  | [optional] |
 | **entity_id** | **String** |  | [optional] |
 | **entity_name** | **String** |  | [optional] |

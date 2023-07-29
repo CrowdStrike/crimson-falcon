@@ -56,8 +56,6 @@ module Falcon
 
     attr_accessor :cis_benchmark_ids
 
-    attr_accessor :cisa_benchmark_ids
-
     attr_accessor :cli_command
 
     attr_accessor :cloud_asset_type
@@ -91,8 +89,6 @@ module Falcon
     attr_accessor :is_enabled
 
     attr_accessor :is_remediable
-
-    attr_accessor :iso_benchmark_ids
 
     attr_accessor :mitre_attack_cloud_matrix
 
@@ -149,7 +145,6 @@ module Falcon
         :'attack_tool_command' => :'attack_tool_command',
         :'attack_types' => :'attack_types',
         :'cis_benchmark_ids' => :'cis_benchmark_ids',
-        :'cisa_benchmark_ids' => :'cisa_benchmark_ids',
         :'cli_command' => :'cli_command',
         :'cloud_asset_type' => :'cloud_asset_type',
         :'cloud_document' => :'cloud_document',
@@ -167,7 +162,6 @@ module Falcon
         :'internal_only' => :'internal_only',
         :'is_enabled' => :'is_enabled',
         :'is_remediable' => :'is_remediable',
-        :'iso_benchmark_ids' => :'iso_benchmark_ids',
         :'mitre_attack_cloud_matrix' => :'mitre_attack_cloud_matrix',
         :'mitre_attack_cloud_subtype' => :'mitre_attack_cloud_subtype',
         :'nist_benchmark_ids' => :'nist_benchmark_ids',
@@ -211,7 +205,6 @@ module Falcon
         :'attack_tool_command' => :'String',
         :'attack_types' => :'Array<String>',
         :'cis_benchmark_ids' => :'Array<Integer>',
-        :'cisa_benchmark_ids' => :'Array<Integer>',
         :'cli_command' => :'String',
         :'cloud_asset_type' => :'String',
         :'cloud_document' => :'String',
@@ -229,7 +222,6 @@ module Falcon
         :'internal_only' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'is_remediable' => :'Boolean',
-        :'iso_benchmark_ids' => :'Array<Integer>',
         :'mitre_attack_cloud_matrix' => :'String',
         :'mitre_attack_cloud_subtype' => :'String',
         :'nist_benchmark_ids' => :'Array<Integer>',
@@ -326,12 +318,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'cisa_benchmark_ids')
-        if (value = attributes[:'cisa_benchmark_ids']).is_a?(Array)
-          self.cisa_benchmark_ids = value
-        end
-      end
-
       if attributes.key?(:'cli_command')
         self.cli_command = attributes[:'cli_command']
       end
@@ -398,12 +384,6 @@ module Falcon
 
       if attributes.key?(:'is_remediable')
         self.is_remediable = attributes[:'is_remediable']
-      end
-
-      if attributes.key?(:'iso_benchmark_ids')
-        if (value = attributes[:'iso_benchmark_ids']).is_a?(Array)
-          self.iso_benchmark_ids = value
-        end
       end
 
       if attributes.key?(:'mitre_attack_cloud_matrix')
@@ -558,7 +538,6 @@ module Falcon
           attack_tool_command == o.attack_tool_command &&
           attack_types == o.attack_types &&
           cis_benchmark_ids == o.cis_benchmark_ids &&
-          cisa_benchmark_ids == o.cisa_benchmark_ids &&
           cli_command == o.cli_command &&
           cloud_asset_type == o.cloud_asset_type &&
           cloud_document == o.cloud_document &&
@@ -576,7 +555,6 @@ module Falcon
           internal_only == o.internal_only &&
           is_enabled == o.is_enabled &&
           is_remediable == o.is_remediable &&
-          iso_benchmark_ids == o.iso_benchmark_ids &&
           mitre_attack_cloud_matrix == o.mitre_attack_cloud_matrix &&
           mitre_attack_cloud_subtype == o.mitre_attack_cloud_subtype &&
           nist_benchmark_ids == o.nist_benchmark_ids &&
@@ -608,7 +586,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_subtype, cloud_service_type, confidence, default_severity, description, event_type, fql_policy, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
+      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_subtype, cloud_service_type, confidence, default_severity, description, event_type, fql_policy, internal_only, is_enabled, is_remediable, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
     end
 
     # Builds the object from hash

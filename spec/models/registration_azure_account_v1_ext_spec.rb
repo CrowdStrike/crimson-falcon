@@ -90,12 +90,6 @@ describe Falcon::RegistrationAzureAccountV1Ext do
     end
   end
 
-  describe 'test attribute "cloud_scopes"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "conditions"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -115,12 +109,6 @@ describe Falcon::RegistrationAzureAccountV1Ext do
   end
 
   describe 'test attribute "default_subscription_id"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "environment"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -163,12 +151,6 @@ describe Falcon::RegistrationAzureAccountV1Ext do
   end
 
   describe 'test attribute "subscription_id"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "subscription_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

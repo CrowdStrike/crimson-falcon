@@ -66,12 +66,6 @@ describe Falcon::DomainCIDPolicyAssignments do
     end
   end
 
-  describe 'test attribute "cisa_benchmark"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "cloud_asset_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -127,12 +121,6 @@ describe Falcon::DomainCIDPolicyAssignments do
   end
 
   describe 'test attribute "is_remediable"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "iso_benchmark"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

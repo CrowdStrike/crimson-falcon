@@ -31,95 +31,69 @@ require 'date'
 require 'time'
 
 module Falcon
-  # JSON definition of an Actor, also known as Adversary
   class DomainActorDocument
-    # Boolean field marking if actor is active
     attr_accessor :active
 
-    # Actor type, one of: targeted, ecrime
     attr_accessor :actor_type
 
-    # actor's capabilities, some examples: RAT,Ransomware,Spearphishing,Downloader,Backdoor,InformationStealer,exploit,CredentialHarvesting,dropper,DenialOfService,Loader,Phishing
     attr_accessor :capabilities
 
     attr_accessor :capability
 
-    # Actor's document creation date when it was added to the Falcon portal in unix timestamp format
     attr_accessor :created_date
 
-    # Actor's text description, partially containing structured data from other fields
     attr_accessor :description
 
     attr_accessor :ecrime_kill_chain
 
-    # Field used to filter user's access to actor documents
     attr_accessor :entitlements
 
-    # Actor's first activity observed date in unix timestamp format
     attr_accessor :first_activity_date
 
     attr_accessor :group
 
-    # Numerical ID for the Actor
     attr_accessor :id
 
     attr_accessor :image
 
     attr_accessor :kill_chain
 
-    # Alternative names and community identifiers of an actor
     attr_accessor :known_as
 
-    # Actor's last (most recent) activity observed date in unix timestamp format
     attr_accessor :last_activity_date
 
-    # Actor's document last modified date in unix timestamp format
     attr_accessor :last_modified_date
 
-    # Actor's activity motivation, one of: State-Sponsored, Criminal, Hacktivism
     attr_accessor :motivations
 
-    # Actor's name, composed of 2 words
     attr_accessor :name
 
-    # internal field
     attr_accessor :notify_users
 
-    # Actor's activity objectives, one of: IntelligenceGathering, FinancialGain, IntellectualPropertyTheft, defacement, Destruction, DenialOfService
     attr_accessor :objectives
 
-    # represents origin of actor's activity and/or members, some examples: China,Russian Federation,Eastern Europe,Iran,East Asia, South Asia
     attr_accessor :origins
 
-    # Recent CrowdStrike's finished intelligence alerting date in unix timestamp format
     attr_accessor :recent_alerting
 
     attr_accessor :region
 
-    # Rich text version of the description field
     attr_accessor :rich_text_description
 
-    # Short version of the description field
     attr_accessor :short_description
 
-    # Name in url friendly format, lowercased and spaces replaced with dash
     attr_accessor :slug
 
-    # Status of an actor, one of: Active, Inactive, Retired
     attr_accessor :status
 
-    # Target countries of actor's activity and attacks, slug value is a 2 characters code for the country value, some examples: United States,United Kingdom,Germany,India,Japan,France,Australia,Canada,China
     attr_accessor :target_countries
 
-    # Target economical industries of actor's activity and attacks. List of available values: Government, Financial Services, Technology, Telecommunications, Healthcare, Energy, Academic, Media, Aerospace, NGO, Manufacturing, Industrials and Engineering, Retail, Hospitality, Consulting and Professional Services, Opportunistic, Aviation, Defense, Transportation, Oil and Gas, Legal, Pharmaceutical, Logistics, Military, Automotive, Food and Beverage, Consumer Goods, Real Estate, Insurance, Agriculture, Chemicals, Utilities, Maritime, Extractive, Travel, Dissident, Cryptocurrency, Entertainment, National Government, Law Enforcement, Think Tanks, Local Government, Sports Organizations, Computer Gaming, Biomedical, Nonprofit, Financial Management & Hedge Funds, Political Parties, Architectural and Engineering, Emergency Services, Social Media, International Government, Nuclear, Research Entities, Vocational and Higher-Level Education, eCommerce
     attr_accessor :target_industries
 
-    # Target geographic regions of actor's activity and attacks. List of available values: North America, Western Europe, Southeast Asia, Middle East, Eastern Europe, South Asia, South America, Oceania, East Asia, Central Africa, Northern Europe, Southern Europe, North Africa, Southern Africa, Central America, Central Asia, East Africa, West Africa, Caribbean
     attr_accessor :target_regions
 
     attr_accessor :thumbnail
 
-    # URL at which actor profile can be accessed
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -409,6 +383,10 @@ module Falcon
         invalid_properties.push('invalid value for "motivations", motivations cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
       if @notify_users.nil?
         invalid_properties.push('invalid value for "notify_users", notify_users cannot be nil.')
       end
@@ -423,6 +401,10 @@ module Falcon
 
       if @short_description.nil?
         invalid_properties.push('invalid value for "short_description", short_description cannot be nil.')
+      end
+
+      if @slug.nil?
+        invalid_properties.push('invalid value for "slug", slug cannot be nil.')
       end
 
       if @status.nil?
@@ -456,10 +438,12 @@ module Falcon
       return false if @last_activity_date.nil?
       return false if @last_modified_date.nil?
       return false if @motivations.nil?
+      return false if @name.nil?
       return false if @notify_users.nil?
       return false if @objectives.nil?
       return false if @origins.nil?
       return false if @short_description.nil?
+      return false if @slug.nil?
       return false if @status.nil?
       return false if @target_countries.nil?
       return false if @target_industries.nil?

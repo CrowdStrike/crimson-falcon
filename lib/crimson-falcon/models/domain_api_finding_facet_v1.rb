@@ -44,8 +44,6 @@ module Falcon
 
     attr_accessor :id
 
-    attr_accessor :logic
-
     attr_accessor :updated_timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -57,7 +55,6 @@ module Falcon
         :'finding' => :'finding',
         :'host' => :'host',
         :'id' => :'id',
-        :'logic' => :'logic',
         :'updated_timestamp' => :'updated_timestamp'
       }
     end
@@ -76,7 +73,6 @@ module Falcon
         :'finding' => :'DomainAPIFindingWithRuleV1',
         :'host' => :'DomainAPIHostInfoFacetV1',
         :'id' => :'String',
-        :'logic' => :'Array<DomainAPIEvaluationLogicItemV1>',
         :'updated_timestamp' => :'String'
       }
     end
@@ -124,12 +120,6 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'logic')
-        if (value = attributes[:'logic']).is_a?(Array)
-          self.logic = value
-        end
       end
 
       if attributes.key?(:'updated_timestamp')
@@ -191,7 +181,6 @@ module Falcon
           finding == o.finding &&
           host == o.host &&
           id == o.id &&
-          logic == o.logic &&
           updated_timestamp == o.updated_timestamp
     end
 
@@ -204,7 +193,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, finding, host, id, logic, updated_timestamp].hash
+      [aid, cid, created_timestamp, finding, host, id, updated_timestamp].hash
     end
 
     # Builds the object from hash

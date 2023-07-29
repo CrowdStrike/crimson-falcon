@@ -9,10 +9,8 @@
 | **id** | **Integer** |  |  |
 | **updated_at** | **Time** |  |  |
 | **cid** | **String** |  |  |
-| **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
 | **cspm_enabled** | **Boolean** |  |  |
 | **display_name** | **String** | GCP Display Name | [optional] |
-| **environment** | **String** |  | [optional] |
 | **folder_id** | **String** | GCP folder ID | [optional] |
 | **folder_name** | **String** | GCP folder Name | [optional] |
 | **gcp_permissions_status** | [**Array&lt;DomainPermission&gt;**](DomainPermission.md) | Permissions status returned via API. |  |
@@ -38,10 +36,8 @@ instance = Falcon::DomainGCPAccountV1.new(
   id: null,
   updated_at: null,
   cid: null,
-  cloud_scopes: null,
   cspm_enabled: null,
   display_name: null,
-  environment: null,
   folder_id: null,
   folder_name: null,
   gcp_permissions_status: null,

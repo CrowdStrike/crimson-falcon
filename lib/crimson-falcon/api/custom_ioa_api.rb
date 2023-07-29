@@ -623,8 +623,8 @@ module Falcon
     # @param ids [Array<String>] The IDs of the entities
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
-    def get_rules_mixin0(ids, opts = {})
-      data, _status_code, _headers = get_rules_mixin0_with_http_info(ids, opts)
+    def get_rules_mixin0_mixin65(ids, opts = {})
+      data, _status_code, _headers = get_rules_mixin0_mixin65_with_http_info(ids, opts)
       data
     end
 
@@ -632,13 +632,13 @@ module Falcon
     # @param ids [Array<String>] The IDs of the entities
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
-    def get_rules_mixin0_with_http_info(ids, opts = {})
+    def get_rules_mixin0_mixin65_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rules_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rules_mixin0_mixin65 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_rules_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_rules_mixin0_mixin65"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -665,7 +665,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_rules_mixin0",
+        :operation => :"CustomIoaApi.get_rules_mixin0_mixin65",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -676,7 +676,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoaApi#get_rules_mixin0_mixin65\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -805,7 +805,7 @@ module Falcon
 
     # Find all rule groups matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -818,7 +818,7 @@ module Falcon
 
     # Find all rule groups matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -879,7 +879,7 @@ module Falcon
 
     # Finds all rule group IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -892,7 +892,7 @@ module Falcon
 
     # Finds all rule group IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -1014,28 +1014,28 @@ module Falcon
 
     # Finds all rule IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled}
+    # @option opts [String] :sort Possible order by fields: {rules.enabled, rules.created_by, rules.current_version.modified_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.ruletype_name, rules.created_on, rules.current_version.name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
     # @option opts [Integer] :limit Number of IDs to return
     # @return [MsaQueryResponse]
-    def query_rules_mixin0(opts = {})
-      data, _status_code, _headers = query_rules_mixin0_with_http_info(opts)
+    def query_rules_mixin0_mixin65(opts = {})
+      data, _status_code, _headers = query_rules_mixin0_mixin65_with_http_info(opts)
       data
     end
 
     # Finds all rule IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled}
+    # @option opts [String] :sort Possible order by fields: {rules.enabled, rules.created_by, rules.current_version.modified_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.ruletype_name, rules.created_on, rules.current_version.name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
     # @option opts [Integer] :limit Number of IDs to return
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
-    def query_rules_mixin0_with_http_info(opts = {})
+    def query_rules_mixin0_mixin65_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rules_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rules_mixin0_mixin65 ...'
       end
       allowable_values = ["rules.created_by", "rules.created_on", "rules.current_version.action_label", "rules.current_version.description", "rules.current_version.modified_by", "rules.current_version.modified_on", "rules.current_version.name", "rules.current_version.pattern_severity", "rules.enabled", "rules.ruletype_name"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1070,7 +1070,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_rules_mixin0",
+        :operation => :"CustomIoaApi.query_rules_mixin0_mixin65",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1081,7 +1081,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoaApi#query_rules_mixin0_mixin65\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

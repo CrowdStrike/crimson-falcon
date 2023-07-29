@@ -580,8 +580,7 @@ opts = {
   filter: 'filter_example', # String | use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string 
   sort: 'sort_example', # String | account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp
   limit: 56, # Integer | The max number of detections to return
-  offset: 56, # Integer | Offset returned detections. Cannot be combined with next_token filter
-  next_token: 'next_token_example' # String | String to get next page of results. Cannot be combined with any filter except limit.
+  offset: 56 # Integer | Offset returned detections
 }
 
 begin
@@ -618,8 +617,7 @@ end
 | **filter** | **String** | use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string  | [optional] |
 | **sort** | **String** | account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp | [optional][default to &#39;timestamp|desc&#39;] |
 | **limit** | **Integer** | The max number of detections to return | [optional][default to 500] |
-| **offset** | **Integer** | Offset returned detections. Cannot be combined with next_token filter | [optional] |
-| **next_token** | **String** | String to get next page of results. Cannot be combined with any filter except limit. | [optional] |
+| **offset** | **Integer** | Offset returned detections | [optional] |
 
 ### Return type
 

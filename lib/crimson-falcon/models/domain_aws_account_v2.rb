@@ -43,9 +43,6 @@ module Falcon
     # 12 digit AWS provided unique identifier for the account.
     attr_accessor :account_id
 
-    # AWS account name
-    attr_accessor :account_name
-
     attr_accessor :account_type
 
     attr_accessor :active_regions
@@ -66,8 +63,6 @@ module Falcon
 
     attr_accessor :cid
 
-    attr_accessor :cloud_scopes
-
     attr_accessor :cloudformation_url
 
     attr_accessor :conditions
@@ -77,8 +72,6 @@ module Falcon
     attr_accessor :d4c
 
     attr_accessor :d4c_migrated
-
-    attr_accessor :environment
 
     attr_accessor :eventbus_name
 
@@ -129,7 +122,6 @@ module Falcon
         :'id' => :'ID',
         :'updated_at' => :'UpdatedAt',
         :'account_id' => :'account_id',
-        :'account_name' => :'account_name',
         :'account_type' => :'account_type',
         :'active_regions' => :'active_regions',
         :'aws_cloudtrail_bucket_name' => :'aws_cloudtrail_bucket_name',
@@ -138,13 +130,11 @@ module Falcon
         :'aws_permissions_status' => :'aws_permissions_status',
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cid' => :'cid',
-        :'cloud_scopes' => :'cloud_scopes',
         :'cloudformation_url' => :'cloudformation_url',
         :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
         :'d4c' => :'d4c',
         :'d4c_migrated' => :'d4c_migrated',
-        :'environment' => :'environment',
         :'eventbus_name' => :'eventbus_name',
         :'external_id' => :'external_id',
         :'iam_role_arn' => :'iam_role_arn',
@@ -179,7 +169,6 @@ module Falcon
         :'id' => :'Integer',
         :'updated_at' => :'Time',
         :'account_id' => :'String',
-        :'account_name' => :'String',
         :'account_type' => :'String',
         :'active_regions' => :'Array<String>',
         :'aws_cloudtrail_bucket_name' => :'String',
@@ -188,13 +177,11 @@ module Falcon
         :'aws_permissions_status' => :'Array<DomainPermission>',
         :'behavior_assessment_enabled' => :'Boolean',
         :'cid' => :'String',
-        :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'cloudformation_url' => :'String',
         :'conditions' => :'Array<DomainCondition>',
         :'cspm_enabled' => :'Boolean',
         :'d4c' => :'DomainAWSD4CAccountV1',
         :'d4c_migrated' => :'Boolean',
-        :'environment' => :'String',
         :'eventbus_name' => :'String',
         :'external_id' => :'String',
         :'iam_role_arn' => :'String',
@@ -257,10 +244,6 @@ module Falcon
         self.account_id = attributes[:'account_id']
       end
 
-      if attributes.key?(:'account_name')
-        self.account_name = attributes[:'account_name']
-      end
-
       if attributes.key?(:'account_type')
         self.account_type = attributes[:'account_type']
       end
@@ -297,12 +280,6 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'cloud_scopes')
-        if (value = attributes[:'cloud_scopes']).is_a?(Array)
-          self.cloud_scopes = value
-        end
-      end
-
       if attributes.key?(:'cloudformation_url')
         self.cloudformation_url = attributes[:'cloudformation_url']
       end
@@ -323,10 +300,6 @@ module Falcon
 
       if attributes.key?(:'d4c_migrated')
         self.d4c_migrated = attributes[:'d4c_migrated']
-      end
-
-      if attributes.key?(:'environment')
-        self.environment = attributes[:'environment']
       end
 
       if attributes.key?(:'eventbus_name')
@@ -460,7 +433,6 @@ module Falcon
           id == o.id &&
           updated_at == o.updated_at &&
           account_id == o.account_id &&
-          account_name == o.account_name &&
           account_type == o.account_type &&
           active_regions == o.active_regions &&
           aws_cloudtrail_bucket_name == o.aws_cloudtrail_bucket_name &&
@@ -469,13 +441,11 @@ module Falcon
           aws_permissions_status == o.aws_permissions_status &&
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cid == o.cid &&
-          cloud_scopes == o.cloud_scopes &&
           cloudformation_url == o.cloudformation_url &&
           conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
           d4c == o.d4c &&
           d4c_migrated == o.d4c_migrated &&
-          environment == o.environment &&
           eventbus_name == o.eventbus_name &&
           external_id == o.external_id &&
           iam_role_arn == o.iam_role_arn &&
@@ -505,7 +475,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, is_custom_rolename, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, use_existing_cloudtrail, valid].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, is_custom_rolename, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, use_existing_cloudtrail, valid].hash
     end
 
     # Builds the object from hash

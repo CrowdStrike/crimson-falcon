@@ -32,52 +32,36 @@ require 'time'
 
 module Falcon
   class DomainKillChain
-    # Free form text describing actions and objectives of the actor
     attr_accessor :actions_and_objectives
 
-    # Free form text describing methods and tools used to communicate with and control an infected machine or network
     attr_accessor :command_and_control
 
-    # Free form text describing malware delivery by actor
     attr_accessor :delivery
 
-    # Comma separated values of vulnerabilities by CVE codes that are exploited by actor
     attr_accessor :exploitation
 
-    # Free form text describing actor's malware installation on the asset
     attr_accessor :installation
 
-    # Legacy field, not used and empty
     attr_accessor :objectives
 
-    # Free form text describing how targets are researched, identified and selected
     attr_accessor :reconnaissance
 
-    # Rich free form text describing actions and objectives of the actor
     attr_accessor :rich_text_actions_and_objectives
 
-    # Rich free form text describing methods and tools used to communicate with and control an infected machine or network
     attr_accessor :rich_text_command_and_control
 
-    # Rich free form text describing malware delivery by actor
     attr_accessor :rich_text_delivery
 
-    # Rich text comma separated values of vulnerabilities by CVE codes that are exploited by actor
     attr_accessor :rich_text_exploitation
 
-    # Rich free form text describing actor's malware installation on the asset
     attr_accessor :rich_text_installation
 
-    # Legacy field, not used and empty
     attr_accessor :rich_text_objectives
 
-    # Rich free form text describing how targets are researched, identified and selected
     attr_accessor :rich_text_reconnaissance
 
-    # Rich free form text describing weaponization of the threat/malware (couples exploit with backdoor into deliverable payload)
     attr_accessor :rich_text_weaponization
 
-    # Free form text describing weaponization of the threat/malware (couples exploit with backdoor into deliverable payload)
     attr_accessor :weaponization
 
     # Attribute mapping from ruby-style variable name to JSON key.

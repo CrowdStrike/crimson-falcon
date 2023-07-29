@@ -72,12 +72,6 @@ describe Falcon::DomainAWSAccountV2 do
     end
   end
 
-  describe 'test attribute "account_name"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "account_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -126,12 +120,6 @@ describe Falcon::DomainAWSAccountV2 do
     end
   end
 
-  describe 'test attribute "cloud_scopes"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "cloudformation_url"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -157,12 +145,6 @@ describe Falcon::DomainAWSAccountV2 do
   end
 
   describe 'test attribute "d4c_migrated"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "environment"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
