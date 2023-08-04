@@ -50,8 +50,6 @@ module Falcon
 
     attr_accessor :crawl_edge_ids
 
-    attr_accessor :crawl_traversal
-
     attr_accessor :crawl_vertex_ids
 
     attr_accessor :crawled_timestamp
@@ -114,7 +112,6 @@ module Falcon
         :'composite_id' => :'composite_id',
         :'confidence' => :'confidence',
         :'crawl_edge_ids' => :'crawl_edge_ids',
-        :'crawl_traversal' => :'crawl_traversal',
         :'crawl_vertex_ids' => :'crawl_vertex_ids',
         :'crawled_timestamp' => :'crawled_timestamp',
         :'created_timestamp' => :'created_timestamp',
@@ -160,7 +157,6 @@ module Falcon
         :'composite_id' => :'String',
         :'confidence' => :'Integer',
         :'crawl_edge_ids' => :'Hash<String, Array<String>>',
-        :'crawl_traversal' => :'Array<ThreatgraphCrawlEdgesRequest>',
         :'crawl_vertex_ids' => :'Hash<String, Array<String>>',
         :'crawled_timestamp' => :'Time',
         :'created_timestamp' => :'Time',
@@ -245,12 +241,6 @@ module Falcon
       if attributes.key?(:'crawl_edge_ids')
         if (value = attributes[:'crawl_edge_ids']).is_a?(Hash)
           self.crawl_edge_ids = value
-        end
-      end
-
-      if attributes.key?(:'crawl_traversal')
-        if (value = attributes[:'crawl_traversal']).is_a?(Array)
-          self.crawl_traversal = value
         end
       end
 
@@ -396,7 +386,6 @@ module Falcon
           composite_id == o.composite_id &&
           confidence == o.confidence &&
           crawl_edge_ids == o.crawl_edge_ids &&
-          crawl_traversal == o.crawl_traversal &&
           crawl_vertex_ids == o.crawl_vertex_ids &&
           crawled_timestamp == o.crawled_timestamp &&
           created_timestamp == o.created_timestamp &&
@@ -433,7 +422,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawl_edge_ids, crawl_traversal, crawl_vertex_ids, crawled_timestamp, created_timestamp, description, display_name, email_sent, external, id, name, objective, pattern_id, platform, product, scenario, severity, show_in_ui, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawl_edge_ids, crawl_vertex_ids, crawled_timestamp, created_timestamp, description, display_name, email_sent, external, id, name, objective, pattern_id, platform, product, scenario, severity, show_in_ui, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

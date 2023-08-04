@@ -116,12 +116,17 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @action_name.nil?
+        invalid_properties.push('invalid value for "action_name", action_name cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @action_name.nil?
       action_name_validator = EnumAttributeValidator.new('String', ["reset_password", "reset_2fa"])
       return false unless action_name_validator.valid?(@action_name)
       true

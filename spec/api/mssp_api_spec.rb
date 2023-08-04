@@ -105,11 +105,22 @@ describe 'MsspApi' do
   end
 
   # unit tests for delete_cid_group_members
-  # Delete CID group members.
+  # Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
   # @param body Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
   # @param [Hash] opts the optional parameters
   # @return [DomainCIDGroupMembersResponseV1]
   describe 'delete_cid_group_members test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_cid_group_members_v2
+  # Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+  # @param body Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required.
+  # @param [Hash] opts the optional parameters
+  # @return [DomainCIDGroupMembersResponseV1]
+  describe 'delete_cid_group_members_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

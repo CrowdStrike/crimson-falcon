@@ -4,10 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**DomainAssessmentPaging**](DomainAssessmentPaging.md) |  | [optional] |
-| **powered_by** | **String** |  | [optional] |
-| **query_time** | **Float** |  |  |
-| **trace_id** | **String** |  |  |
+| **msa_meta_info** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **quota** | [**DomainQuota**](DomainQuota.md) |  | [optional] |
 
 ## Example
 
@@ -15,10 +13,8 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainMetaInfo.new(
-  pagination: null,
-  powered_by: null,
-  query_time: null,
-  trace_id: null
+  msa_meta_info: null,
+  quota: null
 )
 ```
 

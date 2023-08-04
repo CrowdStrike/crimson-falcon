@@ -4,14 +4,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **categories** | **Array&lt;String&gt;** | The categories associated with the rule |  |
-| **created_date** | **String** | UTC timestamp when rule was created |  |
-| **customer_id** | **String** | The ID of the customer |  |
-| **id** | **String** | The ID of the rule |  |
-| **name** | **String** | The name of the rule |  |
-| **rule_type** | **String** | The type of the rule |  |
-| **updated_date** | **String** | UTC timestamp when rule was last updated |  |
-| **value** | **String** | The value of the rule |  |
+| **created_date** | **Integer** |  |  |
+| **description** | **String** |  |  |
+| **id** | **Integer** |  |  |
+| **last_modified_date** | **Integer** |  |  |
+| **name** | **String** |  |  |
+| **rich_text_description** | **String** |  |  |
+| **short_description** | **String** |  |  |
+| **tags** | **Array&lt;String&gt;** |  |  |
+| **type** | **String** |  |  |
 
 ## Example
 
@@ -19,14 +20,15 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainRule.new(
-  categories: null,
   created_date: null,
-  customer_id: null,
+  description: null,
   id: null,
+  last_modified_date: null,
   name: null,
-  rule_type: null,
-  updated_date: null,
-  value: null
+  rich_text_description: null,
+  short_description: null,
+  tags: null,
+  type: null
 )
 ```
 

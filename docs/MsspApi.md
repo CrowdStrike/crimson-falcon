@@ -9,7 +9,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**add_user_group_members**](MsspApi.md#add_user_group_members) | **POST** /mssp/entities/user-group-members/v1 | Add new user group member. Maximum 500 members allowed per user group. |
 | [**create_cid_groups**](MsspApi.md#create_cid_groups) | **POST** /mssp/entities/cid-groups/v1 | Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed. |
 | [**create_user_groups**](MsspApi.md#create_user_groups) | **POST** /mssp/entities/user-groups/v1 | Create new user groups. Name is a required field but description is an optional field. Maximum 500 user groups allowed per customer. |
-| [**delete_cid_group_members**](MsspApi.md#delete_cid_group_members) | **DELETE** /mssp/entities/cid-group-members/v1 | Delete CID group members. |
+| [**delete_cid_group_members**](MsspApi.md#delete_cid_group_members) | **DELETE** /mssp/entities/cid-group-members/v1 | Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members. |
+| [**delete_cid_group_members_v2**](MsspApi.md#delete_cid_group_members_v2) | **DELETE** /mssp/entities/cid-group-members/v2 | Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group. |
 | [**delete_cid_groups**](MsspApi.md#delete_cid_groups) | **DELETE** /mssp/entities/cid-groups/v1 | Delete CID groups by ID. |
 | [**delete_user_group_members**](MsspApi.md#delete_user_group_members) | **DELETE** /mssp/entities/user-group-members/v1 | Delete user group members entry. |
 | [**delete_user_groups**](MsspApi.md#delete_user_groups) | **DELETE** /mssp/entities/user-groups/v1 | Delete user groups by ID. |
@@ -262,7 +263,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MsspApi.new
-body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({description: 'description_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
+body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({cid_group_id: 'cid_group_id_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
 
 begin
   # Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed.
@@ -384,7 +385,7 @@ end
 
 > <DomainCIDGroupMembersResponseV1> delete_cid_group_members(body)
 
-Delete CID group members.
+Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
 
 ### Examples
 
@@ -403,7 +404,7 @@ api_instance = Falcon::MsspApi.new
 body = Falcon::DomainCIDGroupMembersRequestV1.new({resources: [Falcon::DomainCIDGroupMembers.new({cid_group_id: 'cid_group_id_example', cids: ['cids_example']})]}) # DomainCIDGroupMembersRequestV1 | Both 'cid_group_id' and 'cids' fields are required.
 
 begin
-  # Delete CID group members.
+  # Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
   result = api_instance.delete_cid_group_members(body)
   p result
 rescue Falcon::ApiError => e
@@ -419,13 +420,82 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Delete CID group members.
+  # Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
   data, status_code, headers = api_instance.delete_cid_group_members_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling MsspApi->delete_cid_group_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DomainCIDGroupMembersRequestV1**](DomainCIDGroupMembersRequestV1.md) | Both &#39;cid_group_id&#39; and &#39;cids&#39; fields are required. |  |
+
+### Return type
+
+[**DomainCIDGroupMembersResponseV1**](DomainCIDGroupMembersResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_cid_group_members_v2
+
+> <DomainCIDGroupMembersResponseV1> delete_cid_group_members_v2(body)
+
+Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::MsspApi.new
+body = Falcon::DomainCIDGroupMembersRequestV1.new({resources: [Falcon::DomainCIDGroupMembers.new({cid_group_id: 'cid_group_id_example', cids: ['cids_example']})]}) # DomainCIDGroupMembersRequestV1 | Both 'cid_group_id' and 'cids' fields are required.
+
+begin
+  # Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+  result = api_instance.delete_cid_group_members_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling MsspApi->delete_cid_group_members_v2: #{e}"
+end
+```
+
+#### Using the delete_cid_group_members_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainCIDGroupMembersResponseV1>, Integer, Hash)> delete_cid_group_members_v2_with_http_info(body)
+
+```ruby
+begin
+  # Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
+  data, status_code, headers = api_instance.delete_cid_group_members_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainCIDGroupMembersResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling MsspApi->delete_cid_group_members_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1970,7 +2040,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MsspApi.new
-body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({description: 'description_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | 'cid_group_id' field is required to identify the CID group to update along with 'name' and/or 'description' fields to be updated.
+body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({cid_group_id: 'cid_group_id_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | 'cid_group_id' field is required to identify the CID group to update along with 'name' and/or 'description' fields to be updated.
 
 begin
   # Update existing CID groups. CID group ID is expected for each CID group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. CID group member(s) remain unaffected.

@@ -32,11 +32,17 @@ require 'time'
 
 module Falcon
   class FalconxAMSICall
+    attr_accessor :app_name
+
+    attr_accessor :filename
+
     attr_accessor :raw_script_content
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'app_name' => :'app_name',
+        :'filename' => :'filename',
         :'raw_script_content' => :'raw_script_content'
       }
     end
@@ -49,6 +55,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'app_name' => :'String',
+        :'filename' => :'String',
         :'raw_script_content' => :'String'
       }
     end
@@ -74,6 +82,14 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'app_name')
+        self.app_name = attributes[:'app_name']
+      end
+
+      if attributes.key?(:'filename')
+        self.filename = attributes[:'filename']
+      end
+
       if attributes.key?(:'raw_script_content')
         self.raw_script_content = attributes[:'raw_script_content']
       end
@@ -97,6 +113,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          app_name == o.app_name &&
+          filename == o.filename &&
           raw_script_content == o.raw_script_content
     end
 
@@ -109,7 +127,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [raw_script_content].hash
+      [app_name, filename, raw_script_content].hash
     end
 
     # Builds the object from hash

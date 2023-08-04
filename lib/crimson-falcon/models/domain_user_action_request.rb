@@ -31,7 +31,7 @@ require 'date'
 require 'time'
 
 module Falcon
-  # ID(s) of users the action are to applied to
+  # ID(s) of users the action(s) are to applied to
   class DomainUserActionRequest
     attr_accessor :action
 

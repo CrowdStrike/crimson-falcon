@@ -32,18 +32,30 @@ require 'time'
 
 module Falcon
   class DomainAPIEvaluationLogicV1
+    # Refers to an asset identifier
     attr_accessor :aid
 
+    # Refers to a customer identifier
     attr_accessor :cid
 
+    # Refers to a point in time when evaluation logic data was created in the system
     attr_accessor :created_timestamp
 
+    # Refers to a label given to the entity that provided this data
     attr_accessor :data_provider
 
+    attr_accessor :host_info
+
+    # Contains a unique identifier for the evaluation logic
     attr_accessor :id
 
+    # Refers to the actual evaluation logic data
     attr_accessor :logic
 
+    # Refers to the identifier of the scanner that generated the evaluation logic
+    attr_accessor :scanner_id
+
+    # Refers to a point in time when evaluation logic data was updated in the system
     attr_accessor :updated_timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -53,8 +65,10 @@ module Falcon
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
         :'data_provider' => :'data_provider',
+        :'host_info' => :'host_info',
         :'id' => :'id',
         :'logic' => :'logic',
+        :'scanner_id' => :'scanner_id',
         :'updated_timestamp' => :'updated_timestamp'
       }
     end
@@ -71,8 +85,10 @@ module Falcon
         :'cid' => :'String',
         :'created_timestamp' => :'String',
         :'data_provider' => :'String',
+        :'host_info' => :'DomainAPIEvaluationLogicHostInfoV1',
         :'id' => :'String',
         :'logic' => :'Array<DomainAPIEvaluationLogicItemV1>',
+        :'scanner_id' => :'String',
         :'updated_timestamp' => :'String'
       }
     end
@@ -114,6 +130,10 @@ module Falcon
         self.data_provider = attributes[:'data_provider']
       end
 
+      if attributes.key?(:'host_info')
+        self.host_info = attributes[:'host_info']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -122,6 +142,10 @@ module Falcon
         if (value = attributes[:'logic']).is_a?(Array)
           self.logic = value
         end
+      end
+
+      if attributes.key?(:'scanner_id')
+        self.scanner_id = attributes[:'scanner_id']
       end
 
       if attributes.key?(:'updated_timestamp')
@@ -156,8 +180,10 @@ module Falcon
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
           data_provider == o.data_provider &&
+          host_info == o.host_info &&
           id == o.id &&
           logic == o.logic &&
+          scanner_id == o.scanner_id &&
           updated_timestamp == o.updated_timestamp
     end
 
@@ -170,7 +196,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, created_timestamp, data_provider, id, logic, updated_timestamp].hash
+      [aid, cid, created_timestamp, data_provider, host_info, id, logic, scanner_id, updated_timestamp].hash
     end
 
     # Builds the object from hash

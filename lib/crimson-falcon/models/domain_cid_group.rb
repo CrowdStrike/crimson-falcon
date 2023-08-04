@@ -32,8 +32,6 @@ require 'time'
 
 module Falcon
   class DomainCIDGroup
-    attr_accessor :cid
-
     attr_accessor :cid_group_id
 
     attr_accessor :description
@@ -43,7 +41,6 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'cid' => :'cid',
         :'cid_group_id' => :'cid_group_id',
         :'description' => :'description',
         :'name' => :'name'
@@ -58,7 +55,6 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'cid' => :'String',
         :'cid_group_id' => :'String',
         :'description' => :'String',
         :'name' => :'String'
@@ -86,10 +82,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'cid')
-        self.cid = attributes[:'cid']
-      end
-
       if attributes.key?(:'cid_group_id')
         self.cid_group_id = attributes[:'cid_group_id']
       end
@@ -107,8 +99,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @cid_group_id.nil?
+        invalid_properties.push('invalid value for "cid_group_id", cid_group_id cannot be nil.')
       end
 
       if @name.nil?
@@ -121,7 +113,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @description.nil?
+      return false if @cid_group_id.nil?
       return false if @name.nil?
       true
     end
@@ -131,7 +123,6 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          cid == o.cid &&
           cid_group_id == o.cid_group_id &&
           description == o.description &&
           name == o.name
@@ -146,7 +137,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cid_group_id, description, name].hash
+      [cid_group_id, description, name].hash
     end
 
     # Builds the object from hash

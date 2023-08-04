@@ -183,9 +183,9 @@ module Falcon
         :'read_only' => :'Boolean',
         :'recipient_account_id' => :'String',
         :'request_id' => :'String',
-        :'request_parameters' => :'String',
-        :'resources' => :'String',
-        :'response_elements' => :'String',
+        :'request_parameters' => :'Object',
+        :'resources' => :'Array<Object>',
+        :'response_elements' => :'Object',
         :'service' => :'String',
         :'service_event_details' => :'String',
         :'severity' => :'String',
@@ -194,7 +194,7 @@ module Falcon
         :'state' => :'String',
         :'user_agent' => :'String',
         :'user_id' => :'String',
-        :'user_identity' => :'String',
+        :'user_identity' => :'Object',
         :'vertex_id' => :'String',
         :'vertex_type' => :'String',
         :'vpc_endpoint_id' => :'String'
@@ -319,7 +319,9 @@ module Falcon
       end
 
       if attributes.key?(:'resources')
-        self.resources = attributes[:'resources']
+        if (value = attributes[:'resources']).is_a?(Array)
+          self.resources = value
+        end
       end
 
       if attributes.key?(:'response_elements')

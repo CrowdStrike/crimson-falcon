@@ -58,7 +58,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'acl_permission_change' => :'Array<PublicBasic>',
+        :'acl_permission_change' => :'Array<PublicACLChange>',
         :'entity' => :'String',
         :'entity_id' => :'String',
         :'entity_name' => :'String'

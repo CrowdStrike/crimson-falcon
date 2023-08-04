@@ -66,6 +66,12 @@ describe Falcon::DomainAPIEvaluationLogicV1 do
     end
   end
 
+  describe 'test attribute "host_info"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -73,6 +79,12 @@ describe Falcon::DomainAPIEvaluationLogicV1 do
   end
 
   describe 'test attribute "logic"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "scanner_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

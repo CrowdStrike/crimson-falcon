@@ -326,7 +326,7 @@ opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'cmdline.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'alert_ids.asc' # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
 }
 
 begin

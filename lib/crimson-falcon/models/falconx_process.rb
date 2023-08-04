@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :icon_artifact_id
 
+    attr_accessor :modules
+
     attr_accessor :mutants
 
     attr_accessor :name
@@ -72,6 +74,7 @@ module Falcon
         :'file_accesses' => :'file_accesses',
         :'handles' => :'handles',
         :'icon_artifact_id' => :'icon_artifact_id',
+        :'modules' => :'modules',
         :'mutants' => :'mutants',
         :'name' => :'name',
         :'normalized_path' => :'normalized_path',
@@ -99,6 +102,7 @@ module Falcon
         :'file_accesses' => :'Array<FalconxFileAccess>',
         :'handles' => :'Array<FalconxHandle>',
         :'icon_artifact_id' => :'String',
+        :'modules' => :'Array<FalconxModule>',
         :'mutants' => :'Array<String>',
         :'name' => :'String',
         :'normalized_path' => :'String',
@@ -158,6 +162,12 @@ module Falcon
 
       if attributes.key?(:'icon_artifact_id')
         self.icon_artifact_id = attributes[:'icon_artifact_id']
+      end
+
+      if attributes.key?(:'modules')
+        if (value = attributes[:'modules']).is_a?(Array)
+          self.modules = value
+        end
       end
 
       if attributes.key?(:'mutants')
@@ -238,6 +248,7 @@ module Falcon
           file_accesses == o.file_accesses &&
           handles == o.handles &&
           icon_artifact_id == o.icon_artifact_id &&
+          modules == o.modules &&
           mutants == o.mutants &&
           name == o.name &&
           normalized_path == o.normalized_path &&
@@ -260,7 +271,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amsi_calls, command_line, file_accesses, handles, icon_artifact_id, mutants, name, normalized_path, parent_uid, pid, process_flags, registry, script_calls, sha256, streams, uid].hash
+      [amsi_calls, command_line, file_accesses, handles, icon_artifact_id, modules, mutants, name, normalized_path, parent_uid, pid, process_flags, registry, script_calls, sha256, streams, uid].hash
     end
 
     # Builds the object from hash

@@ -6,6 +6,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**create_registry_entities**](FalconContainerImageApi.md#create_registry_entities) | **POST** /container-security/entities/registries/v1 | Create a registry entity using the provided details |
 | [**delete_registry_entities**](FalconContainerImageApi.md#delete_registry_entities) | **DELETE** /container-security/entities/registries/v1 | Delete the registry entity identified by the entity UUID |
+| [**get_combined_images**](FalconContainerImageApi.md#get_combined_images) | **GET** /container-security/combined/image-assessment/images/v1 | Get image assessment results by providing an FQL filter and paging details |
 | [**read_registry_entities**](FalconContainerImageApi.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieve registry entities identified by the customer id |
 | [**read_registry_entities_by_uuid**](FalconContainerImageApi.md#read_registry_entities_by_uuid) | **GET** /container-security/entities/registries/v1 | Retrieve the registry entity identified by the entity UUID |
 | [**update_registry_entities**](FalconContainerImageApi.md#update_registry_entities) | **PATCH** /container-security/entities/registries/v1 | Update the registry entity, as identified by the entity UUID, using the provided details |
@@ -138,6 +139,83 @@ end
 ### Return type
 
 [**DomainExternalRegistryListResponse**](DomainExternalRegistryListResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_combined_images
+
+> <ImagesExtCombinedImagesResponse> get_combined_images(opts)
+
+Get image assessment results by providing an FQL filter and paging details
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FalconContainerImageApi.new
+opts = {
+  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, registry, repository, tag, vulnerability_severity
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve [1-100]
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [first_seen registry repository tag vulnerability_severity]
+}
+
+begin
+  # Get image assessment results by providing an FQL filter and paging details
+  result = api_instance.get_combined_images(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImageApi->get_combined_images: #{e}"
+end
+```
+
+#### Using the get_combined_images_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ImagesExtCombinedImagesResponse>, Integer, Hash)> get_combined_images_with_http_info(opts)
+
+```ruby
+begin
+  # Get image assessment results by providing an FQL filter and paging details
+  data, status_code, headers = api_instance.get_combined_images_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ImagesExtCombinedImagesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImageApi->get_combined_images_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_running_status, cve_id, first_seen, registry, repository, tag, vulnerability_severity | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve [1-100] | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns:  [first_seen registry repository tag vulnerability_severity] | [optional] |
+
+### Return type
+
+[**ImagesExtCombinedImagesResponse**](ImagesExtCombinedImagesResponse.md)
 
 ### Authorization
 

@@ -32,42 +32,59 @@ require 'time'
 
 module Falcon
   class DomainNewsDocument
+    # legacy field, not used
     attr_accessor :active
 
+    # Actors mentioned, related or referenced in the news/report
     attr_accessor :actors
 
+    # News attachment, containing either pdf url or feeds zip and/or gzip archive
     attr_accessor :attachments
 
+    # Date of the news document creation, unix timestampt
     attr_accessor :created_date
 
+    # Full report description, extracted from the document
     attr_accessor :description
 
+    # internal property used for permissions check of access, not returned or explicitly filterable
     attr_accessor :entitlements
 
+    # Integer ID of the News document
     attr_accessor :id
 
     attr_accessor :image
 
+    # Date of the news document last modification, unix timestampt
     attr_accessor :last_modified_date
 
+    # News mentioned motivation or motivation of related actors and malware families
     attr_accessor :motivations
 
+    # News title
     attr_accessor :name
 
+    # internal field, not used
     attr_accessor :notify_users
 
+    # Rich text description with markup
     attr_accessor :rich_text_description
 
+    # Short description of the report content
     attr_accessor :short_description
 
+    # News title in a url friendly way, which is title in lowercase and special characters including space replaced with dash
     attr_accessor :slug
 
     attr_accessor :sub_type
 
+    # News tags, which contains MITRE, Vulnerability community identifiers, capabilities, malware family name, customer target, activity cluster, notable event, geopolitical issue
     attr_accessor :tags
 
+    # News mentioned target countries or related actor's target countries
     attr_accessor :target_countries
 
+    # News mentioned target industries or related actor's target industries
     attr_accessor :target_industries
 
     attr_accessor :thumbnail
@@ -76,6 +93,7 @@ module Falcon
 
     attr_accessor :type
 
+    # URL of the news document where it can be accessed in the Falcon Portal
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
