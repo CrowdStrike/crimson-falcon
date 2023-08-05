@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.2.1...v0.3.0) (2023-08-05)
+
+
+### Features
+
+* **sdk:** swagger updates for 2023-08-03 release ([#24](https://github.com/CrowdStrike/crimson-falcon/issues/24)) ([e86ebf9](https://github.com/CrowdStrike/crimson-falcon/commit/e86ebf99d7a11a9fd7ab4c4b1caad0d5b2ef9b6c))
+
 ## [0.2.1](https://github.com/CrowdStrike/crimson-falcon/compare/v0.2.0...v0.2.1) (2023-07-20)
 
 
