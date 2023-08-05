@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **action_name** | **String** | Action name | [optional] |
+| **action_name** | **String** | Action name |  |
 | **action_value** | **String** | Value for action, if any | [optional] |
 
 ## Example

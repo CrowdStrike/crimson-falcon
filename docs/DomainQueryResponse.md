@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;DomainReconAPIError&gt;**](DomainReconAPIError.md) |  |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
+| **meta** | [**DomainMsaMetaInfo**](DomainMsaMetaInfo.md) |  |  |
 | **resources** | **Array&lt;String&gt;** |  |  |
 
 ## Example

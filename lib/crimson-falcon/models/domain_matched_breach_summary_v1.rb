@@ -60,6 +60,10 @@ module Falcon
     # Metadata regarding the file(s) where exposed data records where found.
     attr_accessor :files
 
+    attr_accessor :idp_send_date
+
+    attr_accessor :idp_send_status
+
     # The name of the breach
     attr_accessor :name
 
@@ -82,6 +86,8 @@ module Falcon
         :'exposure_date' => :'exposure_date',
         :'fields' => :'fields',
         :'files' => :'files',
+        :'idp_send_date' => :'idp_send_date',
+        :'idp_send_status' => :'idp_send_status',
         :'name' => :'name',
         :'obtained_by' => :'obtained_by',
         :'url' => :'url'
@@ -106,6 +112,8 @@ module Falcon
         :'exposure_date' => :'Time',
         :'fields' => :'Array<String>',
         :'files' => :'Array<DomainFileDetailsV1>',
+        :'idp_send_date' => :'Time',
+        :'idp_send_status' => :'String',
         :'name' => :'String',
         :'obtained_by' => :'String',
         :'url' => :'String'
@@ -181,6 +189,14 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'idp_send_date')
+        self.idp_send_date = attributes[:'idp_send_date']
+      end
+
+      if attributes.key?(:'idp_send_status')
+        self.idp_send_status = attributes[:'idp_send_status']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -237,6 +253,8 @@ module Falcon
           exposure_date == o.exposure_date &&
           fields == o.fields &&
           files == o.files &&
+          idp_send_date == o.idp_send_date &&
+          idp_send_status == o.idp_send_status &&
           name == o.name &&
           obtained_by == o.obtained_by &&
           url == o.url
@@ -251,7 +269,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [community_name, confidence_level, credentials_domains, credentials_ips, description, event_date, event_id, exposure_date, fields, files, name, obtained_by, url].hash
+      [community_name, confidence_level, credentials_domains, credentials_ips, description, event_date, event_id, exposure_date, fields, files, idp_send_date, idp_send_status, name, obtained_by, url].hash
     end
 
     # Builds the object from hash

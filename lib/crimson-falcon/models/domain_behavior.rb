@@ -34,6 +34,8 @@ module Falcon
   class DomainBehavior
     attr_accessor :aid
 
+    attr_accessor :alert_ids
+
     attr_accessor :behavior_id
 
     attr_accessor :cid
@@ -90,6 +92,7 @@ module Falcon
     def self.attribute_map
       {
         :'aid' => :'aid',
+        :'alert_ids' => :'alert_ids',
         :'behavior_id' => :'behavior_id',
         :'cid' => :'cid',
         :'cmdline' => :'cmdline',
@@ -128,6 +131,7 @@ module Falcon
     def self.openapi_types
       {
         :'aid' => :'String',
+        :'alert_ids' => :'Array<String>',
         :'behavior_id' => :'String',
         :'cid' => :'String',
         :'cmdline' => :'String',
@@ -180,6 +184,12 @@ module Falcon
 
       if attributes.key?(:'aid')
         self.aid = attributes[:'aid']
+      end
+
+      if attributes.key?(:'alert_ids')
+        if (value = attributes[:'alert_ids']).is_a?(Array)
+          self.alert_ids = value
+        end
       end
 
       if attributes.key?(:'behavior_id')
@@ -325,6 +335,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           aid == o.aid &&
+          alert_ids == o.alert_ids &&
           behavior_id == o.behavior_id &&
           cid == o.cid &&
           cmdline == o.cmdline &&
@@ -362,7 +373,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
+      [aid, alert_ids, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
     end
 
     # Builds the object from hash

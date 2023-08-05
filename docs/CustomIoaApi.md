@@ -13,13 +13,13 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_rule_groups_mixin0**](CustomIoaApi.md#get_rule_groups_mixin0) | **GET** /ioarules/entities/rule-groups/v1 | Get rule groups by ID. |
 | [**get_rule_types**](CustomIoaApi.md#get_rule_types) | **GET** /ioarules/entities/rule-types/v1 | Get rule types by ID. |
 | [**get_rules_get**](CustomIoaApi.md#get_rules_get) | **POST** /ioarules/entities/rules/GET/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. |
-| [**get_rules_mixin0_mixin65**](CustomIoaApi.md#get_rules_mixin0_mixin65) | **GET** /ioarules/entities/rules/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size. |
+| [**get_rules_mixin0**](CustomIoaApi.md#get_rules_mixin0) | **GET** /ioarules/entities/rules/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size. |
 | [**query_patterns**](CustomIoaApi.md#query_patterns) | **GET** /ioarules/queries/pattern-severities/v1 | Get all pattern severity IDs. |
 | [**query_platforms_mixin0**](CustomIoaApi.md#query_platforms_mixin0) | **GET** /ioarules/queries/platforms/v1 | Get all platform IDs. |
 | [**query_rule_groups_full**](CustomIoaApi.md#query_rule_groups_full) | **GET** /ioarules/queries/rule-groups-full/v1 | Find all rule groups matching the query with optional filter. |
 | [**query_rule_groups_mixin0**](CustomIoaApi.md#query_rule_groups_mixin0) | **GET** /ioarules/queries/rule-groups/v1 | Finds all rule group IDs matching the query with optional filter. |
 | [**query_rule_types**](CustomIoaApi.md#query_rule_types) | **GET** /ioarules/queries/rule-types/v1 | Get all rule type IDs. |
-| [**query_rules_mixin0_mixin65**](CustomIoaApi.md#query_rules_mixin0_mixin65) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
+| [**query_rules_mixin0**](CustomIoaApi.md#query_rules_mixin0) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
 | [**update_rule_group_mixin0**](CustomIoaApi.md#update_rule_group_mixin0) | **PATCH** /ioarules/entities/rule-groups/v1 | Update a rule group. The following properties can be modified: name, description, enabled. |
 | [**update_rules**](CustomIoaApi.md#update_rules) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
 | [**validate**](CustomIoaApi.md#validate) | **POST** /ioarules/entities/rules/validate/v1 | Validates field values and checks for matches if a test string is provided. |
@@ -656,9 +656,9 @@ end
 - **Accept**: application/json
 
 
-## get_rules_mixin0_mixin65
+## get_rules_mixin0
 
-> <ApiRulesResponse> get_rules_mixin0_mixin65(ids)
+> <ApiRulesResponse> get_rules_mixin0(ids)
 
 Get rules by ID and optionally with cid and/or version in the following format: `[cid:]ID[:version]`. The max number of IDs is constrained by URL size.
 
@@ -680,28 +680,28 @@ ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
   # Get rules by ID and optionally with cid and/or version in the following format: `[cid:]ID[:version]`. The max number of IDs is constrained by URL size.
-  result = api_instance.get_rules_mixin0_mixin65(ids)
+  result = api_instance.get_rules_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_mixin0_mixin65: #{e}"
+  puts "Error when calling CustomIoaApi->get_rules_mixin0: #{e}"
 end
 ```
 
-#### Using the get_rules_mixin0_mixin65_with_http_info variant
+#### Using the get_rules_mixin0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiRulesResponse>, Integer, Hash)> get_rules_mixin0_mixin65_with_http_info(ids)
+> <Array(<ApiRulesResponse>, Integer, Hash)> get_rules_mixin0_with_http_info(ids)
 
 ```ruby
 begin
   # Get rules by ID and optionally with cid and/or version in the following format: `[cid:]ID[:version]`. The max number of IDs is constrained by URL size.
-  data, status_code, headers = api_instance.get_rules_mixin0_mixin65_with_http_info(ids)
+  data, status_code, headers = api_instance.get_rules_mixin0_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_mixin0_mixin65_with_http_info: #{e}"
+  puts "Error when calling CustomIoaApi->get_rules_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -892,7 +892,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'created_by', # String | Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
+  sort: 'created_by', # String | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -930,7 +930,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled} | [optional] |
+| **sort** | **String** | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |
@@ -971,7 +971,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'created_by', # String | Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled}
+  sort: 'created_by', # String | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -1009,7 +1009,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {name, created_by, created_on, modified_by, modified_on, enabled} | [optional] |
+| **sort** | **String** | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |
@@ -1102,9 +1102,9 @@ end
 - **Accept**: application/json
 
 
-## query_rules_mixin0_mixin65
+## query_rules_mixin0
 
-> <MsaQueryResponse> query_rules_mixin0_mixin65(opts)
+> <MsaQueryResponse> query_rules_mixin0(opts)
 
 Finds all rule IDs matching the query with optional filter.
 
@@ -1123,7 +1123,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'rules.created_by', # String | Possible order by fields: {rules.enabled, rules.created_by, rules.current_version.modified_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.ruletype_name, rules.created_on, rules.current_version.name}
+  sort: 'rules.created_by', # String | Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -1132,28 +1132,28 @@ opts = {
 
 begin
   # Finds all rule IDs matching the query with optional filter.
-  result = api_instance.query_rules_mixin0_mixin65(opts)
+  result = api_instance.query_rules_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rules_mixin0_mixin65: #{e}"
+  puts "Error when calling CustomIoaApi->query_rules_mixin0: #{e}"
 end
 ```
 
-#### Using the query_rules_mixin0_mixin65_with_http_info variant
+#### Using the query_rules_mixin0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_rules_mixin0_mixin65_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_rules_mixin0_with_http_info(opts)
 
 ```ruby
 begin
   # Finds all rule IDs matching the query with optional filter.
-  data, status_code, headers = api_instance.query_rules_mixin0_mixin65_with_http_info(opts)
+  data, status_code, headers = api_instance.query_rules_mixin0_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rules_mixin0_mixin65_with_http_info: #{e}"
+  puts "Error when calling CustomIoaApi->query_rules_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -1161,7 +1161,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {rules.enabled, rules.created_by, rules.current_version.modified_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.ruletype_name, rules.created_on, rules.current_version.name} | [optional] |
+| **sort** | **String** | Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |

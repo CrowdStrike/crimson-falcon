@@ -192,6 +192,12 @@ describe Falcon::DomainDiscoverAPIIoTHost do
     end
   end
 
+  describe 'test attribute "discoverer_ics_collector_ids"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "discoverer_product_type_descs"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

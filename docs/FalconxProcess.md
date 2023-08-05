@@ -9,6 +9,7 @@
 | **file_accesses** | [**Array&lt;FalconxFileAccess&gt;**](FalconxFileAccess.md) |  | [optional] |
 | **handles** | [**Array&lt;FalconxHandle&gt;**](FalconxHandle.md) |  | [optional] |
 | **icon_artifact_id** | **String** |  | [optional] |
+| **modules** | [**Array&lt;FalconxModule&gt;**](FalconxModule.md) |  | [optional] |
 | **mutants** | **Array&lt;String&gt;** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **normalized_path** | **String** |  | [optional] |
@@ -32,6 +33,7 @@ instance = Falcon::FalconxProcess.new(
   file_accesses: null,
   handles: null,
   icon_artifact_id: null,
+  modules: null,
   mutants: null,
   name: null,
   normalized_path: null,

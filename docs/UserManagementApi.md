@@ -1463,7 +1463,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::UserManagementApi.new
-body = Falcon::DomainUserActionRequest.new({action: Falcon::DomainUserAction.new, ids: ['ids_example']}) # DomainUserActionRequest | User UUIDs and Action Name params are required. Allowed values for Action Name param includes 'reset_2fa' and 'reset_password'
+body = Falcon::DomainUserActionRequest.new({action: Falcon::DomainUserAction.new({action_name: 'reset_password'}), ids: ['ids_example']}) # DomainUserActionRequest | User UUIDs and Action Name params are required. Allowed values for Action Name param includes 'reset_2fa' and 'reset_password'
 
 begin
   # Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in `ids` param as part of request payload.

@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :connection_direction
 
+    attr_accessor :domain_name_list
+
     attr_accessor :event_type
 
     attr_accessor :flags
@@ -107,6 +109,7 @@ module Falcon
         :'cid' => :'cid',
         :'command_line' => :'command_line',
         :'connection_direction' => :'connection_direction',
+        :'domain_name_list' => :'domain_name_list',
         :'event_type' => :'event_type',
         :'flags' => :'flags',
         :'hidden' => :'hidden',
@@ -152,6 +155,7 @@ module Falcon
         :'cid' => :'String',
         :'command_line' => :'String',
         :'connection_direction' => :'String',
+        :'domain_name_list' => :'String',
         :'event_type' => :'String',
         :'flags' => :'FwmgrFirewallFlags',
         :'hidden' => :'Boolean',
@@ -220,6 +224,10 @@ module Falcon
 
       if attributes.key?(:'connection_direction')
         self.connection_direction = attributes[:'connection_direction']
+      end
+
+      if attributes.key?(:'domain_name_list')
+        self.domain_name_list = attributes[:'domain_name_list']
       end
 
       if attributes.key?(:'event_type')
@@ -363,6 +371,10 @@ module Falcon
         invalid_properties.push('invalid value for "connection_direction", connection_direction cannot be nil.')
       end
 
+      if @domain_name_list.nil?
+        invalid_properties.push('invalid value for "domain_name_list", domain_name_list cannot be nil.')
+      end
+
       if @event_type.nil?
         invalid_properties.push('invalid value for "event_type", event_type cannot be nil.')
       end
@@ -493,6 +505,7 @@ module Falcon
       return false if @cid.nil?
       return false if @command_line.nil?
       return false if @connection_direction.nil?
+      return false if @domain_name_list.nil?
       return false if @event_type.nil?
       return false if @flags.nil?
       return false if @hidden.nil?
@@ -535,6 +548,7 @@ module Falcon
           cid == o.cid &&
           command_line == o.command_line &&
           connection_direction == o.connection_direction &&
+          domain_name_list == o.domain_name_list &&
           event_type == o.event_type &&
           flags == o.flags &&
           hidden == o.hidden &&
@@ -576,7 +590,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, command_line, connection_direction, event_type, flags, hidden, host_name, icmp_code, icmp_type, id, image_file_name, ipv, local_address, local_port, match_count, match_count_since_last_event, network_profile, pid, platform, policy_id, policy_name, protocol, remote_address, remote_port, rule_action, rule_description, rule_family_id, rule_group_name, rule_id, rule_name, status, timestamp, tree_id].hash
+      [aid, cid, command_line, connection_direction, domain_name_list, event_type, flags, hidden, host_name, icmp_code, icmp_type, id, image_file_name, ipv, local_address, local_port, match_count, match_count_since_last_event, network_profile, pid, platform, policy_id, policy_name, protocol, remote_address, remote_port, rule_action, rule_description, rule_family_id, rule_group_name, rule_id, rule_name, status, timestamp, tree_id].hash
     end
 
     # Builds the object from hash

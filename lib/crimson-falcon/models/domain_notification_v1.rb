@@ -75,6 +75,8 @@ module Falcon
     # Type of the item which matched the rule: `post`, `reply`, `botnet_config`, `breach`, etc.
     attr_accessor :item_type
 
+    attr_accessor :logs
+
     # ID of the raw intel item that matched the rule
     attr_accessor :raw_intel_id
 
@@ -119,6 +121,7 @@ module Falcon
         :'item_site' => :'item_site',
         :'item_site_id' => :'item_site_id',
         :'item_type' => :'item_type',
+        :'logs' => :'logs',
         :'raw_intel_id' => :'raw_intel_id',
         :'rule_id' => :'rule_id',
         :'rule_name' => :'rule_name',
@@ -154,6 +157,7 @@ module Falcon
         :'item_site' => :'String',
         :'item_site_id' => :'String',
         :'item_type' => :'String',
+        :'logs' => :'Array<SadomainNotificationLog>',
         :'raw_intel_id' => :'String',
         :'rule_id' => :'String',
         :'rule_name' => :'String',
@@ -247,6 +251,12 @@ module Falcon
 
       if attributes.key?(:'item_type')
         self.item_type = attributes[:'item_type']
+      end
+
+      if attributes.key?(:'logs')
+        if (value = attributes[:'logs']).is_a?(Array)
+          self.logs = value
+        end
       end
 
       if attributes.key?(:'raw_intel_id')
@@ -384,6 +394,7 @@ module Falcon
           item_site == o.item_site &&
           item_site_id == o.item_site_id &&
           item_type == o.item_type &&
+          logs == o.logs &&
           raw_intel_id == o.raw_intel_id &&
           rule_id == o.rule_id &&
           rule_name == o.rule_name &&
@@ -404,7 +415,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, raw_intel_id, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
+      [assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
     end
 
     # Builds the object from hash
