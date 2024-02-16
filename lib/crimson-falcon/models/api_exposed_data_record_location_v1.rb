@@ -32,16 +32,22 @@ require 'time'
 
 module Falcon
   class ApiExposedDataRecordLocationV1
+    # City name
     attr_accessor :city
 
+    # The country code
     attr_accessor :country_code
 
+    # Federal Administrative Region
     attr_accessor :federal_admin_region
 
+    # Federal District
     attr_accessor :federal_district
 
+    # The postal code
     attr_accessor :postal_code
 
+    # State name
     attr_accessor :state
 
     # Attribute mapping from ruby-style variable name to JSON key.

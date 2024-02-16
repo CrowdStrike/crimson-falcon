@@ -32,22 +32,31 @@ require 'time'
 
 module Falcon
   class ApiExposedDataRecordSocialV1
+    # AIM ID of the affected user
     attr_accessor :aim_id
 
+    # Facebook ID of the affected user
     attr_accessor :facebook_id
 
+    # ICQ ID of the affected user
     attr_accessor :icq_id
 
+    # Instagram ID of the affected user
     attr_accessor :instagram_id
 
+    # MSN ID of the affected user
     attr_accessor :msn_id
 
+    # Skype ID of the affected user
     attr_accessor :skype_id
 
+    # Twitter ID of the affected user
     attr_accessor :twitter_id
 
+    # VK ID of the affected user
     attr_accessor :vk_id
 
+    # VK Access Token of the affected user
     attr_accessor :vk_token
 
     # Attribute mapping from ruby-style variable name to JSON key.

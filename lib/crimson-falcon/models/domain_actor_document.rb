@@ -50,6 +50,12 @@ module Falcon
     # Actor's text description, partially containing structured data from other fields
     attr_accessor :description
 
+    attr_accessor :description_length
+
+    attr_accessor :develops_threats
+
+    attr_accessor :develops_threats_count
+
     attr_accessor :ecrime_kill_chain
 
     # Field used to filter user's access to actor documents
@@ -60,10 +66,34 @@ module Falcon
 
     attr_accessor :group
 
+    attr_accessor :has_subgroup
+
+    attr_accessor :has_subgroup_actors_count
+
+    attr_accessor :has_successor
+
+    attr_accessor :has_successor_actors_count
+
     # Numerical ID for the Actor
     attr_accessor :id
 
     attr_accessor :image
+
+    attr_accessor :in_reports
+
+    attr_accessor :in_reports_count
+
+    attr_accessor :is_subgroup_of
+
+    attr_accessor :is_subgroup_of_actors_count
+
+    attr_accessor :is_successor_of
+
+    attr_accessor :is_successor_of_actors_count
+
+    attr_accessor :is_supported_by
+
+    attr_accessor :is_supported_by_actors_count
 
     attr_accessor :kill_chain
 
@@ -99,6 +129,10 @@ module Falcon
     # Rich text version of the description field
     attr_accessor :rich_text_description
 
+    attr_accessor :sells_threats
+
+    attr_accessor :sells_threats_count
+
     # Short version of the description field
     attr_accessor :short_description
 
@@ -107,6 +141,10 @@ module Falcon
 
     # Status of an actor, one of: Active, Inactive, Retired
     attr_accessor :status
+
+    attr_accessor :supports
+
+    attr_accessor :supports_actors_count
 
     # Target countries of actor's activity and attacks, slug value is a 2 characters code for the country value, some examples: United States,United Kingdom,Germany,India,Japan,France,Australia,Canada,China
     attr_accessor :target_countries
@@ -122,6 +160,23 @@ module Falcon
     # URL at which actor profile can be accessed
     attr_accessor :url
 
+    attr_accessor :uses_indicators_count
+
+    attr_accessor :uses_mitre_attacks_count
+
+    attr_accessor :uses_mitre_tactics_count
+
+    attr_accessor :uses_mitre_techniques_count
+
+    attr_accessor :uses_threats
+
+    attr_accessor :uses_threats_count
+
+    # Comma separated values of vulnerabilities by CVE codes that are exploited by actor
+    attr_accessor :uses_vulnerabilities
+
+    attr_accessor :vulnerabilities_count
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -131,12 +186,27 @@ module Falcon
         :'capability' => :'capability',
         :'created_date' => :'created_date',
         :'description' => :'description',
+        :'description_length' => :'description_length',
+        :'develops_threats' => :'develops_threats',
+        :'develops_threats_count' => :'develops_threats_count',
         :'ecrime_kill_chain' => :'ecrime_kill_chain',
         :'entitlements' => :'entitlements',
         :'first_activity_date' => :'first_activity_date',
         :'group' => :'group',
+        :'has_subgroup' => :'has_subgroup',
+        :'has_subgroup_actors_count' => :'has_subgroup_actors_count',
+        :'has_successor' => :'has_successor',
+        :'has_successor_actors_count' => :'has_successor_actors_count',
         :'id' => :'id',
         :'image' => :'image',
+        :'in_reports' => :'in_reports',
+        :'in_reports_count' => :'in_reports_count',
+        :'is_subgroup_of' => :'is_subgroup_of',
+        :'is_subgroup_of_actors_count' => :'is_subgroup_of_actors_count',
+        :'is_successor_of' => :'is_successor_of',
+        :'is_successor_of_actors_count' => :'is_successor_of_actors_count',
+        :'is_supported_by' => :'is_supported_by',
+        :'is_supported_by_actors_count' => :'is_supported_by_actors_count',
         :'kill_chain' => :'kill_chain',
         :'known_as' => :'known_as',
         :'last_activity_date' => :'last_activity_date',
@@ -149,14 +219,26 @@ module Falcon
         :'recent_alerting' => :'recent_alerting',
         :'region' => :'region',
         :'rich_text_description' => :'rich_text_description',
+        :'sells_threats' => :'sells_threats',
+        :'sells_threats_count' => :'sells_threats_count',
         :'short_description' => :'short_description',
         :'slug' => :'slug',
         :'status' => :'status',
+        :'supports' => :'supports',
+        :'supports_actors_count' => :'supports_actors_count',
         :'target_countries' => :'target_countries',
         :'target_industries' => :'target_industries',
         :'target_regions' => :'target_regions',
         :'thumbnail' => :'thumbnail',
-        :'url' => :'url'
+        :'url' => :'url',
+        :'uses_indicators_count' => :'uses_indicators_count',
+        :'uses_mitre_attacks_count' => :'uses_mitre_attacks_count',
+        :'uses_mitre_tactics_count' => :'uses_mitre_tactics_count',
+        :'uses_mitre_techniques_count' => :'uses_mitre_techniques_count',
+        :'uses_threats' => :'uses_threats',
+        :'uses_threats_count' => :'uses_threats_count',
+        :'uses_vulnerabilities' => :'uses_vulnerabilities',
+        :'vulnerabilities_count' => :'vulnerabilities_count'
       }
     end
 
@@ -174,12 +256,27 @@ module Falcon
         :'capability' => :'DomainEntity',
         :'created_date' => :'Integer',
         :'description' => :'String',
+        :'description_length' => :'Integer',
+        :'develops_threats' => :'Array<DomainThreatEntity>',
+        :'develops_threats_count' => :'Integer',
         :'ecrime_kill_chain' => :'DomainECrimeKillChain',
         :'entitlements' => :'Array<DomainEntity>',
         :'first_activity_date' => :'Integer',
         :'group' => :'DomainEntity',
+        :'has_subgroup' => :'Array<DomainActorEntity>',
+        :'has_subgroup_actors_count' => :'Integer',
+        :'has_successor' => :'Array<DomainActorEntity>',
+        :'has_successor_actors_count' => :'Integer',
         :'id' => :'Integer',
         :'image' => :'DomainImage',
+        :'in_reports' => :'Array<DomainActorNewsDocument>',
+        :'in_reports_count' => :'Integer',
+        :'is_subgroup_of' => :'Array<DomainActorEntity>',
+        :'is_subgroup_of_actors_count' => :'Integer',
+        :'is_successor_of' => :'Array<DomainActorEntity>',
+        :'is_successor_of_actors_count' => :'Integer',
+        :'is_supported_by' => :'Array<DomainActorEntity>',
+        :'is_supported_by_actors_count' => :'Integer',
         :'kill_chain' => :'DomainKillChain',
         :'known_as' => :'String',
         :'last_activity_date' => :'Integer',
@@ -192,14 +289,26 @@ module Falcon
         :'recent_alerting' => :'Integer',
         :'region' => :'DomainEntity',
         :'rich_text_description' => :'String',
+        :'sells_threats' => :'Array<DomainThreatEntity>',
+        :'sells_threats_count' => :'Integer',
         :'short_description' => :'String',
         :'slug' => :'String',
         :'status' => :'String',
+        :'supports' => :'Array<DomainActorEntity>',
+        :'supports_actors_count' => :'Integer',
         :'target_countries' => :'Array<DomainEntity>',
         :'target_industries' => :'Array<DomainEntity>',
         :'target_regions' => :'Array<DomainEntity>',
         :'thumbnail' => :'DomainImage',
-        :'url' => :'String'
+        :'url' => :'String',
+        :'uses_indicators_count' => :'Integer',
+        :'uses_mitre_attacks_count' => :'Integer',
+        :'uses_mitre_tactics_count' => :'Integer',
+        :'uses_mitre_techniques_count' => :'Integer',
+        :'uses_threats' => :'Array<DomainThreatEntity>',
+        :'uses_threats_count' => :'Integer',
+        :'uses_vulnerabilities' => :'Array<String>',
+        :'vulnerabilities_count' => :'Integer'
       }
     end
 
@@ -250,6 +359,20 @@ module Falcon
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'description_length')
+        self.description_length = attributes[:'description_length']
+      end
+
+      if attributes.key?(:'develops_threats')
+        if (value = attributes[:'develops_threats']).is_a?(Array)
+          self.develops_threats = value
+        end
+      end
+
+      if attributes.key?(:'develops_threats_count')
+        self.develops_threats_count = attributes[:'develops_threats_count']
+      end
+
       if attributes.key?(:'ecrime_kill_chain')
         self.ecrime_kill_chain = attributes[:'ecrime_kill_chain']
       end
@@ -268,12 +391,72 @@ module Falcon
         self.group = attributes[:'group']
       end
 
+      if attributes.key?(:'has_subgroup')
+        if (value = attributes[:'has_subgroup']).is_a?(Array)
+          self.has_subgroup = value
+        end
+      end
+
+      if attributes.key?(:'has_subgroup_actors_count')
+        self.has_subgroup_actors_count = attributes[:'has_subgroup_actors_count']
+      end
+
+      if attributes.key?(:'has_successor')
+        if (value = attributes[:'has_successor']).is_a?(Array)
+          self.has_successor = value
+        end
+      end
+
+      if attributes.key?(:'has_successor_actors_count')
+        self.has_successor_actors_count = attributes[:'has_successor_actors_count']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
       if attributes.key?(:'image')
         self.image = attributes[:'image']
+      end
+
+      if attributes.key?(:'in_reports')
+        if (value = attributes[:'in_reports']).is_a?(Array)
+          self.in_reports = value
+        end
+      end
+
+      if attributes.key?(:'in_reports_count')
+        self.in_reports_count = attributes[:'in_reports_count']
+      end
+
+      if attributes.key?(:'is_subgroup_of')
+        if (value = attributes[:'is_subgroup_of']).is_a?(Array)
+          self.is_subgroup_of = value
+        end
+      end
+
+      if attributes.key?(:'is_subgroup_of_actors_count')
+        self.is_subgroup_of_actors_count = attributes[:'is_subgroup_of_actors_count']
+      end
+
+      if attributes.key?(:'is_successor_of')
+        if (value = attributes[:'is_successor_of']).is_a?(Array)
+          self.is_successor_of = value
+        end
+      end
+
+      if attributes.key?(:'is_successor_of_actors_count')
+        self.is_successor_of_actors_count = attributes[:'is_successor_of_actors_count']
+      end
+
+      if attributes.key?(:'is_supported_by')
+        if (value = attributes[:'is_supported_by']).is_a?(Array)
+          self.is_supported_by = value
+        end
+      end
+
+      if attributes.key?(:'is_supported_by_actors_count')
+        self.is_supported_by_actors_count = attributes[:'is_supported_by_actors_count']
       end
 
       if attributes.key?(:'kill_chain')
@@ -330,6 +513,16 @@ module Falcon
         self.rich_text_description = attributes[:'rich_text_description']
       end
 
+      if attributes.key?(:'sells_threats')
+        if (value = attributes[:'sells_threats']).is_a?(Array)
+          self.sells_threats = value
+        end
+      end
+
+      if attributes.key?(:'sells_threats_count')
+        self.sells_threats_count = attributes[:'sells_threats_count']
+      end
+
       if attributes.key?(:'short_description')
         self.short_description = attributes[:'short_description']
       end
@@ -340,6 +533,16 @@ module Falcon
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'supports')
+        if (value = attributes[:'supports']).is_a?(Array)
+          self.supports = value
+        end
+      end
+
+      if attributes.key?(:'supports_actors_count')
+        self.supports_actors_count = attributes[:'supports_actors_count']
       end
 
       if attributes.key?(:'target_countries')
@@ -366,6 +569,42 @@ module Falcon
 
       if attributes.key?(:'url')
         self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'uses_indicators_count')
+        self.uses_indicators_count = attributes[:'uses_indicators_count']
+      end
+
+      if attributes.key?(:'uses_mitre_attacks_count')
+        self.uses_mitre_attacks_count = attributes[:'uses_mitre_attacks_count']
+      end
+
+      if attributes.key?(:'uses_mitre_tactics_count')
+        self.uses_mitre_tactics_count = attributes[:'uses_mitre_tactics_count']
+      end
+
+      if attributes.key?(:'uses_mitre_techniques_count')
+        self.uses_mitre_techniques_count = attributes[:'uses_mitre_techniques_count']
+      end
+
+      if attributes.key?(:'uses_threats')
+        if (value = attributes[:'uses_threats']).is_a?(Array)
+          self.uses_threats = value
+        end
+      end
+
+      if attributes.key?(:'uses_threats_count')
+        self.uses_threats_count = attributes[:'uses_threats_count']
+      end
+
+      if attributes.key?(:'uses_vulnerabilities')
+        if (value = attributes[:'uses_vulnerabilities']).is_a?(Array)
+          self.uses_vulnerabilities = value
+        end
+      end
+
+      if attributes.key?(:'vulnerabilities_count')
+        self.vulnerabilities_count = attributes[:'vulnerabilities_count']
       end
     end
 
@@ -478,12 +717,27 @@ module Falcon
           capability == o.capability &&
           created_date == o.created_date &&
           description == o.description &&
+          description_length == o.description_length &&
+          develops_threats == o.develops_threats &&
+          develops_threats_count == o.develops_threats_count &&
           ecrime_kill_chain == o.ecrime_kill_chain &&
           entitlements == o.entitlements &&
           first_activity_date == o.first_activity_date &&
           group == o.group &&
+          has_subgroup == o.has_subgroup &&
+          has_subgroup_actors_count == o.has_subgroup_actors_count &&
+          has_successor == o.has_successor &&
+          has_successor_actors_count == o.has_successor_actors_count &&
           id == o.id &&
           image == o.image &&
+          in_reports == o.in_reports &&
+          in_reports_count == o.in_reports_count &&
+          is_subgroup_of == o.is_subgroup_of &&
+          is_subgroup_of_actors_count == o.is_subgroup_of_actors_count &&
+          is_successor_of == o.is_successor_of &&
+          is_successor_of_actors_count == o.is_successor_of_actors_count &&
+          is_supported_by == o.is_supported_by &&
+          is_supported_by_actors_count == o.is_supported_by_actors_count &&
           kill_chain == o.kill_chain &&
           known_as == o.known_as &&
           last_activity_date == o.last_activity_date &&
@@ -496,14 +750,26 @@ module Falcon
           recent_alerting == o.recent_alerting &&
           region == o.region &&
           rich_text_description == o.rich_text_description &&
+          sells_threats == o.sells_threats &&
+          sells_threats_count == o.sells_threats_count &&
           short_description == o.short_description &&
           slug == o.slug &&
           status == o.status &&
+          supports == o.supports &&
+          supports_actors_count == o.supports_actors_count &&
           target_countries == o.target_countries &&
           target_industries == o.target_industries &&
           target_regions == o.target_regions &&
           thumbnail == o.thumbnail &&
-          url == o.url
+          url == o.url &&
+          uses_indicators_count == o.uses_indicators_count &&
+          uses_mitre_attacks_count == o.uses_mitre_attacks_count &&
+          uses_mitre_tactics_count == o.uses_mitre_tactics_count &&
+          uses_mitre_techniques_count == o.uses_mitre_techniques_count &&
+          uses_threats == o.uses_threats &&
+          uses_threats_count == o.uses_threats_count &&
+          uses_vulnerabilities == o.uses_vulnerabilities &&
+          vulnerabilities_count == o.vulnerabilities_count
     end
 
     # @see the `==` method
@@ -515,7 +781,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actor_type, capabilities, capability, created_date, description, ecrime_kill_chain, entitlements, first_activity_date, group, id, image, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, short_description, slug, status, target_countries, target_industries, target_regions, thumbnail, url].hash
+      [active, actor_type, capabilities, capability, created_date, description, description_length, develops_threats, develops_threats_count, ecrime_kill_chain, entitlements, first_activity_date, group, has_subgroup, has_subgroup_actors_count, has_successor, has_successor_actors_count, id, image, in_reports, in_reports_count, is_subgroup_of, is_subgroup_of_actors_count, is_successor_of, is_successor_of_actors_count, is_supported_by, is_supported_by_actors_count, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, sells_threats, sells_threats_count, short_description, slug, status, supports, supports_actors_count, target_countries, target_industries, target_regions, thumbnail, url, uses_indicators_count, uses_mitre_attacks_count, uses_mitre_tactics_count, uses_mitre_techniques_count, uses_threats, uses_threats_count, uses_vulnerabilities, vulnerabilities_count].hash
     end
 
     # Builds the object from hash

@@ -52,6 +52,8 @@ module Falcon
 
     attr_accessor :finding
 
+    attr_accessor :findings
+
     attr_accessor :id
 
     attr_accessor :is_managed
@@ -105,6 +107,7 @@ module Falcon
         :'cloud_scopes' => :'cloud_scopes',
         :'custom_policy_id' => :'custom_policy_id',
         :'finding' => :'finding',
+        :'findings' => :'findings',
         :'id' => :'id',
         :'is_managed' => :'is_managed',
         :'policy_id' => :'policy_id',
@@ -146,6 +149,7 @@ module Falcon
         :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'custom_policy_id' => :'Integer',
         :'finding' => :'Object',
+        :'findings' => :'Array<Object>',
         :'id' => :'String',
         :'is_managed' => :'Boolean',
         :'policy_id' => :'Integer',
@@ -232,6 +236,12 @@ module Falcon
 
       if attributes.key?(:'finding')
         self.finding = attributes[:'finding']
+      end
+
+      if attributes.key?(:'findings')
+        if (value = attributes[:'findings']).is_a?(Array)
+          self.findings = value
+        end
       end
 
       if attributes.key?(:'id')
@@ -341,6 +351,10 @@ module Falcon
         invalid_properties.push('invalid value for "finding", finding cannot be nil.')
       end
 
+      if @findings.nil?
+        invalid_properties.push('invalid value for "findings", findings cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
@@ -412,6 +426,7 @@ module Falcon
       return false if @cid.nil?
       return false if @cloud_provider.nil?
       return false if @finding.nil?
+      return false if @findings.nil?
       return false if @id.nil?
       return false if @policy_statement.nil?
       return false if @region.nil?
@@ -445,6 +460,7 @@ module Falcon
           cloud_scopes == o.cloud_scopes &&
           custom_policy_id == o.custom_policy_id &&
           finding == o.finding &&
+          findings == o.findings &&
           id == o.id &&
           is_managed == o.is_managed &&
           policy_id == o.policy_id &&
@@ -476,7 +492,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
+      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, findings, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
     end
 
     # Builds the object from hash

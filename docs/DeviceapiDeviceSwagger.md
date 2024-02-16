@@ -19,6 +19,7 @@
 | **connection_ip** | **String** |  | [optional] |
 | **connection_mac_address** | **String** |  | [optional] |
 | **cpu_signature** | **String** |  | [optional] |
+| **cpu_vendor** | **String** |  | [optional] |
 | **default_gateway_ip** | **String** |  | [optional] |
 | **deployment_type** | **String** |  | [optional] |
 | **detection_suppression_status** | **String** |  | [optional] |
@@ -40,6 +41,9 @@
 | **k8s_cluster_version** | **String** |  | [optional] |
 | **kernel_version** | **String** |  | [optional] |
 | **last_login_timestamp** | **String** |  | [optional] |
+| **last_login_uid** | **String** |  | [optional] |
+| **last_login_user** | **String** |  | [optional] |
+| **last_login_user_sid** | **String** |  | [optional] |
 | **last_reboot** | **String** |  | [optional] |
 | **last_seen** | **String** |  | [optional] |
 | **linux_sensor_mode** | **String** |  | [optional] |
@@ -109,6 +113,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   connection_ip: null,
   connection_mac_address: null,
   cpu_signature: null,
+  cpu_vendor: null,
   default_gateway_ip: null,
   deployment_type: null,
   detection_suppression_status: null,
@@ -130,6 +135,9 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   k8s_cluster_version: null,
   kernel_version: null,
   last_login_timestamp: null,
+  last_login_uid: null,
+  last_login_user: null,
+  last_login_user_sid: null,
   last_reboot: null,
   last_seen: null,
   linux_sensor_mode: null,

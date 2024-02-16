@@ -32,15 +32,27 @@ require 'time'
 
 module Falcon
   class DomainMetaInfo
-    attr_accessor :msa_meta_info
+    attr_accessor :pagination
+
+    attr_accessor :powered_by
+
+    attr_accessor :query_time
 
     attr_accessor :quota
+
+    attr_accessor :trace_id
+
+    attr_accessor :writes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'msa_meta_info' => :'MsaMetaInfo',
-        :'quota' => :'quota'
+        :'pagination' => :'pagination',
+        :'powered_by' => :'powered_by',
+        :'query_time' => :'query_time',
+        :'quota' => :'quota',
+        :'trace_id' => :'trace_id',
+        :'writes' => :'writes'
       }
     end
 
@@ -52,8 +64,12 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'msa_meta_info' => :'MsaspecMetaInfo',
-        :'quota' => :'DomainQuota'
+        :'pagination' => :'MsaspecPaging',
+        :'powered_by' => :'String',
+        :'query_time' => :'Float',
+        :'quota' => :'DomainQuota',
+        :'trace_id' => :'String',
+        :'writes' => :'MsaspecWrites'
       }
     end
 
@@ -78,12 +94,28 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'msa_meta_info')
-        self.msa_meta_info = attributes[:'msa_meta_info']
+      if attributes.key?(:'pagination')
+        self.pagination = attributes[:'pagination']
+      end
+
+      if attributes.key?(:'powered_by')
+        self.powered_by = attributes[:'powered_by']
+      end
+
+      if attributes.key?(:'query_time')
+        self.query_time = attributes[:'query_time']
       end
 
       if attributes.key?(:'quota')
         self.quota = attributes[:'quota']
+      end
+
+      if attributes.key?(:'trace_id')
+        self.trace_id = attributes[:'trace_id']
+      end
+
+      if attributes.key?(:'writes')
+        self.writes = attributes[:'writes']
       end
     end
 
@@ -91,8 +123,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @msa_meta_info.nil?
-        invalid_properties.push('invalid value for "msa_meta_info", msa_meta_info cannot be nil.')
+      if @query_time.nil?
+        invalid_properties.push('invalid value for "query_time", query_time cannot be nil.')
+      end
+
+      if @trace_id.nil?
+        invalid_properties.push('invalid value for "trace_id", trace_id cannot be nil.')
       end
 
       invalid_properties
@@ -101,7 +137,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @msa_meta_info.nil?
+      return false if @query_time.nil?
+      return false if @trace_id.nil?
       true
     end
 
@@ -110,8 +147,12 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          msa_meta_info == o.msa_meta_info &&
-          quota == o.quota
+          pagination == o.pagination &&
+          powered_by == o.powered_by &&
+          query_time == o.query_time &&
+          quota == o.quota &&
+          trace_id == o.trace_id &&
+          writes == o.writes
     end
 
     # @see the `==` method
@@ -123,7 +164,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [msa_meta_info, quota].hash
+      [pagination, powered_by, query_time, quota, trace_id, writes].hash
     end
 
     # Builds the object from hash

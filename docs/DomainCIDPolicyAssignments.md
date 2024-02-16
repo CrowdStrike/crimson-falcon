@@ -18,6 +18,8 @@
 | **created_at** | **Time** |  | [optional] |
 | **default_severity** | **String** |  | [optional] |
 | **fql_policy** | **String** |  | [optional] |
+| **hipaa_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
+| **hitrust_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **is_remediable** | **Boolean** |  |  |
 | **iso_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
@@ -51,6 +53,8 @@ instance = Falcon::DomainCIDPolicyAssignments.new(
   created_at: null,
   default_severity: null,
   fql_policy: null,
+  hipaa_benchmark: null,
+  hitrust_benchmark: null,
   is_remediable: null,
   iso_benchmark: null,
   name: null,

@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **city** | **String** |  | [optional] |
-| **country_code** | **String** |  | [optional] |
-| **federal_admin_region** | **String** |  | [optional] |
-| **federal_district** | **String** |  | [optional] |
-| **postal_code** | **String** |  | [optional] |
-| **state** | **String** |  | [optional] |
+| **city** | **String** | City name | [optional] |
+| **country_code** | **String** | The country code | [optional] |
+| **federal_admin_region** | **String** | Federal Administrative Region | [optional] |
+| **federal_district** | **String** | Federal District | [optional] |
+| **postal_code** | **String** | The postal code | [optional] |
+| **state** | **String** | State name | [optional] |
 
 ## Example
 

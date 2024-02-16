@@ -36,7 +36,7 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Performs the specified action on the provided prevention policy IDs.
+    # Performs the specified action on the provided group IDs.
     # @param ids [Array<String>] The group ids to act on
     # @param action_name [String] The action to perform.
     # @param body [MsaEntityActionRequest]
@@ -48,7 +48,7 @@ module Falcon
       data
     end
 
-    # Performs the specified action on the provided prevention policy IDs.
+    # Performs the specified action on the provided group IDs.
     # @param ids [Array<String>] The group ids to act on
     # @param action_name [String] The action to perform.
     # @param body [MsaEntityActionRequest]
@@ -120,68 +120,6 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: HostsApi#entities_perform_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-    # @param ids [Array<String>] The host agentIDs used to get details on
-    # @param [Hash] opts the optional parameters
-    # @return [DeviceapiDeviceDetailsResponseSwagger]
-    def get_device_details(ids, opts = {})
-      data, _status_code, _headers = get_device_details_with_http_info(ids, opts)
-      data
-    end
-
-    # Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host&#39;s agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-    # @param ids [Array<String>] The host agentIDs used to get details on
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(DeviceapiDeviceDetailsResponseSwagger, Integer, Hash)>] DeviceapiDeviceDetailsResponseSwagger data, response status code and response headers
-    def get_device_details_with_http_info(ids, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.get_device_details ...'
-      end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostsApi.get_device_details"
-      end
-      # resource path
-      local_var_path = '/devices/entities/devices/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DeviceapiDeviceDetailsResponseSwagger'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"HostsApi.get_device_details",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#get_device_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -515,6 +453,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: HostsApi#query_device_login_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+    # @param body [MsaIdsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DeviceapiLoginHistoryResponseV1]
+    def query_device_login_history_v2(body, opts = {})
+      data, _status_code, _headers = query_device_login_history_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+    # @param body [MsaIdsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DeviceapiLoginHistoryResponseV1, Integer, Hash)>] DeviceapiLoginHistoryResponseV1 data, response status code and response headers
+    def query_device_login_history_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: HostsApi.query_device_login_history_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.query_device_login_history_v2"
+      end
+      # resource path
+      local_var_path = '/devices/combined/devices/login-history/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeviceapiLoginHistoryResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"HostsApi.query_device_login_history_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: HostsApi#query_device_login_history_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

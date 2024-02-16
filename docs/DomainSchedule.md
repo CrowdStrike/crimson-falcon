@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **can_stagger** | **Boolean** |  |  |
-| **definition** | **String** |  |  |
-| **display** | **String** |  |  |
+| **ignored_by_channelfile** | **Boolean** |  | [optional] |
+| **interval** | **Integer** |  | [optional] |
+| **start_timestamp** | **String** |  | [optional] |
 
 ## Example
 
@@ -14,9 +14,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainSchedule.new(
-  can_stagger: null,
-  definition: null,
-  display: null
+  ignored_by_channelfile: null,
+  interval: null,
+  start_timestamp: null
 )
 ```
 

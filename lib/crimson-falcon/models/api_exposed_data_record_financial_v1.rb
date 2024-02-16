@@ -32,10 +32,13 @@ require 'time'
 
 module Falcon
   class ApiExposedDataRecordFinancialV1
+    # Bank Account information
     attr_accessor :bank_account
 
+    # Credit Card information
     attr_accessor :credit_card
 
+    # A list of Crypto Currency addresses
     attr_accessor :crypto_currency_addresses
 
     # Attribute mapping from ruby-style variable name to JSON key.

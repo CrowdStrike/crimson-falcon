@@ -6,11 +6,11 @@
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** |  |  |
 | **cloud_request_ids** | **Array&lt;String&gt;** |  |  |
-| **commands** | **Hash&lt;String, Object&gt;** |  |  |
+| **commands** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **commands_queued** | **Boolean** |  |  |
 | **created_at** | **Time** |  |  |
 | **deleted_at** | **Time** |  |  |
-| **device_details** | [**DomainDevice**](DomainDevice.md) |  |  |
+| **device_details** | [**DomainDevice**](DomainDevice.md) |  | [optional] |
 | **device_id** | **String** |  |  |
 | **duration** | **Float** |  |  |
 | **hostname** | **String** |  |  |
@@ -18,9 +18,9 @@
 | **logs** | [**Array&lt;ModelSessionLog&gt;**](ModelSessionLog.md) |  |  |
 | **offline_queued** | **Boolean** |  |  |
 | **origin** | **String** |  |  |
-| **platform_id** | **Integer** |  |  |
-| **platform_name** | **String** |  |  |
-| **pwd** | **String** |  |  |
+| **platform_id** | **Integer** |  | [optional] |
+| **platform_name** | **String** |  | [optional] |
+| **pwd** | **String** |  | [optional] |
 | **updated_at** | **Time** |  |  |
 | **user_id** | **String** |  |  |
 | **user_uuid** | **String** |  |  |

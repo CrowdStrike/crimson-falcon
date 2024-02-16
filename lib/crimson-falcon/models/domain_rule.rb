@@ -32,36 +32,41 @@ require 'time'
 
 module Falcon
   class DomainRule
+    # The categories associated with the rule
+    attr_accessor :categories
+
+    # UTC timestamp when rule was created
     attr_accessor :created_date
 
-    attr_accessor :description
+    # The ID of the customer
+    attr_accessor :customer_id
 
+    # The ID of the rule
     attr_accessor :id
 
-    attr_accessor :last_modified_date
-
+    # The name of the rule
     attr_accessor :name
 
-    attr_accessor :rich_text_description
+    # The type of the rule
+    attr_accessor :rule_type
 
-    attr_accessor :short_description
+    # UTC timestamp when rule was last updated
+    attr_accessor :updated_date
 
-    attr_accessor :tags
-
-    attr_accessor :type
+    # The value of the rule
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'categories' => :'categories',
         :'created_date' => :'created_date',
-        :'description' => :'description',
+        :'customer_id' => :'customer_id',
         :'id' => :'id',
-        :'last_modified_date' => :'last_modified_date',
         :'name' => :'name',
-        :'rich_text_description' => :'rich_text_description',
-        :'short_description' => :'short_description',
-        :'tags' => :'tags',
-        :'type' => :'type'
+        :'rule_type' => :'rule_type',
+        :'updated_date' => :'updated_date',
+        :'value' => :'value'
       }
     end
 
@@ -73,15 +78,14 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'created_date' => :'Integer',
-        :'description' => :'String',
-        :'id' => :'Integer',
-        :'last_modified_date' => :'Integer',
+        :'categories' => :'Array<String>',
+        :'created_date' => :'String',
+        :'customer_id' => :'String',
+        :'id' => :'String',
         :'name' => :'String',
-        :'rich_text_description' => :'String',
-        :'short_description' => :'String',
-        :'tags' => :'Array<String>',
-        :'type' => :'String'
+        :'rule_type' => :'String',
+        :'updated_date' => :'String',
+        :'value' => :'String'
       }
     end
 
@@ -106,42 +110,38 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'categories')
+        if (value = attributes[:'categories']).is_a?(Array)
+          self.categories = value
+        end
+      end
+
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
       end
 
-      if attributes.key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.key?(:'customer_id')
+        self.customer_id = attributes[:'customer_id']
       end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'last_modified_date')
-        self.last_modified_date = attributes[:'last_modified_date']
-      end
-
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'rich_text_description')
-        self.rich_text_description = attributes[:'rich_text_description']
+      if attributes.key?(:'rule_type')
+        self.rule_type = attributes[:'rule_type']
       end
 
-      if attributes.key?(:'short_description')
-        self.short_description = attributes[:'short_description']
+      if attributes.key?(:'updated_date')
+        self.updated_date = attributes[:'updated_date']
       end
 
-      if attributes.key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -149,40 +149,36 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @categories.nil?
+        invalid_properties.push('invalid value for "categories", categories cannot be nil.')
+      end
+
       if @created_date.nil?
         invalid_properties.push('invalid value for "created_date", created_date cannot be nil.')
       end
 
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      if @customer_id.nil?
+        invalid_properties.push('invalid value for "customer_id", customer_id cannot be nil.')
       end
 
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @last_modified_date.nil?
-        invalid_properties.push('invalid value for "last_modified_date", last_modified_date cannot be nil.')
-      end
-
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @rich_text_description.nil?
-        invalid_properties.push('invalid value for "rich_text_description", rich_text_description cannot be nil.')
+      if @rule_type.nil?
+        invalid_properties.push('invalid value for "rule_type", rule_type cannot be nil.')
       end
 
-      if @short_description.nil?
-        invalid_properties.push('invalid value for "short_description", short_description cannot be nil.')
+      if @updated_date.nil?
+        invalid_properties.push('invalid value for "updated_date", updated_date cannot be nil.')
       end
 
-      if @tags.nil?
-        invalid_properties.push('invalid value for "tags", tags cannot be nil.')
-      end
-
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      if @value.nil?
+        invalid_properties.push('invalid value for "value", value cannot be nil.')
       end
 
       invalid_properties
@@ -191,15 +187,14 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @categories.nil?
       return false if @created_date.nil?
-      return false if @description.nil?
+      return false if @customer_id.nil?
       return false if @id.nil?
-      return false if @last_modified_date.nil?
       return false if @name.nil?
-      return false if @rich_text_description.nil?
-      return false if @short_description.nil?
-      return false if @tags.nil?
-      return false if @type.nil?
+      return false if @rule_type.nil?
+      return false if @updated_date.nil?
+      return false if @value.nil?
       true
     end
 
@@ -208,15 +203,14 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          categories == o.categories &&
           created_date == o.created_date &&
-          description == o.description &&
+          customer_id == o.customer_id &&
           id == o.id &&
-          last_modified_date == o.last_modified_date &&
           name == o.name &&
-          rich_text_description == o.rich_text_description &&
-          short_description == o.short_description &&
-          tags == o.tags &&
-          type == o.type
+          rule_type == o.rule_type &&
+          updated_date == o.updated_date &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -228,7 +222,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_date, description, id, last_modified_date, name, rich_text_description, short_description, tags, type].hash
+      [categories, created_date, customer_id, id, name, rule_type, updated_date, value].hash
     end
 
     # Builds the object from hash

@@ -86,6 +86,10 @@ module Falcon
 
     attr_accessor :fql_policy
 
+    attr_accessor :hipaa_benchmark_ids
+
+    attr_accessor :hitrust_benchmark_ids
+
     attr_accessor :internal_only
 
     attr_accessor :is_enabled
@@ -164,6 +168,8 @@ module Falcon
         :'description' => :'description',
         :'event_type' => :'event_type',
         :'fql_policy' => :'fql_policy',
+        :'hipaa_benchmark_ids' => :'hipaa_benchmark_ids',
+        :'hitrust_benchmark_ids' => :'hitrust_benchmark_ids',
         :'internal_only' => :'internal_only',
         :'is_enabled' => :'is_enabled',
         :'is_remediable' => :'is_remediable',
@@ -226,6 +232,8 @@ module Falcon
         :'description' => :'String',
         :'event_type' => :'String',
         :'fql_policy' => :'String',
+        :'hipaa_benchmark_ids' => :'Array<Integer>',
+        :'hitrust_benchmark_ids' => :'Array<Integer>',
         :'internal_only' => :'Boolean',
         :'is_enabled' => :'Boolean',
         :'is_remediable' => :'Boolean',
@@ -386,6 +394,18 @@ module Falcon
 
       if attributes.key?(:'fql_policy')
         self.fql_policy = attributes[:'fql_policy']
+      end
+
+      if attributes.key?(:'hipaa_benchmark_ids')
+        if (value = attributes[:'hipaa_benchmark_ids']).is_a?(Array)
+          self.hipaa_benchmark_ids = value
+        end
+      end
+
+      if attributes.key?(:'hitrust_benchmark_ids')
+        if (value = attributes[:'hitrust_benchmark_ids']).is_a?(Array)
+          self.hitrust_benchmark_ids = value
+        end
       end
 
       if attributes.key?(:'internal_only')
@@ -573,6 +593,8 @@ module Falcon
           description == o.description &&
           event_type == o.event_type &&
           fql_policy == o.fql_policy &&
+          hipaa_benchmark_ids == o.hipaa_benchmark_ids &&
+          hitrust_benchmark_ids == o.hitrust_benchmark_ids &&
           internal_only == o.internal_only &&
           is_enabled == o.is_enabled &&
           is_remediable == o.is_remediable &&
@@ -608,7 +630,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_subtype, cloud_service_type, confidence, default_severity, description, event_type, fql_policy, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
+      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_subtype, cloud_service_type, confidence, default_severity, description, event_type, fql_policy, hipaa_benchmark_ids, hitrust_benchmark_ids, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
     end
 
     # Builds the object from hash

@@ -18,7 +18,10 @@
 | **credentials_type** | **String** |  | [optional] |
 | **default_subscription_id** | **String** | Default Azure Subscription ID to provision shared IOA infrastructure. | [optional] |
 | **environment** | **String** |  | [optional] |
+| **is_cspm_lite** | **Boolean** | Is CSPM Lite enabled. | [optional] |
 | **object_id** | **String** |  | [optional] |
+| **parent_management_group_id** | **String** |  | [optional] |
+| **parent_management_group_name** | **String** |  | [optional] |
 | **public_certificate** | **String** |  | [optional] |
 | **public_certificate_raw** | **String** |  | [optional] |
 | **role_assignments** | [**Array&lt;DomainAzureRoleAssignment&gt;**](DomainAzureRoleAssignment.md) |  | [optional] |
@@ -49,7 +52,10 @@ instance = Falcon::RegistrationAzureAccountV1Ext.new(
   credentials_type: null,
   default_subscription_id: null,
   environment: null,
+  is_cspm_lite: null,
   object_id: null,
+  parent_management_group_id: null,
+  parent_management_group_name: null,
   public_certificate: null,
   public_certificate_raw: null,
   role_assignments: null,

@@ -36,11 +36,553 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
+    # After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
+    # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesResponse]
+    def create_policies(body, opts = {})
+      data, _status_code, _headers = create_policies_with_http_info(body, opts)
+      data
+    end
+
+    # Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
+    # After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
+    # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
+    def create_policies_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_policies ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_policies"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.create_policies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#create_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates a new rule group of the specified type.
+    # Individual rules can be assigned to a rule group after it has been created.
+    # @param body [RulegroupsCreateRequest] Create a new rule group of a specific type.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;type&#x60; must be one of &#x60;WindowsFiles&#x60;, &#x60;WindowsRegistry&#x60;, &#x60;LinuxFiles&#x60; or &#x60;MacFiles&#x60;.   * &#x60;description&#x60; can be between 0 and 500 characters.   Note: rules are added/removed from rule groups using their dedicated end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsResponse]
+    def create_rule_groups(body, opts = {})
+      data, _status_code, _headers = create_rule_groups_with_http_info(body, opts)
+      data
+    end
+
+    # Creates a new rule group of the specified type.
+    # Individual rules can be assigned to a rule group after it has been created.
+    # @param body [RulegroupsCreateRequest] Create a new rule group of a specific type.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;type&#x60; must be one of &#x60;WindowsFiles&#x60;, &#x60;WindowsRegistry&#x60;, &#x60;LinuxFiles&#x60; or &#x60;MacFiles&#x60;.   * &#x60;description&#x60; can be between 0 and 500 characters.   Note: rules are added/removed from rule groups using their dedicated end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
+    def create_rule_groups_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_rule_groups ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_rule_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.create_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#create_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates a new rule configuration within the specified rule group.
+    # Creates a new rule configuration within the specified rule group.
+    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsRulesResponse]
+    def create_rules(body, opts = {})
+      data, _status_code, _headers = create_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Creates a new rule configuration within the specified rule group.
+    # Creates a new rule configuration within the specified rule group.
+    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
+    def create_rules_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_rules"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups-rules/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.create_rules",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#create_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates a new scheduled exclusion configuration for the provided policy id.
+    # Creates a new scheduled exclusion configuration for the provided policy id.
+    # @param body [ScheduledexclusionsCreateRequest] Create a new scheduled exclusion configuration for the specified policy.      * &#x60;policy_id&#x60; to add the scheduled exclusion to.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;users&#x60; can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * &#x60;processes&#x60; can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * &#x60;schedule_start&#x60; must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;schedule_end&#x60; optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;timezone&#x60;  must be provided to indicate the TimeZone Name set for the provided &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * &#x60;repeated&#x60; optionally provided to indicate that the exclusion is applied repeatedly within the &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; time.      * &#x60;start_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;end_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;all_day&#x60; must be &#x60;true&#x60; or &#x60;false&#x60; to indicate the exclusion is applied all day.       * &#x60;frequency&#x60; must be one of &#x60;daily&#x60;, &#x60;weekly&#x60; or &#x60;monthly&#x60;.       * &#x60;occurrence&#x60; must be one of the following when &#x60;frequency&#x60; is set to &#x60;monthly&#x60;:        * &#x60;1st&#x60;, &#x60;2nd&#x60;, &#x60;3rd&#x60;, &#x60;4th&#x60; or &#x60;Last&#x60; represents the week.        * &#x60;Days&#x60; represents specific calendar days.      * &#x60;weekly_days&#x60; must be one or more of &#x60;Monday&#x60;, &#x60;Tuesday&#x60;, &#x60;Wednesday&#x60;, &#x60;Thursday&#x60;, &#x60;Friday&#x60;, &#x60;Saturday&#x60; or &#x60;Sunday&#x60; when &#x60;frequency&#x60; is set to &#x60;weekly&#x60; or &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is NOT set to &#x60;Days&#x60;.       * &#x60;monthly_days&#x60; must be set to one or more calendar days, between 1 and 31  when &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is set to &#x60;Days&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [ScheduledexclusionsResponse]
+    def create_scheduled_exclusions(body, opts = {})
+      data, _status_code, _headers = create_scheduled_exclusions_with_http_info(body, opts)
+      data
+    end
+
+    # Creates a new scheduled exclusion configuration for the provided policy id.
+    # Creates a new scheduled exclusion configuration for the provided policy id.
+    # @param body [ScheduledexclusionsCreateRequest] Create a new scheduled exclusion configuration for the specified policy.      * &#x60;policy_id&#x60; to add the scheduled exclusion to.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;users&#x60; can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * &#x60;processes&#x60; can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * &#x60;schedule_start&#x60; must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;schedule_end&#x60; optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;timezone&#x60;  must be provided to indicate the TimeZone Name set for the provided &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * &#x60;repeated&#x60; optionally provided to indicate that the exclusion is applied repeatedly within the &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; time.      * &#x60;start_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;end_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;all_day&#x60; must be &#x60;true&#x60; or &#x60;false&#x60; to indicate the exclusion is applied all day.       * &#x60;frequency&#x60; must be one of &#x60;daily&#x60;, &#x60;weekly&#x60; or &#x60;monthly&#x60;.       * &#x60;occurrence&#x60; must be one of the following when &#x60;frequency&#x60; is set to &#x60;monthly&#x60;:        * &#x60;1st&#x60;, &#x60;2nd&#x60;, &#x60;3rd&#x60;, &#x60;4th&#x60; or &#x60;Last&#x60; represents the week.        * &#x60;Days&#x60; represents specific calendar days.      * &#x60;weekly_days&#x60; must be one or more of &#x60;Monday&#x60;, &#x60;Tuesday&#x60;, &#x60;Wednesday&#x60;, &#x60;Thursday&#x60;, &#x60;Friday&#x60;, &#x60;Saturday&#x60; or &#x60;Sunday&#x60; when &#x60;frequency&#x60; is set to &#x60;weekly&#x60; or &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is NOT set to &#x60;Days&#x60;.       * &#x60;monthly_days&#x60; must be set to one or more calendar days, between 1 and 31  when &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is set to &#x60;Days&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
+    def create_scheduled_exclusions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_scheduled_exclusions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_scheduled_exclusions"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduledexclusionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.create_scheduled_exclusions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#create_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes 1 or more policies.
+    # Only disabled policies are allowed to be deleted.
+    # @param ids [Array<String>] One or more (up to 500) policy ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesDeleteResponse]
+    def delete_policies(ids, opts = {})
+      data, _status_code, _headers = delete_policies_with_http_info(ids, opts)
+      data
+    end
+
+    # Deletes 1 or more policies.
+    # Only disabled policies are allowed to be deleted.
+    # @param ids [Array<String>] One or more (up to 500) policy ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesDeleteResponse, Integer, Hash)>] PoliciesDeleteResponse data, response status code and response headers
+    def delete_policies_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_policies ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_policies"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesDeleteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.delete_policies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#delete_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes 1 or more rule groups
+    # The rule groups represented by the provided ids and all rules that they contain will be deleted.   Rule groups can only be deleted if they are not assigned to a policy.
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsDeleteResponse]
+    def delete_rule_groups(ids, opts = {})
+      data, _status_code, _headers = delete_rule_groups_with_http_info(ids, opts)
+      data
+    end
+
+    # Deletes 1 or more rule groups
+    # The rule groups represented by the provided ids and all rules that they contain will be deleted.   Rule groups can only be deleted if they are not assigned to a policy.
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsDeleteResponse, Integer, Hash)>] RulegroupsDeleteResponse data, response status code and response headers
+    def delete_rule_groups_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_rule_groups ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_rule_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsDeleteResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.delete_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#delete_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes 1 or more rules from the specified rule group.
+    # Rules that match a provided id will be deleted from the provided rule group id.
+    # @param rule_group_id [String] The id of the rule group from which the rules will be deleted.
+    # @param ids [Array<String>] One or more (up to 500) rule ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [MsaspecQueryResponse]
+    def delete_rules(rule_group_id, ids, opts = {})
+      data, _status_code, _headers = delete_rules_with_http_info(rule_group_id, ids, opts)
+      data
+    end
+
+    # Deletes 1 or more rules from the specified rule group.
+    # Rules that match a provided id will be deleted from the provided rule group id.
+    # @param rule_group_id [String] The id of the rule group from which the rules will be deleted.
+    # @param ids [Array<String>] One or more (up to 500) rule ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def delete_rules_with_http_info(rule_group_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_rules ...'
+      end
+      # verify the required parameter 'rule_group_id' is set
+      if @api_client.config.client_side_validation && rule_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.delete_rules"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_rules"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups-rules/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'rule_group_id'] = rule_group_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.delete_rules",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#delete_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Deletes 1 or more scheduled exclusions from the provided policy id.
+    # Scheduled exclusions that match a provided id will be deleted from the provided policy id.
+    # @param policy_id [String] ID of the policy to delete the scheduled exclusions from.
+    # @param ids [Array<String>] One or more (up to 500) scheduled exclusion ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [MsaspecQueryResponse]
+    def delete_scheduled_exclusions(policy_id, ids, opts = {})
+      data, _status_code, _headers = delete_scheduled_exclusions_with_http_info(policy_id, ids, opts)
+      data
+    end
+
+    # Deletes 1 or more scheduled exclusions from the provided policy id.
+    # Scheduled exclusions that match a provided id will be deleted from the provided policy id.
+    # @param policy_id [String] ID of the policy to delete the scheduled exclusions from.
+    # @param ids [Array<String>] One or more (up to 500) scheduled exclusion ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def delete_scheduled_exclusions_with_http_info(policy_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_scheduled_exclusions ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.delete_scheduled_exclusions"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_scheduled_exclusions"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = policy_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.delete_scheduled_exclusions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#delete_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
+    # @param ids [Array<String>] One or more change ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;. The maximum number of ids that can be requested at once is &#x60;500&#x60;.
     # @param [Hash] opts the optional parameters
-    # @return [PublicGetChangesResponse]
+    # @return [ChangesGetChangesResponse]
     def get_changes(ids, opts = {})
       data, _status_code, _headers = get_changes_with_http_info(ids, opts)
       data
@@ -48,9 +590,9 @@ module Falcon
 
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
-    # @param ids [Array<String>] One or more change ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2
+    # @param ids [Array<String>] One or more change ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;. The maximum number of ids that can be requested at once is &#x60;500&#x60;.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PublicGetChangesResponse, Integer, Hash)>] PublicGetChangesResponse data, response status code and response headers
+    # @return [Array<(ChangesGetChangesResponse, Integer, Hash)>] ChangesGetChangesResponse data, response status code and response headers
     def get_changes_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilevantageApi.get_changes ...'
@@ -59,6 +601,14 @@ module Falcon
       if @api_client.config.client_side_validation && ids.nil?
         fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_changes"
       end
+      if @api_client.config.client_side_validation && ids.length > 500
+        fail ArgumentError, 'invalid value for "ids" when calling FilevantageApi.get_changes, number of items must be less than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && ids.length < 1
+        fail ArgumentError, 'invalid value for "ids" when calling FilevantageApi.get_changes, number of items must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/filevantage/entities/changes/v2'
 
@@ -78,7 +628,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PublicGetChangesResponse'
+      return_type = opts[:debug_return_type] || 'ChangesGetChangesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -100,26 +650,369 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Returns one or more change IDs
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
+    # Retrieves the configuration for 1 or more policies.
+    # The configuration of each policy that match the provided id will be returned.
+    # @param ids [Array<String>] One or more (up to 500) policy ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :offset The first change index to return in the response. If not provided it will default to &#39;0&#39;. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of changes to return in the response (default: 100; max: 500). Use with the &#x60;offset&#x60; parameter to manage pagination of results
-    # @option opts [String] :sort Sort changes using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)    Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. The full list of allowed sorting options can be reviewed in our API documentation.
-    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.host_name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @return [PoliciesResponse]
+    def get_policies(ids, opts = {})
+      data, _status_code, _headers = get_policies_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieves the configuration for 1 or more policies.
+    # The configuration of each policy that match the provided id will be returned.
+    # @param ids [Array<String>] One or more (up to 500) policy ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
+    def get_policies_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_policies ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_policies"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_policies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves the rule group details for 1 or more rule groups.
+    # Full details of each rule group that matches a provided id will be returned in the response
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsResponse]
+    def get_rule_groups(ids, opts = {})
+      data, _status_code, _headers = get_rule_groups_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieves the rule group details for 1 or more rule groups.
+    # Full details of each rule group that matches a provided id will be returned in the response
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
+    def get_rule_groups_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_rule_groups ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_rule_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves the configuration for 1 or more rules.
+    # Rules within the provided rule group id that match a provided id will be returned within the response.
+    # @param rule_group_id [String] Rule group from which to retrieve the rule configuration.
+    # @param ids [Array<String>] One or more (up to 500) rule ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsRulesResponse]
+    def get_rules(rule_group_id, ids, opts = {})
+      data, _status_code, _headers = get_rules_with_http_info(rule_group_id, ids, opts)
+      data
+    end
+
+    # Retrieves the configuration for 1 or more rules.
+    # Rules within the provided rule group id that match a provided id will be returned within the response.
+    # @param rule_group_id [String] Rule group from which to retrieve the rule configuration.
+    # @param ids [Array<String>] One or more (up to 500) rule ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
+    def get_rules_with_http_info(rule_group_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_rules ...'
+      end
+      # verify the required parameter 'rule_group_id' is set
+      if @api_client.config.client_side_validation && rule_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.get_rules"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_rules"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups-rules/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'rule_group_id'] = rule_group_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_rules",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id.
+    # Full details of each each scheduled exclusion that match a provided id will be returned in the response.
+    # @param policy_id [String] The id of the policy to retrieve the scheduled exclusion configurations.
+    # @param ids [Array<String>] One or more (up to 500) scheduled exclusion ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [ScheduledexclusionsResponse]
+    def get_scheduled_exclusions(policy_id, ids, opts = {})
+      data, _status_code, _headers = get_scheduled_exclusions_with_http_info(policy_id, ids, opts)
+      data
+    end
+
+    # Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id.
+    # Full details of each each scheduled exclusion that match a provided id will be returned in the response.
+    # @param policy_id [String] The id of the policy to retrieve the scheduled exclusion configurations.
+    # @param ids [Array<String>] One or more (up to 500) scheduled exclusion ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
+    def get_scheduled_exclusions_with_http_info(policy_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_scheduled_exclusions ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.get_scheduled_exclusions"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_scheduled_exclusions"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = policy_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduledexclusionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_scheduled_exclusions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns 1 or more change ids
+    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request don&#39;t provide a value for the &#x60;after&#x60; token. On subsequent requests provide the &#x60;after&#x60; token value from the previous response to continue pagination from where you left. If the response returns an empty &#x60;after&#x60; token it means there are no more results to return.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;5000&#x60;. (default to 100)
+    # @option opts [String] :sort Sort results using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. Defaults to &#x60;action_timestamp|desc&#x60; no value is specified. The full list of allowed sorting options can be reviewed in our API documentation. (default to 'action_timestamp|desc')
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @return [ChangesHighVolumeQueryResponse]
+    def high_volume_query_changes(opts = {})
+      data, _status_code, _headers = high_volume_query_changes_with_http_info(opts)
+      data
+    end
+
+    # Returns 1 or more change ids
+    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request don&#39;t provide a value for the &#x60;after&#x60; token. On subsequent requests provide the &#x60;after&#x60; token value from the previous response to continue pagination from where you left. If the response returns an empty &#x60;after&#x60; token it means there are no more results to return.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;5000&#x60;. (default to 100)
+    # @option opts [String] :sort Sort results using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. Defaults to &#x60;action_timestamp|desc&#x60; no value is specified. The full list of allowed sorting options can be reviewed in our API documentation. (default to 'action_timestamp|desc')
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @return [Array<(ChangesHighVolumeQueryResponse, Integer, Hash)>] ChangesHighVolumeQueryResponse data, response status code and response headers
+    def high_volume_query_changes_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.high_volume_query_changes ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FilevantageApi.high_volume_query_changes, must be smaller than or equal to 5000.'
+      end
+
+      # resource path
+      local_var_path = '/filevantage/queries/changes/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'after'] = opts[:'after'] if !opts[:'after'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ChangesHighVolumeQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.high_volume_query_changes",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#high_volume_query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns 1 or more change ids
+    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to &#x60;0&#x60; if not specified. (default to 0)
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;500&#x60;. (default to 100)
+    # @option opts [String] :sort Sort results using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. The full list of allowed sorting options can be reviewed in our API documentation.
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
     # @return [MsaspecQueryResponse]
     def query_changes(opts = {})
       data, _status_code, _headers = query_changes_with_http_info(opts)
       data
     end
 
-    # Returns one or more change IDs
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided
+    # Returns 1 or more change ids
+    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to &#x60;10000&#x60; results by using pagination with multiple requests. If you need to retrieve more than &#x60;10000&#x60; results consider using the &#x60;/queries/changes/v3&#x60; endpoint
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :offset The first change index to return in the response. If not provided it will default to &#39;0&#39;. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of changes to return in the response (default: 100; max: 500). Use with the &#x60;offset&#x60; parameter to manage pagination of results
-    # @option opts [String] :sort Sort changes using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)    Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. The full list of allowed sorting options can be reviewed in our API documentation.
-    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.host_name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to &#x60;0&#x60; if not specified. (default to 0)
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;500&#x60;. (default to 100)
+    # @option opts [String] :sort Sort results using options like:  - &#x60;action_timestamp&#x60; (timestamp of the change occurrence)   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). For example: &#x60;action_timestamp|asc&#x60;. The full list of allowed sorting options can be reviewed in our API documentation.
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;host.name&#x60;  - &#x60;action_timestamp&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_changes_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -127,6 +1020,10 @@ module Falcon
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_changes, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FilevantageApi.query_changes, must be smaller than or equal to 500.'
       end
 
       # resource path
@@ -169,6 +1066,794 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilevantageApi#query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve the ids of all policies that are assigned the provided policy type.
+    # Policy ids will be returned sorted by a `precedence` order of ascending when a `sort` parameter is not provided.
+    # @param type [String] The types of policies to retrieve.   Allowed values are: &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to 0 if not specified.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to 100 if not specified. The maximum number of results that can be returned in a single call is 500.
+    # @option opts [String] :sort Sort the returned ids based on one of the following properties:  &#x60;precedence&#x60;, &#x60;created_timestamp&#x60; or &#x60;modified_timestamp&#x60;   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending);  for example: &#x60;precedence|asc&#x60;.
+    # @return [MsaspecQueryResponse]
+    def query_policies(type, opts = {})
+      data, _status_code, _headers = query_policies_with_http_info(type, opts)
+      data
+    end
+
+    # Retrieve the ids of all policies that are assigned the provided policy type.
+    # Policy ids will be returned sorted by a &#x60;precedence&#x60; order of ascending when a &#x60;sort&#x60; parameter is not provided.
+    # @param type [String] The types of policies to retrieve.   Allowed values are: &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to 0 if not specified.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to 100 if not specified. The maximum number of results that can be returned in a single call is 500.
+    # @option opts [String] :sort Sort the returned ids based on one of the following properties:  &#x60;precedence&#x60;, &#x60;created_timestamp&#x60; or &#x60;modified_timestamp&#x60;   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending);  for example: &#x60;precedence|asc&#x60;.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_policies_with_http_info(type, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_policies ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.query_policies"
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_policies, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/filevantage/queries/policies/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.query_policies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#query_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve the ids of all rule groups that are of the provided rule group type.
+    # Rule group ids will be returned sorted by `created_timestamp` order if a `sort` parameter is not provided
+    # @param type [String] The rule group type to retrieve the ids of.   Allowed values are: &#x60;WindowsFiles&#x60;, &#x60;WindowsRegistry&#x60;, &#x60;LinuxFiles&#x60; or &#x60;MacFiles&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to 0 if not specified.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to 100 if not specified. The maximum number of results that can be returned in a single call is 500.
+    # @option opts [String] :sort Sort the returned ids based on one of the following properties:   &#x60;created_timestamp&#x60; or &#x60;modified_timestamp&#x60;   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending);  for example: &#x60;created_timestamp|asc&#x60;.
+    # @return [MsaspecQueryResponse]
+    def query_rule_groups(type, opts = {})
+      data, _status_code, _headers = query_rule_groups_with_http_info(type, opts)
+      data
+    end
+
+    # Retrieve the ids of all rule groups that are of the provided rule group type.
+    # Rule group ids will be returned sorted by &#x60;created_timestamp&#x60; order if a &#x60;sort&#x60; parameter is not provided
+    # @param type [String] The rule group type to retrieve the ids of.   Allowed values are: &#x60;WindowsFiles&#x60;, &#x60;WindowsRegistry&#x60;, &#x60;LinuxFiles&#x60; or &#x60;MacFiles&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to 0 if not specified.
+    # @option opts [Integer] :limit The maximum number of ids to return. Defaults to 100 if not specified. The maximum number of results that can be returned in a single call is 500.
+    # @option opts [String] :sort Sort the returned ids based on one of the following properties:   &#x60;created_timestamp&#x60; or &#x60;modified_timestamp&#x60;   Sort either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending);  for example: &#x60;created_timestamp|asc&#x60;.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_rule_groups_with_http_info(type, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_rule_groups ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.query_rule_groups"
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_rule_groups, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/filevantage/queries/rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.query_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#query_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve the ids of all scheduled exclusions contained within the provided policy id.
+    # Retrieve the ids of all scheduled exclusions contained within the provided policy id
+    # @param policy_id [String] The id of the policy from which to retrieve the scheduled exclusion ids.
+    # @param [Hash] opts the optional parameters
+    # @return [MsaspecQueryResponse]
+    def query_scheduled_exclusions(policy_id, opts = {})
+      data, _status_code, _headers = query_scheduled_exclusions_with_http_info(policy_id, opts)
+      data
+    end
+
+    # Retrieve the ids of all scheduled exclusions contained within the provided policy id.
+    # Retrieve the ids of all scheduled exclusions contained within the provided policy id
+    # @param policy_id [String] The id of the policy from which to retrieve the scheduled exclusion ids.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_scheduled_exclusions_with_http_info(policy_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_scheduled_exclusions ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.query_scheduled_exclusions"
+      end
+      # resource path
+      local_var_path = '/filevantage/queries/policy-scheduled-exclusions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = policy_id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.query_scheduled_exclusions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#query_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the general information of the provided policy.
+    # Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
+    # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesResponse]
+    def update_policies(body, opts = {})
+      data, _status_code, _headers = update_policies_with_http_info(body, opts)
+      data
+    end
+
+    # Updates the general information of the provided policy.
+    # Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
+    # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
+    def update_policies_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policies ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_policies"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_policies",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Manage host groups assigned to a policy.
+    # Manage host groups assigned to a policy.
+    # @param policy_id [String] The id of the policy for which to perform the action.
+    # @param action [String] The action to perform with the provided ids, must be one of: &#x60;assign&#x60; or &#x60;unassign&#x60;.
+    # @param ids [Array<String>] One or more host group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesResponse]
+    def update_policy_host_groups(policy_id, action, ids, opts = {})
+      data, _status_code, _headers = update_policy_host_groups_with_http_info(policy_id, action, ids, opts)
+      data
+    end
+
+    # Manage host groups assigned to a policy.
+    # Manage host groups assigned to a policy.
+    # @param policy_id [String] The id of the policy for which to perform the action.
+    # @param action [String] The action to perform with the provided ids, must be one of: &#x60;assign&#x60; or &#x60;unassign&#x60;.
+    # @param ids [Array<String>] One or more host group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
+    def update_policy_host_groups_with_http_info(policy_id, action, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_host_groups ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.update_policy_host_groups"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling FilevantageApi.update_policy_host_groups"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_host_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies-host-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = policy_id
+      query_params[:'action'] = action
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_policy_host_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the policy precedence for all policies of a specific type.
+    # Requests that do not represent all ids of the provided policy type will not be processed.
+    # @param ids [Array<String>] Precedence of the policies for the provided type in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesPrecedenceResponse]
+    def update_policy_precedence(ids, type, opts = {})
+      data, _status_code, _headers = update_policy_precedence_with_http_info(ids, type, opts)
+      data
+    end
+
+    # Updates the policy precedence for all policies of a specific type.
+    # Requests that do not represent all ids of the provided policy type will not be processed.
+    # @param ids [Array<String>] Precedence of the policies for the provided type in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesPrecedenceResponse, Integer, Hash)>] PoliciesPrecedenceResponse data, response status code and response headers
+    def update_policy_precedence_with_http_info(ids, type, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_precedence ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_precedence"
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.update_policy_precedence"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies-precedence/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+      query_params[:'type'] = type
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesPrecedenceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_policy_precedence",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy.
+    # Manage the rule groups assigned to the policy.   Rule groups must be of the same type as the policy they are being added:   * `WindowsRegistry` and `WindowsFiles` groups can only be added to a `Windows` policy.   * `LinuxFiles` groups can only be added to a `Linux` policy.   * `MacFiles` groups can only be added to a `Mac` policy.  When setting rule group precedence, the precedence for `all` rule group ids within the policy must be provided.
+    # @param policy_id [String] The id of the policy for which to perform the action.
+    # @param action [String] The action to perform with the provided ids, must be one of: &#x60;assign&#x60;, &#x60;unassign&#x60;, or &#x60;precedence&#x60;.
+    # @param ids [Array<String>] One or more rule group ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2. Note, for the precedence action, precedence is controlled by the order of the ids as they are specified in the request.
+    # @param [Hash] opts the optional parameters
+    # @return [PoliciesResponse]
+    def update_policy_rule_groups(policy_id, action, ids, opts = {})
+      data, _status_code, _headers = update_policy_rule_groups_with_http_info(policy_id, action, ids, opts)
+      data
+    end
+
+    # Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy.
+    # Manage the rule groups assigned to the policy.   Rule groups must be of the same type as the policy they are being added:   * &#x60;WindowsRegistry&#x60; and &#x60;WindowsFiles&#x60; groups can only be added to a &#x60;Windows&#x60; policy.   * &#x60;LinuxFiles&#x60; groups can only be added to a &#x60;Linux&#x60; policy.   * &#x60;MacFiles&#x60; groups can only be added to a &#x60;Mac&#x60; policy.  When setting rule group precedence, the precedence for &#x60;all&#x60; rule group ids within the policy must be provided.
+    # @param policy_id [String] The id of the policy for which to perform the action.
+    # @param action [String] The action to perform with the provided ids, must be one of: &#x60;assign&#x60;, &#x60;unassign&#x60;, or &#x60;precedence&#x60;.
+    # @param ids [Array<String>] One or more rule group ids in the form of ids&#x3D;ID1&amp;ids&#x3D;ID2. Note, for the precedence action, precedence is controlled by the order of the ids as they are specified in the request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
+    def update_policy_rule_groups_with_http_info(policy_id, action, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_rule_groups ...'
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.update_policy_rule_groups"
+      end
+      # verify the required parameter 'action' is set
+      if @api_client.config.client_side_validation && action.nil?
+        fail ArgumentError, "Missing the required parameter 'action' when calling FilevantageApi.update_policy_rule_groups"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_rule_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policies-rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'policy_id'] = policy_id
+      query_params[:'action'] = action
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PoliciesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_policy_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the rule precedence for all rules in the identified rule group.
+    # The ids for `all` rules contained within the rule group must be specified in the desired precedence order. Requests that do not represent all ids will not be processed.
+    # @param rule_group_id [String] Rule group from which to set the precedence.
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsResponse]
+    def update_rule_group_precedence(rule_group_id, ids, opts = {})
+      data, _status_code, _headers = update_rule_group_precedence_with_http_info(rule_group_id, ids, opts)
+      data
+    end
+
+    # Updates the rule precedence for all rules in the identified rule group.
+    # The ids for &#x60;all&#x60; rules contained within the rule group must be specified in the desired precedence order. Requests that do not represent all ids will not be processed.
+    # @param rule_group_id [String] Rule group from which to set the precedence.
+    # @param ids [Array<String>] One or more (up to 500) rule group ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
+    def update_rule_group_precedence_with_http_info(rule_group_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rule_group_precedence ...'
+      end
+      # verify the required parameter 'rule_group_id' is set
+      if @api_client.config.client_side_validation && rule_group_id.nil?
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.update_rule_group_precedence"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_rule_group_precedence"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups-rule-precedence/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'rule_group_id'] = rule_group_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_rule_group_precedence",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_rule_group_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the provided rule group.
+    # Provides the ability to update the name and description of the rule group.
+    # @param body [RulegroupsUpdateRequest] Enables updates to the following fields for an existing rule group.    * &#x60;id&#x60; of the rule group to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;type&#x60; may not be modified after the rule group is created.   Note: rules are added/removed from rule groups using their dedicated end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsResponse]
+    def update_rule_groups(body, opts = {})
+      data, _status_code, _headers = update_rule_groups_with_http_info(body, opts)
+      data
+    end
+
+    # Updates the provided rule group.
+    # Provides the ability to update the name and description of the rule group.
+    # @param body [RulegroupsUpdateRequest] Enables updates to the following fields for an existing rule group.    * &#x60;id&#x60; of the rule group to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;type&#x60; may not be modified after the rule group is created.   Note: rules are added/removed from rule groups using their dedicated end-points.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
+    def update_rule_groups_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rule_groups ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_rule_groups"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_rule_groups",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the provided rule configuration within the specified rule group.
+    # The rule must currently exist within the specified rule group.
+    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [RulegroupsRulesResponse]
+    def update_rules(body, opts = {})
+      data, _status_code, _headers = update_rules_with_http_info(body, opts)
+      data
+    end
+
+    # Updates the provided rule configuration within the specified rule group.
+    # The rule must currently exist within the specified rule group.
+    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
+    def update_rules_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rules ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_rules"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/rule-groups-rules/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RulegroupsRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_rules",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates the provided scheduled exclusion configuration within the provided policy.
+    # Updates the provided scheduled exclusion configuration within the provided policy.
+    # @param body [ScheduledexclusionsUpdateRequest] Update an existing scheduled exclusion for the specified policy.      * &#x60;policy_id&#x60; to add the scheduled exclusion to.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;users&#x60; can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * &#x60;processes&#x60; can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * &#x60;schedule_start&#x60; must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;schedule_end&#x60; optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;timezone&#x60;  must be provided to indicate the TimeZone Name set for the provided &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * &#x60;repeated&#x60; optionally provided to indicate that the exclusion is applied repeatedly within the &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; time.      * &#x60;start_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;end_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;all_day&#x60; must be &#x60;true&#x60; or &#x60;false&#x60; to indicate the exclusion is applied all day.       * &#x60;frequency&#x60; must be one of &#x60;daily&#x60;, &#x60;weekly&#x60; or &#x60;monthly&#x60;.       * &#x60;occurrence&#x60; must be one of the following when &#x60;frequency&#x60; is set to &#x60;monthly&#x60;:        * &#x60;1st&#x60;, &#x60;2nd&#x60;, &#x60;3rd&#x60;, &#x60;4th&#x60; or &#x60;Last&#x60; represents the week.        * &#x60;Days&#x60; represents specific calendar days.      * &#x60;weekly_days&#x60; must be one or more of &#x60;Monday&#x60;, &#x60;Tuesday&#x60;, &#x60;Wednesday&#x60;, &#x60;Thursday&#x60;, &#x60;Friday&#x60;, &#x60;Saturday&#x60; or &#x60;Sunday&#x60; when &#x60;frequency&#x60; is set to &#x60;weekly&#x60; or &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is NOT set to &#x60;Days&#x60;.       * &#x60;monthly_days&#x60; must be set to one or more calendar days, between 1 and 31  when &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is set to &#x60;Days&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [ScheduledexclusionsResponse]
+    def update_scheduled_exclusions(body, opts = {})
+      data, _status_code, _headers = update_scheduled_exclusions_with_http_info(body, opts)
+      data
+    end
+
+    # Updates the provided scheduled exclusion configuration within the provided policy.
+    # Updates the provided scheduled exclusion configuration within the provided policy.
+    # @param body [ScheduledexclusionsUpdateRequest] Update an existing scheduled exclusion for the specified policy.      * &#x60;policy_id&#x60; to add the scheduled exclusion to.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;users&#x60; can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * &#x60;processes&#x60; can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * &#x60;schedule_start&#x60; must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;schedule_end&#x60; optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * &#x60;timezone&#x60;  must be provided to indicate the TimeZone Name set for the provided &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * &#x60;repeated&#x60; optionally provided to indicate that the exclusion is applied repeatedly within the &#x60;scheduled_start&#x60; and &#x60;scheduled_end&#x60; time.      * &#x60;start_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;end_time&#x60; must be the hour(00-23) and minute(00-59) of the day formatted as &#x60;HH:MM&#x60;. Required if &#x60;all_day&#x60; is not set to &#x60;true&#x60;      * &#x60;all_day&#x60; must be &#x60;true&#x60; or &#x60;false&#x60; to indicate the exclusion is applied all day.       * &#x60;frequency&#x60; must be one of &#x60;daily&#x60;, &#x60;weekly&#x60; or &#x60;monthly&#x60;.       * &#x60;occurrence&#x60; must be one of the following when &#x60;frequency&#x60; is set to &#x60;monthly&#x60;:        * &#x60;1st&#x60;, &#x60;2nd&#x60;, &#x60;3rd&#x60;, &#x60;4th&#x60; or &#x60;Last&#x60; represents the week.        * &#x60;Days&#x60; represents specific calendar days.      * &#x60;weekly_days&#x60; must be one or more of &#x60;Monday&#x60;, &#x60;Tuesday&#x60;, &#x60;Wednesday&#x60;, &#x60;Thursday&#x60;, &#x60;Friday&#x60;, &#x60;Saturday&#x60; or &#x60;Sunday&#x60; when &#x60;frequency&#x60; is set to &#x60;weekly&#x60; or &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is NOT set to &#x60;Days&#x60;.       * &#x60;monthly_days&#x60; must be set to one or more calendar days, between 1 and 31  when &#x60;frequency&#x60; is set to &#x60;monthly&#x60; and &#x60;occurrence&#x60; is set to &#x60;Days&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
+    def update_scheduled_exclusions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_scheduled_exclusions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_scheduled_exclusions"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScheduledexclusionsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.update_scheduled_exclusions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#update_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

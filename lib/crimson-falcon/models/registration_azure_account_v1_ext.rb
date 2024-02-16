@@ -62,7 +62,14 @@ module Falcon
 
     attr_accessor :environment
 
+    # Is CSPM Lite enabled.
+    attr_accessor :is_cspm_lite
+
     attr_accessor :object_id
+
+    attr_accessor :parent_management_group_id
+
+    attr_accessor :parent_management_group_name
 
     attr_accessor :public_certificate
 
@@ -104,7 +111,10 @@ module Falcon
         :'credentials_type' => :'credentials_type',
         :'default_subscription_id' => :'default_subscription_id',
         :'environment' => :'environment',
+        :'is_cspm_lite' => :'is_cspm_lite',
         :'object_id' => :'object_id',
+        :'parent_management_group_id' => :'parent_management_group_id',
+        :'parent_management_group_name' => :'parent_management_group_name',
         :'public_certificate' => :'public_certificate',
         :'public_certificate_raw' => :'public_certificate_raw',
         :'role_assignments' => :'role_assignments',
@@ -139,7 +149,10 @@ module Falcon
         :'credentials_type' => :'String',
         :'default_subscription_id' => :'String',
         :'environment' => :'String',
+        :'is_cspm_lite' => :'Boolean',
         :'object_id' => :'String',
+        :'parent_management_group_id' => :'String',
+        :'parent_management_group_name' => :'String',
         :'public_certificate' => :'String',
         :'public_certificate_raw' => :'String',
         :'role_assignments' => :'Array<DomainAzureRoleAssignment>',
@@ -235,8 +248,20 @@ module Falcon
         self.environment = attributes[:'environment']
       end
 
+      if attributes.key?(:'is_cspm_lite')
+        self.is_cspm_lite = attributes[:'is_cspm_lite']
+      end
+
       if attributes.key?(:'object_id')
         self.object_id = attributes[:'object_id']
+      end
+
+      if attributes.key?(:'parent_management_group_id')
+        self.parent_management_group_id = attributes[:'parent_management_group_id']
+      end
+
+      if attributes.key?(:'parent_management_group_name')
+        self.parent_management_group_name = attributes[:'parent_management_group_name']
       end
 
       if attributes.key?(:'public_certificate')
@@ -345,7 +370,10 @@ module Falcon
           credentials_type == o.credentials_type &&
           default_subscription_id == o.default_subscription_id &&
           environment == o.environment &&
+          is_cspm_lite == o.is_cspm_lite &&
           object_id == o.object_id &&
+          parent_management_group_id == o.parent_management_group_id &&
+          parent_management_group_name == o.parent_management_group_name &&
           public_certificate == o.public_certificate &&
           public_certificate_raw == o.public_certificate_raw &&
           role_assignments == o.role_assignments &&
@@ -366,7 +394,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, object_id, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid].hash
+      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, is_cspm_lite, object_id, parent_management_group_id, parent_management_group_name, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid].hash
     end
 
     # Builds the object from hash

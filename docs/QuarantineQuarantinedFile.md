@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **aid** | **String** |  | [optional] |
+| **alert_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **cid** | **String** |  | [optional] |
 | **date_created** | **String** |  | [optional] |
 | **date_updated** | **String** |  | [optional] |
@@ -29,6 +30,7 @@ require 'crimson-falcon'
 
 instance = Falcon::QuarantineQuarantinedFile.new(
   aid: null,
+  alert_ids: null,
   cid: null,
   date_created: null,
   date_updated: null,

@@ -249,10 +249,6 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_request_ids", cloud_request_ids cannot be nil.')
       end
 
-      if @commands.nil?
-        invalid_properties.push('invalid value for "commands", commands cannot be nil.')
-      end
-
       if @commands_queued.nil?
         invalid_properties.push('invalid value for "commands_queued", commands_queued cannot be nil.')
       end
@@ -263,10 +259,6 @@ module Falcon
 
       if @deleted_at.nil?
         invalid_properties.push('invalid value for "deleted_at", deleted_at cannot be nil.')
-      end
-
-      if @device_details.nil?
-        invalid_properties.push('invalid value for "device_details", device_details cannot be nil.')
       end
 
       if @device_id.nil?
@@ -297,18 +289,6 @@ module Falcon
         invalid_properties.push('invalid value for "origin", origin cannot be nil.')
       end
 
-      if @platform_id.nil?
-        invalid_properties.push('invalid value for "platform_id", platform_id cannot be nil.')
-      end
-
-      if @platform_name.nil?
-        invalid_properties.push('invalid value for "platform_name", platform_name cannot be nil.')
-      end
-
-      if @pwd.nil?
-        invalid_properties.push('invalid value for "pwd", pwd cannot be nil.')
-      end
-
       if @updated_at.nil?
         invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
@@ -329,11 +309,9 @@ module Falcon
     def valid?
       return false if @cid.nil?
       return false if @cloud_request_ids.nil?
-      return false if @commands.nil?
       return false if @commands_queued.nil?
       return false if @created_at.nil?
       return false if @deleted_at.nil?
-      return false if @device_details.nil?
       return false if @device_id.nil?
       return false if @duration.nil?
       return false if @hostname.nil?
@@ -341,9 +319,6 @@ module Falcon
       return false if @logs.nil?
       return false if @offline_queued.nil?
       return false if @origin.nil?
-      return false if @platform_id.nil?
-      return false if @platform_name.nil?
-      return false if @pwd.nil?
       return false if @updated_at.nil?
       return false if @user_id.nil?
       return false if @user_uuid.nil?

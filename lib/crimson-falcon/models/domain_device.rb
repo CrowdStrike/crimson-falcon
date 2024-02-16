@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :device_id
 
+    attr_accessor :device_policies
+
     attr_accessor :external_ip
 
     attr_accessor :first_login_timestamp
@@ -109,6 +111,7 @@ module Falcon
         :'config_id_build' => :'config_id_build',
         :'config_id_platform' => :'config_id_platform',
         :'device_id' => :'device_id',
+        :'device_policies' => :'device_policies',
         :'external_ip' => :'external_ip',
         :'first_login_timestamp' => :'first_login_timestamp',
         :'first_login_user' => :'first_login_user',
@@ -154,6 +157,7 @@ module Falcon
         :'config_id_build' => :'String',
         :'config_id_platform' => :'String',
         :'device_id' => :'String',
+        :'device_policies' => :'DomainMappedDevicePolicies',
         :'external_ip' => :'String',
         :'first_login_timestamp' => :'String',
         :'first_login_user' => :'String',
@@ -228,6 +232,10 @@ module Falcon
 
       if attributes.key?(:'device_id')
         self.device_id = attributes[:'device_id']
+      end
+
+      if attributes.key?(:'device_policies')
+        self.device_policies = attributes[:'device_policies']
       end
 
       if attributes.key?(:'external_ip')
@@ -383,6 +391,7 @@ module Falcon
           config_id_build == o.config_id_build &&
           config_id_platform == o.config_id_platform &&
           device_id == o.device_id &&
+          device_policies == o.device_policies &&
           external_ip == o.external_ip &&
           first_login_timestamp == o.first_login_timestamp &&
           first_login_user == o.first_login_user &&
@@ -422,7 +431,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [platform_id_numeric, agent_version, config_id_base, config_id_build, config_id_platform, device_id, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
+      [platform_id_numeric, agent_version, config_id_base, config_id_build, config_id_platform, device_id, device_policies, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
     end
 
     # Builds the object from hash

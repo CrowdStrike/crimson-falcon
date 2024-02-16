@@ -87,7 +87,7 @@ end
 
 ## case_add_activity
 
-> <MsaReplyMetaOnly> case_add_activity(body)
+> <MsaspecResponseFields> case_add_activity(body)
 
 Add an activity to case. Only activities of type comment are allowed via API
 
@@ -120,7 +120,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> case_add_activity_with_http_info(body)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> case_add_activity_with_http_info(body)
 
 ```ruby
 begin
@@ -128,7 +128,7 @@ begin
   data, status_code, headers = api_instance.case_add_activity_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling MessageCenterApi->case_add_activity_with_http_info: #{e}"
 end
@@ -142,7 +142,7 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
@@ -576,7 +576,7 @@ end
 
 ## query_activity_by_case_id
 
-> <MsaQueryResponse> query_activity_by_case_id(case_id, opts)
+> <MsaspecQueryResponse> query_activity_by_case_id(case_id, opts)
 
 Retrieve activities id's for a case
 
@@ -597,7 +597,7 @@ api_instance = Falcon::MessageCenterApi.new
 case_id = 'case_id_example' # String | Case ID
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'activity.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'activity.type.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
@@ -615,7 +615,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_activity_by_case_id_with_http_info(case_id, opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_activity_by_case_id_with_http_info(case_id, opts)
 
 ```ruby
 begin
@@ -623,7 +623,7 @@ begin
   data, status_code, headers = api_instance.query_activity_by_case_id_with_http_info(case_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling MessageCenterApi->query_activity_by_case_id_with_http_info: #{e}"
 end
@@ -641,7 +641,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -655,7 +655,7 @@ end
 
 ## query_cases_ids_by_filter
 
-> <MsaQueryResponse> query_cases_ids_by_filter(opts)
+> <MsaspecQueryResponse> query_cases_ids_by_filter(opts)
 
 Retrieve case id's that match the provided filter criteria
 
@@ -675,7 +675,7 @@ end
 api_instance = Falcon::MessageCenterApi.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'case.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'case.id.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
@@ -693,7 +693,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_cases_ids_by_filter_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_cases_ids_by_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -701,7 +701,7 @@ begin
   data, status_code, headers = api_instance.query_cases_ids_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling MessageCenterApi->query_cases_ids_by_filter_with_http_info: #{e}"
 end
@@ -718,7 +718,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 

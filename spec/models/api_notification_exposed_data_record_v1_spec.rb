@@ -54,6 +54,12 @@ describe Falcon::ApiNotificationExposedDataRecordV1 do
     end
   end
 
+  describe 'test attribute "bot"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -67,6 +73,12 @@ describe Falcon::ApiNotificationExposedDataRecordV1 do
   end
 
   describe 'test attribute "created_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "credential_status"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -163,6 +175,12 @@ describe Falcon::ApiNotificationExposedDataRecordV1 do
   end
 
   describe 'test attribute "login_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "malware_family"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

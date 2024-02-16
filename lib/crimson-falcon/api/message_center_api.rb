@@ -105,7 +105,7 @@ module Falcon
     # Add an activity to case. Only activities of type comment are allowed via API
     # @param body [DomainActivityCreationRequest]
     # @param [Hash] opts the optional parameters
-    # @return [MsaReplyMetaOnly]
+    # @return [MsaspecResponseFields]
     def case_add_activity(body, opts = {})
       data, _status_code, _headers = case_add_activity_with_http_info(body, opts)
       data
@@ -114,7 +114,7 @@ module Falcon
     # Add an activity to case. Only activities of type comment are allowed via API
     # @param body [DomainActivityCreationRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def case_add_activity_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenterApi.case_add_activity ...'
@@ -146,7 +146,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaReplyMetaOnly'
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -584,7 +584,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def query_activity_by_case_id(case_id, opts = {})
       data, _status_code, _headers = query_activity_by_case_id_with_http_info(case_id, opts)
       data
@@ -597,7 +597,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_activity_by_case_id_with_http_info(case_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenterApi.query_activity_by_case_id ...'
@@ -606,7 +606,7 @@ module Falcon
       if @api_client.config.client_side_validation && case_id.nil?
         fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenterApi.query_activity_by_case_id"
       end
-      allowable_values = ["activity.created_time.asc", "activity.created_time.desc", "activity.type.asc", "activity.type.desc"]
+      allowable_values = ["activity.type.asc", "activity.type.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -633,7 +633,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -661,7 +661,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def query_cases_ids_by_filter(opts = {})
       data, _status_code, _headers = query_cases_ids_by_filter_with_http_info(opts)
       data
@@ -673,12 +673,12 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_cases_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenterApi.query_cases_ids_by_filter ...'
       end
-      allowable_values = ["case.created_time.asc", "case.created_time.desc", "case.id.asc", "case.id.desc", "case.last_modified_time.asc", "case.last_modified_time.desc", "case.status.asc", "case.status.desc", "case.type.asc", "case.type.desc"]
+      allowable_values = ["case.id.asc", "case.id.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -704,7 +704,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

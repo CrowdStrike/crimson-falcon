@@ -149,6 +149,17 @@ describe 'OdsApi' do
     end
   end
 
+  # unit tests for get_scans_by_scan_ids_v2
+  # Get Scans by IDs.
+  # @param ids The scan IDs to retrieve the scan entities
+  # @param [Hash] opts the optional parameters
+  # @return [EntitiesODSScanResponseV2]
+  describe 'get_scans_by_scan_ids_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_scheduled_scans_by_scan_ids
   # Get ScheduledScans by IDs.
   # @param ids The scan IDs to retrieve the scan entities
@@ -177,7 +188,7 @@ describe 'OdsApi' do
   # unit tests for query_scan_host_metadata
   # Query scan hosts.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated]
+  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
   # @option opts [Integer] :offset Index of the starting resource
   # @option opts [Integer] :limit The max number of resources to return
   # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;
@@ -191,7 +202,7 @@ describe 'OdsApi' do
   # unit tests for query_scans
   # Query Scans.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated]
+  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
   # @option opts [Integer] :offset Index of the starting resource
   # @option opts [Integer] :limit The max number of resources to return
   # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;

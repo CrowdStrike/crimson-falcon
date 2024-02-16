@@ -4,13 +4,13 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**entities_perform_action**](HostsApi.md#entities_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided prevention policy IDs. |
-| [**get_device_details**](HostsApi.md#get_device_details) | **GET** /devices/entities/devices/v1 | Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host&#39;s agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API |
+| [**entities_perform_action**](HostsApi.md#entities_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided group IDs. |
 | [**get_device_details_v2**](HostsApi.md#get_device_details_v2) | **GET** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs. |
 | [**get_online_state_v1**](HostsApi.md#get_online_state_v1) | **GET** /devices/entities/online-state/v1 | Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a &#x60;state&#x60; of &#x60;online&#x60;, &#x60;offline&#x60;, or &#x60;unknown&#x60; for each host, identified by host &#x60;id&#x60;.  Make a &#x60;GET&#x60; request to &#x60;/devices/queries/devices/v1&#x60; to get a list of host IDs. |
 | [**perform_action_v2**](HostsApi.md#perform_action_v2) | **POST** /devices/entities/devices-actions/v2 | Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host. |
 | [**post_device_details_v2**](HostsApi.md#post_device_details_v2) | **POST** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs. |
 | [**query_device_login_history**](HostsApi.md#query_device_login_history) | **POST** /devices/combined/devices/login-history/v1 | Retrieve details about recent login sessions for a set of devices. |
+| [**query_device_login_history_v2**](HostsApi.md#query_device_login_history_v2) | **POST** /devices/combined/devices/login-history/v2 | Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified |
 | [**query_devices_by_filter**](HostsApi.md#query_devices_by_filter) | **GET** /devices/queries/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. |
 | [**query_devices_by_filter_scroll**](HostsApi.md#query_devices_by_filter_scroll) | **GET** /devices/queries/devices-scroll/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit) |
 | [**query_get_network_address_history_v1**](HostsApi.md#query_get_network_address_history_v1) | **POST** /devices/combined/devices/network-address-history/v1 | Retrieve history of IP and MAC addresses of devices. |
@@ -22,7 +22,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 > <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body, opts)
 
-Performs the specified action on the provided prevention policy IDs.
+Performs the specified action on the provided group IDs.
 
 ### Examples
 
@@ -46,7 +46,7 @@ opts = {
 }
 
 begin
-  # Performs the specified action on the provided prevention policy IDs.
+  # Performs the specified action on the provided group IDs.
   result = api_instance.entities_perform_action(ids, action_name, body, opts)
   p result
 rescue Falcon::ApiError => e
@@ -62,7 +62,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Performs the specified action on the provided prevention policy IDs.
+  # Performs the specified action on the provided group IDs.
   data, status_code, headers = api_instance.entities_perform_action_with_http_info(ids, action_name, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -92,75 +92,6 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## get_device_details
-
-> <DeviceapiDeviceDetailsResponseSwagger> get_device_details(ids)
-
-Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::HostsApi.new
-ids = ['inner_example'] # Array<String> | The host agentIDs used to get details on
-
-begin
-  # Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-  result = api_instance.get_device_details(ids)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling HostsApi->get_device_details: #{e}"
-end
-```
-
-#### Using the get_device_details_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> get_device_details_with_http_info(ids)
-
-```ruby
-begin
-  # Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host's agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-  data, status_code, headers = api_instance.get_device_details_with_http_info(ids)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <DeviceapiDeviceDetailsResponseSwagger>
-rescue Falcon::ApiError => e
-  puts "Error when calling HostsApi->get_device_details_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | The host agentIDs used to get details on |  |
-
-### Return type
-
-[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -488,6 +419,75 @@ begin
   p data # => <DeviceapiLoginHistoryResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling HostsApi->query_device_login_history_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiLoginHistoryResponseV1**](DeviceapiLoginHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_device_login_history_v2
+
+> <DeviceapiLoginHistoryResponseV1> query_device_login_history_v2(body)
+
+Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostsApi.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  result = api_instance.query_device_login_history_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostsApi->query_device_login_history_v2: #{e}"
+end
+```
+
+#### Using the query_device_login_history_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)> query_device_login_history_v2_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  data, status_code, headers = api_instance.query_device_login_history_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiLoginHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostsApi->query_device_login_history_v2_with_http_info: #{e}"
 end
 ```
 

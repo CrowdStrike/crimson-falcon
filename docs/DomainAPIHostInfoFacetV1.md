@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **asset_criticality** | [**DomainAssetCriticalityInfoV1**](DomainAssetCriticalityInfoV1.md) |  | [optional] |
 | **build_number** | **String** |  | [optional] |
 | **groups** | [**Array&lt;DomainAPIHostGroup&gt;**](DomainAPIHostGroup.md) |  |  |
 | **host_hidden_status** | **String** |  | [optional] |
@@ -29,6 +30,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainAPIHostInfoFacetV1.new(
+  asset_criticality: null,
   build_number: null,
   groups: null,
   host_hidden_status: null,

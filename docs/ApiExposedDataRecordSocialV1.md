@@ -4,15 +4,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **aim_id** | **String** |  | [optional] |
-| **facebook_id** | **String** |  | [optional] |
-| **icq_id** | **String** |  | [optional] |
-| **instagram_id** | **String** |  | [optional] |
-| **msn_id** | **String** |  | [optional] |
-| **skype_id** | **String** |  | [optional] |
-| **twitter_id** | **String** |  | [optional] |
-| **vk_id** | **String** |  | [optional] |
-| **vk_token** | **String** |  | [optional] |
+| **aim_id** | **String** | AIM ID of the affected user | [optional] |
+| **facebook_id** | **String** | Facebook ID of the affected user | [optional] |
+| **icq_id** | **String** | ICQ ID of the affected user | [optional] |
+| **instagram_id** | **String** | Instagram ID of the affected user | [optional] |
+| **msn_id** | **String** | MSN ID of the affected user | [optional] |
+| **skype_id** | **String** | Skype ID of the affected user | [optional] |
+| **twitter_id** | **String** | Twitter ID of the affected user | [optional] |
+| **vk_id** | **String** | VK ID of the affected user | [optional] |
+| **vk_token** | **String** | VK Access Token of the affected user | [optional] |
 
 ## Example
 

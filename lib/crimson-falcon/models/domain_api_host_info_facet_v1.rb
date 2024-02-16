@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainAPIHostInfoFacetV1
+    attr_accessor :asset_criticality
+
     attr_accessor :build_number
 
     attr_accessor :groups
@@ -71,6 +73,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'asset_criticality' => :'asset_criticality',
         :'build_number' => :'build_number',
         :'groups' => :'groups',
         :'host_hidden_status' => :'host_hidden_status',
@@ -100,6 +103,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'asset_criticality' => :'DomainAssetCriticalityInfoV1',
         :'build_number' => :'String',
         :'groups' => :'Array<DomainAPIHostGroup>',
         :'host_hidden_status' => :'String',
@@ -141,6 +145,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'asset_criticality')
+        self.asset_criticality = attributes[:'asset_criticality']
+      end
 
       if attributes.key?(:'build_number')
         self.build_number = attributes[:'build_number']
@@ -247,6 +255,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          asset_criticality == o.asset_criticality &&
           build_number == o.build_number &&
           groups == o.groups &&
           host_hidden_status == o.host_hidden_status &&
@@ -276,7 +285,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [build_number, groups, host_hidden_status, id, last_seen_timestamp, local_ip, mac_address, machine_domain, name, os_version, ou, platform_name, product_type_desc, serial_number, site_name, system_manufacturer, system_product_name, tags].hash
+      [asset_criticality, build_number, groups, host_hidden_status, id, last_seen_timestamp, local_ip, mac_address, machine_domain, name, os_version, ou, platform_name, product_type_desc, serial_number, site_name, system_manufacturer, system_product_name, tags].hash
     end
 
     # Builds the object from hash

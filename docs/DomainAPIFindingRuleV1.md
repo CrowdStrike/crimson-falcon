@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **authority** | **String** |  | [optional] |
+| **benchmark_type** | **String** |  | [optional] |
 | **cce** | **String** |  | [optional] |
 | **edited** | **Boolean** |  |  |
 | **group_id** | **String** |  | [optional] |
@@ -13,6 +14,7 @@
 | **last_edited_timestamp** | **String** |  | [optional] |
 | **mitre_attack_tactics** | [**Array&lt;DomainAPIMitreAttackTacticV1&gt;**](DomainAPIMitreAttackTacticV1.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
+| **platform_name** | **String** |  | [optional] |
 | **policy_id** | **String** |  | [optional] |
 | **policy_name** | **String** |  | [optional] |
 | **recommendation_id** | **String** |  | [optional] |
@@ -25,6 +27,7 @@ require 'crimson-falcon'
 
 instance = Falcon::DomainAPIFindingRuleV1.new(
   authority: null,
+  benchmark_type: null,
   cce: null,
   edited: null,
   group_id: null,
@@ -33,6 +36,7 @@ instance = Falcon::DomainAPIFindingRuleV1.new(
   last_edited_timestamp: null,
   mitre_attack_tactics: null,
   name: null,
+  platform_name: null,
   policy_id: null,
   policy_name: null,
   recommendation_id: null,

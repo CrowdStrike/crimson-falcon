@@ -32,18 +32,18 @@ require 'time'
 
 module Falcon
   class DomainSchedule
-    attr_accessor :can_stagger
+    attr_accessor :ignored_by_channelfile
 
-    attr_accessor :definition
+    attr_accessor :interval
 
-    attr_accessor :display
+    attr_accessor :start_timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'can_stagger' => :'can_stagger',
-        :'definition' => :'definition',
-        :'display' => :'display'
+        :'ignored_by_channelfile' => :'ignored_by_channelfile',
+        :'interval' => :'interval',
+        :'start_timestamp' => :'start_timestamp'
       }
     end
 
@@ -55,9 +55,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'can_stagger' => :'Boolean',
-        :'definition' => :'String',
-        :'display' => :'String'
+        :'ignored_by_channelfile' => :'Boolean',
+        :'interval' => :'Integer',
+        :'start_timestamp' => :'String'
       }
     end
 
@@ -82,16 +82,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'can_stagger')
-        self.can_stagger = attributes[:'can_stagger']
+      if attributes.key?(:'ignored_by_channelfile')
+        self.ignored_by_channelfile = attributes[:'ignored_by_channelfile']
       end
 
-      if attributes.key?(:'definition')
-        self.definition = attributes[:'definition']
+      if attributes.key?(:'interval')
+        self.interval = attributes[:'interval']
       end
 
-      if attributes.key?(:'display')
-        self.display = attributes[:'display']
+      if attributes.key?(:'start_timestamp')
+        self.start_timestamp = attributes[:'start_timestamp']
       end
     end
 
@@ -99,27 +99,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @can_stagger.nil?
-        invalid_properties.push('invalid value for "can_stagger", can_stagger cannot be nil.')
-      end
-
-      if @definition.nil?
-        invalid_properties.push('invalid value for "definition", definition cannot be nil.')
-      end
-
-      if @display.nil?
-        invalid_properties.push('invalid value for "display", display cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @can_stagger.nil?
-      return false if @definition.nil?
-      return false if @display.nil?
       true
     end
 
@@ -128,9 +113,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          can_stagger == o.can_stagger &&
-          definition == o.definition &&
-          display == o.display
+          ignored_by_channelfile == o.ignored_by_channelfile &&
+          interval == o.interval &&
+          start_timestamp == o.start_timestamp
     end
 
     # @see the `==` method
@@ -142,7 +127,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [can_stagger, definition, display].hash
+      [ignored_by_channelfile, interval, start_timestamp].hash
     end
 
     # Builds the object from hash

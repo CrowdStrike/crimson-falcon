@@ -38,6 +38,8 @@ module Falcon
     # The ID of the author within Recon
     attr_accessor :author_id
 
+    attr_accessor :bot
+
     # The customer ID
     attr_accessor :cid
 
@@ -46,6 +48,9 @@ module Falcon
 
     # The date when this entity was created in Recon
     attr_accessor :created_date
+
+    # The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+    attr_accessor :credential_status
 
     # The domain where the credentials are valid
     attr_accessor :credentials_domain
@@ -91,6 +96,9 @@ module Falcon
 
     attr_accessor :login_id
 
+    # Information of the bot malware family
+    attr_accessor :malware_family
+
     # The ID of the parent notification associated with this entity
     attr_accessor :notification_id
 
@@ -134,9 +142,11 @@ module Falcon
       {
         :'author' => :'author',
         :'author_id' => :'author_id',
+        :'bot' => :'bot',
         :'cid' => :'cid',
         :'company' => :'company',
         :'created_date' => :'created_date',
+        :'credential_status' => :'credential_status',
         :'credentials_domain' => :'credentials_domain',
         :'credentials_ip' => :'credentials_ip',
         :'credentials_url' => :'credentials_url',
@@ -153,6 +163,7 @@ module Falcon
         :'job_position' => :'job_position',
         :'location' => :'location',
         :'login_id' => :'login_id',
+        :'malware_family' => :'malware_family',
         :'notification_id' => :'notification_id',
         :'password' => :'password',
         :'password_hash' => :'password_hash',
@@ -180,9 +191,11 @@ module Falcon
       {
         :'author' => :'String',
         :'author_id' => :'String',
+        :'bot' => :'ApiExposedDataRecordBotV1',
         :'cid' => :'String',
         :'company' => :'String',
         :'created_date' => :'Time',
+        :'credential_status' => :'String',
         :'credentials_domain' => :'String',
         :'credentials_ip' => :'String',
         :'credentials_url' => :'String',
@@ -199,6 +212,7 @@ module Falcon
         :'job_position' => :'String',
         :'location' => :'ApiExposedDataRecordLocationV1',
         :'login_id' => :'String',
+        :'malware_family' => :'String',
         :'notification_id' => :'String',
         :'password' => :'String',
         :'password_hash' => :'String',
@@ -245,6 +259,10 @@ module Falcon
         self.author_id = attributes[:'author_id']
       end
 
+      if attributes.key?(:'bot')
+        self.bot = attributes[:'bot']
+      end
+
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
       end
@@ -255,6 +273,10 @@ module Falcon
 
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
+      end
+
+      if attributes.key?(:'credential_status')
+        self.credential_status = attributes[:'credential_status']
       end
 
       if attributes.key?(:'credentials_domain')
@@ -319,6 +341,10 @@ module Falcon
 
       if attributes.key?(:'login_id')
         self.login_id = attributes[:'login_id']
+      end
+
+      if attributes.key?(:'malware_family')
+        self.malware_family = attributes[:'malware_family']
       end
 
       if attributes.key?(:'notification_id')
@@ -458,9 +484,11 @@ module Falcon
       self.class == o.class &&
           author == o.author &&
           author_id == o.author_id &&
+          bot == o.bot &&
           cid == o.cid &&
           company == o.company &&
           created_date == o.created_date &&
+          credential_status == o.credential_status &&
           credentials_domain == o.credentials_domain &&
           credentials_ip == o.credentials_ip &&
           credentials_url == o.credentials_url &&
@@ -477,6 +505,7 @@ module Falcon
           job_position == o.job_position &&
           location == o.location &&
           login_id == o.login_id &&
+          malware_family == o.malware_family &&
           notification_id == o.notification_id &&
           password == o.password &&
           password_hash == o.password_hash &&
@@ -502,7 +531,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author, author_id, cid, company, created_date, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, event_date, exposure_date, file, financial, full_name, hash_type, id, job_position, location, login_id, notification_id, password, password_hash, password_salt, phone_number, raw_intel_id, rule, site, site_id, social, source_category, user_id, user_ip, user_uuid].hash
+      [author, author_id, bot, cid, company, created_date, credential_status, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, event_date, exposure_date, file, financial, full_name, hash_type, id, job_position, location, login_id, malware_family, notification_id, password, password_hash, password_salt, phone_number, raw_intel_id, rule, site, site_id, social, source_category, user_id, user_ip, user_uuid].hash
     end
 
     # Builds the object from hash

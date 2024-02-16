@@ -42,7 +42,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
     # @option opts [String] :sort The property to sort by (e.g. timestamp.desc).
     # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;action:&#39;token_create&#39;&#x60;).
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def audit_events_query(opts = {})
       data, _status_code, _headers = audit_events_query_with_http_info(opts)
       data
@@ -54,7 +54,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
     # @option opts [String] :sort The property to sort by (e.g. timestamp.desc).
     # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;action:&#39;token_create&#39;&#x60;).
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def audit_events_query_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokensApi.audit_events_query ...'
@@ -81,7 +81,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -285,7 +285,7 @@ module Falcon
     # Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
     # @param ids [Array<String>] The token ids to delete.
     # @param [Hash] opts the optional parameters
-    # @return [MsaReplyMetaOnly]
+    # @return [MsaspecResponseFields]
     def tokens_delete(ids, opts = {})
       data, _status_code, _headers = tokens_delete_with_http_info(ids, opts)
       data
@@ -294,7 +294,7 @@ module Falcon
     # Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
     # @param ids [Array<String>] The token ids to delete.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def tokens_delete_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_delete ...'
@@ -322,7 +322,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaReplyMetaOnly'
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -350,7 +350,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
     # @option opts [String] :sort The property to sort by (e.g. created_timestamp.desc).
     # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;status:&#39;valid&#39;&#x60;).
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def tokens_query(opts = {})
       data, _status_code, _headers = tokens_query_with_http_info(opts)
       data
@@ -362,7 +362,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
     # @option opts [String] :sort The property to sort by (e.g. created_timestamp.desc).
     # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;status:&#39;valid&#39;&#x60;).
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def tokens_query_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_query ...'
@@ -389,7 +389,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -473,7 +473,7 @@ module Falcon
     # @param ids [Array<String>] The token ids to update.
     # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def tokens_update(ids, body, opts = {})
       data, _status_code, _headers = tokens_update_with_http_info(ids, body, opts)
       data
@@ -483,7 +483,7 @@ module Falcon
     # @param ids [Array<String>] The token ids to update.
     # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def tokens_update_with_http_info(ids, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_update ...'
@@ -520,7 +520,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

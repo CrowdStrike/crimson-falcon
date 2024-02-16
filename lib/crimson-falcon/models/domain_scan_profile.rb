@@ -88,6 +88,8 @@ module Falcon
 
     attr_accessor :status
 
+    attr_accessor :targeted_host_count
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -118,7 +120,8 @@ module Falcon
         :'schedule' => :'schedule',
         :'sensor_ml_level_detection' => :'sensor_ml_level_detection',
         :'sensor_ml_level_prevention' => :'sensor_ml_level_prevention',
-        :'status' => :'status'
+        :'status' => :'status',
+        :'targeted_host_count' => :'targeted_host_count'
       }
     end
 
@@ -157,7 +160,8 @@ module Falcon
         :'schedule' => :'DomainSchedule',
         :'sensor_ml_level_detection' => :'Integer',
         :'sensor_ml_level_prevention' => :'Integer',
-        :'status' => :'String'
+        :'status' => :'String',
+        :'targeted_host_count' => :'Integer'
       }
     end
 
@@ -307,6 +311,10 @@ module Falcon
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
+
+      if attributes.key?(:'targeted_host_count')
+        self.targeted_host_count = attributes[:'targeted_host_count']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -364,7 +372,8 @@ module Falcon
           schedule == o.schedule &&
           sensor_ml_level_detection == o.sensor_ml_level_detection &&
           sensor_ml_level_prevention == o.sensor_ml_level_prevention &&
-          status == o.status
+          status == o.status &&
+          targeted_host_count == o.targeted_host_count
     end
 
     # @see the `==` method
@@ -376,7 +385,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, created_by, created_on, deleted, description, endpoint_notification, file_paths, host_groups, hosts, id, initiated_from, last_updated, max_duration, max_file_size, metadata, pause_duration, policy_setting, preemption_priority, quarantine, scan_exclusions, scan_inclusions, schedule, sensor_ml_level_detection, sensor_ml_level_prevention, status].hash
+      [cid, cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, created_by, created_on, deleted, description, endpoint_notification, file_paths, host_groups, hosts, id, initiated_from, last_updated, max_duration, max_file_size, metadata, pause_duration, policy_setting, preemption_priority, quarantine, scan_exclusions, scan_inclusions, schedule, sensor_ml_level_detection, sensor_ml_level_prevention, status, targeted_host_count].hash
     end
 
     # Builds the object from hash

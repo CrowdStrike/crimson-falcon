@@ -102,4 +102,10 @@ describe Falcon::DomainCloudScope do
     end
   end
 
+  describe 'test attribute "updated_at"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

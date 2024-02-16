@@ -44,11 +44,27 @@ module Falcon
 
     attr_accessor :idp_policy_name
 
+    attr_accessor :kerberos_config
+
+    attr_accessor :ldap_config
+
+    attr_accessor :ldaps_config
+
     attr_accessor :local_ip
 
     attr_accessor :machine_domain
 
+    attr_accessor :ntlm_config
+
     attr_accessor :os_version
+
+    attr_accessor :rdp_to_dc_config
+
+    attr_accessor :smb_to_dc_config
+
+    attr_accessor :status
+
+    attr_accessor :status_causes
 
     attr_accessor :ti_enabled
 
@@ -61,9 +77,17 @@ module Falcon
         :'hostname' => :'hostname',
         :'idp_policy_id' => :'idp_policy_id',
         :'idp_policy_name' => :'idp_policy_name',
+        :'kerberos_config' => :'kerberos_config',
+        :'ldap_config' => :'ldap_config',
+        :'ldaps_config' => :'ldaps_config',
         :'local_ip' => :'local_ip',
         :'machine_domain' => :'machine_domain',
+        :'ntlm_config' => :'ntlm_config',
         :'os_version' => :'os_version',
+        :'rdp_to_dc_config' => :'rdp_to_dc_config',
+        :'smb_to_dc_config' => :'smb_to_dc_config',
+        :'status' => :'status',
+        :'status_causes' => :'status_causes',
         :'ti_enabled' => :'ti_enabled'
       }
     end
@@ -82,9 +106,17 @@ module Falcon
         :'hostname' => :'String',
         :'idp_policy_id' => :'String',
         :'idp_policy_name' => :'String',
+        :'kerberos_config' => :'String',
+        :'ldap_config' => :'String',
+        :'ldaps_config' => :'String',
         :'local_ip' => :'String',
         :'machine_domain' => :'String',
+        :'ntlm_config' => :'String',
         :'os_version' => :'String',
+        :'rdp_to_dc_config' => :'String',
+        :'smb_to_dc_config' => :'String',
+        :'status' => :'String',
+        :'status_causes' => :'Array<String>',
         :'ti_enabled' => :'String'
       }
     end
@@ -134,6 +166,18 @@ module Falcon
         self.idp_policy_name = attributes[:'idp_policy_name']
       end
 
+      if attributes.key?(:'kerberos_config')
+        self.kerberos_config = attributes[:'kerberos_config']
+      end
+
+      if attributes.key?(:'ldap_config')
+        self.ldap_config = attributes[:'ldap_config']
+      end
+
+      if attributes.key?(:'ldaps_config')
+        self.ldaps_config = attributes[:'ldaps_config']
+      end
+
       if attributes.key?(:'local_ip')
         self.local_ip = attributes[:'local_ip']
       end
@@ -142,8 +186,30 @@ module Falcon
         self.machine_domain = attributes[:'machine_domain']
       end
 
+      if attributes.key?(:'ntlm_config')
+        self.ntlm_config = attributes[:'ntlm_config']
+      end
+
       if attributes.key?(:'os_version')
         self.os_version = attributes[:'os_version']
+      end
+
+      if attributes.key?(:'rdp_to_dc_config')
+        self.rdp_to_dc_config = attributes[:'rdp_to_dc_config']
+      end
+
+      if attributes.key?(:'smb_to_dc_config')
+        self.smb_to_dc_config = attributes[:'smb_to_dc_config']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'status_causes')
+        if (value = attributes[:'status_causes']).is_a?(Array)
+          self.status_causes = value
+        end
       end
 
       if attributes.key?(:'ti_enabled')
@@ -185,9 +251,17 @@ module Falcon
           hostname == o.hostname &&
           idp_policy_id == o.idp_policy_id &&
           idp_policy_name == o.idp_policy_name &&
+          kerberos_config == o.kerberos_config &&
+          ldap_config == o.ldap_config &&
+          ldaps_config == o.ldaps_config &&
           local_ip == o.local_ip &&
           machine_domain == o.machine_domain &&
+          ntlm_config == o.ntlm_config &&
           os_version == o.os_version &&
+          rdp_to_dc_config == o.rdp_to_dc_config &&
+          smb_to_dc_config == o.smb_to_dc_config &&
+          status == o.status &&
+          status_causes == o.status_causes &&
           ti_enabled == o.ti_enabled
     end
 
@@ -200,7 +274,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, cid, device_id, hostname, idp_policy_id, idp_policy_name, local_ip, machine_domain, os_version, ti_enabled].hash
+      [agent_version, cid, device_id, hostname, idp_policy_id, idp_policy_name, kerberos_config, ldap_config, ldaps_config, local_ip, machine_domain, ntlm_config, os_version, rdp_to_dc_config, smb_to_dc_config, status, status_causes, ti_enabled].hash
     end
 
     # Builds the object from hash

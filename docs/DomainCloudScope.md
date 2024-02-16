@@ -14,6 +14,7 @@
 | **name** | **String** |  | [optional] |
 | **owners** | **Array&lt;String&gt;** |  | [optional] |
 | **total_accounts** | **Integer** |  | [optional] |
+| **updated_at** | **Time** |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = Falcon::DomainCloudScope.new(
   id: null,
   name: null,
   owners: null,
-  total_accounts: null
+  total_accounts: null,
+  updated_at: null
 )
 ```
 

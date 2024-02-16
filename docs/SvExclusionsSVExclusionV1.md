@@ -9,6 +9,7 @@
 | **created_on** | **Time** |  |  |
 | **groups** | [**Array&lt;HostGroupsHostGroupV1&gt;**](HostGroupsHostGroupV1.md) |  |  |
 | **id** | **String** |  |  |
+| **is_descendant_process** | **Boolean** |  | [optional] |
 | **last_modified** | **Time** |  |  |
 | **modified_by** | **String** |  |  |
 | **regexp_value** | **String** |  |  |
@@ -26,6 +27,7 @@ instance = Falcon::SvExclusionsSVExclusionV1.new(
   created_on: null,
   groups: null,
   id: null,
+  is_descendant_process: null,
   last_modified: null,
   modified_by: null,
   regexp_value: null,

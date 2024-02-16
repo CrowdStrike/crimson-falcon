@@ -48,6 +48,8 @@ module Falcon
 
     attr_accessor :vk_id
 
+    attr_accessor :vk_token
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -58,7 +60,8 @@ module Falcon
         :'msn_id' => :'msn_id',
         :'skype_id' => :'skype_id',
         :'twitter_id' => :'twitter_id',
-        :'vk_id' => :'vk_id'
+        :'vk_id' => :'vk_id',
+        :'vk_token' => :'vk_token'
       }
     end
 
@@ -77,7 +80,8 @@ module Falcon
         :'msn_id' => :'String',
         :'skype_id' => :'String',
         :'twitter_id' => :'String',
-        :'vk_id' => :'String'
+        :'vk_id' => :'String',
+        :'vk_token' => :'String'
       }
     end
 
@@ -133,6 +137,10 @@ module Falcon
       if attributes.key?(:'vk_id')
         self.vk_id = attributes[:'vk_id']
       end
+
+      if attributes.key?(:'vk_token')
+        self.vk_token = attributes[:'vk_token']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -171,6 +179,10 @@ module Falcon
         invalid_properties.push('invalid value for "vk_id", vk_id cannot be nil.')
       end
 
+      if @vk_token.nil?
+        invalid_properties.push('invalid value for "vk_token", vk_token cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -185,6 +197,7 @@ module Falcon
       return false if @skype_id.nil?
       return false if @twitter_id.nil?
       return false if @vk_id.nil?
+      return false if @vk_token.nil?
       true
     end
 
@@ -200,7 +213,8 @@ module Falcon
           msn_id == o.msn_id &&
           skype_id == o.skype_id &&
           twitter_id == o.twitter_id &&
-          vk_id == o.vk_id
+          vk_id == o.vk_id &&
+          vk_token == o.vk_token
     end
 
     # @see the `==` method
@@ -212,7 +226,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aim_id, facebook_id, icq_id, instagram_id, msn_id, skype_id, twitter_id, vk_id].hash
+      [aim_id, facebook_id, icq_id, instagram_id, msn_id, skype_id, twitter_id, vk_id, vk_token].hash
     end
 
     # Builds the object from hash

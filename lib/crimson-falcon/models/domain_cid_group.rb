@@ -32,17 +32,23 @@ require 'time'
 
 module Falcon
   class DomainCIDGroup
+    attr_accessor :cid
+
     attr_accessor :cid_group_id
 
     attr_accessor :description
+
+    attr_accessor :is_default
 
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cid' => :'cid',
         :'cid_group_id' => :'cid_group_id',
         :'description' => :'description',
+        :'is_default' => :'is_default',
         :'name' => :'name'
       }
     end
@@ -55,8 +61,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cid' => :'String',
         :'cid_group_id' => :'String',
         :'description' => :'String',
+        :'is_default' => :'Boolean',
         :'name' => :'String'
       }
     end
@@ -82,12 +90,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'cid')
+        self.cid = attributes[:'cid']
+      end
+
       if attributes.key?(:'cid_group_id')
         self.cid_group_id = attributes[:'cid_group_id']
       end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'is_default')
+        self.is_default = attributes[:'is_default']
       end
 
       if attributes.key?(:'name')
@@ -123,8 +139,10 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cid == o.cid &&
           cid_group_id == o.cid_group_id &&
           description == o.description &&
+          is_default == o.is_default &&
           name == o.name
     end
 
@@ -137,7 +155,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid_group_id, description, name].hash
+      [cid, cid_group_id, description, is_default, name].hash
     end
 
     # Builds the object from hash

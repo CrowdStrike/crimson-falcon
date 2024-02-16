@@ -42,6 +42,12 @@ describe Falcon::DomainCIDGroup do
       expect(instance).to be_instance_of(Falcon::DomainCIDGroup)
     end
   end
+  describe 'test attribute "cid"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cid_group_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -49,6 +55,12 @@ describe Falcon::DomainCIDGroup do
   end
 
   describe 'test attribute "description"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "is_default"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -6,9 +6,11 @@
 | ---- | ---- | ----------- | ----- |
 | **author** | **String** | The individual or group who exposed the data |  |
 | **author_id** | **String** | The ID of the author within Recon | [optional] |
+| **bot** | [**ApiExposedDataRecordBotV1**](ApiExposedDataRecordBotV1.md) |  | [optional] |
 | **cid** | **String** | The customer ID |  |
 | **company** | **String** | The company of the user | [optional] |
 | **created_date** | **Time** | The date when this entity was created in Recon |  |
+| **credential_status** | **String** | The status set after deduplication. Possible values: &#39;newly_detected&#39;, &#39;previously_reported&#39;, &#39;other&#39; | [optional] |
 | **credentials_domain** | **String** | The domain where the credentials are valid | [optional] |
 | **credentials_ip** | **String** | The IP where the credentials are valid | [optional] |
 | **credentials_url** | **String** | The URL where the credentials are valid | [optional] |
@@ -25,6 +27,7 @@
 | **job_position** | **String** | The users job at the company | [optional] |
 | **location** | [**ApiExposedDataRecordLocationV1**](ApiExposedDataRecordLocationV1.md) |  | [optional] |
 | **login_id** | **String** |  | [optional] |
+| **malware_family** | **String** | Information of the bot malware family | [optional] |
 | **notification_id** | **String** | The ID of the parent notification associated with this entity |  |
 | **password** | **String** | The password used for login | [optional] |
 | **password_hash** | **String** | The password hash | [optional] |
@@ -48,9 +51,11 @@ require 'crimson-falcon'
 instance = Falcon::ApiNotificationExposedDataRecordV1.new(
   author: null,
   author_id: null,
+  bot: null,
   cid: null,
   company: null,
   created_date: null,
+  credential_status: null,
   credentials_domain: null,
   credentials_ip: null,
   credentials_url: null,
@@ -67,6 +72,7 @@ instance = Falcon::ApiNotificationExposedDataRecordV1.new(
   job_position: null,
   location: null,
   login_id: null,
+  malware_family: null,
   notification_id: null,
   password: null,
   password_hash: null,

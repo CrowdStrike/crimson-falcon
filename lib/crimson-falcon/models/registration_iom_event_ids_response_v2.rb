@@ -56,7 +56,7 @@ module Falcon
     def self.openapi_types
       {
         :'errors' => :'Array<MsaspecError>',
-        :'meta' => :'RegistrationMSASpecMetaInfoExtension',
+        :'meta' => :'RegistrationIOMEventIDResponseMeta',
         :'resources' => :'Array<String>'
       }
     end

@@ -56,7 +56,7 @@ describe 'InstallationTokensApi' do
   # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
   # @option opts [String] :sort The property to sort by (e.g. timestamp.desc).
   # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;action:&#39;token_create&#39;&#x60;).
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'audit_events_query test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -99,7 +99,7 @@ describe 'InstallationTokensApi' do
   # Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
   # @param ids The token ids to delete.
   # @param [Hash] opts the optional parameters
-  # @return [MsaReplyMetaOnly]
+  # @return [MsaspecResponseFields]
   describe 'tokens_delete test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -113,7 +113,7 @@ describe 'InstallationTokensApi' do
   # @option opts [Integer] :limit The maximum records to return. [1-1000]. Defaults to 50.
   # @option opts [String] :sort The property to sort by (e.g. created_timestamp.desc).
   # @option opts [String] :filter The filter expression that should be used to limit the results (e.g., &#x60;status:&#39;valid&#39;&#x60;).
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'tokens_query test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -136,7 +136,7 @@ describe 'InstallationTokensApi' do
   # @param ids The token ids to update.
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'tokens_update test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

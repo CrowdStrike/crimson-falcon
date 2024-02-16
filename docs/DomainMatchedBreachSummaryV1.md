@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **community_name** | **String** | Community/colloquial exposed data event name. | [optional] |
 | **confidence_level** | **String** | The level of confidence regarding data veridicality. Options for likely authentic, confirmed authentic (default: unverified). | [optional] |
+| **credential_statuses** | **Array&lt;String&gt;** | A list of statuses for the exposed data records contained in the notification. Possible values: &#39;newly_detected&#39;, &#39;previously_reported&#39; and/or &#39;other&#39; | [optional] |
 | **credentials_domains** | **Array&lt;String&gt;** |  | [optional] |
 | **credentials_ips** | **Array&lt;String&gt;** |  | [optional] |
 | **description** | **String** | The description of the breach |  |
@@ -16,6 +17,7 @@
 | **files** | [**Array&lt;DomainFileDetailsV1&gt;**](DomainFileDetailsV1.md) | Metadata regarding the file(s) where exposed data records where found. | [optional] |
 | **idp_send_date** | **Time** |  | [optional] |
 | **idp_send_status** | **String** |  | [optional] |
+| **is_retroactively_deduped** | **Boolean** | (Boolean) If the notification was processed before the introduction of exposed data deduplication |  |
 | **name** | **String** | The name of the breach |  |
 | **obtained_by** | **String** | Exposed Data Event Threat Actor/Group: Moniker(s) or real name(s) of the individual/group who unveiled confidential data. | [optional] |
 | **url** | **String** | Where the leak was found. | [optional] |
@@ -28,6 +30,7 @@ require 'crimson-falcon'
 instance = Falcon::DomainMatchedBreachSummaryV1.new(
   community_name: null,
   confidence_level: null,
+  credential_statuses: null,
   credentials_domains: null,
   credentials_ips: null,
   description: null,
@@ -38,6 +41,7 @@ instance = Falcon::DomainMatchedBreachSummaryV1.new(
   files: null,
   idp_send_date: null,
   idp_send_status: null,
+  is_retroactively_deduped: null,
   name: null,
   obtained_by: null,
   url: null

@@ -32,6 +32,7 @@
 | **sensor_ml_level_detection** | **Integer** |  | [optional] |
 | **sensor_ml_level_prevention** | **Integer** |  | [optional] |
 | **status** | **String** |  | [optional] |
+| **targeted_host_count** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -66,7 +67,8 @@ instance = Falcon::DomainScanProfile.new(
   schedule: null,
   sensor_ml_level_detection: null,
   sensor_ml_level_prevention: null,
-  status: null
+  status: null,
+  targeted_host_count: null
 )
 ```
 

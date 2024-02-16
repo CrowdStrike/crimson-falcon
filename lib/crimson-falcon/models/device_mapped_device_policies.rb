@@ -48,6 +48,8 @@ module Falcon
 
     attr_accessor :global_config
 
+    attr_accessor :host_retention
+
     attr_accessor :identity_protection
 
     attr_accessor :jumpcloud
@@ -81,6 +83,7 @@ module Falcon
         :'fim' => :'fim',
         :'firewall' => :'firewall',
         :'global_config' => :'global_config',
+        :'host_retention' => :'host-retention',
         :'identity_protection' => :'identity-protection',
         :'jumpcloud' => :'jumpcloud',
         :'kubernetes_admission_control' => :'kubernetes-admission-control',
@@ -111,6 +114,7 @@ module Falcon
         :'fim' => :'DeviceDevicePolicy',
         :'firewall' => :'DeviceDevicePolicy',
         :'global_config' => :'DeviceDevicePolicy',
+        :'host_retention' => :'DeviceDevicePolicy',
         :'identity_protection' => :'DeviceDevicePolicy',
         :'jumpcloud' => :'DeviceDevicePolicy',
         :'kubernetes_admission_control' => :'DeviceDevicePolicy',
@@ -176,6 +180,10 @@ module Falcon
 
       if attributes.key?(:'global_config')
         self.global_config = attributes[:'global_config']
+      end
+
+      if attributes.key?(:'host_retention')
+        self.host_retention = attributes[:'host_retention']
       end
 
       if attributes.key?(:'identity_protection')
@@ -249,6 +257,7 @@ module Falcon
           fim == o.fim &&
           firewall == o.firewall &&
           global_config == o.global_config &&
+          host_retention == o.host_retention &&
           identity_protection == o.identity_protection &&
           jumpcloud == o.jumpcloud &&
           kubernetes_admission_control == o.kubernetes_admission_control &&
@@ -271,7 +280,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [airlock, automox, aws_verified_access, data_protection, device_control, fim, firewall, global_config, identity_protection, jumpcloud, kubernetes_admission_control, mobile, netskope, prevention, remote_response, sca, sensor_update, system_tray, ztl].hash
+      [airlock, automox, aws_verified_access, data_protection, device_control, fim, firewall, global_config, host_retention, identity_protection, jumpcloud, kubernetes_admission_control, mobile, netskope, prevention, remote_response, sca, sensor_update, system_tray, ztl].hash
     end
 
     # Builds the object from hash

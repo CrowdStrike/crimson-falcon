@@ -34,6 +34,8 @@ module Falcon
   class QuarantineQuarantinedFile
     attr_accessor :aid
 
+    attr_accessor :alert_ids
+
     attr_accessor :cid
 
     attr_accessor :date_created
@@ -70,6 +72,7 @@ module Falcon
     def self.attribute_map
       {
         :'aid' => :'aid',
+        :'alert_ids' => :'alert_ids',
         :'cid' => :'cid',
         :'date_created' => :'date_created',
         :'date_updated' => :'date_updated',
@@ -98,6 +101,7 @@ module Falcon
     def self.openapi_types
       {
         :'aid' => :'String',
+        :'alert_ids' => :'Array<String>',
         :'cid' => :'String',
         :'date_created' => :'String',
         :'date_updated' => :'String',
@@ -140,6 +144,12 @@ module Falcon
 
       if attributes.key?(:'aid')
         self.aid = attributes[:'aid']
+      end
+
+      if attributes.key?(:'alert_ids')
+        if (value = attributes[:'alert_ids']).is_a?(Array)
+          self.alert_ids = value
+        end
       end
 
       if attributes.key?(:'cid')
@@ -230,6 +240,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           aid == o.aid &&
+          alert_ids == o.alert_ids &&
           cid == o.cid &&
           date_created == o.date_created &&
           date_updated == o.date_updated &&
@@ -257,7 +268,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, cid, date_created, date_updated, detect_ids, extracted, hostname, id, is_on_removable_disk, paths, primary_module, release_path_for_removable_media, sandbox_report_id, sandbox_report_state, sha256, state, username].hash
+      [aid, alert_ids, cid, date_created, date_updated, detect_ids, extracted, hostname, id, is_on_removable_disk, paths, primary_module, release_path_for_removable_media, sandbox_report_id, sandbox_report_state, sha256, state, username].hash
     end
 
     # Builds the object from hash

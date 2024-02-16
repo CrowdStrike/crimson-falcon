@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **actor_slug** | **String** |  |  |
 | **assigned_to_uid** | **String** | The email of the user who is assigned to this notification | [optional] |
 | **assigned_to_username** | **String** | The name of the user who is assigned to this notification | [optional] |
 | **assigned_to_uuid** | **String** | The unique ID of the user who is assigned to this notification | [optional] |
@@ -36,6 +37,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainNotificationV1.new(
+  actor_slug: null,
   assigned_to_uid: null,
   assigned_to_username: null,
   assigned_to_uuid: null,

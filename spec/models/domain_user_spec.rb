@@ -48,7 +48,7 @@ describe Falcon::DomainUser do
     end
   end
 
-  describe 'test attribute "created_at"' do
+  describe 'test attribute "email"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -60,19 +60,7 @@ describe Falcon::DomainUser do
     end
   end
 
-  describe 'test attribute "last_login_at"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "last_name"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  describe 'test attribute "uid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

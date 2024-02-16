@@ -84,6 +84,8 @@ module Falcon
 
     attr_accessor :service_account_private_key_id
 
+    attr_accessor :service_account_project_id
+
     # Account registration status.
     attr_accessor :status
 
@@ -111,6 +113,7 @@ module Falcon
         :'service_account_client_id' => :'service_account_client_id',
         :'service_account_id' => :'service_account_id',
         :'service_account_private_key_id' => :'service_account_private_key_id',
+        :'service_account_project_id' => :'service_account_project_id',
         :'status' => :'status'
       }
     end
@@ -144,6 +147,7 @@ module Falcon
         :'service_account_client_id' => :'String',
         :'service_account_id' => :'Integer',
         :'service_account_private_key_id' => :'String',
+        :'service_account_project_id' => :'String',
         :'status' => :'String'
       }
     end
@@ -257,6 +261,10 @@ module Falcon
         self.service_account_private_key_id = attributes[:'service_account_private_key_id']
       end
 
+      if attributes.key?(:'service_account_project_id')
+        self.service_account_project_id = attributes[:'service_account_project_id']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -298,6 +306,10 @@ module Falcon
         invalid_properties.push('invalid value for "parent_id", parent_id cannot be nil.')
       end
 
+      if @service_account_project_id.nil?
+        invalid_properties.push('invalid value for "service_account_project_id", service_account_project_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -312,6 +324,7 @@ module Falcon
       return false if @cspm_enabled.nil?
       return false if @gcp_permissions_status.nil?
       return false if @parent_id.nil?
+      return false if @service_account_project_id.nil?
       true
     end
 
@@ -341,6 +354,7 @@ module Falcon
           service_account_client_id == o.service_account_client_id &&
           service_account_id == o.service_account_id &&
           service_account_private_key_id == o.service_account_private_key_id &&
+          service_account_project_id == o.service_account_project_id &&
           status == o.status
     end
 
@@ -353,7 +367,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_id, service_account_private_key_id, status].hash
+      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_id, service_account_private_key_id, service_account_project_id, status].hash
     end
 
     # Builds the object from hash

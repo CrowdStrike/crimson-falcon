@@ -4,16 +4,16 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cid** | **String** |  |  |
+| **cid** | **String** |  | [optional] |
 | **cid_group_id** | **String** |  | [optional] |
 | **cid_group_name** | **String** |  | [optional] |
-| **grant_type** | **String** |  |  |
+| **grant_type** | **String** |  | [optional] |
 | **parent_cid** | **String** |  | [optional] |
 | **role_id** | **String** |  |  |
-| **role_name** | **String** |  |  |
+| **role_name** | **String** |  | [optional] |
 | **user_group_id** | **String** |  | [optional] |
 | **user_group_name** | **String** |  | [optional] |
-| **uuid** | **String** |  |  |
+| **uuid** | **String** |  | [optional] |
 
 ## Example
 

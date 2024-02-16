@@ -139,6 +139,47 @@ describe 'IocApi' do
     end
   end
 
+  # unit tests for indicator_get_device_count_v1
+  # Get the number of devices the indicator has run on
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+  # @param value The string representation of the indicator
+  # @param [Hash] opts the optional parameters
+  # @return [ApiDeviceCountRespV1]
+  describe 'indicator_get_device_count_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for indicator_get_devices_ran_on_v1
+  # Get the IDs of devices the indicator has run on
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+  # @param value The string representation of the indicator
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+  # @return [ApiDevicesRanOnRespV1]
+  describe 'indicator_get_devices_ran_on_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for indicator_get_processes_ran_on_v1
+  # Get the number of processes the indicator has run on
+  # @param type  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+  # @param value The string representation of the indicator
+  # @param device_id Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+  # @return [ApiProcessesRanOnRespV1]
+  describe 'indicator_get_processes_ran_on_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for indicator_get_v1
   # Get Indicators by ids.
   # @param ids The ids of the Indicators to retrieve

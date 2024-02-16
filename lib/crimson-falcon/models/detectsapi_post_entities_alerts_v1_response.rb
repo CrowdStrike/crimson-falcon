@@ -36,6 +36,7 @@ module Falcon
 
     attr_accessor :meta
 
+    # Resources represent the slice of Alerts that were retrieved for the given Alert IDs
     attr_accessor :resources
 
     # Attribute mapping from ruby-style variable name to JSON key.

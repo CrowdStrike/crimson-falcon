@@ -59,7 +59,7 @@ module Falcon
     def self.openapi_types
       {
         :'breach_details' => :'DomainBreachDetailsV1',
-        :'details' => :'DomainNotificationDetailsV1',
+        :'details' => :'DomainItemDetailsV1',
         :'id' => :'String',
         :'notification' => :'DomainNotificationV1'
       }

@@ -64,7 +64,7 @@ describe 'MessageCenterApi' do
   # Add an activity to case. Only activities of type comment are allowed via API
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [MsaReplyMetaOnly]
+  # @return [MsaspecResponseFields]
   describe 'case_add_activity test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -148,7 +148,7 @@ describe 'MessageCenterApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'query_activity_by_case_id test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -162,7 +162,7 @@ describe 'MessageCenterApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'query_cases_ids_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

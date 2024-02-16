@@ -64,4 +64,15 @@ describe 'ConfigurationAssessmentApi' do
     end
   end
 
+  # unit tests for get_rule_details
+  # Get rules details for provided one or more rule IDs
+  # @param ids One or more rules IDs (max: 400)
+  # @param [Hash] opts the optional parameters
+  # @return [DomainAPIRuleDetailsResponseV1]
+  describe 'get_rule_details test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

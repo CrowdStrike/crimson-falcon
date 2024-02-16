@@ -34,6 +34,8 @@ module Falcon
   class DomainAPIFindingRuleV1
     attr_accessor :authority
 
+    attr_accessor :benchmark_type
+
     attr_accessor :cce
 
     attr_accessor :edited
@@ -50,6 +52,8 @@ module Falcon
 
     attr_accessor :name
 
+    attr_accessor :platform_name
+
     attr_accessor :policy_id
 
     attr_accessor :policy_name
@@ -62,6 +66,7 @@ module Falcon
     def self.attribute_map
       {
         :'authority' => :'authority',
+        :'benchmark_type' => :'benchmark_type',
         :'cce' => :'cce',
         :'edited' => :'edited',
         :'group_id' => :'group_id',
@@ -70,6 +75,7 @@ module Falcon
         :'last_edited_timestamp' => :'last_edited_timestamp',
         :'mitre_attack_tactics' => :'mitre_attack_tactics',
         :'name' => :'name',
+        :'platform_name' => :'platform_name',
         :'policy_id' => :'policy_id',
         :'policy_name' => :'policy_name',
         :'recommendation_id' => :'recommendation_id',
@@ -86,6 +92,7 @@ module Falcon
     def self.openapi_types
       {
         :'authority' => :'String',
+        :'benchmark_type' => :'String',
         :'cce' => :'String',
         :'edited' => :'Boolean',
         :'group_id' => :'String',
@@ -94,6 +101,7 @@ module Falcon
         :'last_edited_timestamp' => :'String',
         :'mitre_attack_tactics' => :'Array<DomainAPIMitreAttackTacticV1>',
         :'name' => :'String',
+        :'platform_name' => :'String',
         :'policy_id' => :'String',
         :'policy_name' => :'String',
         :'recommendation_id' => :'String',
@@ -124,6 +132,10 @@ module Falcon
 
       if attributes.key?(:'authority')
         self.authority = attributes[:'authority']
+      end
+
+      if attributes.key?(:'benchmark_type')
+        self.benchmark_type = attributes[:'benchmark_type']
       end
 
       if attributes.key?(:'cce')
@@ -158,6 +170,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'platform_name')
+        self.platform_name = attributes[:'platform_name']
       end
 
       if attributes.key?(:'policy_id')
@@ -206,6 +222,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           authority == o.authority &&
+          benchmark_type == o.benchmark_type &&
           cce == o.cce &&
           edited == o.edited &&
           group_id == o.group_id &&
@@ -214,6 +231,7 @@ module Falcon
           last_edited_timestamp == o.last_edited_timestamp &&
           mitre_attack_tactics == o.mitre_attack_tactics &&
           name == o.name &&
+          platform_name == o.platform_name &&
           policy_id == o.policy_id &&
           policy_name == o.policy_name &&
           recommendation_id == o.recommendation_id &&
@@ -229,7 +247,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authority, cce, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, policy_id, policy_name, recommendation_id, severity].hash
+      [authority, benchmark_type, cce, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, platform_name, policy_id, policy_name, recommendation_id, severity].hash
     end
 
     # Builds the object from hash

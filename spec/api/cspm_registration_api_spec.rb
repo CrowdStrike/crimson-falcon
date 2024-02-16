@@ -62,6 +62,17 @@ describe 'CspmRegistrationApi' do
     end
   end
 
+  # unit tests for connect_cspmgcp_account
+  # Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPAccountResponseExtV2]
+  describe 'connect_cspmgcp_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_cspm_aws_account
   # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
   # @param body
@@ -79,6 +90,28 @@ describe 'CspmRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAzureAccountResponseV1]
   describe 'create_cspm_azure_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_cspm_azure_management_group
+  # Creates a new management group in our system for a customer.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationAzureAccountResponseV1]
+  describe 'create_cspm_azure_management_group test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for create_cspmgcp_account
+  # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPAccountResponseV1]
+  describe 'create_cspmgcp_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -104,6 +137,17 @@ describe 'CspmRegistrationApi' do
   # @option opts [String] :retain_tenant
   # @return [MsaBaseEntitiesResponse]
   describe 'delete_cspm_azure_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_cspmgcp_account
+  # Deletes a GCP account from the system.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
+  # @return [MsaBaseEntitiesResponse]
+  describe 'delete_cspmgcp_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -160,7 +204,7 @@ describe 'CspmRegistrationApi' do
   end
 
   # unit tests for get_configuration_detections
-  # Get list of active misconfigurations
+  # Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead
   # @param [Hash] opts the optional parameters
   # @option opts [String] :cloud_provider Cloud Provider (e.g.: aws|azure|gcp)
   # @option opts [String] :account_id AWS account ID or GCP Project Number or Azure subscription ID
@@ -188,6 +232,7 @@ describe 'CspmRegistrationApi' do
   # @option opts [Array<String>] :organization_ids AWS organization IDs
   # @option opts [String] :status Account status to filter results by.
   # @option opts [Integer] :limit The maximum records to return. Defaults to 100.
+  # @option opts [String] :cspm_lite Only return CSPM Lite accounts
   # @option opts [String] :migrated Only return migrated d4c accounts
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [String] :group_by Field to group by.
@@ -229,10 +274,24 @@ describe 'CspmRegistrationApi' do
   # @option opts [Array<String>] :tenant_ids Tenant ids to filter azure accounts
   # @option opts [String] :scan_type Type of scan, dry or full, to perform on selected accounts
   # @option opts [String] :status Account status to filter results by.
+  # @option opts [String] :cspm_lite Only return CSPM Lite accounts
   # @option opts [Integer] :limit The maximum records to return. Defaults to 100.
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @return [RegistrationAzureAccountResponseV1]
   describe 'get_cspm_azure_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cspm_azure_management_group
+  # Return information about Azure management group registration
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :tenant_ids Tenant ids to filter azure accounts
+  # @option opts [Integer] :limit The maximum records to return. Defaults to 100.
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @return [RegistrationAzureManagementGroupResponseV1]
+  describe 'get_cspm_azure_management_group test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -245,6 +304,7 @@ describe 'CspmRegistrationApi' do
   # @option opts [Array<String>] :subscription_ids Subscription IDs to generate script for. Defaults to all.
   # @option opts [String] :account_type
   # @option opts [String] :template Template to be rendered
+  # @option opts [Boolean] :azure_management_group Use Azure Management Group
   # @return [RegistrationAzureProvisionGetUserScriptResponseV1]
   describe 'get_cspm_azure_user_scripts_attachment test' do
     it 'should work' do
@@ -298,12 +358,63 @@ describe 'CspmRegistrationApi' do
     end
   end
 
+  # unit tests for get_cspmcgp_account
+  # Returns information about the current status of an GCP account.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+  # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
+  # @option opts [String] :scan_type Type of scan, dry or full, to perform on selected accounts
+  # @option opts [String] :status Account status to filter results by.
+  # @option opts [Integer] :limit The maximum records to return. Defaults to 100.
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
+  # @return [RegistrationGCPAccountResponseV1]
+  describe 'get_cspmcgp_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cspmgcp_service_accounts_ext
+  # Returns the service account id and client email for external clients.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Service Account ID
+  # @return [RegistrationGCPServiceAccountResponseExtV1]
+  describe 'get_cspmgcp_service_accounts_ext test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cspmgcp_user_scripts_attachment
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+  # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
+  # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
+  describe 'get_cspmgcp_user_scripts_attachment test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for patch_cspm_aws_account
   # Patches a existing account in our system for a customer.
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationAWSAccountResponseV2]
   describe 'patch_cspm_aws_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_cspm_azure_account
+  # Patches a existing account in our system for a customer.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationAzureAccountResponseV1]
+  describe 'update_cspm_azure_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -350,6 +461,17 @@ describe 'CspmRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @return [RegistrationScanScheduleResponseV1]
   describe 'update_cspm_scan_schedule test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_cspmgcp_account
+  # Patches a existing account in our system for a customer.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPAccountResponseV1]
+  describe 'update_cspmgcp_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

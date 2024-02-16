@@ -12,6 +12,7 @@
 | **skype_id** | **String** |  |  |
 | **twitter_id** | **String** |  |  |
 | **vk_id** | **String** |  |  |
+| **vk_token** | **String** |  |  |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = Falcon::DomainExposedDataRecordSocialV1.new(
   msn_id: null,
   skype_id: null,
   twitter_id: null,
-  vk_id: null
+  vk_id: null,
+  vk_token: null
 )
 ```
 

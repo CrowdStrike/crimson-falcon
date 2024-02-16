@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :submit_for_blocking_info
 
+    attr_accessor :submit_for_takedown_info
+
     # The Unicode representation of the infrastructure component
     attr_accessor :unicode_format
 
@@ -55,6 +57,7 @@ module Falcon
         :'parent_domain' => :'parent_domain',
         :'punycode_format' => :'punycode_format',
         :'submit_for_blocking_info' => :'submit_for_blocking_info',
+        :'submit_for_takedown_info' => :'submit_for_takedown_info',
         :'unicode_format' => :'unicode_format'
       }
     end
@@ -71,7 +74,8 @@ module Falcon
         :'id' => :'String',
         :'parent_domain' => :'SadomainTyposquattingParentDomain',
         :'punycode_format' => :'String',
-        :'submit_for_blocking_info' => :'SadomainSubmitForBlockingInfo',
+        :'submit_for_blocking_info' => :'SadomainSubmissionInformation',
+        :'submit_for_takedown_info' => :'SadomainSubmissionInformation',
         :'unicode_format' => :'String'
       }
     end
@@ -115,6 +119,10 @@ module Falcon
 
       if attributes.key?(:'submit_for_blocking_info')
         self.submit_for_blocking_info = attributes[:'submit_for_blocking_info']
+      end
+
+      if attributes.key?(:'submit_for_takedown_info')
+        self.submit_for_takedown_info = attributes[:'submit_for_takedown_info']
       end
 
       if attributes.key?(:'unicode_format')
@@ -170,6 +178,7 @@ module Falcon
           parent_domain == o.parent_domain &&
           punycode_format == o.punycode_format &&
           submit_for_blocking_info == o.submit_for_blocking_info &&
+          submit_for_takedown_info == o.submit_for_takedown_info &&
           unicode_format == o.unicode_format
     end
 
@@ -182,7 +191,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [base_domain, id, parent_domain, punycode_format, submit_for_blocking_info, unicode_format].hash
+      [base_domain, id, parent_domain, punycode_format, submit_for_blocking_info, submit_for_takedown_info, unicode_format].hash
     end
 
     # Builds the object from hash

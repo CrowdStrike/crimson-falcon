@@ -50,7 +50,7 @@ describe 'HostsApi' do
   end
 
   # unit tests for entities_perform_action
-  # Performs the specified action on the provided prevention policy IDs.
+  # Performs the specified action on the provided group IDs.
   # @param ids The group ids to act on
   # @param action_name The action to perform.
   # @param body
@@ -58,17 +58,6 @@ describe 'HostsApi' do
   # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member
   # @return [DeviceapiGroupsResponseV1]
   describe 'entities_perform_action test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for get_device_details
-  # Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host&#39;s agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
-  # @param ids The host agentIDs used to get details on
-  # @param [Hash] opts the optional parameters
-  # @return [DeviceapiDeviceDetailsResponseSwagger]
-  describe 'get_device_details test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -125,6 +114,17 @@ describe 'HostsApi' do
   # @param [Hash] opts the optional parameters
   # @return [DeviceapiLoginHistoryResponseV1]
   describe 'query_device_login_history test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for query_device_login_history_v2
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DeviceapiLoginHistoryResponseV1]
+  describe 'query_device_login_history_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -11,10 +11,12 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**r_tr_delete_put_files**](RealTimeResponseAdminApi.md#r_tr_delete_put_files) | **DELETE** /real-time-response/entities/put-files/v1 | Delete a put-file based on the ID given.  Can only delete one file at a time. |
 | [**r_tr_delete_scripts**](RealTimeResponseAdminApi.md#r_tr_delete_scripts) | **DELETE** /real-time-response/entities/scripts/v1 | Delete a custom-script based on the ID given.  Can only delete one script at a time. |
 | [**r_tr_execute_admin_command**](RealTimeResponseAdminApi.md#r_tr_execute_admin_command) | **POST** /real-time-response/entities/admin-command/v1 | Execute a RTR administrator command on a single host. |
+| [**r_tr_get_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_get_falcon_scripts) | **GET** /real-time-response/entities/falcon-scripts/v1 | Get Falcon scripts with metadata and content of script |
 | [**r_tr_get_put_files**](RealTimeResponseAdminApi.md#r_tr_get_put_files) | **GET** /real-time-response/entities/put-files/v1 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
 | [**r_tr_get_put_files_v2**](RealTimeResponseAdminApi.md#r_tr_get_put_files_v2) | **GET** /real-time-response/entities/put-files/v2 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
 | [**r_tr_get_scripts**](RealTimeResponseAdminApi.md#r_tr_get_scripts) | **GET** /real-time-response/entities/scripts/v1 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
 | [**r_tr_get_scripts_v2**](RealTimeResponseAdminApi.md#r_tr_get_scripts_v2) | **GET** /real-time-response/entities/scripts/v2 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
+| [**r_tr_list_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_list_falcon_scripts) | **GET** /real-time-response/queries/falcon-scripts/v1 | Get a list of Falcon script IDs available to the user to run |
 | [**r_tr_list_put_files**](RealTimeResponseAdminApi.md#r_tr_list_put_files) | **GET** /real-time-response/queries/put-files/v1 | Get a list of put-file ID&#39;s that are available to the user for the &#x60;put&#x60; command. |
 | [**r_tr_list_scripts**](RealTimeResponseAdminApi.md#r_tr_list_scripts) | **GET** /real-time-response/queries/scripts/v1 | Get a list of custom-script ID&#39;s that are available to the user for the &#x60;runscript&#x60; command. |
 | [**r_tr_update_scripts**](RealTimeResponseAdminApi.md#r_tr_update_scripts) | **PATCH** /real-time-response/entities/scripts/v1 | Upload a new scripts to replace an existing one. |
@@ -535,6 +537,75 @@ end
 - **Accept**: application/json
 
 
+## r_tr_get_falcon_scripts
+
+> <EmpowerapiMsaFalconScriptResponse> r_tr_get_falcon_scripts(ids)
+
+Get Falcon scripts with metadata and content of script
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::RealTimeResponseAdminApi.new
+ids = ['inner_example'] # Array<String> | IDs of the Falcon scripts you want to retrieve
+
+begin
+  # Get Falcon scripts with metadata and content of script
+  result = api_instance.r_tr_get_falcon_scripts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_falcon_scripts: #{e}"
+end
+```
+
+#### Using the r_tr_get_falcon_scripts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EmpowerapiMsaFalconScriptResponse>, Integer, Hash)> r_tr_get_falcon_scripts_with_http_info(ids)
+
+```ruby
+begin
+  # Get Falcon scripts with metadata and content of script
+  data, status_code, headers = api_instance.r_tr_get_falcon_scripts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EmpowerapiMsaFalconScriptResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_falcon_scripts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of the Falcon scripts you want to retrieve |  |
+
+### Return type
+
+[**EmpowerapiMsaFalconScriptResponse**](EmpowerapiMsaFalconScriptResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## r_tr_get_put_files
 
 > <EmpowerapiMsaPFResponseV1> r_tr_get_put_files(ids)
@@ -800,6 +871,83 @@ end
 ### Return type
 
 [**EmpowerapiMsaPFResponseV2**](EmpowerapiMsaPFResponseV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## r_tr_list_falcon_scripts
+
+> <EmpowerapiMsaIDListResponse> r_tr_list_falcon_scripts(opts)
+
+Get a list of Falcon script IDs available to the user to run
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::RealTimeResponseAdminApi.new
+opts = {
+  filter: 'filter_example', # String | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+  offset: 56, # Integer | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: 'created_timestamp' # String | Sort by spec. Ex: 'created_at|asc'.
+}
+
+begin
+  # Get a list of Falcon script IDs available to the user to run
+  result = api_instance.r_tr_list_falcon_scripts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_falcon_scripts: #{e}"
+end
+```
+
+#### Using the r_tr_list_falcon_scripts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EmpowerapiMsaIDListResponse>, Integer, Hash)> r_tr_list_falcon_scripts_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of Falcon script IDs available to the user to run
+  data, status_code, headers = api_instance.r_tr_list_falcon_scripts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EmpowerapiMsaIDListResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_falcon_scripts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). | [optional] |
+| **offset** | **Integer** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+| **sort** | **String** | Sort by spec. Ex: &#39;created_at|asc&#39;. | [optional] |
+
+### Return type
+
+[**EmpowerapiMsaIDListResponse**](EmpowerapiMsaIDListResponse.md)
 
 ### Authorization
 

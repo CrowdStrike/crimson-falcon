@@ -139,6 +139,17 @@ describe 'RealTimeResponseAdminApi' do
     end
   end
 
+  # unit tests for r_tr_get_falcon_scripts
+  # Get Falcon scripts with metadata and content of script
+  # @param ids IDs of the Falcon scripts you want to retrieve
+  # @param [Hash] opts the optional parameters
+  # @return [EmpowerapiMsaFalconScriptResponse]
+  describe 'r_tr_get_falcon_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for r_tr_get_put_files
   # Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
   # @param ids File IDs
@@ -178,6 +189,20 @@ describe 'RealTimeResponseAdminApi' do
   # @param [Hash] opts the optional parameters
   # @return [EmpowerapiMsaPFResponseV2]
   describe 'r_tr_get_scripts_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for r_tr_list_falcon_scripts
+  # Get a list of Falcon script IDs available to the user to run
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+  # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+  # @option opts [Integer] :limit Number of ids to return.
+  # @option opts [String] :sort Sort by spec. Ex: &#39;created_at|asc&#39;.
+  # @return [EmpowerapiMsaIDListResponse]
+  describe 'r_tr_list_falcon_scripts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -54,6 +54,12 @@ describe Falcon::DomainMatchedBreachSummaryV1 do
     end
   end
 
+  describe 'test attribute "credential_statuses"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "credentials_domains"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -109,6 +115,12 @@ describe Falcon::DomainMatchedBreachSummaryV1 do
   end
 
   describe 'test attribute "idp_send_status"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "is_retroactively_deduped"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

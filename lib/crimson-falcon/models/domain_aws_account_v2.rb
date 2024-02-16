@@ -90,6 +90,9 @@ module Falcon
 
     attr_accessor :intermediate_role_arn
 
+    # Is CSPM Lite enabled.
+    attr_accessor :is_cspm_lite
+
     attr_accessor :is_custom_rolename
 
     attr_accessor :is_master
@@ -149,6 +152,7 @@ module Falcon
         :'external_id' => :'external_id',
         :'iam_role_arn' => :'iam_role_arn',
         :'intermediate_role_arn' => :'intermediate_role_arn',
+        :'is_cspm_lite' => :'is_cspm_lite',
         :'is_custom_rolename' => :'is_custom_rolename',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
@@ -199,6 +203,7 @@ module Falcon
         :'external_id' => :'String',
         :'iam_role_arn' => :'String',
         :'intermediate_role_arn' => :'String',
+        :'is_cspm_lite' => :'Boolean',
         :'is_custom_rolename' => :'Boolean',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
@@ -345,6 +350,10 @@ module Falcon
         self.intermediate_role_arn = attributes[:'intermediate_role_arn']
       end
 
+      if attributes.key?(:'is_cspm_lite')
+        self.is_cspm_lite = attributes[:'is_cspm_lite']
+      end
+
       if attributes.key?(:'is_custom_rolename')
         self.is_custom_rolename = attributes[:'is_custom_rolename']
       end
@@ -480,6 +489,7 @@ module Falcon
           external_id == o.external_id &&
           iam_role_arn == o.iam_role_arn &&
           intermediate_role_arn == o.intermediate_role_arn &&
+          is_cspm_lite == o.is_cspm_lite &&
           is_custom_rolename == o.is_custom_rolename &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
@@ -505,7 +515,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, is_custom_rolename, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, use_existing_cloudtrail, valid].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, is_cspm_lite, is_custom_rolename, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, use_existing_cloudtrail, valid].hash
     end
 
     # Builds the object from hash

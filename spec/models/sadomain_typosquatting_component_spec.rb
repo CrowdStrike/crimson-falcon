@@ -72,6 +72,12 @@ describe Falcon::SadomainTyposquattingComponent do
     end
   end
 
+  describe 'test attribute "submit_for_takedown_info"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "unicode_format"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

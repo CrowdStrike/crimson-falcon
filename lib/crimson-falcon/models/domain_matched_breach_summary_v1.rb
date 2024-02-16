@@ -38,6 +38,9 @@ module Falcon
     # The level of confidence regarding data veridicality. Options for likely authentic, confirmed authentic (default: unverified).
     attr_accessor :confidence_level
 
+    # A list of statuses for the exposed data records contained in the notification. Possible values: 'newly_detected', 'previously_reported' and/or 'other'
+    attr_accessor :credential_statuses
+
     attr_accessor :credentials_domains
 
     attr_accessor :credentials_ips
@@ -64,6 +67,9 @@ module Falcon
 
     attr_accessor :idp_send_status
 
+    # (Boolean) If the notification was processed before the introduction of exposed data deduplication
+    attr_accessor :is_retroactively_deduped
+
     # The name of the breach
     attr_accessor :name
 
@@ -78,6 +84,7 @@ module Falcon
       {
         :'community_name' => :'community_name',
         :'confidence_level' => :'confidence_level',
+        :'credential_statuses' => :'credential_statuses',
         :'credentials_domains' => :'credentials_domains',
         :'credentials_ips' => :'credentials_ips',
         :'description' => :'description',
@@ -88,6 +95,7 @@ module Falcon
         :'files' => :'files',
         :'idp_send_date' => :'idp_send_date',
         :'idp_send_status' => :'idp_send_status',
+        :'is_retroactively_deduped' => :'is_retroactively_deduped',
         :'name' => :'name',
         :'obtained_by' => :'obtained_by',
         :'url' => :'url'
@@ -104,6 +112,7 @@ module Falcon
       {
         :'community_name' => :'String',
         :'confidence_level' => :'String',
+        :'credential_statuses' => :'Array<String>',
         :'credentials_domains' => :'Array<String>',
         :'credentials_ips' => :'Array<String>',
         :'description' => :'String',
@@ -114,6 +123,7 @@ module Falcon
         :'files' => :'Array<DomainFileDetailsV1>',
         :'idp_send_date' => :'Time',
         :'idp_send_status' => :'String',
+        :'is_retroactively_deduped' => :'Boolean',
         :'name' => :'String',
         :'obtained_by' => :'String',
         :'url' => :'String'
@@ -147,6 +157,12 @@ module Falcon
 
       if attributes.key?(:'confidence_level')
         self.confidence_level = attributes[:'confidence_level']
+      end
+
+      if attributes.key?(:'credential_statuses')
+        if (value = attributes[:'credential_statuses']).is_a?(Array)
+          self.credential_statuses = value
+        end
       end
 
       if attributes.key?(:'credentials_domains')
@@ -197,6 +213,10 @@ module Falcon
         self.idp_send_status = attributes[:'idp_send_status']
       end
 
+      if attributes.key?(:'is_retroactively_deduped')
+        self.is_retroactively_deduped = attributes[:'is_retroactively_deduped']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -222,6 +242,10 @@ module Falcon
         invalid_properties.push('invalid value for "fields", fields cannot be nil.')
       end
 
+      if @is_retroactively_deduped.nil?
+        invalid_properties.push('invalid value for "is_retroactively_deduped", is_retroactively_deduped cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -234,6 +258,7 @@ module Falcon
     def valid?
       return false if @description.nil?
       return false if @fields.nil?
+      return false if @is_retroactively_deduped.nil?
       return false if @name.nil?
       true
     end
@@ -245,6 +270,7 @@ module Falcon
       self.class == o.class &&
           community_name == o.community_name &&
           confidence_level == o.confidence_level &&
+          credential_statuses == o.credential_statuses &&
           credentials_domains == o.credentials_domains &&
           credentials_ips == o.credentials_ips &&
           description == o.description &&
@@ -255,6 +281,7 @@ module Falcon
           files == o.files &&
           idp_send_date == o.idp_send_date &&
           idp_send_status == o.idp_send_status &&
+          is_retroactively_deduped == o.is_retroactively_deduped &&
           name == o.name &&
           obtained_by == o.obtained_by &&
           url == o.url
@@ -269,7 +296,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [community_name, confidence_level, credentials_domains, credentials_ips, description, event_date, event_id, exposure_date, fields, files, idp_send_date, idp_send_status, name, obtained_by, url].hash
+      [community_name, confidence_level, credential_statuses, credentials_domains, credentials_ips, description, event_date, event_id, exposure_date, fields, files, idp_send_date, idp_send_status, is_retroactively_deduped, name, obtained_by, url].hash
     end
 
     # Builds the object from hash

@@ -1123,7 +1123,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'rules.created_by', # String | Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled}
+  sort: 'rules.created_by', # String | Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -1161,7 +1161,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled} | [optional] |
+| **sort** | **String** | Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |

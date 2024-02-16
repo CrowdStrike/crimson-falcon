@@ -30,7 +30,9 @@
 | **cloud_registered** | **Boolean** | Whether or not the instance is located in a cloud account registered with cloud security posture. | [optional] |
 | **cloud_resource_id** | **String** | The cloud provider assigned identifier of the instance. | [optional] |
 | **computed_asset_roles** | **Array&lt;String&gt;** | The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server). | [optional] |
-| **computed_internet_exposure** | **String** | Whether the asset is exposed to the internet as determined automatically (Yes, No, or Unknown). | [optional] |
+| **computed_internet_exposure** | **String** | Whether the asset is exposed to the internet as determined automatically (Yes, No, or Pending). | [optional] |
+| **computed_internet_exposure_external_ip** | **String** | External IP exposed to the internet. | [optional] |
+| **computed_internet_exposure_last_seen** | **String** | When the asset was last seen as internet exposed. | [optional] |
 | **confidence** | **Integer** | The level of confidence that the asset is a corporate asset (25 &#x3D; low confidence, 50 &#x3D; medium confidence, 75 &#x3D; high confidence). | [optional] |
 | **country** | **String** | The name of the country where the asset is located. | [optional] |
 | **cpu_manufacturer** | **String** | The manufacturer of the asset&#39;s CPU. | [optional] |
@@ -42,12 +44,14 @@
 | **criticality_timestamp** | **String** | The date and time the criticality level was manually assigned | [optional] |
 | **criticality_username** | **String** | The username of the account that manually assigned the criticality level | [optional] |
 | **current_local_ip** | **String** | The last seen local IPv4 address of the asset. | [optional] |
+| **current_network_prefix** | **String** | The last seen network prefix of the asset. | [optional] |
 | **data_providers** | **Array&lt;String&gt;** | Where the data about the asset came from (such as CrowdStrike, ServiceNow, or Active Directory). | [optional] |
 | **data_providers_count** | **Integer** | How many services provided data about the asset. | [optional] |
 | **department** | **String** | The department where the asset is used. | [optional] |
 | **descriptions** | **Array&lt;String&gt;** | The descriptions of the asset in Active Directory (Cannot be used for filtering, sorting, or querying). | [optional] |
 | **discoverer_aids** | **Array&lt;String&gt;** | The agent IDs of the Falcon sensors installed on the sources that discovered the asset. | [optional] |
 | **discoverer_count** | **Integer** | The number of sources that discovered the asset. | [optional] |
+| **discoverer_criticalities** | **Array&lt;String&gt;** | The criticalities of the sources that discovered the asset | [optional] |
 | **discoverer_hostnames** | **Array&lt;String&gt;** | The hostnames of the sources that discovered the asset. | [optional] |
 | **discoverer_platform_names** | **Array&lt;String&gt;** | The platform names of the sources that discovered the asset. | [optional] |
 | **discoverer_product_type_descs** | **Array&lt;String&gt;** | The product type descriptions of the sources that discovered the asset. | [optional] |
@@ -68,7 +72,7 @@
 | **groups** | **Array&lt;String&gt;** | The host management groups the asset is part of. | [optional] |
 | **hostname** | **String** | The asset&#39;s hostname. | [optional] |
 | **id** | **String** | The unique ID of the asset. |  |
-| **internet_exposure** | **String** | Whether the asset is exposed to the internet (Yes or Unknown). | [optional] |
+| **internet_exposure** | **String** | Whether the asset is exposed to the internet (Yes, No or Pending). | [optional] |
 | **internet_exposure_description** | **String** | The description the user entered when manually assigning a internet exposure level | [optional] |
 | **internet_exposure_timestamp** | **String** | The date and time the internet exposure level was manually assigned | [optional] |
 | **internet_exposure_username** | **String** | The username of the account that manually assigned the internet exposure level | [optional] |
@@ -123,6 +127,8 @@
 | **used_disk_space** | **Integer** | The used disk space in the last 15 minutes on the host | [optional] |
 | **used_disk_space_pct** | **Integer** | The used disk space percent in the last 15 minutes on the host | [optional] |
 | **used_for** | **String** | What the asset is used for, such as production, staging, or QA. | [optional] |
+| **user_asset_roles** | **Array&lt;String&gt;** | The asset role or roles manually assigned to the asset. | [optional] |
+| **user_internet_exposure** | **String** | The internet exposure manually assigned to the asset | [optional] |
 
 ## Example
 
@@ -157,6 +163,8 @@ instance = Falcon::DomainDiscoverAPIHost.new(
   cloud_resource_id: null,
   computed_asset_roles: null,
   computed_internet_exposure: null,
+  computed_internet_exposure_external_ip: null,
+  computed_internet_exposure_last_seen: null,
   confidence: null,
   country: null,
   cpu_manufacturer: null,
@@ -168,12 +176,14 @@ instance = Falcon::DomainDiscoverAPIHost.new(
   criticality_timestamp: null,
   criticality_username: null,
   current_local_ip: null,
+  current_network_prefix: null,
   data_providers: null,
   data_providers_count: null,
   department: null,
   descriptions: null,
   discoverer_aids: null,
   discoverer_count: null,
+  discoverer_criticalities: null,
   discoverer_hostnames: null,
   discoverer_platform_names: null,
   discoverer_product_type_descs: null,
@@ -248,7 +258,9 @@ instance = Falcon::DomainDiscoverAPIHost.new(
   unencrypted_drives_count: null,
   used_disk_space: null,
   used_disk_space_pct: null,
-  used_for: null
+  used_for: null,
+  user_asset_roles: null,
+  user_internet_exposure: null
 )
 ```
 
