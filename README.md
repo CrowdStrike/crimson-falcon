@@ -133,9 +133,25 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::AlertsApi`
 
+- **Operation**: [**get_queries_alerts_v2**](docs/AlertsApi.md#get_queries_alerts_v2)
+- **GET**: /alerts/queries/alerts/v2
+- **Description**: retrieves all Alerts ids that match a given query
+
+---
+
+**Class**: `Falcon::AlertsApi`
+
 - **Operation**: [**patch_entities_alerts_v2**](docs/AlertsApi.md#patch_entities_alerts_v2)
 - **PATCH**: /alerts/entities/alerts/v2
-- **Description**: Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+
+---
+
+**Class**: `Falcon::AlertsApi`
+
+- **Operation**: [**patch_entities_alerts_v3**](docs/AlertsApi.md#patch_entities_alerts_v3)
+- **PATCH**: /alerts/entities/alerts/v3
+- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
 
 ---
 
@@ -143,7 +159,15 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**post_aggregates_alerts_v1**](docs/AlertsApi.md#post_aggregates_alerts_v1)
 - **POST**: /alerts/aggregates/alerts/v1
-- **Description**: retrieves aggregates for Alerts across all CIDs
+- **Description**: retrieves aggregate values for Alerts across all CIDs
+
+---
+
+**Class**: `Falcon::AlertsApi`
+
+- **Operation**: [**post_aggregates_alerts_v2**](docs/AlertsApi.md#post_aggregates_alerts_v2)
+- **POST**: /alerts/aggregates/alerts/v2
+- **Description**: retrieves aggregate values for Alerts across all CIDs
 
 ---
 
@@ -152,6 +176,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**post_entities_alerts_v1**](docs/AlertsApi.md#post_entities_alerts_v1)
 - **POST**: /alerts/entities/alerts/v1
 - **Description**: retrieves all Alerts given their ids
+
+---
+
+**Class**: `Falcon::AlertsApi`
+
+- **Operation**: [**post_entities_alerts_v2**](docs/AlertsApi.md#post_entities_alerts_v2)
+- **POST**: /alerts/entities/alerts/v2
+- **Description**: retrieves all Alerts given their composite ids
 
 ---
 
@@ -227,11 +259,27 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::CloudSnapshotsApi`
+
+- **Operation**: [**register_cspm_snapshot_account**](docs/CloudSnapshotsApi.md#register_cspm_snapshot_account)
+- **POST**: /snapshots/entities/accounts/v1
+- **Description**: Register customer cloud account for snapshot scanning
+
+---
+
 **Class**: `Falcon::ConfigurationAssessmentApi`
 
 - **Operation**: [**get_combined_assessments_query**](docs/ConfigurationAssessmentApi.md#get_combined_assessments_query)
 - **GET**: /configuration-assessment/combined/assessments/v1
 - **Description**: Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria
+
+---
+
+**Class**: `Falcon::ConfigurationAssessmentApi`
+
+- **Operation**: [**get_rule_details**](docs/ConfigurationAssessmentApi.md#get_rule_details)
+- **GET**: /configuration-assessment/entities/rule-details/v1
+- **Description**: Get rules details for provided one or more rule IDs
 
 ---
 
@@ -243,11 +291,291 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::ContainerAlertsApi`
+
+- **Operation**: [**read_container_alerts_count**](docs/ContainerAlertsApi.md#read_container_alerts_count)
+- **GET**: /container-security/aggregates/container-alerts/count/v1
+- **Description**: Search Container Alerts by the provided search criteria
+
+---
+
+**Class**: `Falcon::ContainerAlertsApi`
+
+- **Operation**: [**read_container_alerts_count_by_severity**](docs/ContainerAlertsApi.md#read_container_alerts_count_by_severity)
+- **GET**: /container-security/aggregates/container-alerts/count-by-severity/v1
+- **Description**: Get Container Alerts counts by severity
+
+---
+
+**Class**: `Falcon::ContainerAlertsApi`
+
+- **Operation**: [**search_and_read_container_alerts**](docs/ContainerAlertsApi.md#search_and_read_container_alerts)
+- **GET**: /container-security/combined/container-alerts/v1
+- **Description**: Search Container Alerts by the provided search criteria
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**read_combined_detections**](docs/ContainerDetectionsApi.md#read_combined_detections)
+- **GET**: /container-security/combined/detections/v1
+- **Description**: Retrieve image assessment detections identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**read_detections**](docs/ContainerDetectionsApi.md#read_detections)
+- **GET**: /container-security/entities/detections/v1
+- **Description**: Retrieve image assessment detection entities identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**read_detections_count**](docs/ContainerDetectionsApi.md#read_detections_count)
+- **GET**: /container-security/aggregates/detections/count/v1
+- **Description**: Aggregate count of detections
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**read_detections_count_by_severity**](docs/ContainerDetectionsApi.md#read_detections_count_by_severity)
+- **GET**: /container-security/aggregates/detections/count-by-severity/v1
+- **Description**: Aggregate counts of detections by severity
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**read_detections_count_by_type**](docs/ContainerDetectionsApi.md#read_detections_count_by_type)
+- **GET**: /container-security/aggregates/detections/count-by-type/v1
+- **Description**: Aggregate counts of detections by detection type
+
+---
+
+**Class**: `Falcon::ContainerDetectionsApi`
+
+- **Operation**: [**search_detections**](docs/ContainerDetectionsApi.md#search_detections)
+- **GET**: /container-security/queries/detections/v1
+- **Description**: Retrieve image assessment detection entities identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**aggregate_image_assessment_history**](docs/ContainerImagesApi.md#aggregate_image_assessment_history)
+- **GET**: /container-security/aggregates/images/assessment-history/v1
+- **Description**: Image assessment history
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**aggregate_image_count**](docs/ContainerImagesApi.md#aggregate_image_count)
+- **GET**: /container-security/aggregates/images/count/v1
+- **Description**: Aggregate count of images
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**aggregate_image_count_by_base_os**](docs/ContainerImagesApi.md#aggregate_image_count_by_base_os)
+- **GET**: /container-security/aggregates/images/count-by-os-distribution/v1
+- **Description**: Aggregate count of images grouped by Base OS distribution
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**aggregate_image_count_by_state**](docs/ContainerImagesApi.md#aggregate_image_count_by_state)
+- **GET**: /container-security/aggregates/images/count-by-state/v1
+- **Description**: Aggregate count of images grouped by state
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**combined_image_by_vulnerability_count**](docs/ContainerImagesApi.md#combined_image_by_vulnerability_count)
+- **GET**: /container-security/combined/images/by-vulnerability-count/v1
+- **Description**: Retrieve top x images with the most vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**combined_image_detail**](docs/ContainerImagesApi.md#combined_image_detail)
+- **GET**: /container-security/combined/images/detail/v1
+- **Description**: Retrieve image entities identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**combined_image_issues_summary**](docs/ContainerImagesApi.md#combined_image_issues_summary)
+- **GET**: /container-security/combined/images/issues-summary/v1
+- **Description**: Retrieve image issues summary such as Image detections, Runtime detections, Policies, vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**combined_image_vulnerability_summary**](docs/ContainerImagesApi.md#combined_image_vulnerability_summary)
+- **GET**: /container-security/combined/images/vulnerabilities-summary/v1
+- **Description**: aggregates information about vulnerabilities for an image
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**get_combined_images**](docs/ContainerImagesApi.md#get_combined_images)
+- **GET**: /container-security/combined/image-assessment/images/v1
+- **Description**: Get image assessment results by providing an FQL filter and paging details
+
+---
+
+**Class**: `Falcon::ContainerImagesApi`
+
+- **Operation**: [**read_combined_images_export**](docs/ContainerImagesApi.md#read_combined_images_export)
+- **GET**: /container-security/combined/images/export/v1
+- **Description**: Retrieve images with an option to expand aggregated vulnerabilities/detections
+
+---
+
+**Class**: `Falcon::ContainerPackagesApi`
+
+- **Operation**: [**read_packages_by_fixable_vuln_count**](docs/ContainerPackagesApi.md#read_packages_by_fixable_vuln_count)
+- **GET**: /container-security/combined/packages/app-by-fixable-vulnerability-count/v1
+- **Description**: Retrieve top x app packages with the most fixable vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerPackagesApi`
+
+- **Operation**: [**read_packages_by_vuln_count**](docs/ContainerPackagesApi.md#read_packages_by_vuln_count)
+- **GET**: /container-security/combined/packages/by-vulnerability-count/v1
+- **Description**: Retrieve top x packages with the most vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerPackagesApi`
+
+- **Operation**: [**read_packages_combined**](docs/ContainerPackagesApi.md#read_packages_combined)
+- **GET**: /container-security/combined/packages/v1
+- **Description**: Retrieve packages identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::ContainerPackagesApi`
+
+- **Operation**: [**read_packages_combined_export**](docs/ContainerPackagesApi.md#read_packages_combined_export)
+- **GET**: /container-security/combined/packages/export/v1
+- **Description**: Retrieve packages identified by the provided filter criteria for the purpose of export
+
+---
+
+**Class**: `Falcon::ContainerPackagesApi`
+
+- **Operation**: [**read_packages_count_by_zero_day**](docs/ContainerPackagesApi.md#read_packages_count_by_zero_day)
+- **GET**: /container-security/aggregates/packages/count-by-zero-day/v1
+- **Description**: Retrieve packages count affected by zero day vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_combined_vulnerabilities**](docs/ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities)
+- **GET**: /container-security/combined/vulnerabilities/v1
+- **Description**: Retrieve vulnerability and aggregate data filtered by the provided FQL
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_combined_vulnerabilities_details**](docs/ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities_details)
+- **GET**: /container-security/combined/vulnerabilities/details/v1
+- **Description**: Retrieve vulnerability details related to an image
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_combined_vulnerabilities_info**](docs/ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities_info)
+- **GET**: /container-security/combined/vulnerabilities/info/v1
+- **Description**: Retrieve vulnerability and package related info for this customer
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerabilities_by_image_count**](docs/ContainerVulnerabilitiesApi.md#read_vulnerabilities_by_image_count)
+- **GET**: /container-security/combined/vulnerabilities/by-image-count/v1
+- **Description**: Retrieve top x vulnerabilities with the most impacted images
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerabilities_publication_date**](docs/ContainerVulnerabilitiesApi.md#read_vulnerabilities_publication_date)
+- **GET**: /container-security/combined/vulnerabilities/by-published-date/v1
+- **Description**: Retrieve top x vulnerabilities with the most recent publication date
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerability_count**](docs/ContainerVulnerabilitiesApi.md#read_vulnerability_count)
+- **GET**: /container-security/aggregates/vulnerabilities/count/v1
+- **Description**: Aggregate count of vulnerabilities
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerability_count_by_actively_exploited**](docs/ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_actively_exploited)
+- **GET**: /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1
+- **Description**: Aggregate count of vulnerabilities grouped by actively exploited
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerability_count_by_cps_rating**](docs/ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_cps_rating)
+- **GET**: /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1
+- **Description**: Aggregate count of vulnerabilities grouped by csp_rating
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerability_count_by_cvss_score**](docs/ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_cvss_score)
+- **GET**: /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1
+- **Description**: Aggregate count of vulnerabilities grouped by cvss score
+
+---
+
+**Class**: `Falcon::ContainerVulnerabilitiesApi`
+
+- **Operation**: [**read_vulnerability_count_by_severity**](docs/ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_severity)
+- **GET**: /container-security/aggregates/vulnerabilities/count-by-severity/v1
+- **Description**: Aggregate count of vulnerabilities grouped by severity
+
+---
+
 **Class**: `Falcon::CspmRegistrationApi`
 
 - **Operation**: [**azure_download_certificate**](docs/CspmRegistrationApi.md#azure_download_certificate)
 - **GET**: /cloud-connect-cspm-azure/entities/download-certificate/v1
 - **Description**: Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**connect_cspmgcp_account**](docs/CspmRegistrationApi.md#connect_cspmgcp_account)
+- **POST**: /cloud-connect-cspm-gcp/entities/account/v2
+- **Description**: Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
 
 ---
 
@@ -269,6 +597,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistrationApi`
 
+- **Operation**: [**create_cspm_azure_management_group**](docs/CspmRegistrationApi.md#create_cspm_azure_management_group)
+- **POST**: /cloud-connect-cspm-azure/entities/management-group/v1
+- **Description**: Creates a new management group in our system for a customer.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**create_cspmgcp_account**](docs/CspmRegistrationApi.md#create_cspmgcp_account)
+- **POST**: /cloud-connect-cspm-gcp/entities/account/v1
+- **Description**: Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
 - **Operation**: [**delete_cspm_aws_account**](docs/CspmRegistrationApi.md#delete_cspm_aws_account)
 - **DELETE**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Deletes an existing AWS account or organization in our system.
@@ -280,6 +624,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**delete_cspm_azure_account**](docs/CspmRegistrationApi.md#delete_cspm_azure_account)
 - **DELETE**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Deletes an Azure subscription from the system.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**delete_cspmgcp_account**](docs/CspmRegistrationApi.md#delete_cspmgcp_account)
+- **DELETE**: /cloud-connect-cspm-gcp/entities/account/v1
+- **Description**: Deletes a GCP account from the system.
 
 ---
 
@@ -311,7 +663,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_configuration_detections**](docs/CspmRegistrationApi.md#get_configuration_detections)
 - **GET**: /detects/entities/iom/v1
-- **Description**: Get list of active misconfigurations
+- **Description**: Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead
 
 ---
 
@@ -344,6 +696,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_cspm_azure_account**](docs/CspmRegistrationApi.md#get_cspm_azure_account)
 - **GET**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Return information about Azure account registration
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**get_cspm_azure_management_group**](docs/CspmRegistrationApi.md#get_cspm_azure_management_group)
+- **GET**: /cloud-connect-cspm-azure/entities/management-group/v1
+- **Description**: Return information about Azure management group registration
 
 ---
 
@@ -389,8 +749,40 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistrationApi`
 
+- **Operation**: [**get_cspmcgp_account**](docs/CspmRegistrationApi.md#get_cspmcgp_account)
+- **GET**: /cloud-connect-cspm-gcp/entities/account/v1
+- **Description**: Returns information about the current status of an GCP account.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**get_cspmgcp_service_accounts_ext**](docs/CspmRegistrationApi.md#get_cspmgcp_service_accounts_ext)
+- **GET**: /cloud-connect-cspm-gcp/entities/service-accounts/v1
+- **Description**: Returns the service account id and client email for external clients.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**get_cspmgcp_user_scripts_attachment**](docs/CspmRegistrationApi.md#get_cspmgcp_user_scripts_attachment)
+- **GET**: /cloud-connect-cspm-gcp/entities/user-scripts-download/v1
+- **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
 - **Operation**: [**patch_cspm_aws_account**](docs/CspmRegistrationApi.md#patch_cspm_aws_account)
 - **PATCH**: /cloud-connect-cspm-aws/entities/account/v1
+- **Description**: Patches a existing account in our system for a customer.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**update_cspm_azure_account**](docs/CspmRegistrationApi.md#update_cspm_azure_account)
+- **PATCH**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Patches a existing account in our system for a customer.
 
 ---
@@ -424,6 +816,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**update_cspm_scan_schedule**](docs/CspmRegistrationApi.md#update_cspm_scan_schedule)
 - **POST**: /settings/scan-schedule/v1
 - **Description**: Updates scan schedule configuration for one or more cloud platforms.
+
+---
+
+**Class**: `Falcon::CspmRegistrationApi`
+
+- **Operation**: [**update_cspmgcp_account**](docs/CspmRegistrationApi.md#update_cspmgcp_account)
+- **PATCH**: /cloud-connect-cspm-gcp/entities/account/v1
+- **Description**: Patches a existing account in our system for a customer.
 
 ---
 
@@ -579,6 +979,62 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**delete_object**](docs/CustomStorageApi.md#delete_object)
+- **DELETE**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
+- **Description**: Delete the specified object
+
+---
+
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**get_object**](docs/CustomStorageApi.md#get_object)
+- **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
+- **Description**: Get the bytes for the specified object
+
+---
+
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**get_object_metadata**](docs/CustomStorageApi.md#get_object_metadata)
+- **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata
+- **Description**: Get the metadata for the specified object
+
+---
+
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**list_objects**](docs/CustomStorageApi.md#list_objects)
+- **GET**: /customobjects/v1/collections/{collection_name}/objects
+- **Description**: List the object keys in the specified collection in alphabetical order
+
+---
+
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**put_object**](docs/CustomStorageApi.md#put_object)
+- **PUT**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
+- **Description**: Put the specified new object at the given key or overwrite an existing object at the given key
+
+---
+
+**Class**: `Falcon::CustomStorageApi`
+
+- **Operation**: [**search_objects**](docs/CustomStorageApi.md#search_objects)
+- **POST**: /customobjects/v1/collections/{collection_name}/objects
+- **Description**: Search for objects that match the specified filter criteria (returns metadata, not actual objects)
+
+---
+
+**Class**: `Falcon::D4cRegistrationApi`
+
+- **Operation**: [**connect_d4_cgcp_account**](docs/D4cRegistrationApi.md#connect_d4_cgcp_account)
+- **POST**: /cloud-connect-gcp/entities/account/v2
+- **Description**: Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
+
+---
+
 **Class**: `Falcon::D4cRegistrationApi`
 
 - **Operation**: [**create_d4_c_aws_account**](docs/D4cRegistrationApi.md#create_d4_c_aws_account)
@@ -608,6 +1064,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**delete_d4_c_aws_account**](docs/D4cRegistrationApi.md#delete_d4_c_aws_account)
 - **DELETE**: /cloud-connect-aws/entities/account/v2
 - **Description**: Deletes an existing AWS account or organization in our system.
+
+---
+
+**Class**: `Falcon::D4cRegistrationApi`
+
+- **Operation**: [**delete_d4_cgcp_account**](docs/D4cRegistrationApi.md#delete_d4_cgcp_account)
+- **DELETE**: /cloud-connect-gcp/entities/account/v1
+- **Description**: Deletes a GCP account from the system.
 
 ---
 
@@ -653,9 +1117,25 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistrationApi`
 
+- **Operation**: [**get_d4_cgcp_service_accounts_ext**](docs/D4cRegistrationApi.md#get_d4_cgcp_service_accounts_ext)
+- **GET**: /cloud-connect-gcp/entities/service-accounts/v1
+- **Description**: Returns the service account id and client email for external clients.
+
+---
+
+**Class**: `Falcon::D4cRegistrationApi`
+
 - **Operation**: [**get_d4_cgcp_user_scripts**](docs/D4cRegistrationApi.md#get_d4_cgcp_user_scripts)
 - **GET**: /cloud-connect-gcp/entities/user-scripts/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+
+---
+
+**Class**: `Falcon::D4cRegistrationApi`
+
+- **Operation**: [**get_d4_cgcp_user_scripts_attachment**](docs/D4cRegistrationApi.md#get_d4_cgcp_user_scripts_attachment)
+- **GET**: /cloud-connect-gcp/entities/user-scripts-download/v1
+- **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
 
 ---
 
@@ -915,6 +1395,46 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::DriftIndicatorsApi`
+
+- **Operation**: [**get_drift_indicators_values_by_date**](docs/DriftIndicatorsApi.md#get_drift_indicators_values_by_date)
+- **GET**: /container-security/aggregates/drift-indicators/count-by-date/v1
+- **Description**: Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days.
+
+---
+
+**Class**: `Falcon::DriftIndicatorsApi`
+
+- **Operation**: [**read_drift_indicator_entities**](docs/DriftIndicatorsApi.md#read_drift_indicator_entities)
+- **GET**: /container-security/entities/drift-indicators/v1
+- **Description**: Retrieve Drift Indicator entities identified by the provided IDs
+
+---
+
+**Class**: `Falcon::DriftIndicatorsApi`
+
+- **Operation**: [**read_drift_indicators_count**](docs/DriftIndicatorsApi.md#read_drift_indicators_count)
+- **GET**: /container-security/aggregates/drift-indicators/count/v1
+- **Description**: Returns the total count of Drift indicators over a time period
+
+---
+
+**Class**: `Falcon::DriftIndicatorsApi`
+
+- **Operation**: [**search_and_read_drift_indicator_entities**](docs/DriftIndicatorsApi.md#search_and_read_drift_indicator_entities)
+- **GET**: /container-security/combined/drift-indicators/v1
+- **Description**: Retrieve Drift Indicators by the provided search criteria
+
+---
+
+**Class**: `Falcon::DriftIndicatorsApi`
+
+- **Operation**: [**search_drift_indicators**](docs/DriftIndicatorsApi.md#search_drift_indicators)
+- **GET**: /container-security/queries/drift-indicators/v1
+- **Description**: Retrieve all drift indicators that match the given query
+
+---
+
 **Class**: `Falcon::EventSchemaApi`
 
 - **Operation**: [**fdrschema_combined_event_get**](docs/EventSchemaApi.md#fdrschema_combined_event_get)
@@ -952,6 +1472,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**refresh_active_stream_session**](docs/EventStreamsApi.md#refresh_active_stream_session)
 - **POST**: /sensors/entities/datafeed-actions/v1/{partition}
 - **Description**: Refresh an active event stream. Use the URL shown in a GET /sensors/entities/datafeed/v2 response.
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboardApi`
+
+- **Operation**: [**aggregate_alerts**](docs/FalconCompleteDashboardApi.md#aggregate_alerts)
+- **POST**: /falcon-complete-dashboards/aggregates/alerts/GET/v1
+- **Description**: Retrieve aggregate alerts values based on the matched filter
 
 ---
 
@@ -1005,6 +1533,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboardApi`
 
+- **Operation**: [**aggregate_prevention_policy**](docs/FalconCompleteDashboardApi.md#aggregate_prevention_policy)
+- **POST**: /falcon-complete-dashboards/aggregates/prevention-policies/v1
+- **Description**: Retrieve prevention policies aggregate values based on the matched filter
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboardApi`
+
 - **Operation**: [**aggregate_remediations**](docs/FalconCompleteDashboardApi.md#aggregate_remediations)
 - **POST**: /falcon-complete-dashboards/aggregates/remediations/GET/v1
 - **Description**: Retrieve aggregate remediation ticket values based on the matched filter
@@ -1013,9 +1549,33 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboardApi`
 
+- **Operation**: [**aggregate_sensor_update_policy**](docs/FalconCompleteDashboardApi.md#aggregate_sensor_update_policy)
+- **POST**: /falcon-complete-dashboards/aggregates/sensor-update-policies/v1
+- **Description**: Retrieve sensor update policies aggregate values
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboardApi`
+
+- **Operation**: [**aggregate_total_device_counts**](docs/FalconCompleteDashboardApi.md#aggregate_total_device_counts)
+- **POST**: /falcon-complete-dashboards/aggregates/total-device-counts/v1
+- **Description**: Retrieve aggregate total host/devices based on the matched filter
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboardApi`
+
 - **Operation**: [**get_device_count_collection_queries_by_filter**](docs/FalconCompleteDashboardApi.md#get_device_count_collection_queries_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/devicecount-collections/v1
 - **Description**: Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboardApi`
+
+- **Operation**: [**query_alert_ids_by_filter**](docs/FalconCompleteDashboardApi.md#query_alert_ids_by_filter)
+- **GET**: /falcon-complete-dashboards/queries/alerts/v1
+- **Description**: Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
 
 ---
 
@@ -1096,14 +1656,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**delete_registry_entities**](docs/FalconContainerImageApi.md#delete_registry_entities)
 - **DELETE**: /container-security/entities/registries/v1
 - **Description**: Delete the registry entity identified by the entity UUID
-
----
-
-**Class**: `Falcon::FalconContainerImageApi`
-
-- **Operation**: [**get_combined_images**](docs/FalconContainerImageApi.md#get_combined_images)
-- **GET**: /container-security/combined/image-assessment/images/v1
-- **Description**: Get image assessment results by providing an FQL filter and paging details
 
 ---
 
@@ -1269,6 +1821,70 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FilevantageApi`
 
+- **Operation**: [**create_policies**](docs/FilevantageApi.md#create_policies)
+- **POST**: /filevantage/entities/policies/v1
+- **Description**: Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**create_rule_groups**](docs/FilevantageApi.md#create_rule_groups)
+- **POST**: /filevantage/entities/rule-groups/v1
+- **Description**: Creates a new rule group of the specified type.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**create_rules**](docs/FilevantageApi.md#create_rules)
+- **POST**: /filevantage/entities/rule-groups-rules/v1
+- **Description**: Creates a new rule configuration within the specified rule group.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**create_scheduled_exclusions**](docs/FilevantageApi.md#create_scheduled_exclusions)
+- **POST**: /filevantage/entities/policy-scheduled-exclusions/v1
+- **Description**: Creates a new scheduled exclusion configuration for the provided policy id.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**delete_policies**](docs/FilevantageApi.md#delete_policies)
+- **DELETE**: /filevantage/entities/policies/v1
+- **Description**: Deletes 1 or more policies.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**delete_rule_groups**](docs/FilevantageApi.md#delete_rule_groups)
+- **DELETE**: /filevantage/entities/rule-groups/v1
+- **Description**: Deletes 1 or more rule groups 
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**delete_rules**](docs/FilevantageApi.md#delete_rules)
+- **DELETE**: /filevantage/entities/rule-groups-rules/v1
+- **Description**: Deletes 1 or more rules from the specified rule group.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**delete_scheduled_exclusions**](docs/FilevantageApi.md#delete_scheduled_exclusions)
+- **DELETE**: /filevantage/entities/policy-scheduled-exclusions/v1
+- **Description**: Deletes 1 or more scheduled exclusions from the provided policy id.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
 - **Operation**: [**get_changes**](docs/FilevantageApi.md#get_changes)
 - **GET**: /filevantage/entities/changes/v2
 - **Description**: Retrieve information on changes
@@ -1277,9 +1893,137 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FilevantageApi`
 
+- **Operation**: [**get_policies**](docs/FilevantageApi.md#get_policies)
+- **GET**: /filevantage/entities/policies/v1
+- **Description**: Retrieves the configuration for 1 or more policies.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**get_rule_groups**](docs/FilevantageApi.md#get_rule_groups)
+- **GET**: /filevantage/entities/rule-groups/v1
+- **Description**: Retrieves the rule group details for 1 or more rule groups.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**get_rules**](docs/FilevantageApi.md#get_rules)
+- **GET**: /filevantage/entities/rule-groups-rules/v1
+- **Description**: Retrieves the configuration for 1 or more rules.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**get_scheduled_exclusions**](docs/FilevantageApi.md#get_scheduled_exclusions)
+- **GET**: /filevantage/entities/policy-scheduled-exclusions/v1
+- **Description**: Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**high_volume_query_changes**](docs/FilevantageApi.md#high_volume_query_changes)
+- **GET**: /filevantage/queries/changes/v3
+- **Description**: Returns 1 or more change ids
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
 - **Operation**: [**query_changes**](docs/FilevantageApi.md#query_changes)
 - **GET**: /filevantage/queries/changes/v2
-- **Description**: Returns one or more change IDs
+- **Description**: Returns 1 or more change ids
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**query_policies**](docs/FilevantageApi.md#query_policies)
+- **GET**: /filevantage/queries/policies/v1
+- **Description**: Retrieve the ids of all policies that are assigned the provided policy type.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**query_rule_groups**](docs/FilevantageApi.md#query_rule_groups)
+- **GET**: /filevantage/queries/rule-groups/v1
+- **Description**: Retrieve the ids of all rule groups that are of the provided rule group type.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**query_scheduled_exclusions**](docs/FilevantageApi.md#query_scheduled_exclusions)
+- **GET**: /filevantage/queries/policy-scheduled-exclusions/v1
+- **Description**: Retrieve the ids of all scheduled exclusions contained within the provided policy id.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_policies**](docs/FilevantageApi.md#update_policies)
+- **PATCH**: /filevantage/entities/policies/v1
+- **Description**: Updates the general information of the provided policy.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_policy_host_groups**](docs/FilevantageApi.md#update_policy_host_groups)
+- **PATCH**: /filevantage/entities/policies-host-groups/v1
+- **Description**: Manage host groups assigned to a policy.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_policy_precedence**](docs/FilevantageApi.md#update_policy_precedence)
+- **PATCH**: /filevantage/entities/policies-precedence/v1
+- **Description**: Updates the policy precedence for all policies of a specific type.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_policy_rule_groups**](docs/FilevantageApi.md#update_policy_rule_groups)
+- **PATCH**: /filevantage/entities/policies-rule-groups/v1
+- **Description**: Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_rule_group_precedence**](docs/FilevantageApi.md#update_rule_group_precedence)
+- **PATCH**: /filevantage/entities/rule-groups-rule-precedence/v1
+- **Description**: Updates the rule precedence for all rules in the identified rule group.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_rule_groups**](docs/FilevantageApi.md#update_rule_groups)
+- **PATCH**: /filevantage/entities/rule-groups/v1
+- **Description**: Updates the provided rule group.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_rules**](docs/FilevantageApi.md#update_rules)
+- **PATCH**: /filevantage/entities/rule-groups-rules/v1
+- **Description**: Updates the provided rule configuration within the specified rule group.
+
+---
+
+**Class**: `Falcon::FilevantageApi`
+
+- **Operation**: [**update_scheduled_exclusions**](docs/FilevantageApi.md#update_scheduled_exclusions)
+- **PATCH**: /filevantage/entities/policy-scheduled-exclusions/v1
+- **Description**: Updates the provided scheduled exclusion configuration within the provided policy.
 
 ---
 
@@ -1627,6 +2371,110 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_dynamic_execute_alt_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_alt_v1)
+- **POST**: /loggingapi/entities/saved-searches-dynamic-execute/v1
+- **Description**: Execute a dynamic saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_dynamic_execute_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_v1)
+- **POST**: /loggingapi/entities/saved-searches/execute-dynamic/v1
+- **Description**: Execute a dynamic saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_execute_alt_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_execute_alt_v1)
+- **POST**: /loggingapi/entities/saved-searches-execute/v1
+- **Description**: Execute a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_execute_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_execute_v1)
+- **POST**: /loggingapi/entities/saved-searches/execute/v1
+- **Description**: Execute a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_ingest_alt_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_ingest_alt_v1)
+- **POST**: /loggingapi/entities/saved-searches-ingest/v1
+- **Description**: Populate a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**create_saved_searches_ingest_v1**](docs/FoundryLogscaleApi.md#create_saved_searches_ingest_v1)
+- **POST**: /loggingapi/entities/saved-searches/ingest/v1
+- **Description**: Populate a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**get_saved_searches_execute_alt_v1**](docs/FoundryLogscaleApi.md#get_saved_searches_execute_alt_v1)
+- **GET**: /loggingapi/entities/saved-searches-execute/v1
+- **Description**: Get the results of a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**get_saved_searches_execute_v1**](docs/FoundryLogscaleApi.md#get_saved_searches_execute_v1)
+- **GET**: /loggingapi/entities/saved-searches/execute/v1
+- **Description**: Get the results of a saved search
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**get_saved_searches_job_results_download_alt_v1**](docs/FoundryLogscaleApi.md#get_saved_searches_job_results_download_alt_v1)
+- **GET**: /loggingapi/entities/saved-searches-job-results-download/v1
+- **Description**: Get the results of a saved search as a file
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**get_saved_searches_job_results_download_v1**](docs/FoundryLogscaleApi.md#get_saved_searches_job_results_download_v1)
+- **GET**: /loggingapi/entities/saved-searches/job-results-download/v1
+- **Description**: Get the results of a saved search as a file
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**ingest_data_v1**](docs/FoundryLogscaleApi.md#ingest_data_v1)
+- **POST**: /loggingapi/entities/data-ingestion/ingest/v1
+- **Description**: Ingest data into the application repository
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**list_repos_v1**](docs/FoundryLogscaleApi.md#list_repos_v1)
+- **GET**: /loggingapi/combined/repos/v1
+- **Description**: Lists available repositories and views
+
+---
+
+**Class**: `Falcon::FoundryLogscaleApi`
+
+- **Operation**: [**list_view_v1**](docs/FoundryLogscaleApi.md#list_view_v1)
+- **GET**: /loggingapi/entities/views/v1
+- **Description**: List views
+
+---
+
 **Class**: `Falcon::HostGroupApi`
 
 - **Operation**: [**create_host_groups**](docs/HostGroupApi.md#create_host_groups)
@@ -1703,15 +2551,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**entities_perform_action**](docs/HostsApi.md#entities_perform_action)
 - **POST**: /devices/entities/group-actions/v1
-- **Description**: Performs the specified action on the provided prevention policy IDs.
-
----
-
-**Class**: `Falcon::HostsApi`
-
-- **Operation**: [**get_device_details**](docs/HostsApi.md#get_device_details)
-- **GET**: /devices/entities/devices/v1
-- **Description**: Deprecated: Please use new GET or POST /devices/entities/devices/v2 endpoints.  This endpoint will be removed on or sometime after February 9, 2023.  Get details on one or more hosts by providing agent IDs (AID). You can get a host&#39;s agent IDs (AIDs) from the /devices/queries/devices/v1 endpoint, the Falcon console or the Streaming API
+- **Description**: Performs the specified action on the provided group IDs.
 
 ---
 
@@ -1752,6 +2592,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**query_device_login_history**](docs/HostsApi.md#query_device_login_history)
 - **POST**: /devices/combined/devices/login-history/v1
 - **Description**: Retrieve details about recent login sessions for a set of devices.
+
+---
+
+**Class**: `Falcon::HostsApi`
+
+- **Operation**: [**query_device_login_history_v2**](docs/HostsApi.md#query_device_login_history_v2)
+- **POST**: /devices/combined/devices/login-history/v2
+- **Description**: Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
 
 ---
 
@@ -1824,6 +2672,94 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**api_preempt_proxy_post_graphql**](docs/IdentityProtectionApi.md#api_preempt_proxy_post_graphql)
 - **POST**: /identity-protection/combined/graphql/v1
 - **Description**: Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**create_policies**](docs/ImageAssessmentPoliciesApi.md#create_policies)
+- **POST**: /container-security/entities/image-assessment-policies/v1
+- **Description**: Create Image Assessment policies
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**create_policy_groups**](docs/ImageAssessmentPoliciesApi.md#create_policy_groups)
+- **POST**: /container-security/entities/image-assessment-policy-groups/v1
+- **Description**: Create Image Assessment Policy Group entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**delete_policy**](docs/ImageAssessmentPoliciesApi.md#delete_policy)
+- **DELETE**: /container-security/entities/image-assessment-policies/v1
+- **Description**: Delete Image Assessment Policy by policy UUID
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**delete_policy_group**](docs/ImageAssessmentPoliciesApi.md#delete_policy_group)
+- **DELETE**: /container-security/entities/image-assessment-policy-groups/v1
+- **Description**: Delete Image Assessment Policy Group entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**read_policies**](docs/ImageAssessmentPoliciesApi.md#read_policies)
+- **GET**: /container-security/entities/image-assessment-policies/v1
+- **Description**: Get all Image Assessment policies
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**read_policy_exclusions**](docs/ImageAssessmentPoliciesApi.md#read_policy_exclusions)
+- **GET**: /container-security/entities/image-assessment-policy-exclusions/v1
+- **Description**: Retrieve Image Assessment Policy Exclusion entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**read_policy_groups**](docs/ImageAssessmentPoliciesApi.md#read_policy_groups)
+- **GET**: /container-security/entities/image-assessment-policy-groups/v1
+- **Description**: Retrieve Image Assessment Policy Group entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**update_policies**](docs/ImageAssessmentPoliciesApi.md#update_policies)
+- **PATCH**: /container-security/entities/image-assessment-policies/v1
+- **Description**: Update Image Assessment Policy entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**update_policy_exclusions**](docs/ImageAssessmentPoliciesApi.md#update_policy_exclusions)
+- **POST**: /container-security/entities/image-assessment-policy-exclusions/v1
+- **Description**: Update Image Assessment Policy Exclusion entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**update_policy_groups**](docs/ImageAssessmentPoliciesApi.md#update_policy_groups)
+- **PATCH**: /container-security/entities/image-assessment-policy-groups/v1
+- **Description**: Update Image Assessment Policy Group entities
+
+---
+
+**Class**: `Falcon::ImageAssessmentPoliciesApi`
+
+- **Operation**: [**update_policy_precedence**](docs/ImageAssessmentPoliciesApi.md#update_policy_precedence)
+- **POST**: /container-security/entities/image-assessment-policy-precedence/v1
+- **Description**: Update Image Assessment Policy precedence
 
 ---
 
@@ -2099,14 +3035,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::InventoriesApi`
-
-- **Operation**: [**create_inventory**](docs/InventoriesApi.md#create_inventory)
-- **POST**: /snapshots/entities/inventories/v1
-- **Description**: Create inventory from data received from snapshot
-
----
-
 **Class**: `Falcon::IoaExclusionsApi`
 
 - **Operation**: [**create_ioa_exclusions_v1**](docs/IoaExclusionsApi.md#create_ioa_exclusions_v1)
@@ -2200,6 +3128,30 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**indicator_delete_v1**](docs/IocApi.md#indicator_delete_v1)
 - **DELETE**: /iocs/entities/indicators/v1
 - **Description**: Delete Indicators by ids.
+
+---
+
+**Class**: `Falcon::IocApi`
+
+- **Operation**: [**indicator_get_device_count_v1**](docs/IocApi.md#indicator_get_device_count_v1)
+- **GET**: /iocs/aggregates/indicators/device-count/v1
+- **Description**: Get the number of devices the indicator has run on
+
+---
+
+**Class**: `Falcon::IocApi`
+
+- **Operation**: [**indicator_get_devices_ran_on_v1**](docs/IocApi.md#indicator_get_devices_ran_on_v1)
+- **GET**: /iocs/queries/indicators/devices/v1
+- **Description**: Get the IDs of devices the indicator has run on
+
+---
+
+**Class**: `Falcon::IocApi`
+
+- **Operation**: [**indicator_get_processes_ran_on_v1**](docs/IocApi.md#indicator_get_processes_ran_on_v1)
+- **GET**: /iocs/queries/indicators/processes/v1
+- **Description**: Get the number of processes the indicator has run on
 
 ---
 
@@ -2317,6 +3269,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtectionApi`
 
+- **Operation**: [**find_containers_by_container_run_time_version**](docs/KubernetesProtectionApi.md#find_containers_by_container_run_time_version)
+- **GET**: /container-security/aggregates/containers/find-by-runtimeversion/v1
+- **Description**: Retrieve containers by container_runtime_version
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**find_containers_count_affected_by_zero_day_vulnerabilities**](docs/KubernetesProtectionApi.md#find_containers_count_affected_by_zero_day_vulnerabilities)
+- **GET**: /container-security/aggregates/containers/count-by-zero-day/v1
+- **Description**: Retrieve containers count affected by zero day vulnerabilities
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
 - **Operation**: [**get_aws_accounts_mixin0**](docs/KubernetesProtectionApi.md#get_aws_accounts_mixin0)
 - **GET**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Provides a list of AWS accounts.
@@ -2389,6 +3357,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtectionApi`
 
+- **Operation**: [**group_containers_by_managed**](docs/KubernetesProtectionApi.md#group_containers_by_managed)
+- **GET**: /container-security/aggregates/containers/group-by-managed/v1
+- **Description**: Group the containers by Managed
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
 - **Operation**: [**list_azure_accounts**](docs/KubernetesProtectionApi.md#list_azure_accounts)
 - **GET**: /kubernetes-protection/entities/accounts/azure/v1
 - **Description**: Provides the azure subscriptions registered to Kubernetes Protection
@@ -2405,9 +3381,313 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtectionApi`
 
+- **Operation**: [**read_cluster_combined**](docs/KubernetesProtectionApi.md#read_cluster_combined)
+- **GET**: /container-security/combined/clusters/v1
+- **Description**: Retrieve kubernetes clusters identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_cluster_count**](docs/KubernetesProtectionApi.md#read_cluster_count)
+- **GET**: /container-security/aggregates/clusters/count/v1
+- **Description**: Retrieve cluster counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_cluster_enrichment**](docs/KubernetesProtectionApi.md#read_cluster_enrichment)
+- **GET**: /container-security/aggregates/enrichment/clusters/entities/v1
+- **Description**: Retrieve cluster enrichment data
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_clusters_by_date_range_count**](docs/KubernetesProtectionApi.md#read_clusters_by_date_range_count)
+- **GET**: /container-security/aggregates/clusters/count-by-date/v1
+- **Description**: Retrieve clusters by date range counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_clusters_by_kubernetes_version_count**](docs/KubernetesProtectionApi.md#read_clusters_by_kubernetes_version_count)
+- **GET**: /container-security/aggregates/clusters/count-by-kubernetes-version/v1
+- **Description**: Bucket clusters by kubernetes version
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_clusters_by_status_count**](docs/KubernetesProtectionApi.md#read_clusters_by_status_count)
+- **GET**: /container-security/aggregates/clusters/count-by-status/v1
+- **Description**: Bucket clusters by status
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_combined**](docs/KubernetesProtectionApi.md#read_container_combined)
+- **GET**: /container-security/combined/containers/v1
+- **Description**: Retrieve containers identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_count**](docs/KubernetesProtectionApi.md#read_container_count)
+- **GET**: /container-security/aggregates/containers/count/v1
+- **Description**: Retrieve container counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_count_by_registry**](docs/KubernetesProtectionApi.md#read_container_count_by_registry)
+- **GET**: /container-security/aggregates/containers/count-by-registry/v1
+- **Description**: Retrieve top container image registries
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_enrichment**](docs/KubernetesProtectionApi.md#read_container_enrichment)
+- **GET**: /container-security/aggregates/enrichment/containers/entities/v1
+- **Description**: Retrieve container enrichment data
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_image_detections_count_by_date**](docs/KubernetesProtectionApi.md#read_container_image_detections_count_by_date)
+- **GET**: /container-security/aggregates/containers/image-detections-count-by-date/v1
+- **Description**: Retrieve count of image assessment detections on running containers over a period of time
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_images_by_most_used**](docs/KubernetesProtectionApi.md#read_container_images_by_most_used)
+- **GET**: /container-security/aggregates/images/most-used/v1
+- **Description**: Bucket container by image-digest
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_images_by_state**](docs/KubernetesProtectionApi.md#read_container_images_by_state)
+- **GET**: /container-security/aggregates/containers/images-by-state/v1
+- **Description**: Retrieve count of image states running on containers
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_container_vulnerabilities_by_severity_count**](docs/KubernetesProtectionApi.md#read_container_vulnerabilities_by_severity_count)
+- **GET**: /container-security/aggregates/containers/vulnerability-count-by-severity/v1
+- **Description**: Retrieve container vulnerabilities by severity counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_containers_by_date_range_count**](docs/KubernetesProtectionApi.md#read_containers_by_date_range_count)
+- **GET**: /container-security/aggregates/containers/count-by-date/v1
+- **Description**: Retrieve containers by date range counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_containers_sensor_coverage**](docs/KubernetesProtectionApi.md#read_containers_sensor_coverage)
+- **GET**: /container-security/aggregates/containers/sensor-coverage/v1
+- **Description**: Bucket containers by agent type and calculate sensor coverage
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_deployment_combined**](docs/KubernetesProtectionApi.md#read_deployment_combined)
+- **GET**: /container-security/combined/deployments/v1
+- **Description**: Retrieve kubernetes deployments identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_deployment_count**](docs/KubernetesProtectionApi.md#read_deployment_count)
+- **GET**: /container-security/aggregates/deployments/count/v1
+- **Description**: Retrieve deployment counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_deployment_enrichment**](docs/KubernetesProtectionApi.md#read_deployment_enrichment)
+- **GET**: /container-security/aggregates/enrichment/deployments/entities/v1
+- **Description**: Retrieve deployment enrichment data
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_deployments_by_date_range_count**](docs/KubernetesProtectionApi.md#read_deployments_by_date_range_count)
+- **GET**: /container-security/aggregates/deployments/count-by-date/v1
+- **Description**: Retrieve deployments by date range counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_distinct_container_image_count**](docs/KubernetesProtectionApi.md#read_distinct_container_image_count)
+- **GET**: /container-security/aggregates/images/count-by-distinct/v1
+- **Description**: Retrieve count of distinct images running on containers
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_kubernetes_iom_by_date_range**](docs/KubernetesProtectionApi.md#read_kubernetes_iom_by_date_range)
+- **GET**: /container-security/aggregates/kubernetes-ioms/count-by-date/v1
+- **Description**: Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days.
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_kubernetes_iom_count**](docs/KubernetesProtectionApi.md#read_kubernetes_iom_count)
+- **GET**: /container-security/aggregates/kubernetes-ioms/count/v1
+- **Description**: Returns the total count of Kubernetes IOMs over the past seven days
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_kubernetes_iom_entities**](docs/KubernetesProtectionApi.md#read_kubernetes_iom_entities)
+- **GET**: /container-security/entities/kubernetes-ioms/v1
+- **Description**: Retrieve Kubernetes IOM entities identified by the provided IDs
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_node_combined**](docs/KubernetesProtectionApi.md#read_node_combined)
+- **GET**: /container-security/combined/nodes/v1
+- **Description**: Retrieve kubernetes nodes identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_node_count**](docs/KubernetesProtectionApi.md#read_node_count)
+- **GET**: /container-security/aggregates/nodes/count/v1
+- **Description**: Retrieve node counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_node_enrichment**](docs/KubernetesProtectionApi.md#read_node_enrichment)
+- **GET**: /container-security/aggregates/enrichment/nodes/entities/v1
+- **Description**: Retrieve node enrichment data
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_nodes_by_cloud_count**](docs/KubernetesProtectionApi.md#read_nodes_by_cloud_count)
+- **GET**: /container-security/aggregates/nodes/count-by-cloud/v1
+- **Description**: Bucket nodes by cloud providers
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_nodes_by_container_engine_version_count**](docs/KubernetesProtectionApi.md#read_nodes_by_container_engine_version_count)
+- **GET**: /container-security/aggregates/nodes/count-by-container-engine-version/v1
+- **Description**: Bucket nodes by their container engine version
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_nodes_by_date_range_count**](docs/KubernetesProtectionApi.md#read_nodes_by_date_range_count)
+- **GET**: /container-security/aggregates/nodes/count-by-date/v1
+- **Description**: Retrieve nodes by date range counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_pod_combined**](docs/KubernetesProtectionApi.md#read_pod_combined)
+- **GET**: /container-security/combined/pods/v1
+- **Description**: Retrieve kubernetes pods identified by the provided filter criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_pod_count**](docs/KubernetesProtectionApi.md#read_pod_count)
+- **GET**: /container-security/aggregates/pods/count/v1
+- **Description**: Retrieve pod counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_pod_enrichment**](docs/KubernetesProtectionApi.md#read_pod_enrichment)
+- **GET**: /container-security/aggregates/enrichment/pods/entities/v1
+- **Description**: Retrieve pod enrichment data
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_pods_by_date_range_count**](docs/KubernetesProtectionApi.md#read_pods_by_date_range_count)
+- **GET**: /container-security/aggregates/pods/count-by-date/v1
+- **Description**: Retrieve pods by date range counts
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_running_container_images**](docs/KubernetesProtectionApi.md#read_running_container_images)
+- **GET**: /container-security/combined/container-images/v1
+- **Description**: Retrieve images on running containers
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**read_vulnerable_container_image_count**](docs/KubernetesProtectionApi.md#read_vulnerable_container_image_count)
+- **GET**: /container-security/aggregates/containers/count-vulnerable-images/v1
+- **Description**: Retrieve count of vulnerable images running on containers
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
 - **Operation**: [**regenerate_api_key**](docs/KubernetesProtectionApi.md#regenerate_api_key)
 - **POST**: /kubernetes-protection/entities/integration/api-key/v1
 - **Description**: Regenerate API key for docker registry integrations
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**search_and_read_kubernetes_iom_entities**](docs/KubernetesProtectionApi.md#search_and_read_kubernetes_iom_entities)
+- **GET**: /container-security/combined/kubernetes-ioms/v1
+- **Description**: Search Kubernetes IOM by the provided search criteria
+
+---
+
+**Class**: `Falcon::KubernetesProtectionApi`
+
+- **Operation**: [**search_kubernetes_ioms**](docs/KubernetesProtectionApi.md#search_kubernetes_ioms)
+- **GET**: /container-security/queries/kubernetes-ioms/v1
+- **Description**: Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
 
 ---
 
@@ -2957,6 +4237,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OdsApi`
 
+- **Operation**: [**get_scans_by_scan_ids_v2**](docs/OdsApi.md#get_scans_by_scan_ids_v2)
+- **GET**: /ods/entities/scans/v2
+- **Description**: Get Scans by IDs.
+
+---
+
+**Class**: `Falcon::OdsApi`
+
 - **Operation**: [**get_scheduled_scans_by_scan_ids**](docs/OdsApi.md#get_scheduled_scans_by_scan_ids)
 - **GET**: /ods/entities/scheduled-scans/v1
 - **Description**: Get ScheduledScans by IDs.
@@ -3453,6 +4741,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdminApi`
 
+- **Operation**: [**r_tr_get_falcon_scripts**](docs/RealTimeResponseAdminApi.md#r_tr_get_falcon_scripts)
+- **GET**: /real-time-response/entities/falcon-scripts/v1
+- **Description**: Get Falcon scripts with metadata and content of script
+
+---
+
+**Class**: `Falcon::RealTimeResponseAdminApi`
+
 - **Operation**: [**r_tr_get_put_files**](docs/RealTimeResponseAdminApi.md#r_tr_get_put_files)
 - **GET**: /real-time-response/entities/put-files/v1
 - **Description**: Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
@@ -3485,6 +4781,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdminApi`
 
+- **Operation**: [**r_tr_list_falcon_scripts**](docs/RealTimeResponseAdminApi.md#r_tr_list_falcon_scripts)
+- **GET**: /real-time-response/queries/falcon-scripts/v1
+- **Description**: Get a list of Falcon script IDs available to the user to run
+
+---
+
+**Class**: `Falcon::RealTimeResponseAdminApi`
+
 - **Operation**: [**r_tr_list_put_files**](docs/RealTimeResponseAdminApi.md#r_tr_list_put_files)
 - **GET**: /real-time-response/queries/put-files/v1
 - **Description**: Get a list of put-file ID&#39;s that are available to the user for the &#x60;put&#x60; command.
@@ -3507,11 +4811,19 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::RealTimeResponseAuditApi`
+
+- **Operation**: [**r_tr_audit_sessions**](docs/RealTimeResponseAuditApi.md#r_tr_audit_sessions)
+- **GET**: /real-time-response-audit/combined/sessions/v1
+- **Description**: Get all the RTR sessions created for a customer in a specified duration
+
+---
+
 **Class**: `Falcon::ReconApi`
 
 - **Operation**: [**aggregate_notifications_exposed_data_records_v1**](docs/ReconApi.md#aggregate_notifications_exposed_data_records_v1)
 - **POST**: /recon/aggregates/notifications-exposed-data-records/GET/v1
-- **Description**: Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
+- **Description**: Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
 
 ---
 
@@ -3824,6 +5136,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**update_rt_response_policies**](docs/ResponsePoliciesApi.md#update_rt_response_policies)
 - **PATCH**: /policy/entities/response/v1
 - **Description**: Update Response Policies by specifying the ID of the policy and details to update
+
+---
+
+**Class**: `Falcon::RuntimeDetectionsApi`
+
+- **Operation**: [**get_runtime_detections_combined_v2**](docs/RuntimeDetectionsApi.md#get_runtime_detections_combined_v2)
+- **GET**: /container-security/combined/runtime-detections/v2
+- **Description**: Retrieve container runtime detections by the provided search criteria
 
 ---
 
@@ -4163,6 +5483,62 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**combined_query_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#combined_query_evaluation_logic)
+- **GET**: /spotlight/combined/evaluation-logic/v1
+- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
+
+---
+
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**get_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#get_evaluation_logic)
+- **GET**: /spotlight/entities/evaluation-logic/v1
+- **Description**: Get details on evaluation logic items by providing one or more IDs.
+
+---
+
+**Class**: `Falcon::SpotlightEvaluationLogicApi`
+
+- **Operation**: [**query_evaluation_logic**](docs/SpotlightEvaluationLogicApi.md#query_evaluation_logic)
+- **GET**: /spotlight/queries/evaluation-logic/v1
+- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**combined_query_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#combined_query_vulnerabilities)
+- **GET**: /spotlight/combined/vulnerabilities/v1
+- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**get_remediations_v2**](docs/SpotlightVulnerabilitiesApi.md#get_remediations_v2)
+- **GET**: /spotlight/entities/remediations/v2
+- **Description**: Get details on remediation by providing one or more IDs
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**get_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#get_vulnerabilities)
+- **GET**: /spotlight/entities/vulnerabilities/v2
+- **Description**: Get details on vulnerabilities by providing one or more IDs
+
+---
+
+**Class**: `Falcon::SpotlightVulnerabilitiesApi`
+
+- **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilitiesApi.md#query_vulnerabilities)
+- **GET**: /spotlight/queries/vulnerabilities/v1
+- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
+
+---
+
 **Class**: `Falcon::TailoredIntelligenceApi`
 
 - **Operation**: [**get_events_body**](docs/TailoredIntelligenceApi.md#get_events_body)
@@ -4200,6 +5576,30 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**query_rules**](docs/TailoredIntelligenceApi.md#query_rules)
 - **GET**: /ti/rules/queries/rules/v2
 - **Description**: Get rules ids that match the provided filter criteria.
+
+---
+
+**Class**: `Falcon::UnidentifiedContainersApi`
+
+- **Operation**: [**read_unidentified_containers_by_date_range_count**](docs/UnidentifiedContainersApi.md#read_unidentified_containers_by_date_range_count)
+- **GET**: /container-security/aggregates/unidentified-containers/count-by-date/v1
+- **Description**: Returns the count of Unidentified Containers over the last 7 days
+
+---
+
+**Class**: `Falcon::UnidentifiedContainersApi`
+
+- **Operation**: [**read_unidentified_containers_count**](docs/UnidentifiedContainersApi.md#read_unidentified_containers_count)
+- **GET**: /container-security/aggregates/unidentified-containers/count/v1
+- **Description**: Returns the total count of Unidentified Containers over a time period
+
+---
+
+**Class**: `Falcon::UnidentifiedContainersApi`
+
+- **Operation**: [**search_and_read_unidentified_containers**](docs/UnidentifiedContainersApi.md#search_and_read_unidentified_containers)
+- **GET**: /container-security/combined/unidentified-containers/v1
+- **Description**: Search Unidentified Containers by the provided search criteria
 
 ---
 
@@ -4379,59 +5779,115 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::VulnerabilitiesApi`
+**Class**: `Falcon::WorkflowsApi`
 
-- **Operation**: [**combined_query_vulnerabilities**](docs/VulnerabilitiesApi.md#combined_query_vulnerabilities)
-- **GET**: /spotlight/combined/vulnerabilities/v1
-- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**get_remediations_v2**](docs/VulnerabilitiesApi.md#get_remediations_v2)
-- **GET**: /spotlight/entities/remediations/v2
-- **Description**: Get details on remediation by providing one or more IDs
+- **Operation**: [**workflow_definitions_combined**](docs/WorkflowsApi.md#workflow_definitions_combined)
+- **GET**: /workflows/combined/definitions/v1
+- **Description**: Search workflow definitions based on the provided filter
 
 ---
 
-**Class**: `Falcon::VulnerabilitiesApi`
+**Class**: `Falcon::WorkflowsApi`
 
-- **Operation**: [**get_vulnerabilities**](docs/VulnerabilitiesApi.md#get_vulnerabilities)
-- **GET**: /spotlight/entities/vulnerabilities/v2
-- **Description**: Get details on vulnerabilities by providing one or more IDs
-
----
-
-**Class**: `Falcon::VulnerabilitiesApi`
-
-- **Operation**: [**query_vulnerabilities**](docs/VulnerabilitiesApi.md#query_vulnerabilities)
-- **GET**: /spotlight/queries/vulnerabilities/v1
-- **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
+- **Operation**: [**workflow_definitions_create**](docs/WorkflowsApi.md#workflow_definitions_create)
+- **POST**: /workflows/entities/definitions/v1
+- **Description**: Creates a workflow definition based on the provided model
 
 ---
 
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
+**Class**: `Falcon::WorkflowsApi`
 
-- **Operation**: [**combined_query_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#combined_query_evaluation_logic)
-- **GET**: /spotlight/combined/evaluation-logic/v1
-- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
-
----
-
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
-
-- **Operation**: [**get_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#get_evaluation_logic)
-- **GET**: /spotlight/entities/evaluation-logic/v1
-- **Description**: Get details on evaluation logic items by providing one or more IDs.
+- **Operation**: [**workflow_definitions_export**](docs/WorkflowsApi.md#workflow_definitions_export)
+- **GET**: /workflows/entities/definitions/export/v1
+- **Description**: Exports a workflow definition for the given definition ID
 
 ---
 
-**Class**: `Falcon::VulnerabilitiesEvaluationLogicApi`
+**Class**: `Falcon::WorkflowsApi`
 
-- **Operation**: [**query_evaluation_logic**](docs/VulnerabilitiesEvaluationLogicApi.md#query_evaluation_logic)
-- **GET**: /spotlight/queries/evaluation-logic/v1
-- **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
+- **Operation**: [**workflow_definitions_import**](docs/WorkflowsApi.md#workflow_definitions_import)
+- **POST**: /workflows/entities/definitions/import/v1
+- **Description**: Imports a workflow definition based on the provided model
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_definitions_update**](docs/WorkflowsApi.md#workflow_definitions_update)
+- **PUT**: /workflows/entities/definitions/v1
+- **Description**: Updates a workflow definition based on the provided model
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_execute**](docs/WorkflowsApi.md#workflow_execute)
+- **POST**: /workflows/entities/execute/v1
+- **Description**: Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_execution_results**](docs/WorkflowsApi.md#workflow_execution_results)
+- **GET**: /workflows/entities/execution-results/v1
+- **Description**: Get execution result of a given execution
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_executions_action**](docs/WorkflowsApi.md#workflow_executions_action)
+- **POST**: /workflows/entities/execution-actions/v1
+- **Description**: Allows a user to resume/retry a failed workflow execution.
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_executions_combined**](docs/WorkflowsApi.md#workflow_executions_combined)
+- **GET**: /workflows/combined/executions/v1
+- **Description**: Search workflow executions based on the provided filter
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_get_human_input_v1**](docs/WorkflowsApi.md#workflow_get_human_input_v1)
+- **GET**: /workflows/entities/human-inputs/v1
+- **Description**: Gets one or more specific human inputs by their IDs.
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_system_definitions_de_provision**](docs/WorkflowsApi.md#workflow_system_definitions_de_provision)
+- **POST**: /workflows/system-definitions/deprovision/v1
+- **Description**: Deprovisions a system definition that was previously provisioned on the target CID
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_system_definitions_promote**](docs/WorkflowsApi.md#workflow_system_definitions_promote)
+- **POST**: /workflows/system-definitions/promote/v1
+- **Description**: Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_system_definitions_provision**](docs/WorkflowsApi.md#workflow_system_definitions_provision)
+- **POST**: /workflows/system-definitions/provision/v1
+- **Description**: Provisions a system definition onto the target CID by using the template and provided parameters
+
+---
+
+**Class**: `Falcon::WorkflowsApi`
+
+- **Operation**: [**workflow_update_human_input_v1**](docs/WorkflowsApi.md#workflow_update_human_input_v1)
+- **PATCH**: /workflows/entities/human-inputs/v1
+- **Description**: Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
 
 ---
 

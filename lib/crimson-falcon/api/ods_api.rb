@@ -617,6 +617,68 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get Scans by IDs.
+    # @param ids [Array<String>] The scan IDs to retrieve the scan entities
+    # @param [Hash] opts the optional parameters
+    # @return [EntitiesODSScanResponseV2]
+    def get_scans_by_scan_ids_v2(ids, opts = {})
+      data, _status_code, _headers = get_scans_by_scan_ids_v2_with_http_info(ids, opts)
+      data
+    end
+
+    # Get Scans by IDs.
+    # @param ids [Array<String>] The scan IDs to retrieve the scan entities
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EntitiesODSScanResponseV2, Integer, Hash)>] EntitiesODSScanResponseV2 data, response status code and response headers
+    def get_scans_by_scan_ids_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OdsApi.get_scans_by_scan_ids_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_scans_by_scan_ids_v2"
+      end
+      # resource path
+      local_var_path = '/ods/entities/scans/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EntitiesODSScanResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"OdsApi.get_scans_by_scan_ids_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OdsApi#get_scans_by_scan_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get ScheduledScans by IDs.
     # @param ids [Array<String>] The scan IDs to retrieve the scan entities
     # @param [Hash] opts the optional parameters
@@ -752,7 +814,7 @@ module Falcon
 
     # Query scan hosts.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'last_updated|desc')
@@ -764,7 +826,7 @@ module Falcon
 
     # Query scan hosts.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'last_updated|desc')
@@ -773,7 +835,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OdsApi.query_scan_host_metadata ...'
       end
-      allowable_values = ["id|asc", "id|desc", "scan_id|asc", "scan_id|desc", "host_id|asc", "host_id|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "started_on|asc", "started_on|desc", "completed_on|asc", "completed_on|desc", "last_updated|asc", "last_updated|desc"]
+      allowable_values = ["id|asc", "id|desc", "scan_id|asc", "scan_id|desc", "host_id|asc", "host_id|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "started_on|asc", "started_on|desc", "completed_on|asc", "completed_on|desc", "last_updated|asc", "last_updated|desc", "scan_control_reason.keyword|asc", "scan_control_reason.keyword|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -823,7 +885,7 @@ module Falcon
 
     # Query Scans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'created_on|desc')
@@ -835,7 +897,7 @@ module Falcon
 
     # Query Scans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'created_on|desc')
@@ -844,7 +906,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OdsApi.query_scans ...'
       end
-      allowable_values = ["id|asc", "id|desc", "initiated_from|asc", "initiated_from|desc", "description.keyword|asc", "description.keyword|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "affected_hosts_count|asc", "affected_hosts_count|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "scan_started_on|asc", "scan_started_on|desc", "scan_completed_on|asc", "scan_completed_on|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc"]
+      allowable_values = ["id|asc", "id|desc", "initiated_from|asc", "initiated_from|desc", "description.keyword|asc", "description.keyword|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "affected_hosts_count|asc", "affected_hosts_count|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "scan_started_on|asc", "scan_started_on|desc", "scan_completed_on|asc", "scan_completed_on|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc", "targeted_host_count|asc", "targeted_host_count|desc", "missing_host_count|asc", "missing_host_count|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

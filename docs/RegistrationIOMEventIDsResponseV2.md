@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
-| **meta** | [**RegistrationMSASpecMetaInfoExtension**](RegistrationMSASpecMetaInfoExtension.md) |  |  |
+| **meta** | [**RegistrationIOMEventIDResponseMeta**](RegistrationIOMEventIDResponseMeta.md) |  |  |
 | **resources** | **Array&lt;String&gt;** |  |  |
 
 ## Example

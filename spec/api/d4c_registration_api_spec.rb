@@ -49,6 +49,17 @@ describe 'D4cRegistrationApi' do
     end
   end
 
+  # unit tests for connect_d4_cgcp_account
+  # Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPAccountResponseExtV2]
+  describe 'connect_d4_cgcp_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for create_d4_c_aws_account
   # Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
   # @param body
@@ -89,6 +100,17 @@ describe 'D4cRegistrationApi' do
   # @option opts [Array<String>] :organization_ids AWS organization IDs to remove
   # @return [MsaBaseEntitiesResponse]
   describe 'delete_d4_c_aws_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_d4_cgcp_account
+  # Deletes a GCP account from the system.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
+  # @return [MsaBaseEntitiesResponse]
+  describe 'delete_d4_cgcp_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -163,12 +185,36 @@ describe 'D4cRegistrationApi' do
     end
   end
 
+  # unit tests for get_d4_cgcp_service_accounts_ext
+  # Returns the service account id and client email for external clients.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :id Service Account ID
+  # @return [RegistrationGCPServiceAccountResponseExtV1]
+  describe 'get_d4_cgcp_service_accounts_ext test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_d4_cgcp_user_scripts
   # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
   # @param [Hash] opts the optional parameters
   # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
   # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
   describe 'get_d4_cgcp_user_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_d4_cgcp_user_scripts_attachment
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+  # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
+  # @option opts [String] :status Account status to filter results by.
+  # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
+  describe 'get_d4_cgcp_user_scripts_attachment test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -216,6 +262,7 @@ describe 'D4cRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :subscription_ids Azure Subscription ID
   # @option opts [String] :template Template to be rendered
+  # @option opts [Boolean] :azure_management_group Use Azure Management Group
   # @return [RegistrationAzureProvisionGetUserScriptResponseV1]
   describe 'get_discover_cloud_azure_user_scripts_attachment test' do
     it 'should work' do

@@ -14,6 +14,7 @@
 | **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
 | **custom_policy_id** | **Integer** |  | [optional] |
 | **finding** | **Object** |  |  |
+| **findings** | **Array&lt;Object&gt;** |  |  |
 | **id** | **String** |  |  |
 | **is_managed** | **Boolean** |  | [optional] |
 | **policy_id** | **Integer** |  | [optional] |
@@ -51,6 +52,7 @@ instance = Falcon::RegistrationIOMEventV2.new(
   cloud_scopes: null,
   custom_policy_id: null,
   finding: null,
+  findings: null,
   id: null,
   is_managed: null,
   policy_id: null,

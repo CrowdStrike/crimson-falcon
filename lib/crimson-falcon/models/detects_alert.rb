@@ -32,72 +32,126 @@ require 'time'
 
 module Falcon
   class DetectsAlert
+    # Device or sensor ID for which the Alert was generated
     attr_accessor :agent_id
 
+    # Common linkage between multiple Alerts that belong so the same detection bouquet
     attr_accessor :aggregate_id
 
+    # Name of the person this Alert is assigned to
     attr_accessor :assigned_to_name
 
+    # UserID to which this Alert is assigned to
     attr_accessor :assigned_to_uid
 
+    # UUID to which this Alert is assigned to
     attr_accessor :assigned_to_uuid
 
+    # Unique ID of CrowdStrike customers
     attr_accessor :cid
 
+    # An opaque internal identifier that can uniquely identify an Alert
     attr_accessor :composite_id
 
+    # Confidence is a 1-100 integer value denoting the confidence that, when this Alert fires, it is indicative of malicious activity
     attr_accessor :confidence
 
+    # internal only
     attr_accessor :crawl_edge_ids
 
+    # internal only
     attr_accessor :crawl_vertex_ids
 
+    # indicates when ThreatGraph was crawled to gather info for this alert creation/update
     attr_accessor :crawled_timestamp
 
+    # indicates when the Alert was first written to backend store
     attr_accessor :created_timestamp
 
+    # Data Domains represents domains to which this alert belongs to
+    attr_accessor :data_domains
+
+    # Short, customer-visible summary of the detected activity
     attr_accessor :description
 
+    # Customer visible name for the Alert's pattern
     attr_accessor :display_name
 
+    # Boolean to know if we sent email regarding this Alert
     attr_accessor :email_sent
 
+    # internal only
+    attr_accessor :es_doc_id
+
+    # internal only
+    attr_accessor :es_doc_version
+
+    # internal only
+    attr_accessor :es_routing_id
+
+    # Boolean indicating if this Alert is internal or external
     attr_accessor :external
 
+    # Vertex key which triggers the formation of the Alert
     attr_accessor :id
 
+    # Pattern Name coming either from Taxonomy or directly from the ingested Alert
     attr_accessor :name
 
+    # End goal that an attack adversary intends to achieve according to MITRE
     attr_accessor :objective
 
+    # Taxonomy patternID for this Alert
     attr_accessor :pattern_id
 
+    # Platform that this Alert was triggered on e.g. Android, Windows, etc..
     attr_accessor :platform
 
+    attr_accessor :poly_id
+
+    # Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
     attr_accessor :product
 
+    # Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
     attr_accessor :scenario
 
+    # Severity is also a 1-100 integer value, but unlike confidence severity impacts how a Alert is displayed in the UI
     attr_accessor :severity
 
+    # Boolean indicating if this Alert will be shown in the UI or if it's hidden'
     attr_accessor :show_in_ui
 
+    # Source Products are products that produced events which contributed to this alert
+    attr_accessor :source_products
+
+    # Source Vendors are vendors that produced events which contributed to this alert
+    attr_accessor :source_vendors
+
+    # Could be one of the following - New, closed, in_progress, reopened
     attr_accessor :status
 
+    # Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
     attr_accessor :tactic
 
+    # Unique ID for the tactic seen in the Alert
     attr_accessor :tactic_id
 
+    # Tags are string values associated with the alert that can be added or removed through the API
     attr_accessor :tags
 
+    # Tactic and Technique are references to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
     attr_accessor :technique
 
+    # Unique ID for the technique seen in the Alert
     attr_accessor :technique_id
 
+    # stored value coming in directly from the ingested event or set by cloud in the absence of it
     attr_accessor :timestamp
 
+    # Type of definition Detections Extensibility use. Keyed-off of Pattern of the incoming events/Alerts
     attr_accessor :type
 
+    # indicates when the Alert was last modified
     attr_accessor :updated_timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -115,19 +169,26 @@ module Falcon
         :'crawl_vertex_ids' => :'crawl_vertex_ids',
         :'crawled_timestamp' => :'crawled_timestamp',
         :'created_timestamp' => :'created_timestamp',
+        :'data_domains' => :'data_domains',
         :'description' => :'description',
         :'display_name' => :'display_name',
         :'email_sent' => :'email_sent',
+        :'es_doc_id' => :'es_doc_id',
+        :'es_doc_version' => :'es_doc_version',
+        :'es_routing_id' => :'es_routing_id',
         :'external' => :'external',
         :'id' => :'id',
         :'name' => :'name',
         :'objective' => :'objective',
         :'pattern_id' => :'pattern_id',
         :'platform' => :'platform',
+        :'poly_id' => :'poly_id',
         :'product' => :'product',
         :'scenario' => :'scenario',
         :'severity' => :'severity',
         :'show_in_ui' => :'show_in_ui',
+        :'source_products' => :'source_products',
+        :'source_vendors' => :'source_vendors',
         :'status' => :'status',
         :'tactic' => :'tactic',
         :'tactic_id' => :'tactic_id',
@@ -160,19 +221,26 @@ module Falcon
         :'crawl_vertex_ids' => :'Hash<String, Array<String>>',
         :'crawled_timestamp' => :'Time',
         :'created_timestamp' => :'Time',
+        :'data_domains' => :'Array<String>',
         :'description' => :'String',
         :'display_name' => :'String',
         :'email_sent' => :'Boolean',
+        :'es_doc_id' => :'String',
+        :'es_doc_version' => :'Integer',
+        :'es_routing_id' => :'String',
         :'external' => :'Boolean',
         :'id' => :'String',
         :'name' => :'String',
         :'objective' => :'String',
         :'pattern_id' => :'Integer',
         :'platform' => :'String',
+        :'poly_id' => :'String',
         :'product' => :'String',
         :'scenario' => :'String',
         :'severity' => :'Integer',
         :'show_in_ui' => :'Boolean',
+        :'source_products' => :'Array<String>',
+        :'source_vendors' => :'Array<String>',
         :'status' => :'String',
         :'tactic' => :'String',
         :'tactic_id' => :'String',
@@ -258,6 +326,12 @@ module Falcon
         self.created_timestamp = attributes[:'created_timestamp']
       end
 
+      if attributes.key?(:'data_domains')
+        if (value = attributes[:'data_domains']).is_a?(Array)
+          self.data_domains = value
+        end
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -268,6 +342,18 @@ module Falcon
 
       if attributes.key?(:'email_sent')
         self.email_sent = attributes[:'email_sent']
+      end
+
+      if attributes.key?(:'es_doc_id')
+        self.es_doc_id = attributes[:'es_doc_id']
+      end
+
+      if attributes.key?(:'es_doc_version')
+        self.es_doc_version = attributes[:'es_doc_version']
+      end
+
+      if attributes.key?(:'es_routing_id')
+        self.es_routing_id = attributes[:'es_routing_id']
       end
 
       if attributes.key?(:'external')
@@ -294,6 +380,10 @@ module Falcon
         self.platform = attributes[:'platform']
       end
 
+      if attributes.key?(:'poly_id')
+        self.poly_id = attributes[:'poly_id']
+      end
+
       if attributes.key?(:'product')
         self.product = attributes[:'product']
       end
@@ -308,6 +398,18 @@ module Falcon
 
       if attributes.key?(:'show_in_ui')
         self.show_in_ui = attributes[:'show_in_ui']
+      end
+
+      if attributes.key?(:'source_products')
+        if (value = attributes[:'source_products']).is_a?(Array)
+          self.source_products = value
+        end
+      end
+
+      if attributes.key?(:'source_vendors')
+        if (value = attributes[:'source_vendors']).is_a?(Array)
+          self.source_vendors = value
+        end
       end
 
       if attributes.key?(:'status')
@@ -353,10 +455,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -367,7 +465,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       return false if @type.nil?
       true
     end
@@ -389,19 +486,26 @@ module Falcon
           crawl_vertex_ids == o.crawl_vertex_ids &&
           crawled_timestamp == o.crawled_timestamp &&
           created_timestamp == o.created_timestamp &&
+          data_domains == o.data_domains &&
           description == o.description &&
           display_name == o.display_name &&
           email_sent == o.email_sent &&
+          es_doc_id == o.es_doc_id &&
+          es_doc_version == o.es_doc_version &&
+          es_routing_id == o.es_routing_id &&
           external == o.external &&
           id == o.id &&
           name == o.name &&
           objective == o.objective &&
           pattern_id == o.pattern_id &&
           platform == o.platform &&
+          poly_id == o.poly_id &&
           product == o.product &&
           scenario == o.scenario &&
           severity == o.severity &&
           show_in_ui == o.show_in_ui &&
+          source_products == o.source_products &&
+          source_vendors == o.source_vendors &&
           status == o.status &&
           tactic == o.tactic &&
           tactic_id == o.tactic_id &&
@@ -422,7 +526,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawl_edge_ids, crawl_vertex_ids, crawled_timestamp, created_timestamp, description, display_name, email_sent, external, id, name, objective, pattern_id, platform, product, scenario, severity, show_in_ui, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawl_edge_ids, crawl_vertex_ids, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, es_doc_id, es_doc_version, es_routing_id, external, id, name, objective, pattern_id, platform, poly_id, product, scenario, severity, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

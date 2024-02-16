@@ -41,7 +41,9 @@
 | **k8s_cluster_version** | **String** |  | [optional] |
 | **kernel_version** | **String** |  | [optional] |
 | **last_login_timestamp** | **String** |  | [optional] |
+| **last_login_uid** | **String** |  | [optional] |
 | **last_login_user** | **String** |  | [optional] |
+| **last_login_user_sid** | **String** |  | [optional] |
 | **last_reboot** | **String** |  | [optional] |
 | **last_seen** | **String** |  | [optional] |
 | **linux_sensor_mode** | **String** |  | [optional] |
@@ -134,7 +136,9 @@ instance = Falcon::DeviceDevice.new(
   k8s_cluster_version: null,
   kernel_version: null,
   last_login_timestamp: null,
+  last_login_uid: null,
   last_login_user: null,
+  last_login_user_sid: null,
   last_reboot: null,
   last_seen: null,
   linux_sensor_mode: null,

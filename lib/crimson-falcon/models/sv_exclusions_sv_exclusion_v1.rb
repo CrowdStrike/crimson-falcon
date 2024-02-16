@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :is_descendant_process
+
     attr_accessor :last_modified
 
     attr_accessor :modified_by
@@ -60,6 +62,7 @@ module Falcon
         :'created_on' => :'created_on',
         :'groups' => :'groups',
         :'id' => :'id',
+        :'is_descendant_process' => :'is_descendant_process',
         :'last_modified' => :'last_modified',
         :'modified_by' => :'modified_by',
         :'regexp_value' => :'regexp_value',
@@ -81,6 +84,7 @@ module Falcon
         :'created_on' => :'Time',
         :'groups' => :'Array<HostGroupsHostGroupV1>',
         :'id' => :'String',
+        :'is_descendant_process' => :'Boolean',
         :'last_modified' => :'Time',
         :'modified_by' => :'String',
         :'regexp_value' => :'String',
@@ -130,6 +134,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'is_descendant_process')
+        self.is_descendant_process = attributes[:'is_descendant_process']
       end
 
       if attributes.key?(:'last_modified')
@@ -226,6 +234,7 @@ module Falcon
           created_on == o.created_on &&
           groups == o.groups &&
           id == o.id &&
+          is_descendant_process == o.is_descendant_process &&
           last_modified == o.last_modified &&
           modified_by == o.modified_by &&
           regexp_value == o.regexp_value &&
@@ -242,7 +251,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [applied_globally, created_by, created_on, groups, id, last_modified, modified_by, regexp_value, value, value_hash].hash
+      [applied_globally, created_by, created_on, groups, id, is_descendant_process, last_modified, modified_by, regexp_value, value, value_hash].hash
     end
 
     # Builds the object from hash

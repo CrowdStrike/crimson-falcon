@@ -288,6 +288,128 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve containers by container_runtime_version
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The upper-bound on the number of container records to retrieve.
+    # @option opts [Integer] :offset It is used to get the offset
+    # @option opts [String] :sort Field to sort results by
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsContainerRuntimePivotResponse]
+    def find_containers_by_container_run_time_version(opts = {})
+      data, _status_code, _headers = find_containers_by_container_run_time_version_with_http_info(opts)
+      data
+    end
+
+    # Retrieve containers by container_runtime_version
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The upper-bound on the number of container records to retrieve.
+    # @option opts [Integer] :offset It is used to get the offset
+    # @option opts [String] :sort Field to sort results by
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsContainerRuntimePivotResponse, Integer, Hash)>] ModelsContainerRuntimePivotResponse data, response status code and response headers
+    def find_containers_by_container_run_time_version_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.find_containers_by_container_run_time_version ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/find-by-runtimeversion/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsContainerRuntimePivotResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.find_containers_by_container_run_time_version",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#find_containers_by_container_run_time_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve containers count affected by zero day vulnerabilities
+    # @param [Hash] opts the optional parameters
+    # @return [CommonCountResponse]
+    def find_containers_count_affected_by_zero_day_vulnerabilities(opts = {})
+      data, _status_code, _headers = find_containers_count_affected_by_zero_day_vulnerabilities_with_http_info(opts)
+      data
+    end
+
+    # Retrieve containers count affected by zero day vulnerabilities
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def find_containers_count_affected_by_zero_day_vulnerabilities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.find_containers_count_affected_by_zero_day_vulnerabilities ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/count-by-zero-day/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.find_containers_count_affected_by_zero_day_vulnerabilities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#find_containers_count_affected_by_zero_day_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Provides a list of AWS accounts.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS Account IDs
@@ -992,6 +1114,64 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Group the containers by Managed
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsContainerCoverageResponseEntity]
+    def group_containers_by_managed(opts = {})
+      data, _status_code, _headers = group_containers_by_managed_with_http_info(opts)
+      data
+    end
+
+    # Group the containers by Managed
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsContainerCoverageResponseEntity, Integer, Hash)>] ModelsContainerCoverageResponseEntity data, response status code and response headers
+    def group_containers_by_managed_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.group_containers_by_managed ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/group-by-managed/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsContainerCoverageResponseEntity'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.group_containers_by_managed",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#group_containers_by_managed\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Provides the azure subscriptions registered to Kubernetes Protection
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Azure Tenant IDs
@@ -1190,6 +1370,2177 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve kubernetes clusters identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsClusterEntityResponse]
+    def read_cluster_combined(opts = {})
+      data, _status_code, _headers = read_cluster_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve kubernetes clusters identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsClusterEntityResponse, Integer, Hash)>] ModelsClusterEntityResponse data, response status code and response headers
+    def read_cluster_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_combined ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/clusters/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsClusterEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_cluster_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve cluster counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [CommonCountResponse]
+    def read_cluster_count(opts = {})
+      data, _status_code, _headers = read_cluster_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve cluster counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def read_cluster_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/clusters/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_cluster_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve cluster enrichment data
+    # @param cluster_id [Array<String>] One or more cluster ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [K8sassetsClusterEnrichmentResponse]
+    def read_cluster_enrichment(cluster_id, opts = {})
+      data, _status_code, _headers = read_cluster_enrichment_with_http_info(cluster_id, opts)
+      data
+    end
+
+    # Retrieve cluster enrichment data
+    # @param cluster_id [Array<String>] One or more cluster ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [Array<(K8sassetsClusterEnrichmentResponse, Integer, Hash)>] K8sassetsClusterEnrichmentResponse data, response status code and response headers
+    def read_cluster_enrichment_with_http_info(cluster_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_enrichment ...'
+      end
+      # verify the required parameter 'cluster_id' is set
+      if @api_client.config.client_side_validation && cluster_id.nil?
+        fail ArgumentError, "Missing the required parameter 'cluster_id' when calling KubernetesProtectionApi.read_cluster_enrichment"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/enrichment/clusters/entities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'cluster_id'] = @api_client.build_collection_param(cluster_id, :csv)
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8sassetsClusterEnrichmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_cluster_enrichment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve clusters by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_clusters_by_date_range_count(opts = {})
+      data, _status_code, _headers = read_clusters_by_date_range_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve clusters by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_clusters_by_date_range_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_date_range_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/clusters/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_clusters_by_date_range_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket clusters by kubernetes version
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_clusters_by_kubernetes_version_count(opts = {})
+      data, _status_code, _headers = read_clusters_by_kubernetes_version_count_with_http_info(opts)
+      data
+    end
+
+    # Bucket clusters by kubernetes version
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_clusters_by_kubernetes_version_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_kubernetes_version_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/clusters/count-by-kubernetes-version/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_clusters_by_kubernetes_version_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_kubernetes_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket clusters by status
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_clusters_by_status_count(opts = {})
+      data, _status_code, _headers = read_clusters_by_status_count_with_http_info(opts)
+      data
+    end
+
+    # Bucket clusters by status
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_clusters_by_status_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_status_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/clusters/count-by-status/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_clusters_by_status_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_status_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve containers identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsContainerEntityResponse]
+    def read_container_combined(opts = {})
+      data, _status_code, _headers = read_container_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve containers identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsContainerEntityResponse, Integer, Hash)>] ModelsContainerEntityResponse data, response status code and response headers
+    def read_container_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_combined ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/containers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsContainerEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve container counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [CommonCountResponse]
+    def read_container_count(opts = {})
+      data, _status_code, _headers = read_container_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve container counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def read_container_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve top container image registries
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @return [ModelsAPIFilterResponse]
+    def read_container_count_by_registry(opts = {})
+      data, _status_code, _headers = read_container_count_by_registry_with_http_info(opts)
+      data
+    end
+
+    # Retrieve top container image registries
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
+    def read_container_count_by_registry_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_count_by_registry ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/count-by-registry/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'under_assessment'] = opts[:'under_assessment'] if !opts[:'under_assessment'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAPIFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_count_by_registry",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_count_by_registry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve container enrichment data
+    # @param container_id [Array<String>] One or more container ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [K8sassetsContainerEnrichmentResponse]
+    def read_container_enrichment(container_id, opts = {})
+      data, _status_code, _headers = read_container_enrichment_with_http_info(container_id, opts)
+      data
+    end
+
+    # Retrieve container enrichment data
+    # @param container_id [Array<String>] One or more container ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [Array<(K8sassetsContainerEnrichmentResponse, Integer, Hash)>] K8sassetsContainerEnrichmentResponse data, response status code and response headers
+    def read_container_enrichment_with_http_info(container_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_enrichment ...'
+      end
+      # verify the required parameter 'container_id' is set
+      if @api_client.config.client_side_validation && container_id.nil?
+        fail ArgumentError, "Missing the required parameter 'container_id' when calling KubernetesProtectionApi.read_container_enrichment"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/enrichment/containers/entities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'container_id'] = @api_client.build_collection_param(container_id, :csv)
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8sassetsContainerEnrichmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_enrichment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve count of image assessment detections on running containers over a period of time
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAPIFilterResponse]
+    def read_container_image_detections_count_by_date(opts = {})
+      data, _status_code, _headers = read_container_image_detections_count_by_date_with_http_info(opts)
+      data
+    end
+
+    # Retrieve count of image assessment detections on running containers over a period of time
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
+    def read_container_image_detections_count_by_date_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_image_detections_count_by_date ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/image-detections-count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAPIFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_image_detections_count_by_date",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_image_detections_count_by_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket container by image-digest
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_container_images_by_most_used(opts = {})
+      data, _status_code, _headers = read_container_images_by_most_used_with_http_info(opts)
+      data
+    end
+
+    # Bucket container by image-digest
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_container_images_by_most_used_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_images_by_most_used ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/images/most-used/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_images_by_most_used",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_images_by_most_used\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve count of image states running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+    # @return [ModelsAPIFilterResponse]
+    def read_container_images_by_state(opts = {})
+      data, _status_code, _headers = read_container_images_by_state_with_http_info(opts)
+      data
+    end
+
+    # Retrieve count of image states running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+    # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
+    def read_container_images_by_state_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_images_by_state ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/images-by-state/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAPIFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_images_by_state",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_images_by_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve container vulnerabilities by severity counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_container_vulnerabilities_by_severity_count(opts = {})
+      data, _status_code, _headers = read_container_vulnerabilities_by_severity_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve container vulnerabilities by severity counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_container_vulnerabilities_by_severity_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_vulnerabilities_by_severity_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/vulnerability-count-by-severity/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_container_vulnerabilities_by_severity_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_vulnerabilities_by_severity_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve containers by date range counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_containers_by_date_range_count(opts = {})
+      data, _status_code, _headers = read_containers_by_date_range_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve containers by date range counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_containers_by_date_range_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_containers_by_date_range_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_containers_by_date_range_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_containers_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket containers by agent type and calculate sensor coverage
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_containers_sensor_coverage(opts = {})
+      data, _status_code, _headers = read_containers_sensor_coverage_with_http_info(opts)
+      data
+    end
+
+    # Bucket containers by agent type and calculate sensor coverage
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_containers_sensor_coverage_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_containers_sensor_coverage ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/sensor-coverage/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_containers_sensor_coverage",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_containers_sensor_coverage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve kubernetes deployments identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsDeploymentEntityResponse]
+    def read_deployment_combined(opts = {})
+      data, _status_code, _headers = read_deployment_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve kubernetes deployments identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsDeploymentEntityResponse, Integer, Hash)>] ModelsDeploymentEntityResponse data, response status code and response headers
+    def read_deployment_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_combined ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/deployments/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsDeploymentEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_deployment_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve deployment counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+    # @return [CommonCountResponse]
+    def read_deployment_count(opts = {})
+      data, _status_code, _headers = read_deployment_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve deployment counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def read_deployment_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/deployments/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_deployment_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve deployment enrichment data
+    # @param deployment_id [Array<String>] One or more deployment ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [K8sassetsDeploymentEnrichmentResponse]
+    def read_deployment_enrichment(deployment_id, opts = {})
+      data, _status_code, _headers = read_deployment_enrichment_with_http_info(deployment_id, opts)
+      data
+    end
+
+    # Retrieve deployment enrichment data
+    # @param deployment_id [Array<String>] One or more deployment ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [Array<(K8sassetsDeploymentEnrichmentResponse, Integer, Hash)>] K8sassetsDeploymentEnrichmentResponse data, response status code and response headers
+    def read_deployment_enrichment_with_http_info(deployment_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_enrichment ...'
+      end
+      # verify the required parameter 'deployment_id' is set
+      if @api_client.config.client_side_validation && deployment_id.nil?
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling KubernetesProtectionApi.read_deployment_enrichment"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/enrichment/deployments/entities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'deployment_id'] = @api_client.build_collection_param(deployment_id, :csv)
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8sassetsDeploymentEnrichmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_deployment_enrichment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve deployments by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_deployments_by_date_range_count(opts = {})
+      data, _status_code, _headers = read_deployments_by_date_range_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve deployments by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_deployments_by_date_range_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployments_by_date_range_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/deployments/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_deployments_by_date_range_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployments_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve count of distinct images running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAPIFilterResponse]
+    def read_distinct_container_image_count(opts = {})
+      data, _status_code, _headers = read_distinct_container_image_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve count of distinct images running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
+    def read_distinct_container_image_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_distinct_container_image_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/images/count-by-distinct/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAPIFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_distinct_container_image_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_distinct_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+    # @return [K8siomsKubernetesIOMFieldValue]
+    def read_kubernetes_iom_by_date_range(opts = {})
+      data, _status_code, _headers = read_kubernetes_iom_by_date_range_with_http_info(opts)
+      data
+    end
+
+    # Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+    # @return [Array<(K8siomsKubernetesIOMFieldValue, Integer, Hash)>] K8siomsKubernetesIOMFieldValue data, response status code and response headers
+    def read_kubernetes_iom_by_date_range_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_by_date_range ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/kubernetes-ioms/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8siomsKubernetesIOMFieldValue'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_by_date_range",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_by_date_range\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns the total count of Kubernetes IOMs over the past seven days
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+    # @return [K8siomsKubernetesIOMCountValue]
+    def read_kubernetes_iom_count(opts = {})
+      data, _status_code, _headers = read_kubernetes_iom_count_with_http_info(opts)
+      data
+    end
+
+    # Returns the total count of Kubernetes IOMs over the past seven days
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+    # @return [Array<(K8siomsKubernetesIOMCountValue, Integer, Hash)>] K8siomsKubernetesIOMCountValue data, response status code and response headers
+    def read_kubernetes_iom_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/kubernetes-ioms/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8siomsKubernetesIOMCountValue'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Kubernetes IOM entities identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Search Kubernetes IOMs by ids - The maximum amount is 100 IDs
+    # @return [K8siomsKubernetesIOMEntityResponse]
+    def read_kubernetes_iom_entities(opts = {})
+      data, _status_code, _headers = read_kubernetes_iom_entities_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Kubernetes IOM entities identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Search Kubernetes IOMs by ids - The maximum amount is 100 IDs
+    # @return [Array<(K8siomsKubernetesIOMEntityResponse, Integer, Hash)>] K8siomsKubernetesIOMEntityResponse data, response status code and response headers
+    def read_kubernetes_iom_entities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_entities ...'
+      end
+      # resource path
+      local_var_path = '/container-security/entities/kubernetes-ioms/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8siomsKubernetesIOMEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve kubernetes nodes identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsNodeEntityResponse]
+    def read_node_combined(opts = {})
+      data, _status_code, _headers = read_node_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve kubernetes nodes identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsNodeEntityResponse, Integer, Hash)>] ModelsNodeEntityResponse data, response status code and response headers
+    def read_node_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_combined ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/nodes/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsNodeEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_node_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve node counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [CommonCountResponse]
+    def read_node_count(opts = {})
+      data, _status_code, _headers = read_node_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve node counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def read_node_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/nodes/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_node_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve node enrichment data
+    # @param node_name [Array<String>] One or more node names for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [K8sassetsNodeEnrichmentResponse]
+    def read_node_enrichment(node_name, opts = {})
+      data, _status_code, _headers = read_node_enrichment_with_http_info(node_name, opts)
+      data
+    end
+
+    # Retrieve node enrichment data
+    # @param node_name [Array<String>] One or more node names for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [Array<(K8sassetsNodeEnrichmentResponse, Integer, Hash)>] K8sassetsNodeEnrichmentResponse data, response status code and response headers
+    def read_node_enrichment_with_http_info(node_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_enrichment ...'
+      end
+      # verify the required parameter 'node_name' is set
+      if @api_client.config.client_side_validation && node_name.nil?
+        fail ArgumentError, "Missing the required parameter 'node_name' when calling KubernetesProtectionApi.read_node_enrichment"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/enrichment/nodes/entities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'node_name'] = @api_client.build_collection_param(node_name, :csv)
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8sassetsNodeEnrichmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_node_enrichment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket nodes by cloud providers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_nodes_by_cloud_count(opts = {})
+      data, _status_code, _headers = read_nodes_by_cloud_count_with_http_info(opts)
+      data
+    end
+
+    # Bucket nodes by cloud providers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_nodes_by_cloud_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_cloud_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/nodes/count-by-cloud/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_nodes_by_cloud_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_cloud_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bucket nodes by their container engine version
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_nodes_by_container_engine_version_count(opts = {})
+      data, _status_code, _headers = read_nodes_by_container_engine_version_count_with_http_info(opts)
+      data
+    end
+
+    # Bucket nodes by their container engine version
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_nodes_by_container_engine_version_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_container_engine_version_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/nodes/count-by-container-engine-version/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_nodes_by_container_engine_version_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_container_engine_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve nodes by date range counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_nodes_by_date_range_count(opts = {})
+      data, _status_code, _headers = read_nodes_by_date_range_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve nodes by date range counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_nodes_by_date_range_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_date_range_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/nodes/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_nodes_by_date_range_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve kubernetes pods identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsPodEntityResponse]
+    def read_pod_combined(opts = {})
+      data, _status_code, _headers = read_pod_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve kubernetes pods identified by the provided filter criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsPodEntityResponse, Integer, Hash)>] ModelsPodEntityResponse data, response status code and response headers
+    def read_pod_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_combined ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/pods/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsPodEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_pod_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve pod counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+    # @return [CommonCountResponse]
+    def read_pod_count(opts = {})
+      data, _status_code, _headers = read_pod_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve pod counts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+    # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
+    def read_pod_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/pods/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_pod_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve pod enrichment data
+    # @param pod_id [Array<String>] One or more pod ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [K8sassetsPodEnrichmentResponse]
+    def read_pod_enrichment(pod_id, opts = {})
+      data, _status_code, _headers = read_pod_enrichment_with_http_info(pod_id, opts)
+      data
+    end
+
+    # Retrieve pod enrichment data
+    # @param pod_id [Array<String>] One or more pod ids for which to retrieve enrichment info
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Supported filters:  last_seen
+    # @return [Array<(K8sassetsPodEnrichmentResponse, Integer, Hash)>] K8sassetsPodEnrichmentResponse data, response status code and response headers
+    def read_pod_enrichment_with_http_info(pod_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_enrichment ...'
+      end
+      # verify the required parameter 'pod_id' is set
+      if @api_client.config.client_side_validation && pod_id.nil?
+        fail ArgumentError, "Missing the required parameter 'pod_id' when calling KubernetesProtectionApi.read_pod_enrichment"
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/enrichment/pods/entities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'pod_id'] = @api_client.build_collection_param(pod_id, :csv)
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8sassetsPodEnrichmentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_pod_enrichment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve pods by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [ModelsAggregateValuesByFieldResponse]
+    def read_pods_by_date_range_count(opts = {})
+      data, _status_code, _headers = read_pods_by_date_range_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve pods by date range counts
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
+    def read_pods_by_date_range_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pods_by_date_range_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/pods/count-by-date/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAggregateValuesByFieldResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_pods_by_date_range_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pods_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve images on running containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [ModelsContainerImage]
+    def read_running_container_images(opts = {})
+      data, _status_code, _headers = read_running_container_images_with_http_info(opts)
+      data
+    end
+
+    # Retrieve images on running containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort Field to sort results by
+    # @return [Array<(ModelsContainerImage, Integer, Hash)>] ModelsContainerImage data, response status code and response headers
+    def read_running_container_images_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_running_container_images ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/container-images/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsContainerImage'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_running_container_images",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_running_container_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve count of vulnerable images running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [ModelsAPIFilterResponse]
+    def read_vulnerable_container_image_count(opts = {})
+      data, _status_code, _headers = read_vulnerable_container_image_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieve count of vulnerable images running on containers
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
+    def read_vulnerable_container_image_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_vulnerable_container_image_count ...'
+      end
+      # resource path
+      local_var_path = '/container-security/aggregates/containers/count-vulnerable-images/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsAPIFilterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.read_vulnerable_container_image_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_vulnerable_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Regenerate API key for docker registry integrations
     # @param [Hash] opts the optional parameters
     # @return [K8sregRegenAPIKeyResp]
@@ -1241,6 +3592,140 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: KubernetesProtectionApi#regenerate_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Kubernetes IOM by the provided search criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @return [K8siomsKubernetesIOMEntityResponse]
+    def search_and_read_kubernetes_iom_entities(opts = {})
+      data, _status_code, _headers = search_and_read_kubernetes_iom_entities_with_http_info(opts)
+      data
+    end
+
+    # Search Kubernetes IOM by the provided search criteria
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @return [Array<(K8siomsKubernetesIOMEntityResponse, Integer, Hash)>] K8siomsKubernetesIOMEntityResponse data, response status code and response headers
+    def search_and_read_kubernetes_iom_entities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.search_and_read_kubernetes_iom_entities ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/kubernetes-ioms/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'K8siomsKubernetesIOMEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.search_and_read_kubernetes_iom_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#search_and_read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @return [CommonGenericEntityResponseString]
+    def search_kubernetes_ioms(opts = {})
+      data, _status_code, _headers = search_kubernetes_ioms_with_http_info(opts)
+      data
+    end
+
+    # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @return [Array<(CommonGenericEntityResponseString, Integer, Hash)>] CommonGenericEntityResponseString data, response status code and response headers
+    def search_kubernetes_ioms_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.search_kubernetes_ioms ...'
+      end
+      # resource path
+      local_var_path = '/container-security/queries/kubernetes-ioms/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommonGenericEntityResponseString'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"KubernetesProtectionApi.search_kubernetes_ioms",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: KubernetesProtectionApi#search_kubernetes_ioms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

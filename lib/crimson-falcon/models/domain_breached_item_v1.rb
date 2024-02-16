@@ -32,14 +32,24 @@ require 'time'
 
 module Falcon
   class DomainBreachedItemV1
+    attr_accessor :bot
+
+    # The company of the user
     attr_accessor :company
 
+    # The status set after deduplication. Possible values: 'newly_detected', 'previously_reported', 'other'
+    attr_accessor :credential_status
+
+    # The domain where the credentials are valid
     attr_accessor :credentials_domain
 
+    # The IP where the credentials are valid
     attr_accessor :credentials_ip
 
+    # The URL where the credentials are valid
     attr_accessor :credentials_url
 
+    # The nickname of the user on the impacted site
     attr_accessor :display_name
 
     # The domain associated with the breached account.
@@ -53,6 +63,7 @@ module Falcon
     # The original hashing algorithm applied to the breached password. Possible values: 'plain', 'unknown', 'base64', 'md5', 'sha1', 'bcrypt', etc. The value 'plain' means that the password was originally found as plaintext.
     attr_accessor :hash_type
 
+    # The user's job at the company
     attr_accessor :job_position
 
     attr_accessor :location
@@ -60,14 +71,19 @@ module Falcon
     # The username of the breached account.
     attr_accessor :login_id
 
+    # The stealer log bot malware family
+    attr_accessor :malware_family
+
     # The name of the person associated with the breached account.
     attr_accessor :name
 
     # The breached password. Passwords are returned as salted hashes, generated using the SHA256 algorithm and the CID as the salt.
     attr_accessor :password
 
+    # The password hash
     attr_accessor :password_hash
 
+    # The password salt
     attr_accessor :password_salt
 
     # The phone number of the person associated with the breached account.
@@ -75,14 +91,18 @@ module Falcon
 
     attr_accessor :social
 
+    # The ID of the user on the impacted site
     attr_accessor :user_id
 
+    # The IP of the user on the impacted site
     attr_accessor :user_ip
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'bot' => :'bot',
         :'company' => :'company',
+        :'credential_status' => :'credential_status',
         :'credentials_domain' => :'credentials_domain',
         :'credentials_ip' => :'credentials_ip',
         :'credentials_url' => :'credentials_url',
@@ -94,6 +114,7 @@ module Falcon
         :'job_position' => :'job_position',
         :'location' => :'location',
         :'login_id' => :'login_id',
+        :'malware_family' => :'malware_family',
         :'name' => :'name',
         :'password' => :'password',
         :'password_hash' => :'password_hash',
@@ -113,7 +134,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'bot' => :'DomainExposedDataRecordBotV1',
         :'company' => :'String',
+        :'credential_status' => :'String',
         :'credentials_domain' => :'String',
         :'credentials_ip' => :'String',
         :'credentials_url' => :'String',
@@ -125,6 +148,7 @@ module Falcon
         :'job_position' => :'String',
         :'location' => :'DomainExposedDataRecordLocationV1',
         :'login_id' => :'String',
+        :'malware_family' => :'String',
         :'name' => :'String',
         :'password' => :'String',
         :'password_hash' => :'String',
@@ -157,8 +181,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'bot')
+        self.bot = attributes[:'bot']
+      end
+
       if attributes.key?(:'company')
         self.company = attributes[:'company']
+      end
+
+      if attributes.key?(:'credential_status')
+        self.credential_status = attributes[:'credential_status']
       end
 
       if attributes.key?(:'credentials_domain')
@@ -203,6 +235,10 @@ module Falcon
 
       if attributes.key?(:'login_id')
         self.login_id = attributes[:'login_id']
+      end
+
+      if attributes.key?(:'malware_family')
+        self.malware_family = attributes[:'malware_family']
       end
 
       if attributes.key?(:'name')
@@ -291,7 +327,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          bot == o.bot &&
           company == o.company &&
+          credential_status == o.credential_status &&
           credentials_domain == o.credentials_domain &&
           credentials_ip == o.credentials_ip &&
           credentials_url == o.credentials_url &&
@@ -303,6 +341,7 @@ module Falcon
           job_position == o.job_position &&
           location == o.location &&
           login_id == o.login_id &&
+          malware_family == o.malware_family &&
           name == o.name &&
           password == o.password &&
           password_hash == o.password_hash &&
@@ -322,7 +361,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [company, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, financial, hash_type, job_position, location, login_id, name, password, password_hash, password_salt, phone, social, user_id, user_ip].hash
+      [bot, company, credential_status, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, financial, hash_type, job_position, location, login_id, malware_family, name, password, password_hash, password_salt, phone, social, user_id, user_ip].hash
     end
 
     # Builds the object from hash

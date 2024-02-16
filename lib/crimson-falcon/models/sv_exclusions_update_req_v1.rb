@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :is_descendant_process
+
     attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,6 +48,7 @@ module Falcon
         :'comment' => :'comment',
         :'groups' => :'groups',
         :'id' => :'id',
+        :'is_descendant_process' => :'is_descendant_process',
         :'value' => :'value'
       }
     end
@@ -61,6 +64,7 @@ module Falcon
         :'comment' => :'String',
         :'groups' => :'Array<String>',
         :'id' => :'String',
+        :'is_descendant_process' => :'Boolean',
         :'value' => :'String'
       }
     end
@@ -100,6 +104,10 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'is_descendant_process')
+        self.is_descendant_process = attributes[:'is_descendant_process']
+      end
+
       if attributes.key?(:'value')
         self.value = attributes[:'value']
       end
@@ -131,6 +139,7 @@ module Falcon
           comment == o.comment &&
           groups == o.groups &&
           id == o.id &&
+          is_descendant_process == o.is_descendant_process &&
           value == o.value
     end
 
@@ -143,7 +152,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comment, groups, id, value].hash
+      [comment, groups, id, is_descendant_process, value].hash
     end
 
     # Builds the object from hash

@@ -12,6 +12,7 @@
 | **fim** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
 | **firewall** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
 | **global_config** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
+| **host_retention** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
 | **identity_protection** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
 | **jumpcloud** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
 | **kubernetes_admission_control** | [**DeviceDevicePolicy**](DeviceDevicePolicy.md) |  | [optional] |
@@ -38,6 +39,7 @@ instance = Falcon::DeviceMappedDevicePolicies.new(
   fim: null,
   firewall: null,
   global_config: null,
+  host_retention: null,
   identity_protection: null,
   jumpcloud: null,
   kubernetes_admission_control: null,

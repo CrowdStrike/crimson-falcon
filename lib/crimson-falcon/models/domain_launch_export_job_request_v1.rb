@@ -32,7 +32,7 @@ require 'time'
 
 module Falcon
   class DomainLaunchExportJobRequestV1
-    # The entity type. This can be one of: [`notification-exposed-data-record`]
+    # The entity type. This can be one of: [`notification-exposed-data-record`, `historical-search-exposed-data-record`]
     attr_accessor :entity
 
     # The file type of the export. This can be one of: [`json`, `csv`]

@@ -13,6 +13,7 @@
 | **id** | **Integer** | Integer ID of the News document |  |
 | **image** | [**DomainImage**](DomainImage.md) |  | [optional] |
 | **last_modified_date** | **Integer** | Date of the news document last modification, unix timestampt |  |
+| **malware** | [**Array&lt;DomainReportMalware&gt;**](DomainReportMalware.md) | Malware mentioned, related or referenced in the news/report | [optional] |
 | **motivations** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) | News mentioned motivation or motivation of related actors and malware families |  |
 | **name** | **String** | News title |  |
 | **notify_users** | **Boolean** | internal field, not used | [optional] |
@@ -43,6 +44,7 @@ instance = Falcon::DomainNewsDocument.new(
   id: null,
   image: null,
   last_modified_date: null,
+  malware: null,
   motivations: null,
   name: null,
   notify_users: null,

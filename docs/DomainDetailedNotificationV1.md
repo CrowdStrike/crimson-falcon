@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **breach_details** | [**DomainBreachDetailsV1**](DomainBreachDetailsV1.md) |  | [optional] |
-| **details** | [**DomainNotificationDetailsV1**](DomainNotificationDetailsV1.md) |  | [optional] |
+| **details** | [**DomainItemDetailsV1**](DomainItemDetailsV1.md) |  | [optional] |
 | **id** | **String** |  |  |
 | **notification** | [**DomainNotificationV1**](DomainNotificationV1.md) |  |  |
 

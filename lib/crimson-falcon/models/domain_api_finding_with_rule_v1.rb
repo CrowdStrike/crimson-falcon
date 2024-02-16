@@ -39,6 +39,8 @@ module Falcon
 
     attr_accessor :host_id
 
+    attr_accessor :policy_host_groups
+
     attr_accessor :rule
 
     attr_accessor :status
@@ -51,6 +53,7 @@ module Falcon
         :'evaluation_logic_type' => :'evaluation_logic_type',
         :'evaluation_reason' => :'evaluation_reason',
         :'host_id' => :'host_id',
+        :'policy_host_groups' => :'policy_host_groups',
         :'rule' => :'rule',
         :'status' => :'status',
         :'status_since_timestamp' => :'status_since_timestamp'
@@ -68,6 +71,7 @@ module Falcon
         :'evaluation_logic_type' => :'String',
         :'evaluation_reason' => :'String',
         :'host_id' => :'String',
+        :'policy_host_groups' => :'Array<String>',
         :'rule' => :'DomainAPIFindingRuleV1',
         :'status' => :'String',
         :'status_since_timestamp' => :'String'
@@ -107,6 +111,12 @@ module Falcon
         self.host_id = attributes[:'host_id']
       end
 
+      if attributes.key?(:'policy_host_groups')
+        if (value = attributes[:'policy_host_groups']).is_a?(Array)
+          self.policy_host_groups = value
+        end
+      end
+
       if attributes.key?(:'rule')
         self.rule = attributes[:'rule']
       end
@@ -141,6 +151,7 @@ module Falcon
           evaluation_logic_type == o.evaluation_logic_type &&
           evaluation_reason == o.evaluation_reason &&
           host_id == o.host_id &&
+          policy_host_groups == o.policy_host_groups &&
           rule == o.rule &&
           status == o.status &&
           status_since_timestamp == o.status_since_timestamp
@@ -155,7 +166,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [evaluation_logic_type, evaluation_reason, host_id, rule, status, status_since_timestamp].hash
+      [evaluation_logic_type, evaluation_reason, host_id, policy_host_groups, rule, status, status_since_timestamp].hash
     end
 
     # Builds the object from hash

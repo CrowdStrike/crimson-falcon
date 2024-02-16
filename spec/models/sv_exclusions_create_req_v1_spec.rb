@@ -54,6 +54,12 @@ describe Falcon::SvExclusionsCreateReqV1 do
     end
   end
 
+  describe 'test attribute "is_descendant_process"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "value"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

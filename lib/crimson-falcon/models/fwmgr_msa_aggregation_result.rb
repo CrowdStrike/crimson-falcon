@@ -34,6 +34,8 @@ module Falcon
   class FwmgrMsaAggregationResult
     attr_accessor :buckets
 
+    attr_accessor :doc_count_error_upper_bound
+
     attr_accessor :name
 
     attr_accessor :sum_other_doc_count
@@ -42,6 +44,7 @@ module Falcon
     def self.attribute_map
       {
         :'buckets' => :'buckets',
+        :'doc_count_error_upper_bound' => :'doc_count_error_upper_bound',
         :'name' => :'name',
         :'sum_other_doc_count' => :'sum_other_doc_count'
       }
@@ -56,6 +59,7 @@ module Falcon
     def self.openapi_types
       {
         :'buckets' => :'Array<FwmgrMsaAggregationResultItem>',
+        :'doc_count_error_upper_bound' => :'Integer',
         :'name' => :'String',
         :'sum_other_doc_count' => :'Integer'
       }
@@ -86,6 +90,10 @@ module Falcon
         if (value = attributes[:'buckets']).is_a?(Array)
           self.buckets = value
         end
+      end
+
+      if attributes.key?(:'doc_count_error_upper_bound')
+        self.doc_count_error_upper_bound = attributes[:'doc_count_error_upper_bound']
       end
 
       if attributes.key?(:'name')
@@ -126,6 +134,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           buckets == o.buckets &&
+          doc_count_error_upper_bound == o.doc_count_error_upper_bound &&
           name == o.name &&
           sum_other_doc_count == o.sum_other_doc_count
     end
@@ -139,7 +148,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [buckets, name, sum_other_doc_count].hash
+      [buckets, doc_count_error_upper_bound, name, sum_other_doc_count].hash
     end
 
     # Builds the object from hash

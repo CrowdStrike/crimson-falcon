@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :cloudtrail_region
 
+    attr_accessor :environment
+
     attr_accessor :iam_role_arn
 
     attr_accessor :remediation_region
@@ -52,6 +54,7 @@ module Falcon
         :'account_id' => :'account_id',
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cloudtrail_region' => :'cloudtrail_region',
+        :'environment' => :'environment',
         :'iam_role_arn' => :'iam_role_arn',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
@@ -70,6 +73,7 @@ module Falcon
         :'account_id' => :'String',
         :'behavior_assessment_enabled' => :'Boolean',
         :'cloudtrail_region' => :'String',
+        :'environment' => :'String',
         :'iam_role_arn' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
@@ -108,6 +112,10 @@ module Falcon
 
       if attributes.key?(:'cloudtrail_region')
         self.cloudtrail_region = attributes[:'cloudtrail_region']
+      end
+
+      if attributes.key?(:'environment')
+        self.environment = attributes[:'environment']
       end
 
       if attributes.key?(:'iam_role_arn')
@@ -158,6 +166,7 @@ module Falcon
           account_id == o.account_id &&
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cloudtrail_region == o.cloudtrail_region &&
+          environment == o.environment &&
           iam_role_arn == o.iam_role_arn &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
@@ -173,7 +182,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, behavior_assessment_enabled, cloudtrail_region, iam_role_arn, remediation_region, remediation_tou_accepted, sensor_management_enabled].hash
+      [account_id, behavior_assessment_enabled, cloudtrail_region, environment, iam_role_arn, remediation_region, remediation_tou_accepted, sensor_management_enabled].hash
     end
 
     # Builds the object from hash

@@ -32,6 +32,7 @@ require 'time'
 
 module Falcon
   class DetectsapiPostEntitiesAlertsV1Request
+    # IDs represent the slice of Alert IDs that would be looked up
     attr_accessor :ids
 
     # Attribute mapping from ruby-style variable name to JSON key.

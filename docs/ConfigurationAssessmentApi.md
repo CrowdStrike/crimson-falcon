@@ -5,6 +5,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_combined_assessments_query**](ConfigurationAssessmentApi.md#get_combined_assessments_query) | **GET** /configuration-assessment/combined/assessments/v1 | Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria |
+| [**get_rule_details**](ConfigurationAssessmentApi.md#get_rule_details) | **GET** /configuration-assessment/entities/rule-details/v1 | Get rules details for provided one or more rule IDs |
 
 
 ## get_combined_assessments_query
@@ -75,6 +76,75 @@ end
 ### Return type
 
 [**DomainAPICombinedFindingsResponseV1**](DomainAPICombinedFindingsResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_rule_details
+
+> <DomainAPIRuleDetailsResponseV1> get_rule_details(ids)
+
+Get rules details for provided one or more rule IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ConfigurationAssessmentApi.new
+ids = ['inner_example'] # Array<String> | One or more rules IDs (max: 400)
+
+begin
+  # Get rules details for provided one or more rule IDs
+  result = api_instance.get_rule_details(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ConfigurationAssessmentApi->get_rule_details: #{e}"
+end
+```
+
+#### Using the get_rule_details_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainAPIRuleDetailsResponseV1>, Integer, Hash)> get_rule_details_with_http_info(ids)
+
+```ruby
+begin
+  # Get rules details for provided one or more rule IDs
+  data, status_code, headers = api_instance.get_rule_details_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainAPIRuleDetailsResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ConfigurationAssessmentApi->get_rule_details_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | One or more rules IDs (max: 400) |  |
+
+### Return type
+
+[**DomainAPIRuleDetailsResponseV1**](DomainAPIRuleDetailsResponseV1.md)
 
 ### Authorization
 

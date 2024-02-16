@@ -42,19 +42,19 @@ describe Falcon::DomainSchedule do
       expect(instance).to be_instance_of(Falcon::DomainSchedule)
     end
   end
-  describe 'test attribute "can_stagger"' do
+  describe 'test attribute "ignored_by_channelfile"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "definition"' do
+  describe 'test attribute "interval"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "display"' do
+  describe 'test attribute "start_timestamp"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

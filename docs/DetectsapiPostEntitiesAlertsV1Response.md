@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
 | **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
-| **resources** | [**Array&lt;DetectsAlert&gt;**](DetectsAlert.md) |  |  |
+| **resources** | [**Array&lt;DetectsAlert&gt;**](DetectsAlert.md) | Resources represent the slice of Alerts that were retrieved for the given Alert IDs |  |
 
 ## Example
 

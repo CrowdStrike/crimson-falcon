@@ -31,6 +31,8 @@
 | **description** | **String** |  | [optional] |
 | **event_type** | **String** |  | [optional] |
 | **fql_policy** | **String** |  | [optional] |
+| **hipaa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **hitrust_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
 | **internal_only** | **Boolean** |  | [optional] |
 | **is_enabled** | **Boolean** |  |  |
 | **is_remediable** | **Boolean** |  |  |
@@ -89,6 +91,8 @@ instance = Falcon::DomainPolicyInfo.new(
   description: null,
   event_type: null,
   fql_policy: null,
+  hipaa_benchmark_ids: null,
+  hitrust_benchmark_ids: null,
   internal_only: null,
   is_enabled: null,
   is_remediable: null,

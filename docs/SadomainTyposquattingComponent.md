@@ -8,7 +8,8 @@
 | **id** | **String** | The ID of the infrastructure component |  |
 | **parent_domain** | [**SadomainTyposquattingParentDomain**](SadomainTyposquattingParentDomain.md) |  |  |
 | **punycode_format** | **String** | The Punycode representation of the infrastructure component, i.e. starting with &#x60;xn--&#x60; |  |
-| **submit_for_blocking_info** | [**SadomainSubmitForBlockingInfo**](SadomainSubmitForBlockingInfo.md) |  | [optional] |
+| **submit_for_blocking_info** | [**SadomainSubmissionInformation**](SadomainSubmissionInformation.md) |  | [optional] |
+| **submit_for_takedown_info** | [**SadomainSubmissionInformation**](SadomainSubmissionInformation.md) |  | [optional] |
 | **unicode_format** | **String** | The Unicode representation of the infrastructure component |  |
 
 ## Example
@@ -22,6 +23,7 @@ instance = Falcon::SadomainTyposquattingComponent.new(
   parent_domain: null,
   punycode_format: null,
   submit_for_blocking_info: null,
+  submit_for_takedown_info: null,
   unicode_format: null
 )
 ```

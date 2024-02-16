@@ -4,7 +4,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_notifications_exposed_data_records_v1**](ReconApi.md#aggregate_notifications_exposed_data_records_v1) | **POST** /recon/aggregates/notifications-exposed-data-records/GET/v1 | Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name] |
+| [**aggregate_notifications_exposed_data_records_v1**](ReconApi.md#aggregate_notifications_exposed_data_records_v1) | **POST** /recon/aggregates/notifications-exposed-data-records/GET/v1 | Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id] |
 | [**aggregate_notifications_v1**](ReconApi.md#aggregate_notifications_v1) | **POST** /recon/aggregates/notifications/GET/v1 | Get notification aggregates as specified via JSON in request body. |
 | [**create_actions_v1**](ReconApi.md#create_actions_v1) | **POST** /recon/entities/actions/v1 | Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule. |
 | [**create_export_jobs_v1**](ReconApi.md#create_export_jobs_v1) | **POST** /recon/entities/exports/v1 | Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1. |
@@ -36,7 +36,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 > <DomainAggregatesResponse> aggregate_notifications_exposed_data_records_v1(body)
 
-Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
+Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
 
 ### Examples
 
@@ -55,7 +55,7 @@ api_instance = Falcon::ReconApi.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
-  # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
+  # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
   result = api_instance.aggregate_notifications_exposed_data_records_v1(body)
   p result
 rescue Falcon::ApiError => e
@@ -71,7 +71,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name]
+  # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
   data, status_code, headers = api_instance.aggregate_notifications_exposed_data_records_v1_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1450,7 +1450,7 @@ opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
   sort: 'sort_example', # String | Possible order by fields: created_date, updated_date. Ex: 'updated_date|desc'.
-  filter: 'filter_example', # String | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id _all]
+  filter: 'filter_example', # String | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id]
   q: 'q_example' # String | Free text search across all indexed fields.
 }
 
@@ -1488,7 +1488,7 @@ end
 | **offset** | **Integer** | Starting index of overall result set from which to return ids. | [optional] |
 | **limit** | **Integer** | Number of IDs to return. Offset + limit should NOT be above 10K. | [optional] |
 | **sort** | **String** | Possible order by fields: created_date, updated_date. Ex: &#39;updated_date|desc&#39;. | [optional] |
-| **filter** | **String** | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id _all] | [optional] |
+| **filter** | **String** | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id] | [optional] |
 | **q** | **String** | Free text search across all indexed fields. | [optional] |
 
 ### Return type
@@ -1529,7 +1529,7 @@ opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
   sort: 'sort_example', # String | Possible order by fields: `created_date`, `updated_date`. Ex: `updated_date|desc`.
-  filter: 'filter_example', # String | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid status rule_id rule_name rule_topic rule_priority item_type item_site typosquatting.id typosquatting.unicode_format typosquatting.punycode_format typosquatting.parent_domain.id typosquatting.parent_domain.unicode_format typosquatting.parent_domain.punycode_format typosquatting.base_domain.id typosquatting.base_domain.unicode_format typosquatting.base_domain.punycode_format typosquatting.base_domain.is_registered typosquatting.base_domain.whois.registrar.name typosquatting.base_domain.whois.registrar.status typosquatting.base_domain.whois.registrant.email typosquatting.base_domain.whois.registrant.name typosquatting.base_domain.whois.registrant.org typosquatting.base_domain.whois.name_servers created_date updated_date assigned_to_uuid]
+  filter: 'filter_example', # String | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid status rule_id rule_name rule_topic rule_priority item_type item_site typosquatting.id typosquatting.unicode_format typosquatting.punycode_format typosquatting.parent_domain.id typosquatting.parent_domain.unicode_format typosquatting.parent_domain.punycode_format typosquatting.base_domain.id typosquatting.base_domain.unicode_format typosquatting.base_domain.punycode_format typosquatting.base_domain.is_registered typosquatting.base_domain.whois.registrar.name typosquatting.base_domain.whois.registrar.status typosquatting.base_domain.whois.registrant.email typosquatting.base_domain.whois.registrant.name typosquatting.base_domain.whois.registrant.org typosquatting.base_domain.whois.name_servers created_date updated_date assigned_to_uuid breach_summary.credential_statuses breach_summary.is_retroactively_deduped]
   q: 'q_example' # String | Free text search across all indexed fields.
 }
 
@@ -1567,7 +1567,7 @@ end
 | **offset** | **Integer** | Starting index of overall result set from which to return IDs. | [optional] |
 | **limit** | **Integer** | Number of IDs to return. Offset + limit should NOT be above 10K. | [optional] |
 | **sort** | **String** | Possible order by fields: &#x60;created_date&#x60;, &#x60;updated_date&#x60;. Ex: &#x60;updated_date|desc&#x60;. | [optional] |
-| **filter** | **String** | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid status rule_id rule_name rule_topic rule_priority item_type item_site typosquatting.id typosquatting.unicode_format typosquatting.punycode_format typosquatting.parent_domain.id typosquatting.parent_domain.unicode_format typosquatting.parent_domain.punycode_format typosquatting.base_domain.id typosquatting.base_domain.unicode_format typosquatting.base_domain.punycode_format typosquatting.base_domain.is_registered typosquatting.base_domain.whois.registrar.name typosquatting.base_domain.whois.registrar.status typosquatting.base_domain.whois.registrant.email typosquatting.base_domain.whois.registrant.name typosquatting.base_domain.whois.registrant.org typosquatting.base_domain.whois.name_servers created_date updated_date assigned_to_uuid] | [optional] |
+| **filter** | **String** | FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid status rule_id rule_name rule_topic rule_priority item_type item_site typosquatting.id typosquatting.unicode_format typosquatting.punycode_format typosquatting.parent_domain.id typosquatting.parent_domain.unicode_format typosquatting.parent_domain.punycode_format typosquatting.base_domain.id typosquatting.base_domain.unicode_format typosquatting.base_domain.punycode_format typosquatting.base_domain.is_registered typosquatting.base_domain.whois.registrar.name typosquatting.base_domain.whois.registrar.status typosquatting.base_domain.whois.registrant.email typosquatting.base_domain.whois.registrant.name typosquatting.base_domain.whois.registrant.org typosquatting.base_domain.whois.name_servers created_date updated_date assigned_to_uuid breach_summary.credential_statuses breach_summary.is_retroactively_deduped] | [optional] |
 | **q** | **String** | Free text search across all indexed fields. | [optional] |
 
 ### Return type

@@ -10,6 +10,7 @@
 | **config_id_build** | **String** |  | [optional] |
 | **config_id_platform** | **String** |  | [optional] |
 | **device_id** | **String** |  |  |
+| **device_policies** | [**DomainMappedDevicePolicies**](DomainMappedDevicePolicies.md) |  | [optional] |
 | **external_ip** | **String** |  | [optional] |
 | **first_login_timestamp** | **String** |  | [optional] |
 | **first_login_user** | **String** |  | [optional] |
@@ -51,6 +52,7 @@ instance = Falcon::DomainDevice.new(
   config_id_build: null,
   config_id_platform: null,
   device_id: null,
+  device_policies: null,
   external_ip: null,
   first_login_timestamp: null,
   first_login_user: null,

@@ -13,6 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_malicious_files_by_ids**](OdsApi.md#get_malicious_files_by_ids) | **GET** /ods/entities/malicious-files/v1 | Get malicious files by ids. |
 | [**get_scan_host_metadata_by_ids**](OdsApi.md#get_scan_host_metadata_by_ids) | **GET** /ods/entities/scan-hosts/v1 | Get scan hosts by ids. |
 | [**get_scans_by_scan_ids**](OdsApi.md#get_scans_by_scan_ids) | **GET** /ods/entities/scans/v1 | Get Scans by IDs. |
+| [**get_scans_by_scan_ids_v2**](OdsApi.md#get_scans_by_scan_ids_v2) | **GET** /ods/entities/scans/v2 | Get Scans by IDs. |
 | [**get_scheduled_scans_by_scan_ids**](OdsApi.md#get_scheduled_scans_by_scan_ids) | **GET** /ods/entities/scheduled-scans/v1 | Get ScheduledScans by IDs. |
 | [**query_malicious_files**](OdsApi.md#query_malicious_files) | **GET** /ods/queries/malicious-files/v1 | Query malicious files. |
 | [**query_scan_host_metadata**](OdsApi.md#query_scan_host_metadata) | **GET** /ods/queries/scan-hosts/v1 | Query scan hosts. |
@@ -646,6 +647,75 @@ end
 - **Accept**: application/json
 
 
+## get_scans_by_scan_ids_v2
+
+> <EntitiesODSScanResponseV2> get_scans_by_scan_ids_v2(ids)
+
+Get Scans by IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::OdsApi.new
+ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
+
+begin
+  # Get Scans by IDs.
+  result = api_instance.get_scans_by_scan_ids_v2(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling OdsApi->get_scans_by_scan_ids_v2: #{e}"
+end
+```
+
+#### Using the get_scans_by_scan_ids_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<EntitiesODSScanResponseV2>, Integer, Hash)> get_scans_by_scan_ids_v2_with_http_info(ids)
+
+```ruby
+begin
+  # Get Scans by IDs.
+  data, status_code, headers = api_instance.get_scans_by_scan_ids_v2_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <EntitiesODSScanResponseV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling OdsApi->get_scans_by_scan_ids_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The scan IDs to retrieve the scan entities |  |
+
+### Return type
+
+[**EntitiesODSScanResponseV2**](EntitiesODSScanResponseV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_scheduled_scans_by_scan_ids
 
 > <EntitiesODSScheduleScanResponse> get_scheduled_scans_by_scan_ids(ids)
@@ -813,7 +883,7 @@ end
 
 api_instance = Falcon::OdsApi.new
 opts = {
-  filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated]
+  filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
   offset: 56, # Integer | Index of the starting resource
   limit: 56, # Integer | The max number of resources to return
   sort: 'id|asc' # String | The property to sort on, followed by a |, followed by the sort direction, either \"asc\" or \"desc\"
@@ -850,7 +920,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated] | [optional] |
+| **filter** | **String** | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason] | [optional] |
 | **offset** | **Integer** | Index of the starting resource | [optional][default to 0] |
 | **limit** | **Integer** | The max number of resources to return | [optional][default to 500] |
 | **sort** | **String** | The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; | [optional][default to &#39;last_updated|desc&#39;] |
@@ -890,7 +960,7 @@ end
 
 api_instance = Falcon::OdsApi.new
 opts = {
-  filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated]
+  filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
   offset: 56, # Integer | Index of the starting resource
   limit: 56, # Integer | The max number of resources to return
   sort: 'id|asc' # String | The property to sort on, followed by a |, followed by the sort direction, either \"asc\" or \"desc\"
@@ -927,7 +997,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated] | [optional] |
+| **filter** | **String** | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count] | [optional] |
 | **offset** | **Integer** | Index of the starting resource | [optional][default to 0] |
 | **limit** | **Integer** | The max number of resources to return | [optional][default to 500] |
 | **sort** | **String** | The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; | [optional][default to &#39;created_on|desc&#39;] |
@@ -1043,7 +1113,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::OdsApi.new
-body = Falcon::EntitiesODSScheduleScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], schedule: Falcon::DomainSchedule.new({can_stagger: false, definition: 'definition_example', display: 'display_example'}), sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScheduleScanRequest | 
+body = Falcon::EntitiesODSScheduleScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], schedule: Falcon::DomainSchedule.new, sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScheduleScanRequest | 
 
 begin
   # Create ODS scan and start or schedule scan for the given scan request.

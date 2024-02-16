@@ -16,7 +16,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## audit_events_query
 
-> <MsaQueryResponse> audit_events_query(opts)
+> <MsaspecQueryResponse> audit_events_query(opts)
 
 Search for audit events by providing an FQL filter and paging details.
 
@@ -54,7 +54,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> audit_events_query_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> audit_events_query_with_http_info(opts)
 
 ```ruby
 begin
@@ -62,7 +62,7 @@ begin
   data, status_code, headers = api_instance.audit_events_query_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokensApi->audit_events_query_with_http_info: #{e}"
 end
@@ -79,7 +79,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -299,7 +299,7 @@ end
 
 ## tokens_delete
 
-> <MsaReplyMetaOnly> tokens_delete(ids)
+> <MsaspecResponseFields> tokens_delete(ids)
 
 Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
 
@@ -332,7 +332,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> tokens_delete_with_http_info(ids)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> tokens_delete_with_http_info(ids)
 
 ```ruby
 begin
@@ -340,7 +340,7 @@ begin
   data, status_code, headers = api_instance.tokens_delete_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokensApi->tokens_delete_with_http_info: #{e}"
 end
@@ -354,7 +354,7 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ end
 
 ## tokens_query
 
-> <MsaQueryResponse> tokens_query(opts)
+> <MsaspecQueryResponse> tokens_query(opts)
 
 Search for tokens by providing an FQL filter and paging details.
 
@@ -406,7 +406,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> tokens_query_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> tokens_query_with_http_info(opts)
 
 ```ruby
 begin
@@ -414,7 +414,7 @@ begin
   data, status_code, headers = api_instance.tokens_query_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokensApi->tokens_query_with_http_info: #{e}"
 end
@@ -431,7 +431,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
@@ -516,7 +516,7 @@ end
 
 ## tokens_update
 
-> <MsaQueryResponse> tokens_update(ids, body)
+> <MsaspecQueryResponse> tokens_update(ids, body)
 
 Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
 
@@ -550,7 +550,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> tokens_update_with_http_info(ids, body)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> tokens_update_with_http_info(ids, body)
 
 ```ruby
 begin
@@ -558,7 +558,7 @@ begin
   data, status_code, headers = api_instance.tokens_update_with_http_info(ids, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokensApi->tokens_update_with_http_info: #{e}"
 end
@@ -573,7 +573,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 

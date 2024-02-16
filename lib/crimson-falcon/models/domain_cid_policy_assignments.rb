@@ -60,6 +60,10 @@ module Falcon
 
     attr_accessor :fql_policy
 
+    attr_accessor :hipaa_benchmark
+
+    attr_accessor :hitrust_benchmark
+
     attr_accessor :is_remediable
 
     attr_accessor :iso_benchmark
@@ -101,6 +105,8 @@ module Falcon
         :'created_at' => :'created_at',
         :'default_severity' => :'default_severity',
         :'fql_policy' => :'fql_policy',
+        :'hipaa_benchmark' => :'hipaa_benchmark',
+        :'hitrust_benchmark' => :'hitrust_benchmark',
         :'is_remediable' => :'is_remediable',
         :'iso_benchmark' => :'iso_benchmark',
         :'name' => :'name',
@@ -138,6 +144,8 @@ module Falcon
         :'created_at' => :'Time',
         :'default_severity' => :'String',
         :'fql_policy' => :'String',
+        :'hipaa_benchmark' => :'Array<DomainBenchmark>',
+        :'hitrust_benchmark' => :'Array<DomainBenchmark>',
         :'is_remediable' => :'Boolean',
         :'iso_benchmark' => :'Array<DomainBenchmark>',
         :'name' => :'String',
@@ -236,6 +244,18 @@ module Falcon
         self.fql_policy = attributes[:'fql_policy']
       end
 
+      if attributes.key?(:'hipaa_benchmark')
+        if (value = attributes[:'hipaa_benchmark']).is_a?(Array)
+          self.hipaa_benchmark = value
+        end
+      end
+
+      if attributes.key?(:'hitrust_benchmark')
+        if (value = attributes[:'hitrust_benchmark']).is_a?(Array)
+          self.hitrust_benchmark = value
+        end
+      end
+
       if attributes.key?(:'is_remediable')
         self.is_remediable = attributes[:'is_remediable']
       end
@@ -332,6 +352,8 @@ module Falcon
           created_at == o.created_at &&
           default_severity == o.default_severity &&
           fql_policy == o.fql_policy &&
+          hipaa_benchmark == o.hipaa_benchmark &&
+          hitrust_benchmark == o.hitrust_benchmark &&
           is_remediable == o.is_remediable &&
           iso_benchmark == o.iso_benchmark &&
           name == o.name &&
@@ -355,7 +377,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_scope, attack_types, cid, cis_benchmark, cisa_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_subtype, created_at, default_severity, fql_policy, is_remediable, iso_benchmark, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
+      [account_scope, attack_types, cid, cis_benchmark, cisa_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_subtype, created_at, default_severity, fql_policy, hipaa_benchmark, hitrust_benchmark, is_remediable, iso_benchmark, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
     end
 
     # Builds the object from hash

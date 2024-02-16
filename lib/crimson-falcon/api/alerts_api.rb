@@ -40,10 +40,10 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [String] :sort Sort detections in either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.
-    # @option opts [String] :filter Filter detections using a query in Falcon Query Language (FQL). An asterisk wildcard &#x60;*&#x60; includes all results.   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
+    # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
+    # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all detection metadata for the provided string
-    # @return [MsaspecQueryResponse]
+    # @return [DetectsapiAlertQueryResponse]
     def get_queries_alerts_v1(opts = {})
       data, _status_code, _headers = get_queries_alerts_v1_with_http_info(opts)
       data
@@ -53,10 +53,10 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [String] :sort Sort detections in either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.
-    # @option opts [String] :filter Filter detections using a query in Falcon Query Language (FQL). An asterisk wildcard &#x60;*&#x60; includes all results.   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
+    # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
+    # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all detection metadata for the provided string
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
     def get_queries_alerts_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlertsApi.get_queries_alerts_v1 ...'
@@ -92,7 +92,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'DetectsapiAlertQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -114,19 +114,100 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # retrieves all Alerts ids that match a given query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
+    # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
+    # @option opts [String] :q Search all detection metadata for the provided string
+    # @return [DetectsapiAlertQueryResponse]
+    def get_queries_alerts_v2(opts = {})
+      data, _status_code, _headers = get_queries_alerts_v2_with_http_info(opts)
+      data
+    end
+
+    # retrieves all Alerts ids that match a given query
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
+    # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
+    # @option opts [String] :q Search all detection metadata for the provided string
+    # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
+    def get_queries_alerts_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AlertsApi.get_queries_alerts_v2 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 10000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v2, must be smaller than or equal to 10000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v2, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/alerts/queries/alerts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_hidden'] = opts[:'include_hidden'] if !opts[:'include_hidden'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DetectsapiAlertQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AlertsApi.get_queries_alerts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AlertsApi#get_queries_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
     # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
     # @param [Hash] opts the optional parameters
-    # @return [MsaspecResponseFields]
+    # @return [DetectsapiResponseFields]
     def patch_entities_alerts_v2(body, opts = {})
       data, _status_code, _headers = patch_entities_alerts_v2_with_http_info(body, opts)
       data
     end
 
-    # Perform actions on detections identified by detection ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
     # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
+    # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
     def patch_entities_alerts_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlertsApi.patch_entities_alerts_v2 ...'
@@ -158,7 +239,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
+      return_type = opts[:debug_return_type] || 'DetectsapiResponseFields'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -180,19 +261,88 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves aggregates for Alerts across all CIDs
-    # @param body [Array<MsaAggregateQueryRequest>] request body takes a list of aggregation query requests
+    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # @param body [DetectsapiPatchEntitiesAlertsV3Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
     # @param [Hash] opts the optional parameters
-    # @return [ApiAggregatesResponse]
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [DetectsapiResponseFields]
+    def patch_entities_alerts_v3(body, opts = {})
+      data, _status_code, _headers = patch_entities_alerts_v3_with_http_info(body, opts)
+      data
+    end
+
+    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # @param body [DetectsapiPatchEntitiesAlertsV3Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
+    def patch_entities_alerts_v3_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AlertsApi.patch_entities_alerts_v3 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.patch_entities_alerts_v3"
+      end
+      # resource path
+      local_var_path = '/alerts/entities/alerts/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_hidden'] = opts[:'include_hidden'] if !opts[:'include_hidden'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DetectsapiResponseFields'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AlertsApi.patch_entities_alerts_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AlertsApi#patch_entities_alerts_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # retrieves aggregate values for Alerts across all CIDs
+    # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
+    # @param [Hash] opts the optional parameters
+    # @return [DetectsapiAggregatesResponse]
     def post_aggregates_alerts_v1(body, opts = {})
       data, _status_code, _headers = post_aggregates_alerts_v1_with_http_info(body, opts)
       data
     end
 
-    # retrieves aggregates for Alerts across all CIDs
-    # @param body [Array<MsaAggregateQueryRequest>] request body takes a list of aggregation query requests
+    # retrieves aggregate values for Alerts across all CIDs
+    # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiAggregatesResponse, Integer, Hash)>] ApiAggregatesResponse data, response status code and response headers
+    # @return [Array<(DetectsapiAggregatesResponse, Integer, Hash)>] DetectsapiAggregatesResponse data, response status code and response headers
     def post_aggregates_alerts_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlertsApi.post_aggregates_alerts_v1 ...'
@@ -224,7 +374,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiAggregatesResponse'
+      return_type = opts[:debug_return_type] || 'DetectsapiAggregatesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -242,6 +392,75 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AlertsApi#post_aggregates_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # retrieves aggregate values for Alerts across all CIDs
+    # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [DetectsapiAggregatesResponse]
+    def post_aggregates_alerts_v2(body, opts = {})
+      data, _status_code, _headers = post_aggregates_alerts_v2_with_http_info(body, opts)
+      data
+    end
+
+    # retrieves aggregate values for Alerts across all CIDs
+    # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [Array<(DetectsapiAggregatesResponse, Integer, Hash)>] DetectsapiAggregatesResponse data, response status code and response headers
+    def post_aggregates_alerts_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AlertsApi.post_aggregates_alerts_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_aggregates_alerts_v2"
+      end
+      # resource path
+      local_var_path = '/alerts/aggregates/alerts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_hidden'] = opts[:'include_hidden'] if !opts[:'include_hidden'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DetectsapiAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AlertsApi.post_aggregates_alerts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AlertsApi#post_aggregates_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -308,6 +527,75 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AlertsApi#post_entities_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # retrieves all Alerts given their composite ids
+    # @param body [DetectsapiPostEntitiesAlertsV2Request]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [DetectsapiPostEntitiesAlertsV2Response]
+    def post_entities_alerts_v2(body, opts = {})
+      data, _status_code, _headers = post_entities_alerts_v2_with_http_info(body, opts)
+      data
+    end
+
+    # retrieves all Alerts given their composite ids
+    # @param body [DetectsapiPostEntitiesAlertsV2Request]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
+    # @return [Array<(DetectsapiPostEntitiesAlertsV2Response, Integer, Hash)>] DetectsapiPostEntitiesAlertsV2Response data, response status code and response headers
+    def post_entities_alerts_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AlertsApi.post_entities_alerts_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_entities_alerts_v2"
+      end
+      # resource path
+      local_var_path = '/alerts/entities/alerts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'include_hidden'] = opts[:'include_hidden'] if !opts[:'include_hidden'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DetectsapiPostEntitiesAlertsV2Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"AlertsApi.post_entities_alerts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AlertsApi#post_entities_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

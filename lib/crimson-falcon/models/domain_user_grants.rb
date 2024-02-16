@@ -155,24 +155,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @cid.nil?
-        invalid_properties.push('invalid value for "cid", cid cannot be nil.')
-      end
-
-      if @grant_type.nil?
-        invalid_properties.push('invalid value for "grant_type", grant_type cannot be nil.')
-      end
-
       if @role_id.nil?
         invalid_properties.push('invalid value for "role_id", role_id cannot be nil.')
-      end
-
-      if @role_name.nil?
-        invalid_properties.push('invalid value for "role_name", role_name cannot be nil.')
-      end
-
-      if @uuid.nil?
-        invalid_properties.push('invalid value for "uuid", uuid cannot be nil.')
       end
 
       invalid_properties
@@ -181,11 +165,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @cid.nil?
-      return false if @grant_type.nil?
       return false if @role_id.nil?
-      return false if @role_name.nil?
-      return false if @uuid.nil?
       true
     end
 

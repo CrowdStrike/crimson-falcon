@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **ids** | **Array&lt;String&gt;** |  |  |
+| **ids** | **Array&lt;String&gt;** | IDs represent the slice of Alert IDs that would be looked up |  |
 
 ## Example
 

@@ -509,6 +509,232 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get the number of devices the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param [Hash] opts the optional parameters
+    # @return [ApiDeviceCountRespV1]
+    def indicator_get_device_count_v1(type, value, opts = {})
+      data, _status_code, _headers = indicator_get_device_count_v1_with_http_info(type, value, opts)
+      data
+    end
+
+    # Get the number of devices the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiDeviceCountRespV1, Integer, Hash)>] ApiDeviceCountRespV1 data, response status code and response headers
+    def indicator_get_device_count_v1_with_http_info(type, value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_device_count_v1 ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_device_count_v1"
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_device_count_v1"
+      end
+      # resource path
+      local_var_path = '/iocs/aggregates/indicators/device-count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+      query_params[:'value'] = value
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeviceCountRespV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IocApi.indicator_get_device_count_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IocApi#indicator_get_device_count_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the IDs of devices the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+    # @return [ApiDevicesRanOnRespV1]
+    def indicator_get_devices_ran_on_v1(type, value, opts = {})
+      data, _status_code, _headers = indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+      data
+    end
+
+    # Get the IDs of devices the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+    # @return [Array<(ApiDevicesRanOnRespV1, Integer, Hash)>] ApiDevicesRanOnRespV1 data, response status code and response headers
+    def indicator_get_devices_ran_on_v1_with_http_info(type, value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_devices_ran_on_v1 ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_devices_ran_on_v1"
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_devices_ran_on_v1"
+      end
+      # resource path
+      local_var_path = '/iocs/queries/indicators/devices/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+      query_params[:'value'] = value
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDevicesRanOnRespV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IocApi.indicator_get_devices_ran_on_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IocApi#indicator_get_devices_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the number of processes the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param device_id [String] Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+    # @return [ApiProcessesRanOnRespV1]
+    def indicator_get_processes_ran_on_v1(type, value, device_id, opts = {})
+      data, _status_code, _headers = indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+      data
+    end
+
+    # Get the number of processes the indicator has run on
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param value [String] The string representation of the indicator
+    # @param device_id [String] Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+    # @option opts [String] :offset The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+    # @return [Array<(ApiProcessesRanOnRespV1, Integer, Hash)>] ApiProcessesRanOnRespV1 data, response status code and response headers
+    def indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_processes_ran_on_v1 ...'
+      end
+      # verify the required parameter 'type' is set
+      if @api_client.config.client_side_validation && type.nil?
+        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_processes_ran_on_v1"
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_processes_ran_on_v1"
+      end
+      # verify the required parameter 'device_id' is set
+      if @api_client.config.client_side_validation && device_id.nil?
+        fail ArgumentError, "Missing the required parameter 'device_id' when calling IocApi.indicator_get_processes_ran_on_v1"
+      end
+      # resource path
+      local_var_path = '/iocs/queries/indicators/processes/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = type
+      query_params[:'value'] = value
+      query_params[:'device_id'] = device_id
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiProcessesRanOnRespV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IocApi.indicator_get_processes_ran_on_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IocApi#indicator_get_processes_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get Indicators by ids.
     # @param ids [Array<String>] The ids of the Indicators to retrieve
     # @param [Hash] opts the optional parameters

@@ -88,8 +88,6 @@ module Falcon
 
     attr_accessor :users
 
-    attr_accessor :visibility
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -120,8 +118,7 @@ module Falcon
         :'tactics' => :'tactics',
         :'tags' => :'tags',
         :'techniques' => :'techniques',
-        :'users' => :'users',
-        :'visibility' => :'visibility'
+        :'users' => :'users'
       }
     end
 
@@ -160,8 +157,7 @@ module Falcon
         :'tactics' => :'Array<String>',
         :'tags' => :'Array<String>',
         :'techniques' => :'Array<String>',
-        :'users' => :'Array<String>',
-        :'visibility' => :'Integer'
+        :'users' => :'Array<String>'
       }
     end
 
@@ -317,10 +313,6 @@ module Falcon
           self.users = value
         end
       end
-
-      if attributes.key?(:'visibility')
-        self.visibility = attributes[:'visibility']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -408,8 +400,7 @@ module Falcon
           tactics == o.tactics &&
           tags == o.tags &&
           techniques == o.techniques &&
-          users == o.users &&
-          visibility == o.visibility
+          users == o.users
     end
 
     # @see the `==` method
@@ -421,7 +412,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigned_to, assigned_to_name, cid, created, description, email_state, _end, events_histogram, fine_score, host_ids, hosts, incident_id, incident_type, lm_host_ids, lm_hosts_capped, lm_types, lmra_host_ids, lmra_hosts_capped, modified_timestamp, name, objectives, start, state, status, tactics, tags, techniques, users, visibility].hash
+      [assigned_to, assigned_to_name, cid, created, description, email_state, _end, events_histogram, fine_score, host_ids, hosts, incident_id, incident_type, lm_host_ids, lm_hosts_capped, lm_types, lmra_host_ids, lmra_hosts_capped, modified_timestamp, name, objectives, start, state, status, tactics, tags, techniques, users].hash
     end
 
     # Builds the object from hash

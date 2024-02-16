@@ -32,8 +32,6 @@ require 'time'
 
 module Falcon
   class FalconxSandboxParametersV1
-    attr_accessor :interactivity
-
     attr_accessor :action_script
 
     attr_accessor :command_line
@@ -43,6 +41,8 @@ module Falcon
     attr_accessor :enable_tor
 
     attr_accessor :environment_id
+
+    attr_accessor :interactivity
 
     attr_accessor :network_settings
 
@@ -59,12 +59,12 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'interactivity' => :'Interactivity',
         :'action_script' => :'action_script',
         :'command_line' => :'command_line',
         :'document_password' => :'document_password',
         :'enable_tor' => :'enable_tor',
         :'environment_id' => :'environment_id',
+        :'interactivity' => :'interactivity',
         :'network_settings' => :'network_settings',
         :'sha256' => :'sha256',
         :'submit_name' => :'submit_name',
@@ -82,12 +82,12 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'interactivity' => :'Boolean',
         :'action_script' => :'String',
         :'command_line' => :'String',
         :'document_password' => :'String',
         :'enable_tor' => :'Boolean',
         :'environment_id' => :'Integer',
+        :'interactivity' => :'Boolean',
         :'network_settings' => :'String',
         :'sha256' => :'String',
         :'submit_name' => :'String',
@@ -118,10 +118,6 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'interactivity')
-        self.interactivity = attributes[:'interactivity']
-      end
-
       if attributes.key?(:'action_script')
         self.action_script = attributes[:'action_script']
       end
@@ -140,6 +136,10 @@ module Falcon
 
       if attributes.key?(:'environment_id')
         self.environment_id = attributes[:'environment_id']
+      end
+
+      if attributes.key?(:'interactivity')
+        self.interactivity = attributes[:'interactivity']
       end
 
       if attributes.key?(:'network_settings')
@@ -171,17 +171,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @interactivity.nil?
-        invalid_properties.push('invalid value for "interactivity", interactivity cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @interactivity.nil?
       true
     end
 
@@ -190,12 +185,12 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          interactivity == o.interactivity &&
           action_script == o.action_script &&
           command_line == o.command_line &&
           document_password == o.document_password &&
           enable_tor == o.enable_tor &&
           environment_id == o.environment_id &&
+          interactivity == o.interactivity &&
           network_settings == o.network_settings &&
           sha256 == o.sha256 &&
           submit_name == o.submit_name &&
@@ -213,7 +208,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [interactivity, action_script, command_line, document_password, enable_tor, environment_id, network_settings, sha256, submit_name, system_date, system_time, url].hash
+      [action_script, command_line, document_password, enable_tor, environment_id, interactivity, network_settings, sha256, submit_name, system_date, system_time, url].hash
     end
 
     # Builds the object from hash

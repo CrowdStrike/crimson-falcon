@@ -32,7 +32,6 @@
 | **tags** | **Array&lt;String&gt;** |  | [optional] |
 | **techniques** | **Array&lt;String&gt;** |  | [optional] |
 | **users** | **Array&lt;String&gt;** |  | [optional] |
-| **visibility** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -67,8 +66,7 @@ instance = Falcon::DomainIncident.new(
   tactics: null,
   tags: null,
   techniques: null,
-  users: null,
-  visibility: null
+  users: null
 )
 ```
 

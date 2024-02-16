@@ -60,6 +60,12 @@ describe Falcon::DomainAPIFindingWithRuleV1 do
     end
   end
 
+  describe 'test attribute "policy_host_groups"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "rule"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

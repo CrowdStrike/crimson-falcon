@@ -36,9 +36,17 @@ module Falcon
 
     attr_accessor :created_timestamp
 
+    attr_accessor :error_message
+
+    attr_accessor :error_origin
+
+    attr_accessor :error_type
+
     attr_accessor :id
 
     attr_accessor :index_timestamp
+
+    attr_accessor :interactive_phase
 
     attr_accessor :origin
 
@@ -61,8 +69,12 @@ module Falcon
       {
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
+        :'error_message' => :'error_message',
+        :'error_origin' => :'error_origin',
+        :'error_type' => :'error_type',
         :'id' => :'id',
         :'index_timestamp' => :'index_timestamp',
+        :'interactive_phase' => :'interactive_phase',
         :'origin' => :'origin',
         :'sandbox' => :'sandbox',
         :'send_email_notification' => :'send_email_notification',
@@ -84,8 +96,12 @@ module Falcon
       {
         :'cid' => :'String',
         :'created_timestamp' => :'String',
+        :'error_message' => :'String',
+        :'error_origin' => :'String',
+        :'error_type' => :'String',
         :'id' => :'String',
         :'index_timestamp' => :'String',
+        :'interactive_phase' => :'String',
         :'origin' => :'String',
         :'sandbox' => :'Array<FalconxSandboxParametersV1>',
         :'send_email_notification' => :'Boolean',
@@ -126,12 +142,28 @@ module Falcon
         self.created_timestamp = attributes[:'created_timestamp']
       end
 
+      if attributes.key?(:'error_message')
+        self.error_message = attributes[:'error_message']
+      end
+
+      if attributes.key?(:'error_origin')
+        self.error_origin = attributes[:'error_origin']
+      end
+
+      if attributes.key?(:'error_type')
+        self.error_type = attributes[:'error_type']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
       if attributes.key?(:'index_timestamp')
         self.index_timestamp = attributes[:'index_timestamp']
+      end
+
+      if attributes.key?(:'interactive_phase')
+        self.interactive_phase = attributes[:'interactive_phase']
       end
 
       if attributes.key?(:'origin')
@@ -191,8 +223,12 @@ module Falcon
       self.class == o.class &&
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
+          error_message == o.error_message &&
+          error_origin == o.error_origin &&
+          error_type == o.error_type &&
           id == o.id &&
           index_timestamp == o.index_timestamp &&
+          interactive_phase == o.interactive_phase &&
           origin == o.origin &&
           sandbox == o.sandbox &&
           send_email_notification == o.send_email_notification &&
@@ -212,7 +248,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_timestamp, id, index_timestamp, origin, sandbox, send_email_notification, state, user_id, user_name, user_tags, user_uuid].hash
+      [cid, created_timestamp, error_message, error_origin, error_type, id, index_timestamp, interactive_phase, origin, sandbox, send_email_notification, state, user_id, user_name, user_tags, user_uuid].hash
     end
 
     # Builds the object from hash

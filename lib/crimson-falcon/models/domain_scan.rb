@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :cloud_ml_level_prevention
 
+    attr_accessor :completed_host_count
+
     attr_accessor :cpu_priority
 
     attr_accessor :created_by
@@ -60,6 +62,8 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :incomplete_host_count
+
     attr_accessor :initiated_from
 
     attr_accessor :last_updated
@@ -69,6 +73,10 @@ module Falcon
     attr_accessor :max_file_size
 
     attr_accessor :metadata
+
+    attr_accessor :missing_host_count
+
+    attr_accessor :not_started_host_count
 
     attr_accessor :pause_duration
 
@@ -86,6 +94,8 @@ module Falcon
 
     attr_accessor :scan_inclusions
 
+    attr_accessor :scan_scheduled_on
+
     attr_accessor :scan_started_on
 
     attr_accessor :sensor_ml_level_detection
@@ -94,7 +104,11 @@ module Falcon
 
     attr_accessor :severity
 
+    attr_accessor :started_host_count
+
     attr_accessor :status
+
+    attr_accessor :targeted_host_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -103,6 +117,7 @@ module Falcon
         :'cid' => :'cid',
         :'cloud_ml_level_detection' => :'cloud_ml_level_detection',
         :'cloud_ml_level_prevention' => :'cloud_ml_level_prevention',
+        :'completed_host_count' => :'completed_host_count',
         :'cpu_priority' => :'cpu_priority',
         :'created_by' => :'created_by',
         :'created_on' => :'created_on',
@@ -113,11 +128,14 @@ module Falcon
         :'host_groups' => :'host_groups',
         :'hosts' => :'hosts',
         :'id' => :'id',
+        :'incomplete_host_count' => :'incomplete_host_count',
         :'initiated_from' => :'initiated_from',
         :'last_updated' => :'last_updated',
         :'max_duration' => :'max_duration',
         :'max_file_size' => :'max_file_size',
         :'metadata' => :'metadata',
+        :'missing_host_count' => :'missing_host_count',
+        :'not_started_host_count' => :'not_started_host_count',
         :'pause_duration' => :'pause_duration',
         :'policy_setting' => :'policy_setting',
         :'preemption_priority' => :'preemption_priority',
@@ -126,11 +144,14 @@ module Falcon
         :'scan_completed_on' => :'scan_completed_on',
         :'scan_exclusions' => :'scan_exclusions',
         :'scan_inclusions' => :'scan_inclusions',
+        :'scan_scheduled_on' => :'scan_scheduled_on',
         :'scan_started_on' => :'scan_started_on',
         :'sensor_ml_level_detection' => :'sensor_ml_level_detection',
         :'sensor_ml_level_prevention' => :'sensor_ml_level_prevention',
         :'severity' => :'severity',
-        :'status' => :'status'
+        :'started_host_count' => :'started_host_count',
+        :'status' => :'status',
+        :'targeted_host_count' => :'targeted_host_count'
       }
     end
 
@@ -146,6 +167,7 @@ module Falcon
         :'cid' => :'String',
         :'cloud_ml_level_detection' => :'Integer',
         :'cloud_ml_level_prevention' => :'Integer',
+        :'completed_host_count' => :'Integer',
         :'cpu_priority' => :'Integer',
         :'created_by' => :'String',
         :'created_on' => :'Time',
@@ -156,11 +178,14 @@ module Falcon
         :'host_groups' => :'Array<String>',
         :'hosts' => :'Array<String>',
         :'id' => :'String',
+        :'incomplete_host_count' => :'Integer',
         :'initiated_from' => :'String',
         :'last_updated' => :'Time',
         :'max_duration' => :'Integer',
         :'max_file_size' => :'Integer',
         :'metadata' => :'Array<DomainScanMetadata>',
+        :'missing_host_count' => :'Integer',
+        :'not_started_host_count' => :'Integer',
         :'pause_duration' => :'Integer',
         :'policy_setting' => :'Array<Integer>',
         :'preemption_priority' => :'Integer',
@@ -169,11 +194,14 @@ module Falcon
         :'scan_completed_on' => :'Time',
         :'scan_exclusions' => :'Array<String>',
         :'scan_inclusions' => :'Array<String>',
+        :'scan_scheduled_on' => :'Time',
         :'scan_started_on' => :'Time',
         :'sensor_ml_level_detection' => :'Integer',
         :'sensor_ml_level_prevention' => :'Integer',
         :'severity' => :'Integer',
-        :'status' => :'String'
+        :'started_host_count' => :'Integer',
+        :'status' => :'String',
+        :'targeted_host_count' => :'Integer'
       }
     end
 
@@ -212,6 +240,10 @@ module Falcon
 
       if attributes.key?(:'cloud_ml_level_prevention')
         self.cloud_ml_level_prevention = attributes[:'cloud_ml_level_prevention']
+      end
+
+      if attributes.key?(:'completed_host_count')
+        self.completed_host_count = attributes[:'completed_host_count']
       end
 
       if attributes.key?(:'cpu_priority')
@@ -260,6 +292,10 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'incomplete_host_count')
+        self.incomplete_host_count = attributes[:'incomplete_host_count']
+      end
+
       if attributes.key?(:'initiated_from')
         self.initiated_from = attributes[:'initiated_from']
       end
@@ -280,6 +316,14 @@ module Falcon
         if (value = attributes[:'metadata']).is_a?(Array)
           self.metadata = value
         end
+      end
+
+      if attributes.key?(:'missing_host_count')
+        self.missing_host_count = attributes[:'missing_host_count']
+      end
+
+      if attributes.key?(:'not_started_host_count')
+        self.not_started_host_count = attributes[:'not_started_host_count']
       end
 
       if attributes.key?(:'pause_duration')
@@ -320,6 +364,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'scan_scheduled_on')
+        self.scan_scheduled_on = attributes[:'scan_scheduled_on']
+      end
+
       if attributes.key?(:'scan_started_on')
         self.scan_started_on = attributes[:'scan_started_on']
       end
@@ -336,8 +384,16 @@ module Falcon
         self.severity = attributes[:'severity']
       end
 
+      if attributes.key?(:'started_host_count')
+        self.started_host_count = attributes[:'started_host_count']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'targeted_host_count')
+        self.targeted_host_count = attributes[:'targeted_host_count']
       end
     end
 
@@ -368,6 +424,7 @@ module Falcon
           cid == o.cid &&
           cloud_ml_level_detection == o.cloud_ml_level_detection &&
           cloud_ml_level_prevention == o.cloud_ml_level_prevention &&
+          completed_host_count == o.completed_host_count &&
           cpu_priority == o.cpu_priority &&
           created_by == o.created_by &&
           created_on == o.created_on &&
@@ -378,11 +435,14 @@ module Falcon
           host_groups == o.host_groups &&
           hosts == o.hosts &&
           id == o.id &&
+          incomplete_host_count == o.incomplete_host_count &&
           initiated_from == o.initiated_from &&
           last_updated == o.last_updated &&
           max_duration == o.max_duration &&
           max_file_size == o.max_file_size &&
           metadata == o.metadata &&
+          missing_host_count == o.missing_host_count &&
+          not_started_host_count == o.not_started_host_count &&
           pause_duration == o.pause_duration &&
           policy_setting == o.policy_setting &&
           preemption_priority == o.preemption_priority &&
@@ -391,11 +451,14 @@ module Falcon
           scan_completed_on == o.scan_completed_on &&
           scan_exclusions == o.scan_exclusions &&
           scan_inclusions == o.scan_inclusions &&
+          scan_scheduled_on == o.scan_scheduled_on &&
           scan_started_on == o.scan_started_on &&
           sensor_ml_level_detection == o.sensor_ml_level_detection &&
           sensor_ml_level_prevention == o.sensor_ml_level_prevention &&
           severity == o.severity &&
-          status == o.status
+          started_host_count == o.started_host_count &&
+          status == o.status &&
+          targeted_host_count == o.targeted_host_count
     end
 
     # @see the `==` method
@@ -407,7 +470,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, initiated_from, last_updated, max_duration, max_file_size, metadata, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, status].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, max_file_size, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
     end
 
     # Builds the object from hash

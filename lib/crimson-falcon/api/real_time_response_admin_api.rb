@@ -211,6 +211,10 @@ module Falcon
       if @api_client.config.client_side_validation && description.nil?
         fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdminApi.r_tr_create_put_files"
       end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_create_put_files, the character length must be smaller than or equal to 32766.'
+      end
+
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
         fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_create_put_files, the character length must be smaller than or equal to 4096.'
       end
@@ -301,6 +305,10 @@ module Falcon
       if @api_client.config.client_side_validation && permission_type.nil?
         fail ArgumentError, "Missing the required parameter 'permission_type' when calling RealTimeResponseAdminApi.r_tr_create_scripts"
       end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_create_scripts, the character length must be smaller than or equal to 32766.'
+      end
+
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
         fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_create_scripts, the character length must be smaller than or equal to 4096.'
       end
@@ -543,6 +551,68 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_execute_admin_command\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Falcon scripts with metadata and content of script
+    # @param ids [Array<String>] IDs of the Falcon scripts you want to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [EmpowerapiMsaFalconScriptResponse]
+    def r_tr_get_falcon_scripts(ids, opts = {})
+      data, _status_code, _headers = r_tr_get_falcon_scripts_with_http_info(ids, opts)
+      data
+    end
+
+    # Get Falcon scripts with metadata and content of script
+    # @param ids [Array<String>] IDs of the Falcon scripts you want to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(EmpowerapiMsaFalconScriptResponse, Integer, Hash)>] EmpowerapiMsaFalconScriptResponse data, response status code and response headers
+    def r_tr_get_falcon_scripts_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_falcon_scripts ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_falcon_scripts"
+      end
+      # resource path
+      local_var_path = '/real-time-response/entities/falcon-scripts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmpowerapiMsaFalconScriptResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"RealTimeResponseAdminApi.r_tr_get_falcon_scripts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -795,6 +865,81 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get a list of Falcon script IDs available to the user to run
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :limit Number of ids to return.
+    # @option opts [String] :sort Sort by spec. Ex: &#39;created_at|asc&#39;.
+    # @return [EmpowerapiMsaIDListResponse]
+    def r_tr_list_falcon_scripts(opts = {})
+      data, _status_code, _headers = r_tr_list_falcon_scripts_with_http_info(opts)
+      data
+    end
+
+    # Get a list of Falcon script IDs available to the user to run
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :limit Number of ids to return.
+    # @option opts [String] :sort Sort by spec. Ex: &#39;created_at|asc&#39;.
+    # @return [Array<(EmpowerapiMsaIDListResponse, Integer, Hash)>] EmpowerapiMsaIDListResponse data, response status code and response headers
+    def r_tr_list_falcon_scripts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_list_falcon_scripts ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RealTimeResponseAdminApi.r_tr_list_falcon_scripts, must be smaller than or equal to 100.'
+      end
+
+      allowable_values = ["created_timestamp", "modified_timestamp", "name"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/real-time-response/queries/falcon-scripts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmpowerapiMsaIDListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"RealTimeResponseAdminApi.r_tr_list_falcon_scripts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_list_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of put-file ID's that are available to the user for the `put` command.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
@@ -964,6 +1109,10 @@ module Falcon
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling RealTimeResponseAdminApi.r_tr_update_scripts"
       end
+      if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_update_scripts, the character length must be smaller than or equal to 32766.'
+      end
+
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
         fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_update_scripts, the character length must be smaller than or equal to 4096.'
       end

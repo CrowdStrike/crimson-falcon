@@ -11,6 +11,9 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**indicator_combined_v1**](IocApi.md#indicator_combined_v1) | **GET** /iocs/combined/indicator/v1 | Get Combined for Indicators. |
 | [**indicator_create_v1**](IocApi.md#indicator_create_v1) | **POST** /iocs/entities/indicators/v1 | Create Indicators. |
 | [**indicator_delete_v1**](IocApi.md#indicator_delete_v1) | **DELETE** /iocs/entities/indicators/v1 | Delete Indicators by ids. |
+| [**indicator_get_device_count_v1**](IocApi.md#indicator_get_device_count_v1) | **GET** /iocs/aggregates/indicators/device-count/v1 | Get the number of devices the indicator has run on |
+| [**indicator_get_devices_ran_on_v1**](IocApi.md#indicator_get_devices_ran_on_v1) | **GET** /iocs/queries/indicators/devices/v1 | Get the IDs of devices the indicator has run on |
+| [**indicator_get_processes_ran_on_v1**](IocApi.md#indicator_get_processes_ran_on_v1) | **GET** /iocs/queries/indicators/processes/v1 | Get the number of processes the indicator has run on |
 | [**indicator_get_v1**](IocApi.md#indicator_get_v1) | **GET** /iocs/entities/indicators/v1 | Get Indicators by ids. |
 | [**indicator_search_v1**](IocApi.md#indicator_search_v1) | **GET** /iocs/queries/indicators/v1 | Search for Indicators. |
 | [**indicator_update_v1**](IocApi.md#indicator_update_v1) | **PATCH** /iocs/entities/indicators/v1 | Update Indicators. |
@@ -529,6 +532,233 @@ end
 ### Return type
 
 [**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_device_count_v1
+
+> <ApiDeviceCountRespV1> indicator_get_device_count_v1(type, value)
+
+Get the number of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IocApi.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+
+begin
+  # Get the number of devices the indicator has run on
+  result = api_instance.indicator_get_device_count_v1(type, value)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_device_count_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_device_count_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDeviceCountRespV1>, Integer, Hash)> indicator_get_device_count_v1_with_http_info(type, value)
+
+```ruby
+begin
+  # Get the number of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_device_count_v1_with_http_info(type, value)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDeviceCountRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_device_count_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+
+### Return type
+
+[**ApiDeviceCountRespV1**](ApiDeviceCountRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_devices_ran_on_v1
+
+> <ApiDevicesRanOnRespV1> indicator_get_devices_ran_on_v1(type, value, opts)
+
+Get the IDs of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IocApi.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the IDs of devices the indicator has run on
+  result = api_instance.indicator_get_devices_ran_on_v1(type, value, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_devices_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_devices_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDevicesRanOnRespV1>, Integer, Hash)> indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+
+```ruby
+begin
+  # Get the IDs of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDevicesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_devices_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiDevicesRanOnRespV1**](ApiDevicesRanOnRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_processes_ran_on_v1
+
+> <ApiProcessesRanOnRespV1> indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+
+Get the number of processes the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IocApi.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+device_id = 'device_id_example' # String | Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the number of processes the indicator has run on
+  result = api_instance.indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_processes_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_processes_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiProcessesRanOnRespV1>, Integer, Hash)> indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+
+```ruby
+begin
+  # Get the number of processes the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiProcessesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling IocApi->indicator_get_processes_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **device_id** | **String** | Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API. |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiProcessesRanOnRespV1**](ApiProcessesRanOnRespV1.md)
 
 ### Authorization
 

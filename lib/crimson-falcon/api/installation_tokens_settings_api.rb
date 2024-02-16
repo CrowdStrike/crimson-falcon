@@ -39,7 +39,7 @@ module Falcon
     # Update installation token settings.
     # @param body [ApiCustomerSettingsPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def customer_settings_update(body, opts = {})
       data, _status_code, _headers = customer_settings_update_with_http_info(body, opts)
       data
@@ -48,7 +48,7 @@ module Falcon
     # Update installation token settings.
     # @param body [ApiCustomerSettingsPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def customer_settings_update_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokensSettingsApi.customer_settings_update ...'
@@ -80,7 +80,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

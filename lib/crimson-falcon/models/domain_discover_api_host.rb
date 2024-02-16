@@ -110,8 +110,14 @@ module Falcon
     # The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
     attr_accessor :computed_asset_roles
 
-    # Whether the asset is exposed to the internet as determined automatically (Yes, No, or Unknown).
+    # Whether the asset is exposed to the internet as determined automatically (Yes, No, or Pending).
     attr_accessor :computed_internet_exposure
+
+    # External IP exposed to the internet.
+    attr_accessor :computed_internet_exposure_external_ip
+
+    # When the asset was last seen as internet exposed.
+    attr_accessor :computed_internet_exposure_last_seen
 
     # The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
     attr_accessor :confidence
@@ -146,6 +152,9 @@ module Falcon
     # The last seen local IPv4 address of the asset.
     attr_accessor :current_local_ip
 
+    # The last seen network prefix of the asset.
+    attr_accessor :current_network_prefix
+
     # Where the data about the asset came from (such as CrowdStrike, ServiceNow, or Active Directory).
     attr_accessor :data_providers
 
@@ -163,6 +172,9 @@ module Falcon
 
     # The number of sources that discovered the asset.
     attr_accessor :discoverer_count
+
+    # The criticalities of the sources that discovered the asset
+    attr_accessor :discoverer_criticalities
 
     # The hostnames of the sources that discovered the asset.
     attr_accessor :discoverer_hostnames
@@ -224,7 +236,7 @@ module Falcon
     # The unique ID of the asset.
     attr_accessor :id
 
-    # Whether the asset is exposed to the internet (Yes or Unknown).
+    # Whether the asset is exposed to the internet (Yes, No or Pending).
     attr_accessor :internet_exposure
 
     # The description the user entered when manually assigning a internet exposure level
@@ -387,6 +399,12 @@ module Falcon
     # What the asset is used for, such as production, staging, or QA.
     attr_accessor :used_for
 
+    # The asset role or roles manually assigned to the asset.
+    attr_accessor :user_asset_roles
+
+    # The internet exposure manually assigned to the asset
+    attr_accessor :user_internet_exposure
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -417,6 +435,8 @@ module Falcon
         :'cloud_resource_id' => :'cloud_resource_id',
         :'computed_asset_roles' => :'computed_asset_roles',
         :'computed_internet_exposure' => :'computed_internet_exposure',
+        :'computed_internet_exposure_external_ip' => :'computed_internet_exposure_external_ip',
+        :'computed_internet_exposure_last_seen' => :'computed_internet_exposure_last_seen',
         :'confidence' => :'confidence',
         :'country' => :'country',
         :'cpu_manufacturer' => :'cpu_manufacturer',
@@ -428,12 +448,14 @@ module Falcon
         :'criticality_timestamp' => :'criticality_timestamp',
         :'criticality_username' => :'criticality_username',
         :'current_local_ip' => :'current_local_ip',
+        :'current_network_prefix' => :'current_network_prefix',
         :'data_providers' => :'data_providers',
         :'data_providers_count' => :'data_providers_count',
         :'department' => :'department',
         :'descriptions' => :'descriptions',
         :'discoverer_aids' => :'discoverer_aids',
         :'discoverer_count' => :'discoverer_count',
+        :'discoverer_criticalities' => :'discoverer_criticalities',
         :'discoverer_hostnames' => :'discoverer_hostnames',
         :'discoverer_platform_names' => :'discoverer_platform_names',
         :'discoverer_product_type_descs' => :'discoverer_product_type_descs',
@@ -508,7 +530,9 @@ module Falcon
         :'unencrypted_drives_count' => :'unencrypted_drives_count',
         :'used_disk_space' => :'used_disk_space',
         :'used_disk_space_pct' => :'used_disk_space_pct',
-        :'used_for' => :'used_for'
+        :'used_for' => :'used_for',
+        :'user_asset_roles' => :'user_asset_roles',
+        :'user_internet_exposure' => :'user_internet_exposure'
       }
     end
 
@@ -547,6 +571,8 @@ module Falcon
         :'cloud_resource_id' => :'String',
         :'computed_asset_roles' => :'Array<String>',
         :'computed_internet_exposure' => :'String',
+        :'computed_internet_exposure_external_ip' => :'String',
+        :'computed_internet_exposure_last_seen' => :'String',
         :'confidence' => :'Integer',
         :'country' => :'String',
         :'cpu_manufacturer' => :'String',
@@ -558,12 +584,14 @@ module Falcon
         :'criticality_timestamp' => :'String',
         :'criticality_username' => :'String',
         :'current_local_ip' => :'String',
+        :'current_network_prefix' => :'String',
         :'data_providers' => :'Array<String>',
         :'data_providers_count' => :'Integer',
         :'department' => :'String',
         :'descriptions' => :'Array<String>',
         :'discoverer_aids' => :'Array<String>',
         :'discoverer_count' => :'Integer',
+        :'discoverer_criticalities' => :'Array<String>',
         :'discoverer_hostnames' => :'Array<String>',
         :'discoverer_platform_names' => :'Array<String>',
         :'discoverer_product_type_descs' => :'Array<String>',
@@ -638,7 +666,9 @@ module Falcon
         :'unencrypted_drives_count' => :'Integer',
         :'used_disk_space' => :'Integer',
         :'used_disk_space_pct' => :'Integer',
-        :'used_for' => :'String'
+        :'used_for' => :'String',
+        :'user_asset_roles' => :'Array<String>',
+        :'user_internet_exposure' => :'String'
       }
     end
 
@@ -777,6 +807,14 @@ module Falcon
         self.computed_internet_exposure = attributes[:'computed_internet_exposure']
       end
 
+      if attributes.key?(:'computed_internet_exposure_external_ip')
+        self.computed_internet_exposure_external_ip = attributes[:'computed_internet_exposure_external_ip']
+      end
+
+      if attributes.key?(:'computed_internet_exposure_last_seen')
+        self.computed_internet_exposure_last_seen = attributes[:'computed_internet_exposure_last_seen']
+      end
+
       if attributes.key?(:'confidence')
         self.confidence = attributes[:'confidence']
       end
@@ -821,6 +859,10 @@ module Falcon
         self.current_local_ip = attributes[:'current_local_ip']
       end
 
+      if attributes.key?(:'current_network_prefix')
+        self.current_network_prefix = attributes[:'current_network_prefix']
+      end
+
       if attributes.key?(:'data_providers')
         if (value = attributes[:'data_providers']).is_a?(Array)
           self.data_providers = value
@@ -849,6 +891,12 @@ module Falcon
 
       if attributes.key?(:'discoverer_count')
         self.discoverer_count = attributes[:'discoverer_count']
+      end
+
+      if attributes.key?(:'discoverer_criticalities')
+        if (value = attributes[:'discoverer_criticalities']).is_a?(Array)
+          self.discoverer_criticalities = value
+        end
       end
 
       if attributes.key?(:'discoverer_hostnames')
@@ -1180,6 +1228,16 @@ module Falcon
       if attributes.key?(:'used_for')
         self.used_for = attributes[:'used_for']
       end
+
+      if attributes.key?(:'user_asset_roles')
+        if (value = attributes[:'user_asset_roles']).is_a?(Array)
+          self.user_asset_roles = value
+        end
+      end
+
+      if attributes.key?(:'user_internet_exposure')
+        self.user_internet_exposure = attributes[:'user_internet_exposure']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -1237,6 +1295,8 @@ module Falcon
           cloud_resource_id == o.cloud_resource_id &&
           computed_asset_roles == o.computed_asset_roles &&
           computed_internet_exposure == o.computed_internet_exposure &&
+          computed_internet_exposure_external_ip == o.computed_internet_exposure_external_ip &&
+          computed_internet_exposure_last_seen == o.computed_internet_exposure_last_seen &&
           confidence == o.confidence &&
           country == o.country &&
           cpu_manufacturer == o.cpu_manufacturer &&
@@ -1248,12 +1308,14 @@ module Falcon
           criticality_timestamp == o.criticality_timestamp &&
           criticality_username == o.criticality_username &&
           current_local_ip == o.current_local_ip &&
+          current_network_prefix == o.current_network_prefix &&
           data_providers == o.data_providers &&
           data_providers_count == o.data_providers_count &&
           department == o.department &&
           descriptions == o.descriptions &&
           discoverer_aids == o.discoverer_aids &&
           discoverer_count == o.discoverer_count &&
+          discoverer_criticalities == o.discoverer_criticalities &&
           discoverer_hostnames == o.discoverer_hostnames &&
           discoverer_platform_names == o.discoverer_platform_names &&
           discoverer_product_type_descs == o.discoverer_product_type_descs &&
@@ -1328,7 +1390,9 @@ module Falcon
           unencrypted_drives_count == o.unencrypted_drives_count &&
           used_disk_space == o.used_disk_space &&
           used_disk_space_pct == o.used_disk_space_pct &&
-          used_for == o.used_for
+          used_for == o.used_for &&
+          user_asset_roles == o.user_asset_roles &&
+          user_internet_exposure == o.user_internet_exposure
     end
 
     # @see the `==` method
@@ -1340,7 +1404,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, active_discovery, ad_user_account_control, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, cid, city, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, computed_asset_roles, computed_internet_exposure, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, data_providers, data_providers_count, department, descriptions, discoverer_aids, discoverer_count, discoverer_hostnames, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, mount_storage_info, network_interfaces, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ou, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, reduced_functionality_mode, servicenow_id, site_name, state, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for].hash
+      [account_enabled, active_discovery, ad_user_account_control, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, cid, city, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, mount_storage_info, network_interfaces, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ou, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, reduced_functionality_mode, servicenow_id, site_name, state, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure].hash
     end
 
     # Builds the object from hash

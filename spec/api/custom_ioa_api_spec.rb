@@ -231,7 +231,7 @@ describe 'CustomIoaApi' do
   # unit tests for query_rules_mixin0
   # Finds all rule IDs matching the query with optional filter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: {rules.created_on, rules.current_version.name, rules.current_version.modified_by, rules.ruletype_name, rules.created_by, rules.current_version.description, rules.current_version.pattern_severity, rules.current_version.action_label, rules.current_version.modified_on, rules.enabled}
+  # @option opts [String] :sort Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields
   # @option opts [String] :offset Starting index of overall result set from which to return IDs

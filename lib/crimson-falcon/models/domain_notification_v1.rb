@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainNotificationV1
+    attr_accessor :actor_slug
+
     # The email of the user who is assigned to this notification
     attr_accessor :assigned_to_uid
 
@@ -106,6 +108,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'actor_slug' => :'actor_slug',
         :'assigned_to_uid' => :'assigned_to_uid',
         :'assigned_to_username' => :'assigned_to_username',
         :'assigned_to_uuid' => :'assigned_to_uuid',
@@ -142,6 +145,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'actor_slug' => :'String',
         :'assigned_to_uid' => :'String',
         :'assigned_to_username' => :'String',
         :'assigned_to_uuid' => :'String',
@@ -190,6 +194,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'actor_slug')
+        self.actor_slug = attributes[:'actor_slug']
+      end
 
       if attributes.key?(:'assigned_to_uid')
         self.assigned_to_uid = attributes[:'assigned_to_uid']
@@ -300,6 +308,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @actor_slug.nil?
+        invalid_properties.push('invalid value for "actor_slug", actor_slug cannot be nil.')
+      end
+
       if @cid.nil?
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
@@ -358,6 +370,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @actor_slug.nil?
       return false if @cid.nil?
       return false if @created_date.nil?
       return false if @id.nil?
@@ -379,6 +392,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actor_slug == o.actor_slug &&
           assigned_to_uid == o.assigned_to_uid &&
           assigned_to_username == o.assigned_to_username &&
           assigned_to_uuid == o.assigned_to_uuid &&
@@ -415,7 +429,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
+      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
     end
 
     # Builds the object from hash

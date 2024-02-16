@@ -52,6 +52,8 @@ module Falcon
 
     attr_accessor :total_accounts
 
+    attr_accessor :updated_at
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -64,7 +66,8 @@ module Falcon
         :'id' => :'id',
         :'name' => :'name',
         :'owners' => :'owners',
-        :'total_accounts' => :'total_accounts'
+        :'total_accounts' => :'total_accounts',
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -85,7 +88,8 @@ module Falcon
         :'id' => :'Integer',
         :'name' => :'String',
         :'owners' => :'Array<String>',
-        :'total_accounts' => :'Integer'
+        :'total_accounts' => :'Integer',
+        :'updated_at' => :'Time'
       }
     end
 
@@ -153,6 +157,10 @@ module Falcon
       if attributes.key?(:'total_accounts')
         self.total_accounts = attributes[:'total_accounts']
       end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -182,7 +190,8 @@ module Falcon
           id == o.id &&
           name == o.name &&
           owners == o.owners &&
-          total_accounts == o.total_accounts
+          total_accounts == o.total_accounts &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -194,7 +203,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accounts, business_impact, business_unit, cid, created_at, description, id, name, owners, total_accounts].hash
+      [accounts, business_impact, business_unit, cid, created_at, description, id, name, owners, total_accounts, updated_at].hash
     end
 
     # Builds the object from hash

@@ -29,6 +29,7 @@
 | **external_id** | **String** | ID assigned for use with cross account IAM role access. | [optional] |
 | **iam_role_arn** | **String** | The full arn of the IAM role created in this account to control access. | [optional] |
 | **intermediate_role_arn** | **String** |  | [optional] |
+| **is_cspm_lite** | **Boolean** | Is CSPM Lite enabled. | [optional] |
 | **is_custom_rolename** | **Boolean** |  |  |
 | **is_master** | **Boolean** |  | [optional] |
 | **organization_id** | **String** | Up to 34 character AWS provided unique identifier for the organization. | [optional] |
@@ -75,6 +76,7 @@ instance = Falcon::DomainAWSAccountV2.new(
   external_id: null,
   iam_role_arn: null,
   intermediate_role_arn: null,
+  is_cspm_lite: null,
   is_custom_rolename: null,
   is_master: null,
   organization_id: null,

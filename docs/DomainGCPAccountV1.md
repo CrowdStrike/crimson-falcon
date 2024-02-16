@@ -25,6 +25,7 @@
 | **service_account_client_id** | **String** |  | [optional] |
 | **service_account_id** | **Integer** | GCP service account ID | [optional] |
 | **service_account_private_key_id** | **String** |  | [optional] |
+| **service_account_project_id** | **String** |  |  |
 | **status** | **String** | Account registration status. | [optional] |
 
 ## Example
@@ -54,6 +55,7 @@ instance = Falcon::DomainGCPAccountV1.new(
   service_account_client_id: null,
   service_account_id: null,
   service_account_private_key_id: null,
+  service_account_project_id: null,
   status: null
 )
 ```

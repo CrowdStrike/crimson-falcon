@@ -8,6 +8,7 @@
 | **cid** | **String** |  | [optional] |
 | **cloud_ml_level_detection** | **Integer** |  | [optional] |
 | **cloud_ml_level_prevention** | **Integer** |  | [optional] |
+| **completed_host_count** | **Integer** |  | [optional] |
 | **cpu_priority** | **Integer** |  | [optional] |
 | **created_by** | **String** |  | [optional] |
 | **created_on** | **Time** |  | [optional] |
@@ -18,11 +19,14 @@
 | **host_groups** | **Array&lt;String&gt;** |  | [optional] |
 | **hosts** | **Array&lt;String&gt;** |  | [optional] |
 | **id** | **String** |  |  |
+| **incomplete_host_count** | **Integer** |  | [optional] |
 | **initiated_from** | **String** |  | [optional] |
 | **last_updated** | **Time** |  | [optional] |
 | **max_duration** | **Integer** |  | [optional] |
 | **max_file_size** | **Integer** |  | [optional] |
 | **metadata** | [**Array&lt;DomainScanMetadata&gt;**](DomainScanMetadata.md) |  | [optional] |
+| **missing_host_count** | **Integer** |  | [optional] |
+| **not_started_host_count** | **Integer** |  | [optional] |
 | **pause_duration** | **Integer** |  | [optional] |
 | **policy_setting** | **Array&lt;Integer&gt;** |  | [optional] |
 | **preemption_priority** | **Integer** |  | [optional] |
@@ -31,11 +35,14 @@
 | **scan_completed_on** | **Time** |  | [optional] |
 | **scan_exclusions** | **Array&lt;String&gt;** |  | [optional] |
 | **scan_inclusions** | **Array&lt;String&gt;** |  | [optional] |
+| **scan_scheduled_on** | **Time** |  | [optional] |
 | **scan_started_on** | **Time** |  | [optional] |
 | **sensor_ml_level_detection** | **Integer** |  | [optional] |
 | **sensor_ml_level_prevention** | **Integer** |  | [optional] |
 | **severity** | **Integer** |  | [optional] |
+| **started_host_count** | **Integer** |  | [optional] |
 | **status** | **String** |  | [optional] |
+| **targeted_host_count** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -47,6 +54,7 @@ instance = Falcon::DomainScan.new(
   cid: null,
   cloud_ml_level_detection: null,
   cloud_ml_level_prevention: null,
+  completed_host_count: null,
   cpu_priority: null,
   created_by: null,
   created_on: null,
@@ -57,11 +65,14 @@ instance = Falcon::DomainScan.new(
   host_groups: null,
   hosts: null,
   id: null,
+  incomplete_host_count: null,
   initiated_from: null,
   last_updated: null,
   max_duration: null,
   max_file_size: null,
   metadata: null,
+  missing_host_count: null,
+  not_started_host_count: null,
   pause_duration: null,
   policy_setting: null,
   preemption_priority: null,
@@ -70,11 +81,14 @@ instance = Falcon::DomainScan.new(
   scan_completed_on: null,
   scan_exclusions: null,
   scan_inclusions: null,
+  scan_scheduled_on: null,
   scan_started_on: null,
   sensor_ml_level_detection: null,
   sensor_ml_level_prevention: null,
   severity: null,
-  status: null
+  started_host_count: null,
+  status: null,
+  targeted_host_count: null
 )
 ```
 

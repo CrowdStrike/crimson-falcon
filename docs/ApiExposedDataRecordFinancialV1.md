@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bank_account** | **String** |  | [optional] |
-| **credit_card** | **String** |  | [optional] |
-| **crypto_currency_addresses** | **Array&lt;String&gt;** |  | [optional] |
+| **bank_account** | **String** | Bank Account information | [optional] |
+| **credit_card** | **String** | Credit Card information | [optional] |
+| **crypto_currency_addresses** | **Array&lt;String&gt;** | A list of Crypto Currency addresses | [optional] |
 
 ## Example
 
