@@ -64,6 +64,13 @@ If the Ruby gem is hosted at a git repository: <https://github.com/GIT_USER_ID/G
 
 ## Getting Started
 
+### Samples
+
+We have a collection of sample code that demonstrates how to use the Crimson Falcon SDK.
+These samples are a great way to get started with the SDK. You can find the samples in the [samples](./samples) directory.
+
+### Take Flight
+
 Eager to take flight? Follow the [installation](#installation) process, and then launch into the following code:
 
 ```ruby
@@ -72,36 +79,20 @@ require 'crimson-falcon'
 
 # Setup authorization
 Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+  config.client_id = ENV["FALCON_CLIENT_ID"]
+  config.client_secret = ENV["FALCON_CLIENT_SECRET"]
+  config.cloud = "us-2" # or "us-2", "eu-1", "us-gov1"
 end
 
 # Create a new API instance
-api_instance = Falcon::AlertsApi.new
-opts = {
-  # Integer | The starting point for the return, `0` implies the latest detection.
-  # The `offset` parameter assists in paginating results.
-  offset: 0,
-  # Integer | The maximum count of detections in this response (default: 100; max: 10000).
-  # Works in tandem with the `offset` for pagination.
-  limit: 25,
-  # String | Sort detections in `asc` (ascending) or `desc` (descending) order.
-  # Example: `status|asc` or `status|desc`.
-  sort: 'Sort_Criteria',
-  # String | Filter detections using a query in Falcon Query Language (FQL).
-  # An asterisk wildcard `*` includes all results. See API docs for more details.
-  filter: 'Filter_Criteria',
-  # String | Search all detection metadata for the provided string
-  q: 'Query_String'
-}
+api_instance = Falcon::SensorDownloadApi.new
 
 begin
-  # Retrieves all Alerts ids that match a given query
-  result = api_instance.get_queries_alerts_v1(opts)
-  p result
+  # Get CCID to use with sensor installers
+  result = api_instance.get_sensor_installers_ccidby_query
+  p result.resources
 rescue Falcon::ApiError => e
-  puts "Exception when calling AlertsApi->get_queries_alerts_v1: #{e}"
+  puts "Error when calling SensorDownloadApi->get_sensor_installers_ccidby_query: #{e}"
 end
 ```
 
