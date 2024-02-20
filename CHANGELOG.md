@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.0...v0.4.1) (2024-02-20)
+
+
+### Bug Fixes
+
+* default encoding for array params should be :multi ([#31](https://github.com/CrowdStrike/crimson-falcon/issues/31)) ([cc4ef22](https://github.com/CrowdStrike/crimson-falcon/commit/cc4ef22c24c00f53f025197c456e3b99cf842595)), closes [#26](https://github.com/CrowdStrike/crimson-falcon/issues/26)
+
 ## [0.4.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.3.0...v0.4.0) (2024-02-16)
 
 
