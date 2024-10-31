@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.1...v0.4.2) (2024-10-31)
+
+
+### Bug Fixes
+
+* **api_client:** fixes issue with token not renewing ([#37](https://github.com/CrowdStrike/crimson-falcon/issues/37)) ([ce3d7fe](https://github.com/CrowdStrike/crimson-falcon/commit/ce3d7fe10bc1ec80980b79331fa62de5e25d7f85))
+
 ## [0.4.1](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.0...v0.4.1) (2024-02-20)
 
 
