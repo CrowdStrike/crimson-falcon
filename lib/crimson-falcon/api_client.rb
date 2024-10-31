@@ -76,8 +76,8 @@ module Falcon
     #   the data deserialized from response body (could be nil), response status code and response headers.
     def call_api(http_method, path, opts = {})
       # Debug access_token expiration
-      @config.logger.debug "ACCESS TOKEN EXPIRED" if access_token_expired?
-      get_access_token if @config.access_token.nil? || access_token_expired?
+      @config.logger.debug "Access token expired. Initiating refresh..." if access_token_expired?
+      @config.access_token = get_access_token if @config.access_token.nil? || access_token_expired?
       request = build_request(http_method, path, opts)
       response = request.run
 
