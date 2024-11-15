@@ -47,7 +47,7 @@ rebuild: uninstall build install clean
 
 build-sdk:
 	@echo "Generating SDK..."
-	@openapi-generator generate -i .openapi-generator/swagger.json -g ruby -c .openapi-generator/config.yml -t .openapi-generator/templates
+	@openapi-generator generate -i .openapi-generator/swagger-patched.json -g ruby -c .openapi-generator/config.yml -t .openapi-generator/templates
 
 fix-regex:
 	@echo "Fixing regex..."
@@ -61,6 +61,18 @@ else # If the operating system is Linux
 	done
 endif
 
+.openapi-generator/swagger-stripped-oauth.json: .openapi-generator/swagger-patched.json
+	# We remove security info from swagger before generating golang API interface.
+	# This achieves cleaner interface. OAuth is then applied automatically through the middle-ware.
+	jq 'walk(if type == "object" and has("security") and (has("consumes") or has("produces")) then del(.security) else . end)' $< > $@
+
+.openapi-generator/swagger-patched.json: .openapi-generator/swagger.json .openapi-generator/transformation.jq
+	jq -f .openapi-generator/transformation.jq $< > $@
+
+.openapi-generator/swagger.json:
+	@echo "Sorry swagger.json needs to be obtained manually at this moment"
+	@exit 1
+
 rubocop:
 	@echo "Running rubocop..."
 	@rubocop -a
@@ -70,5 +82,5 @@ clean-generated-files:
 	@rm -rf docs/* lib/crimson-falcon/models/* lib/crimson-falcon/api/* spec/*
 
 .PHONY: generate
-generate: clean-generated-files build-sdk fix-regex rubocop
+generate: clean-generated-files .openapi-generator/swagger-stripped-oauth.json build-sdk fix-regex rubocop
 	@echo "SDK generated successfully."
