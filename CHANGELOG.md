@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.5.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.1...v0.5.0) (2024-11-15)
+
+
+### Features
+
+* **sdk:** swagger updates for 2024-11-15  ([#40](https://github.com/CrowdStrike/crimson-falcon/issues/40)) ([d243d3a](https://github.com/CrowdStrike/crimson-falcon/commit/d243d3ab68462b59025611eab27feb60be5b161f))
+
+
+### Bug Fixes
+
+* **api_client:** fixes issue with token not renewing ([#37](https://github.com/CrowdStrike/crimson-falcon/issues/37)) ([ce3d7fe](https://github.com/CrowdStrike/crimson-falcon/commit/ce3d7fe10bc1ec80980b79331fa62de5e25d7f85))
+* update swagger issues and update generation flow ([#39](https://github.com/CrowdStrike/crimson-falcon/issues/39)) ([4753d94](https://github.com/CrowdStrike/crimson-falcon/commit/4753d9468673b0163104aac38fc77d158a6b9bd6))
+
 ## [0.4.1](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.0...v0.4.1) (2024-02-20)
 
 
