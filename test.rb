@@ -7,8 +7,8 @@ Falcon.configure do |config|
   # config.debugging = true
 end
 
-# Create new api instance of Falcon::SensorUpdatePoliciesApi
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+# Create new api instance of Falcon::SensorUpdatePolicies
+api_instance = Falcon::SensorUpdatePolicies.new
 
 opts = {
   platform: "windows",
@@ -21,6 +21,6 @@ begin
     puts resource.sensor_version
   end
 rescue Falcon::ApiError => e
-  puts "Exception when calling SensorUpdatePoliciesApi->query_combined_sensor_update_builds: #{e}"
+  puts "Exception when calling SensorUpdatePolicies->query_combined_sensor_update_builds: #{e}"
 end
 # rubocop:enable all

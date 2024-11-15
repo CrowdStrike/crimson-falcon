@@ -1,10 +1,10 @@
-# Falcon::HandleApi
+# Falcon::Handle
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**handle**](HandleApi.md#handle) | **POST** /data-security-dspm/entities/kafka-rest-produce/v1 |  |
+| [**handle**](Handle.md#handle) | **POST** /data-security-dspm/entities/kafka-rest-produce/v1 |  |
 
 
 ## handle
@@ -28,14 +28,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HandleApi.new
+api_instance = Falcon::Handle.new
 
 begin
   
   result = api_instance.handle
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HandleApi->handle: #{e}"
+  puts "Error when calling Handle->handle: #{e}"
 end
 ```
 
@@ -53,7 +53,7 @@ begin
   p headers # => { ... }
   p data # => Hash&lt;String, String&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling HandleApi->handle_with_http_info: #{e}"
+  puts "Error when calling Handle->handle_with_http_info: #{e}"
 end
 ```
 

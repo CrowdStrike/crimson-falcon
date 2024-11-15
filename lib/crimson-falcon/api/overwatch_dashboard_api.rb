@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class OverwatchDashboardApi
+  class OverwatchDashboard
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaFacetsResponse, Integer, Hash)>] MsaFacetsResponse data, response status code and response headers
     def aggregates_detections_global_counts_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OverwatchDashboardApi.aggregates_detections_global_counts ...'
+        @api_client.config.logger.debug 'Calling API: OverwatchDashboard.aggregates_detections_global_counts ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboardApi.aggregates_detections_global_counts"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboard.aggregates_detections_global_counts"
       end
       # resource path
       local_var_path = '/overwatch-dashboards/aggregates/detections-global-counts/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OverwatchDashboardApi.aggregates_detections_global_counts",
+        :operation => :"OverwatchDashboard.aggregates_detections_global_counts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OverwatchDashboardApi#aggregates_detections_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OverwatchDashboard#aggregates_detections_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregates_events_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OverwatchDashboardApi.aggregates_events ...'
+        @api_client.config.logger.debug 'Calling API: OverwatchDashboard.aggregates_events ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OverwatchDashboardApi.aggregates_events"
+        fail ArgumentError, "Missing the required parameter 'body' when calling OverwatchDashboard.aggregates_events"
       end
       # resource path
       local_var_path = '/overwatch-dashboards/aggregates/events/GET/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OverwatchDashboardApi.aggregates_events",
+        :operation => :"OverwatchDashboard.aggregates_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OverwatchDashboardApi#aggregates_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OverwatchDashboard#aggregates_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregates_events_collections_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OverwatchDashboardApi.aggregates_events_collections ...'
+        @api_client.config.logger.debug 'Calling API: OverwatchDashboard.aggregates_events_collections ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OverwatchDashboardApi.aggregates_events_collections"
+        fail ArgumentError, "Missing the required parameter 'body' when calling OverwatchDashboard.aggregates_events_collections"
       end
       # resource path
       local_var_path = '/overwatch-dashboards/aggregates/events-collections/GET/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OverwatchDashboardApi.aggregates_events_collections",
+        :operation => :"OverwatchDashboard.aggregates_events_collections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OverwatchDashboardApi#aggregates_events_collections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OverwatchDashboard#aggregates_events_collections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,11 +245,11 @@ module Falcon
     # @return [Array<(MsaFacetsResponse, Integer, Hash)>] MsaFacetsResponse data, response status code and response headers
     def aggregates_incidents_global_counts_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OverwatchDashboardApi.aggregates_incidents_global_counts ...'
+        @api_client.config.logger.debug 'Calling API: OverwatchDashboard.aggregates_incidents_global_counts ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboardApi.aggregates_incidents_global_counts"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboard.aggregates_incidents_global_counts"
       end
       # resource path
       local_var_path = '/overwatch-dashboards/aggregates/incidents-global-counts/v1'
@@ -276,7 +276,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OverwatchDashboardApi.aggregates_incidents_global_counts",
+        :operation => :"OverwatchDashboard.aggregates_incidents_global_counts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,7 +287,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OverwatchDashboardApi#aggregates_incidents_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OverwatchDashboard#aggregates_incidents_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -307,11 +307,11 @@ module Falcon
     # @return [Array<(MsaFacetsResponse, Integer, Hash)>] MsaFacetsResponse data, response status code and response headers
     def aggregates_ow_events_global_counts_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OverwatchDashboardApi.aggregates_ow_events_global_counts ...'
+        @api_client.config.logger.debug 'Calling API: OverwatchDashboard.aggregates_ow_events_global_counts ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboardApi.aggregates_ow_events_global_counts"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling OverwatchDashboard.aggregates_ow_events_global_counts"
       end
       # resource path
       local_var_path = '/overwatch-dashboards/aggregates/ow-events-global-counts/v1'
@@ -338,7 +338,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OverwatchDashboardApi.aggregates_ow_events_global_counts",
+        :operation => :"OverwatchDashboard.aggregates_ow_events_global_counts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -349,7 +349,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OverwatchDashboardApi#aggregates_ow_events_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OverwatchDashboard#aggregates_ow_events_global_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

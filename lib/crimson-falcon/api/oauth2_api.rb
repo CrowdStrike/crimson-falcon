@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class Oauth2Api
+  class Oauth2
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -55,15 +55,15 @@ module Falcon
     # @return [Array<(DomainAccessTokenResponseV1, Integer, Hash)>] DomainAccessTokenResponseV1 data, response status code and response headers
     def oauth2_access_token_with_http_info(client_id, client_secret, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Oauth2Api.oauth2_access_token ...'
+        @api_client.config.logger.debug 'Calling API: Oauth2.oauth2_access_token ...'
       end
       # verify the required parameter 'client_id' is set
       if @api_client.config.client_side_validation && client_id.nil?
-        fail ArgumentError, "Missing the required parameter 'client_id' when calling Oauth2Api.oauth2_access_token"
+        fail ArgumentError, "Missing the required parameter 'client_id' when calling Oauth2.oauth2_access_token"
       end
       # verify the required parameter 'client_secret' is set
       if @api_client.config.client_side_validation && client_secret.nil?
-        fail ArgumentError, "Missing the required parameter 'client_secret' when calling Oauth2Api.oauth2_access_token"
+        fail ArgumentError, "Missing the required parameter 'client_secret' when calling Oauth2.oauth2_access_token"
       end
       # resource path
       local_var_path = '/oauth2/token'
@@ -97,7 +97,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"Oauth2Api.oauth2_access_token",
+        :operation => :"Oauth2.oauth2_access_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -108,7 +108,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Oauth2Api#oauth2_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Oauth2#oauth2_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -130,11 +130,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def oauth2_revoke_token_with_http_info(token, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Oauth2Api.oauth2_revoke_token ...'
+        @api_client.config.logger.debug 'Calling API: Oauth2.oauth2_revoke_token ...'
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
-        fail ArgumentError, "Missing the required parameter 'token' when calling Oauth2Api.oauth2_revoke_token"
+        fail ArgumentError, "Missing the required parameter 'token' when calling Oauth2.oauth2_revoke_token"
       end
       # resource path
       local_var_path = '/oauth2/revoke'
@@ -167,7 +167,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"Oauth2Api.oauth2_revoke_token",
+        :operation => :"Oauth2.oauth2_revoke_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -178,7 +178,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Oauth2Api#oauth2_revoke_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Oauth2#oauth2_revoke_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

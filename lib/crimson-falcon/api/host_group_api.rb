@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class HostGroupApi
+  class HostGroup
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def create_host_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.create_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.create_host_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroupApi.create_host_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroup.create_host_groups"
       end
       # resource path
       local_var_path = '/devices/entities/host-groups/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.create_host_groups",
+        :operation => :"HostGroup.create_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#create_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#create_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_host_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.delete_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.delete_host_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostGroupApi.delete_host_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling HostGroup.delete_host_groups"
       end
       # resource path
       local_var_path = '/devices/entities/host-groups/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.delete_host_groups",
+        :operation => :"HostGroup.delete_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#delete_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#delete_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def get_host_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.get_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.get_host_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostGroupApi.get_host_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling HostGroup.get_host_groups"
       end
       # resource path
       local_var_path = '/devices/entities/host-groups/v1'
@@ -210,7 +210,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.get_host_groups",
+        :operation => :"HostGroup.get_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -221,7 +221,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#get_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#get_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,11 +245,11 @@ module Falcon
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def perform_group_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.perform_group_action ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.perform_group_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostGroupApi.perform_group_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostGroup.perform_group_action"
       end
       # verify enum value
       allowable_values = ["add-hosts", "remove-hosts"]
@@ -258,7 +258,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroupApi.perform_group_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroup.perform_group_action"
       end
       # resource path
       local_var_path = '/devices/entities/host-group-actions/v1'
@@ -291,7 +291,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.perform_group_action",
+        :operation => :"HostGroup.perform_group_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -302,7 +302,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#perform_group_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#perform_group_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -330,18 +330,18 @@ module Falcon
     # @return [Array<(HostGroupsMembersRespV1, Integer, Hash)>] HostGroupsMembersRespV1 data, response status code and response headers
     def query_combined_group_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.query_combined_group_members ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.query_combined_group_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroupApi.query_combined_group_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroup.query_combined_group_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_combined_group_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_combined_group_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_combined_group_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_combined_group_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -373,7 +373,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.query_combined_group_members",
+        :operation => :"HostGroup.query_combined_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -384,7 +384,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#query_combined_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#query_combined_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -410,18 +410,18 @@ module Falcon
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def query_combined_host_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.query_combined_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.query_combined_host_groups ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroupApi.query_combined_host_groups, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroup.query_combined_host_groups, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_combined_host_groups, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_combined_host_groups, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_combined_host_groups, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_combined_host_groups, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "group_type.asc", "group_type.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc"]
@@ -456,7 +456,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.query_combined_host_groups",
+        :operation => :"HostGroup.query_combined_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -467,7 +467,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#query_combined_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#query_combined_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -495,18 +495,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_group_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.query_group_members ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.query_group_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroupApi.query_group_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroup.query_group_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_group_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_group_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_group_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_group_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -538,7 +538,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.query_group_members",
+        :operation => :"HostGroup.query_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -549,7 +549,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#query_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#query_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -575,18 +575,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_host_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.query_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.query_host_groups ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroupApi.query_host_groups, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling HostGroup.query_host_groups, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_host_groups, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_host_groups, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroupApi.query_host_groups, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling HostGroup.query_host_groups, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "group_type.asc", "group_type.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc"]
@@ -621,7 +621,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.query_host_groups",
+        :operation => :"HostGroup.query_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -632,7 +632,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#query_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#query_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -652,11 +652,11 @@ module Falcon
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def update_host_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostGroupApi.update_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: HostGroup.update_host_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroupApi.update_host_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostGroup.update_host_groups"
       end
       # resource path
       local_var_path = '/devices/entities/host-groups/v1'
@@ -687,7 +687,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostGroupApi.update_host_groups",
+        :operation => :"HostGroup.update_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -698,7 +698,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostGroupApi#update_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostGroup#update_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

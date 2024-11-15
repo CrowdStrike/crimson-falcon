@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class InstallationTokensApi
+  class InstallationTokens
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,7 +57,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def audit_events_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.audit_events_query ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.audit_events_query ...'
       end
       # resource path
       local_var_path = '/installation-tokens/queries/audit-events/v1'
@@ -87,7 +87,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.audit_events_query",
+        :operation => :"InstallationTokens.audit_events_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -98,7 +98,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#audit_events_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#audit_events_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -118,7 +118,7 @@ module Falcon
     # @return [Array<(ApiAuditEventDetailsResponseV1, Integer, Hash)>] ApiAuditEventDetailsResponseV1 data, response status code and response headers
     def audit_events_read_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.audit_events_read ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.audit_events_read ...'
       end
       # resource path
       local_var_path = '/installation-tokens/entities/audit-events/v1'
@@ -145,7 +145,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.audit_events_read",
+        :operation => :"InstallationTokens.audit_events_read",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -156,7 +156,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#audit_events_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#audit_events_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -174,7 +174,7 @@ module Falcon
     # @return [Array<(ApiCustomerSettingsResponseV1, Integer, Hash)>] ApiCustomerSettingsResponseV1 data, response status code and response headers
     def customer_settings_read_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.customer_settings_read ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.customer_settings_read ...'
       end
       # resource path
       local_var_path = '/installation-tokens/entities/customer-settings/v1'
@@ -200,7 +200,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.customer_settings_read",
+        :operation => :"InstallationTokens.customer_settings_read",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -211,7 +211,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#customer_settings_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#customer_settings_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -231,11 +231,11 @@ module Falcon
     # @return [Array<(ApiTokenDetailsResponseV1, Integer, Hash)>] ApiTokenDetailsResponseV1 data, response status code and response headers
     def tokens_create_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_create ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_create ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling InstallationTokensApi.tokens_create"
+        fail ArgumentError, "Missing the required parameter 'body' when calling InstallationTokens.tokens_create"
       end
       # resource path
       local_var_path = '/installation-tokens/entities/tokens/v1'
@@ -266,7 +266,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.tokens_create",
+        :operation => :"InstallationTokens.tokens_create",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -277,7 +277,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#tokens_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#tokens_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -297,11 +297,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def tokens_delete_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_delete ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_delete ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling InstallationTokensApi.tokens_delete"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling InstallationTokens.tokens_delete"
       end
       # resource path
       local_var_path = '/installation-tokens/entities/tokens/v1'
@@ -328,7 +328,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.tokens_delete",
+        :operation => :"InstallationTokens.tokens_delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -339,7 +339,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#tokens_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#tokens_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -365,7 +365,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def tokens_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_query ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_query ...'
       end
       # resource path
       local_var_path = '/installation-tokens/queries/tokens/v1'
@@ -395,7 +395,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.tokens_query",
+        :operation => :"InstallationTokens.tokens_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -406,7 +406,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#tokens_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#tokens_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -426,7 +426,7 @@ module Falcon
     # @return [Array<(ApiTokenDetailsResponseV1, Integer, Hash)>] ApiTokenDetailsResponseV1 data, response status code and response headers
     def tokens_read_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_read ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_read ...'
       end
       # resource path
       local_var_path = '/installation-tokens/entities/tokens/v1'
@@ -453,7 +453,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.tokens_read",
+        :operation => :"InstallationTokens.tokens_read",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -464,7 +464,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#tokens_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#tokens_read\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -486,15 +486,15 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def tokens_update_with_http_info(ids, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensApi.tokens_update ...'
+        @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_update ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling InstallationTokensApi.tokens_update"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling InstallationTokens.tokens_update"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling InstallationTokensApi.tokens_update"
+        fail ArgumentError, "Missing the required parameter 'body' when calling InstallationTokens.tokens_update"
       end
       # resource path
       local_var_path = '/installation-tokens/entities/tokens/v1'
@@ -526,7 +526,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensApi.tokens_update",
+        :operation => :"InstallationTokens.tokens_update",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -537,7 +537,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensApi#tokens_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: InstallationTokens#tokens_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

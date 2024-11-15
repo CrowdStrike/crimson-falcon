@@ -1,10 +1,10 @@
-# Falcon::RuntimeDetectionsApi
+# Falcon::RuntimeDetections
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_runtime_detections_combined_v2**](RuntimeDetectionsApi.md#get_runtime_detections_combined_v2) | **GET** /container-security/combined/runtime-detections/v2 | Retrieve container runtime detections by the provided search criteria |
+| [**get_runtime_detections_combined_v2**](RuntimeDetections.md#get_runtime_detections_combined_v2) | **GET** /container-security/combined/runtime-detections/v2 | Retrieve container runtime detections by the provided search criteria |
 
 
 ## get_runtime_detections_combined_v2
@@ -26,7 +26,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RuntimeDetectionsApi.new
+api_instance = Falcon::RuntimeDetections.new
 opts = {
   filter: 'filter_example', # String | Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filters:  action_taken,aid,cid,cloud,cluster_name,command_line,computer_name,container_id,detect_timestamp,detection_description,detection_id,file_name,file_path,host_id,host_type,image_id,name,namespace,pod_name,severity,tactic
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -39,7 +39,7 @@ begin
   result = api_instance.get_runtime_detections_combined_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RuntimeDetectionsApi->get_runtime_detections_combined_v2: #{e}"
+  puts "Error when calling RuntimeDetections->get_runtime_detections_combined_v2: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <RuntimedetectionsDetectionsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling RuntimeDetectionsApi->get_runtime_detections_combined_v2_with_http_info: #{e}"
+  puts "Error when calling RuntimeDetections->get_runtime_detections_combined_v2_with_http_info: #{e}"
 end
 ```
 

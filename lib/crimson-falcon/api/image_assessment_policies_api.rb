@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ImageAssessmentPoliciesApi
+  class ImageAssessmentPolicies
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def create_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.create_policies ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.create_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.create_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.create_policies"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policies/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.create_policies",
+        :operation => :"ImageAssessmentPolicies.create_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#create_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#create_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(ModelsPolicyGroupEntityResponse, Integer, Hash)>] ModelsPolicyGroupEntityResponse data, response status code and response headers
     def create_policy_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.create_policy_groups ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.create_policy_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.create_policy_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.create_policy_groups"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-groups/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.create_policy_groups",
+        :operation => :"ImageAssessmentPolicies.create_policy_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#create_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#create_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def delete_policy_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.delete_policy ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.delete_policy ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPoliciesApi.delete_policy"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPolicies.delete_policy"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policies/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.delete_policy",
+        :operation => :"ImageAssessmentPolicies.delete_policy",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#delete_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#delete_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,11 +245,11 @@ module Falcon
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def delete_policy_group_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.delete_policy_group ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.delete_policy_group ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPoliciesApi.delete_policy_group"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPolicies.delete_policy_group"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-groups/v1'
@@ -276,7 +276,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.delete_policy_group",
+        :operation => :"ImageAssessmentPolicies.delete_policy_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,7 +287,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#delete_policy_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#delete_policy_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -305,7 +305,7 @@ module Falcon
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def read_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.read_policies ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.read_policies ...'
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policies/v1'
@@ -331,7 +331,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.read_policies",
+        :operation => :"ImageAssessmentPolicies.read_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -342,7 +342,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#read_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#read_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -360,7 +360,7 @@ module Falcon
     # @return [Array<(ModelsPolicyExclusionEntityResponse, Integer, Hash)>] ModelsPolicyExclusionEntityResponse data, response status code and response headers
     def read_policy_exclusions_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.read_policy_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.read_policy_exclusions ...'
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-exclusions/v1'
@@ -386,7 +386,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.read_policy_exclusions",
+        :operation => :"ImageAssessmentPolicies.read_policy_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -397,7 +397,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#read_policy_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#read_policy_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -415,7 +415,7 @@ module Falcon
     # @return [Array<(ModelsPolicyGroupEntityResponse, Integer, Hash)>] ModelsPolicyGroupEntityResponse data, response status code and response headers
     def read_policy_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.read_policy_groups ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.read_policy_groups ...'
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-groups/v1'
@@ -441,7 +441,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.read_policy_groups",
+        :operation => :"ImageAssessmentPolicies.read_policy_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -452,7 +452,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#read_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#read_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -474,15 +474,15 @@ module Falcon
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def update_policies_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.update_policies ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.update_policies ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPoliciesApi.update_policies"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPolicies.update_policies"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.update_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.update_policies"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policies/v1'
@@ -514,7 +514,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.update_policies",
+        :operation => :"ImageAssessmentPolicies.update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -525,7 +525,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -545,11 +545,11 @@ module Falcon
     # @return [Array<(ModelsPolicyExclusionEntityResponse, Integer, Hash)>] ModelsPolicyExclusionEntityResponse data, response status code and response headers
     def update_policy_exclusions_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.update_policy_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.update_policy_exclusions ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.update_policy_exclusions"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.update_policy_exclusions"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-exclusions/v1'
@@ -580,7 +580,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.update_policy_exclusions",
+        :operation => :"ImageAssessmentPolicies.update_policy_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -591,7 +591,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#update_policy_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#update_policy_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -613,15 +613,15 @@ module Falcon
     # @return [Array<(ModelsPolicyGroupEntityResponse, Integer, Hash)>] ModelsPolicyGroupEntityResponse data, response status code and response headers
     def update_policy_groups_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.update_policy_groups ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.update_policy_groups ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPoliciesApi.update_policy_groups"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ImageAssessmentPolicies.update_policy_groups"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.update_policy_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.update_policy_groups"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-groups/v1'
@@ -653,7 +653,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.update_policy_groups",
+        :operation => :"ImageAssessmentPolicies.update_policy_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -664,7 +664,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#update_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#update_policy_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -684,11 +684,11 @@ module Falcon
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def update_policy_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImageAssessmentPoliciesApi.update_policy_precedence ...'
+        @api_client.config.logger.debug 'Calling API: ImageAssessmentPolicies.update_policy_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPoliciesApi.update_policy_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ImageAssessmentPolicies.update_policy_precedence"
       end
       # resource path
       local_var_path = '/container-security/entities/image-assessment-policy-precedence/v1'
@@ -719,7 +719,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ImageAssessmentPoliciesApi.update_policy_precedence",
+        :operation => :"ImageAssessmentPolicies.update_policy_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -730,7 +730,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImageAssessmentPoliciesApi#update_policy_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImageAssessmentPolicies#update_policy_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

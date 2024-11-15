@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ContainerPackagesApi
+  class ContainerPackages
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -55,7 +55,7 @@ module Falcon
     # @return [Array<(PackagesApiPackagesByVulnCount, Integer, Hash)>] PackagesApiPackagesByVulnCount data, response status code and response headers
     def read_packages_by_fixable_vuln_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerPackagesApi.read_packages_by_fixable_vuln_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_by_fixable_vuln_count ...'
       end
       # resource path
       local_var_path = '/container-security/combined/packages/app-by-fixable-vulnerability-count/v1'
@@ -84,7 +84,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerPackagesApi.read_packages_by_fixable_vuln_count",
+        :operation => :"ContainerPackages.read_packages_by_fixable_vuln_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -95,7 +95,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerPackagesApi#read_packages_by_fixable_vuln_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_by_fixable_vuln_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,7 +119,7 @@ module Falcon
     # @return [Array<(PackagesApiPackagesByVulnCount, Integer, Hash)>] PackagesApiPackagesByVulnCount data, response status code and response headers
     def read_packages_by_vuln_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerPackagesApi.read_packages_by_vuln_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_by_vuln_count ...'
       end
       # resource path
       local_var_path = '/container-security/combined/packages/by-vulnerability-count/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerPackagesApi.read_packages_by_vuln_count",
+        :operation => :"ContainerPackages.read_packages_by_vuln_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerPackagesApi#read_packages_by_vuln_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_by_vuln_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -187,7 +187,7 @@ module Falcon
     # @return [Array<(PackagesApiCombinedPackage, Integer, Hash)>] PackagesApiCombinedPackage data, response status code and response headers
     def read_packages_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerPackagesApi.read_packages_combined ...'
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/packages/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerPackagesApi.read_packages_combined",
+        :operation => :"ContainerPackages.read_packages_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerPackagesApi#read_packages_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -257,7 +257,7 @@ module Falcon
     # @return [Array<(PackagesApiCombinedPackageExport, Integer, Hash)>] PackagesApiCombinedPackageExport data, response status code and response headers
     def read_packages_combined_export_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerPackagesApi.read_packages_combined_export ...'
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_combined_export ...'
       end
       # resource path
       local_var_path = '/container-security/combined/packages/export/v1'
@@ -288,7 +288,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerPackagesApi.read_packages_combined_export",
+        :operation => :"ContainerPackages.read_packages_combined_export",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -299,7 +299,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerPackagesApi#read_packages_combined_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_combined_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -319,7 +319,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_packages_count_by_zero_day_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerPackagesApi.read_packages_count_by_zero_day ...'
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_count_by_zero_day ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/packages/count-by-zero-day/v1'
@@ -346,7 +346,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerPackagesApi.read_packages_count_by_zero_day",
+        :operation => :"ContainerPackages.read_packages_count_by_zero_day",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -357,7 +357,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerPackagesApi#read_packages_count_by_zero_day\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_count_by_zero_day\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -1,17 +1,17 @@
-# Falcon::InstallationTokensApi
+# Falcon::InstallationTokens
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**audit_events_query**](InstallationTokensApi.md#audit_events_query) | **GET** /installation-tokens/queries/audit-events/v1 | Search for audit events by providing an FQL filter and paging details. |
-| [**audit_events_read**](InstallationTokensApi.md#audit_events_read) | **GET** /installation-tokens/entities/audit-events/v1 | Gets the details of one or more audit events by id. |
-| [**customer_settings_read**](InstallationTokensApi.md#customer_settings_read) | **GET** /installation-tokens/entities/customer-settings/v1 | Check current installation token settings. |
-| [**tokens_create**](InstallationTokensApi.md#tokens_create) | **POST** /installation-tokens/entities/tokens/v1 | Creates a token. |
-| [**tokens_delete**](InstallationTokensApi.md#tokens_delete) | **DELETE** /installation-tokens/entities/tokens/v1 | Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead. |
-| [**tokens_query**](InstallationTokensApi.md#tokens_query) | **GET** /installation-tokens/queries/tokens/v1 | Search for tokens by providing an FQL filter and paging details. |
-| [**tokens_read**](InstallationTokensApi.md#tokens_read) | **GET** /installation-tokens/entities/tokens/v1 | Gets the details of one or more tokens by id. |
-| [**tokens_update**](InstallationTokensApi.md#tokens_update) | **PATCH** /installation-tokens/entities/tokens/v1 | Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore. |
+| [**audit_events_query**](InstallationTokens.md#audit_events_query) | **GET** /installation-tokens/queries/audit-events/v1 | Search for audit events by providing an FQL filter and paging details. |
+| [**audit_events_read**](InstallationTokens.md#audit_events_read) | **GET** /installation-tokens/entities/audit-events/v1 | Gets the details of one or more audit events by id. |
+| [**customer_settings_read**](InstallationTokens.md#customer_settings_read) | **GET** /installation-tokens/entities/customer-settings/v1 | Check current installation token settings. |
+| [**tokens_create**](InstallationTokens.md#tokens_create) | **POST** /installation-tokens/entities/tokens/v1 | Creates a token. |
+| [**tokens_delete**](InstallationTokens.md#tokens_delete) | **DELETE** /installation-tokens/entities/tokens/v1 | Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead. |
+| [**tokens_query**](InstallationTokens.md#tokens_query) | **GET** /installation-tokens/queries/tokens/v1 | Search for tokens by providing an FQL filter and paging details. |
+| [**tokens_read**](InstallationTokens.md#tokens_read) | **GET** /installation-tokens/entities/tokens/v1 | Gets the details of one or more tokens by id. |
+| [**tokens_update**](InstallationTokens.md#tokens_update) | **PATCH** /installation-tokens/entities/tokens/v1 | Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore. |
 
 
 ## audit_events_query
@@ -33,7 +33,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from.
   limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 50.
@@ -46,7 +46,7 @@ begin
   result = api_instance.audit_events_query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->audit_events_query: #{e}"
+  puts "Error when calling InstallationTokens->audit_events_query: #{e}"
 end
 ```
 
@@ -64,7 +64,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->audit_events_query_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->audit_events_query_with_http_info: #{e}"
 end
 ```
 
@@ -110,7 +110,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 opts = {
   ids: ['inner_example'] # Array<String> | IDs of audit events to retrieve details for
 }
@@ -120,7 +120,7 @@ begin
   result = api_instance.audit_events_read(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->audit_events_read: #{e}"
+  puts "Error when calling InstallationTokens->audit_events_read: #{e}"
 end
 ```
 
@@ -138,7 +138,7 @@ begin
   p headers # => { ... }
   p data # => <ApiAuditEventDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->audit_events_read_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->audit_events_read_with_http_info: #{e}"
 end
 ```
 
@@ -181,14 +181,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 
 begin
   # Check current installation token settings.
   result = api_instance.customer_settings_read
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->customer_settings_read: #{e}"
+  puts "Error when calling InstallationTokens->customer_settings_read: #{e}"
 end
 ```
 
@@ -206,7 +206,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCustomerSettingsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->customer_settings_read_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->customer_settings_read_with_http_info: #{e}"
 end
 ```
 
@@ -247,7 +247,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 body = Falcon::ApiTokenCreateRequestV1.new # ApiTokenCreateRequestV1 | 
 
 begin
@@ -255,7 +255,7 @@ begin
   result = api_instance.tokens_create(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_create: #{e}"
+  puts "Error when calling InstallationTokens->tokens_create: #{e}"
 end
 ```
 
@@ -273,7 +273,7 @@ begin
   p headers # => { ... }
   p data # => <ApiTokenDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_create_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->tokens_create_with_http_info: #{e}"
 end
 ```
 
@@ -316,7 +316,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 ids = ['inner_example'] # Array<String> | The token ids to delete.
 
 begin
@@ -324,7 +324,7 @@ begin
   result = api_instance.tokens_delete(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_delete: #{e}"
+  puts "Error when calling InstallationTokens->tokens_delete: #{e}"
 end
 ```
 
@@ -342,7 +342,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_delete_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->tokens_delete_with_http_info: #{e}"
 end
 ```
 
@@ -385,7 +385,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from.
   limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 50.
@@ -398,7 +398,7 @@ begin
   result = api_instance.tokens_query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_query: #{e}"
+  puts "Error when calling InstallationTokens->tokens_query: #{e}"
 end
 ```
 
@@ -416,7 +416,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_query_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->tokens_query_with_http_info: #{e}"
 end
 ```
 
@@ -462,7 +462,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 opts = {
   ids: ['inner_example'] # Array<String> | IDs of tokens to retrieve details for
 }
@@ -472,7 +472,7 @@ begin
   result = api_instance.tokens_read(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_read: #{e}"
+  puts "Error when calling InstallationTokens->tokens_read: #{e}"
 end
 ```
 
@@ -490,7 +490,7 @@ begin
   p headers # => { ... }
   p data # => <ApiTokenDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_read_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->tokens_read_with_http_info: #{e}"
 end
 ```
 
@@ -533,7 +533,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensApi.new
+api_instance = Falcon::InstallationTokens.new
 ids = ['inner_example'] # Array<String> | The token ids to update.
 body = Falcon::ApiTokenPatchRequestV1.new # ApiTokenPatchRequestV1 | 
 
@@ -542,7 +542,7 @@ begin
   result = api_instance.tokens_update(ids, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_update: #{e}"
+  puts "Error when calling InstallationTokens->tokens_update: #{e}"
 end
 ```
 
@@ -560,7 +560,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensApi->tokens_update_with_http_info: #{e}"
+  puts "Error when calling InstallationTokens->tokens_update_with_http_info: #{e}"
 end
 ```
 

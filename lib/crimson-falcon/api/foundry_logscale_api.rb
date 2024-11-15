@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FoundryLogscaleApi
+  class FoundryLogscale
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -67,22 +67,22 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_dynamic_execute_alt_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1"
       end
       allowable_values = ["sync", "async"]
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -122,7 +122,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -133,7 +133,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_dynamic_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_dynamic_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -169,22 +169,22 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_dynamic_execute_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_dynamic_execute_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_dynamic_execute_v1"
       end
       allowable_values = ["sync", "async"]
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_dynamic_execute_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_dynamic_execute_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -224,7 +224,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_dynamic_execute_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -235,7 +235,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_dynamic_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_dynamic_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -269,18 +269,18 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_execute_alt_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_execute_alt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_execute_alt_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_execute_alt_v1"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -319,7 +319,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_execute_alt_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_execute_alt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -330,7 +330,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -364,18 +364,18 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_execute_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_execute_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_execute_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_execute_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_execute_v1"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.create_saved_searches_execute_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -414,7 +414,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_execute_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_execute_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -425,7 +425,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -445,7 +445,7 @@ module Falcon
     # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_ingest_alt_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_ingest_alt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_ingest_alt_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches-ingest/v1'
@@ -472,7 +472,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_ingest_alt_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_ingest_alt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -483,7 +483,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_ingest_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_ingest_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -503,7 +503,7 @@ module Falcon
     # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_ingest_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.create_saved_searches_ingest_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.create_saved_searches_ingest_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches/ingest/v1'
@@ -530,7 +530,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.create_saved_searches_ingest_v1",
+        :operation => :"FoundryLogscale.create_saved_searches_ingest_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -541,7 +541,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#create_saved_searches_ingest_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#create_saved_searches_ingest_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -577,18 +577,18 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def get_saved_searches_execute_alt_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.get_saved_searches_execute_alt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.get_saved_searches_execute_alt_v1 ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscale.get_saved_searches_execute_alt_v1"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.get_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.get_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -624,7 +624,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.get_saved_searches_execute_alt_v1",
+        :operation => :"FoundryLogscale.get_saved_searches_execute_alt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -635,7 +635,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#get_saved_searches_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#get_saved_searches_execute_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -671,18 +671,18 @@ module Falcon
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def get_saved_searches_execute_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.get_saved_searches_execute_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.get_saved_searches_execute_v1 ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_execute_v1"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscale.get_saved_searches_execute_v1"
       end
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.get_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_v1, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscale.get_saved_searches_execute_v1, the character length must be great than or equal to 36.'
       end
 
       # resource path
@@ -718,7 +718,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.get_saved_searches_execute_v1",
+        :operation => :"FoundryLogscale.get_saved_searches_execute_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -729,7 +729,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#get_saved_searches_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#get_saved_searches_execute_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -753,11 +753,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_saved_searches_job_results_download_alt_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.get_saved_searches_job_results_download_alt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.get_saved_searches_job_results_download_alt_v1 ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_job_results_download_alt_v1"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscale.get_saved_searches_job_results_download_alt_v1"
       end
       allowable_values = ["json", "csv"]
       if @api_client.config.client_side_validation && opts[:'result_format'] && !allowable_values.include?(opts[:'result_format'])
@@ -790,7 +790,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.get_saved_searches_job_results_download_alt_v1",
+        :operation => :"FoundryLogscale.get_saved_searches_job_results_download_alt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -801,7 +801,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#get_saved_searches_job_results_download_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#get_saved_searches_job_results_download_alt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -825,11 +825,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_saved_searches_job_results_download_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.get_saved_searches_job_results_download_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.get_saved_searches_job_results_download_v1 ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_job_results_download_v1"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscale.get_saved_searches_job_results_download_v1"
       end
       allowable_values = ["json", "csv"]
       if @api_client.config.client_side_validation && opts[:'result_format'] && !allowable_values.include?(opts[:'result_format'])
@@ -862,7 +862,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.get_saved_searches_job_results_download_v1",
+        :operation => :"FoundryLogscale.get_saved_searches_job_results_download_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -873,7 +873,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#get_saved_searches_job_results_download_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#get_saved_searches_job_results_download_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -903,7 +903,7 @@ module Falcon
     # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
     def ingest_data_async_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.ingest_data_async_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.ingest_data_async_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/entities/data-ingestion/ingest-async/v1'
@@ -940,7 +940,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.ingest_data_async_v1",
+        :operation => :"FoundryLogscale.ingest_data_async_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -951,7 +951,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#ingest_data_async_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#ingest_data_async_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -979,7 +979,7 @@ module Falcon
     # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
     def ingest_data_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.ingest_data_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.ingest_data_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/entities/data-ingestion/ingest/v1'
@@ -1015,7 +1015,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.ingest_data_v1",
+        :operation => :"FoundryLogscale.ingest_data_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1026,7 +1026,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#ingest_data_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#ingest_data_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1046,7 +1046,7 @@ module Falcon
     # @return [Array<(ApidomainRepoViewListItemWrapperV1, Integer, Hash)>] ApidomainRepoViewListItemWrapperV1 data, response status code and response headers
     def list_repos_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.list_repos_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.list_repos_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/combined/repos/v1'
@@ -1073,7 +1073,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.list_repos_v1",
+        :operation => :"FoundryLogscale.list_repos_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1084,7 +1084,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#list_repos_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#list_repos_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1104,7 +1104,7 @@ module Falcon
     # @return [Array<(ApidomainRepoViewListItemWrapperV1, Integer, Hash)>] ApidomainRepoViewListItemWrapperV1 data, response status code and response headers
     def list_view_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.list_view_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FoundryLogscale.list_view_v1 ...'
       end
       # resource path
       local_var_path = '/loggingapi/entities/views/v1'
@@ -1131,7 +1131,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FoundryLogscaleApi.list_view_v1",
+        :operation => :"FoundryLogscale.list_view_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1142,7 +1142,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FoundryLogscaleApi#list_view_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FoundryLogscale#list_view_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

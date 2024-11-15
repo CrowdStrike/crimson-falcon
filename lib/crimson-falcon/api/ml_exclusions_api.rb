@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class MlExclusionsApi
+  class MlExclusions
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
     def create_ml_exclusions_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MlExclusionsApi.create_ml_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: MlExclusions.create_ml_exclusions_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusionsApi.create_ml_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.create_ml_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ml-exclusions/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MlExclusionsApi.create_ml_exclusions_v1",
+        :operation => :"MlExclusions.create_ml_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MlExclusionsApi#create_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MlExclusions#create_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,11 +119,11 @@ module Falcon
     # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
     def delete_ml_exclusions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MlExclusionsApi.delete_ml_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: MlExclusions.delete_ml_exclusions_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusionsApi.delete_ml_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusions.delete_ml_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ml-exclusions/v1'
@@ -151,7 +151,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MlExclusionsApi.delete_ml_exclusions_v1",
+        :operation => :"MlExclusions.delete_ml_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -162,7 +162,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MlExclusionsApi#delete_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MlExclusions#delete_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,11 +182,11 @@ module Falcon
     # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
     def get_ml_exclusions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MlExclusionsApi.get_ml_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: MlExclusions.get_ml_exclusions_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusionsApi.get_ml_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling MlExclusions.get_ml_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ml-exclusions/v1'
@@ -213,7 +213,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MlExclusionsApi.get_ml_exclusions_v1",
+        :operation => :"MlExclusions.get_ml_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -224,7 +224,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MlExclusionsApi#get_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MlExclusions#get_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -250,7 +250,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_ml_exclusions_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MlExclusionsApi.query_ml_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: MlExclusions.query_ml_exclusions_v1 ...'
       end
       allowable_values = ["applied_globally.asc", "applied_globally.desc", "created_by.asc", "created_by.desc", "created_on.asc", "created_on.desc", "last_modified.asc", "last_modified.desc", "modified_by.asc", "modified_by.desc", "value.asc", "value.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MlExclusionsApi.query_ml_exclusions_v1",
+        :operation => :"MlExclusions.query_ml_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MlExclusionsApi#query_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MlExclusions#query_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
     def update_ml_exclusions_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MlExclusionsApi.update_ml_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: MlExclusions.update_ml_exclusions_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusionsApi.update_ml_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MlExclusions.update_ml_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ml-exclusions/v1'
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MlExclusionsApi.update_ml_exclusions_v1",
+        :operation => :"MlExclusions.update_ml_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MlExclusionsApi#update_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MlExclusions#update_ml_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

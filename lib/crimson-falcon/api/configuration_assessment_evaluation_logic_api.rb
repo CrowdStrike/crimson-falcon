@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ConfigurationAssessmentEvaluationLogicApi
+  class ConfigurationAssessmentEvaluationLogic
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainAPIEvaluationLogicEntitiesResponseV1, Integer, Hash)>] DomainAPIEvaluationLogicEntitiesResponseV1 data, response status code and response headers
     def get_evaluation_logic_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ConfigurationAssessmentEvaluationLogicApi.get_evaluation_logic_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: ConfigurationAssessmentEvaluationLogic.get_evaluation_logic_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ConfigurationAssessmentEvaluationLogicApi.get_evaluation_logic_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ConfigurationAssessmentEvaluationLogic.get_evaluation_logic_mixin0"
       end
       # resource path
       local_var_path = '/configuration-assessment/entities/evaluation-logic/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ConfigurationAssessmentEvaluationLogicApi.get_evaluation_logic_mixin0",
+        :operation => :"ConfigurationAssessmentEvaluationLogic.get_evaluation_logic_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ConfigurationAssessmentEvaluationLogicApi#get_evaluation_logic_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ConfigurationAssessmentEvaluationLogic#get_evaluation_logic_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

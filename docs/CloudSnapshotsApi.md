@@ -1,15 +1,15 @@
-# Falcon::CloudSnapshotsApi
+# Falcon::CloudSnapshots
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_deployment_entity**](CloudSnapshotsApi.md#create_deployment_entity) | **POST** /snapshots/entities/deployments/v1 | Launch a snapshot scan for a given cloud asset |
-| [**get_credentials_mixin0_mixin57**](CloudSnapshotsApi.md#get_credentials_mixin0_mixin57) | **GET** /snapshots/entities/image-registry-credentials/v1 | Gets the registry credentials |
-| [**get_scan_report**](CloudSnapshotsApi.md#get_scan_report) | **GET** /snapshots/entities/scanreports/v1 | retrieve the scan report for an instance |
-| [**read_deployments_combined**](CloudSnapshotsApi.md#read_deployments_combined) | **GET** /snapshots/combined/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
-| [**read_deployments_entities**](CloudSnapshotsApi.md#read_deployments_entities) | **GET** /snapshots/entities/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
-| [**register_cspm_snapshot_account**](CloudSnapshotsApi.md#register_cspm_snapshot_account) | **POST** /snapshots/entities/accounts/v1 | Register customer cloud account for snapshot scanning |
+| [**create_deployment_entity**](CloudSnapshots.md#create_deployment_entity) | **POST** /snapshots/entities/deployments/v1 | Launch a snapshot scan for a given cloud asset |
+| [**get_credentials_mixin0_mixin57**](CloudSnapshots.md#get_credentials_mixin0_mixin57) | **GET** /snapshots/entities/image-registry-credentials/v1 | Gets the registry credentials |
+| [**get_scan_report**](CloudSnapshots.md#get_scan_report) | **GET** /snapshots/entities/scanreports/v1 | retrieve the scan report for an instance |
+| [**read_deployments_combined**](CloudSnapshots.md#read_deployments_combined) | **GET** /snapshots/combined/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
+| [**read_deployments_entities**](CloudSnapshots.md#read_deployments_entities) | **GET** /snapshots/entities/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
+| [**register_cspm_snapshot_account**](CloudSnapshots.md#register_cspm_snapshot_account) | **POST** /snapshots/entities/accounts/v1 | Register customer cloud account for snapshot scanning |
 
 
 ## create_deployment_entity
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 body = Falcon::ModelsCreateDeploymentInput.new({resources: [Falcon::ModelsDeploymentResource.new({account_id: 'account_id_example', asset_identifier: 'asset_identifier_example', cloud_provider: 'cloud_provider_example', region: 'region_example'})]}) # ModelsCreateDeploymentInput | 
 
 begin
@@ -39,7 +39,7 @@ begin
   result = api_instance.create_deployment_entity(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->create_deployment_entity: #{e}"
+  puts "Error when calling CloudSnapshots->create_deployment_entity: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <DeploymentsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->create_deployment_entity_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->create_deployment_entity_with_http_info: #{e}"
 end
 ```
 
@@ -100,14 +100,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 
 begin
   # Gets the registry credentials
   result = api_instance.get_credentials_mixin0_mixin57
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->get_credentials_mixin0_mixin57: #{e}"
+  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin57: #{e}"
 end
 ```
 
@@ -125,7 +125,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->get_credentials_mixin0_mixin57_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin57_with_http_info: #{e}"
 end
 ```
 
@@ -166,7 +166,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 ids = ['inner_example'] # Array<String> | the instance identifiers to fetch the report for
 
 begin
@@ -174,7 +174,7 @@ begin
   result = api_instance.get_scan_report(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->get_scan_report: #{e}"
+  puts "Error when calling CloudSnapshots->get_scan_report: #{e}"
 end
 ```
 
@@ -192,7 +192,7 @@ begin
   p headers # => { ... }
   p data # => <ScanreportsEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->get_scan_report_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->get_scan_report_with_http_info: #{e}"
 end
 ```
 
@@ -235,7 +235,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 opts = {
   filter: 'filter_example', # String | Search snapshot jobs using a query in Falcon Query Language (FQL). Supported filters:  account_id,asset_identifier,cloud_provider,region,status
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -248,7 +248,7 @@ begin
   result = api_instance.read_deployments_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->read_deployments_combined: #{e}"
+  puts "Error when calling CloudSnapshots->read_deployments_combined: #{e}"
 end
 ```
 
@@ -266,7 +266,7 @@ begin
   p headers # => { ... }
   p data # => <DeploymentsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->read_deployments_combined_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->read_deployments_combined_with_http_info: #{e}"
 end
 ```
 
@@ -312,7 +312,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 opts = {
   ids: ['inner_example'] # Array<String> | Search snapshot jobs by ids - The maximum amount is 100 IDs
 }
@@ -322,7 +322,7 @@ begin
   result = api_instance.read_deployments_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->read_deployments_entities: #{e}"
+  puts "Error when calling CloudSnapshots->read_deployments_entities: #{e}"
 end
 ```
 
@@ -340,7 +340,7 @@ begin
   p headers # => { ... }
   p data # => <DeploymentsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->read_deployments_entities_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->read_deployments_entities_with_http_info: #{e}"
 end
 ```
 
@@ -383,7 +383,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudSnapshotsApi.new
+api_instance = Falcon::CloudSnapshots.new
 body = Falcon::ModelsAccountEntitiesInput.new({aws_accounts: [Falcon::DomainAWSAccountInput.new({account_number: 'account_number_example', batch_regions: [Falcon::DomainAWSBatchClusterRegion.new({job_definition_name: 'job_definition_name_example', job_queue: 'job_queue_example', region: 'region_example'})], iam_external_id: 'iam_external_id_example', iam_role_arn: 'iam_role_arn_example', kms_alias: 'kms_alias_example', processing_account: 'processing_account_example'})]}) # ModelsAccountEntitiesInput | 
 
 begin
@@ -391,7 +391,7 @@ begin
   result = api_instance.register_cspm_snapshot_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->register_cspm_snapshot_account: #{e}"
+  puts "Error when calling CloudSnapshots->register_cspm_snapshot_account: #{e}"
 end
 ```
 
@@ -409,7 +409,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAccountStatusResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshotsApi->register_cspm_snapshot_account_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->register_cspm_snapshot_account_with_http_info: #{e}"
 end
 ```
 

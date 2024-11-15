@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class UserManagementApi
+  class UserManagement
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -63,22 +63,22 @@ module Falcon
     # @return [Array<(FlightcontrolapiUserGrantResponse, Integer, Hash)>] FlightcontrolapiUserGrantResponse data, response status code and response headers
     def combined_user_roles_v1_with_http_info(user_uuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.combined_user_roles_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.combined_user_roles_v1 ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.combined_user_roles_v1"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.combined_user_roles_v1"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagementApi.combined_user_roles_v1, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.combined_user_roles_v1, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagementApi.combined_user_roles_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagementApi.combined_user_roles_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v1, must be greater than or equal to 1.'
       end
 
       allowable_values = ["cid|asc", "cid|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc"]
@@ -116,7 +116,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.combined_user_roles_v1",
+        :operation => :"UserManagement.combined_user_roles_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -127,7 +127,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#combined_user_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#combined_user_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -147,11 +147,11 @@ module Falcon
     # @return [Array<(ApiUserMetadataResponse, Integer, Hash)>] ApiUserMetadataResponse data, response status code and response headers
     def create_user_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.create_user ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.create_user ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.create_user"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.create_user"
       end
       # resource path
       local_var_path = '/users/entities/users/v1'
@@ -182,7 +182,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.create_user",
+        :operation => :"UserManagement.create_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -193,7 +193,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#create_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#create_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -215,11 +215,11 @@ module Falcon
     # @return [Array<(FlightcontrolapiUserResponse, Integer, Hash)>] FlightcontrolapiUserResponse data, response status code and response headers
     def create_user_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.create_user_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.create_user_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.create_user_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.create_user_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/users/v1'
@@ -251,7 +251,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.create_user_v1",
+        :operation => :"UserManagement.create_user_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -262,7 +262,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#create_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#create_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -282,11 +282,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def delete_user_with_http_info(user_uuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.delete_user ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.delete_user ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.delete_user"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.delete_user"
       end
       # resource path
       local_var_path = '/users/entities/users/v1'
@@ -313,7 +313,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.delete_user",
+        :operation => :"UserManagement.delete_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -324,7 +324,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#delete_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#delete_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -344,11 +344,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def delete_user_v1_with_http_info(user_uuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.delete_user_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.delete_user_v1 ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.delete_user_v1"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.delete_user_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/users/v1'
@@ -375,7 +375,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.delete_user_v1",
+        :operation => :"UserManagement.delete_user_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -386,7 +386,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#delete_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#delete_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -408,11 +408,11 @@ module Falcon
     # @return [Array<(FlightcontrolapiGetRolesResponse, Integer, Hash)>] FlightcontrolapiGetRolesResponse data, response status code and response headers
     def entities_roles_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.entities_roles_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.entities_roles_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagementApi.entities_roles_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagement.entities_roles_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/roles/v1'
@@ -440,7 +440,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.entities_roles_v1",
+        :operation => :"UserManagement.entities_roles_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -451,7 +451,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#entities_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#entities_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -469,7 +469,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def get_available_role_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.get_available_role_ids ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.get_available_role_ids ...'
       end
       # resource path
       local_var_path = '/user-roles/queries/user-role-ids-by-cid/v1'
@@ -495,7 +495,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.get_available_role_ids",
+        :operation => :"UserManagement.get_available_role_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -506,7 +506,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#get_available_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#get_available_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -526,11 +526,11 @@ module Falcon
     # @return [Array<(ApiUserRoleResponse, Integer, Hash)>] ApiUserRoleResponse data, response status code and response headers
     def get_roles_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.get_roles ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.get_roles ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagementApi.get_roles"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagement.get_roles"
       end
       # resource path
       local_var_path = '/user-roles/entities/user-roles/v1'
@@ -557,7 +557,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.get_roles",
+        :operation => :"UserManagement.get_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -568,7 +568,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#get_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#get_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -588,11 +588,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def get_user_role_ids_with_http_info(user_uuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.get_user_role_ids ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.get_user_role_ids ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.get_user_role_ids"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.get_user_role_ids"
       end
       # resource path
       local_var_path = '/user-roles/queries/user-role-ids-by-user-uuid/v1'
@@ -619,7 +619,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.get_user_role_ids",
+        :operation => :"UserManagement.get_user_role_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -630,7 +630,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#get_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#get_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -652,15 +652,15 @@ module Falcon
     # @return [Array<(ApiUserRoleIDsResponse, Integer, Hash)>] ApiUserRoleIDsResponse data, response status code and response headers
     def grant_user_role_ids_with_http_info(user_uuid, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.grant_user_role_ids ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.grant_user_role_ids ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.grant_user_role_ids"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.grant_user_role_ids"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.grant_user_role_ids"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.grant_user_role_ids"
       end
       # resource path
       local_var_path = '/user-roles/entities/user-roles/v1'
@@ -692,7 +692,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.grant_user_role_ids",
+        :operation => :"UserManagement.grant_user_role_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -703,7 +703,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#grant_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#grant_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -727,7 +727,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def queries_roles_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.queries_roles_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.queries_roles_v1 ...'
       end
       # resource path
       local_var_path = '/user-management/queries/roles/v1'
@@ -756,7 +756,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.queries_roles_v1",
+        :operation => :"UserManagement.queries_roles_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -767,7 +767,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#queries_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#queries_roles_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -793,18 +793,18 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_user_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.query_user_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.query_user_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagementApi.query_user_v1, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling UserManagement.query_user_v1, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagementApi.query_user_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagementApi.query_user_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_v1, must be greater than or equal to 1.'
       end
 
       allowable_values = ["cid_name|asc", "cid_name|desc", "created_at|asc", "created_at|desc", "first_name|asc", "first_name|desc", "last_login_at|asc", "last_login_at|desc", "last_name|asc", "last_name|desc", "name|asc", "name|desc", "uid|asc", "uid|desc"]
@@ -839,7 +839,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.query_user_v1",
+        :operation => :"UserManagement.query_user_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -850,7 +850,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#query_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#query_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -868,7 +868,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def retrieve_emails_by_cid_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.retrieve_emails_by_cid ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_emails_by_cid ...'
       end
       # resource path
       local_var_path = '/users/queries/emails-by-cid/v1'
@@ -894,7 +894,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.retrieve_emails_by_cid",
+        :operation => :"UserManagement.retrieve_emails_by_cid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -905,7 +905,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#retrieve_emails_by_cid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_emails_by_cid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -925,11 +925,11 @@ module Falcon
     # @return [Array<(ApiUserMetadataResponse, Integer, Hash)>] ApiUserMetadataResponse data, response status code and response headers
     def retrieve_user_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.retrieve_user ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_user ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagementApi.retrieve_user"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagement.retrieve_user"
       end
       # resource path
       local_var_path = '/users/entities/users/v1'
@@ -956,7 +956,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.retrieve_user",
+        :operation => :"UserManagement.retrieve_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -967,7 +967,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#retrieve_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -987,11 +987,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def retrieve_user_uuid_with_http_info(uid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.retrieve_user_uuid ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_user_uuid ...'
       end
       # verify the required parameter 'uid' is set
       if @api_client.config.client_side_validation && uid.nil?
-        fail ArgumentError, "Missing the required parameter 'uid' when calling UserManagementApi.retrieve_user_uuid"
+        fail ArgumentError, "Missing the required parameter 'uid' when calling UserManagement.retrieve_user_uuid"
       end
       # resource path
       local_var_path = '/users/queries/user-uuids-by-email/v1'
@@ -1018,7 +1018,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.retrieve_user_uuid",
+        :operation => :"UserManagement.retrieve_user_uuid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1029,7 +1029,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#retrieve_user_uuid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_user_uuid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1047,7 +1047,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def retrieve_user_uuids_by_cid_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.retrieve_user_uuids_by_cid ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_user_uuids_by_cid ...'
       end
       # resource path
       local_var_path = '/users/queries/user-uuids-by-cid/v1'
@@ -1073,7 +1073,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.retrieve_user_uuids_by_cid",
+        :operation => :"UserManagement.retrieve_user_uuids_by_cid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1084,7 +1084,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#retrieve_user_uuids_by_cid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_user_uuids_by_cid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1104,11 +1104,11 @@ module Falcon
     # @return [Array<(FlightcontrolapiUserResponse, Integer, Hash)>] FlightcontrolapiUserResponse data, response status code and response headers
     def retrieve_users_getv1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.retrieve_users_getv1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.retrieve_users_getv1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.retrieve_users_getv1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.retrieve_users_getv1"
       end
       # resource path
       local_var_path = '/user-management/entities/users/GET/v1'
@@ -1139,7 +1139,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.retrieve_users_getv1",
+        :operation => :"UserManagement.retrieve_users_getv1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1150,7 +1150,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#retrieve_users_getv1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#retrieve_users_getv1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1172,15 +1172,15 @@ module Falcon
     # @return [Array<(ApiUserRoleIDsResponse, Integer, Hash)>] ApiUserRoleIDsResponse data, response status code and response headers
     def revoke_user_role_ids_with_http_info(user_uuid, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.revoke_user_role_ids ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.revoke_user_role_ids ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.revoke_user_role_ids"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.revoke_user_role_ids"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagementApi.revoke_user_role_ids"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling UserManagement.revoke_user_role_ids"
       end
       # resource path
       local_var_path = '/user-roles/entities/user-roles/v1'
@@ -1208,7 +1208,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.revoke_user_role_ids",
+        :operation => :"UserManagement.revoke_user_role_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1219,7 +1219,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#revoke_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#revoke_user_role_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1241,15 +1241,15 @@ module Falcon
     # @return [Array<(ApiUserMetadataResponse, Integer, Hash)>] ApiUserMetadataResponse data, response status code and response headers
     def update_user_with_http_info(user_uuid, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.update_user ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.update_user ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.update_user"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.update_user"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.update_user"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.update_user"
       end
       # resource path
       local_var_path = '/users/entities/users/v1'
@@ -1281,7 +1281,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.update_user",
+        :operation => :"UserManagement.update_user",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1292,7 +1292,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#update_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#update_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1314,15 +1314,15 @@ module Falcon
     # @return [Array<(FlightcontrolapiUserResponse, Integer, Hash)>] FlightcontrolapiUserResponse data, response status code and response headers
     def update_user_v1_with_http_info(user_uuid, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.update_user_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.update_user_v1 ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagementApi.update_user_v1"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling UserManagement.update_user_v1"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.update_user_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.update_user_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/users/v1'
@@ -1354,7 +1354,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.update_user_v1",
+        :operation => :"UserManagement.update_user_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1365,7 +1365,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#update_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#update_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1385,11 +1385,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def user_action_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.user_action_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.user_action_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.user_action_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.user_action_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/user-actions/v1'
@@ -1420,7 +1420,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.user_action_v1",
+        :operation => :"UserManagement.user_action_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1431,7 +1431,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#user_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#user_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1451,11 +1451,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def user_roles_action_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UserManagementApi.user_roles_action_v1 ...'
+        @api_client.config.logger.debug 'Calling API: UserManagement.user_roles_action_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagementApi.user_roles_action_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.user_roles_action_v1"
       end
       # resource path
       local_var_path = '/user-management/entities/user-role-actions/v1'
@@ -1486,7 +1486,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UserManagementApi.user_roles_action_v1",
+        :operation => :"UserManagement.user_roles_action_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1497,7 +1497,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UserManagementApi#user_roles_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UserManagement#user_roles_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

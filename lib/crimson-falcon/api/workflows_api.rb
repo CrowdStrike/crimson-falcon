@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class WorkflowsApi
+  class Workflows
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,11 +57,11 @@ module Falcon
     # @return [Array<(ActivitiesActivityExternalResponse, Integer, Hash)>] ActivitiesActivityExternalResponse data, response status code and response headers
     def workflow_activities_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_activities_combined ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_activities_combined ...'
       end
       pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling WorkflowsApi.workflow_activities_combined, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling Workflows.workflow_activities_combined, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -92,7 +92,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_activities_combined",
+        :operation => :"Workflows.workflow_activities_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -103,7 +103,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_activities_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_activities_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -129,11 +129,11 @@ module Falcon
     # @return [Array<(DefinitionsDefinitionExternalResponse, Integer, Hash)>] DefinitionsDefinitionExternalResponse data, response status code and response headers
     def workflow_definitions_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_definitions_combined ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_definitions_combined ...'
       end
       pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling WorkflowsApi.workflow_definitions_combined, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling Workflows.workflow_definitions_combined, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -164,7 +164,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_definitions_combined",
+        :operation => :"Workflows.workflow_definitions_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -175,7 +175,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_definitions_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_definitions_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -197,18 +197,18 @@ module Falcon
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def workflow_definitions_export_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_definitions_export ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_definitions_export ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling WorkflowsApi.workflow_definitions_export"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Workflows.workflow_definitions_export"
       end
       if @api_client.config.client_side_validation && id.to_s.length > 40
-        fail ArgumentError, 'invalid value for "id" when calling WorkflowsApi.workflow_definitions_export, the character length must be smaller than or equal to 40.'
+        fail ArgumentError, 'invalid value for "id" when calling Workflows.workflow_definitions_export, the character length must be smaller than or equal to 40.'
       end
 
       if @api_client.config.client_side_validation && id.to_s.length < 32
-        fail ArgumentError, 'invalid value for "id" when calling WorkflowsApi.workflow_definitions_export, the character length must be great than or equal to 32.'
+        fail ArgumentError, 'invalid value for "id" when calling Workflows.workflow_definitions_export, the character length must be great than or equal to 32.'
       end
 
       # resource path
@@ -237,7 +237,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_definitions_export",
+        :operation => :"Workflows.workflow_definitions_export",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -248,7 +248,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_definitions_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_definitions_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -272,11 +272,11 @@ module Falcon
     # @return [Array<(DefinitionsDefinitionImportResponse, Integer, Hash)>] DefinitionsDefinitionImportResponse data, response status code and response headers
     def workflow_definitions_import_with_http_info(data_file, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_definitions_import ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_definitions_import ...'
       end
       # verify the required parameter 'data_file' is set
       if @api_client.config.client_side_validation && data_file.nil?
-        fail ArgumentError, "Missing the required parameter 'data_file' when calling WorkflowsApi.workflow_definitions_import"
+        fail ArgumentError, "Missing the required parameter 'data_file' when calling Workflows.workflow_definitions_import"
       end
       # resource path
       local_var_path = '/workflows/entities/definitions/import/v1'
@@ -310,7 +310,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_definitions_import",
+        :operation => :"Workflows.workflow_definitions_import",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -321,7 +321,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_definitions_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_definitions_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -343,11 +343,11 @@ module Falcon
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_definitions_update_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_definitions_update ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_definitions_update ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_definitions_update"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_definitions_update"
       end
       # resource path
       local_var_path = '/workflows/entities/definitions/v1'
@@ -379,7 +379,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_definitions_update",
+        :operation => :"Workflows.workflow_definitions_update",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -390,7 +390,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_definitions_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_definitions_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -422,11 +422,11 @@ module Falcon
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_execute_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_execute ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_execute ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_execute"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_execute"
       end
       # resource path
       local_var_path = '/workflows/entities/execute/v1'
@@ -463,7 +463,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_execute",
+        :operation => :"Workflows.workflow_execute",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -474,7 +474,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -508,11 +508,11 @@ module Falcon
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_execute_internal_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_execute_internal ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_execute_internal ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_execute_internal"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_execute_internal"
       end
       # resource path
       local_var_path = '/workflows/entities/execute/internal/v1'
@@ -550,7 +550,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_execute_internal",
+        :operation => :"Workflows.workflow_execute_internal",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -561,7 +561,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_execute_internal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_execute_internal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -581,18 +581,18 @@ module Falcon
     # @return [Array<(ApiExecutionResultsResponse, Integer, Hash)>] ApiExecutionResultsResponse data, response status code and response headers
     def workflow_execution_results_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_execution_results ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_execution_results ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling WorkflowsApi.workflow_execution_results"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Workflows.workflow_execution_results"
       end
       if @api_client.config.client_side_validation && ids.length > 500
-        fail ArgumentError, 'invalid value for "ids" when calling WorkflowsApi.workflow_execution_results, number of items must be less than or equal to 500.'
+        fail ArgumentError, 'invalid value for "ids" when calling Workflows.workflow_execution_results, number of items must be less than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && ids.length < 1
-        fail ArgumentError, 'invalid value for "ids" when calling WorkflowsApi.workflow_execution_results, number of items must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "ids" when calling Workflows.workflow_execution_results, number of items must be greater than or equal to 1.'
       end
 
       # resource path
@@ -620,7 +620,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_execution_results",
+        :operation => :"Workflows.workflow_execution_results",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -631,7 +631,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_execution_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_execution_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -653,11 +653,11 @@ module Falcon
     # @return [Array<(DefinitionsDefinitionEntitiesResponse, Integer, Hash)>] DefinitionsDefinitionEntitiesResponse data, response status code and response headers
     def workflow_executions_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_executions_action ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_executions_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling WorkflowsApi.workflow_executions_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling Workflows.workflow_executions_action"
       end
       # verify enum value
       allowable_values = ["resume"]
@@ -666,7 +666,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_executions_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_executions_action"
       end
       # resource path
       local_var_path = '/workflows/entities/execution-actions/v1'
@@ -698,7 +698,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_executions_action",
+        :operation => :"Workflows.workflow_executions_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -709,7 +709,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_executions_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_executions_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -735,11 +735,11 @@ module Falcon
     # @return [Array<(ApiExecutionResultsResponse, Integer, Hash)>] ApiExecutionResultsResponse data, response status code and response headers
     def workflow_executions_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_executions_combined ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_executions_combined ...'
       end
       pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling WorkflowsApi.workflow_executions_combined, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling Workflows.workflow_executions_combined, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -770,7 +770,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_executions_combined",
+        :operation => :"Workflows.workflow_executions_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -781,7 +781,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_executions_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_executions_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -801,11 +801,11 @@ module Falcon
     # @return [Array<(ModelUserInputReadResponse, Integer, Hash)>] ModelUserInputReadResponse data, response status code and response headers
     def workflow_get_human_input_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_get_human_input_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_get_human_input_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling WorkflowsApi.workflow_get_human_input_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Workflows.workflow_get_human_input_v1"
       end
       # resource path
       local_var_path = '/workflows/entities/human-inputs/v1'
@@ -832,7 +832,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_get_human_input_v1",
+        :operation => :"Workflows.workflow_get_human_input_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -843,7 +843,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_get_human_input_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_get_human_input_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -877,11 +877,11 @@ module Falcon
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_mock_execute_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_mock_execute ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_mock_execute ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_mock_execute"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_mock_execute"
       end
       # resource path
       local_var_path = '/workflows/entities/mock-executions/v1'
@@ -919,7 +919,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_mock_execute",
+        :operation => :"Workflows.workflow_mock_execute",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -930,7 +930,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_mock_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_mock_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -950,11 +950,11 @@ module Falcon
     # @return [Array<(ClientSystemDefinitionCreateResponse, Integer, Hash)>] ClientSystemDefinitionCreateResponse data, response status code and response headers
     def workflow_system_definitions_de_provision_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_system_definitions_de_provision ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_system_definitions_de_provision ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_system_definitions_de_provision"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_system_definitions_de_provision"
       end
       # resource path
       local_var_path = '/workflows/system-definitions/deprovision/v1'
@@ -985,7 +985,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_system_definitions_de_provision",
+        :operation => :"Workflows.workflow_system_definitions_de_provision",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -996,7 +996,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_system_definitions_de_provision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_system_definitions_de_provision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1016,11 +1016,11 @@ module Falcon
     # @return [Array<(ClientSystemDefinitionCreateResponse, Integer, Hash)>] ClientSystemDefinitionCreateResponse data, response status code and response headers
     def workflow_system_definitions_promote_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_system_definitions_promote ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_system_definitions_promote ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_system_definitions_promote"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_system_definitions_promote"
       end
       # resource path
       local_var_path = '/workflows/system-definitions/promote/v1'
@@ -1051,7 +1051,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_system_definitions_promote",
+        :operation => :"Workflows.workflow_system_definitions_promote",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1062,7 +1062,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_system_definitions_promote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_system_definitions_promote\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1082,11 +1082,11 @@ module Falcon
     # @return [Array<(ClientSystemDefinitionCreateResponse, Integer, Hash)>] ClientSystemDefinitionCreateResponse data, response status code and response headers
     def workflow_system_definitions_provision_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_system_definitions_provision ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_system_definitions_provision ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_system_definitions_provision"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_system_definitions_provision"
       end
       # resource path
       local_var_path = '/workflows/system-definitions/provision/v1'
@@ -1117,7 +1117,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_system_definitions_provision",
+        :operation => :"Workflows.workflow_system_definitions_provision",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1128,7 +1128,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_system_definitions_provision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_system_definitions_provision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1148,7 +1148,7 @@ module Falcon
     # @return [Array<(TriggersTriggerExternalResponse, Integer, Hash)>] TriggersTriggerExternalResponse data, response status code and response headers
     def workflow_triggers_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_triggers_combined ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_triggers_combined ...'
       end
       # resource path
       local_var_path = '/workflows/combined/triggers/v1'
@@ -1175,7 +1175,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_triggers_combined",
+        :operation => :"Workflows.workflow_triggers_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1186,7 +1186,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_triggers_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_triggers_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1208,23 +1208,23 @@ module Falcon
     # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
     def workflow_update_human_input_v1_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_update_human_input_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_update_human_input_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling WorkflowsApi.workflow_update_human_input_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Workflows.workflow_update_human_input_v1"
       end
       if @api_client.config.client_side_validation && id.to_s.length > 32
-        fail ArgumentError, 'invalid value for "id" when calling WorkflowsApi.workflow_update_human_input_v1, the character length must be smaller than or equal to 32.'
+        fail ArgumentError, 'invalid value for "id" when calling Workflows.workflow_update_human_input_v1, the character length must be smaller than or equal to 32.'
       end
 
       if @api_client.config.client_side_validation && id.to_s.length < 32
-        fail ArgumentError, 'invalid value for "id" when calling WorkflowsApi.workflow_update_human_input_v1, the character length must be great than or equal to 32.'
+        fail ArgumentError, 'invalid value for "id" when calling Workflows.workflow_update_human_input_v1, the character length must be great than or equal to 32.'
       end
 
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_update_human_input_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Workflows.workflow_update_human_input_v1"
       end
       # resource path
       local_var_path = '/workflows/entities/human-inputs/v1'
@@ -1256,7 +1256,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_update_human_input_v1",
+        :operation => :"Workflows.workflow_update_human_input_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1267,7 +1267,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_update_human_input_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Workflows#workflow_update_human_input_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

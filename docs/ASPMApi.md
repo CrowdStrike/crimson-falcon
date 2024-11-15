@@ -1,32 +1,32 @@
-# Falcon::ASPMApi
+# Falcon::ASPM
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_executor_node**](ASPMApi.md#create_executor_node) | **POST** /aspm-api-gateway/api/v1/executor_nodes | Create a new relay node |
-| [**create_integration**](ASPMApi.md#create_integration) | **POST** /aspm-api-gateway/api/v1/integrations | Create a new integration |
-| [**create_integration_task**](ASPMApi.md#create_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks | Create new integration task. |
-| [**delete_executor_node**](ASPMApi.md#delete_executor_node) | **DELETE** /aspm-api-gateway/api/v1/executor_nodes/{ID} | Delete a relay node |
-| [**delete_integration**](ASPMApi.md#delete_integration) | **DELETE** /aspm-api-gateway/api/v1/integrations/{ID} | Delete an existing integration by its ID |
-| [**delete_integration_task**](ASPMApi.md#delete_integration_task) | **DELETE** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Delete an existing integration task by its ID |
-| [**delete_tags**](ASPMApi.md#delete_tags) | **POST** /aspm-api-gateway/api/v1/tags | Remove existing tags |
-| [**execute_query**](ASPMApi.md#execute_query) | **POST** /aspm-api-gateway/api/v1/query | Execute a query. The syntax used is identical to that of the query page. |
-| [**get_executor_nodes**](ASPMApi.md#get_executor_nodes) | **GET** /aspm-api-gateway/api/v1/executor_nodes | Get all the relay nodes |
-| [**get_integration_tasks**](ASPMApi.md#get_integration_tasks) | **GET** /aspm-api-gateway/api/v1/integration_tasks | Get all the integration tasks |
-| [**get_integration_types**](ASPMApi.md#get_integration_types) | **GET** /aspm-api-gateway/api/v1/integration_types | Get all the integration types |
-| [**get_integrations**](ASPMApi.md#get_integrations) | **GET** /aspm-api-gateway/api/v1/integrations | Get a list of all the integrations |
-| [**get_service_violation_types**](ASPMApi.md#get_service_violation_types) | **GET** /aspm-api-gateway/api/v1/services/violations/types | Get the different types of violation |
-| [**get_services_count**](ASPMApi.md#get_services_count) | **POST** /aspm-api-gateway/api/v1/services/count | Get the total amount of existing services |
-| [**get_tags**](ASPMApi.md#get_tags) | **GET** /aspm-api-gateway/api/v1/tags | Get all the tags |
-| [**run_integration_task**](ASPMApi.md#run_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks/{ID}/run | Run an integration task by its ID |
-| [**service_now_get_deployments**](ASPMApi.md#service_now_get_deployments) | **GET** /aspm-api-gateway/api/v1/servicenow/deployments |  |
-| [**service_now_get_services**](ASPMApi.md#service_now_get_services) | **GET** /aspm-api-gateway/api/v1/servicenow/services |  |
-| [**update_executor_node**](ASPMApi.md#update_executor_node) | **PUT** /aspm-api-gateway/api/v1/executor_nodes | Update an existing relay node |
-| [**update_integration**](ASPMApi.md#update_integration) | **PUT** /aspm-api-gateway/api/v1/integrations/{ID} | Update an existing integration by its ID |
-| [**update_integration_task**](ASPMApi.md#update_integration_task) | **PUT** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Update an existing integration task by its ID |
-| [**upsert_business_applications**](ASPMApi.md#upsert_business_applications) | **PUT** /aspm-api-gateway/api/v1/business_applications | Create or Update Business Applications |
-| [**upsert_tags**](ASPMApi.md#upsert_tags) | **PUT** /aspm-api-gateway/api/v1/tags | Create new or update existing tag. You can update unique tags table or regular tags table |
+| [**create_executor_node**](ASPM.md#create_executor_node) | **POST** /aspm-api-gateway/api/v1/executor_nodes | Create a new relay node |
+| [**create_integration**](ASPM.md#create_integration) | **POST** /aspm-api-gateway/api/v1/integrations | Create a new integration |
+| [**create_integration_task**](ASPM.md#create_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks | Create new integration task. |
+| [**delete_executor_node**](ASPM.md#delete_executor_node) | **DELETE** /aspm-api-gateway/api/v1/executor_nodes/{ID} | Delete a relay node |
+| [**delete_integration**](ASPM.md#delete_integration) | **DELETE** /aspm-api-gateway/api/v1/integrations/{ID} | Delete an existing integration by its ID |
+| [**delete_integration_task**](ASPM.md#delete_integration_task) | **DELETE** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Delete an existing integration task by its ID |
+| [**delete_tags**](ASPM.md#delete_tags) | **POST** /aspm-api-gateway/api/v1/tags | Remove existing tags |
+| [**execute_query**](ASPM.md#execute_query) | **POST** /aspm-api-gateway/api/v1/query | Execute a query. The syntax used is identical to that of the query page. |
+| [**get_executor_nodes**](ASPM.md#get_executor_nodes) | **GET** /aspm-api-gateway/api/v1/executor_nodes | Get all the relay nodes |
+| [**get_integration_tasks**](ASPM.md#get_integration_tasks) | **GET** /aspm-api-gateway/api/v1/integration_tasks | Get all the integration tasks |
+| [**get_integration_types**](ASPM.md#get_integration_types) | **GET** /aspm-api-gateway/api/v1/integration_types | Get all the integration types |
+| [**get_integrations**](ASPM.md#get_integrations) | **GET** /aspm-api-gateway/api/v1/integrations | Get a list of all the integrations |
+| [**get_service_violation_types**](ASPM.md#get_service_violation_types) | **GET** /aspm-api-gateway/api/v1/services/violations/types | Get the different types of violation |
+| [**get_services_count**](ASPM.md#get_services_count) | **POST** /aspm-api-gateway/api/v1/services/count | Get the total amount of existing services |
+| [**get_tags**](ASPM.md#get_tags) | **GET** /aspm-api-gateway/api/v1/tags | Get all the tags |
+| [**run_integration_task**](ASPM.md#run_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks/{ID}/run | Run an integration task by its ID |
+| [**service_now_get_deployments**](ASPM.md#service_now_get_deployments) | **GET** /aspm-api-gateway/api/v1/servicenow/deployments |  |
+| [**service_now_get_services**](ASPM.md#service_now_get_services) | **GET** /aspm-api-gateway/api/v1/servicenow/services |  |
+| [**update_executor_node**](ASPM.md#update_executor_node) | **PUT** /aspm-api-gateway/api/v1/executor_nodes | Update an existing relay node |
+| [**update_integration**](ASPM.md#update_integration) | **PUT** /aspm-api-gateway/api/v1/integrations/{ID} | Update an existing integration by its ID |
+| [**update_integration_task**](ASPM.md#update_integration_task) | **PUT** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Update an existing integration task by its ID |
+| [**upsert_business_applications**](ASPM.md#upsert_business_applications) | **PUT** /aspm-api-gateway/api/v1/business_applications | Create or Update Business Applications |
+| [**upsert_tags**](ASPM.md#upsert_tags) | **PUT** /aspm-api-gateway/api/v1/tags | Create new or update existing tag. You can update unique tags table or regular tags table |
 
 
 ## create_executor_node
@@ -48,7 +48,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesExecutorNode.new # TypesExecutorNode | 
 
 begin
@@ -56,7 +56,7 @@ begin
   result = api_instance.create_executor_node(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_executor_node: #{e}"
+  puts "Error when calling ASPM->create_executor_node: #{e}"
 end
 ```
 
@@ -74,7 +74,7 @@ begin
   p headers # => { ... }
   p data # => <TypesExecutorNode>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_executor_node_with_http_info: #{e}"
+  puts "Error when calling ASPM->create_executor_node_with_http_info: #{e}"
 end
 ```
 
@@ -117,7 +117,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesCreateIntegrationRequest.new # TypesCreateIntegrationRequest | 
 
 begin
@@ -125,7 +125,7 @@ begin
   result = api_instance.create_integration(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_integration: #{e}"
+  puts "Error when calling ASPM->create_integration: #{e}"
 end
 ```
 
@@ -143,7 +143,7 @@ begin
   p headers # => { ... }
   p data # => <TypesIntegrationResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_integration_with_http_info: #{e}"
+  puts "Error when calling ASPM->create_integration_with_http_info: #{e}"
 end
 ```
 
@@ -186,7 +186,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesCreateIntegrationTaskRequest.new # TypesCreateIntegrationTaskRequest | 
 
 begin
@@ -194,7 +194,7 @@ begin
   result = api_instance.create_integration_task(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_integration_task: #{e}"
+  puts "Error when calling ASPM->create_integration_task: #{e}"
 end
 ```
 
@@ -212,7 +212,7 @@ begin
   p headers # => { ... }
   p data # => <TypesIntegrationTaskResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->create_integration_task_with_http_info: #{e}"
+  puts "Error when calling ASPM->create_integration_task_with_http_info: #{e}"
 end
 ```
 
@@ -255,14 +255,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 
 begin
   # Delete a relay node
   api_instance.delete_executor_node(id)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_executor_node: #{e}"
+  puts "Error when calling ASPM->delete_executor_node: #{e}"
 end
 ```
 
@@ -280,7 +280,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_executor_node_with_http_info: #{e}"
+  puts "Error when calling ASPM->delete_executor_node_with_http_info: #{e}"
 end
 ```
 
@@ -323,14 +323,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 
 begin
   # Delete an existing integration by its ID
   api_instance.delete_integration(id)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_integration: #{e}"
+  puts "Error when calling ASPM->delete_integration: #{e}"
 end
 ```
 
@@ -348,7 +348,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_integration_with_http_info: #{e}"
+  puts "Error when calling ASPM->delete_integration_with_http_info: #{e}"
 end
 ```
 
@@ -391,14 +391,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 
 begin
   # Delete an existing integration task by its ID
   api_instance.delete_integration_task(id)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_integration_task: #{e}"
+  puts "Error when calling ASPM->delete_integration_task: #{e}"
 end
 ```
 
@@ -416,7 +416,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_integration_task_with_http_info: #{e}"
+  puts "Error when calling ASPM->delete_integration_task_with_http_info: #{e}"
 end
 ```
 
@@ -459,14 +459,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesEditTagRequest.new({entries: [Falcon::TypesTagEntry.new({persistent_signature: 'persistent_signature_example'})], name: 'name_example'}) # TypesEditTagRequest | 
 
 begin
   # Remove existing tags
   api_instance.delete_tags(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_tags: #{e}"
+  puts "Error when calling ASPM->delete_tags: #{e}"
 end
 ```
 
@@ -484,7 +484,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->delete_tags_with_http_info: #{e}"
+  puts "Error when calling ASPM->delete_tags_with_http_info: #{e}"
 end
 ```
 
@@ -527,7 +527,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesQueryRequest.new({query: 'query_example'}) # TypesQueryRequest |  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
 
 begin
@@ -535,7 +535,7 @@ begin
   result = api_instance.execute_query(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->execute_query: #{e}"
+  puts "Error when calling ASPM->execute_query: #{e}"
 end
 ```
 
@@ -553,7 +553,7 @@ begin
   p headers # => { ... }
   p data # => <TypesQueryResult>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->execute_query_with_http_info: #{e}"
+  puts "Error when calling ASPM->execute_query_with_http_info: #{e}"
 end
 ```
 
@@ -596,7 +596,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 node_type = 'node_type_example' # String | 
 opts = {
   integration_type: 56 # Integer | 
@@ -607,7 +607,7 @@ begin
   result = api_instance.get_executor_nodes(node_type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_executor_nodes: #{e}"
+  puts "Error when calling ASPM->get_executor_nodes: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ begin
   p headers # => { ... }
   p data # => <TypesListExecutorNodesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_executor_nodes_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_executor_nodes_with_http_info: #{e}"
 end
 ```
 
@@ -669,7 +669,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 opts = {
   integration_task_type: 56, # Integer | 
   category: 'category_example' # String | 
@@ -680,7 +680,7 @@ begin
   result = api_instance.get_integration_tasks(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integration_tasks: #{e}"
+  puts "Error when calling ASPM->get_integration_tasks: #{e}"
 end
 ```
 
@@ -698,7 +698,7 @@ begin
   p headers # => { ... }
   p data # => <TypesListIntegrationTasksResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integration_tasks_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_integration_tasks_with_http_info: #{e}"
 end
 ```
 
@@ -742,14 +742,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 
 begin
   # Get all the integration types
   result = api_instance.get_integration_types
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integration_types: #{e}"
+  puts "Error when calling ASPM->get_integration_types: #{e}"
 end
 ```
 
@@ -767,7 +767,7 @@ begin
   p headers # => { ... }
   p data # => <TypesListIntegrationTypesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integration_types_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_integration_types_with_http_info: #{e}"
 end
 ```
 
@@ -808,7 +808,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 opts = {
   integration_type: 56, # Integer | 
   category: 'category_example' # String | 
@@ -819,7 +819,7 @@ begin
   result = api_instance.get_integrations(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integrations: #{e}"
+  puts "Error when calling ASPM->get_integrations: #{e}"
 end
 ```
 
@@ -837,7 +837,7 @@ begin
   p headers # => { ... }
   p data # => <TypesListIntegrationsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_integrations_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_integrations_with_http_info: #{e}"
 end
 ```
 
@@ -881,7 +881,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesGenericUserFacingRequest.new # TypesGenericUserFacingRequest | 
 
 begin
@@ -889,7 +889,7 @@ begin
   result = api_instance.get_service_violation_types(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_service_violation_types: #{e}"
+  puts "Error when calling ASPM->get_service_violation_types: #{e}"
 end
 ```
 
@@ -907,7 +907,7 @@ begin
   p headers # => { ... }
   p data # => <TypesGetViolationTypesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_service_violation_types_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_service_violation_types_with_http_info: #{e}"
 end
 ```
 
@@ -950,14 +950,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesGetServicesRequest.new # TypesGetServicesRequest | 
 
 begin
   # Get the total amount of existing services
   api_instance.get_services_count(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_services_count: #{e}"
+  puts "Error when calling ASPM->get_services_count: #{e}"
 end
 ```
 
@@ -975,7 +975,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_services_count_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_services_count_with_http_info: #{e}"
 end
 ```
 
@@ -1018,7 +1018,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 opts = {
   is_unique: true, # Boolean | 
   tag_name: 'tag_name_example', # String | 
@@ -1032,7 +1032,7 @@ begin
   result = api_instance.get_tags(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_tags: #{e}"
+  puts "Error when calling ASPM->get_tags: #{e}"
 end
 ```
 
@@ -1050,7 +1050,7 @@ begin
   p headers # => { ... }
   p data # => <TypesTagsDataResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->get_tags_with_http_info: #{e}"
+  puts "Error when calling ASPM->get_tags_with_http_info: #{e}"
 end
 ```
 
@@ -1097,7 +1097,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 body = Falcon::TypesRunIntegrationTaskRequest.new # TypesRunIntegrationTaskRequest | 
 opts = {
@@ -1109,7 +1109,7 @@ begin
   result = api_instance.run_integration_task(id, body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->run_integration_task: #{e}"
+  puts "Error when calling ASPM->run_integration_task: #{e}"
 end
 ```
 
@@ -1127,7 +1127,7 @@ begin
   p headers # => { ... }
   p data # => <TypesIntegrationTaskTestConnectionResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->run_integration_task_with_http_info: #{e}"
+  puts "Error when calling ASPM->run_integration_task_with_http_info: #{e}"
 end
 ```
 
@@ -1172,7 +1172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 opts = {
   ql_filters: 'ql_filters_example', # String | 
   limit: 56, # Integer | 
@@ -1186,7 +1186,7 @@ begin
   result = api_instance.service_now_get_deployments(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->service_now_get_deployments: #{e}"
+  puts "Error when calling ASPM->service_now_get_deployments: #{e}"
 end
 ```
 
@@ -1204,7 +1204,7 @@ begin
   p headers # => { ... }
   p data # => <TypesServiceNowDeploymentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->service_now_get_deployments_with_http_info: #{e}"
+  puts "Error when calling ASPM->service_now_get_deployments_with_http_info: #{e}"
 end
 ```
 
@@ -1251,7 +1251,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 opts = {
   ql_filters: 'ql_filters_example', # String | 
   limit: 56, # Integer | 
@@ -1265,7 +1265,7 @@ begin
   result = api_instance.service_now_get_services(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->service_now_get_services: #{e}"
+  puts "Error when calling ASPM->service_now_get_services: #{e}"
 end
 ```
 
@@ -1283,7 +1283,7 @@ begin
   p headers # => { ... }
   p data # => <TypesServiceNowServicesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->service_now_get_services_with_http_info: #{e}"
+  puts "Error when calling ASPM->service_now_get_services_with_http_info: #{e}"
 end
 ```
 
@@ -1330,7 +1330,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesExecutorNode.new # TypesExecutorNode | 
 
 begin
@@ -1338,7 +1338,7 @@ begin
   result = api_instance.update_executor_node(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_executor_node: #{e}"
+  puts "Error when calling ASPM->update_executor_node: #{e}"
 end
 ```
 
@@ -1356,7 +1356,7 @@ begin
   p headers # => { ... }
   p data # => <TypesExecutorNode>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_executor_node_with_http_info: #{e}"
+  puts "Error when calling ASPM->update_executor_node_with_http_info: #{e}"
 end
 ```
 
@@ -1399,7 +1399,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 body = Falcon::TypesUpdateIntegrationRequest.new # TypesUpdateIntegrationRequest | 
 
@@ -1408,7 +1408,7 @@ begin
   result = api_instance.update_integration(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_integration: #{e}"
+  puts "Error when calling ASPM->update_integration: #{e}"
 end
 ```
 
@@ -1426,7 +1426,7 @@ begin
   p headers # => { ... }
   p data # => <TypesIntegrationResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_integration_with_http_info: #{e}"
+  puts "Error when calling ASPM->update_integration_with_http_info: #{e}"
 end
 ```
 
@@ -1470,7 +1470,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 id = 56 # Integer | 
 body = Falcon::TypesUpdateIntegrationTaskRequest.new # TypesUpdateIntegrationTaskRequest | 
 
@@ -1479,7 +1479,7 @@ begin
   result = api_instance.update_integration_task(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_integration_task: #{e}"
+  puts "Error when calling ASPM->update_integration_task: #{e}"
 end
 ```
 
@@ -1497,7 +1497,7 @@ begin
   p headers # => { ... }
   p data # => <TypesIntegrationTaskResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->update_integration_task_with_http_info: #{e}"
+  puts "Error when calling ASPM->update_integration_task_with_http_info: #{e}"
 end
 ```
 
@@ -1541,14 +1541,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesUpsertBusinessApplicationRequest.new({name: 'name_example', persistent_signatures: ['persistent_signatures_example']}) # TypesUpsertBusinessApplicationRequest | 
 
 begin
   # Create or Update Business Applications
   api_instance.upsert_business_applications(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->upsert_business_applications: #{e}"
+  puts "Error when calling ASPM->upsert_business_applications: #{e}"
 end
 ```
 
@@ -1566,7 +1566,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->upsert_business_applications_with_http_info: #{e}"
+  puts "Error when calling ASPM->upsert_business_applications_with_http_info: #{e}"
 end
 ```
 
@@ -1609,14 +1609,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ASPMApi.new
+api_instance = Falcon::ASPM.new
 body = Falcon::TypesEditUniqueTagRequest.new({entries: [Falcon::TypesUniqueTagEntry.new]}) # TypesEditUniqueTagRequest | 
 
 begin
   # Create new or update existing tag. You can update unique tags table or regular tags table
   api_instance.upsert_tags(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->upsert_tags: #{e}"
+  puts "Error when calling ASPM->upsert_tags: #{e}"
 end
 ```
 
@@ -1634,7 +1634,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ASPMApi->upsert_tags_with_http_info: #{e}"
+  puts "Error when calling ASPM->upsert_tags_with_http_info: #{e}"
 end
 ```
 

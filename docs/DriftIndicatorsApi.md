@@ -1,14 +1,14 @@
-# Falcon::DriftIndicatorsApi
+# Falcon::DriftIndicators
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_drift_indicators_values_by_date**](DriftIndicatorsApi.md#get_drift_indicators_values_by_date) | **GET** /container-security/aggregates/drift-indicators/count-by-date/v1 | Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days. |
-| [**read_drift_indicator_entities**](DriftIndicatorsApi.md#read_drift_indicator_entities) | **GET** /container-security/entities/drift-indicators/v1 | Retrieve Drift Indicator entities identified by the provided IDs |
-| [**read_drift_indicators_count**](DriftIndicatorsApi.md#read_drift_indicators_count) | **GET** /container-security/aggregates/drift-indicators/count/v1 | Returns the total count of Drift indicators over a time period |
-| [**search_and_read_drift_indicator_entities**](DriftIndicatorsApi.md#search_and_read_drift_indicator_entities) | **GET** /container-security/combined/drift-indicators/v1 | Retrieve Drift Indicators by the provided search criteria |
-| [**search_drift_indicators**](DriftIndicatorsApi.md#search_drift_indicators) | **GET** /container-security/queries/drift-indicators/v1 | Retrieve all drift indicators that match the given query |
+| [**get_drift_indicators_values_by_date**](DriftIndicators.md#get_drift_indicators_values_by_date) | **GET** /container-security/aggregates/drift-indicators/count-by-date/v1 | Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days. |
+| [**read_drift_indicator_entities**](DriftIndicators.md#read_drift_indicator_entities) | **GET** /container-security/entities/drift-indicators/v1 | Retrieve Drift Indicator entities identified by the provided IDs |
+| [**read_drift_indicators_count**](DriftIndicators.md#read_drift_indicators_count) | **GET** /container-security/aggregates/drift-indicators/count/v1 | Returns the total count of Drift indicators over a time period |
+| [**search_and_read_drift_indicator_entities**](DriftIndicators.md#search_and_read_drift_indicator_entities) | **GET** /container-security/combined/drift-indicators/v1 | Retrieve Drift Indicators by the provided search criteria |
+| [**search_drift_indicators**](DriftIndicators.md#search_drift_indicators) | **GET** /container-security/queries/drift-indicators/v1 | Retrieve all drift indicators that match the given query |
 
 
 ## get_drift_indicators_values_by_date
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DriftIndicatorsApi.new
+api_instance = Falcon::DriftIndicators.new
 opts = {
   filter: 'filter_example', # String | Filter drift indicators using a query in Falcon Query Language (FQL). Supported filters: cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
   limit: 56 # Integer | The upper-bound on the number of records to retrieve.
@@ -41,7 +41,7 @@ begin
   result = api_instance.get_drift_indicators_values_by_date(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->get_drift_indicators_values_by_date: #{e}"
+  puts "Error when calling DriftIndicators->get_drift_indicators_values_by_date: #{e}"
 end
 ```
 
@@ -59,7 +59,7 @@ begin
   p headers # => { ... }
   p data # => <DriftindicatorsDriftIndicatorsFieldValue>
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->get_drift_indicators_values_by_date_with_http_info: #{e}"
+  puts "Error when calling DriftIndicators->get_drift_indicators_values_by_date_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +103,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DriftIndicatorsApi.new
+api_instance = Falcon::DriftIndicators.new
 opts = {
   ids: ['inner_example'] # Array<String> | Search Drift Indicators by ids - The maximum amount is 100 IDs
 }
@@ -113,7 +113,7 @@ begin
   result = api_instance.read_drift_indicator_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->read_drift_indicator_entities: #{e}"
+  puts "Error when calling DriftIndicators->read_drift_indicator_entities: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ begin
   p headers # => { ... }
   p data # => <DriftindicatorsDriftEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->read_drift_indicator_entities_with_http_info: #{e}"
+  puts "Error when calling DriftIndicators->read_drift_indicator_entities_with_http_info: #{e}"
 end
 ```
 
@@ -174,7 +174,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DriftIndicatorsApi.new
+api_instance = Falcon::DriftIndicators.new
 opts = {
   filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
 }
@@ -184,7 +184,7 @@ begin
   result = api_instance.read_drift_indicators_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->read_drift_indicators_count: #{e}"
+  puts "Error when calling DriftIndicators->read_drift_indicators_count: #{e}"
 end
 ```
 
@@ -202,7 +202,7 @@ begin
   p headers # => { ... }
   p data # => <DriftindicatorsDriftIndicatorsCountValue>
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->read_drift_indicators_count_with_http_info: #{e}"
+  puts "Error when calling DriftIndicators->read_drift_indicators_count_with_http_info: #{e}"
 end
 ```
 
@@ -245,7 +245,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DriftIndicatorsApi.new
+api_instance = Falcon::DriftIndicators.new
 opts = {
   filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -258,7 +258,7 @@ begin
   result = api_instance.search_and_read_drift_indicator_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->search_and_read_drift_indicator_entities: #{e}"
+  puts "Error when calling DriftIndicators->search_and_read_drift_indicator_entities: #{e}"
 end
 ```
 
@@ -276,7 +276,7 @@ begin
   p headers # => { ... }
   p data # => <DriftindicatorsDriftEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->search_and_read_drift_indicator_entities_with_http_info: #{e}"
+  puts "Error when calling DriftIndicators->search_and_read_drift_indicator_entities_with_http_info: #{e}"
 end
 ```
 
@@ -322,7 +322,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DriftIndicatorsApi.new
+api_instance = Falcon::DriftIndicators.new
 opts = {
   filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -335,7 +335,7 @@ begin
   result = api_instance.search_drift_indicators(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->search_drift_indicators: #{e}"
+  puts "Error when calling DriftIndicators->search_drift_indicators: #{e}"
 end
 ```
 
@@ -353,7 +353,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DriftIndicatorsApi->search_drift_indicators_with_http_info: #{e}"
+  puts "Error when calling DriftIndicators->search_drift_indicators_with_http_info: #{e}"
 end
 ```
 

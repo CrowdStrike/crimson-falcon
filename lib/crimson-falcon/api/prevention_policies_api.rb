@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class PreventionPoliciesApi
+  class PreventionPolicies
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def create_prevention_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.create_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.create_prevention_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPoliciesApi.create_prevention_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPolicies.create_prevention_policies"
       end
       # resource path
       local_var_path = '/policy/entities/prevention/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.create_prevention_policies",
+        :operation => :"PreventionPolicies.create_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#create_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#create_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_prevention_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.delete_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.delete_prevention_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling PreventionPoliciesApi.delete_prevention_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling PreventionPolicies.delete_prevention_policies"
       end
       # resource path
       local_var_path = '/policy/entities/prevention/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.delete_prevention_policies",
+        :operation => :"PreventionPolicies.delete_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#delete_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#delete_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def get_prevention_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.get_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.get_prevention_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling PreventionPoliciesApi.get_prevention_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling PreventionPolicies.get_prevention_policies"
       end
       # resource path
       local_var_path = '/policy/entities/prevention/v1'
@@ -210,7 +210,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.get_prevention_policies",
+        :operation => :"PreventionPolicies.get_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -221,7 +221,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#get_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#get_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -243,11 +243,11 @@ module Falcon
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def perform_prevention_policies_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.perform_prevention_policies_action ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.perform_prevention_policies_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling PreventionPoliciesApi.perform_prevention_policies_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling PreventionPolicies.perform_prevention_policies_action"
       end
       # verify enum value
       allowable_values = ["add-host-group", "add-rule-group", "disable", "enable", "remove-host-group", "remove-rule-group"]
@@ -256,7 +256,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPoliciesApi.perform_prevention_policies_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPolicies.perform_prevention_policies_action"
       end
       # resource path
       local_var_path = '/policy/entities/prevention-actions/v1'
@@ -288,7 +288,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.perform_prevention_policies_action",
+        :operation => :"PreventionPolicies.perform_prevention_policies_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -299,7 +299,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#perform_prevention_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#perform_prevention_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -325,18 +325,18 @@ module Falcon
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def query_combined_prevention_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.query_combined_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.query_combined_prevention_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPoliciesApi.query_combined_prevention_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPolicies.query_combined_prevention_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_combined_prevention_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_combined_prevention_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_combined_prevention_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_combined_prevention_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -371,7 +371,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.query_combined_prevention_policies",
+        :operation => :"PreventionPolicies.query_combined_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -382,7 +382,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#query_combined_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#query_combined_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -410,18 +410,18 @@ module Falcon
     # @return [Array<(BasePolicyMembersRespV1, Integer, Hash)>] BasePolicyMembersRespV1 data, response status code and response headers
     def query_combined_prevention_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.query_combined_prevention_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.query_combined_prevention_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPoliciesApi.query_combined_prevention_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPolicies.query_combined_prevention_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_combined_prevention_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_combined_prevention_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_combined_prevention_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_combined_prevention_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -453,7 +453,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.query_combined_prevention_policy_members",
+        :operation => :"PreventionPolicies.query_combined_prevention_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -464,7 +464,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#query_combined_prevention_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#query_combined_prevention_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -490,18 +490,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_prevention_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.query_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.query_prevention_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPoliciesApi.query_prevention_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPolicies.query_prevention_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_prevention_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_prevention_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_prevention_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_prevention_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -536,7 +536,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.query_prevention_policies",
+        :operation => :"PreventionPolicies.query_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -547,7 +547,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#query_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#query_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -575,18 +575,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_prevention_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.query_prevention_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.query_prevention_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPoliciesApi.query_prevention_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling PreventionPolicies.query_prevention_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_prevention_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_prevention_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPoliciesApi.query_prevention_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PreventionPolicies.query_prevention_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -618,7 +618,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.query_prevention_policy_members",
+        :operation => :"PreventionPolicies.query_prevention_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -629,7 +629,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#query_prevention_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#query_prevention_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -649,11 +649,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_prevention_policies_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.set_prevention_policies_precedence ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.set_prevention_policies_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPoliciesApi.set_prevention_policies_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPolicies.set_prevention_policies_precedence"
       end
       # resource path
       local_var_path = '/policy/entities/prevention-precedence/v1'
@@ -684,7 +684,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.set_prevention_policies_precedence",
+        :operation => :"PreventionPolicies.set_prevention_policies_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -695,7 +695,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#set_prevention_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#set_prevention_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -715,11 +715,11 @@ module Falcon
     # @return [Array<(PreventionRespV1, Integer, Hash)>] PreventionRespV1 data, response status code and response headers
     def update_prevention_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PreventionPoliciesApi.update_prevention_policies ...'
+        @api_client.config.logger.debug 'Calling API: PreventionPolicies.update_prevention_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPoliciesApi.update_prevention_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling PreventionPolicies.update_prevention_policies"
       end
       # resource path
       local_var_path = '/policy/entities/prevention/v1'
@@ -750,7 +750,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"PreventionPoliciesApi.update_prevention_policies",
+        :operation => :"PreventionPolicies.update_prevention_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -761,7 +761,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PreventionPoliciesApi#update_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PreventionPolicies#update_prevention_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

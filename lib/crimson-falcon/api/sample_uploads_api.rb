@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class SampleUploadsApi
+  class SampleUploads
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def archive_delete_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.archive_delete_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.archive_delete_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploadsApi.archive_delete_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploads.archive_delete_v1"
       end
       # resource path
       local_var_path = '/archives/entities/archives/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.archive_delete_v1",
+        :operation => :"SampleUploads.archive_delete_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#archive_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#archive_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -115,11 +115,11 @@ module Falcon
     # @return [Array<(ClientArchiveCreateResponseV1, Integer, Hash)>] ClientArchiveCreateResponseV1 data, response status code and response headers
     def archive_get_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.archive_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.archive_get_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploadsApi.archive_get_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploads.archive_get_v1"
       end
       # resource path
       local_var_path = '/archives/entities/archives/v1'
@@ -147,7 +147,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.archive_get_v1",
+        :operation => :"SampleUploads.archive_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -158,7 +158,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#archive_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#archive_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,11 +182,11 @@ module Falcon
     # @return [Array<(ClientArchiveListFilesResponseV1, Integer, Hash)>] ClientArchiveListFilesResponseV1 data, response status code and response headers
     def archive_list_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.archive_list_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.archive_list_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploadsApi.archive_list_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploads.archive_list_v1"
       end
       # resource path
       local_var_path = '/archives/entities/archive-files/v1'
@@ -215,7 +215,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.archive_list_v1",
+        :operation => :"SampleUploads.archive_list_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -226,7 +226,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#archive_list_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#archive_list_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -254,15 +254,15 @@ module Falcon
     # @return [Array<(ClientArchiveCreateResponseV1, Integer, Hash)>] ClientArchiveCreateResponseV1 data, response status code and response headers
     def archive_upload_v1_with_http_info(name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.archive_upload_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.archive_upload_v1 ...'
       end
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
-        fail ArgumentError, "Missing the required parameter 'name' when calling SampleUploadsApi.archive_upload_v1"
+        fail ArgumentError, "Missing the required parameter 'name' when calling SampleUploads.archive_upload_v1"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SampleUploadsApi.archive_upload_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SampleUploads.archive_upload_v1"
       end
       # resource path
       local_var_path = '/archives/entities/archives/v1'
@@ -297,7 +297,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.archive_upload_v1",
+        :operation => :"SampleUploads.archive_upload_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -308,7 +308,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#archive_upload_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#archive_upload_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -336,15 +336,15 @@ module Falcon
     # @return [Array<(ClientArchiveCreateResponseV1, Integer, Hash)>] ClientArchiveCreateResponseV1 data, response status code and response headers
     def archive_upload_v2_with_http_info(file, name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.archive_upload_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.archive_upload_v2 ...'
       end
       # verify the required parameter 'file' is set
       if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling SampleUploadsApi.archive_upload_v2"
+        fail ArgumentError, "Missing the required parameter 'file' when calling SampleUploads.archive_upload_v2"
       end
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
-        fail ArgumentError, "Missing the required parameter 'name' when calling SampleUploadsApi.archive_upload_v2"
+        fail ArgumentError, "Missing the required parameter 'name' when calling SampleUploads.archive_upload_v2"
       end
       # resource path
       local_var_path = '/archives/entities/archives/v2'
@@ -380,7 +380,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.archive_upload_v2",
+        :operation => :"SampleUploads.archive_upload_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -391,7 +391,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#archive_upload_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#archive_upload_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -411,11 +411,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_sample_v3_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.delete_sample_v3 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.delete_sample_v3 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SampleUploadsApi.delete_sample_v3"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SampleUploads.delete_sample_v3"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v3'
@@ -442,7 +442,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.delete_sample_v3",
+        :operation => :"SampleUploads.delete_sample_v3",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -453,7 +453,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#delete_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#delete_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -473,11 +473,11 @@ module Falcon
     # @return [Array<(ClientExtractionCreateResponseV1, Integer, Hash)>] ClientExtractionCreateResponseV1 data, response status code and response headers
     def extraction_create_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.extraction_create_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.extraction_create_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SampleUploadsApi.extraction_create_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SampleUploads.extraction_create_v1"
       end
       # resource path
       local_var_path = '/archives/entities/extractions/v1'
@@ -508,7 +508,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.extraction_create_v1",
+        :operation => :"SampleUploads.extraction_create_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -519,7 +519,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#extraction_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#extraction_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -541,11 +541,11 @@ module Falcon
     # @return [Array<(ClientExtractionCreateResponseV1, Integer, Hash)>] ClientExtractionCreateResponseV1 data, response status code and response headers
     def extraction_get_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.extraction_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.extraction_get_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploadsApi.extraction_get_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploads.extraction_get_v1"
       end
       # resource path
       local_var_path = '/archives/entities/extractions/v1'
@@ -573,7 +573,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.extraction_get_v1",
+        :operation => :"SampleUploads.extraction_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -584,7 +584,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#extraction_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#extraction_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -608,11 +608,11 @@ module Falcon
     # @return [Array<(ClientExtractionListFilesResponseV1, Integer, Hash)>] ClientExtractionListFilesResponseV1 data, response status code and response headers
     def extraction_list_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.extraction_list_v1 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.extraction_list_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploadsApi.extraction_list_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SampleUploads.extraction_list_v1"
       end
       # resource path
       local_var_path = '/archives/entities/extraction-files/v1'
@@ -641,7 +641,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.extraction_list_v1",
+        :operation => :"SampleUploads.extraction_list_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -652,7 +652,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#extraction_list_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#extraction_list_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -674,11 +674,11 @@ module Falcon
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def get_sample_v3_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.get_sample_v3 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.get_sample_v3 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SampleUploadsApi.get_sample_v3"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SampleUploads.get_sample_v3"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v3'
@@ -706,7 +706,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.get_sample_v3",
+        :operation => :"SampleUploads.get_sample_v3",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -717,7 +717,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#get_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#get_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -743,15 +743,15 @@ module Falcon
     # @return [Array<(ClientSampleMetadataResponseV2, Integer, Hash)>] ClientSampleMetadataResponseV2 data, response status code and response headers
     def upload_sample_v3_with_http_info(sample, file_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SampleUploadsApi.upload_sample_v3 ...'
+        @api_client.config.logger.debug 'Calling API: SampleUploads.upload_sample_v3 ...'
       end
       # verify the required parameter 'sample' is set
       if @api_client.config.client_side_validation && sample.nil?
-        fail ArgumentError, "Missing the required parameter 'sample' when calling SampleUploadsApi.upload_sample_v3"
+        fail ArgumentError, "Missing the required parameter 'sample' when calling SampleUploads.upload_sample_v3"
       end
       # verify the required parameter 'file_name' is set
       if @api_client.config.client_side_validation && file_name.nil?
-        fail ArgumentError, "Missing the required parameter 'file_name' when calling SampleUploadsApi.upload_sample_v3"
+        fail ArgumentError, "Missing the required parameter 'file_name' when calling SampleUploads.upload_sample_v3"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v3'
@@ -786,7 +786,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SampleUploadsApi.upload_sample_v3",
+        :operation => :"SampleUploads.upload_sample_v3",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -797,7 +797,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SampleUploadsApi#upload_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SampleUploads#upload_sample_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -1,12 +1,12 @@
-# Falcon::ContainerAlertsApi
+# Falcon::ContainerAlerts
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_container_alerts_count**](ContainerAlertsApi.md#read_container_alerts_count) | **GET** /container-security/aggregates/container-alerts/count/v1 | Search Container Alerts by the provided search criteria |
-| [**read_container_alerts_count_by_severity**](ContainerAlertsApi.md#read_container_alerts_count_by_severity) | **GET** /container-security/aggregates/container-alerts/count-by-severity/v1 | Get Container Alerts counts by severity |
-| [**search_and_read_container_alerts**](ContainerAlertsApi.md#search_and_read_container_alerts) | **GET** /container-security/combined/container-alerts/v1 | Search Container Alerts by the provided search criteria |
+| [**read_container_alerts_count**](ContainerAlerts.md#read_container_alerts_count) | **GET** /container-security/aggregates/container-alerts/count/v1 | Search Container Alerts by the provided search criteria |
+| [**read_container_alerts_count_by_severity**](ContainerAlerts.md#read_container_alerts_count_by_severity) | **GET** /container-security/aggregates/container-alerts/count-by-severity/v1 | Get Container Alerts counts by severity |
+| [**search_and_read_container_alerts**](ContainerAlerts.md#search_and_read_container_alerts) | **GET** /container-security/combined/container-alerts/v1 | Search Container Alerts by the provided search criteria |
 
 
 ## read_container_alerts_count
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerAlertsApi.new
+api_instance = Falcon::ContainerAlerts.new
 opts = {
   filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen
 }
@@ -38,7 +38,7 @@ begin
   result = api_instance.read_container_alerts_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->read_container_alerts_count: #{e}"
+  puts "Error when calling ContainerAlerts->read_container_alerts_count: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <AlertsContainerAlertsCountValue>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->read_container_alerts_count_with_http_info: #{e}"
+  puts "Error when calling ContainerAlerts->read_container_alerts_count_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerAlertsApi.new
+api_instance = Falcon::ContainerAlerts.new
 opts = {
   filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,last_seen
 }
@@ -109,7 +109,7 @@ begin
   result = api_instance.read_container_alerts_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->read_container_alerts_count_by_severity: #{e}"
+  puts "Error when calling ContainerAlerts->read_container_alerts_count_by_severity: #{e}"
 end
 ```
 
@@ -127,7 +127,7 @@ begin
   p headers # => { ... }
   p data # => <AlertsContainerAlertsCountValue>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->read_container_alerts_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ContainerAlerts->read_container_alerts_count_by_severity_with_http_info: #{e}"
 end
 ```
 
@@ -170,7 +170,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerAlertsApi.new
+api_instance = Falcon::ContainerAlerts.new
 opts = {
   filter: 'filter_example', # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen,name,severity
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -183,7 +183,7 @@ begin
   result = api_instance.search_and_read_container_alerts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->search_and_read_container_alerts: #{e}"
+  puts "Error when calling ContainerAlerts->search_and_read_container_alerts: #{e}"
 end
 ```
 
@@ -201,7 +201,7 @@ begin
   p headers # => { ... }
   p data # => <AlertsContainerAlertsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerAlertsApi->search_and_read_container_alerts_with_http_info: #{e}"
+  puts "Error when calling ContainerAlerts->search_and_read_container_alerts_with_http_info: #{e}"
 end
 ```
 

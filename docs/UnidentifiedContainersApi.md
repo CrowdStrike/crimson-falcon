@@ -1,12 +1,12 @@
-# Falcon::UnidentifiedContainersApi
+# Falcon::UnidentifiedContainers
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_unidentified_containers_by_date_range_count**](UnidentifiedContainersApi.md#read_unidentified_containers_by_date_range_count) | **GET** /container-security/aggregates/unidentified-containers/count-by-date/v1 | Returns the count of Unidentified Containers over the last 7 days |
-| [**read_unidentified_containers_count**](UnidentifiedContainersApi.md#read_unidentified_containers_count) | **GET** /container-security/aggregates/unidentified-containers/count/v1 | Returns the total count of Unidentified Containers over a time period |
-| [**search_and_read_unidentified_containers**](UnidentifiedContainersApi.md#search_and_read_unidentified_containers) | **GET** /container-security/combined/unidentified-containers/v1 | Search Unidentified Containers by the provided search criteria |
+| [**read_unidentified_containers_by_date_range_count**](UnidentifiedContainers.md#read_unidentified_containers_by_date_range_count) | **GET** /container-security/aggregates/unidentified-containers/count-by-date/v1 | Returns the count of Unidentified Containers over the last 7 days |
+| [**read_unidentified_containers_count**](UnidentifiedContainers.md#read_unidentified_containers_count) | **GET** /container-security/aggregates/unidentified-containers/count/v1 | Returns the total count of Unidentified Containers over a time period |
+| [**search_and_read_unidentified_containers**](UnidentifiedContainers.md#search_and_read_unidentified_containers) | **GET** /container-security/combined/unidentified-containers/v1 | Search Unidentified Containers by the provided search criteria |
 
 
 ## read_unidentified_containers_by_date_range_count
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UnidentifiedContainersApi.new
+api_instance = Falcon::UnidentifiedContainers.new
 opts = {
   filter: 'filter_example' # String | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
 }
@@ -38,7 +38,7 @@ begin
   result = api_instance.read_unidentified_containers_by_date_range_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->read_unidentified_containers_by_date_range_count: #{e}"
+  puts "Error when calling UnidentifiedContainers->read_unidentified_containers_by_date_range_count: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAggregateValuesByFieldResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->read_unidentified_containers_by_date_range_count_with_http_info: #{e}"
+  puts "Error when calling UnidentifiedContainers->read_unidentified_containers_by_date_range_count_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UnidentifiedContainersApi.new
+api_instance = Falcon::UnidentifiedContainers.new
 opts = {
   filter: 'filter_example' # String | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
 }
@@ -109,7 +109,7 @@ begin
   result = api_instance.read_unidentified_containers_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->read_unidentified_containers_count: #{e}"
+  puts "Error when calling UnidentifiedContainers->read_unidentified_containers_count: #{e}"
 end
 ```
 
@@ -127,7 +127,7 @@ begin
   p headers # => { ... }
   p data # => <UnidentifiedcontainersUnidentifiedContainersCountValue>
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->read_unidentified_containers_count_with_http_info: #{e}"
+  puts "Error when calling UnidentifiedContainers->read_unidentified_containers_count_with_http_info: #{e}"
 end
 ```
 
@@ -170,7 +170,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UnidentifiedContainersApi.new
+api_instance = Falcon::UnidentifiedContainers.new
 opts = {
   filter: 'filter_example', # String | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -183,7 +183,7 @@ begin
   result = api_instance.search_and_read_unidentified_containers(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->search_and_read_unidentified_containers: #{e}"
+  puts "Error when calling UnidentifiedContainers->search_and_read_unidentified_containers: #{e}"
 end
 ```
 
@@ -201,7 +201,7 @@ begin
   p headers # => { ... }
   p data # => <UnidentifiedcontainersUnidentifiedContainerAPIResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UnidentifiedContainersApi->search_and_read_unidentified_containers_with_http_info: #{e}"
+  puts "Error when calling UnidentifiedContainers->search_and_read_unidentified_containers_with_http_info: #{e}"
 end
 ```
 

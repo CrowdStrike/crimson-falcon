@@ -1,10 +1,10 @@
-# Falcon::FalconContainerCliApi
+# Falcon::FalconContainerCli
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_image_vulnerabilities**](FalconContainerCliApi.md#read_image_vulnerabilities) | **POST** /image-assessment/combined/vulnerability-lookups/v1 | Retrieve known vulnerabilities for the provided image |
+| [**read_image_vulnerabilities**](FalconContainerCli.md#read_image_vulnerabilities) | **POST** /image-assessment/combined/vulnerability-lookups/v1 | Retrieve known vulnerabilities for the provided image |
 
 
 ## read_image_vulnerabilities
@@ -26,7 +26,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerCliApi.new
+api_instance = Falcon::FalconContainerCli.new
 body = Falcon::ApiImageLookupRequest.new({osversion: 'osversion_example', packages: [Falcon::ModelsPackageInfoType.new]}) # ApiImageLookupRequest | 
 
 begin
@@ -34,7 +34,7 @@ begin
   result = api_instance.read_image_vulnerabilities(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerCliApi->read_image_vulnerabilities: #{e}"
+  puts "Error when calling FalconContainerCli->read_image_vulnerabilities: #{e}"
 end
 ```
 
@@ -52,7 +52,7 @@ begin
   p headers # => { ... }
   p data # => <CoreEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerCliApi->read_image_vulnerabilities_with_http_info: #{e}"
+  puts "Error when calling FalconContainerCli->read_image_vulnerabilities_with_http_info: #{e}"
 end
 ```
 

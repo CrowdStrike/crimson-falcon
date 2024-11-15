@@ -1,20 +1,20 @@
-# Falcon::ComplianceAssessmentsApi
+# Falcon::ComplianceAssessments
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**ext_aggregate_cluster_assessments**](ComplianceAssessmentsApi.md#ext_aggregate_cluster_assessments) | **GET** /container-compliance/aggregates/compliance-by-clusters/v2 | get the assessments for each cluster |
-| [**ext_aggregate_failed_containers_by_rules_path**](ComplianceAssessmentsApi.md#ext_aggregate_failed_containers_by_rules_path) | **GET** /container-compliance/aggregates/failed-containers-by-rules/v2 | get the containers grouped into rules on which they failed |
-| [**ext_aggregate_failed_containers_count_by_severity**](ComplianceAssessmentsApi.md#ext_aggregate_failed_containers_count_by_severity) | **GET** /container-compliance/aggregates/failed-containers-count-by-severity/v2 | get the failed containers count grouped into severity levels |
-| [**ext_aggregate_failed_images_by_rules_path**](ComplianceAssessmentsApi.md#ext_aggregate_failed_images_by_rules_path) | **GET** /container-compliance/aggregates/failed-images-by-rules/v2 | get the images grouped into rules on which they failed |
-| [**ext_aggregate_failed_images_count_by_severity**](ComplianceAssessmentsApi.md#ext_aggregate_failed_images_count_by_severity) | **GET** /container-compliance/aggregates/failed-images-count-by-severity/v2 | get the failed images count grouped into severity levels |
-| [**ext_aggregate_failed_rules_by_clusters**](ComplianceAssessmentsApi.md#ext_aggregate_failed_rules_by_clusters) | **GET** /container-compliance/aggregates/failed-rules-by-clusters/v2 | get the failed rules for each cluster grouped into severity levels |
-| [**ext_aggregate_failed_rules_by_images**](ComplianceAssessmentsApi.md#ext_aggregate_failed_rules_by_images) | **GET** /container-compliance/aggregates/failed-rules-by-images/v2 | get images with failed rules, rule count grouped by severity for each image |
-| [**ext_aggregate_failed_rules_count_by_severity**](ComplianceAssessmentsApi.md#ext_aggregate_failed_rules_count_by_severity) | **GET** /container-compliance/aggregates/failed-rules-count-by-severity/v2 | get the failed rules count grouped into severity levels |
-| [**ext_aggregate_image_assessments**](ComplianceAssessmentsApi.md#ext_aggregate_image_assessments) | **GET** /container-compliance/aggregates/compliance-by-images/v2 | get the assessments for each image |
-| [**ext_aggregate_rules_assessments**](ComplianceAssessmentsApi.md#ext_aggregate_rules_assessments) | **GET** /container-compliance/aggregates/compliance-by-rules/v2 | get the assessments for each rule |
-| [**ext_aggregate_rules_by_status**](ComplianceAssessmentsApi.md#ext_aggregate_rules_by_status) | **GET** /container-compliance/aggregates/rules-by-status/v2 | get the rules grouped by their statuses |
+| [**ext_aggregate_cluster_assessments**](ComplianceAssessments.md#ext_aggregate_cluster_assessments) | **GET** /container-compliance/aggregates/compliance-by-clusters/v2 | get the assessments for each cluster |
+| [**ext_aggregate_failed_containers_by_rules_path**](ComplianceAssessments.md#ext_aggregate_failed_containers_by_rules_path) | **GET** /container-compliance/aggregates/failed-containers-by-rules/v2 | get the containers grouped into rules on which they failed |
+| [**ext_aggregate_failed_containers_count_by_severity**](ComplianceAssessments.md#ext_aggregate_failed_containers_count_by_severity) | **GET** /container-compliance/aggregates/failed-containers-count-by-severity/v2 | get the failed containers count grouped into severity levels |
+| [**ext_aggregate_failed_images_by_rules_path**](ComplianceAssessments.md#ext_aggregate_failed_images_by_rules_path) | **GET** /container-compliance/aggregates/failed-images-by-rules/v2 | get the images grouped into rules on which they failed |
+| [**ext_aggregate_failed_images_count_by_severity**](ComplianceAssessments.md#ext_aggregate_failed_images_count_by_severity) | **GET** /container-compliance/aggregates/failed-images-count-by-severity/v2 | get the failed images count grouped into severity levels |
+| [**ext_aggregate_failed_rules_by_clusters**](ComplianceAssessments.md#ext_aggregate_failed_rules_by_clusters) | **GET** /container-compliance/aggregates/failed-rules-by-clusters/v2 | get the failed rules for each cluster grouped into severity levels |
+| [**ext_aggregate_failed_rules_by_images**](ComplianceAssessments.md#ext_aggregate_failed_rules_by_images) | **GET** /container-compliance/aggregates/failed-rules-by-images/v2 | get images with failed rules, rule count grouped by severity for each image |
+| [**ext_aggregate_failed_rules_count_by_severity**](ComplianceAssessments.md#ext_aggregate_failed_rules_count_by_severity) | **GET** /container-compliance/aggregates/failed-rules-count-by-severity/v2 | get the failed rules count grouped into severity levels |
+| [**ext_aggregate_image_assessments**](ComplianceAssessments.md#ext_aggregate_image_assessments) | **GET** /container-compliance/aggregates/compliance-by-images/v2 | get the assessments for each image |
+| [**ext_aggregate_rules_assessments**](ComplianceAssessments.md#ext_aggregate_rules_assessments) | **GET** /container-compliance/aggregates/compliance-by-rules/v2 | get the assessments for each rule |
+| [**ext_aggregate_rules_by_status**](ComplianceAssessments.md#ext_aggregate_rules_by_status) | **GET** /container-compliance/aggregates/rules-by-status/v2 | get the rules grouped by their statuses |
 
 
 ## ext_aggregate_cluster_assessments
@@ -36,7 +36,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cloud_info.cluster_name: Kubernetes cluster name cloud_info.namespace: Kubernetes namespace cid: Customer ID cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_provider: Cloud provider cloud_info.cloud_region: Cloud region compliance_finding.framework: Compliance finding framework (available values: CIS) 
 }
@@ -46,7 +46,7 @@ begin
   result = api_instance.ext_aggregate_cluster_assessments(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_cluster_assessments: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_cluster_assessments: #{e}"
 end
 ```
 
@@ -64,7 +64,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateClusterAssessmentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_cluster_assessments_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_cluster_assessments_with_http_info: #{e}"
 end
 ```
 
@@ -107,7 +107,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: compliance_finding.name: Compliance finding Name cloud_info.namespace: Kubernetes namespace cloud_info.cloud_provider: Cloud provider compliance_finding.framework: Compliance finding framework (available values: CIS) compliance_finding.id: Compliance finding ID image_digest: Image digest (sha256 digest) cloud_info.cloud_region: Cloud region image_registry: Image registry compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) image_repository: Image repository cid: Customer ID image_id: Image ID image_tag: Image tag cloud_info.cloud_account_id: Cloud account ID cloud_info.cluster_name: Kubernetes cluster name 
 }
@@ -117,7 +117,7 @@ begin
   result = api_instance.ext_aggregate_failed_containers_by_rules_path(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_containers_by_rules_path: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_containers_by_rules_path: #{e}"
 end
 ```
 
@@ -135,7 +135,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedAssetsByRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_containers_by_rules_path_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_containers_by_rules_path_with_http_info: #{e}"
 end
 ```
 
@@ -178,7 +178,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cloud_info.namespace: Kubernetes namespace compliance_finding.framework: Compliance finding framework (available values: CIS) cloud_info.cluster_name: Kubernetes cluster name cloud_info.cloud_provider: Cloud provider image_repository: Image repository cid: Customer ID image_tag: Image tag image_registry: Image registry compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) image_digest: Image digest (sha256 digest) cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_region: Cloud region image_id: Image ID compliance_finding.name: Compliance finding Name compliance_finding.id: Compliance finding ID 
 }
@@ -188,7 +188,7 @@ begin
   result = api_instance.ext_aggregate_failed_containers_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_containers_count_by_severity: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_containers_count_by_severity: #{e}"
 end
 ```
 
@@ -206,7 +206,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedAssetCountBySeverityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_containers_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_containers_count_by_severity_with_http_info: #{e}"
 end
 ```
 
@@ -249,7 +249,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: compliance_finding.id: Compliance finding ID compliance_finding.name: Compliance finding Name compliance_finding.framework: Compliance finding framework (available values: CIS) cloud_info.namespace: Kubernetes namespace image_repository: Image repository image_digest: Image digest (sha256 digest) image_tag: Image tag image_id: Image ID image_registry: Image registry cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_region: Cloud region cid: Customer ID compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) cloud_info.cluster_name: Kubernetes cluster name cloud_info.cloud_provider: Cloud provider 
 }
@@ -259,7 +259,7 @@ begin
   result = api_instance.ext_aggregate_failed_images_by_rules_path(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_images_by_rules_path: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_images_by_rules_path: #{e}"
 end
 ```
 
@@ -277,7 +277,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedAssetsByRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_images_by_rules_path_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_images_by_rules_path_with_http_info: #{e}"
 end
 ```
 
@@ -320,7 +320,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: compliance_finding.name: Compliance finding Name image_registry: Image registry cloud_info.cluster_name: Kubernetes cluster name compliance_finding.id: Compliance finding ID image_id: Image ID image_tag: Image tag cloud_info.cloud_account_id: Cloud account ID compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) cloud_info.namespace: Kubernetes namespace image_digest: Image digest (sha256 digest) cloud_info.cloud_provider: Cloud provider cloud_info.cloud_region: Cloud region compliance_finding.framework: Compliance finding framework (available values: CIS) image_repository: Image repository cid: Customer ID 
 }
@@ -330,7 +330,7 @@ begin
   result = api_instance.ext_aggregate_failed_images_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_images_count_by_severity: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_images_count_by_severity: #{e}"
 end
 ```
 
@@ -348,7 +348,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedAssetCountBySeverityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_images_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_images_count_by_severity_with_http_info: #{e}"
 end
 ```
 
@@ -391,7 +391,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: image_registry: Image registry compliance_finding.framework: Compliance finding framework (available values: CIS) compliance_finding.id: Compliance finding ID image_tag: Image tag compliance_finding.name: Compliance finding Name image_repository: Image repository cloud_info.cluster_name: Kubernetes cluster name image_digest: Image digest (sha256 digest) cloud_info.cloud_provider: Cloud provider image_id: Image ID cloud_info.cloud_region: Cloud region cid: Customer ID compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) asset_type: asset type (container, image) cloud_info.cloud_account_id: Cloud account ID 
 }
@@ -401,7 +401,7 @@ begin
   result = api_instance.ext_aggregate_failed_rules_by_clusters(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_by_clusters: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_by_clusters: #{e}"
 end
 ```
 
@@ -419,7 +419,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedRulesByClustersResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_by_clusters_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_by_clusters_with_http_info: #{e}"
 end
 ```
 
@@ -462,7 +462,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_provider: Cloud provider cloud_info.cloud_region: Cloud region compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) image_repository: Image repository compliance_finding.framework: Compliance finding framework (available values: CIS) image_id: Image ID image_registry: Image registry asset_type: asset type (container, image) compliance_finding.name: Compliance finding Name compliance_finding.id: Compliance finding ID cid: Customer ID image_tag: Image tag cloud_info.namespace: Kubernetes namespace image_digest: Image digest (sha256 digest) cloud_info.cluster_name: Kubernetes cluster name 
 }
@@ -472,7 +472,7 @@ begin
   result = api_instance.ext_aggregate_failed_rules_by_images(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_by_images: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_by_images: #{e}"
 end
 ```
 
@@ -490,7 +490,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedRulesByImagesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_by_images_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_by_images_with_http_info: #{e}"
 end
 ```
 
@@ -533,7 +533,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: image_digest: Image digest (sha256 digest) cloud_info.cluster_name: Kubernetes cluster name image_registry: Image registry image_id: Image ID image_tag: Image tag compliance_finding.framework: Compliance finding framework (available values: CIS) image_repository: Image repository compliance_finding.id: Compliance finding ID asset_type: asset type (container, image) cloud_info.cloud_account_id: Cloud account ID cid: Customer ID compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) compliance_finding.name: Compliance finding Name cloud_info.cloud_provider: Cloud provider cloud_info.cloud_region: Cloud region 
 }
@@ -543,7 +543,7 @@ begin
   result = api_instance.ext_aggregate_failed_rules_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_count_by_severity: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_count_by_severity: #{e}"
 end
 ```
 
@@ -561,7 +561,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateFailedRulesCountBySeverityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_failed_rules_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_failed_rules_count_by_severity_with_http_info: #{e}"
 end
 ```
 
@@ -604,7 +604,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example', # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cid: Customer ID compliance_finding.framework: Compliance finding framework (available values: CIS) image_digest: Image digest (sha256 digest) cloud_info.cloud_provider: Cloud provider cloud_info.namespace: Kubernetes namespace asset_type: asset type (container, image) cloud_info.cloud_region: Cloud region image_registry: Image registry image_repository: Image repository image_id: Image ID image_tag: Image tag cloud_info.cloud_account_id: Cloud account ID cloud_info.cluster_name: Kubernetes cluster name compliance_finding.id: Compliance finding ID compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) compliance_finding.name: Compliance finding Name 
   after: 'after_example', # String | 'after' value from the last response. Keep it empty for the first request.
@@ -616,7 +616,7 @@ begin
   result = api_instance.ext_aggregate_image_assessments(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_image_assessments: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_image_assessments: #{e}"
 end
 ```
 
@@ -634,7 +634,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateImageAssessmentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_image_assessments_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_image_assessments_with_http_info: #{e}"
 end
 ```
 
@@ -679,7 +679,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_provider: Cloud provider compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) image_tag: Image tag compliance_finding.framework: Compliance finding framework (available values: CIS) image_repository: Image repository compliance_finding.id: Compliance finding ID cloud_info.cloud_region: Cloud region image_id: Image ID image_registry: Image registry compliance_finding.name: Compliance finding Name image_digest: Image digest (sha256 digest) cloud_info.cluster_name: Kubernetes cluster name cid: Customer ID 
 }
@@ -689,7 +689,7 @@ begin
   result = api_instance.ext_aggregate_rules_assessments(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_rules_assessments: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_rules_assessments: #{e}"
 end
 ```
 
@@ -707,7 +707,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateRulesAssessmentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_rules_assessments_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_rules_assessments_with_http_info: #{e}"
 end
 ```
 
@@ -750,7 +750,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ComplianceAssessmentsApi.new
+api_instance = Falcon::ComplianceAssessments.new
 opts = {
   filter: 'filter_example' # String | Filter results using a query in Falcon Query Language (FQL). Supported Filters: cloud_info.cluster_name: Kubernetes cluster name compliance_finding.id: Compliance finding ID cloud_info.cloud_provider: Cloud provider compliance_finding.name: Compliance finding Name compliance_finding.framework: Compliance finding framework (available values: CIS) container_name: Container name container_id: Container ID image_registry: Image registry compliance_finding.severity: Compliance finding severity; available values: 4, 3, 2, 1 (4: critical, 3: high, 2: medium, 1:low) image_digest: Image digest (sha256 digest) image_id: Image ID image_tag: Image tag image_repository: Image repository asset_type: asset type (container, image) cloud_info.cloud_account_id: Cloud account ID cloud_info.cloud_region: Cloud region cid: Customer ID 
 }
@@ -760,7 +760,7 @@ begin
   result = api_instance.ext_aggregate_rules_by_status(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_rules_by_status: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_rules_by_status: #{e}"
 end
 ```
 
@@ -778,7 +778,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregateRulesByStatusResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ComplianceAssessmentsApi->ext_aggregate_rules_by_status_with_http_info: #{e}"
+  puts "Error when calling ComplianceAssessments->ext_aggregate_rules_by_status_with_http_info: #{e}"
 end
 ```
 

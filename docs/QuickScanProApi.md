@@ -1,15 +1,15 @@
-# Falcon::QuickScanProApi
+# Falcon::QuickScanPro
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_file**](QuickScanProApi.md#delete_file) | **DELETE** /quickscanpro/entities/files/v1 | Deletes file by its sha256 identifier. |
-| [**delete_scan_result**](QuickScanProApi.md#delete_scan_result) | **DELETE** /quickscanpro/entities/scans/v1 | Deletes the result of an QuickScan Pro scan. |
-| [**get_scan_result**](QuickScanProApi.md#get_scan_result) | **GET** /quickscanpro/entities/scans/v1 | Gets the result of an QuickScan Pro scan. |
-| [**launch_scan**](QuickScanProApi.md#launch_scan) | **POST** /quickscanpro/entities/scans/v1 | Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;. |
-| [**query_scan_results**](QuickScanProApi.md#query_scan_results) | **GET** /quickscanpro/queries/scans/v1 | FQL query specifying the filter parameters |
-| [**upload_file_quick_scan_pro**](QuickScanProApi.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days. |
+| [**delete_file**](QuickScanPro.md#delete_file) | **DELETE** /quickscanpro/entities/files/v1 | Deletes file by its sha256 identifier. |
+| [**delete_scan_result**](QuickScanPro.md#delete_scan_result) | **DELETE** /quickscanpro/entities/scans/v1 | Deletes the result of an QuickScan Pro scan. |
+| [**get_scan_result**](QuickScanPro.md#get_scan_result) | **GET** /quickscanpro/entities/scans/v1 | Gets the result of an QuickScan Pro scan. |
+| [**launch_scan**](QuickScanPro.md#launch_scan) | **POST** /quickscanpro/entities/scans/v1 | Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;. |
+| [**query_scan_results**](QuickScanPro.md#query_scan_results) | **GET** /quickscanpro/queries/scans/v1 | FQL query specifying the filter parameters |
+| [**upload_file_quick_scan_pro**](QuickScanPro.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days. |
 
 
 ## delete_file
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 ids = ['inner_example'] # Array<String> | File's SHA256
 
 begin
@@ -39,7 +39,7 @@ begin
   result = api_instance.delete_file(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->delete_file: #{e}"
+  puts "Error when calling QuickScanPro->delete_file: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <QuickscanproDeleteFileResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->delete_file_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->delete_file_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
 
 begin
@@ -108,7 +108,7 @@ begin
   result = api_instance.delete_scan_result(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->delete_scan_result: #{e}"
+  puts "Error when calling QuickScanPro->delete_scan_result: #{e}"
 end
 ```
 
@@ -126,7 +126,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->delete_scan_result_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->delete_scan_result_with_http_info: #{e}"
 end
 ```
 
@@ -169,7 +169,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
 
 begin
@@ -177,7 +177,7 @@ begin
   result = api_instance.get_scan_result(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->get_scan_result: #{e}"
+  puts "Error when calling QuickScanPro->get_scan_result: #{e}"
 end
 ```
 
@@ -195,7 +195,7 @@ begin
   p headers # => { ... }
   p data # => <QuickscanproGetScanResultResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->get_scan_result_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->get_scan_result_with_http_info: #{e}"
 end
 ```
 
@@ -238,7 +238,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 body = Falcon::QuickscanproLaunchScanRequest.new({resources: [Falcon::QuickscanproLaunchScanRequestResource.new({sha256: 'sha256_example'})]}) # QuickscanproLaunchScanRequest | 
 
 begin
@@ -246,7 +246,7 @@ begin
   result = api_instance.launch_scan(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->launch_scan: #{e}"
+  puts "Error when calling QuickScanPro->launch_scan: #{e}"
 end
 ```
 
@@ -264,7 +264,7 @@ begin
   p headers # => { ... }
   p data # => <QuickscanproLaunchScanResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->launch_scan_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->launch_scan_with_http_info: #{e}"
 end
 ```
 
@@ -307,7 +307,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 filter = 'filter_example' # String | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
 opts = {
   offset: 56, # Integer | The offset to start retrieving ids from.
@@ -320,7 +320,7 @@ begin
   result = api_instance.query_scan_results(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->query_scan_results: #{e}"
+  puts "Error when calling QuickScanPro->query_scan_results: #{e}"
 end
 ```
 
@@ -338,7 +338,7 @@ begin
   p headers # => { ... }
   p data # => <QuickscanproQueryScanResultsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->query_scan_results_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->query_scan_results_with_http_info: #{e}"
 end
 ```
 
@@ -384,7 +384,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanProApi.new
+api_instance = Falcon::QuickScanPro.new
 file = File.new('/path/to/some/file') # File | Binary file to be uploaded. Max file size: 256 MB.
 opts = {
   scan: true # Boolean | If true, after upload, it starts scanning immediately. Default scan mode is 'false'
@@ -395,7 +395,7 @@ begin
   result = api_instance.upload_file_quick_scan_pro(file, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->upload_file_quick_scan_pro: #{e}"
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro: #{e}"
 end
 ```
 
@@ -413,7 +413,7 @@ begin
   p headers # => { ... }
   p data # => <QuickscanproFileUploadResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanProApi->upload_file_quick_scan_pro_with_http_info: #{e}"
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro_with_http_info: #{e}"
 end
 ```
 

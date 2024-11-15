@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ASPMApi
+  class ASPM
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(TypesExecutorNode, Integer, Hash)>] TypesExecutorNode data, response status code and response headers
     def create_executor_node_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.create_executor_node ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.create_executor_node ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.create_executor_node"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.create_executor_node"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/executor_nodes'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.create_executor_node",
+        :operation => :"ASPM.create_executor_node",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#create_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#create_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(TypesIntegrationResponse, Integer, Hash)>] TypesIntegrationResponse data, response status code and response headers
     def create_integration_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.create_integration ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.create_integration ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.create_integration"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.create_integration"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integrations'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.create_integration",
+        :operation => :"ASPM.create_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#create_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#create_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(TypesIntegrationTaskResponse, Integer, Hash)>] TypesIntegrationTaskResponse data, response status code and response headers
     def create_integration_task_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.create_integration_task ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.create_integration_task ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.create_integration_task"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.create_integration_task"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_tasks'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.create_integration_task",
+        :operation => :"ASPM.create_integration_task",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#create_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#create_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,15 +249,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_executor_node_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.delete_executor_node ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.delete_executor_node ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.delete_executor_node"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.delete_executor_node"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.delete_executor_node, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.delete_executor_node, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.delete_executor_node",
+        :operation => :"ASPM.delete_executor_node",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#delete_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#delete_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,15 +315,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_integration_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.delete_integration ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.delete_integration ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.delete_integration"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.delete_integration"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.delete_integration, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.delete_integration, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.delete_integration",
+        :operation => :"ASPM.delete_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#delete_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#delete_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -381,15 +381,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_integration_task_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.delete_integration_task ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.delete_integration_task ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.delete_integration_task"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.delete_integration_task"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.delete_integration_task, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.delete_integration_task, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.delete_integration_task",
+        :operation => :"ASPM.delete_integration_task",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#delete_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#delete_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -447,11 +447,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_tags_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.delete_tags ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.delete_tags ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.delete_tags"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.delete_tags"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/tags'
@@ -482,7 +482,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.delete_tags",
+        :operation => :"ASPM.delete_tags",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -493,7 +493,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#delete_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#delete_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -513,11 +513,11 @@ module Falcon
     # @return [Array<(TypesQueryResult, Integer, Hash)>] TypesQueryResult data, response status code and response headers
     def execute_query_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.execute_query ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_query ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.execute_query"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.execute_query"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/query'
@@ -548,7 +548,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.execute_query",
+        :operation => :"ASPM.execute_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -559,7 +559,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#execute_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#execute_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -581,11 +581,11 @@ module Falcon
     # @return [Array<(TypesListExecutorNodesResponse, Integer, Hash)>] TypesListExecutorNodesResponse data, response status code and response headers
     def get_executor_nodes_with_http_info(node_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_executor_nodes ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_executor_nodes ...'
       end
       # verify the required parameter 'node_type' is set
       if @api_client.config.client_side_validation && node_type.nil?
-        fail ArgumentError, "Missing the required parameter 'node_type' when calling ASPMApi.get_executor_nodes"
+        fail ArgumentError, "Missing the required parameter 'node_type' when calling ASPM.get_executor_nodes"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/executor_nodes'
@@ -613,7 +613,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_executor_nodes",
+        :operation => :"ASPM.get_executor_nodes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -624,7 +624,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_executor_nodes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_executor_nodes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -646,7 +646,7 @@ module Falcon
     # @return [Array<(TypesListIntegrationTasksResponse, Integer, Hash)>] TypesListIntegrationTasksResponse data, response status code and response headers
     def get_integration_tasks_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_integration_tasks ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integration_tasks ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_tasks'
@@ -674,7 +674,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_integration_tasks",
+        :operation => :"ASPM.get_integration_tasks",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -685,7 +685,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_integration_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_integration_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -703,7 +703,7 @@ module Falcon
     # @return [Array<(TypesListIntegrationTypesResponse, Integer, Hash)>] TypesListIntegrationTypesResponse data, response status code and response headers
     def get_integration_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_integration_types ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integration_types ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_types'
@@ -729,7 +729,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_integration_types",
+        :operation => :"ASPM.get_integration_types",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -740,7 +740,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_integration_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_integration_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -762,7 +762,7 @@ module Falcon
     # @return [Array<(TypesListIntegrationsResponse, Integer, Hash)>] TypesListIntegrationsResponse data, response status code and response headers
     def get_integrations_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_integrations ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integrations ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integrations'
@@ -790,7 +790,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_integrations",
+        :operation => :"ASPM.get_integrations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -801,7 +801,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_integrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_integrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -821,11 +821,11 @@ module Falcon
     # @return [Array<(TypesGetViolationTypesResponse, Integer, Hash)>] TypesGetViolationTypesResponse data, response status code and response headers
     def get_service_violation_types_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_service_violation_types ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_service_violation_types ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.get_service_violation_types"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.get_service_violation_types"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/services/violations/types'
@@ -856,7 +856,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_service_violation_types",
+        :operation => :"ASPM.get_service_violation_types",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -867,7 +867,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_service_violation_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_service_violation_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -887,11 +887,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_services_count_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_services_count ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_services_count ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.get_services_count"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.get_services_count"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/services/count'
@@ -922,7 +922,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_services_count",
+        :operation => :"ASPM.get_services_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -933,7 +933,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_services_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_services_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -961,7 +961,7 @@ module Falcon
     # @return [Array<(TypesTagsDataResponse, Integer, Hash)>] TypesTagsDataResponse data, response status code and response headers
     def get_tags_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.get_tags ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.get_tags ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/tags'
@@ -992,7 +992,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.get_tags",
+        :operation => :"ASPM.get_tags",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1003,7 +1003,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#get_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#get_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1027,20 +1027,20 @@ module Falcon
     # @return [Array<(TypesIntegrationTaskTestConnectionResponse, Integer, Hash)>] TypesIntegrationTaskTestConnectionResponse data, response status code and response headers
     def run_integration_task_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.run_integration_task ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.run_integration_task ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.run_integration_task"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.run_integration_task"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.run_integration_task, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.run_integration_task, must conform to the pattern #{pattern}."
       end
 
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.run_integration_task"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.run_integration_task"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/{ID}/run'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
@@ -1072,7 +1072,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.run_integration_task",
+        :operation => :"ASPM.run_integration_task",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1083,7 +1083,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#run_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#run_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1109,7 +1109,7 @@ module Falcon
     # @return [Array<(TypesServiceNowDeploymentsResponse, Integer, Hash)>] TypesServiceNowDeploymentsResponse data, response status code and response headers
     def service_now_get_deployments_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.service_now_get_deployments ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.service_now_get_deployments ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/servicenow/deployments'
@@ -1140,7 +1140,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.service_now_get_deployments",
+        :operation => :"ASPM.service_now_get_deployments",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1151,7 +1151,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#service_now_get_deployments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#service_now_get_deployments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1177,7 +1177,7 @@ module Falcon
     # @return [Array<(TypesServiceNowServicesResponse, Integer, Hash)>] TypesServiceNowServicesResponse data, response status code and response headers
     def service_now_get_services_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.service_now_get_services ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.service_now_get_services ...'
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/servicenow/services'
@@ -1208,7 +1208,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.service_now_get_services",
+        :operation => :"ASPM.service_now_get_services",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1219,7 +1219,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#service_now_get_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#service_now_get_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1239,11 +1239,11 @@ module Falcon
     # @return [Array<(TypesExecutorNode, Integer, Hash)>] TypesExecutorNode data, response status code and response headers
     def update_executor_node_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.update_executor_node ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.update_executor_node ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.update_executor_node"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.update_executor_node"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/executor_nodes'
@@ -1274,7 +1274,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.update_executor_node",
+        :operation => :"ASPM.update_executor_node",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1285,7 +1285,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#update_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#update_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1307,20 +1307,20 @@ module Falcon
     # @return [Array<(TypesIntegrationResponse, Integer, Hash)>] TypesIntegrationResponse data, response status code and response headers
     def update_integration_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.update_integration ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.update_integration ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.update_integration"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.update_integration"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.update_integration, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.update_integration, must conform to the pattern #{pattern}."
       end
 
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.update_integration"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.update_integration"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integrations/{ID}'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
@@ -1351,7 +1351,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.update_integration",
+        :operation => :"ASPM.update_integration",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1362,7 +1362,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#update_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#update_integration\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1384,20 +1384,20 @@ module Falcon
     # @return [Array<(TypesIntegrationTaskResponse, Integer, Hash)>] TypesIntegrationTaskResponse data, response status code and response headers
     def update_integration_task_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.update_integration_task ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.update_integration_task ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ASPMApi.update_integration_task"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.update_integration_task"
       end
       pattern = Regexp.new(/[0-9]+/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ASPMApi.update_integration_task, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.update_integration_task, must conform to the pattern #{pattern}."
       end
 
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.update_integration_task"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.update_integration_task"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/{ID}'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
@@ -1428,7 +1428,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.update_integration_task",
+        :operation => :"ASPM.update_integration_task",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1439,7 +1439,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#update_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#update_integration_task\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1459,11 +1459,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upsert_business_applications_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.upsert_business_applications ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.upsert_business_applications ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.upsert_business_applications"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.upsert_business_applications"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/business_applications'
@@ -1494,7 +1494,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.upsert_business_applications",
+        :operation => :"ASPM.upsert_business_applications",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1505,7 +1505,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#upsert_business_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#upsert_business_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1525,11 +1525,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upsert_tags_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ASPMApi.upsert_tags ...'
+        @api_client.config.logger.debug 'Calling API: ASPM.upsert_tags ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ASPMApi.upsert_tags"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.upsert_tags"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/tags'
@@ -1560,7 +1560,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ASPMApi.upsert_tags",
+        :operation => :"ASPM.upsert_tags",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1571,7 +1571,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ASPMApi#upsert_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ASPM#upsert_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

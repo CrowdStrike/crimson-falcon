@@ -1,10 +1,10 @@
-# Falcon::InstallationTokensSettingsApi
+# Falcon::InstallationTokensSettings
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**customer_settings_update**](InstallationTokensSettingsApi.md#customer_settings_update) | **PATCH** /installation-tokens/entities/customer-settings/v1 | Update installation token settings. |
+| [**customer_settings_update**](InstallationTokensSettings.md#customer_settings_update) | **PATCH** /installation-tokens/entities/customer-settings/v1 | Update installation token settings. |
 
 
 ## customer_settings_update
@@ -26,7 +26,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::InstallationTokensSettingsApi.new
+api_instance = Falcon::InstallationTokensSettings.new
 body = Falcon::ApiCustomerSettingsPatchRequestV1.new # ApiCustomerSettingsPatchRequestV1 | 
 
 begin
@@ -34,7 +34,7 @@ begin
   result = api_instance.customer_settings_update(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensSettingsApi->customer_settings_update: #{e}"
+  puts "Error when calling InstallationTokensSettings->customer_settings_update: #{e}"
 end
 ```
 
@@ -52,7 +52,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling InstallationTokensSettingsApi->customer_settings_update_with_http_info: #{e}"
+  puts "Error when calling InstallationTokensSettings->customer_settings_update_with_http_info: #{e}"
 end
 ```
 

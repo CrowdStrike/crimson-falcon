@@ -1,12 +1,12 @@
-# Falcon::ZeroTrustAssessmentApi
+# Falcon::ZeroTrustAssessment
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_assessment_v1**](ZeroTrustAssessmentApi.md#get_assessment_v1) | **GET** /zero-trust-assessment/entities/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID) and a customer ID (CID). |
-| [**get_assessments_by_score_v1**](ZeroTrustAssessmentApi.md#get_assessments_by_score_v1) | **GET** /zero-trust-assessment/queries/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing a customer ID (CID) and a range of scores. |
-| [**get_audit_v1**](ZeroTrustAssessmentApi.md#get_audit_v1) | **GET** /zero-trust-assessment/entities/audit/v1 | Get the Zero Trust Assessment audit report for one customer ID (CID). |
+| [**get_assessment_v1**](ZeroTrustAssessment.md#get_assessment_v1) | **GET** /zero-trust-assessment/entities/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID) and a customer ID (CID). |
+| [**get_assessments_by_score_v1**](ZeroTrustAssessment.md#get_assessments_by_score_v1) | **GET** /zero-trust-assessment/queries/assessments/v1 | Get Zero Trust Assessment data for one or more hosts by providing a customer ID (CID) and a range of scores. |
+| [**get_audit_v1**](ZeroTrustAssessment.md#get_audit_v1) | **GET** /zero-trust-assessment/entities/audit/v1 | Get the Zero Trust Assessment audit report for one customer ID (CID). |
 
 
 ## get_assessment_v1
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ZeroTrustAssessmentApi.new
+api_instance = Falcon::ZeroTrustAssessment.new
 ids = ['inner_example'] # Array<String> | One or more agent IDs, which you can find in the data.zta file, or the Falcon console.
 
 begin
@@ -36,7 +36,7 @@ begin
   result = api_instance.get_assessment_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_assessment_v1: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_assessment_v1: #{e}"
 end
 ```
 
@@ -54,7 +54,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAssessmentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_assessment_v1_with_http_info: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_assessment_v1_with_http_info: #{e}"
 end
 ```
 
@@ -97,7 +97,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ZeroTrustAssessmentApi.new
+api_instance = Falcon::ZeroTrustAssessment.new
 filter = 'filter_example' # String | FQL query specifying the filter score.
 opts = {
   limit: 56, # Integer | The number of scores to return in this response (min: 1, max: 1000, default: 100). Use with the `after` parameter to manage pagination of results.
@@ -110,7 +110,7 @@ begin
   result = api_instance.get_assessments_by_score_v1(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_assessments_by_score_v1: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_assessments_by_score_v1: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAssessmentsByScoreResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_assessments_by_score_v1_with_http_info: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_assessments_by_score_v1_with_http_info: #{e}"
 end
 ```
 
@@ -174,14 +174,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ZeroTrustAssessmentApi.new
+api_instance = Falcon::ZeroTrustAssessment.new
 
 begin
   # Get the Zero Trust Assessment audit report for one customer ID (CID).
   result = api_instance.get_audit_v1
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_audit_v1: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_audit_v1: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAuditResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ZeroTrustAssessmentApi->get_audit_v1_with_http_info: #{e}"
+  puts "Error when calling ZeroTrustAssessment->get_audit_v1_with_http_info: #{e}"
 end
 ```
 

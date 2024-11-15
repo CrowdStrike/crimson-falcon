@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IoaExclusionsApi
+  class IoaExclusions
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(IoaExclusionsIoaExclusionsRespV1, Integer, Hash)>] IoaExclusionsIoaExclusionsRespV1 data, response status code and response headers
     def create_ioa_exclusions_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IoaExclusionsApi.create_ioa_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.create_ioa_exclusions_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusionsApi.create_ioa_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.create_ioa_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ioa-exclusions/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IoaExclusionsApi.create_ioa_exclusions_v1",
+        :operation => :"IoaExclusions.create_ioa_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IoaExclusionsApi#create_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IoaExclusions#create_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,11 +119,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_ioa_exclusions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IoaExclusionsApi.delete_ioa_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.delete_ioa_exclusions_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusionsApi.delete_ioa_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusions.delete_ioa_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ioa-exclusions/v1'
@@ -151,7 +151,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IoaExclusionsApi.delete_ioa_exclusions_v1",
+        :operation => :"IoaExclusions.delete_ioa_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -162,7 +162,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IoaExclusionsApi#delete_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IoaExclusions#delete_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,11 +182,11 @@ module Falcon
     # @return [Array<(IoaExclusionsIoaExclusionsRespV1, Integer, Hash)>] IoaExclusionsIoaExclusionsRespV1 data, response status code and response headers
     def get_ioa_exclusions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IoaExclusionsApi.get_ioa_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.get_ioa_exclusions_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusionsApi.get_ioa_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusions.get_ioa_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ioa-exclusions/v1'
@@ -213,7 +213,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IoaExclusionsApi.get_ioa_exclusions_v1",
+        :operation => :"IoaExclusions.get_ioa_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -224,7 +224,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IoaExclusionsApi#get_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IoaExclusions#get_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -254,7 +254,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_ioa_exclusions_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IoaExclusionsApi.query_ioa_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.query_ioa_exclusions_v1 ...'
       end
       allowable_values = ["applied_globally.asc", "applied_globally.desc", "created_by.asc", "created_by.desc", "created_on.asc", "created_on.desc", "last_modified.asc", "last_modified.desc", "modified_by.asc", "modified_by.desc", "name.asc", "name.desc", "pattern_id.asc", "pattern_id.desc", "pattern_name.asc", "pattern_name.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -290,7 +290,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IoaExclusionsApi.query_ioa_exclusions_v1",
+        :operation => :"IoaExclusions.query_ioa_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -301,7 +301,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IoaExclusionsApi#query_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IoaExclusions#query_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -321,11 +321,11 @@ module Falcon
     # @return [Array<(IoaExclusionsIoaExclusionsRespV1, Integer, Hash)>] IoaExclusionsIoaExclusionsRespV1 data, response status code and response headers
     def update_ioa_exclusions_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IoaExclusionsApi.update_ioa_exclusions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.update_ioa_exclusions_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusionsApi.update_ioa_exclusions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.update_ioa_exclusions_v1"
       end
       # resource path
       local_var_path = '/policy/entities/ioa-exclusions/v1'
@@ -356,7 +356,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IoaExclusionsApi.update_ioa_exclusions_v1",
+        :operation => :"IoaExclusions.update_ioa_exclusions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -367,7 +367,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IoaExclusionsApi#update_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IoaExclusions#update_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

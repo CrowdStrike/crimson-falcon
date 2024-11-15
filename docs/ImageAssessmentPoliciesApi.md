@@ -1,20 +1,20 @@
-# Falcon::ImageAssessmentPoliciesApi
+# Falcon::ImageAssessmentPolicies
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_policies**](ImageAssessmentPoliciesApi.md#create_policies) | **POST** /container-security/entities/image-assessment-policies/v1 | Create Image Assessment policies |
-| [**create_policy_groups**](ImageAssessmentPoliciesApi.md#create_policy_groups) | **POST** /container-security/entities/image-assessment-policy-groups/v1 | Create Image Assessment Policy Group entities |
-| [**delete_policy**](ImageAssessmentPoliciesApi.md#delete_policy) | **DELETE** /container-security/entities/image-assessment-policies/v1 | Delete Image Assessment Policy by policy UUID |
-| [**delete_policy_group**](ImageAssessmentPoliciesApi.md#delete_policy_group) | **DELETE** /container-security/entities/image-assessment-policy-groups/v1 | Delete Image Assessment Policy Group entities |
-| [**read_policies**](ImageAssessmentPoliciesApi.md#read_policies) | **GET** /container-security/entities/image-assessment-policies/v1 | Get all Image Assessment policies |
-| [**read_policy_exclusions**](ImageAssessmentPoliciesApi.md#read_policy_exclusions) | **GET** /container-security/entities/image-assessment-policy-exclusions/v1 | Retrieve Image Assessment Policy Exclusion entities |
-| [**read_policy_groups**](ImageAssessmentPoliciesApi.md#read_policy_groups) | **GET** /container-security/entities/image-assessment-policy-groups/v1 | Retrieve Image Assessment Policy Group entities |
-| [**update_policies**](ImageAssessmentPoliciesApi.md#update_policies) | **PATCH** /container-security/entities/image-assessment-policies/v1 | Update Image Assessment Policy entities |
-| [**update_policy_exclusions**](ImageAssessmentPoliciesApi.md#update_policy_exclusions) | **POST** /container-security/entities/image-assessment-policy-exclusions/v1 | Update Image Assessment Policy Exclusion entities |
-| [**update_policy_groups**](ImageAssessmentPoliciesApi.md#update_policy_groups) | **PATCH** /container-security/entities/image-assessment-policy-groups/v1 | Update Image Assessment Policy Group entities |
-| [**update_policy_precedence**](ImageAssessmentPoliciesApi.md#update_policy_precedence) | **POST** /container-security/entities/image-assessment-policy-precedence/v1 | Update Image Assessment Policy precedence |
+| [**create_policies**](ImageAssessmentPolicies.md#create_policies) | **POST** /container-security/entities/image-assessment-policies/v1 | Create Image Assessment policies |
+| [**create_policy_groups**](ImageAssessmentPolicies.md#create_policy_groups) | **POST** /container-security/entities/image-assessment-policy-groups/v1 | Create Image Assessment Policy Group entities |
+| [**delete_policy**](ImageAssessmentPolicies.md#delete_policy) | **DELETE** /container-security/entities/image-assessment-policies/v1 | Delete Image Assessment Policy by policy UUID |
+| [**delete_policy_group**](ImageAssessmentPolicies.md#delete_policy_group) | **DELETE** /container-security/entities/image-assessment-policy-groups/v1 | Delete Image Assessment Policy Group entities |
+| [**read_policies**](ImageAssessmentPolicies.md#read_policies) | **GET** /container-security/entities/image-assessment-policies/v1 | Get all Image Assessment policies |
+| [**read_policy_exclusions**](ImageAssessmentPolicies.md#read_policy_exclusions) | **GET** /container-security/entities/image-assessment-policy-exclusions/v1 | Retrieve Image Assessment Policy Exclusion entities |
+| [**read_policy_groups**](ImageAssessmentPolicies.md#read_policy_groups) | **GET** /container-security/entities/image-assessment-policy-groups/v1 | Retrieve Image Assessment Policy Group entities |
+| [**update_policies**](ImageAssessmentPolicies.md#update_policies) | **PATCH** /container-security/entities/image-assessment-policies/v1 | Update Image Assessment Policy entities |
+| [**update_policy_exclusions**](ImageAssessmentPolicies.md#update_policy_exclusions) | **POST** /container-security/entities/image-assessment-policy-exclusions/v1 | Update Image Assessment Policy Exclusion entities |
+| [**update_policy_groups**](ImageAssessmentPolicies.md#update_policy_groups) | **PATCH** /container-security/entities/image-assessment-policy-groups/v1 | Update Image Assessment Policy Group entities |
+| [**update_policy_precedence**](ImageAssessmentPolicies.md#update_policy_precedence) | **POST** /container-security/entities/image-assessment-policy-precedence/v1 | Update Image Assessment Policy precedence |
 
 
 ## create_policies
@@ -36,7 +36,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 body = Falcon::ModelsCreatePolicyRequest.new({description: 'description_example', name: 'name_example'}) # ModelsCreatePolicyRequest | 
 
 begin
@@ -44,7 +44,7 @@ begin
   result = api_instance.create_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->create_policies: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->create_policies: #{e}"
 end
 ```
 
@@ -62,7 +62,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->create_policies_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->create_policies_with_http_info: #{e}"
 end
 ```
 
@@ -105,7 +105,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 body = Falcon::ModelsCreateImageGroupRequest.new({description: 'description_example', name: 'name_example'}) # ModelsCreateImageGroupRequest | 
 
 begin
@@ -113,7 +113,7 @@ begin
   result = api_instance.create_policy_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->create_policy_groups: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->create_policy_groups: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyGroupEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->create_policy_groups_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->create_policy_groups_with_http_info: #{e}"
 end
 ```
 
@@ -174,7 +174,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 id = 'id_example' # String | Image Assessment Policy entity UUID
 
 begin
@@ -182,7 +182,7 @@ begin
   result = api_instance.delete_policy(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->delete_policy: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->delete_policy: #{e}"
 end
 ```
 
@@ -200,7 +200,7 @@ begin
   p headers # => { ... }
   p data # => <CoreEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->delete_policy_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->delete_policy_with_http_info: #{e}"
 end
 ```
 
@@ -243,7 +243,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 id = 'id_example' # String | Policy Image Group entity UUID
 
 begin
@@ -251,7 +251,7 @@ begin
   result = api_instance.delete_policy_group(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->delete_policy_group: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->delete_policy_group: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ begin
   p headers # => { ... }
   p data # => <CoreEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->delete_policy_group_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->delete_policy_group_with_http_info: #{e}"
 end
 ```
 
@@ -312,14 +312,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 
 begin
   # Get all Image Assessment policies
   result = api_instance.read_policies
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policies: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policies: #{e}"
 end
 ```
 
@@ -337,7 +337,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policies_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policies_with_http_info: #{e}"
 end
 ```
 
@@ -378,14 +378,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 
 begin
   # Retrieve Image Assessment Policy Exclusion entities
   result = api_instance.read_policy_exclusions
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policy_exclusions: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policy_exclusions: #{e}"
 end
 ```
 
@@ -403,7 +403,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyExclusionEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policy_exclusions_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policy_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -444,14 +444,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 
 begin
   # Retrieve Image Assessment Policy Group entities
   result = api_instance.read_policy_groups
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policy_groups: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policy_groups: #{e}"
 end
 ```
 
@@ -469,7 +469,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyGroupEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->read_policy_groups_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->read_policy_groups_with_http_info: #{e}"
 end
 ```
 
@@ -510,7 +510,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 id = 'id_example' # String | Image Assessment Policy entity UUID
 body = Falcon::ModelsPatchPolicyRequest.new({description: 'description_example', is_enabled: false, name: 'name_example'}) # ModelsPatchPolicyRequest | 
 
@@ -519,7 +519,7 @@ begin
   result = api_instance.update_policies(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policies: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policies: #{e}"
 end
 ```
 
@@ -537,7 +537,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policies_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -581,7 +581,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 body = Falcon::ModelsUpdateExclusionsRequest.new({conditions: [Falcon::ModelsExclusionConditionRequest.new({prop: 'prop_example', value: ['value_example']})]}) # ModelsUpdateExclusionsRequest | 
 
 begin
@@ -589,7 +589,7 @@ begin
   result = api_instance.update_policy_exclusions(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_exclusions: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_exclusions: #{e}"
 end
 ```
 
@@ -607,7 +607,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyExclusionEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_exclusions_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -650,7 +650,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 id = 'id_example' # String | Policy Image Group entity UUID
 body = Falcon::ModelsPatchImageGroupRequest.new({description: 'description_example', name: 'name_example'}) # ModelsPatchImageGroupRequest | 
 
@@ -659,7 +659,7 @@ begin
   result = api_instance.update_policy_groups(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_groups: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_groups: #{e}"
 end
 ```
 
@@ -677,7 +677,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyGroupEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_groups_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_groups_with_http_info: #{e}"
 end
 ```
 
@@ -721,7 +721,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ImageAssessmentPoliciesApi.new
+api_instance = Falcon::ImageAssessmentPolicies.new
 body = Falcon::ModelsAPIPrecedenceRequest.new({precedence: ['precedence_example']}) # ModelsAPIPrecedenceRequest | 
 
 begin
@@ -729,7 +729,7 @@ begin
   result = api_instance.update_policy_precedence(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_precedence: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_precedence: #{e}"
 end
 ```
 
@@ -747,7 +747,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsPolicyEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ImageAssessmentPoliciesApi->update_policy_precedence_with_http_info: #{e}"
+  puts "Error when calling ImageAssessmentPolicies->update_policy_precedence_with_http_info: #{e}"
 end
 ```
 

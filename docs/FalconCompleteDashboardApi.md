@@ -1,29 +1,29 @@
-# Falcon::FalconCompleteDashboardApi
+# Falcon::FalconCompleteDashboard
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_alerts**](FalconCompleteDashboardApi.md#aggregate_alerts) | **POST** /falcon-complete-dashboards/aggregates/alerts/GET/v1 | Retrieve aggregate alerts values based on the matched filter |
-| [**aggregate_allow_list**](FalconCompleteDashboardApi.md#aggregate_allow_list) | **POST** /falcon-complete-dashboards/aggregates/allowlist/GET/v1 | Retrieve aggregate allowlist ticket values based on the matched filter |
-| [**aggregate_block_list**](FalconCompleteDashboardApi.md#aggregate_block_list) | **POST** /falcon-complete-dashboards/aggregates/blocklist/GET/v1 | Retrieve aggregate blocklist ticket values based on the matched filter |
-| [**aggregate_detections**](FalconCompleteDashboardApi.md#aggregate_detections) | **POST** /falcon-complete-dashboards/aggregates/detects/GET/v1 | Retrieve aggregate detection values based on the matched filter |
-| [**aggregate_device_count_collection**](FalconCompleteDashboardApi.md#aggregate_device_count_collection) | **POST** /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1 | Retrieve aggregate host/devices count based on the matched filter |
-| [**aggregate_escalations**](FalconCompleteDashboardApi.md#aggregate_escalations) | **POST** /falcon-complete-dashboards/aggregates/escalations/GET/v1 | Retrieve aggregate escalation ticket values based on the matched filter |
-| [**aggregate_fc_incidents**](FalconCompleteDashboardApi.md#aggregate_fc_incidents) | **POST** /falcon-complete-dashboards/aggregates/incidents/GET/v1 | Retrieve aggregate incident values based on the matched filter |
-| [**aggregate_prevention_policy**](FalconCompleteDashboardApi.md#aggregate_prevention_policy) | **POST** /falcon-complete-dashboards/aggregates/prevention-policies/v1 | Retrieve prevention policies aggregate values based on the matched filter |
-| [**aggregate_remediations**](FalconCompleteDashboardApi.md#aggregate_remediations) | **POST** /falcon-complete-dashboards/aggregates/remediations/GET/v1 | Retrieve aggregate remediation ticket values based on the matched filter |
-| [**aggregate_sensor_update_policy**](FalconCompleteDashboardApi.md#aggregate_sensor_update_policy) | **POST** /falcon-complete-dashboards/aggregates/sensor-update-policies/v1 | Retrieve sensor update policies aggregate values |
-| [**aggregate_support_issues**](FalconCompleteDashboardApi.md#aggregate_support_issues) | **POST** /falcon-complete-dashboards/aggregates/support-issues/v1 | Retrieve aggregate support issue ticket values based on the matched filter |
-| [**aggregate_total_device_counts**](FalconCompleteDashboardApi.md#aggregate_total_device_counts) | **POST** /falcon-complete-dashboards/aggregates/total-device-counts/v1 | Retrieve aggregate total host/devices based on the matched filter |
-| [**get_device_count_collection_queries_by_filter**](FalconCompleteDashboardApi.md#get_device_count_collection_queries_by_filter) | **GET** /falcon-complete-dashboards/queries/devicecount-collections/v1 | Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled |
-| [**query_alert_ids_by_filter**](FalconCompleteDashboardApi.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled |
-| [**query_allow_list_filter**](FalconCompleteDashboardApi.md#query_allow_list_filter) | **GET** /falcon-complete-dashboards/queries/allowlist/v1 | Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled |
-| [**query_block_list_filter**](FalconCompleteDashboardApi.md#query_block_list_filter) | **GET** /falcon-complete-dashboards/queries/blocklist/v1 | Retrieve block listtickets that match the provided filter criteria with scrolling enabled |
-| [**query_detection_ids_by_filter**](FalconCompleteDashboardApi.md#query_detection_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/detects/v1 | Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled |
-| [**query_escalations_filter**](FalconCompleteDashboardApi.md#query_escalations_filter) | **GET** /falcon-complete-dashboards/queries/escalations/v1 | Retrieve escalation tickets that match the provided filter criteria with scrolling enabled |
-| [**query_incident_ids_by_filter**](FalconCompleteDashboardApi.md#query_incident_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/incidents/v1 | Retrieve incidents that match the provided filter criteria with scrolling enabled |
-| [**query_remediations_filter**](FalconCompleteDashboardApi.md#query_remediations_filter) | **GET** /falcon-complete-dashboards/queries/remediations/v1 | Retrieve remediation tickets that match the provided filter criteria with scrolling enabled |
+| [**aggregate_alerts**](FalconCompleteDashboard.md#aggregate_alerts) | **POST** /falcon-complete-dashboards/aggregates/alerts/GET/v1 | Retrieve aggregate alerts values based on the matched filter |
+| [**aggregate_allow_list**](FalconCompleteDashboard.md#aggregate_allow_list) | **POST** /falcon-complete-dashboards/aggregates/allowlist/GET/v1 | Retrieve aggregate allowlist ticket values based on the matched filter |
+| [**aggregate_block_list**](FalconCompleteDashboard.md#aggregate_block_list) | **POST** /falcon-complete-dashboards/aggregates/blocklist/GET/v1 | Retrieve aggregate blocklist ticket values based on the matched filter |
+| [**aggregate_detections**](FalconCompleteDashboard.md#aggregate_detections) | **POST** /falcon-complete-dashboards/aggregates/detects/GET/v1 | Retrieve aggregate detection values based on the matched filter |
+| [**aggregate_device_count_collection**](FalconCompleteDashboard.md#aggregate_device_count_collection) | **POST** /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1 | Retrieve aggregate host/devices count based on the matched filter |
+| [**aggregate_escalations**](FalconCompleteDashboard.md#aggregate_escalations) | **POST** /falcon-complete-dashboards/aggregates/escalations/GET/v1 | Retrieve aggregate escalation ticket values based on the matched filter |
+| [**aggregate_fc_incidents**](FalconCompleteDashboard.md#aggregate_fc_incidents) | **POST** /falcon-complete-dashboards/aggregates/incidents/GET/v1 | Retrieve aggregate incident values based on the matched filter |
+| [**aggregate_prevention_policy**](FalconCompleteDashboard.md#aggregate_prevention_policy) | **POST** /falcon-complete-dashboards/aggregates/prevention-policies/v1 | Retrieve prevention policies aggregate values based on the matched filter |
+| [**aggregate_remediations**](FalconCompleteDashboard.md#aggregate_remediations) | **POST** /falcon-complete-dashboards/aggregates/remediations/GET/v1 | Retrieve aggregate remediation ticket values based on the matched filter |
+| [**aggregate_sensor_update_policy**](FalconCompleteDashboard.md#aggregate_sensor_update_policy) | **POST** /falcon-complete-dashboards/aggregates/sensor-update-policies/v1 | Retrieve sensor update policies aggregate values |
+| [**aggregate_support_issues**](FalconCompleteDashboard.md#aggregate_support_issues) | **POST** /falcon-complete-dashboards/aggregates/support-issues/v1 | Retrieve aggregate support issue ticket values based on the matched filter |
+| [**aggregate_total_device_counts**](FalconCompleteDashboard.md#aggregate_total_device_counts) | **POST** /falcon-complete-dashboards/aggregates/total-device-counts/v1 | Retrieve aggregate total host/devices based on the matched filter |
+| [**get_device_count_collection_queries_by_filter**](FalconCompleteDashboard.md#get_device_count_collection_queries_by_filter) | **GET** /falcon-complete-dashboards/queries/devicecount-collections/v1 | Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled |
+| [**query_alert_ids_by_filter**](FalconCompleteDashboard.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled |
+| [**query_allow_list_filter**](FalconCompleteDashboard.md#query_allow_list_filter) | **GET** /falcon-complete-dashboards/queries/allowlist/v1 | Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled |
+| [**query_block_list_filter**](FalconCompleteDashboard.md#query_block_list_filter) | **GET** /falcon-complete-dashboards/queries/blocklist/v1 | Retrieve block listtickets that match the provided filter criteria with scrolling enabled |
+| [**query_detection_ids_by_filter**](FalconCompleteDashboard.md#query_detection_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/detects/v1 | Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled |
+| [**query_escalations_filter**](FalconCompleteDashboard.md#query_escalations_filter) | **GET** /falcon-complete-dashboards/queries/escalations/v1 | Retrieve escalation tickets that match the provided filter criteria with scrolling enabled |
+| [**query_incident_ids_by_filter**](FalconCompleteDashboard.md#query_incident_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/incidents/v1 | Retrieve incidents that match the provided filter criteria with scrolling enabled |
+| [**query_remediations_filter**](FalconCompleteDashboard.md#query_remediations_filter) | **GET** /falcon-complete-dashboards/queries/remediations/v1 | Retrieve remediation tickets that match the provided filter criteria with scrolling enabled |
 
 
 ## aggregate_alerts
@@ -45,7 +45,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -53,7 +53,7 @@ begin
   result = api_instance.aggregate_alerts(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_alerts: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_alerts: #{e}"
 end
 ```
 
@@ -71,7 +71,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_alerts_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_alerts_with_http_info: #{e}"
 end
 ```
 
@@ -114,7 +114,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -122,7 +122,7 @@ begin
   result = api_instance.aggregate_allow_list(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_allow_list: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_allow_list: #{e}"
 end
 ```
 
@@ -140,7 +140,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_allow_list_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_allow_list_with_http_info: #{e}"
 end
 ```
 
@@ -183,7 +183,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -191,7 +191,7 @@ begin
   result = api_instance.aggregate_block_list(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_block_list: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_block_list: #{e}"
 end
 ```
 
@@ -209,7 +209,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_block_list_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_block_list_with_http_info: #{e}"
 end
 ```
 
@@ -254,7 +254,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -262,7 +262,7 @@ begin
   result = api_instance.aggregate_detections(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_detections: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_detections: #{e}"
 end
 ```
 
@@ -280,7 +280,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_detections_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_detections_with_http_info: #{e}"
 end
 ```
 
@@ -323,7 +323,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -331,7 +331,7 @@ begin
   result = api_instance.aggregate_device_count_collection(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_device_count_collection: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_device_count_collection: #{e}"
 end
 ```
 
@@ -349,7 +349,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_device_count_collection_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_device_count_collection_with_http_info: #{e}"
 end
 ```
 
@@ -392,7 +392,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -400,7 +400,7 @@ begin
   result = api_instance.aggregate_escalations(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_escalations: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_escalations: #{e}"
 end
 ```
 
@@ -418,7 +418,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_escalations_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_escalations_with_http_info: #{e}"
 end
 ```
 
@@ -461,7 +461,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -469,7 +469,7 @@ begin
   result = api_instance.aggregate_fc_incidents(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_fc_incidents: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_fc_incidents: #{e}"
 end
 ```
 
@@ -487,7 +487,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_fc_incidents_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_fc_incidents_with_http_info: #{e}"
 end
 ```
 
@@ -530,7 +530,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -538,7 +538,7 @@ begin
   result = api_instance.aggregate_prevention_policy(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_prevention_policy: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_prevention_policy: #{e}"
 end
 ```
 
@@ -556,7 +556,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_prevention_policy_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_prevention_policy_with_http_info: #{e}"
 end
 ```
 
@@ -599,7 +599,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -607,7 +607,7 @@ begin
   result = api_instance.aggregate_remediations(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_remediations: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_remediations: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_remediations_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_remediations_with_http_info: #{e}"
 end
 ```
 
@@ -668,7 +668,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -676,7 +676,7 @@ begin
   result = api_instance.aggregate_sensor_update_policy(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_sensor_update_policy: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_sensor_update_policy: #{e}"
 end
 ```
 
@@ -694,7 +694,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_sensor_update_policy_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_sensor_update_policy_with_http_info: #{e}"
 end
 ```
 
@@ -737,7 +737,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -745,7 +745,7 @@ begin
   result = api_instance.aggregate_support_issues(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_support_issues: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_support_issues: #{e}"
 end
 ```
 
@@ -763,7 +763,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_support_issues_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_support_issues_with_http_info: #{e}"
 end
 ```
 
@@ -806,7 +806,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -814,7 +814,7 @@ begin
   result = api_instance.aggregate_total_device_counts(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_total_device_counts: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_total_device_counts: #{e}"
 end
 ```
 
@@ -832,7 +832,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->aggregate_total_device_counts_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->aggregate_total_device_counts_with_http_info: #{e}"
 end
 ```
 
@@ -875,7 +875,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -888,7 +888,7 @@ begin
   result = api_instance.get_device_count_collection_queries_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->get_device_count_collection_queries_by_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->get_device_count_collection_queries_by_filter: #{e}"
 end
 ```
 
@@ -906,7 +906,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->get_device_count_collection_queries_by_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->get_device_count_collection_queries_by_filter_with_http_info: #{e}"
 end
 ```
 
@@ -952,7 +952,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -965,7 +965,7 @@ begin
   result = api_instance.query_alert_ids_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_alert_ids_by_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_alert_ids_by_filter: #{e}"
 end
 ```
 
@@ -983,7 +983,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_alert_ids_by_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_alert_ids_by_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1029,7 +1029,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1042,7 +1042,7 @@ begin
   result = api_instance.query_allow_list_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_allow_list_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_allow_list_filter: #{e}"
 end
 ```
 
@@ -1060,7 +1060,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_allow_list_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_allow_list_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1106,7 +1106,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1119,7 +1119,7 @@ begin
   result = api_instance.query_block_list_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_block_list_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_block_list_filter: #{e}"
 end
 ```
 
@@ -1137,7 +1137,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_block_list_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_block_list_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1183,7 +1183,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1196,7 +1196,7 @@ begin
   result = api_instance.query_detection_ids_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_detection_ids_by_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_detection_ids_by_filter: #{e}"
 end
 ```
 
@@ -1214,7 +1214,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_detection_ids_by_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_detection_ids_by_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1260,7 +1260,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1273,7 +1273,7 @@ begin
   result = api_instance.query_escalations_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_escalations_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_escalations_filter: #{e}"
 end
 ```
 
@@ -1291,7 +1291,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_escalations_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_escalations_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1337,7 +1337,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1350,7 +1350,7 @@ begin
   result = api_instance.query_incident_ids_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_incident_ids_by_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_incident_ids_by_filter: #{e}"
 end
 ```
 
@@ -1368,7 +1368,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_incident_ids_by_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_incident_ids_by_filter_with_http_info: #{e}"
 end
 ```
 
@@ -1414,7 +1414,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconCompleteDashboardApi.new
+api_instance = Falcon::FalconCompleteDashboard.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -1427,7 +1427,7 @@ begin
   result = api_instance.query_remediations_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_remediations_filter: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_remediations_filter: #{e}"
 end
 ```
 
@@ -1445,7 +1445,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconCompleteDashboardApi->query_remediations_filter_with_http_info: #{e}"
+  puts "Error when calling FalconCompleteDashboard->query_remediations_filter_with_http_info: #{e}"
 end
 ```
 

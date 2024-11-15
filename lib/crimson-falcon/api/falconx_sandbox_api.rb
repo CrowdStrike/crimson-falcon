@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FalconxSandboxApi
+  class FalconxSandbox
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(FalconxQueryResponse, Integer, Hash)>] FalconxQueryResponse data, response status code and response headers
     def delete_report_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.delete_report ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.delete_report ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.delete_report"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.delete_report"
       end
       # resource path
       local_var_path = '/falconx/entities/reports/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.delete_report",
+        :operation => :"FalconxSandbox.delete_report",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#delete_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#delete_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_sample_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.delete_sample_v2 ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.delete_sample_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.delete_sample_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.delete_sample_v2"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v2'
@@ -144,7 +144,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.delete_sample_v2",
+        :operation => :"FalconxSandbox.delete_sample_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -155,7 +155,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#delete_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#delete_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_artifacts_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_artifacts ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_artifacts ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandboxApi.get_artifacts"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandbox.get_artifacts"
       end
       # resource path
       local_var_path = '/falconx/entities/artifacts/v1'
@@ -212,7 +212,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_artifacts",
+        :operation => :"FalconxSandbox.get_artifacts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -223,7 +223,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_artifacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_artifacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -247,11 +247,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_memory_dump_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_memory_dump ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_memory_dump ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandboxApi.get_memory_dump"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandbox.get_memory_dump"
       end
       # resource path
       local_var_path = '/falconx/entities/memory-dump/v1'
@@ -280,7 +280,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_memory_dump",
+        :operation => :"FalconxSandbox.get_memory_dump",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -291,7 +291,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_memory_dump\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_memory_dump\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_memory_dump_extracted_strings_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_memory_dump_extracted_strings ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_memory_dump_extracted_strings ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandboxApi.get_memory_dump_extracted_strings"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandbox.get_memory_dump_extracted_strings"
       end
       # resource path
       local_var_path = '/falconx/entities/memory-dump/extracted-strings/v1'
@@ -348,7 +348,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_memory_dump_extracted_strings",
+        :operation => :"FalconxSandbox.get_memory_dump_extracted_strings",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -359,7 +359,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_memory_dump_extracted_strings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_memory_dump_extracted_strings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -383,11 +383,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_memory_dump_hex_dump_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_memory_dump_hex_dump ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_memory_dump_hex_dump ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandboxApi.get_memory_dump_hex_dump"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconxSandbox.get_memory_dump_hex_dump"
       end
       # resource path
       local_var_path = '/falconx/entities/memory-dump/hex-dump/v1'
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_memory_dump_hex_dump",
+        :operation => :"FalconxSandbox.get_memory_dump_hex_dump",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_memory_dump_hex_dump\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_memory_dump_hex_dump\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -447,11 +447,11 @@ module Falcon
     # @return [Array<(FalconxReportV1Response, Integer, Hash)>] FalconxReportV1Response data, response status code and response headers
     def get_reports_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_reports ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_reports ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.get_reports"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.get_reports"
       end
       # resource path
       local_var_path = '/falconx/entities/reports/v1'
@@ -478,7 +478,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_reports",
+        :operation => :"FalconxSandbox.get_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -489,7 +489,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -511,11 +511,11 @@ module Falcon
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def get_sample_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_sample_v2 ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_sample_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.get_sample_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.get_sample_v2"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v2'
@@ -543,7 +543,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_sample_v2",
+        :operation => :"FalconxSandbox.get_sample_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -554,7 +554,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -574,11 +574,11 @@ module Falcon
     # @return [Array<(FalconxSubmissionV1Response, Integer, Hash)>] FalconxSubmissionV1Response data, response status code and response headers
     def get_submissions_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_submissions ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_submissions ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.get_submissions"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.get_submissions"
       end
       # resource path
       local_var_path = '/falconx/entities/submissions/v1'
@@ -605,7 +605,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_submissions",
+        :operation => :"FalconxSandbox.get_submissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -616,7 +616,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_submissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_submissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -636,11 +636,11 @@ module Falcon
     # @return [Array<(FalconxSummaryReportV1Response, Integer, Hash)>] FalconxSummaryReportV1Response data, response status code and response headers
     def get_summary_reports_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.get_summary_reports ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.get_summary_reports ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandboxApi.get_summary_reports"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconxSandbox.get_summary_reports"
       end
       # resource path
       local_var_path = '/falconx/entities/report-summaries/v1'
@@ -667,7 +667,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.get_summary_reports",
+        :operation => :"FalconxSandbox.get_summary_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -678,7 +678,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#get_summary_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#get_summary_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -704,7 +704,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_reports_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.query_reports ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.query_reports ...'
       end
       # resource path
       local_var_path = '/falconx/queries/reports/v1'
@@ -734,7 +734,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.query_reports",
+        :operation => :"FalconxSandbox.query_reports",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -745,7 +745,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#query_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#query_reports\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -765,11 +765,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_sample_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.query_sample_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.query_sample_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconxSandboxApi.query_sample_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconxSandbox.query_sample_v1"
       end
       # resource path
       local_var_path = '/samples/queries/samples/GET/v1'
@@ -800,7 +800,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.query_sample_v1",
+        :operation => :"FalconxSandbox.query_sample_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -811,7 +811,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#query_sample_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#query_sample_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -837,7 +837,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_submissions_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.query_submissions_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.query_submissions_mixin0 ...'
       end
       # resource path
       local_var_path = '/falconx/queries/submissions/v1'
@@ -867,7 +867,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.query_submissions_mixin0",
+        :operation => :"FalconxSandbox.query_submissions_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -878,7 +878,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#query_submissions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#query_submissions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -900,11 +900,11 @@ module Falcon
     # @return [Array<(FalconxSubmissionV1Response, Integer, Hash)>] FalconxSubmissionV1Response data, response status code and response headers
     def submit_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.submit ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.submit ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconxSandboxApi.submit"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconxSandbox.submit"
       end
       # resource path
       local_var_path = '/falconx/entities/submissions/v1'
@@ -936,7 +936,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.submit",
+        :operation => :"FalconxSandbox.submit",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -947,7 +947,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#submit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#submit\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -973,15 +973,15 @@ module Falcon
     # @return [Array<(ClientSampleMetadataResponseV2, Integer, Hash)>] ClientSampleMetadataResponseV2 data, response status code and response headers
     def upload_sample_v2_with_http_info(sample, file_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconxSandboxApi.upload_sample_v2 ...'
+        @api_client.config.logger.debug 'Calling API: FalconxSandbox.upload_sample_v2 ...'
       end
       # verify the required parameter 'sample' is set
       if @api_client.config.client_side_validation && sample.nil?
-        fail ArgumentError, "Missing the required parameter 'sample' when calling FalconxSandboxApi.upload_sample_v2"
+        fail ArgumentError, "Missing the required parameter 'sample' when calling FalconxSandbox.upload_sample_v2"
       end
       # verify the required parameter 'file_name' is set
       if @api_client.config.client_side_validation && file_name.nil?
-        fail ArgumentError, "Missing the required parameter 'file_name' when calling FalconxSandboxApi.upload_sample_v2"
+        fail ArgumentError, "Missing the required parameter 'file_name' when calling FalconxSandbox.upload_sample_v2"
       end
       # resource path
       local_var_path = '/samples/entities/samples/v2'
@@ -1016,7 +1016,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconxSandboxApi.upload_sample_v2",
+        :operation => :"FalconxSandbox.upload_sample_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1027,7 +1027,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconxSandboxApi#upload_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconxSandbox#upload_sample_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

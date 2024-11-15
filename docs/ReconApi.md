@@ -1,35 +1,35 @@
-# Falcon::ReconApi
+# Falcon::Recon
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_notifications_exposed_data_records_v1**](ReconApi.md#aggregate_notifications_exposed_data_records_v1) | **POST** /recon/aggregates/notifications-exposed-data-records/GET/v1 | Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id] |
-| [**aggregate_notifications_v1**](ReconApi.md#aggregate_notifications_v1) | **POST** /recon/aggregates/notifications/GET/v1 | Get notification aggregates as specified via JSON in request body. |
-| [**create_actions_v1**](ReconApi.md#create_actions_v1) | **POST** /recon/entities/actions/v1 | Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule. |
-| [**create_export_jobs_v1**](ReconApi.md#create_export_jobs_v1) | **POST** /recon/entities/exports/v1 | Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1. |
-| [**create_rules_v1**](ReconApi.md#create_rules_v1) | **POST** /recon/entities/rules/v1 | Create monitoring rules. |
-| [**delete_action_v1**](ReconApi.md#delete_action_v1) | **DELETE** /recon/entities/actions/v1 | Delete an action from a monitoring rule based on the action ID. |
-| [**delete_export_jobs_v1**](ReconApi.md#delete_export_jobs_v1) | **DELETE** /recon/entities/exports/v1 | Delete export jobs (and their associated file(s)) based on their IDs. |
-| [**delete_notifications_v1**](ReconApi.md#delete_notifications_v1) | **DELETE** /recon/entities/notifications/v1 | Delete notifications based on IDs. Notifications cannot be recovered after they are deleted. |
-| [**delete_rules_v1**](ReconApi.md#delete_rules_v1) | **DELETE** /recon/entities/rules/v1 | Delete monitoring rules. |
-| [**get_actions_v1**](ReconApi.md#get_actions_v1) | **GET** /recon/entities/actions/v1 | Get actions based on their IDs. IDs can be retrieved using the GET /queries/actions/v1 endpoint. |
-| [**get_export_jobs_v1**](ReconApi.md#get_export_jobs_v1) | **GET** /recon/entities/exports/v1 | Get the status of export jobs based on their IDs. Export jobs can be launched by calling POST /entities/exports/v1. When a job is complete, use the job ID to download the file(s) associated with it using GET entities/export-files/v1. |
-| [**get_file_content_for_export_jobs_v1**](ReconApi.md#get_file_content_for_export_jobs_v1) | **GET** /recon/entities/export-files/v1 | Download the file associated with a job ID. |
-| [**get_notifications_detailed_translated_v1**](ReconApi.md#get_notifications_detailed_translated_v1) | **GET** /recon/entities/notifications-detailed-translated/v1 | Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.  |
-| [**get_notifications_detailed_v1**](ReconApi.md#get_notifications_detailed_v1) | **GET** /recon/entities/notifications-detailed/v1 | Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.  |
-| [**get_notifications_exposed_data_records_v1**](ReconApi.md#get_notifications_exposed_data_records_v1) | **GET** /recon/entities/notifications-exposed-data-records/v1 | Get notifications exposed data records based on their IDs. IDs can be retrieved using the GET /queries/notifications-exposed-data-records/v1 endpoint. The associate notification can be fetched using the /entities/notifications/v* endpoints |
-| [**get_notifications_translated_v1**](ReconApi.md#get_notifications_translated_v1) | **GET** /recon/entities/notifications-translated/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. This endpoint will return translated notification content. The only target language available is English. |
-| [**get_notifications_v1**](ReconApi.md#get_notifications_v1) | **GET** /recon/entities/notifications/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. |
-| [**get_rules_v1**](ReconApi.md#get_rules_v1) | **GET** /recon/entities/rules/v1 | Get monitoring rules based on their IDs. IDs can be retrieved using the GET /queries/rules/v1 endpoint. |
-| [**preview_rule_v1**](ReconApi.md#preview_rule_v1) | **POST** /recon/aggregates/rules-preview/GET/v1 | Preview rules notification count and distribution. This will return aggregations on: channel, count, site. |
-| [**query_actions_v1**](ReconApi.md#query_actions_v1) | **GET** /recon/queries/actions/v1 | Query actions based on provided criteria. Use the IDs from this response to get the action entities on GET /entities/actions/v1. |
-| [**query_notifications_exposed_data_records_v1**](ReconApi.md#query_notifications_exposed_data_records_v1) | **GET** /recon/queries/notifications-exposed-data-records/v1 | Query notifications exposed data records based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications-exposed-data-records/v1 |
-| [**query_notifications_v1**](ReconApi.md#query_notifications_v1) | **GET** /recon/queries/notifications/v1 | Query notifications based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications/v1, GET /entities/notifications-detailed/v1, +GET /entities/notifications-translated/v1 or GET /entities/notifications-detailed-translated/v1. |
-| [**query_rules_v1**](ReconApi.md#query_rules_v1) | **GET** /recon/queries/rules/v1 | Query monitoring rules based on provided criteria. Use the IDs from this response to fetch the rules on /entities/rules/v1. |
-| [**update_action_v1**](ReconApi.md#update_action_v1) | **PATCH** /recon/entities/actions/v1 | Update an action for a monitoring rule. |
-| [**update_notifications_v1**](ReconApi.md#update_notifications_v1) | **PATCH** /recon/entities/notifications/v1 | Update notification status or assignee. Accepts bulk requests |
-| [**update_rules_v1**](ReconApi.md#update_rules_v1) | **PATCH** /recon/entities/rules/v1 | Update monitoring rules. |
+| [**aggregate_notifications_exposed_data_records_v1**](Recon.md#aggregate_notifications_exposed_data_records_v1) | **POST** /recon/aggregates/notifications-exposed-data-records/GET/v1 | Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id] |
+| [**aggregate_notifications_v1**](Recon.md#aggregate_notifications_v1) | **POST** /recon/aggregates/notifications/GET/v1 | Get notification aggregates as specified via JSON in request body. |
+| [**create_actions_v1**](Recon.md#create_actions_v1) | **POST** /recon/entities/actions/v1 | Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule. |
+| [**create_export_jobs_v1**](Recon.md#create_export_jobs_v1) | **POST** /recon/entities/exports/v1 | Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1. |
+| [**create_rules_v1**](Recon.md#create_rules_v1) | **POST** /recon/entities/rules/v1 | Create monitoring rules. |
+| [**delete_action_v1**](Recon.md#delete_action_v1) | **DELETE** /recon/entities/actions/v1 | Delete an action from a monitoring rule based on the action ID. |
+| [**delete_export_jobs_v1**](Recon.md#delete_export_jobs_v1) | **DELETE** /recon/entities/exports/v1 | Delete export jobs (and their associated file(s)) based on their IDs. |
+| [**delete_notifications_v1**](Recon.md#delete_notifications_v1) | **DELETE** /recon/entities/notifications/v1 | Delete notifications based on IDs. Notifications cannot be recovered after they are deleted. |
+| [**delete_rules_v1**](Recon.md#delete_rules_v1) | **DELETE** /recon/entities/rules/v1 | Delete monitoring rules. |
+| [**get_actions_v1**](Recon.md#get_actions_v1) | **GET** /recon/entities/actions/v1 | Get actions based on their IDs. IDs can be retrieved using the GET /queries/actions/v1 endpoint. |
+| [**get_export_jobs_v1**](Recon.md#get_export_jobs_v1) | **GET** /recon/entities/exports/v1 | Get the status of export jobs based on their IDs. Export jobs can be launched by calling POST /entities/exports/v1. When a job is complete, use the job ID to download the file(s) associated with it using GET entities/export-files/v1. |
+| [**get_file_content_for_export_jobs_v1**](Recon.md#get_file_content_for_export_jobs_v1) | **GET** /recon/entities/export-files/v1 | Download the file associated with a job ID. |
+| [**get_notifications_detailed_translated_v1**](Recon.md#get_notifications_detailed_translated_v1) | **GET** /recon/entities/notifications-detailed-translated/v1 | Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.  |
+| [**get_notifications_detailed_v1**](Recon.md#get_notifications_detailed_v1) | **GET** /recon/entities/notifications-detailed/v1 | Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.  |
+| [**get_notifications_exposed_data_records_v1**](Recon.md#get_notifications_exposed_data_records_v1) | **GET** /recon/entities/notifications-exposed-data-records/v1 | Get notifications exposed data records based on their IDs. IDs can be retrieved using the GET /queries/notifications-exposed-data-records/v1 endpoint. The associate notification can be fetched using the /entities/notifications/v* endpoints |
+| [**get_notifications_translated_v1**](Recon.md#get_notifications_translated_v1) | **GET** /recon/entities/notifications-translated/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. This endpoint will return translated notification content. The only target language available is English. |
+| [**get_notifications_v1**](Recon.md#get_notifications_v1) | **GET** /recon/entities/notifications/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. |
+| [**get_rules_v1**](Recon.md#get_rules_v1) | **GET** /recon/entities/rules/v1 | Get monitoring rules based on their IDs. IDs can be retrieved using the GET /queries/rules/v1 endpoint. |
+| [**preview_rule_v1**](Recon.md#preview_rule_v1) | **POST** /recon/aggregates/rules-preview/GET/v1 | Preview rules notification count and distribution. This will return aggregations on: channel, count, site. |
+| [**query_actions_v1**](Recon.md#query_actions_v1) | **GET** /recon/queries/actions/v1 | Query actions based on provided criteria. Use the IDs from this response to get the action entities on GET /entities/actions/v1. |
+| [**query_notifications_exposed_data_records_v1**](Recon.md#query_notifications_exposed_data_records_v1) | **GET** /recon/queries/notifications-exposed-data-records/v1 | Query notifications exposed data records based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications-exposed-data-records/v1 |
+| [**query_notifications_v1**](Recon.md#query_notifications_v1) | **GET** /recon/queries/notifications/v1 | Query notifications based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications/v1, GET /entities/notifications-detailed/v1, +GET /entities/notifications-translated/v1 or GET /entities/notifications-detailed-translated/v1. |
+| [**query_rules_v1**](Recon.md#query_rules_v1) | **GET** /recon/queries/rules/v1 | Query monitoring rules based on provided criteria. Use the IDs from this response to fetch the rules on /entities/rules/v1. |
+| [**update_action_v1**](Recon.md#update_action_v1) | **PATCH** /recon/entities/actions/v1 | Update an action for a monitoring rule. |
+| [**update_notifications_v1**](Recon.md#update_notifications_v1) | **PATCH** /recon/entities/notifications/v1 | Update notification status or assignee. Accepts bulk requests |
+| [**update_rules_v1**](Recon.md#update_rules_v1) | **PATCH** /recon/entities/rules/v1 | Update monitoring rules. |
 
 
 ## aggregate_notifications_exposed_data_records_v1
@@ -51,7 +51,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -59,7 +59,7 @@ begin
   result = api_instance.aggregate_notifications_exposed_data_records_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->aggregate_notifications_exposed_data_records_v1: #{e}"
+  puts "Error when calling Recon->aggregate_notifications_exposed_data_records_v1: #{e}"
 end
 ```
 
@@ -77,7 +77,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->aggregate_notifications_exposed_data_records_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->aggregate_notifications_exposed_data_records_v1_with_http_info: #{e}"
 end
 ```
 
@@ -120,7 +120,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -128,7 +128,7 @@ begin
   result = api_instance.aggregate_notifications_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->aggregate_notifications_v1: #{e}"
+  puts "Error when calling Recon->aggregate_notifications_v1: #{e}"
 end
 ```
 
@@ -146,7 +146,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->aggregate_notifications_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->aggregate_notifications_v1_with_http_info: #{e}"
 end
 ```
 
@@ -189,7 +189,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = Falcon::DomainRegisterActionsRequest.new({actions: [Falcon::DomainCreateActionRequest.new({content_format: 'content_format_example', frequency: 'frequency_example', recipients: ['recipients_example'], trigger_matchless: false, type: 'type_example'})], rule_id: 'rule_id_example'}) # DomainRegisterActionsRequest | 
 
 begin
@@ -197,7 +197,7 @@ begin
   result = api_instance.create_actions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_actions_v1: #{e}"
+  puts "Error when calling Recon->create_actions_v1: #{e}"
 end
 ```
 
@@ -215,7 +215,7 @@ begin
   p headers # => { ... }
   p data # => <DomainActionEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_actions_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->create_actions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -258,7 +258,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::DomainLaunchExportJobRequestV1.new({entity: 'entity_example', export_type: 'export_type_example', filter: 'filter_example', human_readable: false})] # Array<DomainLaunchExportJobRequestV1> | 
 
 begin
@@ -266,7 +266,7 @@ begin
   result = api_instance.create_export_jobs_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_export_jobs_v1: #{e}"
+  puts "Error when calling Recon->create_export_jobs_v1: #{e}"
 end
 ```
 
@@ -284,7 +284,7 @@ begin
   p headers # => { ... }
   p data # => <DomainLaunchExportJobResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_export_jobs_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->create_export_jobs_v1_with_http_info: #{e}"
 end
 ```
 
@@ -327,7 +327,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::SadomainCreateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', match_on_tsq_result_types: ['match_on_tsq_result_types_example'], name: 'name_example', originating_template_id: 'originating_template_id_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false, topic: 'topic_example'})] # Array<SadomainCreateRuleRequestV1> | 
 
 begin
@@ -335,7 +335,7 @@ begin
   result = api_instance.create_rules_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_rules_v1: #{e}"
+  puts "Error when calling Recon->create_rules_v1: #{e}"
 end
 ```
 
@@ -353,7 +353,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRulesEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->create_rules_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->create_rules_v1_with_http_info: #{e}"
 end
 ```
 
@@ -396,7 +396,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 id = 'id_example' # String | ID of the action.
 
 begin
@@ -404,7 +404,7 @@ begin
   result = api_instance.delete_action_v1(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_action_v1: #{e}"
+  puts "Error when calling Recon->delete_action_v1: #{e}"
 end
 ```
 
@@ -422,7 +422,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_action_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->delete_action_v1_with_http_info: #{e}"
 end
 ```
 
@@ -465,7 +465,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Export Job IDs.
 
 begin
@@ -473,7 +473,7 @@ begin
   result = api_instance.delete_export_jobs_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_export_jobs_v1: #{e}"
+  puts "Error when calling Recon->delete_export_jobs_v1: #{e}"
 end
 ```
 
@@ -491,7 +491,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExportJobIDResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_export_jobs_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->delete_export_jobs_v1_with_http_info: #{e}"
 end
 ```
 
@@ -534,7 +534,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notifications IDs.
 
 begin
@@ -542,7 +542,7 @@ begin
   result = api_instance.delete_notifications_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_notifications_v1: #{e}"
+  puts "Error when calling Recon->delete_notifications_v1: #{e}"
 end
 ```
 
@@ -560,7 +560,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationIDResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_notifications_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->delete_notifications_v1_with_http_info: #{e}"
 end
 ```
 
@@ -603,7 +603,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | IDs of rules.
 opts = {
   notifications_deletion_requested: true # Boolean | Whether we should delete the notifications generated by this rule or not
@@ -614,7 +614,7 @@ begin
   result = api_instance.delete_rules_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_rules_v1: #{e}"
+  puts "Error when calling Recon->delete_rules_v1: #{e}"
 end
 ```
 
@@ -632,7 +632,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRuleQueryResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->delete_rules_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->delete_rules_v1_with_http_info: #{e}"
 end
 ```
 
@@ -676,7 +676,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Action IDs.
 
 begin
@@ -684,7 +684,7 @@ begin
   result = api_instance.get_actions_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_actions_v1: #{e}"
+  puts "Error when calling Recon->get_actions_v1: #{e}"
 end
 ```
 
@@ -702,7 +702,7 @@ begin
   p headers # => { ... }
   p data # => <DomainActionEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_actions_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_actions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -745,7 +745,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Export Job IDs.
 
 begin
@@ -753,7 +753,7 @@ begin
   result = api_instance.get_export_jobs_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_export_jobs_v1: #{e}"
+  puts "Error when calling Recon->get_export_jobs_v1: #{e}"
 end
 ```
 
@@ -771,7 +771,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExportJobEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_export_jobs_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_export_jobs_v1_with_http_info: #{e}"
 end
 ```
 
@@ -814,7 +814,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 id = 'id_example' # String | Export Job ID.
 
 begin
@@ -822,7 +822,7 @@ begin
   result = api_instance.get_file_content_for_export_jobs_v1(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_file_content_for_export_jobs_v1: #{e}"
+  puts "Error when calling Recon->get_file_content_for_export_jobs_v1: #{e}"
 end
 ```
 
@@ -840,7 +840,7 @@ begin
   p headers # => { ... }
   p data # => Array&lt;Integer&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_file_content_for_export_jobs_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_file_content_for_export_jobs_v1_with_http_info: #{e}"
 end
 ```
 
@@ -885,7 +885,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
@@ -893,7 +893,7 @@ begin
   result = api_instance.get_notifications_detailed_translated_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_detailed_translated_v1: #{e}"
+  puts "Error when calling Recon->get_notifications_detailed_translated_v1: #{e}"
 end
 ```
 
@@ -911,7 +911,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_detailed_translated_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_notifications_detailed_translated_v1_with_http_info: #{e}"
 end
 ```
 
@@ -956,7 +956,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
@@ -964,7 +964,7 @@ begin
   result = api_instance.get_notifications_detailed_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_detailed_v1: #{e}"
+  puts "Error when calling Recon->get_notifications_detailed_v1: #{e}"
 end
 ```
 
@@ -982,7 +982,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_detailed_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_notifications_detailed_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1025,7 +1025,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notification exposed records IDs.
 
 begin
@@ -1033,7 +1033,7 @@ begin
   result = api_instance.get_notifications_exposed_data_records_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_exposed_data_records_v1: #{e}"
+  puts "Error when calling Recon->get_notifications_exposed_data_records_v1: #{e}"
 end
 ```
 
@@ -1051,7 +1051,7 @@ begin
   p headers # => { ... }
   p data # => <ApiNotificationExposedDataRecordEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_exposed_data_records_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_notifications_exposed_data_records_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1094,7 +1094,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
@@ -1102,7 +1102,7 @@ begin
   result = api_instance.get_notifications_translated_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_translated_v1: #{e}"
+  puts "Error when calling Recon->get_notifications_translated_v1: #{e}"
 end
 ```
 
@@ -1120,7 +1120,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_translated_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_notifications_translated_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1163,7 +1163,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
@@ -1171,7 +1171,7 @@ begin
   result = api_instance.get_notifications_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_v1: #{e}"
+  puts "Error when calling Recon->get_notifications_v1: #{e}"
 end
 ```
 
@@ -1189,7 +1189,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_notifications_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_notifications_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1232,7 +1232,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 ids = ['inner_example'] # Array<String> | IDs of rules.
 
 begin
@@ -1240,7 +1240,7 @@ begin
   result = api_instance.get_rules_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_rules_v1: #{e}"
+  puts "Error when calling Recon->get_rules_v1: #{e}"
 end
 ```
 
@@ -1258,7 +1258,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRulesEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->get_rules_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->get_rules_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1301,7 +1301,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = Falcon::DomainRulePreviewRequest.new({filter: 'filter_example', topic: 'topic_example'}) # DomainRulePreviewRequest | 
 
 begin
@@ -1309,7 +1309,7 @@ begin
   result = api_instance.preview_rule_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->preview_rule_v1: #{e}"
+  puts "Error when calling Recon->preview_rule_v1: #{e}"
 end
 ```
 
@@ -1327,7 +1327,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->preview_rule_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->preview_rule_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1370,7 +1370,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
@@ -1384,7 +1384,7 @@ begin
   result = api_instance.query_actions_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_actions_v1: #{e}"
+  puts "Error when calling Recon->query_actions_v1: #{e}"
 end
 ```
 
@@ -1402,7 +1402,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_actions_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->query_actions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1449,7 +1449,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
@@ -1463,7 +1463,7 @@ begin
   result = api_instance.query_notifications_exposed_data_records_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_notifications_exposed_data_records_v1: #{e}"
+  puts "Error when calling Recon->query_notifications_exposed_data_records_v1: #{e}"
 end
 ```
 
@@ -1481,7 +1481,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_notifications_exposed_data_records_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->query_notifications_exposed_data_records_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1528,7 +1528,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
@@ -1542,7 +1542,7 @@ begin
   result = api_instance.query_notifications_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_notifications_v1: #{e}"
+  puts "Error when calling Recon->query_notifications_v1: #{e}"
 end
 ```
 
@@ -1560,7 +1560,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_notifications_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->query_notifications_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1607,7 +1607,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 opts = {
   offset: 56, # Integer | Starting index of overall result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
@@ -1622,7 +1622,7 @@ begin
   result = api_instance.query_rules_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_rules_v1: #{e}"
+  puts "Error when calling Recon->query_rules_v1: #{e}"
 end
 ```
 
@@ -1640,7 +1640,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRuleQueryResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->query_rules_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->query_rules_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1688,7 +1688,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = Falcon::DomainUpdateActionRequest.new({content_format: 'content_format_example', frequency: 'frequency_example', id: 'id_example', recipients: ['recipients_example'], status: 'status_example', trigger_matchless: false}) # DomainUpdateActionRequest | 
 
 begin
@@ -1696,7 +1696,7 @@ begin
   result = api_instance.update_action_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_action_v1: #{e}"
+  puts "Error when calling Recon->update_action_v1: #{e}"
 end
 ```
 
@@ -1714,7 +1714,7 @@ begin
   p headers # => { ... }
   p data # => <DomainActionEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_action_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->update_action_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1757,7 +1757,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::DomainUpdateNotificationRequestV1.new({assigned_to_uuid: 'assigned_to_uuid_example', id: 'id_example', idp_send_status: 'idp_send_status_example', message: 'message_example', status: 'status_example'})] # Array<DomainUpdateNotificationRequestV1> | 
 
 begin
@@ -1765,7 +1765,7 @@ begin
   result = api_instance.update_notifications_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_notifications_v1: #{e}"
+  puts "Error when calling Recon->update_notifications_v1: #{e}"
 end
 ```
 
@@ -1783,7 +1783,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNotificationEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_notifications_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->update_notifications_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1826,7 +1826,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReconApi.new
+api_instance = Falcon::Recon.new
 body = [Falcon::DomainUpdateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', id: 'id_example', name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false})] # Array<DomainUpdateRuleRequestV1> | 
 
 begin
@@ -1834,7 +1834,7 @@ begin
   result = api_instance.update_rules_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_rules_v1: #{e}"
+  puts "Error when calling Recon->update_rules_v1: #{e}"
 end
 ```
 
@@ -1852,7 +1852,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRulesEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReconApi->update_rules_v1_with_http_info: #{e}"
+  puts "Error when calling Recon->update_rules_v1_with_http_info: #{e}"
 end
 ```
 

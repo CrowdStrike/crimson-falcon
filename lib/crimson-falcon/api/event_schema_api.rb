@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class EventSchemaApi
+  class EventSchema
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -49,7 +49,7 @@ module Falcon
     # @return [Array<(SchemaSensorEventResponseV1, Integer, Hash)>] SchemaSensorEventResponseV1 data, response status code and response headers
     def fdrschema_combined_event_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EventSchemaApi.fdrschema_combined_event_get ...'
+        @api_client.config.logger.debug 'Calling API: EventSchema.fdrschema_combined_event_get ...'
       end
       # resource path
       local_var_path = '/fdr/combined/schema-members/v1'
@@ -75,7 +75,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"EventSchemaApi.fdrschema_combined_event_get",
+        :operation => :"EventSchema.fdrschema_combined_event_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -86,7 +86,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EventSchemaApi#fdrschema_combined_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EventSchema#fdrschema_combined_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -106,7 +106,7 @@ module Falcon
     # @return [Array<(SchemaSensorEventResponseV1, Integer, Hash)>] SchemaSensorEventResponseV1 data, response status code and response headers
     def fdrschema_entities_event_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EventSchemaApi.fdrschema_entities_event_get ...'
+        @api_client.config.logger.debug 'Calling API: EventSchema.fdrschema_entities_event_get ...'
       end
       # resource path
       local_var_path = '/fdr/entities/schema-events/v1'
@@ -133,7 +133,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"EventSchemaApi.fdrschema_entities_event_get",
+        :operation => :"EventSchema.fdrschema_entities_event_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -144,7 +144,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EventSchemaApi#fdrschema_entities_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EventSchema#fdrschema_entities_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,7 +170,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def fdrschema_queries_event_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EventSchemaApi.fdrschema_queries_event_get ...'
+        @api_client.config.logger.debug 'Calling API: EventSchema.fdrschema_queries_event_get ...'
       end
       # resource path
       local_var_path = '/fdr/queries/schema-events/v1'
@@ -200,7 +200,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"EventSchemaApi.fdrschema_queries_event_get",
+        :operation => :"EventSchema.fdrschema_queries_event_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -211,7 +211,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EventSchemaApi#fdrschema_queries_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EventSchema#fdrschema_queries_event_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

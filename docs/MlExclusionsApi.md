@@ -1,14 +1,14 @@
-# Falcon::MlExclusionsApi
+# Falcon::MlExclusions
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_ml_exclusions_v1**](MlExclusionsApi.md#create_ml_exclusions_v1) | **POST** /policy/entities/ml-exclusions/v1 | Create the ML exclusions |
-| [**delete_ml_exclusions_v1**](MlExclusionsApi.md#delete_ml_exclusions_v1) | **DELETE** /policy/entities/ml-exclusions/v1 | Delete the ML exclusions by id |
-| [**get_ml_exclusions_v1**](MlExclusionsApi.md#get_ml_exclusions_v1) | **GET** /policy/entities/ml-exclusions/v1 | Get a set of ML Exclusions by specifying their IDs |
-| [**query_ml_exclusions_v1**](MlExclusionsApi.md#query_ml_exclusions_v1) | **GET** /policy/queries/ml-exclusions/v1 | Search for ML exclusions. |
-| [**update_ml_exclusions_v1**](MlExclusionsApi.md#update_ml_exclusions_v1) | **PATCH** /policy/entities/ml-exclusions/v1 | Update the ML exclusions |
+| [**create_ml_exclusions_v1**](MlExclusions.md#create_ml_exclusions_v1) | **POST** /policy/entities/ml-exclusions/v1 | Create the ML exclusions |
+| [**delete_ml_exclusions_v1**](MlExclusions.md#delete_ml_exclusions_v1) | **DELETE** /policy/entities/ml-exclusions/v1 | Delete the ML exclusions by id |
+| [**get_ml_exclusions_v1**](MlExclusions.md#get_ml_exclusions_v1) | **GET** /policy/entities/ml-exclusions/v1 | Get a set of ML Exclusions by specifying their IDs |
+| [**query_ml_exclusions_v1**](MlExclusions.md#query_ml_exclusions_v1) | **GET** /policy/queries/ml-exclusions/v1 | Search for ML exclusions. |
+| [**update_ml_exclusions_v1**](MlExclusions.md#update_ml_exclusions_v1) | **PATCH** /policy/entities/ml-exclusions/v1 | Update the ML exclusions |
 
 
 ## create_ml_exclusions_v1
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MlExclusionsApi.new
+api_instance = Falcon::MlExclusions.new
 body = Falcon::ExclusionsCreateReqV1.new # ExclusionsCreateReqV1 | 
 
 begin
@@ -38,7 +38,7 @@ begin
   result = api_instance.create_ml_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->create_ml_exclusions_v1: #{e}"
+  puts "Error when calling MlExclusions->create_ml_exclusions_v1: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->create_ml_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling MlExclusions->create_ml_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MlExclusionsApi.new
+api_instance = Falcon::MlExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to delete
 opts = {
   comment: 'comment_example' # String | Explains why this exclusions was deleted
@@ -110,7 +110,7 @@ begin
   result = api_instance.delete_ml_exclusions_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->delete_ml_exclusions_v1: #{e}"
+  puts "Error when calling MlExclusions->delete_ml_exclusions_v1: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->delete_ml_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling MlExclusions->delete_ml_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MlExclusionsApi.new
+api_instance = Falcon::MlExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to retrieve
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.get_ml_exclusions_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->get_ml_exclusions_v1: #{e}"
+  puts "Error when calling MlExclusions->get_ml_exclusions_v1: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->get_ml_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling MlExclusions->get_ml_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -241,7 +241,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MlExclusionsApi.new
+api_instance = Falcon::MlExclusions.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results.
   offset: 56, # Integer | The offset to start retrieving records from
@@ -254,7 +254,7 @@ begin
   result = api_instance.query_ml_exclusions_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->query_ml_exclusions_v1: #{e}"
+  puts "Error when calling MlExclusions->query_ml_exclusions_v1: #{e}"
 end
 ```
 
@@ -272,7 +272,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->query_ml_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling MlExclusions->query_ml_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -318,7 +318,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MlExclusionsApi.new
+api_instance = Falcon::MlExclusions.new
 body = Falcon::SvExclusionsUpdateReqV1.new({id: 'id_example'}) # SvExclusionsUpdateReqV1 | 
 
 begin
@@ -326,7 +326,7 @@ begin
   result = api_instance.update_ml_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->update_ml_exclusions_v1: #{e}"
+  puts "Error when calling MlExclusions->update_ml_exclusions_v1: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ begin
   p headers # => { ... }
   p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MlExclusionsApi->update_ml_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling MlExclusions->update_ml_exclusions_v1_with_http_info: #{e}"
 end
 ```
 

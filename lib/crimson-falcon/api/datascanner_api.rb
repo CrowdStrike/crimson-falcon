@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DatascannerApi
+  class Datascanner
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(Hash<String, String>, Integer, Hash)>] Hash<String, String> data, response status code and response headers
     def get_data_scanner_tasks_with_http_info(x_scanner_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DatascannerApi.get_data_scanner_tasks ...'
+        @api_client.config.logger.debug 'Calling API: Datascanner.get_data_scanner_tasks ...'
       end
       # verify the required parameter 'x_scanner_id' is set
       if @api_client.config.client_side_validation && x_scanner_id.nil?
-        fail ArgumentError, "Missing the required parameter 'x_scanner_id' when calling DatascannerApi.get_data_scanner_tasks"
+        fail ArgumentError, "Missing the required parameter 'x_scanner_id' when calling Datascanner.get_data_scanner_tasks"
       end
       # resource path
       local_var_path = '/data-security-dspm/entities/scanner-tasks/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DatascannerApi.get_data_scanner_tasks",
+        :operation => :"Datascanner.get_data_scanner_tasks",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DatascannerApi#get_data_scanner_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Datascanner#get_data_scanner_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -111,7 +111,7 @@ module Falcon
     # @return [Array<(Hash<String, String>, Integer, Hash)>] Hash<String, String> data, response status code and response headers
     def get_image_registry_credentials_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DatascannerApi.get_image_registry_credentials ...'
+        @api_client.config.logger.debug 'Calling API: Datascanner.get_image_registry_credentials ...'
       end
       # resource path
       local_var_path = '/data-security-dspm/entities/image-registry-credentials/v1'
@@ -137,7 +137,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DatascannerApi.get_image_registry_credentials",
+        :operation => :"Datascanner.get_image_registry_credentials",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -148,7 +148,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DatascannerApi#get_image_registry_credentials\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Datascanner#get_image_registry_credentials\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,15 +170,15 @@ module Falcon
     # @return [Array<(Hash<String, String>, Integer, Hash)>] Hash<String, String> data, response status code and response headers
     def update_data_scanner_tasks_with_http_info(x_scanner_id, x_machine_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DatascannerApi.update_data_scanner_tasks ...'
+        @api_client.config.logger.debug 'Calling API: Datascanner.update_data_scanner_tasks ...'
       end
       # verify the required parameter 'x_scanner_id' is set
       if @api_client.config.client_side_validation && x_scanner_id.nil?
-        fail ArgumentError, "Missing the required parameter 'x_scanner_id' when calling DatascannerApi.update_data_scanner_tasks"
+        fail ArgumentError, "Missing the required parameter 'x_scanner_id' when calling Datascanner.update_data_scanner_tasks"
       end
       # verify the required parameter 'x_machine_id' is set
       if @api_client.config.client_side_validation && x_machine_id.nil?
-        fail ArgumentError, "Missing the required parameter 'x_machine_id' when calling DatascannerApi.update_data_scanner_tasks"
+        fail ArgumentError, "Missing the required parameter 'x_machine_id' when calling Datascanner.update_data_scanner_tasks"
       end
       # resource path
       local_var_path = '/data-security-dspm/entities/scanner-tasks/v1'
@@ -206,7 +206,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DatascannerApi.update_data_scanner_tasks",
+        :operation => :"Datascanner.update_data_scanner_tasks",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -217,7 +217,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DatascannerApi#update_data_scanner_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Datascanner#update_data_scanner_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

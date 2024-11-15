@@ -1,10 +1,10 @@
-# Falcon::CspgIacapiApi
+# Falcon::CspgIac
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_credentials_mixin0**](CspgIacapiApi.md#get_credentials_mixin0) | **GET** /iac/entities/image-registry-credentials/v1 | Gets the registry credentials (external endpoint) |
+| [**get_credentials_mixin0**](CspgIac.md#get_credentials_mixin0) | **GET** /iac/entities/image-registry-credentials/v1 | Gets the registry credentials (external endpoint) |
 
 
 ## get_credentials_mixin0
@@ -26,14 +26,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspgIacapiApi.new
+api_instance = Falcon::CspgIac.new
 
 begin
   # Gets the registry credentials (external endpoint)
   result = api_instance.get_credentials_mixin0
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspgIacapiApi->get_credentials_mixin0: #{e}"
+  puts "Error when calling CspgIac->get_credentials_mixin0: #{e}"
 end
 ```
 
@@ -51,7 +51,7 @@ begin
   p headers # => { ... }
   p data # => <CommonRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspgIacapiApi->get_credentials_mixin0_with_http_info: #{e}"
+  puts "Error when calling CspgIac->get_credentials_mixin0_with_http_info: #{e}"
 end
 ```
 

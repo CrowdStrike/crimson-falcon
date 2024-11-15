@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ReportExecutionsApi
+  class ReportExecutions
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def report_executions_download_get_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReportExecutionsApi.report_executions_download_get ...'
+        @api_client.config.logger.debug 'Calling API: ReportExecutions.report_executions_download_get ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReportExecutionsApi.report_executions_download_get"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ReportExecutions.report_executions_download_get"
       end
       # resource path
       local_var_path = '/reports/entities/report-executions-download/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReportExecutionsApi.report_executions_download_get",
+        :operation => :"ReportExecutions.report_executions_download_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReportExecutionsApi#report_executions_download_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReportExecutions#report_executions_download_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(DomainReportExecutionsResponseV1, Integer, Hash)>] DomainReportExecutionsResponseV1 data, response status code and response headers
     def report_executions_get_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReportExecutionsApi.report_executions_get ...'
+        @api_client.config.logger.debug 'Calling API: ReportExecutions.report_executions_get ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReportExecutionsApi.report_executions_get"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ReportExecutions.report_executions_get"
       end
       # resource path
       local_var_path = '/reports/entities/report-executions/v1'
@@ -144,7 +144,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReportExecutionsApi.report_executions_get",
+        :operation => :"ReportExecutions.report_executions_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -155,7 +155,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReportExecutionsApi#report_executions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReportExecutions#report_executions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,7 +183,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def report_executions_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReportExecutionsApi.report_executions_query ...'
+        @api_client.config.logger.debug 'Calling API: ReportExecutions.report_executions_query ...'
       end
       # resource path
       local_var_path = '/reports/queries/report-executions/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReportExecutionsApi.report_executions_query",
+        :operation => :"ReportExecutions.report_executions_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReportExecutionsApi#report_executions_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReportExecutions#report_executions_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,11 +245,11 @@ module Falcon
     # @return [Array<(DomainReportExecutionsResponseV1, Integer, Hash)>] DomainReportExecutionsResponseV1 data, response status code and response headers
     def report_executions_retry_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReportExecutionsApi.report_executions_retry ...'
+        @api_client.config.logger.debug 'Calling API: ReportExecutions.report_executions_retry ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReportExecutionsApi.report_executions_retry"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ReportExecutions.report_executions_retry"
       end
       # resource path
       local_var_path = '/reports/entities/report-executions-retry/v1'
@@ -280,7 +280,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReportExecutionsApi.report_executions_retry",
+        :operation => :"ReportExecutions.report_executions_retry",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -291,7 +291,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReportExecutionsApi#report_executions_retry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReportExecutions#report_executions_retry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

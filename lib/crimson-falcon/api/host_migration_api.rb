@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class HostMigrationApi
+  class HostMigration
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,11 +53,11 @@ module Falcon
     # @return [Array<(ApiCreateMigrationResponseV1, Integer, Hash)>] ApiCreateMigrationResponseV1 data, response status code and response headers
     def create_migration_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.create_migration_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.create_migration_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.create_migration_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.create_migration_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/migrations/v1'
@@ -88,7 +88,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.create_migration_v1",
+        :operation => :"HostMigration.create_migration_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -99,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#create_migration_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#create_migration_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -129,11 +129,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_host_migration_ids_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.get_host_migration_ids_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.get_host_migration_ids_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling HostMigrationApi.get_host_migration_ids_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling HostMigration.get_host_migration_ids_v1"
       end
       allowable_values = ["migration_id|asc", "migration_id|desc", "migration_id", "host_migration_id|asc", "host_migration_id|desc", "host_migration_id", "target_cid|asc", "target_cid|desc", "target_cid", "hostgroups|asc", "hostgroups|desc", "hostgroups", "static_host_groups|asc", "static_host_groups|desc", "static_host_groups", "hostname|asc", "hostname|desc", "hostname", "status|asc", "status|desc", "status", "source_cid|asc", "source_cid|desc", "source_cid", "id|asc", "id|desc", "id", "created_time|asc", "created_time|desc", "created_time", "groups|asc", "groups|desc", "groups"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -168,7 +168,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.get_host_migration_ids_v1",
+        :operation => :"HostMigration.get_host_migration_ids_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -179,7 +179,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#get_host_migration_ids_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#get_host_migration_ids_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -201,11 +201,11 @@ module Falcon
     # @return [Array<(ApiGetHostMigrationResponseV1, Integer, Hash)>] ApiGetHostMigrationResponseV1 data, response status code and response headers
     def get_host_migrations_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.get_host_migrations_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.get_host_migrations_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.get_host_migrations_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.get_host_migrations_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/host-migrations/GET/v1'
@@ -236,7 +236,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.get_host_migrations_v1",
+        :operation => :"HostMigration.get_host_migrations_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -247,7 +247,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#get_host_migrations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#get_host_migrations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -269,11 +269,11 @@ module Falcon
     # @return [Array<(ApiGetMigrationDestinationsResponseV1, Integer, Hash)>] ApiGetMigrationDestinationsResponseV1 data, response status code and response headers
     def get_migration_destinations_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.get_migration_destinations_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.get_migration_destinations_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.get_migration_destinations_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.get_migration_destinations_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/migration-destinations/GET/v1'
@@ -304,7 +304,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.get_migration_destinations_v1",
+        :operation => :"HostMigration.get_migration_destinations_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -315,7 +315,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#get_migration_destinations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#get_migration_destinations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -341,7 +341,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_migration_ids_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.get_migration_ids_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.get_migration_ids_v1 ...'
       end
       allowable_values = ["migration_id|asc", "migration_id|desc", "migration_id", "target_cid|asc", "target_cid|desc", "target_cid", "status|asc", "status|desc", "status", "migration_status|asc", "migration_status|desc", "migration_status", "created_by|asc", "created_by|desc", "created_by", "created_time|asc", "created_time|desc", "created_time", "name|asc", "name|desc", "name", "id|asc", "id|desc", "id"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -375,7 +375,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.get_migration_ids_v1",
+        :operation => :"HostMigration.get_migration_ids_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -386,7 +386,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#get_migration_ids_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#get_migration_ids_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -406,11 +406,11 @@ module Falcon
     # @return [Array<(ApiGetMigrationsResponseV1, Integer, Hash)>] ApiGetMigrationsResponseV1 data, response status code and response headers
     def get_migrations_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.get_migrations_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.get_migrations_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostMigrationApi.get_migrations_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling HostMigration.get_migrations_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/migrations/v1'
@@ -437,7 +437,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.get_migrations_v1",
+        :operation => :"HostMigration.get_migrations_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -448,7 +448,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#get_migrations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#get_migrations_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -470,11 +470,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def host_migration_aggregates_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.host_migration_aggregates_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.host_migration_aggregates_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.host_migration_aggregates_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.host_migration_aggregates_v1"
       end
       # resource path
       local_var_path = '/host-migration/aggregates/host-migrations/v1'
@@ -505,7 +505,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.host_migration_aggregates_v1",
+        :operation => :"HostMigration.host_migration_aggregates_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -516,7 +516,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#host_migration_aggregates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#host_migration_aggregates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -542,15 +542,15 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def host_migrations_actions_v1_with_http_info(id, action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.host_migrations_actions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.host_migrations_actions_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling HostMigrationApi.host_migrations_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling HostMigration.host_migrations_actions_v1"
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostMigrationApi.host_migrations_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostMigration.host_migrations_actions_v1"
       end
       # verify enum value
       allowable_values = ["remove_hosts", "remove_host_groups", "add_host_groups"]
@@ -559,7 +559,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.host_migrations_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.host_migrations_actions_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/host-migrations-actions/v1'
@@ -592,7 +592,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.host_migrations_actions_v1",
+        :operation => :"HostMigration.host_migrations_actions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -603,7 +603,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#host_migrations_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#host_migrations_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -625,11 +625,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def migration_aggregates_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.migration_aggregates_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.migration_aggregates_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.migration_aggregates_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.migration_aggregates_v1"
       end
       # resource path
       local_var_path = '/host-migration/aggregates/migrations/v1'
@@ -660,7 +660,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.migration_aggregates_v1",
+        :operation => :"HostMigration.migration_aggregates_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -671,7 +671,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#migration_aggregates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#migration_aggregates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -695,11 +695,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def migrations_actions_v1_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostMigrationApi.migrations_actions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HostMigration.migrations_actions_v1 ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostMigrationApi.migrations_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostMigration.migrations_actions_v1"
       end
       # verify enum value
       allowable_values = ["delete_migration", "rename_migration", "start_migration", "cancel_migration"]
@@ -708,7 +708,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigrationApi.migrations_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling HostMigration.migrations_actions_v1"
       end
       # resource path
       local_var_path = '/host-migration/entities/migrations-actions/v1'
@@ -740,7 +740,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostMigrationApi.migrations_actions_v1",
+        :operation => :"HostMigration.migrations_actions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -751,7 +751,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostMigrationApi#migrations_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HostMigration#migrations_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

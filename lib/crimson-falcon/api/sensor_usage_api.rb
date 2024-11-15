@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class SensorUsageApiApi
+  class SensorUsage
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,7 +51,7 @@ module Falcon
     # @return [Array<(ApiWeeklyAverageResponse, Integer, Hash)>] ApiWeeklyAverageResponse data, response status code and response headers
     def get_sensor_usage_weekly_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUsageApiApi.get_sensor_usage_weekly ...'
+        @api_client.config.logger.debug 'Calling API: SensorUsage.get_sensor_usage_weekly ...'
       end
       # resource path
       local_var_path = '/billing-dashboards-usage/aggregates/weekly-average/v1'
@@ -78,7 +78,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUsageApiApi.get_sensor_usage_weekly",
+        :operation => :"SensorUsage.get_sensor_usage_weekly",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUsageApiApi#get_sensor_usage_weekly\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUsage#get_sensor_usage_weekly\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

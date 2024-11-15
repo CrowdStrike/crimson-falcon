@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ComplianceAssessmentsApi
+  class ComplianceAssessments
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,7 +51,7 @@ module Falcon
     # @return [Array<(DomainAggregateClusterAssessmentsResponse, Integer, Hash)>] DomainAggregateClusterAssessmentsResponse data, response status code and response headers
     def ext_aggregate_cluster_assessments_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_cluster_assessments ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_cluster_assessments ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/compliance-by-clusters/v2'
@@ -78,7 +78,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_cluster_assessments",
+        :operation => :"ComplianceAssessments.ext_aggregate_cluster_assessments",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_cluster_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_cluster_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -109,7 +109,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedAssetsByRulesResponse, Integer, Hash)>] DomainAggregateFailedAssetsByRulesResponse data, response status code and response headers
     def ext_aggregate_failed_containers_by_rules_path_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_containers_by_rules_path ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_containers_by_rules_path ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-containers-by-rules/v2'
@@ -136,7 +136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_containers_by_rules_path",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_containers_by_rules_path",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -147,7 +147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_containers_by_rules_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_containers_by_rules_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -167,7 +167,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedAssetCountBySeverityResponse, Integer, Hash)>] DomainAggregateFailedAssetCountBySeverityResponse data, response status code and response headers
     def ext_aggregate_failed_containers_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_containers_count_by_severity ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_containers_count_by_severity ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-containers-count-by-severity/v2'
@@ -194,7 +194,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_containers_count_by_severity",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_containers_count_by_severity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -205,7 +205,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_containers_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_containers_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -225,7 +225,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedAssetsByRulesResponse, Integer, Hash)>] DomainAggregateFailedAssetsByRulesResponse data, response status code and response headers
     def ext_aggregate_failed_images_by_rules_path_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_images_by_rules_path ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_images_by_rules_path ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-images-by-rules/v2'
@@ -252,7 +252,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_images_by_rules_path",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_images_by_rules_path",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_images_by_rules_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_images_by_rules_path\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -283,7 +283,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedAssetCountBySeverityResponse, Integer, Hash)>] DomainAggregateFailedAssetCountBySeverityResponse data, response status code and response headers
     def ext_aggregate_failed_images_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_images_count_by_severity ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_images_count_by_severity ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-images-count-by-severity/v2'
@@ -310,7 +310,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_images_count_by_severity",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_images_count_by_severity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -321,7 +321,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_images_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_images_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -341,7 +341,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedRulesByClustersResponse, Integer, Hash)>] DomainAggregateFailedRulesByClustersResponse data, response status code and response headers
     def ext_aggregate_failed_rules_by_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_rules_by_clusters ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_rules_by_clusters ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-rules-by-clusters/v2'
@@ -368,7 +368,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_rules_by_clusters",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_rules_by_clusters",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -379,7 +379,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_rules_by_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_rules_by_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -399,7 +399,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedRulesByImagesResponse, Integer, Hash)>] DomainAggregateFailedRulesByImagesResponse data, response status code and response headers
     def ext_aggregate_failed_rules_by_images_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_rules_by_images ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_rules_by_images ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-rules-by-images/v2'
@@ -426,7 +426,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_rules_by_images",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_rules_by_images",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -437,7 +437,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_rules_by_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_rules_by_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -457,7 +457,7 @@ module Falcon
     # @return [Array<(DomainAggregateFailedRulesCountBySeverityResponse, Integer, Hash)>] DomainAggregateFailedRulesCountBySeverityResponse data, response status code and response headers
     def ext_aggregate_failed_rules_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_failed_rules_count_by_severity ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_failed_rules_count_by_severity ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/failed-rules-count-by-severity/v2'
@@ -484,7 +484,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_failed_rules_count_by_severity",
+        :operation => :"ComplianceAssessments.ext_aggregate_failed_rules_count_by_severity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -495,7 +495,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_failed_rules_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_failed_rules_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -519,7 +519,7 @@ module Falcon
     # @return [Array<(DomainAggregateImageAssessmentsResponse, Integer, Hash)>] DomainAggregateImageAssessmentsResponse data, response status code and response headers
     def ext_aggregate_image_assessments_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_image_assessments ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_image_assessments ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/compliance-by-images/v2'
@@ -548,7 +548,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_image_assessments",
+        :operation => :"ComplianceAssessments.ext_aggregate_image_assessments",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -559,7 +559,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_image_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_image_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -579,7 +579,7 @@ module Falcon
     # @return [Array<(DomainAggregateRulesAssessmentsResponse, Integer, Hash)>] DomainAggregateRulesAssessmentsResponse data, response status code and response headers
     def ext_aggregate_rules_assessments_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_rules_assessments ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_rules_assessments ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/compliance-by-rules/v2'
@@ -606,7 +606,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_rules_assessments",
+        :operation => :"ComplianceAssessments.ext_aggregate_rules_assessments",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -617,7 +617,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_rules_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_rules_assessments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -637,7 +637,7 @@ module Falcon
     # @return [Array<(DomainAggregateRulesByStatusResponse, Integer, Hash)>] DomainAggregateRulesByStatusResponse data, response status code and response headers
     def ext_aggregate_rules_by_status_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ComplianceAssessmentsApi.ext_aggregate_rules_by_status ...'
+        @api_client.config.logger.debug 'Calling API: ComplianceAssessments.ext_aggregate_rules_by_status ...'
       end
       # resource path
       local_var_path = '/container-compliance/aggregates/rules-by-status/v2'
@@ -664,7 +664,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ComplianceAssessmentsApi.ext_aggregate_rules_by_status",
+        :operation => :"ComplianceAssessments.ext_aggregate_rules_by_status",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -675,7 +675,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ComplianceAssessmentsApi#ext_aggregate_rules_by_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ComplianceAssessments#ext_aggregate_rules_by_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

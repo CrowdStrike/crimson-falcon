@@ -1,17 +1,17 @@
-# Falcon::AlertsApi
+# Falcon::Alerts
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_queries_alerts_v1**](AlertsApi.md#get_queries_alerts_v1) | **GET** /alerts/queries/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query. |
-| [**get_queries_alerts_v2**](AlertsApi.md#get_queries_alerts_v2) | **GET** /alerts/queries/alerts/v2 | Retrieves all Alerts ids that match a given query. |
-| [**patch_entities_alerts_v2**](AlertsApi.md#patch_entities_alerts_v2) | **PATCH** /alerts/entities/alerts/v2 | Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
-| [**patch_entities_alerts_v3**](AlertsApi.md#patch_entities_alerts_v3) | **PATCH** /alerts/entities/alerts/v3 | Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
-| [**post_aggregates_alerts_v1**](AlertsApi.md#post_aggregates_alerts_v1) | **POST** /alerts/aggregates/alerts/v1 | Deprecated: Please use version v2 of this endpoint. Retrieves aggregate values for Alerts across all CIDs. |
-| [**post_aggregates_alerts_v2**](AlertsApi.md#post_aggregates_alerts_v2) | **POST** /alerts/aggregates/alerts/v2 | Retrieves aggregate values for Alerts across all CIDs. |
-| [**post_entities_alerts_v1**](AlertsApi.md#post_entities_alerts_v1) | **POST** /alerts/entities/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids. |
-| [**post_entities_alerts_v2**](AlertsApi.md#post_entities_alerts_v2) | **POST** /alerts/entities/alerts/v2 | Retrieves all Alerts given their composite ids. |
+| [**get_queries_alerts_v1**](Alerts.md#get_queries_alerts_v1) | **GET** /alerts/queries/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query. |
+| [**get_queries_alerts_v2**](Alerts.md#get_queries_alerts_v2) | **GET** /alerts/queries/alerts/v2 | Retrieves all Alerts ids that match a given query. |
+| [**patch_entities_alerts_v2**](Alerts.md#patch_entities_alerts_v2) | **PATCH** /alerts/entities/alerts/v2 | Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
+| [**patch_entities_alerts_v3**](Alerts.md#patch_entities_alerts_v3) | **PATCH** /alerts/entities/alerts/v3 | Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
+| [**post_aggregates_alerts_v1**](Alerts.md#post_aggregates_alerts_v1) | **POST** /alerts/aggregates/alerts/v1 | Deprecated: Please use version v2 of this endpoint. Retrieves aggregate values for Alerts across all CIDs. |
+| [**post_aggregates_alerts_v2**](Alerts.md#post_aggregates_alerts_v2) | **POST** /alerts/aggregates/alerts/v2 | Retrieves aggregate values for Alerts across all CIDs. |
+| [**post_entities_alerts_v1**](Alerts.md#post_entities_alerts_v1) | **POST** /alerts/entities/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids. |
+| [**post_entities_alerts_v2**](Alerts.md#post_entities_alerts_v2) | **POST** /alerts/entities/alerts/v2 | Retrieves all Alerts given their composite ids. |
 
 
 ## get_queries_alerts_v1
@@ -33,7 +33,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 opts = {
   offset: 56, # Integer | The first detection to return, where `0` is the latest detection. Use with the `offset` parameter to manage pagination of results.
   limit: 56, # Integer | The maximum number of detections to return in this response (default: 100; max: 10000). Use with the `offset` parameter to manage pagination of results.
@@ -47,7 +47,7 @@ begin
   result = api_instance.get_queries_alerts_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->get_queries_alerts_v1: #{e}"
+  puts "Error when calling Alerts->get_queries_alerts_v1: #{e}"
 end
 ```
 
@@ -65,7 +65,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiAlertQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->get_queries_alerts_v1_with_http_info: #{e}"
+  puts "Error when calling Alerts->get_queries_alerts_v1_with_http_info: #{e}"
 end
 ```
 
@@ -112,7 +112,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 opts = {
   include_hidden: true, # Boolean | allows previously hidden alerts to be retrieved
   offset: 56, # Integer | The first detection to return, where `0` is the latest detection. Use with the `offset` parameter to manage pagination of results.
@@ -127,7 +127,7 @@ begin
   result = api_instance.get_queries_alerts_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->get_queries_alerts_v2: #{e}"
+  puts "Error when calling Alerts->get_queries_alerts_v2: #{e}"
 end
 ```
 
@@ -145,7 +145,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiAlertQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->get_queries_alerts_v2_with_http_info: #{e}"
+  puts "Error when calling Alerts->get_queries_alerts_v2_with_http_info: #{e}"
 end
 ```
 
@@ -193,7 +193,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = Falcon::DetectsapiPatchEntitiesAlertsV2Request.new({ids: ['ids_example']}) # DetectsapiPatchEntitiesAlertsV2Request | `ids` - IDs of Alerts to modify.  `action_parameters` values - `assign_to_uuid`  - Assign Alert to user UUID, such as `00000000-0000-0000-0000-000000000000` - `assign_to_user_id`  - Assign Alert to user ID, such as `user@example.com` - `assign_to_name`  - Assign Alert to username, such as `John Doe` - `unassign`  - Unassign Alert clears out the assigned user UUID, user ID, and username. - `add_tag`   - Add a tag to the Alert. - `remove_tag`  - Remove a tag from the Alert. - `remove_tags_by_prefix`  - Remove tags from the Alert based on the prefix. - `append_comment`  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - `update_status` values  - `new`  - `in_progress`  - `reopened`  - `closed` - `show_in_ui` values  - `true`: This alert is displayed in Falcon  - `false`: This alert is not displayed in Falcon. 
 
 begin
@@ -201,7 +201,7 @@ begin
   result = api_instance.patch_entities_alerts_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v2: #{e}"
+  puts "Error when calling Alerts->patch_entities_alerts_v2: #{e}"
 end
 ```
 
@@ -219,7 +219,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v2_with_http_info: #{e}"
+  puts "Error when calling Alerts->patch_entities_alerts_v2_with_http_info: #{e}"
 end
 ```
 
@@ -262,7 +262,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = Falcon::DetectsapiPatchEntitiesAlertsV3Request.new({composite_ids: ['composite_ids_example']}) # DetectsapiPatchEntitiesAlertsV3Request | `composite_ids` - CompositeIDs of Alerts to modify.  `action_parameters` values - `assign_to_uuid`  - Assign Alert to user UUID, such as `00000000-0000-0000-0000-000000000000` - `assign_to_user_id`  - Assign Alert to user ID, such as `user@example.com` - `assign_to_name`  - Assign Alert to username, such as `John Doe` - `unassign`  - Unassign Alert clears out the assigned user UUID, user ID, and username. - `add_tag`   - Add a tag to the Alert. - `remove_tag`  - Remove a tag from the Alert. - `remove_tags_by_prefix`  - Remove tags from the Alert based on the prefix. - `append_comment`  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - `update_status` values  - `new`  - `in_progress`  - `reopened`  - `closed` - `show_in_ui` values  - `true`: This alert is displayed in Falcon  - `false`: This alert is not displayed in Falcon. 
 opts = {
   include_hidden: true # Boolean | allows previously hidden alerts to be retrieved
@@ -273,7 +273,7 @@ begin
   result = api_instance.patch_entities_alerts_v3(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v3: #{e}"
+  puts "Error when calling Alerts->patch_entities_alerts_v3: #{e}"
 end
 ```
 
@@ -291,7 +291,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->patch_entities_alerts_v3_with_http_info: #{e}"
+  puts "Error when calling Alerts->patch_entities_alerts_v3_with_http_info: #{e}"
 end
 ```
 
@@ -335,7 +335,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = [Falcon::DetectsapiAggregateAlertQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::DetectsapiAggregateAlertQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<DetectsapiAggregateAlertQueryRequest> | request body takes a list of aggregate-alert query requests
 
 begin
@@ -343,7 +343,7 @@ begin
   result = api_instance.post_aggregates_alerts_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_aggregates_alerts_v1: #{e}"
+  puts "Error when calling Alerts->post_aggregates_alerts_v1: #{e}"
 end
 ```
 
@@ -361,7 +361,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_aggregates_alerts_v1_with_http_info: #{e}"
+  puts "Error when calling Alerts->post_aggregates_alerts_v1_with_http_info: #{e}"
 end
 ```
 
@@ -404,7 +404,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = [Falcon::DetectsapiAggregateAlertQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::DetectsapiAggregateAlertQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<DetectsapiAggregateAlertQueryRequest> | request body takes a list of aggregate-alert query requests
 opts = {
   include_hidden: true # Boolean | allows previously hidden alerts to be retrieved
@@ -415,7 +415,7 @@ begin
   result = api_instance.post_aggregates_alerts_v2(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_aggregates_alerts_v2: #{e}"
+  puts "Error when calling Alerts->post_aggregates_alerts_v2: #{e}"
 end
 ```
 
@@ -433,7 +433,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_aggregates_alerts_v2_with_http_info: #{e}"
+  puts "Error when calling Alerts->post_aggregates_alerts_v2_with_http_info: #{e}"
 end
 ```
 
@@ -477,7 +477,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = Falcon::DetectsapiPostEntitiesAlertsV1Request.new({ids: ['ids_example']}) # DetectsapiPostEntitiesAlertsV1Request | 
 
 begin
@@ -485,7 +485,7 @@ begin
   result = api_instance.post_entities_alerts_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_entities_alerts_v1: #{e}"
+  puts "Error when calling Alerts->post_entities_alerts_v1: #{e}"
 end
 ```
 
@@ -503,7 +503,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiPostEntitiesAlertsV1ResponseSwagger>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_entities_alerts_v1_with_http_info: #{e}"
+  puts "Error when calling Alerts->post_entities_alerts_v1_with_http_info: #{e}"
 end
 ```
 
@@ -546,7 +546,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::AlertsApi.new
+api_instance = Falcon::Alerts.new
 body = Falcon::DetectsapiPostEntitiesAlertsV2Request.new({composite_ids: ['composite_ids_example']}) # DetectsapiPostEntitiesAlertsV2Request | 
 opts = {
   include_hidden: true # Boolean | allows previously hidden alerts to be retrieved
@@ -557,7 +557,7 @@ begin
   result = api_instance.post_entities_alerts_v2(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_entities_alerts_v2: #{e}"
+  puts "Error when calling Alerts->post_entities_alerts_v2: #{e}"
 end
 ```
 
@@ -575,7 +575,7 @@ begin
   p headers # => { ... }
   p data # => <DetectsapiPostEntitiesAlertsV2ResponseSwagger>
 rescue Falcon::ApiError => e
-  puts "Error when calling AlertsApi->post_entities_alerts_v2_with_http_info: #{e}"
+  puts "Error when calling Alerts->post_entities_alerts_v2_with_http_info: #{e}"
 end
 ```
 

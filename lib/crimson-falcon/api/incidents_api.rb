@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IncidentsApi
+  class Incidents
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,7 +57,7 @@ module Falcon
     # @return [Array<(DomainMsaEnvironmentScoreResponse, Integer, Hash)>] DomainMsaEnvironmentScoreResponse data, response status code and response headers
     def crowd_score_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.crowd_score ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.crowd_score ...'
       end
       allowable_values = ["adjusted_score.asc", "adjusted_score.desc", "score.asc", "score.desc", "timestamp.asc", "timestamp.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -91,7 +91,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.crowd_score",
+        :operation => :"Incidents.crowd_score",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -102,7 +102,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#crowd_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#crowd_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -122,11 +122,11 @@ module Falcon
     # @return [Array<(DomainMsaExternalBehaviorResponse, Integer, Hash)>] DomainMsaExternalBehaviorResponse data, response status code and response headers
     def get_behaviors_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.get_behaviors ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.get_behaviors ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsApi.get_behaviors"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Incidents.get_behaviors"
       end
       # resource path
       local_var_path = '/incidents/entities/behaviors/GET/v1'
@@ -157,7 +157,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.get_behaviors",
+        :operation => :"Incidents.get_behaviors",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -168,7 +168,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#get_behaviors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#get_behaviors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -188,11 +188,11 @@ module Falcon
     # @return [Array<(DomainMsaExternalIncidentResponse, Integer, Hash)>] DomainMsaExternalIncidentResponse data, response status code and response headers
     def get_incidents_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.get_incidents ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.get_incidents ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsApi.get_incidents"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Incidents.get_incidents"
       end
       # resource path
       local_var_path = '/incidents/entities/incidents/GET/v1'
@@ -223,7 +223,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.get_incidents",
+        :operation => :"Incidents.get_incidents",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -234,7 +234,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#get_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#get_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -258,11 +258,11 @@ module Falcon
     # @return [Array<(DomainMsaIncidentPerformActionResponse, Integer, Hash)>] DomainMsaIncidentPerformActionResponse data, response status code and response headers
     def perform_incident_action_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.perform_incident_action ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.perform_incident_action ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IncidentsApi.perform_incident_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Incidents.perform_incident_action"
       end
       # resource path
       local_var_path = '/incidents/entities/incident-actions/v1'
@@ -295,7 +295,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.perform_incident_action",
+        :operation => :"Incidents.perform_incident_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -306,7 +306,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#perform_incident_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#perform_incident_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -332,7 +332,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_behaviors_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.query_behaviors ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.query_behaviors ...'
       end
       allowable_values = ["alert_ids.asc", "alert_ids.desc", "cmdline.asc", "cmdline.desc", "detection_ids.asc", "detection_ids.desc", "display_name.asc", "display_name.desc", "domain.asc", "domain.desc", "filepath.asc", "filepath.desc", "timestamp.asc", "timestamp.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -366,7 +366,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.query_behaviors",
+        :operation => :"Incidents.query_behaviors",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -377,7 +377,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#query_behaviors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#query_behaviors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -403,7 +403,7 @@ module Falcon
     # @return [Array<(DomainMsaIncidentQueryResponse, Integer, Hash)>] DomainMsaIncidentQueryResponse data, response status code and response headers
     def query_incidents_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IncidentsApi.query_incidents ...'
+        @api_client.config.logger.debug 'Calling API: Incidents.query_incidents ...'
       end
       allowable_values = ["assigned_to.asc", "assigned_to.desc", "assigned_to_name.asc", "assigned_to_name.desc", "end.asc", "end.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "sort_score.asc", "sort_score.desc", "start.asc", "start.desc", "state.asc", "state.desc", "status.asc", "status.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -437,7 +437,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IncidentsApi.query_incidents",
+        :operation => :"Incidents.query_incidents",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -448,7 +448,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IncidentsApi#query_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Incidents#query_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

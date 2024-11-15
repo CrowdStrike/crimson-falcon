@@ -1,19 +1,19 @@
-# Falcon::PreventionPoliciesApi
+# Falcon::PreventionPolicies
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_prevention_policies**](PreventionPoliciesApi.md#create_prevention_policies) | **POST** /policy/entities/prevention/v1 | Create Prevention Policies by specifying details about the policy to create |
-| [**delete_prevention_policies**](PreventionPoliciesApi.md#delete_prevention_policies) | **DELETE** /policy/entities/prevention/v1 | Delete a set of Prevention Policies by specifying their IDs |
-| [**get_prevention_policies**](PreventionPoliciesApi.md#get_prevention_policies) | **GET** /policy/entities/prevention/v1 | Retrieve a set of Prevention Policies by specifying their IDs |
-| [**perform_prevention_policies_action**](PreventionPoliciesApi.md#perform_prevention_policies_action) | **POST** /policy/entities/prevention-actions/v1 | Perform the specified action on the Prevention Policies specified in the request |
-| [**query_combined_prevention_policies**](PreventionPoliciesApi.md#query_combined_prevention_policies) | **GET** /policy/combined/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria |
-| [**query_combined_prevention_policy_members**](PreventionPoliciesApi.md#query_combined_prevention_policy_members) | **GET** /policy/combined/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_prevention_policies**](PreventionPoliciesApi.md#query_prevention_policies) | **GET** /policy/queries/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria |
-| [**query_prevention_policy_members**](PreventionPoliciesApi.md#query_prevention_policy_members) | **GET** /policy/queries/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
-| [**set_prevention_policies_precedence**](PreventionPoliciesApi.md#set_prevention_policies_precedence) | **POST** /policy/entities/prevention-precedence/v1 | Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
-| [**update_prevention_policies**](PreventionPoliciesApi.md#update_prevention_policies) | **PATCH** /policy/entities/prevention/v1 | Update Prevention Policies by specifying the ID of the policy and details to update |
+| [**create_prevention_policies**](PreventionPolicies.md#create_prevention_policies) | **POST** /policy/entities/prevention/v1 | Create Prevention Policies by specifying details about the policy to create |
+| [**delete_prevention_policies**](PreventionPolicies.md#delete_prevention_policies) | **DELETE** /policy/entities/prevention/v1 | Delete a set of Prevention Policies by specifying their IDs |
+| [**get_prevention_policies**](PreventionPolicies.md#get_prevention_policies) | **GET** /policy/entities/prevention/v1 | Retrieve a set of Prevention Policies by specifying their IDs |
+| [**perform_prevention_policies_action**](PreventionPolicies.md#perform_prevention_policies_action) | **POST** /policy/entities/prevention-actions/v1 | Perform the specified action on the Prevention Policies specified in the request |
+| [**query_combined_prevention_policies**](PreventionPolicies.md#query_combined_prevention_policies) | **GET** /policy/combined/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria |
+| [**query_combined_prevention_policy_members**](PreventionPolicies.md#query_combined_prevention_policy_members) | **GET** /policy/combined/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_prevention_policies**](PreventionPolicies.md#query_prevention_policies) | **GET** /policy/queries/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria |
+| [**query_prevention_policy_members**](PreventionPolicies.md#query_prevention_policy_members) | **GET** /policy/queries/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**set_prevention_policies_precedence**](PreventionPolicies.md#set_prevention_policies_precedence) | **POST** /policy/entities/prevention-precedence/v1 | Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_prevention_policies**](PreventionPolicies.md#update_prevention_policies) | **PATCH** /policy/entities/prevention/v1 | Update Prevention Policies by specifying the ID of the policy and details to update |
 
 
 ## create_prevention_policies
@@ -35,7 +35,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 body = Falcon::PreventionCreatePoliciesReqV1.new({resources: [Falcon::PreventionCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # PreventionCreatePoliciesReqV1 | 
 
 begin
@@ -43,7 +43,7 @@ begin
   result = api_instance.create_prevention_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->create_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->create_prevention_policies: #{e}"
 end
 ```
 
@@ -61,7 +61,7 @@ begin
   p headers # => { ... }
   p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->create_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->create_prevention_policies_with_http_info: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to delete
 
 begin
@@ -112,7 +112,7 @@ begin
   result = api_instance.delete_prevention_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->delete_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->delete_prevention_policies: #{e}"
 end
 ```
 
@@ -130,7 +130,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->delete_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->delete_prevention_policies_with_http_info: #{e}"
 end
 ```
 
@@ -173,7 +173,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to return
 
 begin
@@ -181,7 +181,7 @@ begin
   result = api_instance.get_prevention_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->get_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->get_prevention_policies: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ begin
   p headers # => { ... }
   p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->get_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->get_prevention_policies_with_http_info: #{e}"
 end
 ```
 
@@ -242,7 +242,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 action_name = 'add-host-group' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
 
@@ -251,7 +251,7 @@ begin
   result = api_instance.perform_prevention_policies_action(action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->perform_prevention_policies_action: #{e}"
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ begin
   p headers # => { ... }
   p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->perform_prevention_policies_action_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action_with_http_info: #{e}"
 end
 ```
 
@@ -313,7 +313,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -326,7 +326,7 @@ begin
   result = api_instance.query_combined_prevention_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ begin
   p headers # => { ... }
   p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies_with_http_info: #{e}"
 end
 ```
 
@@ -390,7 +390,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Prevention Policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -404,7 +404,7 @@ begin
   result = api_instance.query_combined_prevention_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policy_members: #{e}"
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members: #{e}"
 end
 ```
 
@@ -422,7 +422,7 @@ begin
   p headers # => { ... }
   p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_combined_prevention_policy_members_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -469,7 +469,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -482,7 +482,7 @@ begin
   result = api_instance.query_prevention_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->query_prevention_policies: #{e}"
 end
 ```
 
@@ -500,7 +500,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->query_prevention_policies_with_http_info: #{e}"
 end
 ```
 
@@ -546,7 +546,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Prevention Policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -560,7 +560,7 @@ begin
   result = api_instance.query_prevention_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_prevention_policy_members: #{e}"
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members: #{e}"
 end
 ```
 
@@ -578,7 +578,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->query_prevention_policy_members_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
@@ -633,7 +633,7 @@ begin
   result = api_instance.set_prevention_policies_precedence(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->set_prevention_policies_precedence: #{e}"
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence: #{e}"
 end
 ```
 
@@ -651,7 +651,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->set_prevention_policies_precedence_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence_with_http_info: #{e}"
 end
 ```
 
@@ -694,7 +694,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::PreventionPoliciesApi.new
+api_instance = Falcon::PreventionPolicies.new
 body = Falcon::PreventionUpdatePoliciesReqV1.new({resources: [Falcon::PreventionUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # PreventionUpdatePoliciesReqV1 | 
 
 begin
@@ -702,7 +702,7 @@ begin
   result = api_instance.update_prevention_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->update_prevention_policies: #{e}"
+  puts "Error when calling PreventionPolicies->update_prevention_policies: #{e}"
 end
 ```
 
@@ -720,7 +720,7 @@ begin
   p headers # => { ... }
   p data # => <PreventionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling PreventionPoliciesApi->update_prevention_policies_with_http_info: #{e}"
+  puts "Error when calling PreventionPolicies->update_prevention_policies_with_http_info: #{e}"
 end
 ```
 

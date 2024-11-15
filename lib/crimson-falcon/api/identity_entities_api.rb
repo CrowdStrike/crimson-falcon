@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IdentityEntitiesApi
+  class IdentityEntities
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def get_sensor_aggregates_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityEntitiesApi.get_sensor_aggregates ...'
+        @api_client.config.logger.debug 'Calling API: IdentityEntities.get_sensor_aggregates ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityEntitiesApi.get_sensor_aggregates"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityEntities.get_sensor_aggregates"
       end
       # resource path
       local_var_path = '/identity-protection/aggregates/devices/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityEntitiesApi.get_sensor_aggregates",
+        :operation => :"IdentityEntities.get_sensor_aggregates",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityEntitiesApi#get_sensor_aggregates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityEntities#get_sensor_aggregates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(ApiSensorDetailsResponseSwagger, Integer, Hash)>] ApiSensorDetailsResponseSwagger data, response status code and response headers
     def get_sensor_details_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityEntitiesApi.get_sensor_details ...'
+        @api_client.config.logger.debug 'Calling API: IdentityEntities.get_sensor_details ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityEntitiesApi.get_sensor_details"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityEntities.get_sensor_details"
       end
       # resource path
       local_var_path = '/identity-protection/entities/devices/GET/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityEntitiesApi.get_sensor_details",
+        :operation => :"IdentityEntities.get_sensor_details",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityEntitiesApi#get_sensor_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityEntities#get_sensor_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -189,7 +189,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_sensors_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityEntitiesApi.query_sensors_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: IdentityEntities.query_sensors_by_filter ...'
       end
       # resource path
       local_var_path = '/identity-protection/queries/devices/v1'
@@ -219,7 +219,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityEntitiesApi.query_sensors_by_filter",
+        :operation => :"IdentityEntities.query_sensors_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -230,7 +230,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityEntitiesApi#query_sensors_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityEntities#query_sensors_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

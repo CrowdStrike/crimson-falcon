@@ -1,12 +1,12 @@
-# Falcon::SpotlightEvaluationLogicApi
+# Falcon::SpotlightEvaluationLogic
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**combined_query_evaluation_logic**](SpotlightEvaluationLogicApi.md#combined_query_evaluation_logic) | **GET** /spotlight/combined/evaluation-logic/v1 | Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria. |
-| [**get_evaluation_logic**](SpotlightEvaluationLogicApi.md#get_evaluation_logic) | **GET** /spotlight/entities/evaluation-logic/v1 | Get details on evaluation logic items by providing one or more IDs. |
-| [**query_evaluation_logic**](SpotlightEvaluationLogicApi.md#query_evaluation_logic) | **GET** /spotlight/queries/evaluation-logic/v1 | Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria. |
+| [**combined_query_evaluation_logic**](SpotlightEvaluationLogic.md#combined_query_evaluation_logic) | **GET** /spotlight/combined/evaluation-logic/v1 | Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria. |
+| [**get_evaluation_logic**](SpotlightEvaluationLogic.md#get_evaluation_logic) | **GET** /spotlight/entities/evaluation-logic/v1 | Get details on evaluation logic items by providing one or more IDs. |
+| [**query_evaluation_logic**](SpotlightEvaluationLogic.md#query_evaluation_logic) | **GET** /spotlight/queries/evaluation-logic/v1 | Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria. |
 
 
 ## combined_query_evaluation_logic
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SpotlightEvaluationLogicApi.new
+api_instance = Falcon::SpotlightEvaluationLogic.new
 filter = 'filter_example' # String | FQL query specifying the filter parameters.
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
@@ -41,7 +41,7 @@ begin
   result = api_instance.combined_query_evaluation_logic(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->combined_query_evaluation_logic: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->combined_query_evaluation_logic: #{e}"
 end
 ```
 
@@ -59,7 +59,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSPAPIEvaluationLogicCombinedResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->combined_query_evaluation_logic_with_http_info: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->combined_query_evaluation_logic_with_http_info: #{e}"
 end
 ```
 
@@ -105,7 +105,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SpotlightEvaluationLogicApi.new
+api_instance = Falcon::SpotlightEvaluationLogic.new
 ids = ['inner_example'] # Array<String> | One or more evaluation logic IDs.
 
 begin
@@ -113,7 +113,7 @@ begin
   result = api_instance.get_evaluation_logic(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->get_evaluation_logic: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->get_evaluation_logic: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSPAPIEvaluationLogicEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->get_evaluation_logic_with_http_info: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->get_evaluation_logic_with_http_info: #{e}"
 end
 ```
 
@@ -174,7 +174,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SpotlightEvaluationLogicApi.new
+api_instance = Falcon::SpotlightEvaluationLogic.new
 filter = 'filter_example' # String | FQL query specifying the filter parameters.
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
@@ -187,7 +187,7 @@ begin
   result = api_instance.query_evaluation_logic(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->query_evaluation_logic: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->query_evaluation_logic: #{e}"
 end
 ```
 
@@ -205,7 +205,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSPAPIQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightEvaluationLogicApi->query_evaluation_logic_with_http_info: #{e}"
+  puts "Error when calling SpotlightEvaluationLogic->query_evaluation_logic_with_http_info: #{e}"
 end
 ```
 

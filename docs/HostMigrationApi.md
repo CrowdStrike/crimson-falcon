@@ -1,19 +1,19 @@
-# Falcon::HostMigrationApi
+# Falcon::HostMigration
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_migration_v1**](HostMigrationApi.md#create_migration_v1) | **POST** /host-migration/entities/migrations/v1 | Create a device migration job. |
-| [**get_host_migration_ids_v1**](HostMigrationApi.md#get_host_migration_ids_v1) | **GET** /host-migration/queries/host-migrations/v1 | Query host migration IDs. |
-| [**get_host_migrations_v1**](HostMigrationApi.md#get_host_migrations_v1) | **POST** /host-migration/entities/host-migrations/GET/v1 | Get host migration details. |
-| [**get_migration_destinations_v1**](HostMigrationApi.md#get_migration_destinations_v1) | **POST** /host-migration/entities/migration-destinations/GET/v1 | Get destinations for a migration. |
-| [**get_migration_ids_v1**](HostMigrationApi.md#get_migration_ids_v1) | **GET** /host-migration/queries/migrations/v1 | Query migration jobs. |
-| [**get_migrations_v1**](HostMigrationApi.md#get_migrations_v1) | **GET** /host-migration/entities/migrations/v1 | Get migration job details. |
-| [**host_migration_aggregates_v1**](HostMigrationApi.md#host_migration_aggregates_v1) | **POST** /host-migration/aggregates/host-migrations/v1 | Get host migration aggregates as specified via json in request body. |
-| [**host_migrations_actions_v1**](HostMigrationApi.md#host_migrations_actions_v1) | **POST** /host-migration/entities/host-migrations-actions/v1 | Perform an action on host migrations. |
-| [**migration_aggregates_v1**](HostMigrationApi.md#migration_aggregates_v1) | **POST** /host-migration/aggregates/migrations/v1 | Get migration aggregates as specified via json in request body. |
-| [**migrations_actions_v1**](HostMigrationApi.md#migrations_actions_v1) | **POST** /host-migration/entities/migrations-actions/v1 | Perform an action on a migration job. |
+| [**create_migration_v1**](HostMigration.md#create_migration_v1) | **POST** /host-migration/entities/migrations/v1 | Create a device migration job. |
+| [**get_host_migration_ids_v1**](HostMigration.md#get_host_migration_ids_v1) | **GET** /host-migration/queries/host-migrations/v1 | Query host migration IDs. |
+| [**get_host_migrations_v1**](HostMigration.md#get_host_migrations_v1) | **POST** /host-migration/entities/host-migrations/GET/v1 | Get host migration details. |
+| [**get_migration_destinations_v1**](HostMigration.md#get_migration_destinations_v1) | **POST** /host-migration/entities/migration-destinations/GET/v1 | Get destinations for a migration. |
+| [**get_migration_ids_v1**](HostMigration.md#get_migration_ids_v1) | **GET** /host-migration/queries/migrations/v1 | Query migration jobs. |
+| [**get_migrations_v1**](HostMigration.md#get_migrations_v1) | **GET** /host-migration/entities/migrations/v1 | Get migration job details. |
+| [**host_migration_aggregates_v1**](HostMigration.md#host_migration_aggregates_v1) | **POST** /host-migration/aggregates/host-migrations/v1 | Get host migration aggregates as specified via json in request body. |
+| [**host_migrations_actions_v1**](HostMigration.md#host_migrations_actions_v1) | **POST** /host-migration/entities/host-migrations-actions/v1 | Perform an action on host migrations. |
+| [**migration_aggregates_v1**](HostMigration.md#migration_aggregates_v1) | **POST** /host-migration/aggregates/migrations/v1 | Get migration aggregates as specified via json in request body. |
+| [**migrations_actions_v1**](HostMigration.md#migrations_actions_v1) | **POST** /host-migration/entities/migrations-actions/v1 | Perform an action on a migration job. |
 
 
 ## create_migration_v1
@@ -37,7 +37,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 body = Falcon::ApiCreateMigrationRequestV1.new({device_ids: ['device_ids_example'], filter: 'filter_example', name: 'name_example', target_cid: 'target_cid_example'}) # ApiCreateMigrationRequestV1 | 
 
 begin
@@ -45,7 +45,7 @@ begin
   result = api_instance.create_migration_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->create_migration_v1: #{e}"
+  puts "Error when calling HostMigration->create_migration_v1: #{e}"
 end
 ```
 
@@ -63,7 +63,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCreateMigrationResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->create_migration_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->create_migration_v1_with_http_info: #{e}"
 end
 ```
 
@@ -108,7 +108,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 id = 'id_example' # String | The migration job to query
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from
@@ -122,7 +122,7 @@ begin
   result = api_instance.get_host_migration_ids_v1(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_host_migration_ids_v1: #{e}"
+  puts "Error when calling HostMigration->get_host_migration_ids_v1: #{e}"
 end
 ```
 
@@ -140,7 +140,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_host_migration_ids_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->get_host_migration_ids_v1_with_http_info: #{e}"
 end
 ```
 
@@ -189,7 +189,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -197,7 +197,7 @@ begin
   result = api_instance.get_host_migrations_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_host_migrations_v1: #{e}"
+  puts "Error when calling HostMigration->get_host_migrations_v1: #{e}"
 end
 ```
 
@@ -215,7 +215,7 @@ begin
   p headers # => { ... }
   p data # => <ApiGetHostMigrationResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_host_migrations_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->get_host_migrations_v1_with_http_info: #{e}"
 end
 ```
 
@@ -260,7 +260,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 body = Falcon::ApiGetMigrationDestinationsRequestBodyV1.new({device_ids: ['device_ids_example'], filter: 'filter_example'}) # ApiGetMigrationDestinationsRequestBodyV1 | 
 
 begin
@@ -268,7 +268,7 @@ begin
   result = api_instance.get_migration_destinations_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migration_destinations_v1: #{e}"
+  puts "Error when calling HostMigration->get_migration_destinations_v1: #{e}"
 end
 ```
 
@@ -286,7 +286,7 @@ begin
   p headers # => { ... }
   p data # => <ApiGetMigrationDestinationsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migration_destinations_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->get_migration_destinations_v1_with_http_info: #{e}"
 end
 ```
 
@@ -329,7 +329,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-10000]
@@ -342,7 +342,7 @@ begin
   result = api_instance.get_migration_ids_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migration_ids_v1: #{e}"
+  puts "Error when calling HostMigration->get_migration_ids_v1: #{e}"
 end
 ```
 
@@ -360,7 +360,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migration_ids_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->get_migration_ids_v1_with_http_info: #{e}"
 end
 ```
 
@@ -406,7 +406,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 ids = ['inner_example'] # Array<String> | The migration jobs of interest.
 
 begin
@@ -414,7 +414,7 @@ begin
   result = api_instance.get_migrations_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migrations_v1: #{e}"
+  puts "Error when calling HostMigration->get_migrations_v1: #{e}"
 end
 ```
 
@@ -432,7 +432,7 @@ begin
   p headers # => { ... }
   p data # => <ApiGetMigrationsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->get_migrations_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->get_migrations_v1_with_http_info: #{e}"
 end
 ```
 
@@ -477,7 +477,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -485,7 +485,7 @@ begin
   result = api_instance.host_migration_aggregates_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->host_migration_aggregates_v1: #{e}"
+  puts "Error when calling HostMigration->host_migration_aggregates_v1: #{e}"
 end
 ```
 
@@ -503,7 +503,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->host_migration_aggregates_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->host_migration_aggregates_v1_with_http_info: #{e}"
 end
 ```
 
@@ -548,7 +548,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 id = 'id_example' # String | The migration job to perform actions on
 action_name = 'remove_hosts' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV3.new({filter: 'filter_example', ids: ['ids_example']}) # MsaEntityActionRequestV3 | 
@@ -558,7 +558,7 @@ begin
   result = api_instance.host_migrations_actions_v1(id, action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->host_migrations_actions_v1: #{e}"
+  puts "Error when calling HostMigration->host_migrations_actions_v1: #{e}"
 end
 ```
 
@@ -576,7 +576,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->host_migrations_actions_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->host_migrations_actions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -623,7 +623,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -631,7 +631,7 @@ begin
   result = api_instance.migration_aggregates_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->migration_aggregates_v1: #{e}"
+  puts "Error when calling HostMigration->migration_aggregates_v1: #{e}"
 end
 ```
 
@@ -649,7 +649,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->migration_aggregates_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->migration_aggregates_v1_with_http_info: #{e}"
 end
 ```
 
@@ -694,7 +694,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostMigrationApi.new
+api_instance = Falcon::HostMigration.new
 action_name = 'delete_migration' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV3.new({filter: 'filter_example', ids: ['ids_example']}) # MsaEntityActionRequestV3 | 
 
@@ -703,7 +703,7 @@ begin
   result = api_instance.migrations_actions_v1(action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->migrations_actions_v1: #{e}"
+  puts "Error when calling HostMigration->migrations_actions_v1: #{e}"
 end
 ```
 
@@ -721,7 +721,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostMigrationApi->migrations_actions_v1_with_http_info: #{e}"
+  puts "Error when calling HostMigration->migrations_actions_v1_with_http_info: #{e}"
 end
 ```
 

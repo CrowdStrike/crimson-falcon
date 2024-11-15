@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class HostsApi
+  class Hosts
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,15 +57,15 @@ module Falcon
     # @return [Array<(DeviceapiGroupsResponseV1, Integer, Hash)>] DeviceapiGroupsResponseV1 data, response status code and response headers
     def entities_perform_action_with_http_info(ids, action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.entities_perform_action ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.entities_perform_action ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostsApi.entities_perform_action"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Hosts.entities_perform_action"
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostsApi.entities_perform_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling Hosts.entities_perform_action"
       end
       # verify enum value
       allowable_values = ["add_group_member", "remove_all", "remove_group_member"]
@@ -74,7 +74,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.entities_perform_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.entities_perform_action"
       end
       # resource path
       local_var_path = '/devices/entities/group-actions/v1'
@@ -108,7 +108,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.entities_perform_action",
+        :operation => :"Hosts.entities_perform_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -119,7 +119,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#entities_perform_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#entities_perform_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -139,14 +139,14 @@ module Falcon
     # @return [Array<(DeviceapiDeviceDetailsResponseSwagger, Integer, Hash)>] DeviceapiDeviceDetailsResponseSwagger data, response status code and response headers
     def get_device_details_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.get_device_details_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.get_device_details_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostsApi.get_device_details_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Hosts.get_device_details_v2"
       end
       if @api_client.config.client_side_validation && ids.length > 100
-        fail ArgumentError, 'invalid value for "ids" when calling HostsApi.get_device_details_v2, number of items must be less than or equal to 100.'
+        fail ArgumentError, 'invalid value for "ids" when calling Hosts.get_device_details_v2, number of items must be less than or equal to 100.'
       end
 
       # resource path
@@ -174,7 +174,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.get_device_details_v2",
+        :operation => :"Hosts.get_device_details_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -185,7 +185,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#get_device_details_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#get_device_details_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,11 +205,11 @@ module Falcon
     # @return [Array<(StateOnlineStateRespV1, Integer, Hash)>] StateOnlineStateRespV1 data, response status code and response headers
     def get_online_state_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.get_online_state_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.get_online_state_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling HostsApi.get_online_state_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Hosts.get_online_state_v1"
       end
       # resource path
       local_var_path = '/devices/entities/online-state/v1'
@@ -236,7 +236,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.get_online_state_v1",
+        :operation => :"Hosts.get_online_state_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -247,7 +247,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#get_online_state_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#get_online_state_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -269,15 +269,15 @@ module Falcon
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def perform_action_v2_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.perform_action_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.perform_action_v2 ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling HostsApi.perform_action_v2"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling Hosts.perform_action_v2"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.perform_action_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.perform_action_v2"
       end
       # resource path
       local_var_path = '/devices/entities/devices-actions/v2'
@@ -309,7 +309,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.perform_action_v2",
+        :operation => :"Hosts.perform_action_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -320,7 +320,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#perform_action_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#perform_action_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -340,11 +340,11 @@ module Falcon
     # @return [Array<(DeviceapiDeviceDetailsResponseSwagger, Integer, Hash)>] DeviceapiDeviceDetailsResponseSwagger data, response status code and response headers
     def post_device_details_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.post_device_details_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.post_device_details_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.post_device_details_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.post_device_details_v2"
       end
       # resource path
       local_var_path = '/devices/entities/devices/v2'
@@ -375,7 +375,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.post_device_details_v2",
+        :operation => :"Hosts.post_device_details_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -386,7 +386,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#post_device_details_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#post_device_details_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -406,11 +406,11 @@ module Falcon
     # @return [Array<(DeviceapiLoginHistoryResponseV1, Integer, Hash)>] DeviceapiLoginHistoryResponseV1 data, response status code and response headers
     def query_device_login_history_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_device_login_history ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_device_login_history ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.query_device_login_history"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.query_device_login_history"
       end
       # resource path
       local_var_path = '/devices/combined/devices/login-history/v1'
@@ -441,7 +441,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_device_login_history",
+        :operation => :"Hosts.query_device_login_history",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -452,7 +452,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_device_login_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_device_login_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -472,11 +472,11 @@ module Falcon
     # @return [Array<(DeviceapiLoginHistoryResponseV1, Integer, Hash)>] DeviceapiLoginHistoryResponseV1 data, response status code and response headers
     def query_device_login_history_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_device_login_history_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_device_login_history_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.query_device_login_history_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.query_device_login_history_v2"
       end
       # resource path
       local_var_path = '/devices/combined/devices/login-history/v2'
@@ -507,7 +507,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_device_login_history_v2",
+        :operation => :"Hosts.query_device_login_history_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -518,7 +518,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_device_login_history_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_device_login_history_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -544,7 +544,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_devices_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_devices_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_devices_by_filter ...'
       end
       # resource path
       local_var_path = '/devices/queries/devices/v1'
@@ -574,7 +574,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_devices_by_filter",
+        :operation => :"Hosts.query_devices_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -585,7 +585,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_devices_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_devices_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -611,7 +611,7 @@ module Falcon
     # @return [Array<(DeviceapiDeviceResponse, Integer, Hash)>] DeviceapiDeviceResponse data, response status code and response headers
     def query_devices_by_filter_scroll_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_devices_by_filter_scroll ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_devices_by_filter_scroll ...'
       end
       # resource path
       local_var_path = '/devices/queries/devices-scroll/v1'
@@ -641,7 +641,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_devices_by_filter_scroll",
+        :operation => :"Hosts.query_devices_by_filter_scroll",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -652,7 +652,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_devices_by_filter_scroll\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_devices_by_filter_scroll\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -672,11 +672,11 @@ module Falcon
     # @return [Array<(DeviceapiNetworkAddressHistoryResponseV1, Integer, Hash)>] DeviceapiNetworkAddressHistoryResponseV1 data, response status code and response headers
     def query_get_network_address_history_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_get_network_address_history_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_get_network_address_history_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.query_get_network_address_history_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.query_get_network_address_history_v1"
       end
       # resource path
       local_var_path = '/devices/combined/devices/network-address-history/v1'
@@ -707,7 +707,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_get_network_address_history_v1",
+        :operation => :"Hosts.query_get_network_address_history_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -718,7 +718,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_get_network_address_history_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_get_network_address_history_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -744,7 +744,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_hidden_devices_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.query_hidden_devices ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.query_hidden_devices ...'
       end
       # resource path
       local_var_path = '/devices/queries/devices-hidden/v1'
@@ -774,7 +774,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.query_hidden_devices",
+        :operation => :"Hosts.query_hidden_devices",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -785,7 +785,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#query_hidden_devices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#query_hidden_devices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -805,11 +805,11 @@ module Falcon
     # @return [Array<(DeviceapiUpdateDeviceTagsSwaggerV1, Integer, Hash)>] DeviceapiUpdateDeviceTagsSwaggerV1 data, response status code and response headers
     def update_device_tags_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HostsApi.update_device_tags ...'
+        @api_client.config.logger.debug 'Calling API: Hosts.update_device_tags ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling HostsApi.update_device_tags"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Hosts.update_device_tags"
       end
       # resource path
       local_var_path = '/devices/entities/devices/tags/v1'
@@ -840,7 +840,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HostsApi.update_device_tags",
+        :operation => :"Hosts.update_device_tags",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -851,7 +851,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HostsApi#update_device_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Hosts#update_device_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

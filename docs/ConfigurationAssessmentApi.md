@@ -1,11 +1,11 @@
-# Falcon::ConfigurationAssessmentApi
+# Falcon::ConfigurationAssessment
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_combined_assessments_query**](ConfigurationAssessmentApi.md#get_combined_assessments_query) | **GET** /configuration-assessment/combined/assessments/v1 | Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria |
-| [**get_rule_details**](ConfigurationAssessmentApi.md#get_rule_details) | **GET** /configuration-assessment/entities/rule-details/v1 | Get rules details for provided one or more rule IDs |
+| [**get_combined_assessments_query**](ConfigurationAssessment.md#get_combined_assessments_query) | **GET** /configuration-assessment/combined/assessments/v1 | Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria |
+| [**get_rule_details**](ConfigurationAssessment.md#get_rule_details) | **GET** /configuration-assessment/entities/rule-details/v1 | Get rules details for provided one or more rule IDs |
 
 
 ## get_combined_assessments_query
@@ -27,7 +27,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ConfigurationAssessmentApi.new
+api_instance = Falcon::ConfigurationAssessment.new
 filter = 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). Wildcards * are unsupported.   Common filter options include:  <ul><li>created_timestamp:>'2019-11-25T22:36:12Z'</li><li>updated_timestamp:>'2019-11-25T22:36:12Z'</li><li>aid:'8e7656b27d8c49a34a1af416424d6231'</li></ul>
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
@@ -41,7 +41,7 @@ begin
   result = api_instance.get_combined_assessments_query(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentApi->get_combined_assessments_query: #{e}"
+  puts "Error when calling ConfigurationAssessment->get_combined_assessments_query: #{e}"
 end
 ```
 
@@ -59,7 +59,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAPICombinedFindingsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentApi->get_combined_assessments_query_with_http_info: #{e}"
+  puts "Error when calling ConfigurationAssessment->get_combined_assessments_query_with_http_info: #{e}"
 end
 ```
 
@@ -106,7 +106,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ConfigurationAssessmentApi.new
+api_instance = Falcon::ConfigurationAssessment.new
 ids = ['inner_example'] # Array<String> | One or more rules IDs (max: 400)
 
 begin
@@ -114,7 +114,7 @@ begin
   result = api_instance.get_rule_details(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentApi->get_rule_details: #{e}"
+  puts "Error when calling ConfigurationAssessment->get_rule_details: #{e}"
 end
 ```
 
@@ -132,7 +132,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAPIRuleDetailsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentApi->get_rule_details_with_http_info: #{e}"
+  puts "Error when calling ConfigurationAssessment->get_rule_details_with_http_info: #{e}"
 end
 ```
 

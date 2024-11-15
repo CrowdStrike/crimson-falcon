@@ -1,15 +1,15 @@
-# Falcon::ContainerDetectionsApi
+# Falcon::ContainerDetections
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_combined_detections**](ContainerDetectionsApi.md#read_combined_detections) | **GET** /container-security/combined/detections/v1 | Retrieve image assessment detections identified by the provided filter criteria |
-| [**read_detections**](ContainerDetectionsApi.md#read_detections) | **GET** /container-security/entities/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
-| [**read_detections_count**](ContainerDetectionsApi.md#read_detections_count) | **GET** /container-security/aggregates/detections/count/v1 | Aggregate count of detections |
-| [**read_detections_count_by_severity**](ContainerDetectionsApi.md#read_detections_count_by_severity) | **GET** /container-security/aggregates/detections/count-by-severity/v1 | Aggregate counts of detections by severity |
-| [**read_detections_count_by_type**](ContainerDetectionsApi.md#read_detections_count_by_type) | **GET** /container-security/aggregates/detections/count-by-type/v1 | Aggregate counts of detections by detection type |
-| [**search_detections**](ContainerDetectionsApi.md#search_detections) | **GET** /container-security/queries/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
+| [**read_combined_detections**](ContainerDetections.md#read_combined_detections) | **GET** /container-security/combined/detections/v1 | Retrieve image assessment detections identified by the provided filter criteria |
+| [**read_detections**](ContainerDetections.md#read_detections) | **GET** /container-security/entities/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
+| [**read_detections_count**](ContainerDetections.md#read_detections_count) | **GET** /container-security/aggregates/detections/count/v1 | Aggregate count of detections |
+| [**read_detections_count_by_severity**](ContainerDetections.md#read_detections_count_by_severity) | **GET** /container-security/aggregates/detections/count-by-severity/v1 | Aggregate counts of detections by severity |
+| [**read_detections_count_by_type**](ContainerDetections.md#read_detections_count_by_type) | **GET** /container-security/aggregates/detections/count-by-type/v1 | Aggregate counts of detections by detection type |
+| [**search_detections**](ContainerDetections.md#search_detections) | **GET** /container-security/queries/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
 
 
 ## read_combined_detections
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -44,7 +44,7 @@ begin
   result = api_instance.read_combined_detections(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_combined_detections: #{e}"
+  puts "Error when calling ContainerDetections->read_combined_detections: #{e}"
 end
 ```
 
@@ -62,7 +62,7 @@ begin
   p headers # => { ... }
   p data # => <DetectionsApiCombinedDetections>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_combined_detections_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->read_combined_detections_with_http_info: #{e}"
 end
 ```
 
@@ -108,7 +108,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -120,7 +120,7 @@ begin
   result = api_instance.read_detections(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections: #{e}"
+  puts "Error when calling ContainerDetections->read_detections: #{e}"
 end
 ```
 
@@ -138,7 +138,7 @@ begin
   p headers # => { ... }
   p data # => <DetectionsApiAssessmentDetections>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_with_http_info: #{e}"
 end
 ```
 
@@ -183,7 +183,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
 }
@@ -193,7 +193,7 @@ begin
   result = api_instance.read_detections_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count: #{e}"
 end
 ```
 
@@ -211,7 +211,7 @@ begin
   p headers # => { ... }
   p data # => <DetectionsApiDetectionsCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count_with_http_info: #{e}"
 end
 ```
 
@@ -254,7 +254,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
 }
@@ -264,7 +264,7 @@ begin
   result = api_instance.read_detections_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count_by_severity: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count_by_severity: #{e}"
 end
 ```
 
@@ -282,7 +282,7 @@ begin
   p headers # => { ... }
   p data # => <DetectionsApiDetectionsBySeverity>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count_by_severity_with_http_info: #{e}"
 end
 ```
 
@@ -325,7 +325,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
 }
@@ -335,7 +335,7 @@ begin
   result = api_instance.read_detections_count_by_type(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count_by_type: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count_by_type: #{e}"
 end
 ```
 
@@ -353,7 +353,7 @@ begin
   p headers # => { ... }
   p data # => <DetectionsApiDetectionsByType>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->read_detections_count_by_type_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->read_detections_count_by_type_with_http_info: #{e}"
 end
 ```
 
@@ -396,7 +396,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerDetectionsApi.new
+api_instance = Falcon::ContainerDetections.new
 opts = {
   filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -408,7 +408,7 @@ begin
   result = api_instance.search_detections(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->search_detections: #{e}"
+  puts "Error when calling ContainerDetections->search_detections: #{e}"
 end
 ```
 
@@ -426,7 +426,7 @@ begin
   p headers # => { ... }
   p data # => <CommonGenericEntityResponseString>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerDetectionsApi->search_detections_with_http_info: #{e}"
+  puts "Error when calling ContainerDetections->search_detections_with_http_info: #{e}"
 end
 ```
 

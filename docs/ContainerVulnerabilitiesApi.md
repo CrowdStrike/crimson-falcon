@@ -1,19 +1,19 @@
-# Falcon::ContainerVulnerabilitiesApi
+# Falcon::ContainerVulnerabilities
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_combined_vulnerabilities**](ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Retrieve vulnerability and aggregate data filtered by the provided FQL |
-| [**read_combined_vulnerabilities_details**](ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Retrieve vulnerability details related to an image |
-| [**read_combined_vulnerabilities_info**](ContainerVulnerabilitiesApi.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Retrieve vulnerability and package related info for this customer |
-| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilitiesApi.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Retrieve top x vulnerabilities with the most impacted images |
-| [**read_vulnerabilities_publication_date**](ContainerVulnerabilitiesApi.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Retrieve top x vulnerabilities with the most recent publication date |
-| [**read_vulnerability_count**](ContainerVulnerabilitiesApi.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Aggregate count of vulnerabilities |
-| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Aggregate count of vulnerabilities grouped by actively exploited |
-| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Aggregate count of vulnerabilities grouped by csp_rating |
-| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Aggregate count of vulnerabilities grouped by cvss score |
-| [**read_vulnerability_count_by_severity**](ContainerVulnerabilitiesApi.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Aggregate count of vulnerabilities grouped by severity |
+| [**read_combined_vulnerabilities**](ContainerVulnerabilities.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Retrieve vulnerability and aggregate data filtered by the provided FQL |
+| [**read_combined_vulnerabilities_details**](ContainerVulnerabilities.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Retrieve vulnerability details related to an image |
+| [**read_combined_vulnerabilities_info**](ContainerVulnerabilities.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Retrieve vulnerability and package related info for this customer |
+| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilities.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Retrieve top x vulnerabilities with the most impacted images |
+| [**read_vulnerabilities_publication_date**](ContainerVulnerabilities.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Retrieve top x vulnerabilities with the most recent publication date |
+| [**read_vulnerability_count**](ContainerVulnerabilities.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Aggregate count of vulnerabilities |
+| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Aggregate count of vulnerabilities grouped by actively exploited |
+| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Aggregate count of vulnerabilities grouped by csp_rating |
+| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Aggregate count of vulnerabilities grouped by cvss score |
+| [**read_vulnerability_count_by_severity**](ContainerVulnerabilities.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Aggregate count of vulnerabilities grouped by severity |
 
 
 ## read_combined_vulnerabilities
@@ -35,7 +35,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -48,7 +48,7 @@ begin
   result = api_instance.read_combined_vulnerabilities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities: #{e}"
 end
 ```
 
@@ -66,7 +66,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiCombinedVulnerability>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_with_http_info: #{e}"
 end
 ```
 
@@ -112,7 +112,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 id = 'id_example' # String | Image UUID
 opts = {
   filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
@@ -125,7 +125,7 @@ begin
   result = api_instance.read_combined_vulnerabilities_details(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities_details: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details: #{e}"
 end
 ```
 
@@ -143,7 +143,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiCombinedVulnerabilityDetails>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities_details_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details_with_http_info: #{e}"
 end
 ```
 
@@ -189,7 +189,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 cve_id = 'cve_id_example' # String | Vulnerability CVE ID
 opts = {
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -201,7 +201,7 @@ begin
   result = api_instance.read_combined_vulnerabilities_info(cve_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info: #{e}"
 end
 ```
 
@@ -219,7 +219,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiCombinedVulnerabilityInfo>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_combined_vulnerabilities_info_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info_with_http_info: #{e}"
 end
 ```
 
@@ -264,7 +264,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -276,7 +276,7 @@ begin
   result = api_instance.read_vulnerabilities_by_image_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerabilities_by_image_count: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count: #{e}"
 end
 ```
 
@@ -294,7 +294,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnByImageCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerabilities_by_image_count_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count_with_http_info: #{e}"
 end
 ```
 
@@ -339,7 +339,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -351,7 +351,7 @@ begin
   result = api_instance.read_vulnerabilities_publication_date(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerabilities_publication_date: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date: #{e}"
 end
 ```
 
@@ -369,7 +369,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnByPublication>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerabilities_publication_date_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date_with_http_info: #{e}"
 end
 ```
 
@@ -414,7 +414,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -426,7 +426,7 @@ begin
   result = api_instance.read_vulnerability_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count: #{e}"
 end
 ```
 
@@ -444,7 +444,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_with_http_info: #{e}"
 end
 ```
 
@@ -489,7 +489,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -501,7 +501,7 @@ begin
   result = api_instance.read_vulnerability_count_by_actively_exploited(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_actively_exploited: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited: #{e}"
 end
 ```
 
@@ -519,7 +519,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnCountByActivelyExploited>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_actively_exploited_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited_with_http_info: #{e}"
 end
 ```
 
@@ -564,7 +564,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -576,7 +576,7 @@ begin
   result = api_instance.read_vulnerability_count_by_cps_rating(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_cps_rating: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating: #{e}"
 end
 ```
 
@@ -594,7 +594,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnCountByCSPRating>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_cps_rating_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating_with_http_info: #{e}"
 end
 ```
 
@@ -639,7 +639,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -651,7 +651,7 @@ begin
   result = api_instance.read_vulnerability_count_by_cvss_score(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_cvss_score: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score: #{e}"
 end
 ```
 
@@ -669,7 +669,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnCountByCVSSScore>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_cvss_score_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score_with_http_info: #{e}"
 end
 ```
 
@@ -714,7 +714,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerVulnerabilitiesApi.new
+api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
   filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -726,7 +726,7 @@ begin
   result = api_instance.read_vulnerability_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_severity: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity: #{e}"
 end
 ```
 
@@ -744,7 +744,7 @@ begin
   p headers # => { ... }
   p data # => <VulnerabilitiesApiVulnCountBySeverity>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerVulnerabilitiesApi->read_vulnerability_count_by_severity_with_http_info: #{e}"
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity_with_http_info: #{e}"
 end
 ```
 

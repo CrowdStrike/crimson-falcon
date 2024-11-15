@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ContainerVulnerabilitiesApi
+  class ContainerVulnerabilities
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,7 +57,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiCombinedVulnerability, Integer, Hash)>] VulnerabilitiesApiCombinedVulnerability data, response status code and response headers
     def read_combined_vulnerabilities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_combined_vulnerabilities ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_combined_vulnerabilities ...'
       end
       # resource path
       local_var_path = '/container-security/combined/vulnerabilities/v1'
@@ -87,7 +87,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_combined_vulnerabilities",
+        :operation => :"ContainerVulnerabilities.read_combined_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -98,7 +98,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_combined_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_combined_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -124,11 +124,11 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiCombinedVulnerabilityDetails, Integer, Hash)>] VulnerabilitiesApiCombinedVulnerabilityDetails data, response status code and response headers
     def read_combined_vulnerabilities_details_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_combined_vulnerabilities_details ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_combined_vulnerabilities_details ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ContainerVulnerabilitiesApi.read_combined_vulnerabilities_details"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ContainerVulnerabilities.read_combined_vulnerabilities_details"
       end
       # resource path
       local_var_path = '/container-security/combined/vulnerabilities/details/v1'
@@ -158,7 +158,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_combined_vulnerabilities_details",
+        :operation => :"ContainerVulnerabilities.read_combined_vulnerabilities_details",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -169,7 +169,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_combined_vulnerabilities_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_combined_vulnerabilities_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -193,11 +193,11 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiCombinedVulnerabilityInfo, Integer, Hash)>] VulnerabilitiesApiCombinedVulnerabilityInfo data, response status code and response headers
     def read_combined_vulnerabilities_info_with_http_info(cve_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_combined_vulnerabilities_info ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_combined_vulnerabilities_info ...'
       end
       # verify the required parameter 'cve_id' is set
       if @api_client.config.client_side_validation && cve_id.nil?
-        fail ArgumentError, "Missing the required parameter 'cve_id' when calling ContainerVulnerabilitiesApi.read_combined_vulnerabilities_info"
+        fail ArgumentError, "Missing the required parameter 'cve_id' when calling ContainerVulnerabilities.read_combined_vulnerabilities_info"
       end
       # resource path
       local_var_path = '/container-security/combined/vulnerabilities/info/v1'
@@ -226,7 +226,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_combined_vulnerabilities_info",
+        :operation => :"ContainerVulnerabilities.read_combined_vulnerabilities_info",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -237,7 +237,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_combined_vulnerabilities_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_combined_vulnerabilities_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -261,7 +261,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnByImageCount, Integer, Hash)>] VulnerabilitiesApiVulnByImageCount data, response status code and response headers
     def read_vulnerabilities_by_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerabilities_by_image_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerabilities_by_image_count ...'
       end
       # resource path
       local_var_path = '/container-security/combined/vulnerabilities/by-image-count/v1'
@@ -290,7 +290,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerabilities_by_image_count",
+        :operation => :"ContainerVulnerabilities.read_vulnerabilities_by_image_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -301,7 +301,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerabilities_by_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerabilities_by_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -325,7 +325,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnByPublication, Integer, Hash)>] VulnerabilitiesApiVulnByPublication data, response status code and response headers
     def read_vulnerabilities_publication_date_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerabilities_publication_date ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerabilities_publication_date ...'
       end
       # resource path
       local_var_path = '/container-security/combined/vulnerabilities/by-published-date/v1'
@@ -354,7 +354,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerabilities_publication_date",
+        :operation => :"ContainerVulnerabilities.read_vulnerabilities_publication_date",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -365,7 +365,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerabilities_publication_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerabilities_publication_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -389,7 +389,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnCount, Integer, Hash)>] VulnerabilitiesApiVulnCount data, response status code and response headers
     def read_vulnerability_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerability_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerability_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/vulnerabilities/count/v1'
@@ -418,7 +418,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerability_count",
+        :operation => :"ContainerVulnerabilities.read_vulnerability_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -429,7 +429,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerability_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerability_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -453,7 +453,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnCountByActivelyExploited, Integer, Hash)>] VulnerabilitiesApiVulnCountByActivelyExploited data, response status code and response headers
     def read_vulnerability_count_by_actively_exploited_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerability_count_by_actively_exploited ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerability_count_by_actively_exploited ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1'
@@ -482,7 +482,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerability_count_by_actively_exploited",
+        :operation => :"ContainerVulnerabilities.read_vulnerability_count_by_actively_exploited",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -493,7 +493,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerability_count_by_actively_exploited\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerability_count_by_actively_exploited\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -517,7 +517,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnCountByCSPRating, Integer, Hash)>] VulnerabilitiesApiVulnCountByCSPRating data, response status code and response headers
     def read_vulnerability_count_by_cps_rating_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerability_count_by_cps_rating ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerability_count_by_cps_rating ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/vulnerabilities/count-by-cps-rating/v1'
@@ -546,7 +546,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerability_count_by_cps_rating",
+        :operation => :"ContainerVulnerabilities.read_vulnerability_count_by_cps_rating",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -557,7 +557,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerability_count_by_cps_rating\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerability_count_by_cps_rating\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -581,7 +581,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnCountByCVSSScore, Integer, Hash)>] VulnerabilitiesApiVulnCountByCVSSScore data, response status code and response headers
     def read_vulnerability_count_by_cvss_score_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerability_count_by_cvss_score ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerability_count_by_cvss_score ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/vulnerabilities/count-by-cvss-score/v1'
@@ -610,7 +610,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerability_count_by_cvss_score",
+        :operation => :"ContainerVulnerabilities.read_vulnerability_count_by_cvss_score",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -621,7 +621,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerability_count_by_cvss_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerability_count_by_cvss_score\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -645,7 +645,7 @@ module Falcon
     # @return [Array<(VulnerabilitiesApiVulnCountBySeverity, Integer, Hash)>] VulnerabilitiesApiVulnCountBySeverity data, response status code and response headers
     def read_vulnerability_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilitiesApi.read_vulnerability_count_by_severity ...'
+        @api_client.config.logger.debug 'Calling API: ContainerVulnerabilities.read_vulnerability_count_by_severity ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/vulnerabilities/count-by-severity/v1'
@@ -674,7 +674,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerVulnerabilitiesApi.read_vulnerability_count_by_severity",
+        :operation => :"ContainerVulnerabilities.read_vulnerability_count_by_severity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -685,7 +685,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerVulnerabilitiesApi#read_vulnerability_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerVulnerabilities#read_vulnerability_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

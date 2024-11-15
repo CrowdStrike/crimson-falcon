@@ -26,8 +26,8 @@ Falcon.configure do |config|
   config.cloud = ENV["FALCON_CLOUD"] || options_parser.options[:cloud]
 end
 
-# Create an instance of the CrowdScoreApi class
-api_instance = Falcon::IncidentsApi.new
+# Create an instance of the CrowdScore class
+api_instance = Falcon::Incidents.new
 opts = {
   # Sort by timestamp descending
   sort: "timestamp.desc",
@@ -38,5 +38,5 @@ begin
   result = api_instance.crowd_score(opts)
   puts "As of #{result.resources[0].timestamp}, your CrowdScore is #{result.resources[0].score}"
 rescue Falcon::ApiError => e
-  puts "Exception when calling IncidentsApi->crowd_score: #{e}"
+  puts "Exception when calling Incidents->crowd_score: #{e}"
 end

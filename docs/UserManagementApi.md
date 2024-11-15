@@ -1,31 +1,31 @@
-# Falcon::UserManagementApi
+# Falcon::UserManagement
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**combined_user_roles_v1**](UserManagementApi.md#combined_user_roles_v1) | **GET** /user-management/combined/user-roles/v1 | Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer. |
-| [**create_user**](UserManagementApi.md#create_user) | **POST** /users/entities/users/v1 | Deprecated : Please use POST /user-management/entities/users/v1. Create a new user. After creating a user, assign one or more roles with POST /user-roles/entities/user-roles/v1 |
-| [**create_user_v1**](UserManagementApi.md#create_user_v1) | **POST** /user-management/entities/users/v1 | Create a new user. After creating a user, assign one or more roles with POST &#39;/user-management/entities/user-role-actions/v1&#39; |
-| [**delete_user**](UserManagementApi.md#delete_user) | **DELETE** /users/entities/users/v1 | Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user permanently |
-| [**delete_user_v1**](UserManagementApi.md#delete_user_v1) | **DELETE** /user-management/entities/users/v1 | Delete a user permanently. |
-| [**entities_roles_v1**](UserManagementApi.md#entities_roles_v1) | **GET** /user-management/entities/roles/v1 | Get info about a role |
-| [**get_available_role_ids**](UserManagementApi.md#get_available_role_ids) | **GET** /user-roles/queries/user-role-ids-by-cid/v1 | Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;. |
-| [**get_roles**](UserManagementApi.md#get_roles) | **GET** /user-roles/entities/user-roles/v1 | Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a role |
-| [**get_user_role_ids**](UserManagementApi.md#get_user_role_ids) | **GET** /user-roles/queries/user-role-ids-by-user-uuid/v1 | Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;. |
-| [**grant_user_role_ids**](UserManagementApi.md#grant_user_role_ids) | **POST** /user-roles/entities/user-roles/v1 | Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Assign one or more roles to a user |
-| [**queries_roles_v1**](UserManagementApi.md#queries_roles_v1) | **GET** /user-management/queries/roles/v1 | Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/user-management/entities/roles/v1&#x60;. |
-| [**query_user_v1**](UserManagementApi.md#query_user_v1) | **GET** /user-management/queries/users/v1 | List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;. |
-| [**retrieve_emails_by_cid**](UserManagementApi.md#retrieve_emails_by_cid) | **GET** /users/queries/emails-by-cid/v1 | Deprecated : Please use POST /user-management/entities/users/GET/v1. List the usernames (usually an email address) for all users in your customer account |
-| [**retrieve_user**](UserManagementApi.md#retrieve_user) | **GET** /users/entities/users/v1 | Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info about a user |
-| [**retrieve_user_uuid**](UserManagementApi.md#retrieve_user_uuid) | **GET** /users/queries/user-uuids-by-email/v1 | Deprecated : Please use GET /user-management/queries/users/v1. Get a user&#39;s ID by providing a username (usually an email address) |
-| [**retrieve_user_uuids_by_cid**](UserManagementApi.md#retrieve_user_uuids_by_cid) | **GET** /users/queries/user-uuids-by-cid/v1 | Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/users/entities/user/v1&#x60;. |
-| [**retrieve_users_getv1**](UserManagementApi.md#retrieve_users_getv1) | **POST** /user-management/entities/users/GET/v1 | Get info about users including their name, UID and CID by providing user UUIDs |
-| [**revoke_user_role_ids**](UserManagementApi.md#revoke_user_role_ids) | **DELETE** /user-roles/entities/user-roles/v1 | Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user |
-| [**update_user**](UserManagementApi.md#update_user) | **PATCH** /users/entities/users/v1 | Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an existing user&#39;s first or last name |
-| [**update_user_v1**](UserManagementApi.md#update_user_v1) | **PATCH** /user-management/entities/users/v1 | Modify an existing user&#39;s first or last name. |
-| [**user_action_v1**](UserManagementApi.md#user_action_v1) | **POST** /user-management/entities/user-actions/v1 | Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in &#x60;ids&#x60; param as part of request payload. |
-| [**user_roles_action_v1**](UserManagementApi.md#user_roles_action_v1) | **POST** /user-management/entities/user-role-actions/v1 | Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke |
+| [**combined_user_roles_v1**](UserManagement.md#combined_user_roles_v1) | **GET** /user-management/combined/user-roles/v1 | Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer. |
+| [**create_user**](UserManagement.md#create_user) | **POST** /users/entities/users/v1 | Deprecated : Please use POST /user-management/entities/users/v1. Create a new user. After creating a user, assign one or more roles with POST /user-roles/entities/user-roles/v1 |
+| [**create_user_v1**](UserManagement.md#create_user_v1) | **POST** /user-management/entities/users/v1 | Create a new user. After creating a user, assign one or more roles with POST &#39;/user-management/entities/user-role-actions/v1&#39; |
+| [**delete_user**](UserManagement.md#delete_user) | **DELETE** /users/entities/users/v1 | Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user permanently |
+| [**delete_user_v1**](UserManagement.md#delete_user_v1) | **DELETE** /user-management/entities/users/v1 | Delete a user permanently. |
+| [**entities_roles_v1**](UserManagement.md#entities_roles_v1) | **GET** /user-management/entities/roles/v1 | Get info about a role |
+| [**get_available_role_ids**](UserManagement.md#get_available_role_ids) | **GET** /user-roles/queries/user-role-ids-by-cid/v1 | Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;. |
+| [**get_roles**](UserManagement.md#get_roles) | **GET** /user-roles/entities/user-roles/v1 | Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a role |
+| [**get_user_role_ids**](UserManagement.md#get_user_role_ids) | **GET** /user-roles/queries/user-role-ids-by-user-uuid/v1 | Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;. |
+| [**grant_user_role_ids**](UserManagement.md#grant_user_role_ids) | **POST** /user-roles/entities/user-roles/v1 | Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Assign one or more roles to a user |
+| [**queries_roles_v1**](UserManagement.md#queries_roles_v1) | **GET** /user-management/queries/roles/v1 | Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/user-management/entities/roles/v1&#x60;. |
+| [**query_user_v1**](UserManagement.md#query_user_v1) | **GET** /user-management/queries/users/v1 | List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;. |
+| [**retrieve_emails_by_cid**](UserManagement.md#retrieve_emails_by_cid) | **GET** /users/queries/emails-by-cid/v1 | Deprecated : Please use POST /user-management/entities/users/GET/v1. List the usernames (usually an email address) for all users in your customer account |
+| [**retrieve_user**](UserManagement.md#retrieve_user) | **GET** /users/entities/users/v1 | Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info about a user |
+| [**retrieve_user_uuid**](UserManagement.md#retrieve_user_uuid) | **GET** /users/queries/user-uuids-by-email/v1 | Deprecated : Please use GET /user-management/queries/users/v1. Get a user&#39;s ID by providing a username (usually an email address) |
+| [**retrieve_user_uuids_by_cid**](UserManagement.md#retrieve_user_uuids_by_cid) | **GET** /users/queries/user-uuids-by-cid/v1 | Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/users/entities/user/v1&#x60;. |
+| [**retrieve_users_getv1**](UserManagement.md#retrieve_users_getv1) | **POST** /user-management/entities/users/GET/v1 | Get info about users including their name, UID and CID by providing user UUIDs |
+| [**revoke_user_role_ids**](UserManagement.md#revoke_user_role_ids) | **DELETE** /user-roles/entities/user-roles/v1 | Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user |
+| [**update_user**](UserManagement.md#update_user) | **PATCH** /users/entities/users/v1 | Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an existing user&#39;s first or last name |
+| [**update_user_v1**](UserManagement.md#update_user_v1) | **PATCH** /user-management/entities/users/v1 | Modify an existing user&#39;s first or last name. |
+| [**user_action_v1**](UserManagement.md#user_action_v1) | **POST** /user-management/entities/user-actions/v1 | Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in &#x60;ids&#x60; param as part of request payload. |
+| [**user_roles_action_v1**](UserManagement.md#user_roles_action_v1) | **POST** /user-management/entities/user-role-actions/v1 | Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke |
 
 
 ## combined_user_roles_v1
@@ -47,7 +47,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | User UUID to get available roles for.
 opts = {
   cid: 'cid_example', # String | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
@@ -63,7 +63,7 @@ begin
   result = api_instance.combined_user_roles_v1(user_uuid, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->combined_user_roles_v1: #{e}"
+  puts "Error when calling UserManagement->combined_user_roles_v1: #{e}"
 end
 ```
 
@@ -81,7 +81,7 @@ begin
   p headers # => { ... }
   p data # => <FlightcontrolapiUserGrantResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->combined_user_roles_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->combined_user_roles_v1_with_http_info: #{e}"
 end
 ```
 
@@ -130,7 +130,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 body = Falcon::DomainUserCreateRequest.new # DomainUserCreateRequest | Attributes for this user. `uid` (required) is the user's email address, which is their username in Falcon.  Optional attributes:  <ul><li>`firstName`</li><li>`lastName`</li><li>`password`</li></ul>  As a best practice, we recommend omitting `password`. If single sign-on is enabled for your customer account, the `password` attribute is ignored. If single sign-on is not enabled, we send a user activation request to their email address when you create the user with no `password`. The user should use the activation email to set their own password.
 
 begin
@@ -138,7 +138,7 @@ begin
   result = api_instance.create_user(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->create_user: #{e}"
+  puts "Error when calling UserManagement->create_user: #{e}"
 end
 ```
 
@@ -156,7 +156,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserMetadataResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->create_user_with_http_info: #{e}"
+  puts "Error when calling UserManagement->create_user_with_http_info: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 body = Falcon::DomainCreateUserRequest.new # DomainCreateUserRequest | Attributes for this user. `uid` (required) is the user's email address, which is their username in Falcon.  Optional attributes:  <ul><li>`firstName`</li><li>`lastName`</li><li>`password`</li></ul>  As a best practice, we recommend omitting `password`. If single sign-on is enabled for your customer account, the `password` attribute is ignored. If single sign-on is not enabled, we send a user activation request to their email address when you create the user with no `password`. The user should use the activation email to set their own password.
 opts = {
   validate_only: true # Boolean | Validate of user is allowed, but do not create user.
@@ -210,7 +210,7 @@ begin
   result = api_instance.create_user_v1(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->create_user_v1: #{e}"
+  puts "Error when calling UserManagement->create_user_v1: #{e}"
 end
 ```
 
@@ -228,7 +228,7 @@ begin
   p headers # => { ... }
   p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->create_user_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->create_user_v1_with_http_info: #{e}"
 end
 ```
 
@@ -272,7 +272,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 
 begin
@@ -280,7 +280,7 @@ begin
   result = api_instance.delete_user(user_uuid)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->delete_user: #{e}"
+  puts "Error when calling UserManagement->delete_user: #{e}"
 end
 ```
 
@@ -298,7 +298,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->delete_user_with_http_info: #{e}"
+  puts "Error when calling UserManagement->delete_user_with_http_info: #{e}"
 end
 ```
 
@@ -341,7 +341,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | User UUID.
 
 begin
@@ -349,7 +349,7 @@ begin
   result = api_instance.delete_user_v1(user_uuid)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->delete_user_v1: #{e}"
+  puts "Error when calling UserManagement->delete_user_v1: #{e}"
 end
 ```
 
@@ -367,7 +367,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->delete_user_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->delete_user_v1_with_http_info: #{e}"
 end
 ```
 
@@ -410,7 +410,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 ids = ['inner_example'] # Array<String> | ID of a role. Find a role ID from `/user-management/queries/roles/v1`.
 opts = {
   cid: 'cid_example' # String | Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
@@ -421,7 +421,7 @@ begin
   result = api_instance.entities_roles_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->entities_roles_v1: #{e}"
+  puts "Error when calling UserManagement->entities_roles_v1: #{e}"
 end
 ```
 
@@ -439,7 +439,7 @@ begin
   p headers # => { ... }
   p data # => <FlightcontrolapiGetRolesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->entities_roles_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->entities_roles_v1_with_http_info: #{e}"
 end
 ```
 
@@ -483,14 +483,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 
 begin
   # Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to `/customer/entities/roles/v1`.
   result = api_instance.get_available_role_ids
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_available_role_ids: #{e}"
+  puts "Error when calling UserManagement->get_available_role_ids: #{e}"
 end
 ```
 
@@ -508,7 +508,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_available_role_ids_with_http_info: #{e}"
+  puts "Error when calling UserManagement->get_available_role_ids_with_http_info: #{e}"
 end
 ```
 
@@ -549,7 +549,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 ids = ['inner_example'] # Array<String> | ID of a role. Find a role ID from `/customer/queries/roles/v1` or `/users/queries/roles/v1`.
 
 begin
@@ -557,7 +557,7 @@ begin
   result = api_instance.get_roles(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_roles: #{e}"
+  puts "Error when calling UserManagement->get_roles: #{e}"
 end
 ```
 
@@ -575,7 +575,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserRoleResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_roles_with_http_info: #{e}"
+  puts "Error when calling UserManagement->get_roles_with_http_info: #{e}"
 end
 ```
 
@@ -618,7 +618,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 
 begin
@@ -626,7 +626,7 @@ begin
   result = api_instance.get_user_role_ids(user_uuid)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_user_role_ids: #{e}"
+  puts "Error when calling UserManagement->get_user_role_ids: #{e}"
 end
 ```
 
@@ -644,7 +644,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->get_user_role_ids_with_http_info: #{e}"
+  puts "Error when calling UserManagement->get_user_role_ids_with_http_info: #{e}"
 end
 ```
 
@@ -687,7 +687,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 body = Falcon::DomainRoleIDs.new({role_ids: ['role_ids_example']}) # DomainRoleIDs | Role ID(s) of the role you want to assign
 
@@ -696,7 +696,7 @@ begin
   result = api_instance.grant_user_role_ids(user_uuid, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->grant_user_role_ids: #{e}"
+  puts "Error when calling UserManagement->grant_user_role_ids: #{e}"
 end
 ```
 
@@ -714,7 +714,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserRoleIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->grant_user_role_ids_with_http_info: #{e}"
+  puts "Error when calling UserManagement->grant_user_role_ids_with_http_info: #{e}"
 end
 ```
 
@@ -758,7 +758,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 opts = {
   cid: 'cid_example', # String | Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
   user_uuid: 'user_uuid_example', # String | User UUID to get available roles for. Empty User UUID would returns all roles IDs available for customer.
@@ -770,7 +770,7 @@ begin
   result = api_instance.queries_roles_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->queries_roles_v1: #{e}"
+  puts "Error when calling UserManagement->queries_roles_v1: #{e}"
 end
 ```
 
@@ -788,7 +788,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->queries_roles_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->queries_roles_v1_with_http_info: #{e}"
 end
 ```
 
@@ -833,7 +833,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 opts = {
   filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
   offset: 56, # Integer | The offset to start retrieving records from
@@ -846,7 +846,7 @@ begin
   result = api_instance.query_user_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->query_user_v1: #{e}"
+  puts "Error when calling UserManagement->query_user_v1: #{e}"
 end
 ```
 
@@ -864,7 +864,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->query_user_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->query_user_v1_with_http_info: #{e}"
 end
 ```
 
@@ -910,14 +910,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 
 begin
   # Deprecated : Please use POST /user-management/entities/users/GET/v1. List the usernames (usually an email address) for all users in your customer account
   result = api_instance.retrieve_emails_by_cid
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_emails_by_cid: #{e}"
+  puts "Error when calling UserManagement->retrieve_emails_by_cid: #{e}"
 end
 ```
 
@@ -935,7 +935,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_emails_by_cid_with_http_info: #{e}"
+  puts "Error when calling UserManagement->retrieve_emails_by_cid_with_http_info: #{e}"
 end
 ```
 
@@ -976,7 +976,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 ids = ['inner_example'] # Array<String> | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 
 begin
@@ -984,7 +984,7 @@ begin
   result = api_instance.retrieve_user(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user: #{e}"
+  puts "Error when calling UserManagement->retrieve_user: #{e}"
 end
 ```
 
@@ -1002,7 +1002,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserMetadataResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user_with_http_info: #{e}"
+  puts "Error when calling UserManagement->retrieve_user_with_http_info: #{e}"
 end
 ```
 
@@ -1045,7 +1045,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 uid = ['inner_example'] # Array<String> | A username. This is usually the user's email address, but may vary based on your configuration.
 
 begin
@@ -1053,7 +1053,7 @@ begin
   result = api_instance.retrieve_user_uuid(uid)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user_uuid: #{e}"
+  puts "Error when calling UserManagement->retrieve_user_uuid: #{e}"
 end
 ```
 
@@ -1071,7 +1071,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user_uuid_with_http_info: #{e}"
+  puts "Error when calling UserManagement->retrieve_user_uuid_with_http_info: #{e}"
 end
 ```
 
@@ -1114,14 +1114,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 
 begin
   # Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/users/entities/user/v1`.
   result = api_instance.retrieve_user_uuids_by_cid
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user_uuids_by_cid: #{e}"
+  puts "Error when calling UserManagement->retrieve_user_uuids_by_cid: #{e}"
 end
 ```
 
@@ -1139,7 +1139,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_user_uuids_by_cid_with_http_info: #{e}"
+  puts "Error when calling UserManagement->retrieve_user_uuids_by_cid_with_http_info: #{e}"
 end
 ```
 
@@ -1180,7 +1180,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 body = Falcon::MsaspecIdsRequest.new({ids: ['ids_example']}) # MsaspecIdsRequest | Maximum of 5000 User UUIDs can be specified per request.
 
 begin
@@ -1188,7 +1188,7 @@ begin
   result = api_instance.retrieve_users_getv1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_users_getv1: #{e}"
+  puts "Error when calling UserManagement->retrieve_users_getv1: #{e}"
 end
 ```
 
@@ -1206,7 +1206,7 @@ begin
   p headers # => { ... }
   p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->retrieve_users_getv1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->retrieve_users_getv1_with_http_info: #{e}"
 end
 ```
 
@@ -1249,7 +1249,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 ids = ['inner_example'] # Array<String> | One or more role IDs to revoke. Find a role's ID from `/users/queries/roles/v1`.
 
@@ -1258,7 +1258,7 @@ begin
   result = api_instance.revoke_user_role_ids(user_uuid, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->revoke_user_role_ids: #{e}"
+  puts "Error when calling UserManagement->revoke_user_role_ids: #{e}"
 end
 ```
 
@@ -1276,7 +1276,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserRoleIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->revoke_user_role_ids_with_http_info: #{e}"
+  puts "Error when calling UserManagement->revoke_user_role_ids_with_http_info: #{e}"
 end
 ```
 
@@ -1320,7 +1320,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | ID of a user. Find a user's ID from `/users/entities/user/v1`.
 body = Falcon::DomainUpdateUserFields.new # DomainUpdateUserFields | Attributes for this user. All attributes (shown below) are optional.
 
@@ -1329,7 +1329,7 @@ begin
   result = api_instance.update_user(user_uuid, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->update_user: #{e}"
+  puts "Error when calling UserManagement->update_user: #{e}"
 end
 ```
 
@@ -1347,7 +1347,7 @@ begin
   p headers # => { ... }
   p data # => <ApiUserMetadataResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->update_user_with_http_info: #{e}"
+  puts "Error when calling UserManagement->update_user_with_http_info: #{e}"
 end
 ```
 
@@ -1391,7 +1391,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 user_uuid = 'user_uuid_example' # String | user uuid
 body = Falcon::DomainUpdateUserRequest.new # DomainUpdateUserRequest | Both firstName and lastName have to specified.
 
@@ -1400,7 +1400,7 @@ begin
   result = api_instance.update_user_v1(user_uuid, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->update_user_v1: #{e}"
+  puts "Error when calling UserManagement->update_user_v1: #{e}"
 end
 ```
 
@@ -1418,7 +1418,7 @@ begin
   p headers # => { ... }
   p data # => <FlightcontrolapiUserResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->update_user_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->update_user_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1462,7 +1462,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 body = Falcon::DomainUserActionRequest.new({action: Falcon::DomainUserAction.new({action_name: 'reset_password'}), ids: ['ids_example']}) # DomainUserActionRequest | User UUIDs and Action Name params are required. Allowed values for Action Name param includes 'reset_2fa' and 'reset_password'
 
 begin
@@ -1470,7 +1470,7 @@ begin
   result = api_instance.user_action_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->user_action_v1: #{e}"
+  puts "Error when calling UserManagement->user_action_v1: #{e}"
 end
 ```
 
@@ -1488,7 +1488,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->user_action_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->user_action_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1531,7 +1531,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::UserManagementApi.new
+api_instance = Falcon::UserManagement.new
 body = Falcon::DomainActionUserRolesRequest.new # DomainActionUserRolesRequest | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
 
 begin
@@ -1539,7 +1539,7 @@ begin
   result = api_instance.user_roles_action_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->user_roles_action_v1: #{e}"
+  puts "Error when calling UserManagement->user_roles_action_v1: #{e}"
 end
 ```
 
@@ -1557,7 +1557,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagementApi->user_roles_action_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->user_roles_action_v1_with_http_info: #{e}"
 end
 ```
 

@@ -1,12 +1,12 @@
-# Falcon::IdentityEntitiesApi
+# Falcon::IdentityEntities
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_sensor_aggregates**](IdentityEntitiesApi.md#get_sensor_aggregates) | **POST** /identity-protection/aggregates/devices/GET/v1 | Get sensor aggregates as specified via json in request body. |
-| [**get_sensor_details**](IdentityEntitiesApi.md#get_sensor_details) | **POST** /identity-protection/entities/devices/GET/v1 | Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs. |
-| [**query_sensors_by_filter**](IdentityEntitiesApi.md#query_sensors_by_filter) | **GET** /identity-protection/queries/devices/v1 | Search for sensors in your environment by hostname, IP, and other criteria. |
+| [**get_sensor_aggregates**](IdentityEntities.md#get_sensor_aggregates) | **POST** /identity-protection/aggregates/devices/GET/v1 | Get sensor aggregates as specified via json in request body. |
+| [**get_sensor_details**](IdentityEntities.md#get_sensor_details) | **POST** /identity-protection/entities/devices/GET/v1 | Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs. |
+| [**query_sensors_by_filter**](IdentityEntities.md#query_sensors_by_filter) | **GET** /identity-protection/queries/devices/v1 | Search for sensors in your environment by hostname, IP, and other criteria. |
 
 
 ## get_sensor_aggregates
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityEntitiesApi.new
+api_instance = Falcon::IdentityEntities.new
 body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
 
 begin
@@ -36,7 +36,7 @@ begin
   result = api_instance.get_sensor_aggregates(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->get_sensor_aggregates: #{e}"
+  puts "Error when calling IdentityEntities->get_sensor_aggregates: #{e}"
 end
 ```
 
@@ -54,7 +54,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->get_sensor_aggregates_with_http_info: #{e}"
+  puts "Error when calling IdentityEntities->get_sensor_aggregates_with_http_info: #{e}"
 end
 ```
 
@@ -97,7 +97,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityEntitiesApi.new
+api_instance = Falcon::IdentityEntities.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -105,7 +105,7 @@ begin
   result = api_instance.get_sensor_details(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->get_sensor_details: #{e}"
+  puts "Error when calling IdentityEntities->get_sensor_details: #{e}"
 end
 ```
 
@@ -123,7 +123,7 @@ begin
   p headers # => { ... }
   p data # => <ApiSensorDetailsResponseSwagger>
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->get_sensor_details_with_http_info: #{e}"
+  puts "Error when calling IdentityEntities->get_sensor_details_with_http_info: #{e}"
 end
 ```
 
@@ -166,7 +166,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityEntitiesApi.new
+api_instance = Falcon::IdentityEntities.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-200]
@@ -179,7 +179,7 @@ begin
   result = api_instance.query_sensors_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->query_sensors_by_filter: #{e}"
+  puts "Error when calling IdentityEntities->query_sensors_by_filter: #{e}"
 end
 ```
 
@@ -197,7 +197,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityEntitiesApi->query_sensors_by_filter_with_http_info: #{e}"
+  puts "Error when calling IdentityEntities->query_sensors_by_filter_with_http_info: #{e}"
 end
 ```
 

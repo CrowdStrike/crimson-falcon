@@ -1,11 +1,11 @@
-# Falcon::Oauth2Api
+# Falcon::Oauth2
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**oauth2_access_token**](Oauth2Api.md#oauth2_access_token) | **POST** /oauth2/token | Generate an OAuth2 access token |
-| [**oauth2_revoke_token**](Oauth2Api.md#oauth2_revoke_token) | **POST** /oauth2/revoke | Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan. |
+| [**oauth2_access_token**](Oauth2.md#oauth2_access_token) | **POST** /oauth2/token | Generate an OAuth2 access token |
+| [**oauth2_revoke_token**](Oauth2.md#oauth2_revoke_token) | **POST** /oauth2/revoke | Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan. |
 
 
 ## oauth2_access_token
@@ -27,7 +27,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::Oauth2Api.new
+api_instance = Falcon::Oauth2.new
 client_id = 'client_id_example' # String | The API client ID to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
 client_secret = 'client_secret_example' # String | The API client secret to authenticate your API requests. For information on generating API clients, see [API documentation inside Falcon](https://falcon.crowdstrike.com/support/documentation/1/crowdstrike-api-introduction-for-developers).
 opts = {
@@ -39,7 +39,7 @@ begin
   result = api_instance.oauth2_access_token(client_id, client_secret, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling Oauth2Api->oauth2_access_token: #{e}"
+  puts "Error when calling Oauth2->oauth2_access_token: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAccessTokenResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling Oauth2Api->oauth2_access_token_with_http_info: #{e}"
+  puts "Error when calling Oauth2->oauth2_access_token_with_http_info: #{e}"
 end
 ```
 
@@ -102,7 +102,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::Oauth2Api.new
+api_instance = Falcon::Oauth2.new
 token = 'token_example' # String | The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (`Authorization: basic <encoded API client ID and secret>`) in your request header.
 opts = {
   client_id: 'client_id_example' # String | The OAuth2 client ID you are revoking the token for.
@@ -113,7 +113,7 @@ begin
   result = api_instance.oauth2_revoke_token(token, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling Oauth2Api->oauth2_revoke_token: #{e}"
+  puts "Error when calling Oauth2->oauth2_revoke_token: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling Oauth2Api->oauth2_revoke_token_with_http_info: #{e}"
+  puts "Error when calling Oauth2->oauth2_revoke_token_with_http_info: #{e}"
 end
 ```
 

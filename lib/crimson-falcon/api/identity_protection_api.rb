@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IdentityProtectionApi
+  class IdentityProtection
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,22 +53,22 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def api_preempt_proxy_delete_policy_rules_with_http_info(authorization, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityProtectionApi.api_preempt_proxy_delete_policy_rules ...'
+        @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_delete_policy_rules ...'
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtectionApi.api_preempt_proxy_delete_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_delete_policy_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IdentityProtectionApi.api_preempt_proxy_delete_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IdentityProtection.api_preempt_proxy_delete_policy_rules"
       end
       if @api_client.config.client_side_validation && ids.length > 100
-        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtectionApi.api_preempt_proxy_delete_policy_rules, number of items must be less than or equal to 100.'
+        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtection.api_preempt_proxy_delete_policy_rules, number of items must be less than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && ids.length < 1
-        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtectionApi.api_preempt_proxy_delete_policy_rules, number of items must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtection.api_preempt_proxy_delete_policy_rules, number of items must be greater than or equal to 1.'
       end
 
       # resource path
@@ -97,7 +97,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityProtectionApi.api_preempt_proxy_delete_policy_rules",
+        :operation => :"IdentityProtection.api_preempt_proxy_delete_policy_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -108,7 +108,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityProtectionApi#api_preempt_proxy_delete_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityProtection#api_preempt_proxy_delete_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -130,22 +130,22 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def api_preempt_proxy_get_policy_rules_with_http_info(authorization, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityProtectionApi.api_preempt_proxy_get_policy_rules ...'
+        @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_get_policy_rules ...'
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtectionApi.api_preempt_proxy_get_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_get_policy_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IdentityProtectionApi.api_preempt_proxy_get_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IdentityProtection.api_preempt_proxy_get_policy_rules"
       end
       if @api_client.config.client_side_validation && ids.length > 100
-        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtectionApi.api_preempt_proxy_get_policy_rules, number of items must be less than or equal to 100.'
+        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtection.api_preempt_proxy_get_policy_rules, number of items must be less than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && ids.length < 1
-        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtectionApi.api_preempt_proxy_get_policy_rules, number of items must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "ids" when calling IdentityProtection.api_preempt_proxy_get_policy_rules, number of items must be greater than or equal to 1.'
       end
 
       # resource path
@@ -174,7 +174,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityProtectionApi.api_preempt_proxy_get_policy_rules",
+        :operation => :"IdentityProtection.api_preempt_proxy_get_policy_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -185,7 +185,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityProtectionApi#api_preempt_proxy_get_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityProtection#api_preempt_proxy_get_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -211,11 +211,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def api_preempt_proxy_get_policy_rules_query_with_http_info(authorization, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityProtectionApi.api_preempt_proxy_get_policy_rules_query ...'
+        @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_get_policy_rules_query ...'
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtectionApi.api_preempt_proxy_get_policy_rules_query"
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_get_policy_rules_query"
       end
       # resource path
       local_var_path = '/identity-protection/queries/policy-rules/v1'
@@ -245,7 +245,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityProtectionApi.api_preempt_proxy_get_policy_rules_query",
+        :operation => :"IdentityProtection.api_preempt_proxy_get_policy_rules_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -256,7 +256,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityProtectionApi#api_preempt_proxy_get_policy_rules_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityProtection#api_preempt_proxy_get_policy_rules_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -276,11 +276,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def api_preempt_proxy_post_graphql_with_http_info(authorization, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityProtectionApi.api_preempt_proxy_post_graphql ...'
+        @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_post_graphql ...'
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtectionApi.api_preempt_proxy_post_graphql"
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_post_graphql"
       end
       # resource path
       local_var_path = '/identity-protection/combined/graphql/v1'
@@ -307,7 +307,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityProtectionApi.api_preempt_proxy_post_graphql",
+        :operation => :"IdentityProtection.api_preempt_proxy_post_graphql",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -318,7 +318,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityProtectionApi#api_preempt_proxy_post_graphql\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityProtection#api_preempt_proxy_post_graphql\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -340,15 +340,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def api_preempt_proxy_post_policy_rules_with_http_info(authorization, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IdentityProtectionApi.api_preempt_proxy_post_policy_rules ...'
+        @api_client.config.logger.debug 'Calling API: IdentityProtection.api_preempt_proxy_post_policy_rules ...'
       end
       # verify the required parameter 'authorization' is set
       if @api_client.config.client_side_validation && authorization.nil?
-        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtectionApi.api_preempt_proxy_post_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling IdentityProtection.api_preempt_proxy_post_policy_rules"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityProtectionApi.api_preempt_proxy_post_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IdentityProtection.api_preempt_proxy_post_policy_rules"
       end
       # resource path
       local_var_path = '/identity-protection/entities/policy-rules/v1'
@@ -380,7 +380,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IdentityProtectionApi.api_preempt_proxy_post_policy_rules",
+        :operation => :"IdentityProtection.api_preempt_proxy_post_policy_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -391,7 +391,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IdentityProtectionApi#api_preempt_proxy_post_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IdentityProtection#api_preempt_proxy_post_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

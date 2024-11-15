@@ -1,14 +1,14 @@
-# Falcon::SensorVisibilityExclusionsApi
+# Falcon::SensorVisibilityExclusions
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_sv_exclusions_v1**](SensorVisibilityExclusionsApi.md#create_sv_exclusions_v1) | **POST** /policy/entities/sv-exclusions/v1 | Create the sensor visibility exclusions |
-| [**delete_sensor_visibility_exclusions_v1**](SensorVisibilityExclusionsApi.md#delete_sensor_visibility_exclusions_v1) | **DELETE** /policy/entities/sv-exclusions/v1 | Delete the sensor visibility exclusions by id |
-| [**get_sensor_visibility_exclusions_v1**](SensorVisibilityExclusionsApi.md#get_sensor_visibility_exclusions_v1) | **GET** /policy/entities/sv-exclusions/v1 | Get a set of Sensor Visibility Exclusions by specifying their IDs |
-| [**query_sensor_visibility_exclusions_v1**](SensorVisibilityExclusionsApi.md#query_sensor_visibility_exclusions_v1) | **GET** /policy/queries/sv-exclusions/v1 | Search for sensor visibility exclusions. |
-| [**update_sensor_visibility_exclusions_v1**](SensorVisibilityExclusionsApi.md#update_sensor_visibility_exclusions_v1) | **PATCH** /policy/entities/sv-exclusions/v1 | Update the sensor visibility exclusions |
+| [**create_sv_exclusions_v1**](SensorVisibilityExclusions.md#create_sv_exclusions_v1) | **POST** /policy/entities/sv-exclusions/v1 | Create the sensor visibility exclusions |
+| [**delete_sensor_visibility_exclusions_v1**](SensorVisibilityExclusions.md#delete_sensor_visibility_exclusions_v1) | **DELETE** /policy/entities/sv-exclusions/v1 | Delete the sensor visibility exclusions by id |
+| [**get_sensor_visibility_exclusions_v1**](SensorVisibilityExclusions.md#get_sensor_visibility_exclusions_v1) | **GET** /policy/entities/sv-exclusions/v1 | Get a set of Sensor Visibility Exclusions by specifying their IDs |
+| [**query_sensor_visibility_exclusions_v1**](SensorVisibilityExclusions.md#query_sensor_visibility_exclusions_v1) | **GET** /policy/queries/sv-exclusions/v1 | Search for sensor visibility exclusions. |
+| [**update_sensor_visibility_exclusions_v1**](SensorVisibilityExclusions.md#update_sensor_visibility_exclusions_v1) | **PATCH** /policy/entities/sv-exclusions/v1 | Update the sensor visibility exclusions |
 
 
 ## create_sv_exclusions_v1
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorVisibilityExclusionsApi.new
+api_instance = Falcon::SensorVisibilityExclusions.new
 body = Falcon::SvExclusionsCreateReqV1.new # SvExclusionsCreateReqV1 | 
 
 begin
@@ -38,7 +38,7 @@ begin
   result = api_instance.create_sv_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->create_sv_exclusions_v1: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->create_sv_exclusions_v1: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <ExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->create_sv_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->create_sv_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorVisibilityExclusionsApi.new
+api_instance = Falcon::SensorVisibilityExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to delete
 opts = {
   comment: 'comment_example' # String | Explains why this exclusions was deleted
@@ -110,7 +110,7 @@ begin
   result = api_instance.delete_sensor_visibility_exclusions_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->delete_sensor_visibility_exclusions_v1: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->delete_sensor_visibility_exclusions_v1: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->delete_sensor_visibility_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->delete_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorVisibilityExclusionsApi.new
+api_instance = Falcon::SensorVisibilityExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to retrieve
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.get_sensor_visibility_exclusions_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->get_sensor_visibility_exclusions_v1: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->get_sensor_visibility_exclusions_v1: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => <SvExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->get_sensor_visibility_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->get_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -241,7 +241,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorVisibilityExclusionsApi.new
+api_instance = Falcon::SensorVisibilityExclusions.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results.
   offset: 56, # Integer | The offset to start retrieving records from
@@ -254,7 +254,7 @@ begin
   result = api_instance.query_sensor_visibility_exclusions_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->query_sensor_visibility_exclusions_v1: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->query_sensor_visibility_exclusions_v1: #{e}"
 end
 ```
 
@@ -272,7 +272,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->query_sensor_visibility_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->query_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -318,7 +318,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorVisibilityExclusionsApi.new
+api_instance = Falcon::SensorVisibilityExclusions.new
 body = Falcon::SvExclusionsUpdateReqV1.new({id: 'id_example'}) # SvExclusionsUpdateReqV1 | 
 
 begin
@@ -326,7 +326,7 @@ begin
   result = api_instance.update_sensor_visibility_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->update_sensor_visibility_exclusions_v1: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->update_sensor_visibility_exclusions_v1: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ begin
   p headers # => { ... }
   p data # => <SvExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorVisibilityExclusionsApi->update_sensor_visibility_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling SensorVisibilityExclusions->update_sensor_visibility_exclusions_v1_with_http_info: #{e}"
 end
 ```
 

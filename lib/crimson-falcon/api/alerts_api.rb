@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class AlertsApi
+  class Alerts
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -59,14 +59,14 @@ module Falcon
     # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
     def get_queries_alerts_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.get_queries_alerts_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.get_queries_alerts_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 10000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v1, must be smaller than or equal to 10000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Alerts.get_queries_alerts_v1, must be smaller than or equal to 10000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v1, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Alerts.get_queries_alerts_v1, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -98,7 +98,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.get_queries_alerts_v1",
+        :operation => :"Alerts.get_queries_alerts_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -109,7 +109,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#get_queries_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#get_queries_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -139,14 +139,14 @@ module Falcon
     # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
     def get_queries_alerts_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.get_queries_alerts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.get_queries_alerts_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 10000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v2, must be smaller than or equal to 10000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Alerts.get_queries_alerts_v2, must be smaller than or equal to 10000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AlertsApi.get_queries_alerts_v2, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Alerts.get_queries_alerts_v2, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -179,7 +179,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.get_queries_alerts_v2",
+        :operation => :"Alerts.get_queries_alerts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -190,7 +190,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#get_queries_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#get_queries_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -210,11 +210,11 @@ module Falcon
     # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
     def patch_entities_alerts_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.patch_entities_alerts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.patch_entities_alerts_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.patch_entities_alerts_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.patch_entities_alerts_v2"
       end
       # resource path
       local_var_path = '/alerts/entities/alerts/v2'
@@ -245,7 +245,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.patch_entities_alerts_v2",
+        :operation => :"Alerts.patch_entities_alerts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -256,7 +256,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#patch_entities_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#patch_entities_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -278,11 +278,11 @@ module Falcon
     # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
     def patch_entities_alerts_v3_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.patch_entities_alerts_v3 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.patch_entities_alerts_v3 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.patch_entities_alerts_v3"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.patch_entities_alerts_v3"
       end
       # resource path
       local_var_path = '/alerts/entities/alerts/v3'
@@ -314,7 +314,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.patch_entities_alerts_v3",
+        :operation => :"Alerts.patch_entities_alerts_v3",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -325,7 +325,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#patch_entities_alerts_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#patch_entities_alerts_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -345,11 +345,11 @@ module Falcon
     # @return [Array<(DetectsapiAggregatesResponse, Integer, Hash)>] DetectsapiAggregatesResponse data, response status code and response headers
     def post_aggregates_alerts_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.post_aggregates_alerts_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.post_aggregates_alerts_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_aggregates_alerts_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.post_aggregates_alerts_v1"
       end
       # resource path
       local_var_path = '/alerts/aggregates/alerts/v1'
@@ -380,7 +380,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.post_aggregates_alerts_v1",
+        :operation => :"Alerts.post_aggregates_alerts_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -391,7 +391,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#post_aggregates_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#post_aggregates_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -413,11 +413,11 @@ module Falcon
     # @return [Array<(DetectsapiAggregatesResponse, Integer, Hash)>] DetectsapiAggregatesResponse data, response status code and response headers
     def post_aggregates_alerts_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.post_aggregates_alerts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.post_aggregates_alerts_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_aggregates_alerts_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.post_aggregates_alerts_v2"
       end
       # resource path
       local_var_path = '/alerts/aggregates/alerts/v2'
@@ -449,7 +449,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.post_aggregates_alerts_v2",
+        :operation => :"Alerts.post_aggregates_alerts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -460,7 +460,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#post_aggregates_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#post_aggregates_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -480,11 +480,11 @@ module Falcon
     # @return [Array<(DetectsapiPostEntitiesAlertsV1ResponseSwagger, Integer, Hash)>] DetectsapiPostEntitiesAlertsV1ResponseSwagger data, response status code and response headers
     def post_entities_alerts_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.post_entities_alerts_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.post_entities_alerts_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_entities_alerts_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.post_entities_alerts_v1"
       end
       # resource path
       local_var_path = '/alerts/entities/alerts/v1'
@@ -515,7 +515,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.post_entities_alerts_v1",
+        :operation => :"Alerts.post_entities_alerts_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -526,7 +526,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#post_entities_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#post_entities_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -548,11 +548,11 @@ module Falcon
     # @return [Array<(DetectsapiPostEntitiesAlertsV2ResponseSwagger, Integer, Hash)>] DetectsapiPostEntitiesAlertsV2ResponseSwagger data, response status code and response headers
     def post_entities_alerts_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AlertsApi.post_entities_alerts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Alerts.post_entities_alerts_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling AlertsApi.post_entities_alerts_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.post_entities_alerts_v2"
       end
       # resource path
       local_var_path = '/alerts/entities/alerts/v2'
@@ -584,7 +584,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"AlertsApi.post_entities_alerts_v2",
+        :operation => :"Alerts.post_entities_alerts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -595,7 +595,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AlertsApi#post_entities_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Alerts#post_entities_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

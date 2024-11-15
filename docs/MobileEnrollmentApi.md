@@ -1,11 +1,11 @@
-# Falcon::MobileEnrollmentApi
+# Falcon::MobileEnrollment
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**request_device_enrollment_v3**](MobileEnrollmentApi.md#request_device_enrollment_v3) | **POST** /enrollments/entities/details/v3 | Trigger on-boarding process for a mobile device |
-| [**request_device_enrollment_v4**](MobileEnrollmentApi.md#request_device_enrollment_v4) | **POST** /enrollments/entities/details/v4 | Trigger on-boarding process for a mobile device |
+| [**request_device_enrollment_v3**](MobileEnrollment.md#request_device_enrollment_v3) | **POST** /enrollments/entities/details/v3 | Trigger on-boarding process for a mobile device |
+| [**request_device_enrollment_v4**](MobileEnrollment.md#request_device_enrollment_v4) | **POST** /enrollments/entities/details/v4 | Trigger on-boarding process for a mobile device |
 
 
 ## request_device_enrollment_v3
@@ -27,7 +27,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MobileEnrollmentApi.new
+api_instance = Falcon::MobileEnrollment.new
 body = Falcon::ApiPostEnrollmentDetails.new({email_addresses: ['email_addresses_example'], expires_at: Time.now}) # ApiPostEnrollmentDetails | 
 opts = {
   action_name: 'enroll', # String | Action to perform
@@ -39,7 +39,7 @@ begin
   result = api_instance.request_device_enrollment_v3(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MobileEnrollmentApi->request_device_enrollment_v3: #{e}"
+  puts "Error when calling MobileEnrollment->request_device_enrollment_v3: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <ApiPostEnrollmentDetailsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MobileEnrollmentApi->request_device_enrollment_v3_with_http_info: #{e}"
+  puts "Error when calling MobileEnrollment->request_device_enrollment_v3_with_http_info: #{e}"
 end
 ```
 
@@ -102,7 +102,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MobileEnrollmentApi.new
+api_instance = Falcon::MobileEnrollment.new
 body = Falcon::ApiPostEnrollmentDetailsV4.new({email_addresses: ['email_addresses_example'], enrollment_type: 'enrollment_type_example', expires_at: Time.now}) # ApiPostEnrollmentDetailsV4 | 
 opts = {
   action_name: 'enroll', # String | Action to perform
@@ -114,7 +114,7 @@ begin
   result = api_instance.request_device_enrollment_v4(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MobileEnrollmentApi->request_device_enrollment_v4: #{e}"
+  puts "Error when calling MobileEnrollment->request_device_enrollment_v4: #{e}"
 end
 ```
 
@@ -132,7 +132,7 @@ begin
   p headers # => { ... }
   p data # => <ApiPostEnrollmentDetailsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MobileEnrollmentApi->request_device_enrollment_v4_with_http_info: #{e}"
+  puts "Error when calling MobileEnrollment->request_device_enrollment_v4_with_http_info: #{e}"
 end
 ```
 

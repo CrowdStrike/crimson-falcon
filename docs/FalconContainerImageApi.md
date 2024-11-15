@@ -1,18 +1,18 @@
-# Falcon::FalconContainerImageApi
+# Falcon::FalconContainerImage
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_registry_entities**](FalconContainerImageApi.md#create_registry_entities) | **POST** /container-security/entities/registries/v1 | Create a registry entity using the provided details |
-| [**delete_registry_entities**](FalconContainerImageApi.md#delete_registry_entities) | **DELETE** /container-security/entities/registries/v1 | Delete the registry entity identified by the entity UUID |
-| [**download_export_file**](FalconContainerImageApi.md#download_export_file) | **GET** /container-security/entities/exports/files/v1 | Download an export file |
-| [**launch_export_job**](FalconContainerImageApi.md#launch_export_job) | **POST** /container-security/entities/exports/v1 | Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource |
-| [**query_export_jobs**](FalconContainerImageApi.md#query_export_jobs) | **GET** /container-security/queries/exports/v1 | Query export jobs entities |
-| [**read_export_jobs**](FalconContainerImageApi.md#read_export_jobs) | **GET** /container-security/entities/exports/v1 | Read export jobs entities |
-| [**read_registry_entities**](FalconContainerImageApi.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieve registry entities identified by the customer id |
-| [**read_registry_entities_by_uuid**](FalconContainerImageApi.md#read_registry_entities_by_uuid) | **GET** /container-security/entities/registries/v1 | Retrieve the registry entity identified by the entity UUID |
-| [**update_registry_entities**](FalconContainerImageApi.md#update_registry_entities) | **PATCH** /container-security/entities/registries/v1 | Update the registry entity, as identified by the entity UUID, using the provided details |
+| [**create_registry_entities**](FalconContainerImage.md#create_registry_entities) | **POST** /container-security/entities/registries/v1 | Create a registry entity using the provided details |
+| [**delete_registry_entities**](FalconContainerImage.md#delete_registry_entities) | **DELETE** /container-security/entities/registries/v1 | Delete the registry entity identified by the entity UUID |
+| [**download_export_file**](FalconContainerImage.md#download_export_file) | **GET** /container-security/entities/exports/files/v1 | Download an export file |
+| [**launch_export_job**](FalconContainerImage.md#launch_export_job) | **POST** /container-security/entities/exports/v1 | Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource |
+| [**query_export_jobs**](FalconContainerImage.md#query_export_jobs) | **GET** /container-security/queries/exports/v1 | Query export jobs entities |
+| [**read_export_jobs**](FalconContainerImage.md#read_export_jobs) | **GET** /container-security/entities/exports/v1 | Read export jobs entities |
+| [**read_registry_entities**](FalconContainerImage.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieve registry entities identified by the customer id |
+| [**read_registry_entities_by_uuid**](FalconContainerImage.md#read_registry_entities_by_uuid) | **GET** /container-security/entities/registries/v1 | Retrieve the registry entity identified by the entity UUID |
+| [**update_registry_entities**](FalconContainerImage.md#update_registry_entities) | **PATCH** /container-security/entities/registries/v1 | Update the registry entity, as identified by the entity UUID, using the provided details |
 
 
 ## create_registry_entities
@@ -34,7 +34,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 body = Falcon::RegistryassessmentExternalRegistryPayload.new({credential: Falcon::RegistryassessmentExternalCredPayload.new({details: 3.56}), type: 'type_example', url: 'url_example'}) # RegistryassessmentExternalRegistryPayload | 
 
 begin
@@ -42,7 +42,7 @@ begin
   result = api_instance.create_registry_entities(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->create_registry_entities: #{e}"
+  puts "Error when calling FalconContainerImage->create_registry_entities: #{e}"
 end
 ```
 
@@ -60,7 +60,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalRegistryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->create_registry_entities_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->create_registry_entities_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +103,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 ids = 'ids_example' # String | Registry entity UUID
 
 begin
@@ -111,7 +111,7 @@ begin
   result = api_instance.delete_registry_entities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->delete_registry_entities: #{e}"
+  puts "Error when calling FalconContainerImage->delete_registry_entities: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalRegistryListResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->delete_registry_entities_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->delete_registry_entities_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 id = 'id_example' # String | Export job ID.
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.download_export_file(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->download_export_file: #{e}"
+  puts "Error when calling FalconContainerImage->download_export_file: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => Array&lt;Integer&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->download_export_file_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->download_export_file_with_http_info: #{e}"
 end
 ```
 
@@ -241,7 +241,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 body = Falcon::ExportsLaunchExportRequest.new({format: 'format_example', resource: 'resource_example', sort: 'sort_example'}) # ExportsLaunchExportRequest | Supported resources: - `assets.clusters` - `assets.containers` - `assets.deployments` - `assets.images` - `assets.namespaces` - `assets.nodes` - `assets.pods` - `images.images-assessment-expanded` - `images.images-assessment` - `images.images-detections` - `images.packages` - `images.vulnerabilities` - `investigate.container-alerts` - `investigate.drift-indicators` - `investigate.kubernetes-ioms` - `investigate.runtime-detections` - `investigate.unidentified-containers` - `network.events` - `policies.exclusions`
 
 begin
@@ -249,7 +249,7 @@ begin
   result = api_instance.launch_export_job(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->launch_export_job: #{e}"
+  puts "Error when calling FalconContainerImage->launch_export_job: #{e}"
 end
 ```
 
@@ -267,7 +267,7 @@ begin
   p headers # => { ... }
   p data # => <ExportsLaunchExportResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->launch_export_job_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->launch_export_job_with_http_info: #{e}"
 end
 ```
 
@@ -310,7 +310,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 opts = {
   filter: 'filter_example' # String | FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - `resource`: (string) - `status`: (string)
 }
@@ -320,7 +320,7 @@ begin
   result = api_instance.query_export_jobs(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->query_export_jobs: #{e}"
+  puts "Error when calling FalconContainerImage->query_export_jobs: #{e}"
 end
 ```
 
@@ -338,7 +338,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->query_export_jobs_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->query_export_jobs_with_http_info: #{e}"
 end
 ```
 
@@ -381,7 +381,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 ids = ['inner_example'] # Array<String> | Export Job IDs to read. Allowed up to 100 IDs per request.
 
 begin
@@ -389,7 +389,7 @@ begin
   result = api_instance.read_export_jobs(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_export_jobs: #{e}"
+  puts "Error when calling FalconContainerImage->read_export_jobs: #{e}"
 end
 ```
 
@@ -407,7 +407,7 @@ begin
   p headers # => { ... }
   p data # => <ExportsExportsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_export_jobs_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->read_export_jobs_with_http_info: #{e}"
 end
 ```
 
@@ -450,7 +450,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 opts = {
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
@@ -462,7 +462,7 @@ begin
   result = api_instance.read_registry_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_registry_entities: #{e}"
+  puts "Error when calling FalconContainerImage->read_registry_entities: #{e}"
 end
 ```
 
@@ -480,7 +480,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_registry_entities_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->read_registry_entities_with_http_info: #{e}"
 end
 ```
 
@@ -525,7 +525,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 ids = 'ids_example' # String | Registry entity UUID
 
 begin
@@ -533,7 +533,7 @@ begin
   result = api_instance.read_registry_entities_by_uuid(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_registry_entities_by_uuid: #{e}"
+  puts "Error when calling FalconContainerImage->read_registry_entities_by_uuid: #{e}"
 end
 ```
 
@@ -551,7 +551,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalRegistryListResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->read_registry_entities_by_uuid_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->read_registry_entities_by_uuid_with_http_info: #{e}"
 end
 ```
 
@@ -594,7 +594,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerImageApi.new
+api_instance = Falcon::FalconContainerImage.new
 id = 'id_example' # String | Registry entity UUID
 body = Falcon::RegistryassessmentExternalRegistryPatchPayload.new({credential: Falcon::ApiCredPayload.new({details: 3.56, type: 'type_example'})}) # RegistryassessmentExternalRegistryPatchPayload | 
 
@@ -603,7 +603,7 @@ begin
   result = api_instance.update_registry_entities(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->update_registry_entities: #{e}"
+  puts "Error when calling FalconContainerImage->update_registry_entities: #{e}"
 end
 ```
 
@@ -621,7 +621,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalRegistryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerImageApi->update_registry_entities_with_http_info: #{e}"
+  puts "Error when calling FalconContainerImage->update_registry_entities_with_http_info: #{e}"
 end
 ```
 

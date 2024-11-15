@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FalconContainerImageApi
+  class FalconContainerImage
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainExternalRegistryResponse, Integer, Hash)>] DomainExternalRegistryResponse data, response status code and response headers
     def create_registry_entities_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.create_registry_entities ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.create_registry_entities ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImageApi.create_registry_entities"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImage.create_registry_entities"
       end
       # resource path
       local_var_path = '/container-security/entities/registries/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.create_registry_entities",
+        :operation => :"FalconContainerImage.create_registry_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#create_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#create_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(DomainExternalRegistryListResponse, Integer, Hash)>] DomainExternalRegistryListResponse data, response status code and response headers
     def delete_registry_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.delete_registry_entities ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.delete_registry_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImageApi.delete_registry_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImage.delete_registry_entities"
       end
       # resource path
       local_var_path = '/container-security/entities/registries/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.delete_registry_entities",
+        :operation => :"FalconContainerImage.delete_registry_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#delete_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#delete_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def download_export_file_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.download_export_file ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.download_export_file ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconContainerImageApi.download_export_file"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconContainerImage.download_export_file"
       end
       # resource path
       local_var_path = '/container-security/entities/exports/files/v1'
@@ -210,7 +210,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.download_export_file",
+        :operation => :"FalconContainerImage.download_export_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -221,7 +221,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#download_export_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#download_export_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -241,11 +241,11 @@ module Falcon
     # @return [Array<(ExportsLaunchExportResponse, Integer, Hash)>] ExportsLaunchExportResponse data, response status code and response headers
     def launch_export_job_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.launch_export_job ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.launch_export_job ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImageApi.launch_export_job"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImage.launch_export_job"
       end
       # resource path
       local_var_path = '/container-security/entities/exports/v1'
@@ -276,7 +276,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.launch_export_job",
+        :operation => :"FalconContainerImage.launch_export_job",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,7 +287,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#launch_export_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#launch_export_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -307,7 +307,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_export_jobs_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.query_export_jobs ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.query_export_jobs ...'
       end
       # resource path
       local_var_path = '/container-security/queries/exports/v1'
@@ -334,7 +334,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.query_export_jobs",
+        :operation => :"FalconContainerImage.query_export_jobs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -345,7 +345,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#query_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#query_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -365,11 +365,11 @@ module Falcon
     # @return [Array<(ExportsExportsResponse, Integer, Hash)>] ExportsExportsResponse data, response status code and response headers
     def read_export_jobs_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.read_export_jobs ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.read_export_jobs ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImageApi.read_export_jobs"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImage.read_export_jobs"
       end
       # resource path
       local_var_path = '/container-security/entities/exports/v1'
@@ -396,7 +396,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.read_export_jobs",
+        :operation => :"FalconContainerImage.read_export_jobs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -407,7 +407,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#read_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#read_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -431,7 +431,7 @@ module Falcon
     # @return [Array<(DomainExternalQueryResponse, Integer, Hash)>] DomainExternalQueryResponse data, response status code and response headers
     def read_registry_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.read_registry_entities ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.read_registry_entities ...'
       end
       # resource path
       local_var_path = '/container-security/queries/registries/v1'
@@ -460,7 +460,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.read_registry_entities",
+        :operation => :"FalconContainerImage.read_registry_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -471,7 +471,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#read_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#read_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -491,11 +491,11 @@ module Falcon
     # @return [Array<(DomainExternalRegistryListResponse, Integer, Hash)>] DomainExternalRegistryListResponse data, response status code and response headers
     def read_registry_entities_by_uuid_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.read_registry_entities_by_uuid ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.read_registry_entities_by_uuid ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImageApi.read_registry_entities_by_uuid"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImage.read_registry_entities_by_uuid"
       end
       # resource path
       local_var_path = '/container-security/entities/registries/v1'
@@ -522,7 +522,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.read_registry_entities_by_uuid",
+        :operation => :"FalconContainerImage.read_registry_entities_by_uuid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -533,7 +533,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#read_registry_entities_by_uuid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#read_registry_entities_by_uuid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -555,15 +555,15 @@ module Falcon
     # @return [Array<(DomainExternalRegistryResponse, Integer, Hash)>] DomainExternalRegistryResponse data, response status code and response headers
     def update_registry_entities_with_http_info(id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.update_registry_entities ...'
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.update_registry_entities ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FalconContainerImageApi.update_registry_entities"
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconContainerImage.update_registry_entities"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImageApi.update_registry_entities"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImage.update_registry_entities"
       end
       # resource path
       local_var_path = '/container-security/entities/registries/v1'
@@ -595,7 +595,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconContainerImageApi.update_registry_entities",
+        :operation => :"FalconContainerImage.update_registry_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -606,7 +606,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconContainerImageApi#update_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconContainerImage#update_registry_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

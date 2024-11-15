@@ -1,15 +1,15 @@
-# Falcon::CertificateBasedExclusionsApi
+# Falcon::CertificateBasedExclusions
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**cb_exclusions_create_v1**](CertificateBasedExclusionsApi.md#cb_exclusions_create_v1) | **POST** /exclusions/entities/cert-based-exclusions/v1 | Create new Certificate Based Exclusions. |
-| [**cb_exclusions_delete_v1**](CertificateBasedExclusionsApi.md#cb_exclusions_delete_v1) | **DELETE** /exclusions/entities/cert-based-exclusions/v1 | Delete the exclusions by id |
-| [**cb_exclusions_get_v1**](CertificateBasedExclusionsApi.md#cb_exclusions_get_v1) | **GET** /exclusions/entities/cert-based-exclusions/v1 | Find all exclusion IDs matching the query with filter |
-| [**cb_exclusions_query_v1**](CertificateBasedExclusionsApi.md#cb_exclusions_query_v1) | **GET** /exclusions/queries/cert-based-exclusions/v1 | Search for cert-based exclusions. |
-| [**cb_exclusions_update_v1**](CertificateBasedExclusionsApi.md#cb_exclusions_update_v1) | **PATCH** /exclusions/entities/cert-based-exclusions/v1 | Updates existing Certificate Based Exclusions |
-| [**certificates_get_v1**](CertificateBasedExclusionsApi.md#certificates_get_v1) | **GET** /exclusions/entities/certificates/v1 | Retrieves certificate signing information for a file |
+| [**cb_exclusions_create_v1**](CertificateBasedExclusions.md#cb_exclusions_create_v1) | **POST** /exclusions/entities/cert-based-exclusions/v1 | Create new Certificate Based Exclusions. |
+| [**cb_exclusions_delete_v1**](CertificateBasedExclusions.md#cb_exclusions_delete_v1) | **DELETE** /exclusions/entities/cert-based-exclusions/v1 | Delete the exclusions by id |
+| [**cb_exclusions_get_v1**](CertificateBasedExclusions.md#cb_exclusions_get_v1) | **GET** /exclusions/entities/cert-based-exclusions/v1 | Find all exclusion IDs matching the query with filter |
+| [**cb_exclusions_query_v1**](CertificateBasedExclusions.md#cb_exclusions_query_v1) | **GET** /exclusions/queries/cert-based-exclusions/v1 | Search for cert-based exclusions. |
+| [**cb_exclusions_update_v1**](CertificateBasedExclusions.md#cb_exclusions_update_v1) | **PATCH** /exclusions/entities/cert-based-exclusions/v1 | Updates existing Certificate Based Exclusions |
+| [**certificates_get_v1**](CertificateBasedExclusions.md#certificates_get_v1) | **GET** /exclusions/entities/certificates/v1 | Retrieves certificate signing information for a file |
 
 
 ## cb_exclusions_create_v1
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 body = Falcon::ApiCertBasedExclusionsCreateReqV1.new({exclusions: [Falcon::ApiCertBasedExclusionCreateReqV1.new({name: 'name_example'})]}) # ApiCertBasedExclusionsCreateReqV1 | 
 
 begin
@@ -39,7 +39,7 @@ begin
   result = api_instance.cb_exclusions_create_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_create_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_create_v1: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCertBasedExclusionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_create_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_create_v1_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to delete
 opts = {
   comment: 'comment_example' # String | The comment why these exclusions were deleted
@@ -111,7 +111,7 @@ begin
   result = api_instance.cb_exclusions_delete_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_delete_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_delete_v1: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCertBasedExclusionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_delete_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_delete_v1_with_http_info: #{e}"
 end
 ```
 
@@ -173,7 +173,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to retrieve
 
 begin
@@ -181,7 +181,7 @@ begin
   result = api_instance.cb_exclusions_get_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_get_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_get_v1: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCertBasedExclusionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_get_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_get_v1_with_http_info: #{e}"
 end
 ```
 
@@ -242,7 +242,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results.
   offset: 56, # Integer | The offset to start retrieving records from
@@ -255,7 +255,7 @@ begin
   result = api_instance.cb_exclusions_query_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_query_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_query_v1: #{e}"
 end
 ```
 
@@ -273,7 +273,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_query_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_query_v1_with_http_info: #{e}"
 end
 ```
 
@@ -319,7 +319,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 body = Falcon::ApiCertBasedExclusionsUpdateReqV1.new({exclusions: [Falcon::ApiCertBasedExclusionUpdateReqV1.new({id: 'id_example'})]}) # ApiCertBasedExclusionsUpdateReqV1 | 
 
 begin
@@ -327,7 +327,7 @@ begin
   result = api_instance.cb_exclusions_update_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_update_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_update_v1: #{e}"
 end
 ```
 
@@ -345,7 +345,7 @@ begin
   p headers # => { ... }
   p data # => <ApiCertBasedExclusionRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->cb_exclusions_update_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->cb_exclusions_update_v1_with_http_info: #{e}"
 end
 ```
 
@@ -388,7 +388,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CertificateBasedExclusionsApi.new
+api_instance = Falcon::CertificateBasedExclusions.new
 ids = 'ids_example' # String | The SHA256 Hash of the file to retrieve certificate signing info for
 
 begin
@@ -396,7 +396,7 @@ begin
   result = api_instance.certificates_get_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->certificates_get_v1: #{e}"
+  puts "Error when calling CertificateBasedExclusions->certificates_get_v1: #{e}"
 end
 ```
 
@@ -414,7 +414,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRespCertificatesV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CertificateBasedExclusionsApi->certificates_get_v1_with_http_info: #{e}"
+  puts "Error when calling CertificateBasedExclusions->certificates_get_v1_with_http_info: #{e}"
 end
 ```
 

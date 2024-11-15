@@ -1,26 +1,26 @@
-# Falcon::WorkflowsApi
+# Falcon::Workflows
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**workflow_activities_combined**](WorkflowsApi.md#workflow_activities_combined) | **GET** /workflows/combined/activities/v1 | Search for activities by name. Returns all supported activities if no filter specified |
-| [**workflow_definitions_combined**](WorkflowsApi.md#workflow_definitions_combined) | **GET** /workflows/combined/definitions/v1 | Search workflow definitions based on the provided filter |
-| [**workflow_definitions_export**](WorkflowsApi.md#workflow_definitions_export) | **GET** /workflows/entities/definitions/export/v1 | Exports a workflow definition for the given definition ID |
-| [**workflow_definitions_import**](WorkflowsApi.md#workflow_definitions_import) | **POST** /workflows/entities/definitions/import/v1 | Imports a workflow definition based on the provided model |
-| [**workflow_definitions_update**](WorkflowsApi.md#workflow_definitions_update) | **PUT** /workflows/entities/definitions/v1 | Updates a workflow definition based on the provided model |
-| [**workflow_execute**](WorkflowsApi.md#workflow_execute) | **POST** /workflows/entities/execute/v1 | Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s) |
-| [**workflow_execute_internal**](WorkflowsApi.md#workflow_execute_internal) | **POST** /workflows/entities/execute/internal/v1 | Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s) |
-| [**workflow_execution_results**](WorkflowsApi.md#workflow_execution_results) | **GET** /workflows/entities/execution-results/v1 | Get execution result of a given execution |
-| [**workflow_executions_action**](WorkflowsApi.md#workflow_executions_action) | **POST** /workflows/entities/execution-actions/v1 | Allows a user to resume/retry a failed workflow execution. |
-| [**workflow_executions_combined**](WorkflowsApi.md#workflow_executions_combined) | **GET** /workflows/combined/executions/v1 | Search workflow executions based on the provided filter |
-| [**workflow_get_human_input_v1**](WorkflowsApi.md#workflow_get_human_input_v1) | **GET** /workflows/entities/human-inputs/v1 | Gets one or more specific human inputs by their IDs. |
-| [**workflow_mock_execute**](WorkflowsApi.md#workflow_mock_execute) | **POST** /workflows/entities/mock-executions/v1 | Executes a workflow definition with mocks |
-| [**workflow_system_definitions_de_provision**](WorkflowsApi.md#workflow_system_definitions_de_provision) | **POST** /workflows/system-definitions/deprovision/v1 | Deprovisions a system definition that was previously provisioned on the target CID |
-| [**workflow_system_definitions_promote**](WorkflowsApi.md#workflow_system_definitions_promote) | **POST** /workflows/system-definitions/promote/v1 | Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated. |
-| [**workflow_system_definitions_provision**](WorkflowsApi.md#workflow_system_definitions_provision) | **POST** /workflows/system-definitions/provision/v1 | Provisions a system definition onto the target CID by using the template and provided parameters |
-| [**workflow_triggers_combined**](WorkflowsApi.md#workflow_triggers_combined) | **GET** /workflows/combined/triggers/v1 | Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified |
-| [**workflow_update_human_input_v1**](WorkflowsApi.md#workflow_update_human_input_v1) | **PATCH** /workflows/entities/human-inputs/v1 | Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted. |
+| [**workflow_activities_combined**](Workflows.md#workflow_activities_combined) | **GET** /workflows/combined/activities/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_definitions_combined**](Workflows.md#workflow_definitions_combined) | **GET** /workflows/combined/definitions/v1 | Search workflow definitions based on the provided filter |
+| [**workflow_definitions_export**](Workflows.md#workflow_definitions_export) | **GET** /workflows/entities/definitions/export/v1 | Exports a workflow definition for the given definition ID |
+| [**workflow_definitions_import**](Workflows.md#workflow_definitions_import) | **POST** /workflows/entities/definitions/import/v1 | Imports a workflow definition based on the provided model |
+| [**workflow_definitions_update**](Workflows.md#workflow_definitions_update) | **PUT** /workflows/entities/definitions/v1 | Updates a workflow definition based on the provided model |
+| [**workflow_execute**](Workflows.md#workflow_execute) | **POST** /workflows/entities/execute/v1 | Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execute_internal**](Workflows.md#workflow_execute_internal) | **POST** /workflows/entities/execute/internal/v1 | Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execution_results**](Workflows.md#workflow_execution_results) | **GET** /workflows/entities/execution-results/v1 | Get execution result of a given execution |
+| [**workflow_executions_action**](Workflows.md#workflow_executions_action) | **POST** /workflows/entities/execution-actions/v1 | Allows a user to resume/retry a failed workflow execution. |
+| [**workflow_executions_combined**](Workflows.md#workflow_executions_combined) | **GET** /workflows/combined/executions/v1 | Search workflow executions based on the provided filter |
+| [**workflow_get_human_input_v1**](Workflows.md#workflow_get_human_input_v1) | **GET** /workflows/entities/human-inputs/v1 | Gets one or more specific human inputs by their IDs. |
+| [**workflow_mock_execute**](Workflows.md#workflow_mock_execute) | **POST** /workflows/entities/mock-executions/v1 | Executes a workflow definition with mocks |
+| [**workflow_system_definitions_de_provision**](Workflows.md#workflow_system_definitions_de_provision) | **POST** /workflows/system-definitions/deprovision/v1 | Deprovisions a system definition that was previously provisioned on the target CID |
+| [**workflow_system_definitions_promote**](Workflows.md#workflow_system_definitions_promote) | **POST** /workflows/system-definitions/promote/v1 | Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated. |
+| [**workflow_system_definitions_provision**](Workflows.md#workflow_system_definitions_provision) | **POST** /workflows/system-definitions/provision/v1 | Provisions a system definition onto the target CID by using the template and provided parameters |
+| [**workflow_triggers_combined**](Workflows.md#workflow_triggers_combined) | **GET** /workflows/combined/triggers/v1 | Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified |
+| [**workflow_update_human_input_v1**](Workflows.md#workflow_update_human_input_v1) | **PATCH** /workflows/entities/human-inputs/v1 | Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted. |
 
 
 ## workflow_activities_combined
@@ -42,7 +42,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 opts = {
   filter: 'filter_example', # String | FQL query specifying filter parameters.
   offset: 'offset_example', # String | Starting pagination offset of records to return.
@@ -55,7 +55,7 @@ begin
   result = api_instance.workflow_activities_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_activities_combined: #{e}"
+  puts "Error when calling Workflows->workflow_activities_combined: #{e}"
 end
 ```
 
@@ -73,7 +73,7 @@ begin
   p headers # => { ... }
   p data # => <ActivitiesActivityExternalResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_activities_combined_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_activities_combined_with_http_info: #{e}"
 end
 ```
 
@@ -119,7 +119,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 opts = {
   filter: 'filter_example', # String | FQL query specifying filter parameters.
   offset: 'offset_example', # String | Starting pagination offset of records to return.
@@ -132,7 +132,7 @@ begin
   result = api_instance.workflow_definitions_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_combined: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_combined: #{e}"
 end
 ```
 
@@ -150,7 +150,7 @@ begin
   p headers # => { ... }
   p data # => <DefinitionsDefinitionExternalResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_combined_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_combined_with_http_info: #{e}"
 end
 ```
 
@@ -196,7 +196,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 id = 'id_example' # String | ID of workflow definitions to return details for
 opts = {
   sanitize: true # Boolean | whether or not to sanitize PII from workflow before it's exported
@@ -207,7 +207,7 @@ begin
   result = api_instance.workflow_definitions_export(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_export: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_export: #{e}"
 end
 ```
 
@@ -225,7 +225,7 @@ begin
   p headers # => { ... }
   p data # => Array&lt;Integer&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_export_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_export_with_http_info: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 data_file = File.new('/path/to/some/file') # File | A workflow definition in YAML format to import
 opts = {
   name: 'name_example', # String | Workflow name to override
@@ -281,7 +281,7 @@ begin
   result = api_instance.workflow_definitions_import(data_file, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_import: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_import: #{e}"
 end
 ```
 
@@ -299,7 +299,7 @@ begin
   p headers # => { ... }
   p data # => <DefinitionsDefinitionImportResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_import_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_import_with_http_info: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = Falcon::ModelsDefinitionUpdateRequestV2.new({definition: Falcon::V2Definition.new({name: 'name_example', node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: , trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: , uniq_node_seen: { key: false}}), enabled: false, id: 'id_example'}) # ModelsDefinitionUpdateRequestV2 | 
 opts = {
   validate_only: true # Boolean | When enabled, prevents saving workflow after validating
@@ -355,7 +355,7 @@ begin
   result = api_instance.workflow_definitions_update(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_update: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_update: #{e}"
 end
 ```
 
@@ -373,7 +373,7 @@ begin
   p headers # => { ... }
   p data # => <ApiResourceIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_definitions_update_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_definitions_update_with_http_info: #{e}"
 end
 ```
 
@@ -417,7 +417,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = { ... } # Object | 
 opts = {
   execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
@@ -433,7 +433,7 @@ begin
   result = api_instance.workflow_execute(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execute: #{e}"
+  puts "Error when calling Workflows->workflow_execute: #{e}"
 end
 ```
 
@@ -451,7 +451,7 @@ begin
   p headers # => { ... }
   p data # => <ApiResourceIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execute_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_execute_with_http_info: #{e}"
 end
 ```
 
@@ -500,7 +500,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = { ... } # Object | 
 opts = {
   execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
@@ -517,7 +517,7 @@ begin
   result = api_instance.workflow_execute_internal(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execute_internal: #{e}"
+  puts "Error when calling Workflows->workflow_execute_internal: #{e}"
 end
 ```
 
@@ -535,7 +535,7 @@ begin
   p headers # => { ... }
   p data # => <ApiResourceIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execute_internal_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_execute_internal_with_http_info: #{e}"
 end
 ```
 
@@ -585,7 +585,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 ids = ['inner_example'] # Array<String> | workflow execution id to return results for.
 
 begin
@@ -593,7 +593,7 @@ begin
   result = api_instance.workflow_execution_results(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execution_results: #{e}"
+  puts "Error when calling Workflows->workflow_execution_results: #{e}"
 end
 ```
 
@@ -611,7 +611,7 @@ begin
   p headers # => { ... }
   p data # => <ApiExecutionResultsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_execution_results_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_execution_results_with_http_info: #{e}"
 end
 ```
 
@@ -654,7 +654,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 action_name = 'resume' # String | Specify one of these actions:  - `resume`: resume/retry the workflow execution(s) specified in ids
 body = Falcon::ClientActionRequest.new({ids: ['ids_example']}) # ClientActionRequest | 
 
@@ -663,7 +663,7 @@ begin
   result = api_instance.workflow_executions_action(action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_executions_action: #{e}"
+  puts "Error when calling Workflows->workflow_executions_action: #{e}"
 end
 ```
 
@@ -681,7 +681,7 @@ begin
   p headers # => { ... }
   p data # => <DefinitionsDefinitionEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_executions_action_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_executions_action_with_http_info: #{e}"
 end
 ```
 
@@ -725,7 +725,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 opts = {
   filter: 'filter_example', # String | FQL query specifying filter parameters.
   offset: 'offset_example', # String | Starting pagination offset of records to return.
@@ -738,7 +738,7 @@ begin
   result = api_instance.workflow_executions_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_executions_combined: #{e}"
+  puts "Error when calling Workflows->workflow_executions_combined: #{e}"
 end
 ```
 
@@ -756,7 +756,7 @@ begin
   p headers # => { ... }
   p data # => <ApiExecutionResultsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_executions_combined_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_executions_combined_with_http_info: #{e}"
 end
 ```
 
@@ -802,7 +802,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 ids = ['inner_example'] # Array<String> | IDs of human inputs to read
 
 begin
@@ -810,7 +810,7 @@ begin
   result = api_instance.workflow_get_human_input_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_get_human_input_v1: #{e}"
+  puts "Error when calling Workflows->workflow_get_human_input_v1: #{e}"
 end
 ```
 
@@ -828,7 +828,7 @@ begin
   p headers # => { ... }
   p data # => <ModelUserInputReadResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_get_human_input_v1_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_get_human_input_v1_with_http_info: #{e}"
 end
 ```
 
@@ -871,7 +871,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = Falcon::ModelsMockExecutionCreateRequestV1.new({mocks: 'mocks_example'}) # ModelsMockExecutionCreateRequestV1 | 
 opts = {
   execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
@@ -888,7 +888,7 @@ begin
   result = api_instance.workflow_mock_execute(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_mock_execute: #{e}"
+  puts "Error when calling Workflows->workflow_mock_execute: #{e}"
 end
 ```
 
@@ -906,7 +906,7 @@ begin
   p headers # => { ... }
   p data # => <ApiResourceIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_mock_execute_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_mock_execute_with_http_info: #{e}"
 end
 ```
 
@@ -956,7 +956,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = Falcon::ClientSystemDefinitionDeProvisionRequest.new({definition_id: 'definition_id_example', deprovision_all: false, template_id: 'template_id_example', template_name: 'template_name_example'}) # ClientSystemDefinitionDeProvisionRequest | 
 
 begin
@@ -964,7 +964,7 @@ begin
   result = api_instance.workflow_system_definitions_de_provision(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_de_provision: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision: #{e}"
 end
 ```
 
@@ -982,7 +982,7 @@ begin
   p headers # => { ... }
   p data # => <ClientSystemDefinitionCreateResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_de_provision_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision_with_http_info: #{e}"
 end
 ```
 
@@ -1025,7 +1025,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = Falcon::ClientSystemDefinitionPromoteRequest.new({customer_definition_id: 'customer_definition_id_example', name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionPromoteRequest | 
 
 begin
@@ -1033,7 +1033,7 @@ begin
   result = api_instance.workflow_system_definitions_promote(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_promote: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_promote: #{e}"
 end
 ```
 
@@ -1051,7 +1051,7 @@ begin
   p headers # => { ... }
   p data # => <ClientSystemDefinitionCreateResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_promote_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_promote_with_http_info: #{e}"
 end
 ```
 
@@ -1094,7 +1094,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 body = Falcon::ClientSystemDefinitionProvisionRequest.new({name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionProvisionRequest | 
 
 begin
@@ -1102,7 +1102,7 @@ begin
   result = api_instance.workflow_system_definitions_provision(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_provision: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_provision: #{e}"
 end
 ```
 
@@ -1120,7 +1120,7 @@ begin
   p headers # => { ... }
   p data # => <ClientSystemDefinitionCreateResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_system_definitions_provision_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_system_definitions_provision_with_http_info: #{e}"
 end
 ```
 
@@ -1163,7 +1163,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 opts = {
   filter: 'filter_example' # String | FQL query specifying filter parameters.
 }
@@ -1173,7 +1173,7 @@ begin
   result = api_instance.workflow_triggers_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_triggers_combined: #{e}"
+  puts "Error when calling Workflows->workflow_triggers_combined: #{e}"
 end
 ```
 
@@ -1191,7 +1191,7 @@ begin
   p headers # => { ... }
   p data # => <TriggersTriggerExternalResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_triggers_combined_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_triggers_combined_with_http_info: #{e}"
 end
 ```
 
@@ -1234,7 +1234,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::WorkflowsApi.new
+api_instance = Falcon::Workflows.new
 id = 'id_example' # String | ID of human input to provide an input to
 body = Falcon::ModelUserInputUpdateRequest.new({input: 'input_example', note: 'note_example'}) # ModelUserInputUpdateRequest | 
 
@@ -1243,7 +1243,7 @@ begin
   result = api_instance.workflow_update_human_input_v1(id, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_update_human_input_v1: #{e}"
+  puts "Error when calling Workflows->workflow_update_human_input_v1: #{e}"
 end
 ```
 
@@ -1261,7 +1261,7 @@ begin
   p headers # => { ... }
   p data # => <ApiResourceIDsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling WorkflowsApi->workflow_update_human_input_v1_with_http_info: #{e}"
+  puts "Error when calling Workflows->workflow_update_human_input_v1_with_http_info: #{e}"
 end
 ```
 

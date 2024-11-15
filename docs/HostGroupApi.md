@@ -1,18 +1,18 @@
-# Falcon::HostGroupApi
+# Falcon::HostGroup
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_host_groups**](HostGroupApi.md#create_host_groups) | **POST** /devices/entities/host-groups/v1 | Create Host Groups by specifying details about the group to create |
-| [**delete_host_groups**](HostGroupApi.md#delete_host_groups) | **DELETE** /devices/entities/host-groups/v1 | Delete a set of Host Groups by specifying their IDs |
-| [**get_host_groups**](HostGroupApi.md#get_host_groups) | **GET** /devices/entities/host-groups/v1 | Retrieve a set of Host Groups by specifying their IDs |
-| [**perform_group_action**](HostGroupApi.md#perform_group_action) | **POST** /devices/entities/host-group-actions/v1 | Perform the specified action on the Host Groups specified in the request |
-| [**query_combined_group_members**](HostGroupApi.md#query_combined_group_members) | **GET** /devices/combined/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_combined_host_groups**](HostGroupApi.md#query_combined_host_groups) | **GET** /devices/combined/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria |
-| [**query_group_members**](HostGroupApi.md#query_group_members) | **GET** /devices/queries/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
-| [**query_host_groups**](HostGroupApi.md#query_host_groups) | **GET** /devices/queries/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria |
-| [**update_host_groups**](HostGroupApi.md#update_host_groups) | **PATCH** /devices/entities/host-groups/v1 | Update Host Groups by specifying the ID of the group and details to update |
+| [**create_host_groups**](HostGroup.md#create_host_groups) | **POST** /devices/entities/host-groups/v1 | Create Host Groups by specifying details about the group to create |
+| [**delete_host_groups**](HostGroup.md#delete_host_groups) | **DELETE** /devices/entities/host-groups/v1 | Delete a set of Host Groups by specifying their IDs |
+| [**get_host_groups**](HostGroup.md#get_host_groups) | **GET** /devices/entities/host-groups/v1 | Retrieve a set of Host Groups by specifying their IDs |
+| [**perform_group_action**](HostGroup.md#perform_group_action) | **POST** /devices/entities/host-group-actions/v1 | Perform the specified action on the Host Groups specified in the request |
+| [**query_combined_group_members**](HostGroup.md#query_combined_group_members) | **GET** /devices/combined/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_combined_host_groups**](HostGroup.md#query_combined_host_groups) | **GET** /devices/combined/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria |
+| [**query_group_members**](HostGroup.md#query_group_members) | **GET** /devices/queries/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**query_host_groups**](HostGroup.md#query_host_groups) | **GET** /devices/queries/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria |
+| [**update_host_groups**](HostGroup.md#update_host_groups) | **PATCH** /devices/entities/host-groups/v1 | Update Host Groups by specifying the ID of the group and details to update |
 
 
 ## create_host_groups
@@ -34,7 +34,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 body = Falcon::HostGroupsCreateGroupsReqV1.new({resources: [Falcon::HostGroupsCreateGroupReqV1.new({group_type: 'static', name: 'name_example'})]}) # HostGroupsCreateGroupsReqV1 | 
 
 begin
@@ -42,7 +42,7 @@ begin
   result = api_instance.create_host_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->create_host_groups: #{e}"
+  puts "Error when calling HostGroup->create_host_groups: #{e}"
 end
 ```
 
@@ -60,7 +60,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->create_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->create_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +103,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to delete
 
 begin
@@ -111,7 +111,7 @@ begin
   result = api_instance.delete_host_groups(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->delete_host_groups: #{e}"
+  puts "Error when calling HostGroup->delete_host_groups: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->delete_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->delete_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to return
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.get_host_groups(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->get_host_groups: #{e}"
+  puts "Error when calling HostGroup->get_host_groups: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->get_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->get_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -241,7 +241,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 action_name = 'add-hosts' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
 opts = {
@@ -253,7 +253,7 @@ begin
   result = api_instance.perform_group_action(action_name, body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->perform_group_action: #{e}"
+  puts "Error when calling HostGroup->perform_group_action: #{e}"
 end
 ```
 
@@ -271,7 +271,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->perform_group_action_with_http_info: #{e}"
+  puts "Error when calling HostGroup->perform_group_action_with_http_info: #{e}"
 end
 ```
 
@@ -316,7 +316,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 opts = {
   id: 'id_example', # String | The ID of the Host Group to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -330,7 +330,7 @@ begin
   result = api_instance.query_combined_group_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_combined_group_members: #{e}"
+  puts "Error when calling HostGroup->query_combined_group_members: #{e}"
 end
 ```
 
@@ -348,7 +348,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsMembersRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_combined_group_members_with_http_info: #{e}"
+  puts "Error when calling HostGroup->query_combined_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -395,7 +395,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -408,7 +408,7 @@ begin
   result = api_instance.query_combined_host_groups(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_combined_host_groups: #{e}"
+  puts "Error when calling HostGroup->query_combined_host_groups: #{e}"
 end
 ```
 
@@ -426,7 +426,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_combined_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->query_combined_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -472,7 +472,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 opts = {
   id: 'id_example', # String | The ID of the Host Group to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -486,7 +486,7 @@ begin
   result = api_instance.query_group_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_group_members: #{e}"
+  puts "Error when calling HostGroup->query_group_members: #{e}"
 end
 ```
 
@@ -504,7 +504,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_group_members_with_http_info: #{e}"
+  puts "Error when calling HostGroup->query_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -551,7 +551,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -564,7 +564,7 @@ begin
   result = api_instance.query_host_groups(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_host_groups: #{e}"
+  puts "Error when calling HostGroup->query_host_groups: #{e}"
 end
 ```
 
@@ -582,7 +582,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->query_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->query_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -628,7 +628,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HostGroupApi.new
+api_instance = Falcon::HostGroup.new
 body = Falcon::HostGroupsUpdateGroupsReqV1.new({resources: [Falcon::HostGroupsUpdateGroupReqV1.new({id: 'id_example'})]}) # HostGroupsUpdateGroupsReqV1 | 
 
 begin
@@ -636,7 +636,7 @@ begin
   result = api_instance.update_host_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->update_host_groups: #{e}"
+  puts "Error when calling HostGroup->update_host_groups: #{e}"
 end
 ```
 
@@ -654,7 +654,7 @@ begin
   p headers # => { ... }
   p data # => <HostGroupsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling HostGroupApi->update_host_groups_with_http_info: #{e}"
+  puts "Error when calling HostGroup->update_host_groups_with_http_info: #{e}"
 end
 ```
 

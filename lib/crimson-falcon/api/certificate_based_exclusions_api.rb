@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class CertificateBasedExclusionsApi
+  class CertificateBasedExclusions
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(ApiCertBasedExclusionRespV1, Integer, Hash)>] ApiCertBasedExclusionRespV1 data, response status code and response headers
     def cb_exclusions_create_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.cb_exclusions_create_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.cb_exclusions_create_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CertificateBasedExclusionsApi.cb_exclusions_create_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CertificateBasedExclusions.cb_exclusions_create_v1"
       end
       # resource path
       local_var_path = '/exclusions/entities/cert-based-exclusions/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.cb_exclusions_create_v1",
+        :operation => :"CertificateBasedExclusions.cb_exclusions_create_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#cb_exclusions_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#cb_exclusions_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,11 +119,11 @@ module Falcon
     # @return [Array<(ApiCertBasedExclusionRespV1, Integer, Hash)>] ApiCertBasedExclusionRespV1 data, response status code and response headers
     def cb_exclusions_delete_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.cb_exclusions_delete_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.cb_exclusions_delete_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusionsApi.cb_exclusions_delete_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusions.cb_exclusions_delete_v1"
       end
       # resource path
       local_var_path = '/exclusions/entities/cert-based-exclusions/v1'
@@ -151,7 +151,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.cb_exclusions_delete_v1",
+        :operation => :"CertificateBasedExclusions.cb_exclusions_delete_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -162,7 +162,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#cb_exclusions_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#cb_exclusions_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,11 +182,11 @@ module Falcon
     # @return [Array<(ApiCertBasedExclusionRespV1, Integer, Hash)>] ApiCertBasedExclusionRespV1 data, response status code and response headers
     def cb_exclusions_get_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.cb_exclusions_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.cb_exclusions_get_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusionsApi.cb_exclusions_get_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusions.cb_exclusions_get_v1"
       end
       # resource path
       local_var_path = '/exclusions/entities/cert-based-exclusions/v1'
@@ -213,7 +213,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.cb_exclusions_get_v1",
+        :operation => :"CertificateBasedExclusions.cb_exclusions_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -224,7 +224,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#cb_exclusions_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#cb_exclusions_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -250,10 +250,10 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def cb_exclusions_query_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.cb_exclusions_query_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.cb_exclusions_query_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CertificateBasedExclusionsApi.cb_exclusions_query_v1, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CertificateBasedExclusions.cb_exclusions_query_v1, must be smaller than or equal to 100.'
       end
 
       allowable_values = ["created_by", "created_on", "modified_by", "modified_on", "name"]
@@ -288,7 +288,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.cb_exclusions_query_v1",
+        :operation => :"CertificateBasedExclusions.cb_exclusions_query_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -299,7 +299,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#cb_exclusions_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#cb_exclusions_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -319,11 +319,11 @@ module Falcon
     # @return [Array<(ApiCertBasedExclusionRespV1, Integer, Hash)>] ApiCertBasedExclusionRespV1 data, response status code and response headers
     def cb_exclusions_update_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.cb_exclusions_update_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.cb_exclusions_update_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CertificateBasedExclusionsApi.cb_exclusions_update_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CertificateBasedExclusions.cb_exclusions_update_v1"
       end
       # resource path
       local_var_path = '/exclusions/entities/cert-based-exclusions/v1'
@@ -354,7 +354,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.cb_exclusions_update_v1",
+        :operation => :"CertificateBasedExclusions.cb_exclusions_update_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -365,7 +365,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#cb_exclusions_update_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#cb_exclusions_update_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -385,11 +385,11 @@ module Falcon
     # @return [Array<(ApiRespCertificatesV1, Integer, Hash)>] ApiRespCertificatesV1 data, response status code and response headers
     def certificates_get_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusionsApi.certificates_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: CertificateBasedExclusions.certificates_get_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusionsApi.certificates_get_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CertificateBasedExclusions.certificates_get_v1"
       end
       # resource path
       local_var_path = '/exclusions/entities/certificates/v1'
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CertificateBasedExclusionsApi.certificates_get_v1",
+        :operation => :"CertificateBasedExclusions.certificates_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CertificateBasedExclusionsApi#certificates_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CertificateBasedExclusions#certificates_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

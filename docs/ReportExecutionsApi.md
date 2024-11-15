@@ -1,13 +1,13 @@
-# Falcon::ReportExecutionsApi
+# Falcon::ReportExecutions
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**report_executions_download_get**](ReportExecutionsApi.md#report_executions_download_get) | **GET** /reports/entities/report-executions-download/v1 | Get report entity download. Returns either a JSON object or a CSV string. |
-| [**report_executions_get**](ReportExecutionsApi.md#report_executions_get) | **GET** /reports/entities/report-executions/v1 | Retrieve report details for the provided report IDs. |
-| [**report_executions_query**](ReportExecutionsApi.md#report_executions_query) | **GET** /reports/queries/report-executions/v1 | Find all report execution IDs matching the query with filter |
-| [**report_executions_retry**](ReportExecutionsApi.md#report_executions_retry) | **POST** /reports/entities/report-executions-retry/v1 | This endpoint will be used to retry report executions |
+| [**report_executions_download_get**](ReportExecutions.md#report_executions_download_get) | **GET** /reports/entities/report-executions-download/v1 | Get report entity download. Returns either a JSON object or a CSV string. |
+| [**report_executions_get**](ReportExecutions.md#report_executions_get) | **GET** /reports/entities/report-executions/v1 | Retrieve report details for the provided report IDs. |
+| [**report_executions_query**](ReportExecutions.md#report_executions_query) | **GET** /reports/queries/report-executions/v1 | Find all report execution IDs matching the query with filter |
+| [**report_executions_retry**](ReportExecutions.md#report_executions_retry) | **POST** /reports/entities/report-executions-retry/v1 | This endpoint will be used to retry report executions |
 
 
 ## report_executions_download_get
@@ -29,7 +29,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReportExecutionsApi.new
+api_instance = Falcon::ReportExecutions.new
 ids = 'ids_example' # String | The report_execution id to download
 
 begin
@@ -37,7 +37,7 @@ begin
   result = api_instance.report_executions_download_get(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_download_get: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_download_get: #{e}"
 end
 ```
 
@@ -55,7 +55,7 @@ begin
   p headers # => { ... }
   p data # => Object
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_download_get_with_http_info: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_download_get_with_http_info: #{e}"
 end
 ```
 
@@ -98,7 +98,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReportExecutionsApi.new
+api_instance = Falcon::ReportExecutions.new
 ids = ['inner_example'] # Array<String> | The report_execution id to get details about.
 
 begin
@@ -106,7 +106,7 @@ begin
   result = api_instance.report_executions_get(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_get: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_get: #{e}"
 end
 ```
 
@@ -124,7 +124,7 @@ begin
   p headers # => { ... }
   p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_get_with_http_info: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_get_with_http_info: #{e}"
 end
 ```
 
@@ -167,7 +167,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReportExecutionsApi.new
+api_instance = Falcon::ReportExecutions.new
 opts = {
   sort: 'sort_example', # String | Possible order by fields: created_on, last_updated_on
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: type, scheduled_report_id, status. Filter range criteria: created_on, last_updated_on, expiration_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -181,7 +181,7 @@ begin
   result = api_instance.report_executions_query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_query: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_query: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_query_with_http_info: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_query_with_http_info: #{e}"
 end
 ```
 
@@ -246,7 +246,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ReportExecutionsApi.new
+api_instance = Falcon::ReportExecutions.new
 body = [Falcon::DomainReportExecutionRetryRequestV1.new({id: 'id_example'})] # Array<DomainReportExecutionRetryRequestV1> | 
 
 begin
@@ -254,7 +254,7 @@ begin
   result = api_instance.report_executions_retry(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_retry: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_retry: #{e}"
 end
 ```
 
@@ -272,7 +272,7 @@ begin
   p headers # => { ... }
   p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ReportExecutionsApi->report_executions_retry_with_http_info: #{e}"
+  puts "Error when calling ReportExecutions->report_executions_retry_with_http_info: #{e}"
 end
 ```
 

@@ -1,25 +1,25 @@
-# Falcon::OdsApi
+# Falcon::Ods
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_query_scan_host_metadata**](OdsApi.md#aggregate_query_scan_host_metadata) | **POST** /ods/aggregates/scan-hosts/v1 | Get aggregates on ODS scan-hosts data. |
-| [**aggregate_scans**](OdsApi.md#aggregate_scans) | **POST** /ods/aggregates/scans/v1 | Get aggregates on ODS scan data. |
-| [**aggregate_scheduled_scans**](OdsApi.md#aggregate_scheduled_scans) | **POST** /ods/aggregates/scheduled-scans/v1 | Get aggregates on ODS scheduled-scan data. |
-| [**cancel_scans**](OdsApi.md#cancel_scans) | **POST** /ods/entities/scan-control-actions/cancel/v1 | Cancel ODS scans for the given scan ids. |
-| [**create_scan**](OdsApi.md#create_scan) | **POST** /ods/entities/scans/v1 | Create ODS scan and start or schedule scan for the given scan request. |
-| [**delete_scheduled_scans**](OdsApi.md#delete_scheduled_scans) | **DELETE** /ods/entities/scheduled-scans/v1 | Delete ODS scheduled-scans for the given scheduled-scan ids. |
-| [**get_malicious_files_by_ids**](OdsApi.md#get_malicious_files_by_ids) | **GET** /ods/entities/malicious-files/v1 | Get malicious files by ids. |
-| [**get_scan_host_metadata_by_ids**](OdsApi.md#get_scan_host_metadata_by_ids) | **GET** /ods/entities/scan-hosts/v1 | Get scan hosts by ids. |
-| [**get_scans_by_scan_ids**](OdsApi.md#get_scans_by_scan_ids) | **GET** /ods/entities/scans/v1 | Get Scans by IDs. |
-| [**get_scans_by_scan_ids_v2**](OdsApi.md#get_scans_by_scan_ids_v2) | **GET** /ods/entities/scans/v2 | Get Scans by IDs. |
-| [**get_scheduled_scans_by_scan_ids**](OdsApi.md#get_scheduled_scans_by_scan_ids) | **GET** /ods/entities/scheduled-scans/v1 | Get ScheduledScans by IDs. |
-| [**query_malicious_files**](OdsApi.md#query_malicious_files) | **GET** /ods/queries/malicious-files/v1 | Query malicious files. |
-| [**query_scan_host_metadata**](OdsApi.md#query_scan_host_metadata) | **GET** /ods/queries/scan-hosts/v1 | Query scan hosts. |
-| [**query_scans**](OdsApi.md#query_scans) | **GET** /ods/queries/scans/v1 | Query Scans. |
-| [**query_scheduled_scans**](OdsApi.md#query_scheduled_scans) | **GET** /ods/queries/scheduled-scans/v1 | Query ScheduledScans. |
-| [**schedule_scan**](OdsApi.md#schedule_scan) | **POST** /ods/entities/scheduled-scans/v1 | Create ODS scan and start or schedule scan for the given scan request. |
+| [**aggregate_query_scan_host_metadata**](Ods.md#aggregate_query_scan_host_metadata) | **POST** /ods/aggregates/scan-hosts/v1 | Get aggregates on ODS scan-hosts data. |
+| [**aggregate_scans**](Ods.md#aggregate_scans) | **POST** /ods/aggregates/scans/v1 | Get aggregates on ODS scan data. |
+| [**aggregate_scheduled_scans**](Ods.md#aggregate_scheduled_scans) | **POST** /ods/aggregates/scheduled-scans/v1 | Get aggregates on ODS scheduled-scan data. |
+| [**cancel_scans**](Ods.md#cancel_scans) | **POST** /ods/entities/scan-control-actions/cancel/v1 | Cancel ODS scans for the given scan ids. |
+| [**create_scan**](Ods.md#create_scan) | **POST** /ods/entities/scans/v1 | Create ODS scan and start or schedule scan for the given scan request. |
+| [**delete_scheduled_scans**](Ods.md#delete_scheduled_scans) | **DELETE** /ods/entities/scheduled-scans/v1 | Delete ODS scheduled-scans for the given scheduled-scan ids. |
+| [**get_malicious_files_by_ids**](Ods.md#get_malicious_files_by_ids) | **GET** /ods/entities/malicious-files/v1 | Get malicious files by ids. |
+| [**get_scan_host_metadata_by_ids**](Ods.md#get_scan_host_metadata_by_ids) | **GET** /ods/entities/scan-hosts/v1 | Get scan hosts by ids. |
+| [**get_scans_by_scan_ids**](Ods.md#get_scans_by_scan_ids) | **GET** /ods/entities/scans/v1 | Get Scans by IDs. |
+| [**get_scans_by_scan_ids_v2**](Ods.md#get_scans_by_scan_ids_v2) | **GET** /ods/entities/scans/v2 | Get Scans by IDs. |
+| [**get_scheduled_scans_by_scan_ids**](Ods.md#get_scheduled_scans_by_scan_ids) | **GET** /ods/entities/scheduled-scans/v1 | Get ScheduledScans by IDs. |
+| [**query_malicious_files**](Ods.md#query_malicious_files) | **GET** /ods/queries/malicious-files/v1 | Query malicious files. |
+| [**query_scan_host_metadata**](Ods.md#query_scan_host_metadata) | **GET** /ods/queries/scan-hosts/v1 | Query scan hosts. |
+| [**query_scans**](Ods.md#query_scans) | **GET** /ods/queries/scans/v1 | Query Scans. |
+| [**query_scheduled_scans**](Ods.md#query_scheduled_scans) | **GET** /ods/queries/scheduled-scans/v1 | Query ScheduledScans. |
+| [**schedule_scan**](Ods.md#schedule_scan) | **POST** /ods/entities/scheduled-scans/v1 | Create ODS scan and start or schedule scan for the given scan request. |
 
 
 ## aggregate_query_scan_host_metadata
@@ -41,7 +41,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -49,7 +49,7 @@ begin
   result = api_instance.aggregate_query_scan_host_metadata(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_query_scan_host_metadata: #{e}"
+  puts "Error when calling Ods->aggregate_query_scan_host_metadata: #{e}"
 end
 ```
 
@@ -67,7 +67,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_query_scan_host_metadata_with_http_info: #{e}"
+  puts "Error when calling Ods->aggregate_query_scan_host_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -110,7 +110,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -118,7 +118,7 @@ begin
   result = api_instance.aggregate_scans(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_scans: #{e}"
+  puts "Error when calling Ods->aggregate_scans: #{e}"
 end
 ```
 
@@ -136,7 +136,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->aggregate_scans_with_http_info: #{e}"
 end
 ```
 
@@ -179,7 +179,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -187,7 +187,7 @@ begin
   result = api_instance.aggregate_scheduled_scans(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_scheduled_scans: #{e}"
+  puts "Error when calling Ods->aggregate_scheduled_scans: #{e}"
 end
 ```
 
@@ -205,7 +205,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->aggregate_scheduled_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->aggregate_scheduled_scans_with_http_info: #{e}"
 end
 ```
 
@@ -248,7 +248,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = Falcon::EntitiesODSCancelScanRequest.new({ids: ['ids_example']}) # EntitiesODSCancelScanRequest | 
 
 begin
@@ -256,7 +256,7 @@ begin
   result = api_instance.cancel_scans(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->cancel_scans: #{e}"
+  puts "Error when calling Ods->cancel_scans: #{e}"
 end
 ```
 
@@ -274,7 +274,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->cancel_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->cancel_scans_with_http_info: #{e}"
 end
 ```
 
@@ -317,7 +317,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = Falcon::EntitiesODSScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], hosts: ['hosts_example'], initiated_from: 'initiated_from_example', max_duration: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScanRequest | 
 
 begin
@@ -325,7 +325,7 @@ begin
   result = api_instance.create_scan(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->create_scan: #{e}"
+  puts "Error when calling Ods->create_scan: #{e}"
 end
 ```
 
@@ -343,7 +343,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScanResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->create_scan_with_http_info: #{e}"
+  puts "Error when calling Ods->create_scan_with_http_info: #{e}"
 end
 ```
 
@@ -386,7 +386,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 opts = {
   filter: 'filter_example' # String | A FQL compatible query string.
@@ -397,7 +397,7 @@ begin
   result = api_instance.delete_scheduled_scans(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->delete_scheduled_scans: #{e}"
+  puts "Error when calling Ods->delete_scheduled_scans: #{e}"
 end
 ```
 
@@ -415,7 +415,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->delete_scheduled_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->delete_scheduled_scans_with_http_info: #{e}"
 end
 ```
 
@@ -459,7 +459,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 
 begin
@@ -467,7 +467,7 @@ begin
   result = api_instance.get_malicious_files_by_ids(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_malicious_files_by_ids: #{e}"
+  puts "Error when calling Ods->get_malicious_files_by_ids: #{e}"
 end
 ```
 
@@ -485,7 +485,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScanMaliciousFileResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_malicious_files_by_ids_with_http_info: #{e}"
+  puts "Error when calling Ods->get_malicious_files_by_ids_with_http_info: #{e}"
 end
 ```
 
@@ -528,7 +528,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 
 begin
@@ -536,7 +536,7 @@ begin
   result = api_instance.get_scan_host_metadata_by_ids(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scan_host_metadata_by_ids: #{e}"
+  puts "Error when calling Ods->get_scan_host_metadata_by_ids: #{e}"
 end
 ```
 
@@ -554,7 +554,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScanHostResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scan_host_metadata_by_ids_with_http_info: #{e}"
+  puts "Error when calling Ods->get_scan_host_metadata_by_ids_with_http_info: #{e}"
 end
 ```
 
@@ -597,7 +597,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 
 begin
@@ -605,7 +605,7 @@ begin
   result = api_instance.get_scans_by_scan_ids(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scans_by_scan_ids: #{e}"
+  puts "Error when calling Ods->get_scans_by_scan_ids: #{e}"
 end
 ```
 
@@ -623,7 +623,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScanResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scans_by_scan_ids_with_http_info: #{e}"
+  puts "Error when calling Ods->get_scans_by_scan_ids_with_http_info: #{e}"
 end
 ```
 
@@ -666,7 +666,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 
 begin
@@ -674,7 +674,7 @@ begin
   result = api_instance.get_scans_by_scan_ids_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scans_by_scan_ids_v2: #{e}"
+  puts "Error when calling Ods->get_scans_by_scan_ids_v2: #{e}"
 end
 ```
 
@@ -692,7 +692,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScanResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scans_by_scan_ids_v2_with_http_info: #{e}"
+  puts "Error when calling Ods->get_scans_by_scan_ids_v2_with_http_info: #{e}"
 end
 ```
 
@@ -735,7 +735,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 ids = ['inner_example'] # Array<String> | The scan IDs to retrieve the scan entities
 
 begin
@@ -743,7 +743,7 @@ begin
   result = api_instance.get_scheduled_scans_by_scan_ids(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scheduled_scans_by_scan_ids: #{e}"
+  puts "Error when calling Ods->get_scheduled_scans_by_scan_ids: #{e}"
 end
 ```
 
@@ -761,7 +761,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScheduleScanResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->get_scheduled_scans_by_scan_ids_with_http_info: #{e}"
+  puts "Error when calling Ods->get_scheduled_scans_by_scan_ids_with_http_info: #{e}"
 end
 ```
 
@@ -804,7 +804,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 opts = {
   filter: 'filter_example', # String | A FQL compatible query string. Terms: [id scan_id host_id host_scan_id filepath filename hash pattern_id severity quarantined last_updated]
   offset: 56, # Integer | Index of the starting resource
@@ -817,7 +817,7 @@ begin
   result = api_instance.query_malicious_files(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_malicious_files: #{e}"
+  puts "Error when calling Ods->query_malicious_files: #{e}"
 end
 ```
 
@@ -835,7 +835,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_malicious_files_with_http_info: #{e}"
+  puts "Error when calling Ods->query_malicious_files_with_http_info: #{e}"
 end
 ```
 
@@ -881,7 +881,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 opts = {
   filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id host_id scan_id host_scan_id filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity completed_on started_on last_updated scan_control_reason]
   offset: 56, # Integer | Index of the starting resource
@@ -894,7 +894,7 @@ begin
   result = api_instance.query_scan_host_metadata(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scan_host_metadata: #{e}"
+  puts "Error when calling Ods->query_scan_host_metadata: #{e}"
 end
 ```
 
@@ -912,7 +912,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scan_host_metadata_with_http_info: #{e}"
+  puts "Error when calling Ods->query_scan_host_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -958,7 +958,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 opts = {
   filter: 'filter_example', # String | A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
   offset: 56, # Integer | Index of the starting resource
@@ -971,7 +971,7 @@ begin
   result = api_instance.query_scans(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scans: #{e}"
+  puts "Error when calling Ods->query_scans: #{e}"
 end
 ```
 
@@ -989,7 +989,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->query_scans_with_http_info: #{e}"
 end
 ```
 
@@ -1035,7 +1035,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 opts = {
   filter: 'filter_example', # String | A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
   offset: 56, # Integer | Index of the starting resource
@@ -1048,7 +1048,7 @@ begin
   result = api_instance.query_scheduled_scans(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scheduled_scans: #{e}"
+  puts "Error when calling Ods->query_scheduled_scans: #{e}"
 end
 ```
 
@@ -1066,7 +1066,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->query_scheduled_scans_with_http_info: #{e}"
+  puts "Error when calling Ods->query_scheduled_scans_with_http_info: #{e}"
 end
 ```
 
@@ -1112,7 +1112,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OdsApi.new
+api_instance = Falcon::Ods.new
 body = Falcon::EntitiesODSScheduleScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], schedule: Falcon::DomainSchedule.new({can_stagger: false, definition: 'definition_example', display: 'display_example'}), sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScheduleScanRequest | 
 
 begin
@@ -1120,7 +1120,7 @@ begin
   result = api_instance.schedule_scan(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->schedule_scan: #{e}"
+  puts "Error when calling Ods->schedule_scan: #{e}"
 end
 ```
 
@@ -1138,7 +1138,7 @@ begin
   p headers # => { ... }
   p data # => <EntitiesODSScheduleScanResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OdsApi->schedule_scan_with_http_info: #{e}"
+  puts "Error when calling Ods->schedule_scan_with_http_info: #{e}"
 end
 ```
 

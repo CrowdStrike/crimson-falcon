@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class SensorDownloadApi
+  class SensorDownload
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_sensor_installer_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.download_sensor_installer_by_id ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.download_sensor_installer_by_id ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SensorDownloadApi.download_sensor_installer_by_id"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SensorDownload.download_sensor_installer_by_id"
       end
       # resource path
       local_var_path = '/sensors/entities/download-installer/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.download_sensor_installer_by_id",
+        :operation => :"SensorDownload.download_sensor_installer_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#download_sensor_installer_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#download_sensor_installer_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_sensor_installer_by_id_v2_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.download_sensor_installer_by_id_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.download_sensor_installer_by_id_v2 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling SensorDownloadApi.download_sensor_installer_by_id_v2"
+        fail ArgumentError, "Missing the required parameter 'id' when calling SensorDownload.download_sensor_installer_by_id_v2"
       end
       # resource path
       local_var_path = '/sensors/entities/download-installer/v2'
@@ -144,7 +144,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.download_sensor_installer_by_id_v2",
+        :operation => :"SensorDownload.download_sensor_installer_by_id_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -155,7 +155,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#download_sensor_installer_by_id_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#download_sensor_installer_by_id_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -181,7 +181,7 @@ module Falcon
     # @return [Array<(DomainSensorInstallersV1, Integer, Hash)>] DomainSensorInstallersV1 data, response status code and response headers
     def get_combined_sensor_installers_by_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_combined_sensor_installers_by_query ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_combined_sensor_installers_by_query ...'
       end
       # resource path
       local_var_path = '/sensors/combined/installers/v1'
@@ -211,7 +211,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_combined_sensor_installers_by_query",
+        :operation => :"SensorDownload.get_combined_sensor_installers_by_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -222,7 +222,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_combined_sensor_installers_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_combined_sensor_installers_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -248,7 +248,7 @@ module Falcon
     # @return [Array<(DomainSensorInstallersV2, Integer, Hash)>] DomainSensorInstallersV2 data, response status code and response headers
     def get_combined_sensor_installers_by_query_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_combined_sensor_installers_by_query_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_combined_sensor_installers_by_query_v2 ...'
       end
       # resource path
       local_var_path = '/sensors/combined/installers/v2'
@@ -278,7 +278,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_combined_sensor_installers_by_query_v2",
+        :operation => :"SensorDownload.get_combined_sensor_installers_by_query_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -289,7 +289,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_combined_sensor_installers_by_query_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_combined_sensor_installers_by_query_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,7 +315,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_sensor_installers_by_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_sensor_installers_by_query ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_by_query ...'
       end
       # resource path
       local_var_path = '/sensors/queries/installers/v1'
@@ -345,7 +345,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_sensor_installers_by_query",
+        :operation => :"SensorDownload.get_sensor_installers_by_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -356,7 +356,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_sensor_installers_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -382,7 +382,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_sensor_installers_by_query_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_sensor_installers_by_query_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_by_query_v2 ...'
       end
       # resource path
       local_var_path = '/sensors/queries/installers/v2'
@@ -412,7 +412,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_sensor_installers_by_query_v2",
+        :operation => :"SensorDownload.get_sensor_installers_by_query_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -423,7 +423,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_sensor_installers_by_query_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_by_query_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -441,7 +441,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def get_sensor_installers_ccidby_query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_sensor_installers_ccidby_query ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_ccidby_query ...'
       end
       # resource path
       local_var_path = '/sensors/queries/installers/ccid/v1'
@@ -467,7 +467,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_sensor_installers_ccidby_query",
+        :operation => :"SensorDownload.get_sensor_installers_ccidby_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -478,7 +478,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_sensor_installers_ccidby_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_ccidby_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -498,11 +498,11 @@ module Falcon
     # @return [Array<(DomainSensorInstallersV1, Integer, Hash)>] DomainSensorInstallersV1 data, response status code and response headers
     def get_sensor_installers_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_sensor_installers_entities ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorDownloadApi.get_sensor_installers_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorDownload.get_sensor_installers_entities"
       end
       # resource path
       local_var_path = '/sensors/entities/installers/v1'
@@ -529,7 +529,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_sensor_installers_entities",
+        :operation => :"SensorDownload.get_sensor_installers_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -540,7 +540,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_sensor_installers_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -560,11 +560,11 @@ module Falcon
     # @return [Array<(DomainSensorInstallersV2, Integer, Hash)>] DomainSensorInstallersV2 data, response status code and response headers
     def get_sensor_installers_entities_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorDownloadApi.get_sensor_installers_entities_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorDownload.get_sensor_installers_entities_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorDownloadApi.get_sensor_installers_entities_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorDownload.get_sensor_installers_entities_v2"
       end
       # resource path
       local_var_path = '/sensors/entities/installers/v2'
@@ -591,7 +591,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorDownloadApi.get_sensor_installers_entities_v2",
+        :operation => :"SensorDownload.get_sensor_installers_entities_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -602,7 +602,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorDownloadApi#get_sensor_installers_entities_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorDownload#get_sensor_installers_entities_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

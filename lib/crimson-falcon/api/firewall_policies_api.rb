@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FirewallPoliciesApi
+  class FirewallPolicies
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,18 +53,18 @@ module Falcon
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def create_firewall_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.create_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.create_firewall_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPoliciesApi.create_firewall_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPolicies.create_firewall_policies"
       end
       if @api_client.config.client_side_validation && !opts[:'clone_id'].nil? && opts[:'clone_id'].to_s.length > 32
-        fail ArgumentError, 'invalid value for "opts[:"clone_id"]" when calling FirewallPoliciesApi.create_firewall_policies, the character length must be smaller than or equal to 32.'
+        fail ArgumentError, 'invalid value for "opts[:"clone_id"]" when calling FirewallPolicies.create_firewall_policies, the character length must be smaller than or equal to 32.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'clone_id'].nil? && opts[:'clone_id'].to_s.length < 32
-        fail ArgumentError, 'invalid value for "opts[:"clone_id"]" when calling FirewallPoliciesApi.create_firewall_policies, the character length must be great than or equal to 32.'
+        fail ArgumentError, 'invalid value for "opts[:"clone_id"]" when calling FirewallPolicies.create_firewall_policies, the character length must be great than or equal to 32.'
       end
 
       # resource path
@@ -97,7 +97,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.create_firewall_policies",
+        :operation => :"FirewallPolicies.create_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -108,7 +108,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#create_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#create_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -128,11 +128,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_firewall_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.delete_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.delete_firewall_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallPoliciesApi.delete_firewall_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallPolicies.delete_firewall_policies"
       end
       # resource path
       local_var_path = '/policy/entities/firewall/v1'
@@ -159,7 +159,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.delete_firewall_policies",
+        :operation => :"FirewallPolicies.delete_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -170,7 +170,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#delete_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#delete_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -190,11 +190,11 @@ module Falcon
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def get_firewall_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.get_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.get_firewall_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallPoliciesApi.get_firewall_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallPolicies.get_firewall_policies"
       end
       # resource path
       local_var_path = '/policy/entities/firewall/v1'
@@ -221,7 +221,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.get_firewall_policies",
+        :operation => :"FirewallPolicies.get_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -232,7 +232,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#get_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#get_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -254,11 +254,11 @@ module Falcon
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def perform_firewall_policies_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.perform_firewall_policies_action ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.perform_firewall_policies_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling FirewallPoliciesApi.perform_firewall_policies_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling FirewallPolicies.perform_firewall_policies_action"
       end
       # verify enum value
       allowable_values = ["add-host-group", "add-rule-group", "disable", "enable", "remove-host-group", "remove-rule-group"]
@@ -267,7 +267,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPoliciesApi.perform_firewall_policies_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPolicies.perform_firewall_policies_action"
       end
       # resource path
       local_var_path = '/policy/entities/firewall-actions/v1'
@@ -299,7 +299,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.perform_firewall_policies_action",
+        :operation => :"FirewallPolicies.perform_firewall_policies_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -310,7 +310,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#perform_firewall_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#perform_firewall_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -336,18 +336,18 @@ module Falcon
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def query_combined_firewall_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.query_combined_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.query_combined_firewall_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPoliciesApi.query_combined_firewall_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPolicies.query_combined_firewall_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_combined_firewall_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_combined_firewall_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_combined_firewall_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_combined_firewall_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -382,7 +382,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.query_combined_firewall_policies",
+        :operation => :"FirewallPolicies.query_combined_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -393,7 +393,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#query_combined_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#query_combined_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -421,18 +421,18 @@ module Falcon
     # @return [Array<(BasePolicyMembersRespV1, Integer, Hash)>] BasePolicyMembersRespV1 data, response status code and response headers
     def query_combined_firewall_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.query_combined_firewall_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.query_combined_firewall_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPoliciesApi.query_combined_firewall_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPolicies.query_combined_firewall_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_combined_firewall_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_combined_firewall_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_combined_firewall_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_combined_firewall_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -464,7 +464,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.query_combined_firewall_policy_members",
+        :operation => :"FirewallPolicies.query_combined_firewall_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -475,7 +475,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#query_combined_firewall_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#query_combined_firewall_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -501,18 +501,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_firewall_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.query_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.query_firewall_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPoliciesApi.query_firewall_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPolicies.query_firewall_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_firewall_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_firewall_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_firewall_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_firewall_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -547,7 +547,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.query_firewall_policies",
+        :operation => :"FirewallPolicies.query_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -558,7 +558,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#query_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#query_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -586,18 +586,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_firewall_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.query_firewall_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.query_firewall_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPoliciesApi.query_firewall_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FirewallPolicies.query_firewall_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_firewall_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_firewall_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPoliciesApi.query_firewall_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FirewallPolicies.query_firewall_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -629,7 +629,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.query_firewall_policy_members",
+        :operation => :"FirewallPolicies.query_firewall_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -640,7 +640,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#query_firewall_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#query_firewall_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -660,11 +660,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_firewall_policies_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.set_firewall_policies_precedence ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.set_firewall_policies_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPoliciesApi.set_firewall_policies_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPolicies.set_firewall_policies_precedence"
       end
       # resource path
       local_var_path = '/policy/entities/firewall-precedence/v1'
@@ -695,7 +695,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.set_firewall_policies_precedence",
+        :operation => :"FirewallPolicies.set_firewall_policies_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -706,7 +706,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#set_firewall_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#set_firewall_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -726,11 +726,11 @@ module Falcon
     # @return [Array<(FirewallRespV1, Integer, Hash)>] FirewallRespV1 data, response status code and response headers
     def update_firewall_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallPoliciesApi.update_firewall_policies ...'
+        @api_client.config.logger.debug 'Calling API: FirewallPolicies.update_firewall_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPoliciesApi.update_firewall_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallPolicies.update_firewall_policies"
       end
       # resource path
       local_var_path = '/policy/entities/firewall/v1'
@@ -761,7 +761,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallPoliciesApi.update_firewall_policies",
+        :operation => :"FirewallPolicies.update_firewall_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -772,7 +772,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallPoliciesApi#update_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallPolicies#update_firewall_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -1,24 +1,24 @@
-# Falcon::FalconxSandboxApi
+# Falcon::FalconxSandbox
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_report**](FalconxSandboxApi.md#delete_report) | **DELETE** /falconx/entities/reports/v1 | Delete report based on the report ID. Operation can be checked for success by polling for the report ID on the report-summaries endpoint. |
-| [**delete_sample_v2**](FalconxSandboxApi.md#delete_sample_v2) | **DELETE** /samples/entities/samples/v2 | Removes a sample, including file, meta and submissions from the collection |
-| [**get_artifacts**](FalconxSandboxApi.md#get_artifacts) | **GET** /falconx/entities/artifacts/v1 | Download IOC packs, PCAP files, memory dumps, and other analysis artifacts. |
-| [**get_memory_dump**](FalconxSandboxApi.md#get_memory_dump) | **GET** /falconx/entities/memory-dump/v1 | Get memory dump content, as binary |
-| [**get_memory_dump_extracted_strings**](FalconxSandboxApi.md#get_memory_dump_extracted_strings) | **GET** /falconx/entities/memory-dump/extracted-strings/v1 | Get extracted strings from a memory dump |
-| [**get_memory_dump_hex_dump**](FalconxSandboxApi.md#get_memory_dump_hex_dump) | **GET** /falconx/entities/memory-dump/hex-dump/v1 | Get hex view of a memory dump |
-| [**get_reports**](FalconxSandboxApi.md#get_reports) | **GET** /falconx/entities/reports/v1 | Get a full sandbox report. |
-| [**get_sample_v2**](FalconxSandboxApi.md#get_sample_v2) | **GET** /samples/entities/samples/v2 | Retrieves the file associated with the given ID (SHA256) |
-| [**get_submissions**](FalconxSandboxApi.md#get_submissions) | **GET** /falconx/entities/submissions/v1 | Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
-| [**get_summary_reports**](FalconxSandboxApi.md#get_summary_reports) | **GET** /falconx/entities/report-summaries/v1 | Get a short summary version of a sandbox report. |
-| [**query_reports**](FalconxSandboxApi.md#query_reports) | **GET** /falconx/queries/reports/v1 | Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria. |
-| [**query_sample_v1**](FalconxSandboxApi.md#query_sample_v1) | **POST** /samples/queries/samples/GET/v1 | Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200 |
-| [**query_submissions_mixin0**](FalconxSandboxApi.md#query_submissions_mixin0) | **GET** /falconx/queries/submissions/v1 | Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria. |
-| [**submit**](FalconxSandboxApi.md#submit) | **POST** /falconx/entities/submissions/v1 | Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
-| [**upload_sample_v2**](FalconxSandboxApi.md#upload_sample_v2) | **POST** /samples/entities/samples/v2 | Upload a file for sandbox analysis. After uploading, use &#x60;/falconx/entities/submissions/v1&#x60; to start analyzing the file. |
+| [**delete_report**](FalconxSandbox.md#delete_report) | **DELETE** /falconx/entities/reports/v1 | Delete report based on the report ID. Operation can be checked for success by polling for the report ID on the report-summaries endpoint. |
+| [**delete_sample_v2**](FalconxSandbox.md#delete_sample_v2) | **DELETE** /samples/entities/samples/v2 | Removes a sample, including file, meta and submissions from the collection |
+| [**get_artifacts**](FalconxSandbox.md#get_artifacts) | **GET** /falconx/entities/artifacts/v1 | Download IOC packs, PCAP files, memory dumps, and other analysis artifacts. |
+| [**get_memory_dump**](FalconxSandbox.md#get_memory_dump) | **GET** /falconx/entities/memory-dump/v1 | Get memory dump content, as binary |
+| [**get_memory_dump_extracted_strings**](FalconxSandbox.md#get_memory_dump_extracted_strings) | **GET** /falconx/entities/memory-dump/extracted-strings/v1 | Get extracted strings from a memory dump |
+| [**get_memory_dump_hex_dump**](FalconxSandbox.md#get_memory_dump_hex_dump) | **GET** /falconx/entities/memory-dump/hex-dump/v1 | Get hex view of a memory dump |
+| [**get_reports**](FalconxSandbox.md#get_reports) | **GET** /falconx/entities/reports/v1 | Get a full sandbox report. |
+| [**get_sample_v2**](FalconxSandbox.md#get_sample_v2) | **GET** /samples/entities/samples/v2 | Retrieves the file associated with the given ID (SHA256) |
+| [**get_submissions**](FalconxSandbox.md#get_submissions) | **GET** /falconx/entities/submissions/v1 | Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
+| [**get_summary_reports**](FalconxSandbox.md#get_summary_reports) | **GET** /falconx/entities/report-summaries/v1 | Get a short summary version of a sandbox report. |
+| [**query_reports**](FalconxSandbox.md#query_reports) | **GET** /falconx/queries/reports/v1 | Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria. |
+| [**query_sample_v1**](FalconxSandbox.md#query_sample_v1) | **POST** /samples/queries/samples/GET/v1 | Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200 |
+| [**query_submissions_mixin0**](FalconxSandbox.md#query_submissions_mixin0) | **GET** /falconx/queries/submissions/v1 | Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria. |
+| [**submit**](FalconxSandbox.md#submit) | **POST** /falconx/entities/submissions/v1 | Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
+| [**upload_sample_v2**](FalconxSandbox.md#upload_sample_v2) | **POST** /samples/entities/samples/v2 | Upload a file for sandbox analysis. After uploading, use &#x60;/falconx/entities/submissions/v1&#x60; to start analyzing the file. |
 
 
 ## delete_report
@@ -40,7 +40,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = 'ids_example' # String | ID of a report.
 
 begin
@@ -48,7 +48,7 @@ begin
   result = api_instance.delete_report(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->delete_report: #{e}"
+  puts "Error when calling FalconxSandbox->delete_report: #{e}"
 end
 ```
 
@@ -66,7 +66,7 @@ begin
   p headers # => { ... }
   p data # => <FalconxQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->delete_report_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->delete_report_with_http_info: #{e}"
 end
 ```
 
@@ -109,7 +109,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = 'ids_example' # String | The file SHA256.
 
 begin
@@ -117,7 +117,7 @@ begin
   result = api_instance.delete_sample_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->delete_sample_v2: #{e}"
+  puts "Error when calling FalconxSandbox->delete_sample_v2: #{e}"
 end
 ```
 
@@ -135,7 +135,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->delete_sample_v2_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->delete_sample_v2_with_http_info: #{e}"
 end
 ```
 
@@ -178,7 +178,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 id = 'id_example' # String | ID of an artifact, such as an IOC pack, PCAP file, memory dump, or actor image. Find an artifact ID in a report or summary.
 opts = {
   name: 'name_example', # String | The name given to your downloaded file.
@@ -190,7 +190,7 @@ begin
   result = api_instance.get_artifacts(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_artifacts: #{e}"
+  puts "Error when calling FalconxSandbox->get_artifacts: #{e}"
 end
 ```
 
@@ -208,7 +208,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_artifacts_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_artifacts_with_http_info: #{e}"
 end
 ```
 
@@ -253,7 +253,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 id = 'id_example' # String | Memory dump id
 opts = {
   name: 'name_example', # String | The name given to your downloaded file.
@@ -265,7 +265,7 @@ begin
   result = api_instance.get_memory_dump(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump: #{e}"
 end
 ```
 
@@ -283,7 +283,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump_with_http_info: #{e}"
 end
 ```
 
@@ -328,7 +328,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 id = 'id_example' # String | Extracted strings id
 opts = {
   name: 'name_example', # String | The name given to your downloaded file.
@@ -340,7 +340,7 @@ begin
   result = api_instance.get_memory_dump_extracted_strings(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump_extracted_strings: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump_extracted_strings: #{e}"
 end
 ```
 
@@ -358,7 +358,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump_extracted_strings_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump_extracted_strings_with_http_info: #{e}"
 end
 ```
 
@@ -403,7 +403,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 id = 'id_example' # String | Hex dump id
 opts = {
   name: 'name_example', # String | The name given to your downloaded file.
@@ -415,7 +415,7 @@ begin
   result = api_instance.get_memory_dump_hex_dump(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump_hex_dump: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump_hex_dump: #{e}"
 end
 ```
 
@@ -433,7 +433,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_memory_dump_hex_dump_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_memory_dump_hex_dump_with_http_info: #{e}"
 end
 ```
 
@@ -478,7 +478,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = ['inner_example'] # Array<String> | ID of a report. Find a report ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
 
 begin
@@ -486,7 +486,7 @@ begin
   result = api_instance.get_reports(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_reports: #{e}"
+  puts "Error when calling FalconxSandbox->get_reports: #{e}"
 end
 ```
 
@@ -504,7 +504,7 @@ begin
   p headers # => { ... }
   p data # => <FalconxReportV1Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_reports_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_reports_with_http_info: #{e}"
 end
 ```
 
@@ -547,7 +547,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = 'ids_example' # String | The file SHA256.
 opts = {
   password_protected: true # Boolean | Flag whether the sample should be zipped and password protected with pass='infected'
@@ -558,7 +558,7 @@ begin
   result = api_instance.get_sample_v2(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_sample_v2: #{e}"
+  puts "Error when calling FalconxSandbox->get_sample_v2: #{e}"
 end
 ```
 
@@ -576,7 +576,7 @@ begin
   p headers # => { ... }
   p data # => String
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_sample_v2_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_sample_v2_with_http_info: #{e}"
 end
 ```
 
@@ -620,7 +620,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = ['inner_example'] # Array<String> | ID of a submitted malware sample. Find a submission ID from the response when submitting a malware sample or search with `/falconx/queries/submissions/v1`.
 
 begin
@@ -628,7 +628,7 @@ begin
   result = api_instance.get_submissions(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_submissions: #{e}"
+  puts "Error when calling FalconxSandbox->get_submissions: #{e}"
 end
 ```
 
@@ -646,7 +646,7 @@ begin
   p headers # => { ... }
   p data # => <FalconxSubmissionV1Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_submissions_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_submissions_with_http_info: #{e}"
 end
 ```
 
@@ -689,7 +689,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 ids = ['inner_example'] # Array<String> | ID of a summary. Find a summary ID from the response when submitting a malware sample or search with `/falconx/queries/reports/v1`.
 
 begin
@@ -697,7 +697,7 @@ begin
   result = api_instance.get_summary_reports(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_summary_reports: #{e}"
+  puts "Error when calling FalconxSandbox->get_summary_reports: #{e}"
 end
 ```
 
@@ -715,7 +715,7 @@ begin
   p headers # => { ... }
   p data # => <FalconxSummaryReportV1Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->get_summary_reports_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->get_summary_reports_with_http_info: #{e}"
 end
 ```
 
@@ -758,7 +758,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 'offset_example', # String | The offset to start retrieving reports from.
@@ -771,7 +771,7 @@ begin
   result = api_instance.query_reports(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_reports: #{e}"
+  puts "Error when calling FalconxSandbox->query_reports: #{e}"
 end
 ```
 
@@ -789,7 +789,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_reports_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->query_reports_with_http_info: #{e}"
 end
 ```
 
@@ -835,7 +835,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 body = Falcon::ClientQuerySamplesRequest.new # ClientQuerySamplesRequest | Pass a list of sha256s to check if the exist. It will be returned the list of existing hashes.
 
 begin
@@ -843,7 +843,7 @@ begin
   result = api_instance.query_sample_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_sample_v1: #{e}"
+  puts "Error when calling FalconxSandbox->query_sample_v1: #{e}"
 end
 ```
 
@@ -861,7 +861,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_sample_v1_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->query_sample_v1_with_http_info: #{e}"
 end
 ```
 
@@ -904,7 +904,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 'offset_example', # String | The offset to start retrieving submissions from.
@@ -917,7 +917,7 @@ begin
   result = api_instance.query_submissions_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_submissions_mixin0: #{e}"
+  puts "Error when calling FalconxSandbox->query_submissions_mixin0: #{e}"
 end
 ```
 
@@ -935,7 +935,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_submissions_mixin0_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->query_submissions_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -981,7 +981,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 body = Falcon::FalconxSubmissionParametersV1.new # FalconxSubmissionParametersV1 | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.  **`environment_id`**: Specifies the sandbox environment used for analysis. Values:  - `400`: MacOS Catalina 10.15 - `410`: MacOS Sonoma ARM 64 bit - `300`: Linux Ubuntu 16.04, 64-bit - `200`: Android (static analysis) - `160`: Windows 10, 64-bit - `140`: Windows 11, 64-bit - `110`: Windows 7, 64-bit - `100`: Windows 7, 32-bit  **`sha256`** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with `/falconx/queries/submissions/v1`.The `url` parameter must be unset if `sha256` is used.  **`url`** A web page or file URL. It can be HTTP(S) or FTP. The `sha256` parameter must be unset if `url` is used.  **`action_script`** (optional): Runtime script for sandbox analysis. Values:  - `default` - `default_maxantievasion` - `default_randomfiles` - `default_randomtheme` - `default_openie`  **`command_line`** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **`document_password`** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **`enable_tor`** (optional): Deprecated, please use `network_settings` instead. If `true`, sandbox analysis routes network traffic via TOR. Default: `false`.  **`network_settings`** (optional): Specifies the sandbox network_settings used for analysis. Values:  - `default`: Fully operating network - `tor`: Route network traffic via TOR - `simulated`: Simulate network traffic - `offline`: No network traffic  **`submit_name`** (optional): Name of the malware sample that's used for file type detection and analysis  **`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment  **`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment.
 opts = {
   aid: 'aid_example' # String | Agent ID
@@ -992,7 +992,7 @@ begin
   result = api_instance.submit(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->submit: #{e}"
+  puts "Error when calling FalconxSandbox->submit: #{e}"
 end
 ```
 
@@ -1010,7 +1010,7 @@ begin
   p headers # => { ... }
   p data # => <FalconxSubmissionV1Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->submit_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->submit_with_http_info: #{e}"
 end
 ```
 
@@ -1054,7 +1054,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconxSandboxApi.new
+api_instance = Falcon::FalconxSandbox.new
 sample = File.new('/path/to/some/file') # File | Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 256 MB.  Accepted file formats:  - Portable executables: `.exe`, `.scr`, `.pif`, `.dll`, `.com`, `.cpl`, etc. - Office documents: `.doc`, `.docx`, `.ppt`, `.pps`, `.pptx`, `.ppsx`, `.xls`, `.xlsx`, `.rtf`, `.pub` - PDF - APK - Executable JAR - Windows script component: `.sct` - Windows shortcut: `.lnk` - Windows help: `.chm` - HTML application: `.hta` - Windows script file: `.wsf` - Javascript: `.js` - Visual Basic: `.vbs`,  `.vbe` - Shockwave Flash: `.swf` - Perl: `.pl` - Powershell: `.ps1`, `.psd1`, `.psm1` - Scalable vector graphics: `.svg` - Python: `.py` - Linux ELF executables - Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
 file_name = 'file_name_example' # String | Name of the file.
 opts = {
@@ -1067,7 +1067,7 @@ begin
   result = api_instance.upload_sample_v2(sample, file_name, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->upload_sample_v2: #{e}"
+  puts "Error when calling FalconxSandbox->upload_sample_v2: #{e}"
 end
 ```
 
@@ -1085,7 +1085,7 @@ begin
   p headers # => { ... }
   p data # => <ClientSampleMetadataResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->upload_sample_v2_with_http_info: #{e}"
+  puts "Error when calling FalconxSandbox->upload_sample_v2_with_http_info: #{e}"
 end
 ```
 

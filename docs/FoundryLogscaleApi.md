@@ -1,23 +1,23 @@
-# Falcon::FoundryLogscaleApi
+# Falcon::FoundryLogscale
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_saved_searches_dynamic_execute_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-dynamic-execute/v1 | Execute a dynamic saved search |
-| [**create_saved_searches_dynamic_execute_v1**](FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute-dynamic/v1 | Execute a dynamic saved search |
-| [**create_saved_searches_execute_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-execute/v1 | Execute a saved search |
-| [**create_saved_searches_execute_v1**](FoundryLogscaleApi.md#create_saved_searches_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute/v1 | Execute a saved search |
-| [**create_saved_searches_ingest_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_ingest_alt_v1) | **POST** /loggingapi/entities/saved-searches-ingest/v1 | Populate a saved search |
-| [**create_saved_searches_ingest_v1**](FoundryLogscaleApi.md#create_saved_searches_ingest_v1) | **POST** /loggingapi/entities/saved-searches/ingest/v1 | Populate a saved search |
-| [**get_saved_searches_execute_alt_v1**](FoundryLogscaleApi.md#get_saved_searches_execute_alt_v1) | **GET** /loggingapi/entities/saved-searches-execute/v1 | Get the results of a saved search |
-| [**get_saved_searches_execute_v1**](FoundryLogscaleApi.md#get_saved_searches_execute_v1) | **GET** /loggingapi/entities/saved-searches/execute/v1 | Get the results of a saved search |
-| [**get_saved_searches_job_results_download_alt_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_alt_v1) | **GET** /loggingapi/entities/saved-searches-job-results-download/v1 | Get the results of a saved search as a file |
-| [**get_saved_searches_job_results_download_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_v1) | **GET** /loggingapi/entities/saved-searches/job-results-download/v1 | Get the results of a saved search as a file |
-| [**ingest_data_async_v1**](FoundryLogscaleApi.md#ingest_data_async_v1) | **POST** /loggingapi/entities/data-ingestion/ingest-async/v1 | Asynchronously ingest data into the application repository |
-| [**ingest_data_v1**](FoundryLogscaleApi.md#ingest_data_v1) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Synchronously ingest data into the application repository |
-| [**list_repos_v1**](FoundryLogscaleApi.md#list_repos_v1) | **GET** /loggingapi/combined/repos/v1 | Lists available repositories and views |
-| [**list_view_v1**](FoundryLogscaleApi.md#list_view_v1) | **GET** /loggingapi/entities/views/v1 | List views |
+| [**create_saved_searches_dynamic_execute_alt_v1**](FoundryLogscale.md#create_saved_searches_dynamic_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-dynamic-execute/v1 | Execute a dynamic saved search |
+| [**create_saved_searches_dynamic_execute_v1**](FoundryLogscale.md#create_saved_searches_dynamic_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute-dynamic/v1 | Execute a dynamic saved search |
+| [**create_saved_searches_execute_alt_v1**](FoundryLogscale.md#create_saved_searches_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-execute/v1 | Execute a saved search |
+| [**create_saved_searches_execute_v1**](FoundryLogscale.md#create_saved_searches_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute/v1 | Execute a saved search |
+| [**create_saved_searches_ingest_alt_v1**](FoundryLogscale.md#create_saved_searches_ingest_alt_v1) | **POST** /loggingapi/entities/saved-searches-ingest/v1 | Populate a saved search |
+| [**create_saved_searches_ingest_v1**](FoundryLogscale.md#create_saved_searches_ingest_v1) | **POST** /loggingapi/entities/saved-searches/ingest/v1 | Populate a saved search |
+| [**get_saved_searches_execute_alt_v1**](FoundryLogscale.md#get_saved_searches_execute_alt_v1) | **GET** /loggingapi/entities/saved-searches-execute/v1 | Get the results of a saved search |
+| [**get_saved_searches_execute_v1**](FoundryLogscale.md#get_saved_searches_execute_v1) | **GET** /loggingapi/entities/saved-searches/execute/v1 | Get the results of a saved search |
+| [**get_saved_searches_job_results_download_alt_v1**](FoundryLogscale.md#get_saved_searches_job_results_download_alt_v1) | **GET** /loggingapi/entities/saved-searches-job-results-download/v1 | Get the results of a saved search as a file |
+| [**get_saved_searches_job_results_download_v1**](FoundryLogscale.md#get_saved_searches_job_results_download_v1) | **GET** /loggingapi/entities/saved-searches/job-results-download/v1 | Get the results of a saved search as a file |
+| [**ingest_data_async_v1**](FoundryLogscale.md#ingest_data_async_v1) | **POST** /loggingapi/entities/data-ingestion/ingest-async/v1 | Asynchronously ingest data into the application repository |
+| [**ingest_data_v1**](FoundryLogscale.md#ingest_data_v1) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Synchronously ingest data into the application repository |
+| [**list_repos_v1**](FoundryLogscale.md#list_repos_v1) | **GET** /loggingapi/combined/repos/v1 | Lists available repositories and views |
+| [**list_view_v1**](FoundryLogscale.md#list_view_v1) | **GET** /loggingapi/entities/views/v1 | List views |
 
 
 ## create_saved_searches_dynamic_execute_alt_v1
@@ -39,7 +39,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 body = Falcon::ApidomainDynamicExecuteSearchRequestV1.new({repo_or_view: 'repo_or_view_example', search_query: 'search_query_example', search_query_args: 3.56}) # ApidomainDynamicExecuteSearchRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -57,7 +57,7 @@ begin
   result = api_instance.create_saved_searches_dynamic_execute_alt_v1(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_alt_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_dynamic_execute_alt_v1: #{e}"
 end
 ```
 
@@ -75,7 +75,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_alt_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_dynamic_execute_alt_v1_with_http_info: #{e}"
 end
 ```
 
@@ -126,7 +126,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 body = Falcon::ApidomainDynamicExecuteSearchRequestV1.new({repo_or_view: 'repo_or_view_example', search_query: 'search_query_example', search_query_args: 3.56}) # ApidomainDynamicExecuteSearchRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -144,7 +144,7 @@ begin
   result = api_instance.create_saved_searches_dynamic_execute_v1(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_dynamic_execute_v1: #{e}"
 end
 ```
 
@@ -162,7 +162,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_dynamic_execute_v1_with_http_info: #{e}"
 end
 ```
 
@@ -213,7 +213,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -230,7 +230,7 @@ begin
   result = api_instance.create_saved_searches_execute_alt_v1(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_alt_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_execute_alt_v1: #{e}"
 end
 ```
 
@@ -248,7 +248,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_alt_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_execute_alt_v1_with_http_info: #{e}"
 end
 ```
 
@@ -298,7 +298,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -315,7 +315,7 @@ begin
   result = api_instance.create_saved_searches_execute_v1(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_execute_v1: #{e}"
 end
 ```
 
@@ -333,7 +333,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_execute_v1_with_http_info: #{e}"
 end
 ```
 
@@ -383,7 +383,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   app_id: 'app_id_example' # String | Application ID.
 }
@@ -393,7 +393,7 @@ begin
   result = api_instance.create_saved_searches_ingest_alt_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_alt_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_ingest_alt_v1: #{e}"
 end
 ```
 
@@ -411,7 +411,7 @@ begin
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_alt_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_ingest_alt_v1_with_http_info: #{e}"
 end
 ```
 
@@ -454,7 +454,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   app_id: 'app_id_example' # String | Application ID.
 }
@@ -464,7 +464,7 @@ begin
   result = api_instance.create_saved_searches_ingest_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_v1: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_ingest_v1: #{e}"
 end
 ```
 
@@ -482,7 +482,7 @@ begin
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->create_saved_searches_ingest_v1_with_http_info: #{e}"
 end
 ```
 
@@ -525,7 +525,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -543,7 +543,7 @@ begin
   result = api_instance.get_saved_searches_execute_alt_v1(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_alt_v1: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_execute_alt_v1: #{e}"
 end
 ```
 
@@ -561,7 +561,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_alt_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_execute_alt_v1_with_http_info: #{e}"
 end
 ```
 
@@ -612,7 +612,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   app_id: 'app_id_example', # String | Application ID.
@@ -630,7 +630,7 @@ begin
   result = api_instance.get_saved_searches_execute_v1(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_v1: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_execute_v1: #{e}"
 end
 ```
 
@@ -648,7 +648,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_execute_v1_with_http_info: #{e}"
 end
 ```
 
@@ -699,7 +699,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
@@ -711,7 +711,7 @@ begin
   result = api_instance.get_saved_searches_job_results_download_alt_v1(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_alt_v1: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_job_results_download_alt_v1: #{e}"
 end
 ```
 
@@ -729,7 +729,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_alt_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_job_results_download_alt_v1_with_http_info: #{e}"
 end
 ```
 
@@ -774,7 +774,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
@@ -786,7 +786,7 @@ begin
   result = api_instance.get_saved_searches_job_results_download_v1(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_v1: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_job_results_download_v1: #{e}"
 end
 ```
 
@@ -804,7 +804,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->get_saved_searches_job_results_download_v1_with_http_info: #{e}"
 end
 ```
 
@@ -849,7 +849,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   data_content: 'data_content_example', # String | JSON data to ingest
   data_file: File.new('/path/to/some/file'), # File | Data file to ingest
@@ -864,7 +864,7 @@ begin
   result = api_instance.ingest_data_async_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1: #{e}"
+  puts "Error when calling FoundryLogscale->ingest_data_async_v1: #{e}"
 end
 ```
 
@@ -882,7 +882,7 @@ begin
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->ingest_data_async_v1_with_http_info: #{e}"
 end
 ```
 
@@ -930,7 +930,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   data_content: 'data_content_example', # String | JSON data to ingest
   data_file: File.new('/path/to/some/file'), # File | Data file to ingest
@@ -944,7 +944,7 @@ begin
   result = api_instance.ingest_data_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_v1: #{e}"
+  puts "Error when calling FoundryLogscale->ingest_data_v1: #{e}"
 end
 ```
 
@@ -962,7 +962,7 @@ begin
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->ingest_data_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1009,7 +1009,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   check_test_data: true # Boolean | Include whether test data is present in the application repository
 }
@@ -1019,7 +1019,7 @@ begin
   result = api_instance.list_repos_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_repos_v1: #{e}"
+  puts "Error when calling FoundryLogscale->list_repos_v1: #{e}"
 end
 ```
 
@@ -1037,7 +1037,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainRepoViewListItemWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_repos_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->list_repos_v1_with_http_info: #{e}"
 end
 ```
 
@@ -1080,7 +1080,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FoundryLogscaleApi.new
+api_instance = Falcon::FoundryLogscale.new
 opts = {
   check_test_data: true # Boolean | Include whether test data is present in the application repository
 }
@@ -1090,7 +1090,7 @@ begin
   result = api_instance.list_view_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_view_v1: #{e}"
+  puts "Error when calling FoundryLogscale->list_view_v1: #{e}"
 end
 ```
 
@@ -1108,7 +1108,7 @@ begin
   p headers # => { ... }
   p data # => <ApidomainRepoViewListItemWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_view_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscale->list_view_v1_with_http_info: #{e}"
 end
 ```
 

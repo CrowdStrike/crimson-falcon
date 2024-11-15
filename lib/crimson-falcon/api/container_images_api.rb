@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ContainerImagesApi
+  class ContainerImages
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,7 +51,7 @@ module Falcon
     # @return [Array<(ImagesApiImageAssessmentHistory, Integer, Hash)>] ImagesApiImageAssessmentHistory data, response status code and response headers
     def aggregate_image_assessment_history_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.aggregate_image_assessment_history ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.aggregate_image_assessment_history ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/assessment-history/v1'
@@ -78,7 +78,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.aggregate_image_assessment_history",
+        :operation => :"ContainerImages.aggregate_image_assessment_history",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#aggregate_image_assessment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#aggregate_image_assessment_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -109,7 +109,7 @@ module Falcon
     # @return [Array<(ImagesApiImageCount, Integer, Hash)>] ImagesApiImageCount data, response status code and response headers
     def aggregate_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.aggregate_image_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.aggregate_image_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/count/v1'
@@ -136,7 +136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.aggregate_image_count",
+        :operation => :"ContainerImages.aggregate_image_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -147,7 +147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#aggregate_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#aggregate_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -167,7 +167,7 @@ module Falcon
     # @return [Array<(ImagesApiImageCountByBaseOS, Integer, Hash)>] ImagesApiImageCountByBaseOS data, response status code and response headers
     def aggregate_image_count_by_base_os_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.aggregate_image_count_by_base_os ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.aggregate_image_count_by_base_os ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/count-by-os-distribution/v1'
@@ -194,7 +194,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.aggregate_image_count_by_base_os",
+        :operation => :"ContainerImages.aggregate_image_count_by_base_os",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -205,7 +205,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#aggregate_image_count_by_base_os\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#aggregate_image_count_by_base_os\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -225,7 +225,7 @@ module Falcon
     # @return [Array<(ImagesApiImageCountByState, Integer, Hash)>] ImagesApiImageCountByState data, response status code and response headers
     def aggregate_image_count_by_state_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.aggregate_image_count_by_state ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.aggregate_image_count_by_state ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/count-by-state/v1'
@@ -252,7 +252,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.aggregate_image_count_by_state",
+        :operation => :"ContainerImages.aggregate_image_count_by_state",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#aggregate_image_count_by_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#aggregate_image_count_by_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -283,7 +283,7 @@ module Falcon
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def combined_base_images_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_base_images ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.combined_base_images ...'
       end
       # resource path
       local_var_path = '/container-security/combined/base-images/v1'
@@ -310,7 +310,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.combined_base_images",
+        :operation => :"ContainerImages.combined_base_images",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -321,7 +321,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#combined_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -345,7 +345,7 @@ module Falcon
     # @return [Array<(ImagesApiImageByVulnerabilityCount, Integer, Hash)>] ImagesApiImageByVulnerabilityCount data, response status code and response headers
     def combined_image_by_vulnerability_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_image_by_vulnerability_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.combined_image_by_vulnerability_count ...'
       end
       # resource path
       local_var_path = '/container-security/combined/images/by-vulnerability-count/v1'
@@ -374,7 +374,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.combined_image_by_vulnerability_count",
+        :operation => :"ContainerImages.combined_image_by_vulnerability_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -385,7 +385,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_image_by_vulnerability_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#combined_image_by_vulnerability_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -413,7 +413,7 @@ module Falcon
     # @return [Array<(ImagesApiCustomerAndImage, Integer, Hash)>] ImagesApiCustomerAndImage data, response status code and response headers
     def combined_image_detail_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_image_detail ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.combined_image_detail ...'
       end
       # resource path
       local_var_path = '/container-security/combined/images/detail/v1'
@@ -444,7 +444,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.combined_image_detail",
+        :operation => :"ContainerImages.combined_image_detail",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -455,7 +455,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_image_detail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#combined_image_detail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -483,23 +483,23 @@ module Falcon
     # @return [Array<(ImagesApiImageIssuesSummary, Integer, Hash)>] ImagesApiImageIssuesSummary data, response status code and response headers
     def combined_image_issues_summary_with_http_info(cid, registry, repository, tag, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_image_issues_summary ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.combined_image_issues_summary ...'
       end
       # verify the required parameter 'cid' is set
       if @api_client.config.client_side_validation && cid.nil?
-        fail ArgumentError, "Missing the required parameter 'cid' when calling ContainerImagesApi.combined_image_issues_summary"
+        fail ArgumentError, "Missing the required parameter 'cid' when calling ContainerImages.combined_image_issues_summary"
       end
       # verify the required parameter 'registry' is set
       if @api_client.config.client_side_validation && registry.nil?
-        fail ArgumentError, "Missing the required parameter 'registry' when calling ContainerImagesApi.combined_image_issues_summary"
+        fail ArgumentError, "Missing the required parameter 'registry' when calling ContainerImages.combined_image_issues_summary"
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling ContainerImagesApi.combined_image_issues_summary"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling ContainerImages.combined_image_issues_summary"
       end
       # verify the required parameter 'tag' is set
       if @api_client.config.client_side_validation && tag.nil?
-        fail ArgumentError, "Missing the required parameter 'tag' when calling ContainerImagesApi.combined_image_issues_summary"
+        fail ArgumentError, "Missing the required parameter 'tag' when calling ContainerImages.combined_image_issues_summary"
       end
       # resource path
       local_var_path = '/container-security/combined/images/issues-summary/v1'
@@ -530,7 +530,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.combined_image_issues_summary",
+        :operation => :"ContainerImages.combined_image_issues_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -541,7 +541,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_image_issues_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#combined_image_issues_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -569,23 +569,23 @@ module Falcon
     # @return [Array<(ImagesApiImageVulnerabilitiesSummary, Integer, Hash)>] ImagesApiImageVulnerabilitiesSummary data, response status code and response headers
     def combined_image_vulnerability_summary_with_http_info(cid, registry, repository, tag, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_image_vulnerability_summary ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.combined_image_vulnerability_summary ...'
       end
       # verify the required parameter 'cid' is set
       if @api_client.config.client_side_validation && cid.nil?
-        fail ArgumentError, "Missing the required parameter 'cid' when calling ContainerImagesApi.combined_image_vulnerability_summary"
+        fail ArgumentError, "Missing the required parameter 'cid' when calling ContainerImages.combined_image_vulnerability_summary"
       end
       # verify the required parameter 'registry' is set
       if @api_client.config.client_side_validation && registry.nil?
-        fail ArgumentError, "Missing the required parameter 'registry' when calling ContainerImagesApi.combined_image_vulnerability_summary"
+        fail ArgumentError, "Missing the required parameter 'registry' when calling ContainerImages.combined_image_vulnerability_summary"
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling ContainerImagesApi.combined_image_vulnerability_summary"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling ContainerImages.combined_image_vulnerability_summary"
       end
       # verify the required parameter 'tag' is set
       if @api_client.config.client_side_validation && tag.nil?
-        fail ArgumentError, "Missing the required parameter 'tag' when calling ContainerImagesApi.combined_image_vulnerability_summary"
+        fail ArgumentError, "Missing the required parameter 'tag' when calling ContainerImages.combined_image_vulnerability_summary"
       end
       # resource path
       local_var_path = '/container-security/combined/images/vulnerabilities-summary/v1'
@@ -616,7 +616,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.combined_image_vulnerability_summary",
+        :operation => :"ContainerImages.combined_image_vulnerability_summary",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -627,7 +627,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_image_vulnerability_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#combined_image_vulnerability_summary\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -647,11 +647,11 @@ module Falcon
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def create_base_images_entities_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.create_base_images_entities ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.create_base_images_entities ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ContainerImagesApi.create_base_images_entities"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ContainerImages.create_base_images_entities"
       end
       # resource path
       local_var_path = '/container-security/entities/base-images/v1'
@@ -682,7 +682,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.create_base_images_entities",
+        :operation => :"ContainerImages.create_base_images_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -693,7 +693,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#create_base_images_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#create_base_images_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -713,11 +713,11 @@ module Falcon
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def delete_base_images_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.delete_base_images ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.delete_base_images ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ContainerImagesApi.delete_base_images"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ContainerImages.delete_base_images"
       end
       # resource path
       local_var_path = '/container-security/entities/base-images/v1'
@@ -744,7 +744,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.delete_base_images",
+        :operation => :"ContainerImages.delete_base_images",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -755,7 +755,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#delete_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#delete_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -781,7 +781,7 @@ module Falcon
     # @return [Array<(ImagesExtCombinedImagesResponse, Integer, Hash)>] ImagesExtCombinedImagesResponse data, response status code and response headers
     def get_combined_images_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.get_combined_images ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.get_combined_images ...'
       end
       # resource path
       local_var_path = '/container-security/combined/image-assessment/images/v1'
@@ -811,7 +811,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.get_combined_images",
+        :operation => :"ContainerImages.get_combined_images",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -822,7 +822,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#get_combined_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#get_combined_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -852,7 +852,7 @@ module Falcon
     # @return [Array<(ImagesApiCombinedImageExport, Integer, Hash)>] ImagesApiCombinedImageExport data, response status code and response headers
     def read_combined_images_export_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.read_combined_images_export ...'
+        @api_client.config.logger.debug 'Calling API: ContainerImages.read_combined_images_export ...'
       end
       # resource path
       local_var_path = '/container-security/combined/images/export/v1'
@@ -884,7 +884,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerImagesApi.read_combined_images_export",
+        :operation => :"ContainerImages.read_combined_images_export",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -895,7 +895,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerImagesApi#read_combined_images_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerImages#read_combined_images_export\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

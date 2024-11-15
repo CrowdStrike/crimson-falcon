@@ -1,20 +1,20 @@
-# Falcon::SampleUploadsApi
+# Falcon::SampleUploads
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**archive_delete_v1**](SampleUploadsApi.md#archive_delete_v1) | **DELETE** /archives/entities/archives/v1 | Delete an archive that was uploaded previously |
-| [**archive_get_v1**](SampleUploadsApi.md#archive_get_v1) | **GET** /archives/entities/archives/v1 | Retrieves the archives upload operation statuses. Status &#x60;done&#x60; means that archive was processed successfully. Status &#x60;error&#x60; means that archive was not processed successfully. |
-| [**archive_list_v1**](SampleUploadsApi.md#archive_list_v1) | **GET** /archives/entities/archive-files/v1 | Retrieves the archives files in chunks. |
-| [**archive_upload_v1**](SampleUploadsApi.md#archive_upload_v1) | **POST** /archives/entities/archives/v1 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of &#x60;/archives/entities/archives/v2&#x60; |
-| [**archive_upload_v2**](SampleUploadsApi.md#archive_upload_v2) | **POST** /archives/entities/archives/v2 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. |
-| [**delete_sample_v3**](SampleUploadsApi.md#delete_sample_v3) | **DELETE** /samples/entities/samples/v3 | Removes a sample, including file, meta and submissions from the collection |
-| [**extraction_create_v1**](SampleUploadsApi.md#extraction_create_v1) | **POST** /archives/entities/extractions/v1 | Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis. |
-| [**extraction_get_v1**](SampleUploadsApi.md#extraction_get_v1) | **GET** /archives/entities/extractions/v1 | Retrieves the files extraction operation statuses. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
-| [**extraction_list_v1**](SampleUploadsApi.md#extraction_list_v1) | **GET** /archives/entities/extraction-files/v1 | Retrieves the files extractions in chunks. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
-| [**get_sample_v3**](SampleUploadsApi.md#get_sample_v3) | **GET** /samples/entities/samples/v3 | Retrieves the file associated with the given ID (SHA256) |
-| [**upload_sample_v3**](SampleUploadsApi.md#upload_sample_v3) | **POST** /samples/entities/samples/v3 | Upload a file for further cloud analysis. After uploading, call the specific analysis API endpoint. |
+| [**archive_delete_v1**](SampleUploads.md#archive_delete_v1) | **DELETE** /archives/entities/archives/v1 | Delete an archive that was uploaded previously |
+| [**archive_get_v1**](SampleUploads.md#archive_get_v1) | **GET** /archives/entities/archives/v1 | Retrieves the archives upload operation statuses. Status &#x60;done&#x60; means that archive was processed successfully. Status &#x60;error&#x60; means that archive was not processed successfully. |
+| [**archive_list_v1**](SampleUploads.md#archive_list_v1) | **GET** /archives/entities/archive-files/v1 | Retrieves the archives files in chunks. |
+| [**archive_upload_v1**](SampleUploads.md#archive_upload_v1) | **POST** /archives/entities/archives/v1 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of &#x60;/archives/entities/archives/v2&#x60; |
+| [**archive_upload_v2**](SampleUploads.md#archive_upload_v2) | **POST** /archives/entities/archives/v2 | Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. |
+| [**delete_sample_v3**](SampleUploads.md#delete_sample_v3) | **DELETE** /samples/entities/samples/v3 | Removes a sample, including file, meta and submissions from the collection |
+| [**extraction_create_v1**](SampleUploads.md#extraction_create_v1) | **POST** /archives/entities/extractions/v1 | Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis. |
+| [**extraction_get_v1**](SampleUploads.md#extraction_get_v1) | **GET** /archives/entities/extractions/v1 | Retrieves the files extraction operation statuses. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
+| [**extraction_list_v1**](SampleUploads.md#extraction_list_v1) | **GET** /archives/entities/extraction-files/v1 | Retrieves the files extractions in chunks. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed. |
+| [**get_sample_v3**](SampleUploads.md#get_sample_v3) | **GET** /samples/entities/samples/v3 | Retrieves the file associated with the given ID (SHA256) |
+| [**upload_sample_v3**](SampleUploads.md#upload_sample_v3) | **POST** /samples/entities/samples/v3 | Upload a file for further cloud analysis. After uploading, call the specific analysis API endpoint. |
 
 
 ## archive_delete_v1
@@ -36,14 +36,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 id = 'id_example' # String | The archive SHA256.
 
 begin
   # Delete an archive that was uploaded previously
   api_instance.archive_delete_v1(id)
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_delete_v1: #{e}"
+  puts "Error when calling SampleUploads->archive_delete_v1: #{e}"
 end
 ```
 
@@ -61,7 +61,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_delete_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->archive_delete_v1_with_http_info: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 id = 'id_example' # String | The archive SHA256.
 opts = {
   include_files: true # Boolean | If `true` includes processed archive files in response.
@@ -115,7 +115,7 @@ begin
   result = api_instance.archive_get_v1(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_get_v1: #{e}"
+  puts "Error when calling SampleUploads->archive_get_v1: #{e}"
 end
 ```
 
@@ -133,7 +133,7 @@ begin
   p headers # => { ... }
   p data # => <ClientArchiveCreateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_get_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->archive_get_v1_with_http_info: #{e}"
 end
 ```
 
@@ -177,7 +177,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 id = 'id_example' # String | The archive SHA256.
 opts = {
   limit: 56, # Integer | Max number of files to retrieve.
@@ -189,7 +189,7 @@ begin
   result = api_instance.archive_list_v1(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_list_v1: #{e}"
+  puts "Error when calling SampleUploads->archive_list_v1: #{e}"
 end
 ```
 
@@ -207,7 +207,7 @@ begin
   p headers # => { ... }
   p data # => <ClientArchiveListFilesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_list_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->archive_list_v1_with_http_info: #{e}"
 end
 ```
 
@@ -252,7 +252,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 name = 'name_example' # String | Name of the archive.
 body = [37] # Array<Integer> | Content of the uploaded archive in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 100 MB.  Accepted file formats:  - Portable executables: `.zip`, `.7z`.
 opts = {
@@ -266,7 +266,7 @@ begin
   result = api_instance.archive_upload_v1(name, body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_upload_v1: #{e}"
+  puts "Error when calling SampleUploads->archive_upload_v1: #{e}"
 end
 ```
 
@@ -284,7 +284,7 @@ begin
   p headers # => { ... }
   p data # => <ClientArchiveCreateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_upload_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->archive_upload_v1_with_http_info: #{e}"
 end
 ```
 
@@ -331,7 +331,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 file = File.new('/path/to/some/file') # File | Content of the uploaded archive. For example, use `--form file=@$FILE_PATH;type=` when using cURL. Supported file types are `application/zip` and `application/x-7z-compressed`.
 name = 'name_example' # String | Name of the archive. For example, use `--form name=` when using cURL.
 opts = {
@@ -345,7 +345,7 @@ begin
   result = api_instance.archive_upload_v2(file, name, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_upload_v2: #{e}"
+  puts "Error when calling SampleUploads->archive_upload_v2: #{e}"
 end
 ```
 
@@ -363,7 +363,7 @@ begin
   p headers # => { ... }
   p data # => <ClientArchiveCreateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->archive_upload_v2_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->archive_upload_v2_with_http_info: #{e}"
 end
 ```
 
@@ -410,7 +410,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 ids = 'ids_example' # String | The file SHA256.
 
 begin
@@ -418,7 +418,7 @@ begin
   result = api_instance.delete_sample_v3(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->delete_sample_v3: #{e}"
+  puts "Error when calling SampleUploads->delete_sample_v3: #{e}"
 end
 ```
 
@@ -436,7 +436,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->delete_sample_v3_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->delete_sample_v3_with_http_info: #{e}"
 end
 ```
 
@@ -479,7 +479,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 body = Falcon::ClientExtractionCreateRequestV1.new # ClientExtractionCreateRequestV1 | 
 
 begin
@@ -487,7 +487,7 @@ begin
   result = api_instance.extraction_create_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_create_v1: #{e}"
+  puts "Error when calling SampleUploads->extraction_create_v1: #{e}"
 end
 ```
 
@@ -505,7 +505,7 @@ begin
   p headers # => { ... }
   p data # => <ClientExtractionCreateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_create_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->extraction_create_v1_with_http_info: #{e}"
 end
 ```
 
@@ -548,7 +548,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 id = 'id_example' # String | The extraction operation ID.
 opts = {
   include_files: true # Boolean | If `true` includes processed archive files in response.
@@ -559,7 +559,7 @@ begin
   result = api_instance.extraction_get_v1(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_get_v1: #{e}"
+  puts "Error when calling SampleUploads->extraction_get_v1: #{e}"
 end
 ```
 
@@ -577,7 +577,7 @@ begin
   p headers # => { ... }
   p data # => <ClientExtractionCreateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_get_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->extraction_get_v1_with_http_info: #{e}"
 end
 ```
 
@@ -621,7 +621,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 id = 'id_example' # String | The extraction operation ID.
 opts = {
   limit: 56, # Integer | Max number of file extractions to retrieve.
@@ -633,7 +633,7 @@ begin
   result = api_instance.extraction_list_v1(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_list_v1: #{e}"
+  puts "Error when calling SampleUploads->extraction_list_v1: #{e}"
 end
 ```
 
@@ -651,7 +651,7 @@ begin
   p headers # => { ... }
   p data # => <ClientExtractionListFilesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->extraction_list_v1_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->extraction_list_v1_with_http_info: #{e}"
 end
 ```
 
@@ -696,7 +696,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 ids = 'ids_example' # String | The file SHA256.
 opts = {
   password_protected: true # Boolean | Flag whether the sample should be zipped and password protected with pass='infected'
@@ -707,7 +707,7 @@ begin
   result = api_instance.get_sample_v3(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->get_sample_v3: #{e}"
+  puts "Error when calling SampleUploads->get_sample_v3: #{e}"
 end
 ```
 
@@ -725,7 +725,7 @@ begin
   p headers # => { ... }
   p data # => String
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->get_sample_v3_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->get_sample_v3_with_http_info: #{e}"
 end
 ```
 
@@ -769,7 +769,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SampleUploadsApi.new
+api_instance = Falcon::SampleUploads.new
 sample = File.new('/path/to/some/file') # File | Content of the uploaded sample in binary format. For example, use `--data-binary @$FILE_PATH` when using cURL. Max file size: 256 MB.  Accepted file formats:  - Portable executables: `.exe`, `.scr`, `.pif`, `.dll`, `.com`, `.cpl`, etc. - Office documents: `.doc`, `.docx`, `.ppt`, `.pps`, `.pptx`, `.ppsx`, `.xls`, `.xlsx`, `.rtf`, `.pub` - PDF - APK - Executable JAR - Windows script component: `.sct` - Windows shortcut: `.lnk` - Windows help: `.chm` - HTML application: `.hta` - Windows script file: `.wsf` - Javascript: `.js` - Visual Basic: `.vbs`,  `.vbe` - Shockwave Flash: `.swf` - Perl: `.pl` - Powershell: `.ps1`, `.psd1`, `.psm1` - Scalable vector graphics: `.svg` - Python: `.py` - Linux ELF executables - Email files: MIME RFC 822 `.eml`, Outlook `.msg`.
 file_name = 'file_name_example' # String | Name of the file.
 opts = {
@@ -782,7 +782,7 @@ begin
   result = api_instance.upload_sample_v3(sample, file_name, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->upload_sample_v3: #{e}"
+  puts "Error when calling SampleUploads->upload_sample_v3: #{e}"
 end
 ```
 
@@ -800,7 +800,7 @@ begin
   p headers # => { ... }
   p data # => <ClientSampleMetadataResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SampleUploadsApi->upload_sample_v3_with_http_info: #{e}"
+  puts "Error when calling SampleUploads->upload_sample_v3_with_http_info: #{e}"
 end
 ```
 

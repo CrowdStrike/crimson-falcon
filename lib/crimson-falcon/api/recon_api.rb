@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ReconApi
+  class Recon
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_exposed_data_records_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.aggregate_notifications_exposed_data_records_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.aggregate_notifications_exposed_data_records_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.aggregate_notifications_exposed_data_records_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.aggregate_notifications_exposed_data_records_v1"
       end
       # resource path
       local_var_path = '/recon/aggregates/notifications-exposed-data-records/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.aggregate_notifications_exposed_data_records_v1",
+        :operation => :"Recon.aggregate_notifications_exposed_data_records_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#aggregate_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#aggregate_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.aggregate_notifications_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.aggregate_notifications_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.aggregate_notifications_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.aggregate_notifications_v1"
       end
       # resource path
       local_var_path = '/recon/aggregates/notifications/GET/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.aggregate_notifications_v1",
+        :operation => :"Recon.aggregate_notifications_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#aggregate_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#aggregate_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def create_actions_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.create_actions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.create_actions_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.create_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.create_actions_v1"
       end
       # resource path
       local_var_path = '/recon/entities/actions/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.create_actions_v1",
+        :operation => :"Recon.create_actions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#create_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#create_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,11 +249,11 @@ module Falcon
     # @return [Array<(DomainLaunchExportJobResponseV1, Integer, Hash)>] DomainLaunchExportJobResponseV1 data, response status code and response headers
     def create_export_jobs_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.create_export_jobs_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.create_export_jobs_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.create_export_jobs_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.create_export_jobs_v1"
       end
       # resource path
       local_var_path = '/recon/entities/exports/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.create_export_jobs_v1",
+        :operation => :"Recon.create_export_jobs_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#create_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#create_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def create_rules_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.create_rules_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.create_rules_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.create_rules_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.create_rules_v1"
       end
       # resource path
       local_var_path = '/recon/entities/rules/v1'
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.create_rules_v1",
+        :operation => :"Recon.create_rules_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#create_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#create_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -381,11 +381,11 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def delete_action_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.delete_action_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.delete_action_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ReconApi.delete_action_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Recon.delete_action_v1"
       end
       # resource path
       local_var_path = '/recon/entities/actions/v1'
@@ -412,7 +412,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.delete_action_v1",
+        :operation => :"Recon.delete_action_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -423,7 +423,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#delete_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#delete_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -443,11 +443,11 @@ module Falcon
     # @return [Array<(DomainExportJobIDResponseV1, Integer, Hash)>] DomainExportJobIDResponseV1 data, response status code and response headers
     def delete_export_jobs_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.delete_export_jobs_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.delete_export_jobs_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.delete_export_jobs_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.delete_export_jobs_v1"
       end
       # resource path
       local_var_path = '/recon/entities/exports/v1'
@@ -474,7 +474,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.delete_export_jobs_v1",
+        :operation => :"Recon.delete_export_jobs_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -485,7 +485,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#delete_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#delete_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -505,11 +505,11 @@ module Falcon
     # @return [Array<(DomainNotificationIDResponse, Integer, Hash)>] DomainNotificationIDResponse data, response status code and response headers
     def delete_notifications_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.delete_notifications_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.delete_notifications_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.delete_notifications_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.delete_notifications_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications/v1'
@@ -536,7 +536,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.delete_notifications_v1",
+        :operation => :"Recon.delete_notifications_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -547,7 +547,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#delete_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#delete_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -569,11 +569,11 @@ module Falcon
     # @return [Array<(DomainRuleQueryResponseV1, Integer, Hash)>] DomainRuleQueryResponseV1 data, response status code and response headers
     def delete_rules_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.delete_rules_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.delete_rules_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.delete_rules_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.delete_rules_v1"
       end
       # resource path
       local_var_path = '/recon/entities/rules/v1'
@@ -601,7 +601,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.delete_rules_v1",
+        :operation => :"Recon.delete_rules_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -612,7 +612,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#delete_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#delete_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -632,11 +632,11 @@ module Falcon
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def get_actions_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_actions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_actions_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_actions_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_actions_v1"
       end
       # resource path
       local_var_path = '/recon/entities/actions/v1'
@@ -663,7 +663,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_actions_v1",
+        :operation => :"Recon.get_actions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -674,7 +674,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -694,11 +694,11 @@ module Falcon
     # @return [Array<(DomainExportJobEntitiesResponseV1, Integer, Hash)>] DomainExportJobEntitiesResponseV1 data, response status code and response headers
     def get_export_jobs_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_export_jobs_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_export_jobs_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_export_jobs_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_export_jobs_v1"
       end
       # resource path
       local_var_path = '/recon/entities/exports/v1'
@@ -725,7 +725,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_export_jobs_v1",
+        :operation => :"Recon.get_export_jobs_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -736,7 +736,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -756,11 +756,11 @@ module Falcon
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def get_file_content_for_export_jobs_v1_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_file_content_for_export_jobs_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_file_content_for_export_jobs_v1 ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ReconApi.get_file_content_for_export_jobs_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Recon.get_file_content_for_export_jobs_v1"
       end
       # resource path
       local_var_path = '/recon/entities/export-files/v1'
@@ -787,7 +787,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_file_content_for_export_jobs_v1",
+        :operation => :"Recon.get_file_content_for_export_jobs_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -798,7 +798,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_file_content_for_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_file_content_for_export_jobs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -820,11 +820,11 @@ module Falcon
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
     def get_notifications_detailed_translated_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_notifications_detailed_translated_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_notifications_detailed_translated_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_notifications_detailed_translated_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_notifications_detailed_translated_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications-detailed-translated/v1'
@@ -851,7 +851,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_notifications_detailed_translated_v1",
+        :operation => :"Recon.get_notifications_detailed_translated_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -862,7 +862,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_notifications_detailed_translated_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_notifications_detailed_translated_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -884,11 +884,11 @@ module Falcon
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
     def get_notifications_detailed_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_notifications_detailed_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_notifications_detailed_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_notifications_detailed_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_notifications_detailed_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications-detailed/v1'
@@ -915,7 +915,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_notifications_detailed_v1",
+        :operation => :"Recon.get_notifications_detailed_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -926,7 +926,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_notifications_detailed_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_notifications_detailed_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -946,11 +946,11 @@ module Falcon
     # @return [Array<(ApiNotificationExposedDataRecordEntitiesResponseV1, Integer, Hash)>] ApiNotificationExposedDataRecordEntitiesResponseV1 data, response status code and response headers
     def get_notifications_exposed_data_records_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_notifications_exposed_data_records_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_notifications_exposed_data_records_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_notifications_exposed_data_records_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_notifications_exposed_data_records_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications-exposed-data-records/v1'
@@ -977,7 +977,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_notifications_exposed_data_records_v1",
+        :operation => :"Recon.get_notifications_exposed_data_records_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -988,7 +988,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1008,11 +1008,11 @@ module Falcon
     # @return [Array<(DomainNotificationEntitiesResponseV1, Integer, Hash)>] DomainNotificationEntitiesResponseV1 data, response status code and response headers
     def get_notifications_translated_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_notifications_translated_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_notifications_translated_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_notifications_translated_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_notifications_translated_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications-translated/v1'
@@ -1039,7 +1039,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_notifications_translated_v1",
+        :operation => :"Recon.get_notifications_translated_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1050,7 +1050,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_notifications_translated_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_notifications_translated_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1070,11 +1070,11 @@ module Falcon
     # @return [Array<(DomainNotificationEntitiesResponseV1, Integer, Hash)>] DomainNotificationEntitiesResponseV1 data, response status code and response headers
     def get_notifications_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_notifications_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_notifications_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_notifications_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_notifications_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications/v1'
@@ -1101,7 +1101,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_notifications_v1",
+        :operation => :"Recon.get_notifications_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1112,7 +1112,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1132,11 +1132,11 @@ module Falcon
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def get_rules_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.get_rules_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.get_rules_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ReconApi.get_rules_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Recon.get_rules_v1"
       end
       # resource path
       local_var_path = '/recon/entities/rules/v1'
@@ -1163,7 +1163,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.get_rules_v1",
+        :operation => :"Recon.get_rules_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1174,7 +1174,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#get_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#get_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1194,11 +1194,11 @@ module Falcon
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def preview_rule_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.preview_rule_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.preview_rule_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.preview_rule_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.preview_rule_v1"
       end
       # resource path
       local_var_path = '/recon/aggregates/rules-preview/GET/v1'
@@ -1229,7 +1229,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.preview_rule_v1",
+        :operation => :"Recon.preview_rule_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1240,7 +1240,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#preview_rule_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#preview_rule_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1268,14 +1268,14 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_actions_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.query_actions_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.query_actions_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_actions_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_actions_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_actions_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_actions_v1, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -1307,7 +1307,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.query_actions_v1",
+        :operation => :"Recon.query_actions_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1318,7 +1318,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#query_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#query_actions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1346,14 +1346,14 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_notifications_exposed_data_records_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.query_notifications_exposed_data_records_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.query_notifications_exposed_data_records_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_notifications_exposed_data_records_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_notifications_exposed_data_records_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_notifications_exposed_data_records_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_notifications_exposed_data_records_v1, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -1385,7 +1385,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.query_notifications_exposed_data_records_v1",
+        :operation => :"Recon.query_notifications_exposed_data_records_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1396,7 +1396,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#query_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#query_notifications_exposed_data_records_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1424,14 +1424,14 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_notifications_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.query_notifications_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.query_notifications_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_notifications_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_notifications_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_notifications_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_notifications_v1, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -1463,7 +1463,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.query_notifications_v1",
+        :operation => :"Recon.query_notifications_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1474,7 +1474,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#query_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#query_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1504,14 +1504,14 @@ module Falcon
     # @return [Array<(DomainRuleQueryResponseV1, Integer, Hash)>] DomainRuleQueryResponseV1 data, response status code and response headers
     def query_rules_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.query_rules_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.query_rules_v1 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_rules_v1, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_rules_v1, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ReconApi.query_rules_v1, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Recon.query_rules_v1, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -1544,7 +1544,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.query_rules_v1",
+        :operation => :"Recon.query_rules_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1555,7 +1555,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#query_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#query_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1575,11 +1575,11 @@ module Falcon
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def update_action_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.update_action_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.update_action_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.update_action_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.update_action_v1"
       end
       # resource path
       local_var_path = '/recon/entities/actions/v1'
@@ -1610,7 +1610,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.update_action_v1",
+        :operation => :"Recon.update_action_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1621,7 +1621,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#update_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#update_action_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1641,11 +1641,11 @@ module Falcon
     # @return [Array<(DomainNotificationEntitiesResponseV1, Integer, Hash)>] DomainNotificationEntitiesResponseV1 data, response status code and response headers
     def update_notifications_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.update_notifications_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.update_notifications_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.update_notifications_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.update_notifications_v1"
       end
       # resource path
       local_var_path = '/recon/entities/notifications/v1'
@@ -1676,7 +1676,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.update_notifications_v1",
+        :operation => :"Recon.update_notifications_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1687,7 +1687,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#update_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#update_notifications_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1707,11 +1707,11 @@ module Falcon
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def update_rules_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReconApi.update_rules_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Recon.update_rules_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ReconApi.update_rules_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Recon.update_rules_v1"
       end
       # resource path
       local_var_path = '/recon/entities/rules/v1'
@@ -1742,7 +1742,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ReconApi.update_rules_v1",
+        :operation => :"Recon.update_rules_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1753,7 +1753,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReconApi#update_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Recon#update_rules_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

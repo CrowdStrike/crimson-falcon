@@ -1,11 +1,11 @@
-# Falcon::FieldSchemaApi
+# Falcon::FieldSchema
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**fdrschema_entities_field_get**](FieldSchemaApi.md#fdrschema_entities_field_get) | **GET** /fdr/entities/schema-fields/v1 | Fetch field schema by ID |
-| [**fdrschema_queries_field_get**](FieldSchemaApi.md#fdrschema_queries_field_get) | **GET** /fdr/queries/schema-fields/v1 | Get list of field IDs given a particular query. |
+| [**fdrschema_entities_field_get**](FieldSchema.md#fdrschema_entities_field_get) | **GET** /fdr/entities/schema-fields/v1 | Fetch field schema by ID |
+| [**fdrschema_queries_field_get**](FieldSchema.md#fdrschema_queries_field_get) | **GET** /fdr/queries/schema-fields/v1 | Get list of field IDs given a particular query. |
 
 
 ## fdrschema_entities_field_get
@@ -27,7 +27,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FieldSchemaApi.new
+api_instance = Falcon::FieldSchema.new
 opts = {
   ids: ['inner_example'] # Array<String> | Specify feed IDs to fetch
 }
@@ -37,7 +37,7 @@ begin
   result = api_instance.fdrschema_entities_field_get(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FieldSchemaApi->fdrschema_entities_field_get: #{e}"
+  puts "Error when calling FieldSchema->fdrschema_entities_field_get: #{e}"
 end
 ```
 
@@ -55,7 +55,7 @@ begin
   p headers # => { ... }
   p data # => <SchemaSensorFieldResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FieldSchemaApi->fdrschema_entities_field_get_with_http_info: #{e}"
+  puts "Error when calling FieldSchema->fdrschema_entities_field_get_with_http_info: #{e}"
 end
 ```
 
@@ -98,7 +98,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FieldSchemaApi.new
+api_instance = Falcon::FieldSchema.new
 opts = {
   limit: 56, # Integer | Limit of the data
   offset: 56, # Integer | Offset into the data
@@ -111,7 +111,7 @@ begin
   result = api_instance.fdrschema_queries_field_get(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FieldSchemaApi->fdrschema_queries_field_get: #{e}"
+  puts "Error when calling FieldSchema->fdrschema_queries_field_get: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FieldSchemaApi->fdrschema_queries_field_get_with_http_info: #{e}"
+  puts "Error when calling FieldSchema->fdrschema_queries_field_get_with_http_info: #{e}"
 end
 ```
 

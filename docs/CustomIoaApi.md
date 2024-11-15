@@ -1,29 +1,29 @@
-# Falcon::CustomIoaApi
+# Falcon::CustomIoa
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_rule**](CustomIoaApi.md#create_rule) | **POST** /ioarules/entities/rules/v1 | Create a rule within a rule group. Returns the rule. |
-| [**create_rule_group_mixin0**](CustomIoaApi.md#create_rule_group_mixin0) | **POST** /ioarules/entities/rule-groups/v1 | Create a rule group for a platform with a name and an optional description. Returns the rule group. |
-| [**delete_rule_groups_mixin0**](CustomIoaApi.md#delete_rule_groups_mixin0) | **DELETE** /ioarules/entities/rule-groups/v1 | Delete rule groups by ID. |
-| [**delete_rules_0**](CustomIoaApi.md#delete_rules_0) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
-| [**get_patterns**](CustomIoaApi.md#get_patterns) | **GET** /ioarules/entities/pattern-severities/v1 | Get pattern severities by ID. |
-| [**get_platforms_mixin0**](CustomIoaApi.md#get_platforms_mixin0) | **GET** /ioarules/entities/platforms/v1 | Get platforms by ID. |
-| [**get_rule_groups_mixin0**](CustomIoaApi.md#get_rule_groups_mixin0) | **GET** /ioarules/entities/rule-groups/v1 | Get rule groups by ID. |
-| [**get_rule_types**](CustomIoaApi.md#get_rule_types) | **GET** /ioarules/entities/rule-types/v1 | Get rule types by ID. |
-| [**get_rules_get**](CustomIoaApi.md#get_rules_get) | **POST** /ioarules/entities/rules/GET/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. |
-| [**get_rules_mixin0**](CustomIoaApi.md#get_rules_mixin0) | **GET** /ioarules/entities/rules/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size. |
-| [**query_patterns**](CustomIoaApi.md#query_patterns) | **GET** /ioarules/queries/pattern-severities/v1 | Get all pattern severity IDs. |
-| [**query_platforms_mixin0**](CustomIoaApi.md#query_platforms_mixin0) | **GET** /ioarules/queries/platforms/v1 | Get all platform IDs. |
-| [**query_rule_groups_full**](CustomIoaApi.md#query_rule_groups_full) | **GET** /ioarules/queries/rule-groups-full/v1 | Find all rule groups matching the query with optional filter. |
-| [**query_rule_groups_mixin0**](CustomIoaApi.md#query_rule_groups_mixin0) | **GET** /ioarules/queries/rule-groups/v1 | Finds all rule group IDs matching the query with optional filter. |
-| [**query_rule_types**](CustomIoaApi.md#query_rule_types) | **GET** /ioarules/queries/rule-types/v1 | Get all rule type IDs. |
-| [**query_rules_mixin0**](CustomIoaApi.md#query_rules_mixin0) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
-| [**update_rule_group_mixin0**](CustomIoaApi.md#update_rule_group_mixin0) | **PATCH** /ioarules/entities/rule-groups/v1 | Update a rule group. The following properties can be modified: name, description, enabled. |
-| [**update_rules_0**](CustomIoaApi.md#update_rules_0) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
-| [**update_rules_v2**](CustomIoaApi.md#update_rules_v2) | **PATCH** /ioarules/entities/rules/v2 | Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules. |
-| [**validate**](CustomIoaApi.md#validate) | **POST** /ioarules/entities/rules/validate/v1 | Validates field values and checks for matches if a test string is provided. |
+| [**create_rule**](CustomIoa.md#create_rule) | **POST** /ioarules/entities/rules/v1 | Create a rule within a rule group. Returns the rule. |
+| [**create_rule_group_mixin0**](CustomIoa.md#create_rule_group_mixin0) | **POST** /ioarules/entities/rule-groups/v1 | Create a rule group for a platform with a name and an optional description. Returns the rule group. |
+| [**delete_rule_groups_mixin0**](CustomIoa.md#delete_rule_groups_mixin0) | **DELETE** /ioarules/entities/rule-groups/v1 | Delete rule groups by ID. |
+| [**delete_rules_0**](CustomIoa.md#delete_rules_0) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
+| [**get_patterns**](CustomIoa.md#get_patterns) | **GET** /ioarules/entities/pattern-severities/v1 | Get pattern severities by ID. |
+| [**get_platforms_mixin0**](CustomIoa.md#get_platforms_mixin0) | **GET** /ioarules/entities/platforms/v1 | Get platforms by ID. |
+| [**get_rule_groups_mixin0**](CustomIoa.md#get_rule_groups_mixin0) | **GET** /ioarules/entities/rule-groups/v1 | Get rule groups by ID. |
+| [**get_rule_types**](CustomIoa.md#get_rule_types) | **GET** /ioarules/entities/rule-types/v1 | Get rule types by ID. |
+| [**get_rules_get**](CustomIoa.md#get_rules_get) | **POST** /ioarules/entities/rules/GET/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. |
+| [**get_rules_mixin0**](CustomIoa.md#get_rules_mixin0) | **GET** /ioarules/entities/rules/v1 | Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size. |
+| [**query_patterns**](CustomIoa.md#query_patterns) | **GET** /ioarules/queries/pattern-severities/v1 | Get all pattern severity IDs. |
+| [**query_platforms_mixin0**](CustomIoa.md#query_platforms_mixin0) | **GET** /ioarules/queries/platforms/v1 | Get all platform IDs. |
+| [**query_rule_groups_full**](CustomIoa.md#query_rule_groups_full) | **GET** /ioarules/queries/rule-groups-full/v1 | Find all rule groups matching the query with optional filter. |
+| [**query_rule_groups_mixin0**](CustomIoa.md#query_rule_groups_mixin0) | **GET** /ioarules/queries/rule-groups/v1 | Finds all rule group IDs matching the query with optional filter. |
+| [**query_rule_types**](CustomIoa.md#query_rule_types) | **GET** /ioarules/queries/rule-types/v1 | Get all rule type IDs. |
+| [**query_rules_mixin0**](CustomIoa.md#query_rules_mixin0) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
+| [**update_rule_group_mixin0**](CustomIoa.md#update_rule_group_mixin0) | **PATCH** /ioarules/entities/rule-groups/v1 | Update a rule group. The following properties can be modified: name, description, enabled. |
+| [**update_rules_0**](CustomIoa.md#update_rules_0) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
+| [**update_rules_v2**](CustomIoa.md#update_rules_v2) | **PATCH** /ioarules/entities/rules/v2 | Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules. |
+| [**validate**](CustomIoa.md#validate) | **POST** /ioarules/entities/rules/validate/v1 | Validates field values and checks for matches if a test string is provided. |
 
 
 ## create_rule
@@ -45,7 +45,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRuleCreateV1.new({comment: 'comment_example', description: 'description_example', disposition_id: 37, field_values: [Falcon::DomainFieldValue.new({name: 'name_example', type: 'type_example', value: 'value_example', values: [Falcon::DomainValueItem.new({label: 'label_example', value: 'value_example'})]})], name: 'name_example', pattern_severity: 'pattern_severity_example', rulegroup_id: 'rulegroup_id_example', ruletype_id: 'ruletype_id_example'}) # ApiRuleCreateV1 | 
 
 begin
@@ -53,7 +53,7 @@ begin
   result = api_instance.create_rule(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->create_rule: #{e}"
+  puts "Error when calling CustomIoa->create_rule: #{e}"
 end
 ```
 
@@ -71,7 +71,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->create_rule_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->create_rule_with_http_info: #{e}"
 end
 ```
 
@@ -114,7 +114,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRuleGroupCreateRequestV1.new({comment: 'comment_example', description: 'description_example', name: 'name_example', platform: 'platform_example'}) # ApiRuleGroupCreateRequestV1 | 
 
 begin
@@ -122,7 +122,7 @@ begin
   result = api_instance.create_rule_group_mixin0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->create_rule_group_mixin0: #{e}"
+  puts "Error when calling CustomIoa->create_rule_group_mixin0: #{e}"
 end
 ```
 
@@ -140,7 +140,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->create_rule_group_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->create_rule_group_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -183,7 +183,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 opts = {
   comment: 'comment_example' # String | Explains why the entity is being deleted
@@ -194,7 +194,7 @@ begin
   result = api_instance.delete_rule_groups_mixin0(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rule_groups_mixin0: #{e}"
+  puts "Error when calling CustomIoa->delete_rule_groups_mixin0: #{e}"
 end
 ```
 
@@ -212,7 +212,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rule_groups_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->delete_rule_groups_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -256,7 +256,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 rule_group_id = 'rule_group_id_example' # String | The parent rule group
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 opts = {
@@ -268,7 +268,7 @@ begin
   result = api_instance.delete_rules_0(rule_group_id, ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rules_0: #{e}"
+  puts "Error when calling CustomIoa->delete_rules_0: #{e}"
 end
 ```
 
@@ -286,7 +286,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rules_0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->delete_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -331,7 +331,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
@@ -339,7 +339,7 @@ begin
   result = api_instance.get_patterns(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_patterns: #{e}"
+  puts "Error when calling CustomIoa->get_patterns: #{e}"
 end
 ```
 
@@ -357,7 +357,7 @@ begin
   p headers # => { ... }
   p data # => <ApiPatternsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_patterns_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_patterns_with_http_info: #{e}"
 end
 ```
 
@@ -400,7 +400,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
@@ -408,7 +408,7 @@ begin
   result = api_instance.get_platforms_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_platforms_mixin0: #{e}"
+  puts "Error when calling CustomIoa->get_platforms_mixin0: #{e}"
 end
 ```
 
@@ -426,7 +426,7 @@ begin
   p headers # => { ... }
   p data # => <ApiPlatformsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_platforms_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_platforms_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -469,7 +469,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
@@ -477,7 +477,7 @@ begin
   result = api_instance.get_rule_groups_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rule_groups_mixin0: #{e}"
+  puts "Error when calling CustomIoa->get_rule_groups_mixin0: #{e}"
 end
 ```
 
@@ -495,7 +495,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rule_groups_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_rule_groups_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -538,7 +538,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
@@ -546,7 +546,7 @@ begin
   result = api_instance.get_rule_types(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rule_types: #{e}"
+  puts "Error when calling CustomIoa->get_rule_types: #{e}"
 end
 ```
 
@@ -564,7 +564,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRuleTypesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rule_types_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_rule_types_with_http_info: #{e}"
 end
 ```
 
@@ -607,7 +607,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRulesGetRequestV1.new({ids: ['ids_example']}) # ApiRulesGetRequestV1 | The \"ids\" field contains a list of the rules to retrieve.
 
 begin
@@ -615,7 +615,7 @@ begin
   result = api_instance.get_rules_get(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_get: #{e}"
+  puts "Error when calling CustomIoa->get_rules_get: #{e}"
 end
 ```
 
@@ -633,7 +633,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_get_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_rules_get_with_http_info: #{e}"
 end
 ```
 
@@ -676,7 +676,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 ids = ['inner_example'] # Array<String> | The IDs of the entities
 
 begin
@@ -684,7 +684,7 @@ begin
   result = api_instance.get_rules_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_mixin0: #{e}"
+  puts "Error when calling CustomIoa->get_rules_mixin0: #{e}"
 end
 ```
 
@@ -702,7 +702,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->get_rules_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->get_rules_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -745,7 +745,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
   limit: 56 # Integer | Number of IDs to return
@@ -756,7 +756,7 @@ begin
   result = api_instance.query_patterns(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_patterns: #{e}"
+  puts "Error when calling CustomIoa->query_patterns: #{e}"
 end
 ```
 
@@ -774,7 +774,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_patterns_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_patterns_with_http_info: #{e}"
 end
 ```
 
@@ -818,7 +818,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
   limit: 56 # Integer | Number of IDs to return
@@ -829,7 +829,7 @@ begin
   result = api_instance.query_platforms_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_platforms_mixin0: #{e}"
+  puts "Error when calling CustomIoa->query_platforms_mixin0: #{e}"
 end
 ```
 
@@ -847,7 +847,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_platforms_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_platforms_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -891,7 +891,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   sort: 'created_by', # String | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -905,7 +905,7 @@ begin
   result = api_instance.query_rule_groups_full(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_groups_full: #{e}"
+  puts "Error when calling CustomIoa->query_rule_groups_full: #{e}"
 end
 ```
 
@@ -923,7 +923,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_groups_full_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_rule_groups_full_with_http_info: #{e}"
 end
 ```
 
@@ -970,7 +970,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   sort: 'created_by', # String | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -984,7 +984,7 @@ begin
   result = api_instance.query_rule_groups_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_groups_mixin0: #{e}"
+  puts "Error when calling CustomIoa->query_rule_groups_mixin0: #{e}"
 end
 ```
 
@@ -1002,7 +1002,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_groups_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_rule_groups_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -1049,7 +1049,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
   limit: 56 # Integer | Number of IDs to return
@@ -1060,7 +1060,7 @@ begin
   result = api_instance.query_rule_types(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_types: #{e}"
+  puts "Error when calling CustomIoa->query_rule_types: #{e}"
 end
 ```
 
@@ -1078,7 +1078,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rule_types_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_rule_types_with_http_info: #{e}"
 end
 ```
 
@@ -1122,7 +1122,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 opts = {
   sort: 'rules.created_by', # String | Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -1136,7 +1136,7 @@ begin
   result = api_instance.query_rules_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rules_mixin0: #{e}"
+  puts "Error when calling CustomIoa->query_rules_mixin0: #{e}"
 end
 ```
 
@@ -1154,7 +1154,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->query_rules_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->query_rules_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -1201,7 +1201,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRuleGroupModifyRequestV1.new({comment: 'comment_example', description: 'description_example', enabled: false, id: 'id_example', name: 'name_example', rulegroup_version: 3.56}) # ApiRuleGroupModifyRequestV1 | 
 
 begin
@@ -1209,7 +1209,7 @@ begin
   result = api_instance.update_rule_group_mixin0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rule_group_mixin0: #{e}"
+  puts "Error when calling CustomIoa->update_rule_group_mixin0: #{e}"
 end
 ```
 
@@ -1227,7 +1227,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rule_group_mixin0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->update_rule_group_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -1270,7 +1270,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRuleUpdatesRequestV1.new({comment: 'comment_example', rule_updates: [Falcon::ApiRuleUpdateV1.new({description: 'description_example', disposition_id: 37, enabled: false, field_values: [Falcon::DomainFieldValue.new({name: 'name_example', type: 'type_example', value: 'value_example', values: [Falcon::DomainValueItem.new({label: 'label_example', value: 'value_example'})]})], instance_id: 'instance_id_example', name: 'name_example', pattern_severity: 'pattern_severity_example', rulegroup_version: 3.56})], rulegroup_id: 'rulegroup_id_example', rulegroup_version: 3.56}) # ApiRuleUpdatesRequestV1 | 
 
 begin
@@ -1278,7 +1278,7 @@ begin
   result = api_instance.update_rules_0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules_0: #{e}"
+  puts "Error when calling CustomIoa->update_rules_0: #{e}"
 end
 ```
 
@@ -1296,7 +1296,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules_0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->update_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -1339,7 +1339,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiRuleUpdatesRequestV2.new({comment: 'comment_example', rule_updates: [Falcon::ApiRuleUpdateV2.new({description: 'description_example', disposition_id: 37, enabled: false, field_values: [Falcon::DomainFieldValue.new({name: 'name_example', type: 'type_example', value: 'value_example', values: [Falcon::DomainValueItem.new({label: 'label_example', value: 'value_example'})]})], instance_id: 'instance_id_example', name: 'name_example', pattern_severity: 'pattern_severity_example', rulegroup_version: 3.56})], rulegroup_id: 'rulegroup_id_example', rulegroup_version: 3.56}) # ApiRuleUpdatesRequestV2 | 
 
 begin
@@ -1347,7 +1347,7 @@ begin
   result = api_instance.update_rules_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules_v2: #{e}"
+  puts "Error when calling CustomIoa->update_rules_v2: #{e}"
 end
 ```
 
@@ -1365,7 +1365,7 @@ begin
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules_v2_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->update_rules_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1408,7 +1408,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomIoaApi.new
+api_instance = Falcon::CustomIoa.new
 body = Falcon::ApiValidationRequestV1.new({fields: [Falcon::ApiValidationRequestFieldV1.new({name: 'name_example', test_data: 'test_data_example', type: 'type_example', values: [Falcon::DomainValueItem.new({label: 'label_example', value: 'value_example'})]})]}) # ApiValidationRequestV1 | 
 
 begin
@@ -1416,7 +1416,7 @@ begin
   result = api_instance.validate(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->validate: #{e}"
+  puts "Error when calling CustomIoa->validate: #{e}"
 end
 ```
 
@@ -1434,7 +1434,7 @@ begin
   p headers # => { ... }
   p data # => <ApiValidationResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->validate_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->validate_with_http_info: #{e}"
 end
 ```
 

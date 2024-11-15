@@ -1,19 +1,19 @@
-# Falcon::ResponsePoliciesApi
+# Falcon::ResponsePolicies
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_rt_response_policies**](ResponsePoliciesApi.md#create_rt_response_policies) | **POST** /policy/entities/response/v1 | Create Response Policies by specifying details about the policy to create |
-| [**delete_rt_response_policies**](ResponsePoliciesApi.md#delete_rt_response_policies) | **DELETE** /policy/entities/response/v1 | Delete a set of Response Policies by specifying their IDs |
-| [**get_rt_response_policies**](ResponsePoliciesApi.md#get_rt_response_policies) | **GET** /policy/entities/response/v1 | Retrieve a set of Response Policies by specifying their IDs |
-| [**perform_rt_response_policies_action**](ResponsePoliciesApi.md#perform_rt_response_policies_action) | **POST** /policy/entities/response-actions/v1 | Perform the specified action on the Response Policies specified in the request |
-| [**query_combined_rt_response_policies**](ResponsePoliciesApi.md#query_combined_rt_response_policies) | **GET** /policy/combined/response/v1 | Search for Response Policies in your environment by providing an FQL filter and paging details. Returns a set of Response Policies which match the filter criteria |
-| [**query_combined_rt_response_policy_members**](ResponsePoliciesApi.md#query_combined_rt_response_policy_members) | **GET** /policy/combined/response-members/v1 | Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_rt_response_policies**](ResponsePoliciesApi.md#query_rt_response_policies) | **GET** /policy/queries/response/v1 | Search for Response Policies in your environment by providing an FQL filter with sort and/or paging details. This returns a set of Response Policy IDs that match the given criteria. |
-| [**query_rt_response_policy_members**](ResponsePoliciesApi.md#query_rt_response_policy_members) | **GET** /policy/queries/response-members/v1 | Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
-| [**set_rt_response_policies_precedence**](ResponsePoliciesApi.md#set_rt_response_policies_precedence) | **POST** /policy/entities/response-precedence/v1 | Sets the precedence of Response Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
-| [**update_rt_response_policies**](ResponsePoliciesApi.md#update_rt_response_policies) | **PATCH** /policy/entities/response/v1 | Update Response Policies by specifying the ID of the policy and details to update |
+| [**create_rt_response_policies**](ResponsePolicies.md#create_rt_response_policies) | **POST** /policy/entities/response/v1 | Create Response Policies by specifying details about the policy to create |
+| [**delete_rt_response_policies**](ResponsePolicies.md#delete_rt_response_policies) | **DELETE** /policy/entities/response/v1 | Delete a set of Response Policies by specifying their IDs |
+| [**get_rt_response_policies**](ResponsePolicies.md#get_rt_response_policies) | **GET** /policy/entities/response/v1 | Retrieve a set of Response Policies by specifying their IDs |
+| [**perform_rt_response_policies_action**](ResponsePolicies.md#perform_rt_response_policies_action) | **POST** /policy/entities/response-actions/v1 | Perform the specified action on the Response Policies specified in the request |
+| [**query_combined_rt_response_policies**](ResponsePolicies.md#query_combined_rt_response_policies) | **GET** /policy/combined/response/v1 | Search for Response Policies in your environment by providing an FQL filter and paging details. Returns a set of Response Policies which match the filter criteria |
+| [**query_combined_rt_response_policy_members**](ResponsePolicies.md#query_combined_rt_response_policy_members) | **GET** /policy/combined/response-members/v1 | Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_rt_response_policies**](ResponsePolicies.md#query_rt_response_policies) | **GET** /policy/queries/response/v1 | Search for Response Policies in your environment by providing an FQL filter with sort and/or paging details. This returns a set of Response Policy IDs that match the given criteria. |
+| [**query_rt_response_policy_members**](ResponsePolicies.md#query_rt_response_policy_members) | **GET** /policy/queries/response-members/v1 | Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**set_rt_response_policies_precedence**](ResponsePolicies.md#set_rt_response_policies_precedence) | **POST** /policy/entities/response-precedence/v1 | Sets the precedence of Response Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_rt_response_policies**](ResponsePolicies.md#update_rt_response_policies) | **PATCH** /policy/entities/response/v1 | Update Response Policies by specifying the ID of the policy and details to update |
 
 
 ## create_rt_response_policies
@@ -35,7 +35,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 body = Falcon::RemoteResponseCreatePoliciesV1.new({resources: [Falcon::RemoteResponseCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # RemoteResponseCreatePoliciesV1 | 
 
 begin
@@ -43,7 +43,7 @@ begin
   result = api_instance.create_rt_response_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->create_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->create_rt_response_policies: #{e}"
 end
 ```
 
@@ -61,7 +61,7 @@ begin
   p headers # => { ... }
   p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->create_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->create_rt_response_policies_with_http_info: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Response Policies to delete
 
 begin
@@ -112,7 +112,7 @@ begin
   result = api_instance.delete_rt_response_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->delete_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->delete_rt_response_policies: #{e}"
 end
 ```
 
@@ -130,7 +130,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->delete_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->delete_rt_response_policies_with_http_info: #{e}"
 end
 ```
 
@@ -173,7 +173,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the RTR Policies to return
 
 begin
@@ -181,7 +181,7 @@ begin
   result = api_instance.get_rt_response_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->get_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->get_rt_response_policies: #{e}"
 end
 ```
 
@@ -199,7 +199,7 @@ begin
   p headers # => { ... }
   p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->get_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->get_rt_response_policies_with_http_info: #{e}"
 end
 ```
 
@@ -242,7 +242,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 action_name = 'add-host-group' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
 
@@ -251,7 +251,7 @@ begin
   result = api_instance.perform_rt_response_policies_action(action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->perform_rt_response_policies_action: #{e}"
+  puts "Error when calling ResponsePolicies->perform_rt_response_policies_action: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ begin
   p headers # => { ... }
   p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->perform_rt_response_policies_action_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->perform_rt_response_policies_action_with_http_info: #{e}"
 end
 ```
 
@@ -313,7 +313,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -326,7 +326,7 @@ begin
   result = api_instance.query_combined_rt_response_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->query_combined_rt_response_policies: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ begin
   p headers # => { ... }
   p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->query_combined_rt_response_policies_with_http_info: #{e}"
 end
 ```
 
@@ -390,7 +390,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Response policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -404,7 +404,7 @@ begin
   result = api_instance.query_combined_rt_response_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policy_members: #{e}"
+  puts "Error when calling ResponsePolicies->query_combined_rt_response_policy_members: #{e}"
 end
 ```
 
@@ -422,7 +422,7 @@ begin
   p headers # => { ... }
   p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_combined_rt_response_policy_members_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->query_combined_rt_response_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -469,7 +469,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to determine the results.
   offset: 56, # Integer | The offset of the first record to retrieve from
@@ -482,7 +482,7 @@ begin
   result = api_instance.query_rt_response_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->query_rt_response_policies: #{e}"
 end
 ```
 
@@ -500,7 +500,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->query_rt_response_policies_with_http_info: #{e}"
 end
 ```
 
@@ -546,7 +546,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Response policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -560,7 +560,7 @@ begin
   result = api_instance.query_rt_response_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_rt_response_policy_members: #{e}"
+  puts "Error when calling ResponsePolicies->query_rt_response_policy_members: #{e}"
 end
 ```
 
@@ -578,7 +578,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->query_rt_response_policy_members_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->query_rt_response_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
@@ -633,7 +633,7 @@ begin
   result = api_instance.set_rt_response_policies_precedence(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->set_rt_response_policies_precedence: #{e}"
+  puts "Error when calling ResponsePolicies->set_rt_response_policies_precedence: #{e}"
 end
 ```
 
@@ -651,7 +651,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->set_rt_response_policies_precedence_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->set_rt_response_policies_precedence_with_http_info: #{e}"
 end
 ```
 
@@ -694,7 +694,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ResponsePoliciesApi.new
+api_instance = Falcon::ResponsePolicies.new
 body = Falcon::RemoteResponseUpdatePoliciesReqV1.new({resources: [Falcon::RemoteResponseUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # RemoteResponseUpdatePoliciesReqV1 | 
 
 begin
@@ -702,7 +702,7 @@ begin
   result = api_instance.update_rt_response_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->update_rt_response_policies: #{e}"
+  puts "Error when calling ResponsePolicies->update_rt_response_policies: #{e}"
 end
 ```
 
@@ -720,7 +720,7 @@ begin
   p headers # => { ... }
   p data # => <RemoteResponseRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ResponsePoliciesApi->update_rt_response_policies_with_http_info: #{e}"
+  puts "Error when calling ResponsePolicies->update_rt_response_policies_with_http_info: #{e}"
 end
 ```
 

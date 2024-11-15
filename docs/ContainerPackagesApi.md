@@ -1,14 +1,14 @@
-# Falcon::ContainerPackagesApi
+# Falcon::ContainerPackages
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_packages_by_fixable_vuln_count**](ContainerPackagesApi.md#read_packages_by_fixable_vuln_count) | **GET** /container-security/combined/packages/app-by-fixable-vulnerability-count/v1 | Retrieve top x app packages with the most fixable vulnerabilities |
-| [**read_packages_by_vuln_count**](ContainerPackagesApi.md#read_packages_by_vuln_count) | **GET** /container-security/combined/packages/by-vulnerability-count/v1 | Retrieve top x packages with the most vulnerabilities |
-| [**read_packages_combined**](ContainerPackagesApi.md#read_packages_combined) | **GET** /container-security/combined/packages/v1 | Retrieve packages identified by the provided filter criteria |
-| [**read_packages_combined_export**](ContainerPackagesApi.md#read_packages_combined_export) | **GET** /container-security/combined/packages/export/v1 | Retrieve packages identified by the provided filter criteria for the purpose of export |
-| [**read_packages_count_by_zero_day**](ContainerPackagesApi.md#read_packages_count_by_zero_day) | **GET** /container-security/aggregates/packages/count-by-zero-day/v1 | Retrieve packages count affected by zero day vulnerabilities |
+| [**read_packages_by_fixable_vuln_count**](ContainerPackages.md#read_packages_by_fixable_vuln_count) | **GET** /container-security/combined/packages/app-by-fixable-vulnerability-count/v1 | Retrieve top x app packages with the most fixable vulnerabilities |
+| [**read_packages_by_vuln_count**](ContainerPackages.md#read_packages_by_vuln_count) | **GET** /container-security/combined/packages/by-vulnerability-count/v1 | Retrieve top x packages with the most vulnerabilities |
+| [**read_packages_combined**](ContainerPackages.md#read_packages_combined) | **GET** /container-security/combined/packages/v1 | Retrieve packages identified by the provided filter criteria |
+| [**read_packages_combined_export**](ContainerPackages.md#read_packages_combined_export) | **GET** /container-security/combined/packages/export/v1 | Retrieve packages identified by the provided filter criteria for the purpose of export |
+| [**read_packages_count_by_zero_day**](ContainerPackages.md#read_packages_count_by_zero_day) | **GET** /container-security/aggregates/packages/count-by-zero-day/v1 | Retrieve packages count affected by zero day vulnerabilities |
 
 
 ## read_packages_by_fixable_vuln_count
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerPackagesApi.new
+api_instance = Falcon::ContainerPackages.new
 opts = {
   filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -42,7 +42,7 @@ begin
   result = api_instance.read_packages_by_fixable_vuln_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_by_fixable_vuln_count: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_by_fixable_vuln_count: #{e}"
 end
 ```
 
@@ -60,7 +60,7 @@ begin
   p headers # => { ... }
   p data # => <PackagesApiPackagesByVulnCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_by_fixable_vuln_count_with_http_info: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_by_fixable_vuln_count_with_http_info: #{e}"
 end
 ```
 
@@ -105,7 +105,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerPackagesApi.new
+api_instance = Falcon::ContainerPackages.new
 opts = {
   filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
@@ -117,7 +117,7 @@ begin
   result = api_instance.read_packages_by_vuln_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_by_vuln_count: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_by_vuln_count: #{e}"
 end
 ```
 
@@ -135,7 +135,7 @@ begin
   p headers # => { ... }
   p data # => <PackagesApiPackagesByVulnCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_by_vuln_count_with_http_info: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_by_vuln_count_with_http_info: #{e}"
 end
 ```
 
@@ -180,7 +180,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerPackagesApi.new
+api_instance = Falcon::ContainerPackages.new
 opts = {
   filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
   only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages, default is false
@@ -194,7 +194,7 @@ begin
   result = api_instance.read_packages_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_combined: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_combined: #{e}"
 end
 ```
 
@@ -212,7 +212,7 @@ begin
   p headers # => { ... }
   p data # => <PackagesApiCombinedPackage>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_combined_with_http_info: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_combined_with_http_info: #{e}"
 end
 ```
 
@@ -259,7 +259,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerPackagesApi.new
+api_instance = Falcon::ContainerPackages.new
 opts = {
   filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
   only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages, default is false
@@ -273,7 +273,7 @@ begin
   result = api_instance.read_packages_combined_export(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_combined_export: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_combined_export: #{e}"
 end
 ```
 
@@ -291,7 +291,7 @@ begin
   p headers # => { ... }
   p data # => <PackagesApiCombinedPackageExport>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_combined_export_with_http_info: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_combined_export_with_http_info: #{e}"
 end
 ```
 
@@ -338,7 +338,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ContainerPackagesApi.new
+api_instance = Falcon::ContainerPackages.new
 opts = {
   filter: 'filter_example' # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid
 }
@@ -348,7 +348,7 @@ begin
   result = api_instance.read_packages_count_by_zero_day(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_count_by_zero_day: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_count_by_zero_day: #{e}"
 end
 ```
 
@@ -366,7 +366,7 @@ begin
   p headers # => { ... }
   p data # => <CommonCountResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ContainerPackagesApi->read_packages_count_by_zero_day_with_http_info: #{e}"
+  puts "Error when calling ContainerPackages->read_packages_count_by_zero_day_with_http_info: #{e}"
 end
 ```
 

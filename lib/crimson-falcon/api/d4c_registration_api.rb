@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class D4cRegistrationApi
+  class D4cRegistration
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(RegistrationGCPAccountResponseExtV2, Integer, Hash)>] RegistrationGCPAccountResponseExtV2 data, response status code and response headers
     def connect_d4_cgcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.connect_d4_cgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.connect_d4_cgcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.connect_d4_cgcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistration.connect_d4_cgcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-gcp/entities/account/v2'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.connect_d4_cgcp_account",
+        :operation => :"D4cRegistration.connect_d4_cgcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#connect_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#connect_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def create_d4_c_aws_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.create_d4_c_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.create_d4_c_aws_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.create_d4_c_aws_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistration.create_d4_c_aws_account"
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/account/v2'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.create_d4_c_aws_account",
+        :operation => :"D4cRegistration.create_d4_c_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#create_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#create_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
     def create_d4_c_gcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.create_d4_c_gcp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.create_d4_c_gcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.create_d4_c_gcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistration.create_d4_c_gcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-gcp/entities/account/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.create_d4_c_gcp_account",
+        :operation => :"D4cRegistration.create_d4_c_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#create_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#create_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,11 +249,11 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def create_discover_cloud_azure_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.create_discover_cloud_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.create_discover_cloud_azure_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.create_discover_cloud_azure_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistration.create_discover_cloud_azure_account"
       end
       # resource path
       local_var_path = '/cloud-connect-azure/entities/account/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.create_discover_cloud_azure_account",
+        :operation => :"D4cRegistration.create_discover_cloud_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#create_discover_cloud_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#create_discover_cloud_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -317,7 +317,7 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_d4_c_aws_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.delete_d4_c_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.delete_d4_c_aws_account ...'
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/account/v2'
@@ -345,7 +345,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.delete_d4_c_aws_account",
+        :operation => :"D4cRegistration.delete_d4_c_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -356,7 +356,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#delete_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#delete_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -376,7 +376,7 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_d4_cgcp_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.delete_d4_cgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.delete_d4_cgcp_account ...'
       end
       # resource path
       local_var_path = '/cloud-connect-gcp/entities/account/v1'
@@ -403,7 +403,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.delete_d4_cgcp_account",
+        :operation => :"D4cRegistration.delete_d4_cgcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -414,7 +414,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#delete_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#delete_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -438,23 +438,23 @@ module Falcon
     # @return [Array<(RegistrationAzureDownloadCertificateResponseV1, Integer, Hash)>] RegistrationAzureDownloadCertificateResponseV1 data, response status code and response headers
     def discover_cloud_azure_download_certificate_with_http_info(tenant_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.discover_cloud_azure_download_certificate ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.discover_cloud_azure_download_certificate ...'
       end
       # verify the required parameter 'tenant_id' is set
       if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling D4cRegistrationApi.discover_cloud_azure_download_certificate"
+        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling D4cRegistration.discover_cloud_azure_download_certificate"
       end
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length > 2
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistrationApi.discover_cloud_azure_download_certificate, the character length must be smaller than or equal to 2.'
+        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistration.discover_cloud_azure_download_certificate, the character length must be smaller than or equal to 2.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistrationApi.discover_cloud_azure_download_certificate, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistration.discover_cloud_azure_download_certificate, the character length must be great than or equal to 1.'
       end
 
       pattern = Regexp.new(/^[0-9]{1,2}$/)
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"years_valid\"]' when calling D4cRegistrationApi.discover_cloud_azure_download_certificate, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"years_valid\"]' when calling D4cRegistration.discover_cloud_azure_download_certificate, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -484,7 +484,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.discover_cloud_azure_download_certificate",
+        :operation => :"D4cRegistration.discover_cloud_azure_download_certificate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -495,7 +495,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#discover_cloud_azure_download_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#discover_cloud_azure_download_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -527,24 +527,24 @@ module Falcon
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def get_d4_c_aws_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_c_aws_account ...'
       end
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length > 4
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistrationApi.get_d4_c_aws_account, the character length must be smaller than or equal to 4.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistration.get_d4_c_aws_account, the character length must be smaller than or equal to 4.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistrationApi.get_d4_c_aws_account, the character length must be great than or equal to 3.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistration.get_d4_c_aws_account, the character length must be great than or equal to 3.'
       end
 
       pattern = Regexp.new(/^(full|dry)$/)
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling D4cRegistrationApi.get_d4_c_aws_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling D4cRegistration.get_d4_c_aws_account, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling D4cRegistrationApi.get_d4_c_aws_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling D4cRegistration.get_d4_c_aws_account, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["true", "false"]
@@ -582,7 +582,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_c_aws_account",
+        :operation => :"D4cRegistration.get_d4_c_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -593,7 +593,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_c_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -613,11 +613,11 @@ module Falcon
     # @return [Array<(RegistrationAWSConsoleURLResponseV2, Integer, Hash)>] RegistrationAWSConsoleURLResponseV2 data, response status code and response headers
     def get_d4_c_aws_console_setup_urls_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_aws_console_setup_urls ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_c_aws_console_setup_urls ...'
       end
       pattern = Regexp.new(/^[0-9a-z-]{2,}$/)
       if @api_client.config.client_side_validation && !opts[:'region'].nil? && opts[:'region'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling D4cRegistrationApi.get_d4_c_aws_console_setup_urls, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling D4cRegistration.get_d4_c_aws_console_setup_urls, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -645,7 +645,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_c_aws_console_setup_urls",
+        :operation => :"D4cRegistration.get_d4_c_aws_console_setup_urls",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -656,7 +656,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_aws_console_setup_urls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_c_aws_console_setup_urls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -688,7 +688,7 @@ module Falcon
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
     def get_d4_c_gcp_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_gcp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_c_gcp_account ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -733,7 +733,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_c_gcp_account",
+        :operation => :"D4cRegistration.get_d4_c_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -744,7 +744,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -764,7 +764,7 @@ module Falcon
     # @return [Array<(RegistrationGCPProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationGCPProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_d4_c_gcp_user_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_gcp_user_scripts ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_c_gcp_user_scripts ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -795,7 +795,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_c_gcp_user_scripts",
+        :operation => :"D4cRegistration.get_d4_c_gcp_user_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -806,7 +806,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_gcp_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_c_gcp_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -848,7 +848,7 @@ module Falcon
     # @return [Array<(RegistrationAWSProvisionGetAccountScriptResponseV2, Integer, Hash)>] RegistrationAWSProvisionGetAccountScriptResponseV2 data, response status code and response headers
     def get_d4_caws_account_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_caws_account_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_caws_account_scripts_attachment ...'
       end
       allowable_values = ["aws-bash"]
       if @api_client.config.client_side_validation && opts[:'template'] && !allowable_values.include?(opts[:'template'])
@@ -872,17 +872,17 @@ module Falcon
       end
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'organization_id'].nil? && opts[:'organization_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'aws_profile'].nil? && opts[:'aws_profile'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"aws_profile\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"aws_profile\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'custom_role_name'].nil? && opts[:'custom_role_name'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -921,7 +921,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_caws_account_scripts_attachment",
+        :operation => :"D4cRegistration.get_d4_caws_account_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -932,7 +932,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_caws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_caws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -952,11 +952,11 @@ module Falcon
     # @return [Array<(RegistrationGCPServiceAccountResponseExtV1, Integer, Hash)>] RegistrationGCPServiceAccountResponseExtV1 data, response status code and response headers
     def get_d4_cgcp_service_accounts_ext_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_cgcp_service_accounts_ext ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_cgcp_service_accounts_ext ...'
       end
       pattern = Regexp.new(/^\d+$/)
       if @api_client.config.client_side_validation && !opts[:'id'].nil? && opts[:'id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling D4cRegistrationApi.get_d4_cgcp_service_accounts_ext, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling D4cRegistration.get_d4_cgcp_service_accounts_ext, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -984,7 +984,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_cgcp_service_accounts_ext",
+        :operation => :"D4cRegistration.get_d4_cgcp_service_accounts_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -995,7 +995,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1019,7 +1019,7 @@ module Falcon
     # @return [Array<(RegistrationGCPProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationGCPProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_d4_cgcp_user_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_cgcp_user_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_d4_cgcp_user_scripts_attachment ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -1056,7 +1056,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_cgcp_user_scripts_attachment",
+        :operation => :"D4cRegistration.get_d4_cgcp_user_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1067,7 +1067,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_cgcp_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_d4_cgcp_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1097,24 +1097,24 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def get_discover_cloud_azure_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_discover_cloud_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_discover_cloud_azure_account ...'
       end
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length > 4
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistrationApi.get_discover_cloud_azure_account, the character length must be smaller than or equal to 4.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistration.get_discover_cloud_azure_account, the character length must be smaller than or equal to 4.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistrationApi.get_discover_cloud_azure_account, the character length must be great than or equal to 3.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling D4cRegistration.get_discover_cloud_azure_account, the character length must be great than or equal to 3.'
       end
 
       pattern = Regexp.new(/^(full|dry)$/)
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling D4cRegistrationApi.get_discover_cloud_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling D4cRegistration.get_discover_cloud_azure_account, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling D4cRegistrationApi.get_discover_cloud_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling D4cRegistration.get_discover_cloud_azure_account, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1147,7 +1147,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_discover_cloud_azure_account",
+        :operation => :"D4cRegistration.get_discover_cloud_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1158,7 +1158,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_discover_cloud_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_discover_cloud_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1176,7 +1176,7 @@ module Falcon
     # @return [Array<(RegistrationAzureTenantIDsResponseV1, Integer, Hash)>] RegistrationAzureTenantIDsResponseV1 data, response status code and response headers
     def get_discover_cloud_azure_tenant_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_discover_cloud_azure_tenant_ids ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_discover_cloud_azure_tenant_ids ...'
       end
       # resource path
       local_var_path = '/cloud-connect-azure/entities/tenant-id/v1'
@@ -1202,7 +1202,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_discover_cloud_azure_tenant_ids",
+        :operation => :"D4cRegistration.get_discover_cloud_azure_tenant_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1213,7 +1213,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_discover_cloud_azure_tenant_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_discover_cloud_azure_tenant_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1231,7 +1231,7 @@ module Falcon
     # @return [Array<(RegistrationAzureProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationAzureProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_discover_cloud_azure_user_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_discover_cloud_azure_user_scripts ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_discover_cloud_azure_user_scripts ...'
       end
       # resource path
       local_var_path = '/cloud-connect-azure/entities/user-scripts/v1'
@@ -1257,7 +1257,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_discover_cloud_azure_user_scripts",
+        :operation => :"D4cRegistration.get_discover_cloud_azure_user_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1268,7 +1268,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_discover_cloud_azure_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_discover_cloud_azure_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1294,11 +1294,11 @@ module Falcon
     # @return [Array<(RegistrationAzureProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationAzureProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_discover_cloud_azure_user_scripts_attachment_with_http_info(tenant_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_discover_cloud_azure_user_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_discover_cloud_azure_user_scripts_attachment ...'
       end
       # verify the required parameter 'tenant_id' is set
       if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling D4cRegistrationApi.get_discover_cloud_azure_user_scripts_attachment"
+        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling D4cRegistration.get_discover_cloud_azure_user_scripts_attachment"
       end
       # resource path
       local_var_path = '/cloud-connect-azure/entities/user-scripts-download/v1'
@@ -1328,7 +1328,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_discover_cloud_azure_user_scripts_attachment",
+        :operation => :"D4cRegistration.get_discover_cloud_azure_user_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1339,7 +1339,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_discover_cloud_azure_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_discover_cloud_azure_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1365,7 +1365,7 @@ module Falcon
     # @return [Array<(RegistrationStaticScriptsResponse, Integer, Hash)>] RegistrationStaticScriptsResponse data, response status code and response headers
     def get_horizon_d4_c_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_horizon_d4_c_scripts ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.get_horizon_d4_c_scripts ...'
       end
       allowable_values = ["false", "true"]
       if @api_client.config.client_side_validation && opts[:'single_account'] && !allowable_values.include?(opts[:'single_account'])
@@ -1373,12 +1373,12 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'single_account'].nil? && opts[:'single_account'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"single_account\"]' when calling D4cRegistrationApi.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"single_account\"]' when calling D4cRegistration.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/^o-[0-9a-z]{10,32}$/)
       if @api_client.config.client_side_validation && !opts[:'organization_id'].nil? && opts[:'organization_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling D4cRegistrationApi.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling D4cRegistration.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["false", "true"]
@@ -1387,7 +1387,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'delete'].nil? && opts[:'delete'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"delete\"]' when calling D4cRegistrationApi.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"delete\"]' when calling D4cRegistration.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["commercial", "gov"]
@@ -1396,7 +1396,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(commercial|gov)$/)
       if @api_client.config.client_side_validation && !opts[:'account_type'].nil? && opts[:'account_type'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"account_type\"]' when calling D4cRegistrationApi.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"account_type\"]' when calling D4cRegistration.get_horizon_d4_c_scripts, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1427,7 +1427,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_horizon_d4_c_scripts",
+        :operation => :"D4cRegistration.get_horizon_d4_c_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1438,7 +1438,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_horizon_d4_c_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#get_horizon_d4_c_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1458,11 +1458,11 @@ module Falcon
     # @return [Array<(RegistrationGCPServiceAccountResponseExtV1, Integer, Hash)>] RegistrationGCPServiceAccountResponseExtV1 data, response status code and response headers
     def update_d4_cgcp_service_accounts_ext_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.update_d4_cgcp_service_accounts_ext ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.update_d4_cgcp_service_accounts_ext ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.update_d4_cgcp_service_accounts_ext"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistration.update_d4_cgcp_service_accounts_ext"
       end
       # resource path
       local_var_path = '/cloud-connect-gcp/entities/service-accounts/v1'
@@ -1493,7 +1493,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.update_d4_cgcp_service_accounts_ext",
+        :operation => :"D4cRegistration.update_d4_cgcp_service_accounts_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1504,7 +1504,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#update_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#update_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1528,49 +1528,49 @@ module Falcon
     # @return [Array<(RegistrationAzureTenantConfigurationResponseV1, Integer, Hash)>] RegistrationAzureTenantConfigurationResponseV1 data, response status code and response headers
     def update_discover_cloud_azure_account_client_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.update_discover_cloud_azure_account_client_id ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistration.update_discover_cloud_azure_account_client_id ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id"
+        fail ArgumentError, "Missing the required parameter 'id' when calling D4cRegistration.update_discover_cloud_azure_account_client_id"
       end
       if @api_client.config.client_side_validation && id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "id" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && id.to_s.length < 36
-        fail ArgumentError, 'invalid value for "id" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling D4cRegistration.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'object_id'].nil? && opts[:'object_id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"object_id"]" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"object_id"]" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'object_id'].nil? && opts[:'object_id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"object_id"]" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"object_id"]" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && !opts[:'object_id'].nil? && opts[:'object_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"object_id\"]' when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"object_id\"]' when calling D4cRegistration.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling D4cRegistration.update_discover_cloud_azure_account_client_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling D4cRegistrationApi.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling D4cRegistration.update_discover_cloud_azure_account_client_id, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1600,7 +1600,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.update_discover_cloud_azure_account_client_id",
+        :operation => :"D4cRegistration.update_discover_cloud_azure_account_client_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1611,7 +1611,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#update_discover_cloud_azure_account_client_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistration#update_discover_cloud_azure_account_client_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

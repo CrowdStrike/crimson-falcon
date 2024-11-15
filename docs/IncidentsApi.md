@@ -1,15 +1,15 @@
-# Falcon::IncidentsApi
+# Falcon::Incidents
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**crowd_score**](IncidentsApi.md#crowd_score) | **GET** /incidents/combined/crowdscores/v1 | Query environment wide CrowdScore and return the entity data |
-| [**get_behaviors**](IncidentsApi.md#get_behaviors) | **POST** /incidents/entities/behaviors/GET/v1 | Get details on behaviors by providing behavior IDs |
-| [**get_incidents**](IncidentsApi.md#get_incidents) | **POST** /incidents/entities/incidents/GET/v1 | Get details on incidents by providing incident IDs |
-| [**perform_incident_action**](IncidentsApi.md#perform_incident_action) | **POST** /incidents/entities/incident-actions/v1 | Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description |
-| [**query_behaviors**](IncidentsApi.md#query_behaviors) | **GET** /incidents/queries/behaviors/v1 | Search for behaviors by providing an FQL filter, sorting, and paging details |
-| [**query_incidents**](IncidentsApi.md#query_incidents) | **GET** /incidents/queries/incidents/v1 | Search for incidents by providing an FQL filter, sorting, and paging details |
+| [**crowd_score**](Incidents.md#crowd_score) | **GET** /incidents/combined/crowdscores/v1 | Query environment wide CrowdScore and return the entity data |
+| [**get_behaviors**](Incidents.md#get_behaviors) | **POST** /incidents/entities/behaviors/GET/v1 | Get details on behaviors by providing behavior IDs |
+| [**get_incidents**](Incidents.md#get_incidents) | **POST** /incidents/entities/incidents/GET/v1 | Get details on incidents by providing incident IDs |
+| [**perform_incident_action**](Incidents.md#perform_incident_action) | **POST** /incidents/entities/incident-actions/v1 | Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description |
+| [**query_behaviors**](Incidents.md#query_behaviors) | **GET** /incidents/queries/behaviors/v1 | Search for behaviors by providing an FQL filter, sorting, and paging details |
+| [**query_incidents**](Incidents.md#query_incidents) | **GET** /incidents/queries/incidents/v1 | Search for incidents by providing an FQL filter, sorting, and paging details |
 
 
 ## crowd_score
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
@@ -44,7 +44,7 @@ begin
   result = api_instance.crowd_score(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->crowd_score: #{e}"
+  puts "Error when calling Incidents->crowd_score: #{e}"
 end
 ```
 
@@ -62,7 +62,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaEnvironmentScoreResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->crowd_score_with_http_info: #{e}"
+  puts "Error when calling Incidents->crowd_score_with_http_info: #{e}"
 end
 ```
 
@@ -108,7 +108,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -116,7 +116,7 @@ begin
   result = api_instance.get_behaviors(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->get_behaviors: #{e}"
+  puts "Error when calling Incidents->get_behaviors: #{e}"
 end
 ```
 
@@ -134,7 +134,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaExternalBehaviorResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->get_behaviors_with_http_info: #{e}"
+  puts "Error when calling Incidents->get_behaviors_with_http_info: #{e}"
 end
 ```
 
@@ -177,7 +177,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -185,7 +185,7 @@ begin
   result = api_instance.get_incidents(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->get_incidents: #{e}"
+  puts "Error when calling Incidents->get_incidents: #{e}"
 end
 ```
 
@@ -203,7 +203,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaExternalIncidentResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->get_incidents_with_http_info: #{e}"
+  puts "Error when calling Incidents->get_incidents_with_http_info: #{e}"
 end
 ```
 
@@ -246,7 +246,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 body = Falcon::DomainEntityActionRequest.new({ids: ['ids_example']}) # DomainEntityActionRequest | Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against.
 opts = {
   update_detects: true, # Boolean | If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false
@@ -258,7 +258,7 @@ begin
   result = api_instance.perform_incident_action(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->perform_incident_action: #{e}"
+  puts "Error when calling Incidents->perform_incident_action: #{e}"
 end
 ```
 
@@ -276,7 +276,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaIncidentPerformActionResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->perform_incident_action_with_http_info: #{e}"
+  puts "Error when calling Incidents->perform_incident_action_with_http_info: #{e}"
 end
 ```
 
@@ -321,7 +321,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
@@ -334,7 +334,7 @@ begin
   result = api_instance.query_behaviors(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->query_behaviors: #{e}"
+  puts "Error when calling Incidents->query_behaviors: #{e}"
 end
 ```
 
@@ -352,7 +352,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->query_behaviors_with_http_info: #{e}"
+  puts "Error when calling Incidents->query_behaviors_with_http_info: #{e}"
 end
 ```
 
@@ -398,7 +398,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IncidentsApi.new
+api_instance = Falcon::Incidents.new
 opts = {
   sort: 'assigned_to.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
@@ -411,7 +411,7 @@ begin
   result = api_instance.query_incidents(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->query_incidents: #{e}"
+  puts "Error when calling Incidents->query_incidents: #{e}"
 end
 ```
 
@@ -429,7 +429,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaIncidentQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IncidentsApi->query_incidents_with_http_info: #{e}"
+  puts "Error when calling Incidents->query_incidents_with_http_info: #{e}"
 end
 ```
 

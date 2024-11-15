@@ -1,12 +1,12 @@
-# Falcon::DiscoverIotApi
+# Falcon::DiscoverIot
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_iot_hosts**](DiscoverIotApi.md#get_iot_hosts) | **GET** /discover/entities/iot-hosts/v1 | Get details on IoT assets by providing one or more IDs. |
-| [**query_iot_hosts**](DiscoverIotApi.md#query_iot_hosts) | **GET** /discover/queries/iot-hosts/v1 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
-| [**query_iot_hosts_v2**](DiscoverIotApi.md#query_iot_hosts_v2) | **GET** /discover/queries/iot-hosts/v2 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+| [**get_iot_hosts**](DiscoverIot.md#get_iot_hosts) | **GET** /discover/entities/iot-hosts/v1 | Get details on IoT assets by providing one or more IDs. |
+| [**query_iot_hosts**](DiscoverIot.md#query_iot_hosts) | **GET** /discover/queries/iot-hosts/v1 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+| [**query_iot_hosts_v2**](DiscoverIot.md#query_iot_hosts_v2) | **GET** /discover/queries/iot-hosts/v2 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
 
 
 ## get_iot_hosts
@@ -28,7 +28,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DiscoverIotApi.new
+api_instance = Falcon::DiscoverIot.new
 ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100). Find asset IDs with GET `/discover/queries/iot-hosts/v1`
 
 begin
@@ -36,7 +36,7 @@ begin
   result = api_instance.get_iot_hosts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->get_iot_hosts: #{e}"
+  puts "Error when calling DiscoverIot->get_iot_hosts: #{e}"
 end
 ```
 
@@ -54,7 +54,7 @@ begin
   p headers # => { ... }
   p data # => <DomainDiscoverAPIIoTHostEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->get_iot_hosts_with_http_info: #{e}"
+  puts "Error when calling DiscoverIot->get_iot_hosts_with_http_info: #{e}"
 end
 ```
 
@@ -97,7 +97,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DiscoverIotApi.new
+api_instance = Falcon::DiscoverIot.new
 opts = {
   offset: 56, # Integer | An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
   limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `offset` parameter to manage pagination of results.
@@ -110,7 +110,7 @@ begin
   result = api_instance.query_iot_hosts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->query_iot_hosts: #{e}"
+  puts "Error when calling DiscoverIot->query_iot_hosts: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->query_iot_hosts_with_http_info: #{e}"
+  puts "Error when calling DiscoverIot->query_iot_hosts_with_http_info: #{e}"
 end
 ```
 
@@ -174,7 +174,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DiscoverIotApi.new
+api_instance = Falcon::DiscoverIot.new
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
   limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `after` parameter to manage pagination of results.
@@ -187,7 +187,7 @@ begin
   result = api_instance.query_iot_hosts_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->query_iot_hosts_v2: #{e}"
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2: #{e}"
 end
 ```
 
@@ -205,7 +205,7 @@ begin
   p headers # => { ... }
   p data # => <DomainDiscoverAPIResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DiscoverIotApi->query_iot_hosts_v2_with_http_info: #{e}"
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2_with_http_info: #{e}"
 end
 ```
 

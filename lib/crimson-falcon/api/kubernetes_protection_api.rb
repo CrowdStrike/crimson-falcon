@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class KubernetesProtectionApi
+  class KubernetesProtection
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(K8sregCreateAWSAccResp, Integer, Hash)>] K8sregCreateAWSAccResp data, response status code and response headers
     def create_aws_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.create_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.create_aws_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling KubernetesProtectionApi.create_aws_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling KubernetesProtection.create_aws_account"
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/accounts/aws/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.create_aws_account",
+        :operation => :"KubernetesProtection.create_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#create_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#create_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def create_azure_subscription_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.create_azure_subscription ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.create_azure_subscription ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling KubernetesProtectionApi.create_azure_subscription"
+        fail ArgumentError, "Missing the required parameter 'body' when calling KubernetesProtection.create_azure_subscription"
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/accounts/azure/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.create_azure_subscription",
+        :operation => :"KubernetesProtection.create_azure_subscription",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#create_azure_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#create_azure_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(MsaMetaInfo, Integer, Hash)>] MsaMetaInfo data, response status code and response headers
     def delete_aws_accounts_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.delete_aws_accounts_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.delete_aws_accounts_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtectionApi.delete_aws_accounts_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtection.delete_aws_accounts_mixin0"
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/accounts/aws/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.delete_aws_accounts_mixin0",
+        :operation => :"KubernetesProtection.delete_aws_accounts_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#delete_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#delete_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,7 +245,7 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_azure_subscription_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.delete_azure_subscription ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.delete_azure_subscription ...'
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/accounts/azure/v1'
@@ -272,7 +272,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.delete_azure_subscription",
+        :operation => :"KubernetesProtection.delete_azure_subscription",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -283,7 +283,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#delete_azure_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#delete_azure_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -309,7 +309,7 @@ module Falcon
     # @return [Array<(ModelsContainerRuntimePivotResponse, Integer, Hash)>] ModelsContainerRuntimePivotResponse data, response status code and response headers
     def find_containers_by_container_run_time_version_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.find_containers_by_container_run_time_version ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.find_containers_by_container_run_time_version ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/find-by-runtimeversion/v1'
@@ -339,7 +339,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.find_containers_by_container_run_time_version",
+        :operation => :"KubernetesProtection.find_containers_by_container_run_time_version",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -350,7 +350,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#find_containers_by_container_run_time_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#find_containers_by_container_run_time_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -368,7 +368,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def find_containers_count_affected_by_zero_day_vulnerabilities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.find_containers_count_affected_by_zero_day_vulnerabilities ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.find_containers_count_affected_by_zero_day_vulnerabilities ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/count-by-zero-day/v1'
@@ -394,7 +394,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.find_containers_count_affected_by_zero_day_vulnerabilities",
+        :operation => :"KubernetesProtection.find_containers_count_affected_by_zero_day_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -405,7 +405,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#find_containers_count_affected_by_zero_day_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#find_containers_count_affected_by_zero_day_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -433,7 +433,7 @@ module Falcon
     # @return [Array<(K8sregGetAWSAccountsResp, Integer, Hash)>] K8sregGetAWSAccountsResp data, response status code and response headers
     def get_aws_accounts_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_aws_accounts_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_aws_accounts_mixin0 ...'
       end
       allowable_values = ["false", "true"]
       if @api_client.config.client_side_validation && opts[:'is_horizon_acct'] && !allowable_values.include?(opts[:'is_horizon_acct'])
@@ -441,7 +441,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'is_horizon_acct'].nil? && opts[:'is_horizon_acct'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtectionApi.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtection.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["operational", "provisioned"]
@@ -450,19 +450,19 @@ module Falcon
       end
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtectionApi.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtection.get_aws_accounts_mixin0, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_aws_accounts_mixin0, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_aws_accounts_mixin0, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.get_aws_accounts_mixin0, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_aws_accounts_mixin0, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -494,7 +494,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_aws_accounts_mixin0",
+        :operation => :"KubernetesProtection.get_aws_accounts_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -505,7 +505,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_aws_accounts_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -527,19 +527,19 @@ module Falcon
     # @return [Array<(K8sregGetAzureBashScriptResp, Integer, Hash)>] K8sregGetAzureBashScriptResp data, response status code and response headers
     def get_azure_install_script_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_azure_install_script ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_azure_install_script ...'
       end
       if @api_client.config.client_side_validation && !opts[:'id'].nil? && opts[:'id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"id"]" when calling KubernetesProtectionApi.get_azure_install_script, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"id"]" when calling KubernetesProtection.get_azure_install_script, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'id'].nil? && opts[:'id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"id"]" when calling KubernetesProtectionApi.get_azure_install_script, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"id"]" when calling KubernetesProtection.get_azure_install_script, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$/)
       if @api_client.config.client_side_validation && !opts[:'id'].nil? && opts[:'id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling KubernetesProtectionApi.get_azure_install_script, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling KubernetesProtection.get_azure_install_script, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -568,7 +568,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_azure_install_script",
+        :operation => :"KubernetesProtection.get_azure_install_script",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -579,7 +579,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_azure_install_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_azure_install_script\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -603,18 +603,18 @@ module Falcon
     # @return [Array<(K8sregGetAzureTenantConfigResp, Integer, Hash)>] K8sregGetAzureTenantConfigResp data, response status code and response headers
     def get_azure_tenant_config_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_azure_tenant_config ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_azure_tenant_config ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_azure_tenant_config, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_azure_tenant_config, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_azure_tenant_config, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_azure_tenant_config, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.get_azure_tenant_config, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_azure_tenant_config, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -644,7 +644,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_azure_tenant_config",
+        :operation => :"KubernetesProtection.get_azure_tenant_config",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -655,7 +655,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_azure_tenant_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_azure_tenant_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -681,22 +681,22 @@ module Falcon
     # @return [Array<(K8sregGetAzureTenantInfoResp, Integer, Hash)>] K8sregGetAzureTenantInfoResp data, response status code and response headers
     def get_azure_tenant_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_azure_tenant_ids ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_azure_tenant_ids ...'
       end
       allowable_values = ["Not Installed", "Running", "Stopped"]
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_azure_tenant_ids, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_azure_tenant_ids, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_azure_tenant_ids, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_azure_tenant_ids, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.get_azure_tenant_ids, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_azure_tenant_ids, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -727,7 +727,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_azure_tenant_ids",
+        :operation => :"KubernetesProtection.get_azure_tenant_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -738,7 +738,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_azure_tenant_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_azure_tenant_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -770,7 +770,7 @@ module Falcon
     # @return [Array<(K8sregGetClustersResp, Integer, Hash)>] K8sregGetClustersResp data, response status code and response headers
     def get_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_clusters ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_clusters ...'
       end
       allowable_values = []
       if @api_client.config.client_side_validation && opts[:'status'] && !opts[:'status'].all? { |item| allowable_values.include?(item) }
@@ -781,15 +781,15 @@ module Falcon
         fail ArgumentError, "invalid value for \"cluster_service\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_clusters, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_clusters, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_clusters, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_clusters, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.get_clusters, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_clusters, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -823,7 +823,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_clusters",
+        :operation => :"KubernetesProtection.get_clusters",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -834,7 +834,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -864,7 +864,7 @@ module Falcon
     # @return [Array<(K8sregListClusterCloudResp, Integer, Hash)>] K8sregListClusterCloudResp data, response status code and response headers
     def get_combined_cloud_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_combined_cloud_clusters ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_combined_cloud_clusters ...'
       end
       allowable_values = []
       if @api_client.config.client_side_validation && opts[:'cluster_service'] && !opts[:'cluster_service'].all? { |item| allowable_values.include?(item) }
@@ -875,15 +875,15 @@ module Falcon
         fail ArgumentError, "invalid value for \"cluster_status\", must include one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_combined_cloud_clusters, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_combined_cloud_clusters, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.get_combined_cloud_clusters, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.get_combined_cloud_clusters, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.get_combined_cloud_clusters, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.get_combined_cloud_clusters, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -916,7 +916,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_combined_cloud_clusters",
+        :operation => :"KubernetesProtection.get_combined_cloud_clusters",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -927,7 +927,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_combined_cloud_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_combined_cloud_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -949,11 +949,11 @@ module Falcon
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def get_helm_values_yaml_with_http_info(cluster_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_helm_values_yaml ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_helm_values_yaml ...'
       end
       # verify the required parameter 'cluster_name' is set
       if @api_client.config.client_side_validation && cluster_name.nil?
-        fail ArgumentError, "Missing the required parameter 'cluster_name' when calling KubernetesProtectionApi.get_helm_values_yaml"
+        fail ArgumentError, "Missing the required parameter 'cluster_name' when calling KubernetesProtection.get_helm_values_yaml"
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/integration/agent/v1'
@@ -981,7 +981,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_helm_values_yaml",
+        :operation => :"KubernetesProtection.get_helm_values_yaml",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -992,7 +992,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_helm_values_yaml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_helm_values_yaml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1012,7 +1012,7 @@ module Falcon
     # @return [Array<(K8sregGetLocationsResp, Integer, Hash)>] K8sregGetLocationsResp data, response status code and response headers
     def get_locations_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_locations ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_locations ...'
       end
       allowable_values = []
       if @api_client.config.client_side_validation && opts[:'clouds'] && !opts[:'clouds'].all? { |item| allowable_values.include?(item) }
@@ -1043,7 +1043,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_locations",
+        :operation => :"KubernetesProtection.get_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1054,7 +1054,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1072,7 +1072,7 @@ module Falcon
     # @return [Array<(K8sregGetScriptsResp, Integer, Hash)>] K8sregGetScriptsResp data, response status code and response headers
     def get_static_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.get_static_scripts ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.get_static_scripts ...'
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/gen/scripts/v1'
@@ -1098,7 +1098,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.get_static_scripts",
+        :operation => :"KubernetesProtection.get_static_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1109,7 +1109,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#get_static_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#get_static_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1129,7 +1129,7 @@ module Falcon
     # @return [Array<(ModelsContainerCoverageResponseEntity, Integer, Hash)>] ModelsContainerCoverageResponseEntity data, response status code and response headers
     def group_containers_by_managed_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.group_containers_by_managed ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.group_containers_by_managed ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/group-by-managed/v1'
@@ -1156,7 +1156,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.group_containers_by_managed",
+        :operation => :"KubernetesProtection.group_containers_by_managed",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1167,7 +1167,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#group_containers_by_managed\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#group_containers_by_managed\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1197,7 +1197,7 @@ module Falcon
     # @return [Array<(K8sregGetAzureSubscriptionsResp, Integer, Hash)>] K8sregGetAzureSubscriptionsResp data, response status code and response headers
     def list_azure_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.list_azure_accounts ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.list_azure_accounts ...'
       end
       allowable_values = ["operational", "provisioned"]
       if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
@@ -1205,7 +1205,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtectionApi.list_azure_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling KubernetesProtection.list_azure_accounts, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["false", "true"]
@@ -1214,19 +1214,19 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'is_horizon_acct'].nil? && opts[:'is_horizon_acct'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtectionApi.list_azure_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"is_horizon_acct\"]' when calling KubernetesProtection.list_azure_accounts, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.list_azure_accounts, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.list_azure_accounts, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtectionApi.list_azure_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling KubernetesProtection.list_azure_accounts, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtectionApi.list_azure_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling KubernetesProtection.list_azure_accounts, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -1259,7 +1259,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.list_azure_accounts",
+        :operation => :"KubernetesProtection.list_azure_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1270,7 +1270,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#list_azure_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#list_azure_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1292,40 +1292,40 @@ module Falcon
     # @return [Array<(K8sregGetAzureTenantConfigResp, Integer, Hash)>] K8sregGetAzureTenantConfigResp data, response status code and response headers
     def patch_azure_service_principal_with_http_info(id, client_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.patch_azure_service_principal ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.patch_azure_service_principal ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling KubernetesProtectionApi.patch_azure_service_principal"
+        fail ArgumentError, "Missing the required parameter 'id' when calling KubernetesProtection.patch_azure_service_principal"
       end
       if @api_client.config.client_side_validation && id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "id" when calling KubernetesProtectionApi.patch_azure_service_principal, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling KubernetesProtection.patch_azure_service_principal, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && id.to_s.length < 36
-        fail ArgumentError, 'invalid value for "id" when calling KubernetesProtectionApi.patch_azure_service_principal, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling KubernetesProtection.patch_azure_service_principal, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling KubernetesProtectionApi.patch_azure_service_principal, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling KubernetesProtection.patch_azure_service_principal, must conform to the pattern #{pattern}."
       end
 
       # verify the required parameter 'client_id' is set
       if @api_client.config.client_side_validation && client_id.nil?
-        fail ArgumentError, "Missing the required parameter 'client_id' when calling KubernetesProtectionApi.patch_azure_service_principal"
+        fail ArgumentError, "Missing the required parameter 'client_id' when calling KubernetesProtection.patch_azure_service_principal"
       end
       if @api_client.config.client_side_validation && client_id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "client_id" when calling KubernetesProtectionApi.patch_azure_service_principal, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "client_id" when calling KubernetesProtection.patch_azure_service_principal, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && client_id.to_s.length < 36
-        fail ArgumentError, 'invalid value for "client_id" when calling KubernetesProtectionApi.patch_azure_service_principal, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "client_id" when calling KubernetesProtection.patch_azure_service_principal, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-4[0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$/)
       if @api_client.config.client_side_validation && client_id !~ pattern
-        fail ArgumentError, "invalid value for 'client_id' when calling KubernetesProtectionApi.patch_azure_service_principal, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'client_id' when calling KubernetesProtection.patch_azure_service_principal, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1354,7 +1354,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.patch_azure_service_principal",
+        :operation => :"KubernetesProtection.patch_azure_service_principal",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1365,7 +1365,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#patch_azure_service_principal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#patch_azure_service_principal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1391,7 +1391,7 @@ module Falcon
     # @return [Array<(ModelsClusterEntityResponse, Integer, Hash)>] ModelsClusterEntityResponse data, response status code and response headers
     def read_cluster_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_combined ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_cluster_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/clusters/v1'
@@ -1421,7 +1421,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_cluster_combined",
+        :operation => :"KubernetesProtection.read_cluster_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1432,7 +1432,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_cluster_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1452,7 +1452,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_cluster_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_cluster_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/clusters/count/v1'
@@ -1479,7 +1479,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_cluster_count",
+        :operation => :"KubernetesProtection.read_cluster_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1490,7 +1490,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_cluster_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1512,11 +1512,11 @@ module Falcon
     # @return [Array<(K8sassetsClusterEnrichmentResponse, Integer, Hash)>] K8sassetsClusterEnrichmentResponse data, response status code and response headers
     def read_cluster_enrichment_with_http_info(cluster_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_cluster_enrichment ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_cluster_enrichment ...'
       end
       # verify the required parameter 'cluster_id' is set
       if @api_client.config.client_side_validation && cluster_id.nil?
-        fail ArgumentError, "Missing the required parameter 'cluster_id' when calling KubernetesProtectionApi.read_cluster_enrichment"
+        fail ArgumentError, "Missing the required parameter 'cluster_id' when calling KubernetesProtection.read_cluster_enrichment"
       end
       # resource path
       local_var_path = '/container-security/aggregates/enrichment/clusters/entities/v1'
@@ -1544,7 +1544,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_cluster_enrichment",
+        :operation => :"KubernetesProtection.read_cluster_enrichment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1555,7 +1555,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_cluster_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_cluster_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1573,7 +1573,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_clusters_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_clusters_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/clusters/count-by-date/v1'
@@ -1599,7 +1599,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_clusters_by_date_range_count",
+        :operation => :"KubernetesProtection.read_clusters_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1610,7 +1610,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_clusters_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1630,7 +1630,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_clusters_by_kubernetes_version_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_kubernetes_version_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_clusters_by_kubernetes_version_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/clusters/count-by-kubernetes-version/v1'
@@ -1657,7 +1657,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_clusters_by_kubernetes_version_count",
+        :operation => :"KubernetesProtection.read_clusters_by_kubernetes_version_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1668,7 +1668,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_kubernetes_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_clusters_by_kubernetes_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1688,7 +1688,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_clusters_by_status_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_clusters_by_status_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_clusters_by_status_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/clusters/count-by-status/v1'
@@ -1715,7 +1715,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_clusters_by_status_count",
+        :operation => :"KubernetesProtection.read_clusters_by_status_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1726,7 +1726,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_clusters_by_status_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_clusters_by_status_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1752,7 +1752,7 @@ module Falcon
     # @return [Array<(ModelsContainerEntityResponse, Integer, Hash)>] ModelsContainerEntityResponse data, response status code and response headers
     def read_container_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_combined ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/containers/v1'
@@ -1782,7 +1782,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_combined",
+        :operation => :"KubernetesProtection.read_container_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1793,7 +1793,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1813,7 +1813,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_container_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/count/v1'
@@ -1840,7 +1840,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_count",
+        :operation => :"KubernetesProtection.read_container_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1851,7 +1851,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1873,7 +1873,7 @@ module Falcon
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_count_by_registry_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_count_by_registry ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_count_by_registry ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/count-by-registry/v1'
@@ -1901,7 +1901,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_count_by_registry",
+        :operation => :"KubernetesProtection.read_container_count_by_registry",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1912,7 +1912,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_count_by_registry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_count_by_registry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1934,11 +1934,11 @@ module Falcon
     # @return [Array<(K8sassetsContainerEnrichmentResponse, Integer, Hash)>] K8sassetsContainerEnrichmentResponse data, response status code and response headers
     def read_container_enrichment_with_http_info(container_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_enrichment ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_enrichment ...'
       end
       # verify the required parameter 'container_id' is set
       if @api_client.config.client_side_validation && container_id.nil?
-        fail ArgumentError, "Missing the required parameter 'container_id' when calling KubernetesProtectionApi.read_container_enrichment"
+        fail ArgumentError, "Missing the required parameter 'container_id' when calling KubernetesProtection.read_container_enrichment"
       end
       # resource path
       local_var_path = '/container-security/aggregates/enrichment/containers/entities/v1'
@@ -1966,7 +1966,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_enrichment",
+        :operation => :"KubernetesProtection.read_container_enrichment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1977,7 +1977,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1997,7 +1997,7 @@ module Falcon
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_image_detections_count_by_date_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_image_detections_count_by_date ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_image_detections_count_by_date ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/image-detections-count-by-date/v1'
@@ -2024,7 +2024,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_image_detections_count_by_date",
+        :operation => :"KubernetesProtection.read_container_image_detections_count_by_date",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2035,7 +2035,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_image_detections_count_by_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_image_detections_count_by_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2055,7 +2055,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_container_images_by_most_used_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_images_by_most_used ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_images_by_most_used ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/most-used/v1'
@@ -2082,7 +2082,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_images_by_most_used",
+        :operation => :"KubernetesProtection.read_container_images_by_most_used",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2093,7 +2093,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_images_by_most_used\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_images_by_most_used\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2113,7 +2113,7 @@ module Falcon
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_images_by_state_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_images_by_state ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_images_by_state ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/images-by-state/v1'
@@ -2140,7 +2140,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_images_by_state",
+        :operation => :"KubernetesProtection.read_container_images_by_state",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2151,7 +2151,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_images_by_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_images_by_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2171,7 +2171,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_container_vulnerabilities_by_severity_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_container_vulnerabilities_by_severity_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_container_vulnerabilities_by_severity_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/vulnerability-count-by-severity/v1'
@@ -2198,7 +2198,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_container_vulnerabilities_by_severity_count",
+        :operation => :"KubernetesProtection.read_container_vulnerabilities_by_severity_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2209,7 +2209,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_container_vulnerabilities_by_severity_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_container_vulnerabilities_by_severity_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2229,7 +2229,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_containers_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_containers_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_containers_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/count-by-date/v1'
@@ -2256,7 +2256,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_containers_by_date_range_count",
+        :operation => :"KubernetesProtection.read_containers_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2267,7 +2267,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_containers_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_containers_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2287,7 +2287,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_containers_sensor_coverage_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_containers_sensor_coverage ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_containers_sensor_coverage ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/sensor-coverage/v1'
@@ -2314,7 +2314,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_containers_sensor_coverage",
+        :operation => :"KubernetesProtection.read_containers_sensor_coverage",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2325,7 +2325,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_containers_sensor_coverage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_containers_sensor_coverage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2351,7 +2351,7 @@ module Falcon
     # @return [Array<(ModelsDeploymentEntityResponse, Integer, Hash)>] ModelsDeploymentEntityResponse data, response status code and response headers
     def read_deployment_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_combined ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_deployment_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/deployments/v1'
@@ -2381,7 +2381,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_deployment_combined",
+        :operation => :"KubernetesProtection.read_deployment_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2392,7 +2392,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_deployment_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2412,7 +2412,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_deployment_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_deployment_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/deployments/count/v1'
@@ -2439,7 +2439,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_deployment_count",
+        :operation => :"KubernetesProtection.read_deployment_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2450,7 +2450,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_deployment_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2472,11 +2472,11 @@ module Falcon
     # @return [Array<(K8sassetsDeploymentEnrichmentResponse, Integer, Hash)>] K8sassetsDeploymentEnrichmentResponse data, response status code and response headers
     def read_deployment_enrichment_with_http_info(deployment_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployment_enrichment ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_deployment_enrichment ...'
       end
       # verify the required parameter 'deployment_id' is set
       if @api_client.config.client_side_validation && deployment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling KubernetesProtectionApi.read_deployment_enrichment"
+        fail ArgumentError, "Missing the required parameter 'deployment_id' when calling KubernetesProtection.read_deployment_enrichment"
       end
       # resource path
       local_var_path = '/container-security/aggregates/enrichment/deployments/entities/v1'
@@ -2504,7 +2504,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_deployment_enrichment",
+        :operation => :"KubernetesProtection.read_deployment_enrichment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2515,7 +2515,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployment_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_deployment_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2533,7 +2533,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_deployments_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_deployments_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_deployments_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/deployments/count-by-date/v1'
@@ -2559,7 +2559,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_deployments_by_date_range_count",
+        :operation => :"KubernetesProtection.read_deployments_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2570,7 +2570,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_deployments_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_deployments_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2590,7 +2590,7 @@ module Falcon
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_distinct_container_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_distinct_container_image_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_distinct_container_image_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/images/count-by-distinct/v1'
@@ -2617,7 +2617,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_distinct_container_image_count",
+        :operation => :"KubernetesProtection.read_distinct_container_image_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2628,7 +2628,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_distinct_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_distinct_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2648,7 +2648,7 @@ module Falcon
     # @return [Array<(K8siomsKubernetesIOMFieldValue, Integer, Hash)>] K8siomsKubernetesIOMFieldValue data, response status code and response headers
     def read_kubernetes_iom_by_date_range_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_by_date_range ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_kubernetes_iom_by_date_range ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/kubernetes-ioms/count-by-date/v1'
@@ -2675,7 +2675,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_by_date_range",
+        :operation => :"KubernetesProtection.read_kubernetes_iom_by_date_range",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2686,7 +2686,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_by_date_range\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_kubernetes_iom_by_date_range\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2706,7 +2706,7 @@ module Falcon
     # @return [Array<(K8siomsKubernetesIOMCountValue, Integer, Hash)>] K8siomsKubernetesIOMCountValue data, response status code and response headers
     def read_kubernetes_iom_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_kubernetes_iom_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/kubernetes-ioms/count/v1'
@@ -2733,7 +2733,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_count",
+        :operation => :"KubernetesProtection.read_kubernetes_iom_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2744,7 +2744,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_kubernetes_iom_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2764,7 +2764,7 @@ module Falcon
     # @return [Array<(K8siomsKubernetesIOMEntityResponse, Integer, Hash)>] K8siomsKubernetesIOMEntityResponse data, response status code and response headers
     def read_kubernetes_iom_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_kubernetes_iom_entities ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_kubernetes_iom_entities ...'
       end
       # resource path
       local_var_path = '/container-security/entities/kubernetes-ioms/v1'
@@ -2791,7 +2791,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_kubernetes_iom_entities",
+        :operation => :"KubernetesProtection.read_kubernetes_iom_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2802,7 +2802,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2822,7 +2822,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_namespace_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_namespace_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_namespace_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/namespaces/count/v1'
@@ -2849,7 +2849,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_namespace_count",
+        :operation => :"KubernetesProtection.read_namespace_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2860,7 +2860,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_namespace_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_namespace_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2878,7 +2878,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_namespaces_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_namespaces_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_namespaces_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/namespaces/count-by-date/v1'
@@ -2904,7 +2904,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_namespaces_by_date_range_count",
+        :operation => :"KubernetesProtection.read_namespaces_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2915,7 +2915,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_namespaces_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_namespaces_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2941,7 +2941,7 @@ module Falcon
     # @return [Array<(ModelsNodeEntityResponse, Integer, Hash)>] ModelsNodeEntityResponse data, response status code and response headers
     def read_node_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_combined ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_node_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/nodes/v1'
@@ -2971,7 +2971,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_node_combined",
+        :operation => :"KubernetesProtection.read_node_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2982,7 +2982,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_node_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3002,7 +3002,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_node_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_node_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/nodes/count/v1'
@@ -3029,7 +3029,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_node_count",
+        :operation => :"KubernetesProtection.read_node_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3040,7 +3040,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_node_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3062,11 +3062,11 @@ module Falcon
     # @return [Array<(K8sassetsNodeEnrichmentResponse, Integer, Hash)>] K8sassetsNodeEnrichmentResponse data, response status code and response headers
     def read_node_enrichment_with_http_info(node_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_node_enrichment ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_node_enrichment ...'
       end
       # verify the required parameter 'node_name' is set
       if @api_client.config.client_side_validation && node_name.nil?
-        fail ArgumentError, "Missing the required parameter 'node_name' when calling KubernetesProtectionApi.read_node_enrichment"
+        fail ArgumentError, "Missing the required parameter 'node_name' when calling KubernetesProtection.read_node_enrichment"
       end
       # resource path
       local_var_path = '/container-security/aggregates/enrichment/nodes/entities/v1'
@@ -3094,7 +3094,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_node_enrichment",
+        :operation => :"KubernetesProtection.read_node_enrichment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3105,7 +3105,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_node_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_node_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3125,7 +3125,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_cloud_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_cloud_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_nodes_by_cloud_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/nodes/count-by-cloud/v1'
@@ -3152,7 +3152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_nodes_by_cloud_count",
+        :operation => :"KubernetesProtection.read_nodes_by_cloud_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3163,7 +3163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_cloud_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_nodes_by_cloud_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3183,7 +3183,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_container_engine_version_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_container_engine_version_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_nodes_by_container_engine_version_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/nodes/count-by-container-engine-version/v1'
@@ -3210,7 +3210,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_nodes_by_container_engine_version_count",
+        :operation => :"KubernetesProtection.read_nodes_by_container_engine_version_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3221,7 +3221,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_container_engine_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_nodes_by_container_engine_version_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3241,7 +3241,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_nodes_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_nodes_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/nodes/count-by-date/v1'
@@ -3268,7 +3268,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_nodes_by_date_range_count",
+        :operation => :"KubernetesProtection.read_nodes_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3279,7 +3279,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_nodes_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_nodes_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3305,7 +3305,7 @@ module Falcon
     # @return [Array<(ModelsPodEntityResponse, Integer, Hash)>] ModelsPodEntityResponse data, response status code and response headers
     def read_pod_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_combined ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_pod_combined ...'
       end
       # resource path
       local_var_path = '/container-security/combined/pods/v1'
@@ -3335,7 +3335,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_pod_combined",
+        :operation => :"KubernetesProtection.read_pod_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3346,7 +3346,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_pod_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3366,7 +3366,7 @@ module Falcon
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_pod_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_pod_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/pods/count/v1'
@@ -3393,7 +3393,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_pod_count",
+        :operation => :"KubernetesProtection.read_pod_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3404,7 +3404,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_pod_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3426,11 +3426,11 @@ module Falcon
     # @return [Array<(K8sassetsPodEnrichmentResponse, Integer, Hash)>] K8sassetsPodEnrichmentResponse data, response status code and response headers
     def read_pod_enrichment_with_http_info(pod_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pod_enrichment ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_pod_enrichment ...'
       end
       # verify the required parameter 'pod_id' is set
       if @api_client.config.client_side_validation && pod_id.nil?
-        fail ArgumentError, "Missing the required parameter 'pod_id' when calling KubernetesProtectionApi.read_pod_enrichment"
+        fail ArgumentError, "Missing the required parameter 'pod_id' when calling KubernetesProtection.read_pod_enrichment"
       end
       # resource path
       local_var_path = '/container-security/aggregates/enrichment/pods/entities/v1'
@@ -3458,7 +3458,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_pod_enrichment",
+        :operation => :"KubernetesProtection.read_pod_enrichment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3469,7 +3469,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pod_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_pod_enrichment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3487,7 +3487,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_pods_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_pods_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_pods_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/pods/count-by-date/v1'
@@ -3513,7 +3513,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_pods_by_date_range_count",
+        :operation => :"KubernetesProtection.read_pods_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3524,7 +3524,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_pods_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_pods_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3550,7 +3550,7 @@ module Falcon
     # @return [Array<(ModelsContainerImage, Integer, Hash)>] ModelsContainerImage data, response status code and response headers
     def read_running_container_images_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_running_container_images ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_running_container_images ...'
       end
       # resource path
       local_var_path = '/container-security/combined/container-images/v1'
@@ -3580,7 +3580,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_running_container_images",
+        :operation => :"KubernetesProtection.read_running_container_images",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3591,7 +3591,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_running_container_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_running_container_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3611,7 +3611,7 @@ module Falcon
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_vulnerable_container_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.read_vulnerable_container_image_count ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.read_vulnerable_container_image_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/containers/count-vulnerable-images/v1'
@@ -3638,7 +3638,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.read_vulnerable_container_image_count",
+        :operation => :"KubernetesProtection.read_vulnerable_container_image_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3649,7 +3649,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#read_vulnerable_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#read_vulnerable_container_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3667,7 +3667,7 @@ module Falcon
     # @return [Array<(K8sregRegenAPIKeyResp, Integer, Hash)>] K8sregRegenAPIKeyResp data, response status code and response headers
     def regenerate_api_key_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.regenerate_api_key ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.regenerate_api_key ...'
       end
       # resource path
       local_var_path = '/kubernetes-protection/entities/integration/api-key/v1'
@@ -3693,7 +3693,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.regenerate_api_key",
+        :operation => :"KubernetesProtection.regenerate_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3704,7 +3704,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#regenerate_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#regenerate_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3730,7 +3730,7 @@ module Falcon
     # @return [Array<(K8siomsKubernetesIOMEntityResponse, Integer, Hash)>] K8siomsKubernetesIOMEntityResponse data, response status code and response headers
     def search_and_read_kubernetes_iom_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.search_and_read_kubernetes_iom_entities ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.search_and_read_kubernetes_iom_entities ...'
       end
       # resource path
       local_var_path = '/container-security/combined/kubernetes-ioms/v1'
@@ -3760,7 +3760,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.search_and_read_kubernetes_iom_entities",
+        :operation => :"KubernetesProtection.search_and_read_kubernetes_iom_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3771,7 +3771,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#search_and_read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#search_and_read_kubernetes_iom_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3797,7 +3797,7 @@ module Falcon
     # @return [Array<(CommonGenericEntityResponseString, Integer, Hash)>] CommonGenericEntityResponseString data, response status code and response headers
     def search_kubernetes_ioms_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.search_kubernetes_ioms ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.search_kubernetes_ioms ...'
       end
       # resource path
       local_var_path = '/container-security/queries/kubernetes-ioms/v1'
@@ -3827,7 +3827,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.search_kubernetes_ioms",
+        :operation => :"KubernetesProtection.search_kubernetes_ioms",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3838,7 +3838,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#search_kubernetes_ioms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#search_kubernetes_ioms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3858,11 +3858,11 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def trigger_scan_with_http_info(scan_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.trigger_scan ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.trigger_scan ...'
       end
       # verify the required parameter 'scan_type' is set
       if @api_client.config.client_side_validation && scan_type.nil?
-        fail ArgumentError, "Missing the required parameter 'scan_type' when calling KubernetesProtectionApi.trigger_scan"
+        fail ArgumentError, "Missing the required parameter 'scan_type' when calling KubernetesProtection.trigger_scan"
       end
       # verify enum value
       allowable_values = ["cluster-refresh", "dry-run", "full"]
@@ -3871,7 +3871,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(dry-run|full|cluster-refresh)$/)
       if @api_client.config.client_side_validation && scan_type !~ pattern
-        fail ArgumentError, "invalid value for 'scan_type' when calling KubernetesProtectionApi.trigger_scan, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'scan_type' when calling KubernetesProtection.trigger_scan, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -3899,7 +3899,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.trigger_scan",
+        :operation => :"KubernetesProtection.trigger_scan",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3910,7 +3910,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#trigger_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#trigger_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3932,15 +3932,15 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def update_aws_account_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: KubernetesProtectionApi.update_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: KubernetesProtection.update_aws_account ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtectionApi.update_aws_account"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling KubernetesProtection.update_aws_account"
       end
       pattern = Regexp.new(/^[a-z\d-]+$/)
       if @api_client.config.client_side_validation && !opts[:'region'].nil? && opts[:'region'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling KubernetesProtectionApi.update_aws_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling KubernetesProtection.update_aws_account, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -3969,7 +3969,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"KubernetesProtectionApi.update_aws_account",
+        :operation => :"KubernetesProtection.update_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -3980,7 +3980,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: KubernetesProtectionApi#update_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: KubernetesProtection#update_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

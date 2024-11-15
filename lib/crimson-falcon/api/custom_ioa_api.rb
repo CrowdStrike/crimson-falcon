@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class CustomIoaApi
+  class CustomIoa
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def create_rule_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.create_rule ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.create_rule ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.create_rule"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.create_rule"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.create_rule",
+        :operation => :"CustomIoa.create_rule",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#create_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#create_rule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def create_rule_group_mixin0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.create_rule_group_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.create_rule_group_mixin0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.create_rule_group_mixin0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.create_rule_group_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rule-groups/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.create_rule_group_mixin0",
+        :operation => :"CustomIoa.create_rule_group_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#create_rule_group_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#create_rule_group_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -185,11 +185,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def delete_rule_groups_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.delete_rule_groups_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.delete_rule_groups_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.delete_rule_groups_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.delete_rule_groups_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rule-groups/v1'
@@ -217,7 +217,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.delete_rule_groups_mixin0",
+        :operation => :"CustomIoa.delete_rule_groups_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -228,7 +228,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#delete_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#delete_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -252,15 +252,15 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def delete_rules_0_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.delete_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.delete_rules_0 ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoaApi.delete_rules_0"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoa.delete_rules_0"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.delete_rules_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.delete_rules_0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -289,7 +289,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.delete_rules_0",
+        :operation => :"CustomIoa.delete_rules_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -300,7 +300,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#delete_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#delete_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -320,11 +320,11 @@ module Falcon
     # @return [Array<(ApiPatternsResponse, Integer, Hash)>] ApiPatternsResponse data, response status code and response headers
     def get_patterns_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_patterns ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_patterns ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_patterns"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.get_patterns"
       end
       # resource path
       local_var_path = '/ioarules/entities/pattern-severities/v1'
@@ -351,7 +351,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_patterns",
+        :operation => :"CustomIoa.get_patterns",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -362,7 +362,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -382,11 +382,11 @@ module Falcon
     # @return [Array<(ApiPlatformsResponse, Integer, Hash)>] ApiPlatformsResponse data, response status code and response headers
     def get_platforms_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_platforms_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_platforms_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_platforms_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.get_platforms_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/platforms/v1'
@@ -413,7 +413,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_platforms_mixin0",
+        :operation => :"CustomIoa.get_platforms_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -424,7 +424,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_platforms_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_platforms_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -444,11 +444,11 @@ module Falcon
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def get_rule_groups_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rule_groups_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_rule_groups_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_rule_groups_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.get_rule_groups_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rule-groups/v1'
@@ -475,7 +475,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_rule_groups_mixin0",
+        :operation => :"CustomIoa.get_rule_groups_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -486,7 +486,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -506,11 +506,11 @@ module Falcon
     # @return [Array<(ApiRuleTypesResponse, Integer, Hash)>] ApiRuleTypesResponse data, response status code and response headers
     def get_rule_types_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rule_types ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_rule_types ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_rule_types"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.get_rule_types"
       end
       # resource path
       local_var_path = '/ioarules/entities/rule-types/v1'
@@ -537,7 +537,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_rule_types",
+        :operation => :"CustomIoa.get_rule_types",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -548,7 +548,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_rule_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_rule_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -568,11 +568,11 @@ module Falcon
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def get_rules_get_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rules_get ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_rules_get ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.get_rules_get"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.get_rules_get"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/GET/v1'
@@ -603,7 +603,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_rules_get",
+        :operation => :"CustomIoa.get_rules_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -614,7 +614,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_rules_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_rules_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -634,11 +634,11 @@ module Falcon
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def get_rules_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.get_rules_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.get_rules_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.get_rules_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.get_rules_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -665,7 +665,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.get_rules_mixin0",
+        :operation => :"CustomIoa.get_rules_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -676,7 +676,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#get_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#get_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -698,7 +698,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_patterns_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_patterns ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_patterns ...'
       end
       # resource path
       local_var_path = '/ioarules/queries/pattern-severities/v1'
@@ -726,7 +726,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_patterns",
+        :operation => :"CustomIoa.query_patterns",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -737,7 +737,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_patterns\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -759,7 +759,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_platforms_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_platforms_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_platforms_mixin0 ...'
       end
       # resource path
       local_var_path = '/ioarules/queries/platforms/v1'
@@ -787,7 +787,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_platforms_mixin0",
+        :operation => :"CustomIoa.query_platforms_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -798,7 +798,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_platforms_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_platforms_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -826,7 +826,7 @@ module Falcon
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def query_rule_groups_full_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rule_groups_full ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_rule_groups_full ...'
       end
       allowable_values = ["created_by", "created_on", "enabled", "modified_by", "modified_on", "name"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -861,7 +861,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_rule_groups_full",
+        :operation => :"CustomIoa.query_rule_groups_full",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -872,7 +872,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_rule_groups_full\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_rule_groups_full\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -900,7 +900,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_rule_groups_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rule_groups_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_rule_groups_mixin0 ...'
       end
       allowable_values = ["created_by", "created_on", "enabled", "modified_by", "modified_on", "name"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -935,7 +935,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_rule_groups_mixin0",
+        :operation => :"CustomIoa.query_rule_groups_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -946,7 +946,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_rule_groups_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -968,7 +968,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_rule_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rule_types ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_rule_types ...'
       end
       # resource path
       local_var_path = '/ioarules/queries/rule-types/v1'
@@ -996,7 +996,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_rule_types",
+        :operation => :"CustomIoa.query_rule_types",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1007,7 +1007,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_rule_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_rule_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1035,7 +1035,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_rules_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rules_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.query_rules_mixin0 ...'
       end
       allowable_values = ["rules.created_by", "rules.created_on", "rules.current_version.action_label", "rules.current_version.description", "rules.current_version.modified_by", "rules.current_version.modified_on", "rules.current_version.name", "rules.current_version.pattern_severity", "rules.enabled", "rules.ruletype_name"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1070,7 +1070,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.query_rules_mixin0",
+        :operation => :"CustomIoa.query_rules_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1081,7 +1081,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#query_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#query_rules_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1101,11 +1101,11 @@ module Falcon
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def update_rule_group_mixin0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rule_group_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.update_rule_group_mixin0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rule_group_mixin0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.update_rule_group_mixin0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rule-groups/v1'
@@ -1136,7 +1136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.update_rule_group_mixin0",
+        :operation => :"CustomIoa.update_rule_group_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1147,7 +1147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#update_rule_group_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#update_rule_group_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1167,11 +1167,11 @@ module Falcon
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def update_rules_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.update_rules_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rules_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.update_rules_0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -1202,7 +1202,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.update_rules_0",
+        :operation => :"CustomIoa.update_rules_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1213,7 +1213,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#update_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#update_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1233,11 +1233,11 @@ module Falcon
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def update_rules_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rules_v2 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.update_rules_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rules_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.update_rules_v2"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v2'
@@ -1268,7 +1268,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.update_rules_v2",
+        :operation => :"CustomIoa.update_rules_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1279,7 +1279,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#update_rules_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#update_rules_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1299,11 +1299,11 @@ module Falcon
     # @return [Array<(ApiValidationResponseV1, Integer, Hash)>] ApiValidationResponseV1 data, response status code and response headers
     def validate_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.validate ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.validate ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.validate"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.validate"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/validate/v1'
@@ -1334,7 +1334,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.validate",
+        :operation => :"CustomIoa.validate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1345,7 +1345,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#validate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#validate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

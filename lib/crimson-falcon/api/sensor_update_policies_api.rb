@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class SensorUpdatePoliciesApi
+  class SensorUpdatePolicies
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def create_sensor_update_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.create_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.create_sensor_update_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.create_sensor_update_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.create_sensor_update_policies"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.create_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.create_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#create_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#create_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def create_sensor_update_policies_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.create_sensor_update_policies_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.create_sensor_update_policies_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.create_sensor_update_policies_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.create_sensor_update_policies_v2"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v2'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.create_sensor_update_policies_v2",
+        :operation => :"SensorUpdatePolicies.create_sensor_update_policies_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#create_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#create_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_sensor_update_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.delete_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.delete_sensor_update_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePoliciesApi.delete_sensor_update_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePolicies.delete_sensor_update_policies"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.delete_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.delete_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#delete_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#delete_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -245,11 +245,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def get_sensor_update_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.get_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.get_sensor_update_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePoliciesApi.get_sensor_update_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePolicies.get_sensor_update_policies"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v1'
@@ -276,7 +276,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.get_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.get_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,7 +287,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#get_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#get_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -307,11 +307,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def get_sensor_update_policies_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.get_sensor_update_policies_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.get_sensor_update_policies_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePoliciesApi.get_sensor_update_policies_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SensorUpdatePolicies.get_sensor_update_policies_v2"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v2'
@@ -338,7 +338,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.get_sensor_update_policies_v2",
+        :operation => :"SensorUpdatePolicies.get_sensor_update_policies_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -349,7 +349,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#get_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#get_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -371,11 +371,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def perform_sensor_update_policies_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.perform_sensor_update_policies_action ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.perform_sensor_update_policies_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling SensorUpdatePoliciesApi.perform_sensor_update_policies_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling SensorUpdatePolicies.perform_sensor_update_policies_action"
       end
       # verify enum value
       allowable_values = ["add-host-group", "add-rule-group", "disable", "enable", "remove-host-group", "remove-rule-group"]
@@ -384,7 +384,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.perform_sensor_update_policies_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.perform_sensor_update_policies_action"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update-actions/v1'
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.perform_sensor_update_policies_action",
+        :operation => :"SensorUpdatePolicies.perform_sensor_update_policies_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#perform_sensor_update_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#perform_sensor_update_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -449,7 +449,7 @@ module Falcon
     # @return [Array<(SensorUpdateBuildsRespV1, Integer, Hash)>] SensorUpdateBuildsRespV1 data, response status code and response headers
     def query_combined_sensor_update_builds_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_combined_sensor_update_builds ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_builds ...'
       end
       allowable_values = ["linux", "linuxarm64", "mac", "windows", "zlinux"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
@@ -485,7 +485,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_combined_sensor_update_builds",
+        :operation => :"SensorUpdatePolicies.query_combined_sensor_update_builds",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -496,7 +496,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_combined_sensor_update_builds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_combined_sensor_update_builds\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -520,18 +520,18 @@ module Falcon
     # @return [Array<(SensorUpdateKernelsRespV1, Integer, Hash)>] SensorUpdateKernelsRespV1 data, response status code and response headers
     def query_combined_sensor_update_kernels_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_combined_sensor_update_kernels ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_kernels ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_kernels, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_combined_sensor_update_kernels, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_kernels, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_kernels, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_kernels, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_kernels, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -561,7 +561,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_combined_sensor_update_kernels",
+        :operation => :"SensorUpdatePolicies.query_combined_sensor_update_kernels",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -572,7 +572,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_combined_sensor_update_kernels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_combined_sensor_update_kernels\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -598,18 +598,18 @@ module Falcon
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def query_combined_sensor_update_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_combined_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -644,7 +644,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_combined_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.query_combined_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -655,7 +655,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_combined_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_combined_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -681,18 +681,18 @@ module Falcon
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def query_combined_sensor_update_policies_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_combined_sensor_update_policies_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_policies_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies_v2, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies_v2, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies_v2, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies_v2, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policies_v2, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policies_v2, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -727,7 +727,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_combined_sensor_update_policies_v2",
+        :operation => :"SensorUpdatePolicies.query_combined_sensor_update_policies_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -738,7 +738,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_combined_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_combined_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -766,18 +766,18 @@ module Falcon
     # @return [Array<(BasePolicyMembersRespV1, Integer, Hash)>] BasePolicyMembersRespV1 data, response status code and response headers
     def query_combined_sensor_update_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_combined_sensor_update_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_combined_sensor_update_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_combined_sensor_update_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -809,7 +809,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_combined_sensor_update_policy_members",
+        :operation => :"SensorUpdatePolicies.query_combined_sensor_update_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -820,7 +820,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_combined_sensor_update_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_combined_sensor_update_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -846,22 +846,22 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_sensor_update_kernels_distinct_with_http_info(distinct_field, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_sensor_update_kernels_distinct ...'
       end
       # verify the required parameter 'distinct_field' is set
       if @api_client.config.client_side_validation && distinct_field.nil?
-        fail ArgumentError, "Missing the required parameter 'distinct_field' when calling SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct"
+        fail ArgumentError, "Missing the required parameter 'distinct_field' when calling SensorUpdatePolicies.query_sensor_update_kernels_distinct"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_sensor_update_kernels_distinct, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_kernels_distinct, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_kernels_distinct, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -891,7 +891,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_sensor_update_kernels_distinct",
+        :operation => :"SensorUpdatePolicies.query_sensor_update_kernels_distinct",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -902,7 +902,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_sensor_update_kernels_distinct\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_sensor_update_kernels_distinct\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -928,18 +928,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_sensor_update_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_sensor_update_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_sensor_update_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -974,7 +974,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.query_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -985,7 +985,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1013,18 +1013,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_sensor_update_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.query_sensor_update_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_sensor_update_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling SensorUpdatePolicies.query_sensor_update_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePoliciesApi.query_sensor_update_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SensorUpdatePolicies.query_sensor_update_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -1056,7 +1056,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.query_sensor_update_policy_members",
+        :operation => :"SensorUpdatePolicies.query_sensor_update_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1067,7 +1067,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#query_sensor_update_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#query_sensor_update_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1087,11 +1087,11 @@ module Falcon
     # @return [Array<(UninstallTokenRespV1, Integer, Hash)>] UninstallTokenRespV1 data, response status code and response headers
     def reveal_uninstall_token_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.reveal_uninstall_token ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.reveal_uninstall_token ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.reveal_uninstall_token"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.reveal_uninstall_token"
       end
       # resource path
       local_var_path = '/policy/combined/reveal-uninstall-token/v1'
@@ -1122,7 +1122,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.reveal_uninstall_token",
+        :operation => :"SensorUpdatePolicies.reveal_uninstall_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1133,7 +1133,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#reveal_uninstall_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#reveal_uninstall_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1153,11 +1153,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_sensor_update_policies_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.set_sensor_update_policies_precedence ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.set_sensor_update_policies_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.set_sensor_update_policies_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.set_sensor_update_policies_precedence"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update-precedence/v1'
@@ -1188,7 +1188,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.set_sensor_update_policies_precedence",
+        :operation => :"SensorUpdatePolicies.set_sensor_update_policies_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1199,7 +1199,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#set_sensor_update_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#set_sensor_update_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1219,11 +1219,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def update_sensor_update_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.update_sensor_update_policies ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.update_sensor_update_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.update_sensor_update_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.update_sensor_update_policies"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v1'
@@ -1254,7 +1254,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.update_sensor_update_policies",
+        :operation => :"SensorUpdatePolicies.update_sensor_update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1265,7 +1265,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#update_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#update_sensor_update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1285,11 +1285,11 @@ module Falcon
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def update_sensor_update_policies_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SensorUpdatePoliciesApi.update_sensor_update_policies_v2 ...'
+        @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.update_sensor_update_policies_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePoliciesApi.update_sensor_update_policies_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling SensorUpdatePolicies.update_sensor_update_policies_v2"
       end
       # resource path
       local_var_path = '/policy/entities/sensor-update/v2'
@@ -1320,7 +1320,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SensorUpdatePoliciesApi.update_sensor_update_policies_v2",
+        :operation => :"SensorUpdatePolicies.update_sensor_update_policies_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1331,7 +1331,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SensorUpdatePoliciesApi#update_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SensorUpdatePolicies#update_sensor_update_policies_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

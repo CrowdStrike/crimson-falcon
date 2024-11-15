@@ -1,15 +1,15 @@
-# Falcon::ThreatgraphApi
+# Falcon::Threatgraph
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**combined_edges_get**](ThreatgraphApi.md#combined_edges_get) | **GET** /threatgraph/combined/edges/v1 | Retrieve edges for a given vertex id.  One edge type must be specified |
-| [**combined_ran_on_get**](ThreatgraphApi.md#combined_ran_on_get) | **GET** /threatgraph/combined/ran-on/v1 | Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment. |
-| [**combined_summary_get**](ThreatgraphApi.md#combined_summary_get) | **GET** /threatgraph/combined/{vertex-type}/summary/v1 | Retrieve summary for a given vertex ID |
-| [**entities_vertices_get**](ThreatgraphApi.md#entities_vertices_get) | **GET** /threatgraph/entities/{vertex-type}/v1 | Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead. |
-| [**entities_vertices_getv2**](ThreatgraphApi.md#entities_vertices_getv2) | **GET** /threatgraph/entities/{vertex-type}/v2 | Retrieve metadata for a given vertex ID |
-| [**queries_edgetypes_get**](ThreatgraphApi.md#queries_edgetypes_get) | **GET** /threatgraph/queries/edge-types/v1 | Show all available edge types |
+| [**combined_edges_get**](Threatgraph.md#combined_edges_get) | **GET** /threatgraph/combined/edges/v1 | Retrieve edges for a given vertex id.  One edge type must be specified |
+| [**combined_ran_on_get**](Threatgraph.md#combined_ran_on_get) | **GET** /threatgraph/combined/ran-on/v1 | Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment. |
+| [**combined_summary_get**](Threatgraph.md#combined_summary_get) | **GET** /threatgraph/combined/{vertex-type}/summary/v1 | Retrieve summary for a given vertex ID |
+| [**entities_vertices_get**](Threatgraph.md#entities_vertices_get) | **GET** /threatgraph/entities/{vertex-type}/v1 | Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead. |
+| [**entities_vertices_getv2**](Threatgraph.md#entities_vertices_getv2) | **GET** /threatgraph/entities/{vertex-type}/v2 | Retrieve metadata for a given vertex ID |
+| [**queries_edgetypes_get**](Threatgraph.md#queries_edgetypes_get) | **GET** /threatgraph/queries/edge-types/v1 | Show all available edge types |
 
 
 ## combined_edges_get
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 ids = 'ids_example' # String | Vertex ID to get details for.  Only one value is supported
 edge_type = 'accessed_ad_computer' # String | The type of edges that you would like to retrieve
 opts = {
@@ -46,7 +46,7 @@ begin
   # Retrieve edges for a given vertex id.  One edge type must be specified
   api_instance.combined_edges_get(ids, edge_type, opts)
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_edges_get: #{e}"
+  puts "Error when calling Threatgraph->combined_edges_get: #{e}"
 end
 ```
 
@@ -64,7 +64,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_edges_get_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->combined_edges_get_with_http_info: #{e}"
 end
 ```
 
@@ -113,7 +113,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 value = 'value_example' # String | The value of the indicator to search by.
 type = 'domain' # String | The type of indicator that you would like to retrieve
 opts = {
@@ -126,7 +126,7 @@ begin
   # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
   api_instance.combined_ran_on_get(value, type, opts)
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_ran_on_get: #{e}"
+  puts "Error when calling Threatgraph->combined_ran_on_get: #{e}"
 end
 ```
 
@@ -144,7 +144,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_ran_on_get_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->combined_ran_on_get_with_http_info: #{e}"
 end
 ```
 
@@ -191,7 +191,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 vertex_type = 'accessories' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
@@ -203,7 +203,7 @@ begin
   # Retrieve summary for a given vertex ID
   api_instance.combined_summary_get(vertex_type, ids, opts)
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_summary_get: #{e}"
+  puts "Error when calling Threatgraph->combined_summary_get: #{e}"
 end
 ```
 
@@ -221,7 +221,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->combined_summary_get_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->combined_summary_get_with_http_info: #{e}"
 end
 ```
 
@@ -267,7 +267,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 vertex_type = 'accessories' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
@@ -280,7 +280,7 @@ begin
   result = api_instance.entities_vertices_get(vertex_type, ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->entities_vertices_get: #{e}"
+  puts "Error when calling Threatgraph->entities_vertices_get: #{e}"
 end
 ```
 
@@ -298,7 +298,7 @@ begin
   p headers # => { ... }
   p data # => <ThreatgraphVertexDetailsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->entities_vertices_get_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->entities_vertices_get_with_http_info: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 vertex_type = 'accessories' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
@@ -357,7 +357,7 @@ begin
   result = api_instance.entities_vertices_getv2(vertex_type, ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->entities_vertices_getv2: #{e}"
+  puts "Error when calling Threatgraph->entities_vertices_getv2: #{e}"
 end
 ```
 
@@ -375,7 +375,7 @@ begin
   p headers # => { ... }
   p data # => <ThreatgraphVertexDetailsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->entities_vertices_getv2_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->entities_vertices_getv2_with_http_info: #{e}"
 end
 ```
 
@@ -421,13 +421,13 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ThreatgraphApi.new
+api_instance = Falcon::Threatgraph.new
 
 begin
   # Show all available edge types
   api_instance.queries_edgetypes_get
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->queries_edgetypes_get: #{e}"
+  puts "Error when calling Threatgraph->queries_edgetypes_get: #{e}"
 end
 ```
 
@@ -445,7 +445,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling ThreatgraphApi->queries_edgetypes_get_with_http_info: #{e}"
+  puts "Error when calling Threatgraph->queries_edgetypes_get_with_http_info: #{e}"
 end
 ```
 

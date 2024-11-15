@@ -1,42 +1,42 @@
-# Falcon::FirewallManagementApi
+# Falcon::FirewallManagement
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_events**](FirewallManagementApi.md#aggregate_events) | **POST** /fwmgr/aggregates/events/GET/v1 | Aggregate events for customer |
-| [**aggregate_policy_rules**](FirewallManagementApi.md#aggregate_policy_rules) | **POST** /fwmgr/aggregates/policy-rules/GET/v1 | Aggregate rules within a policy for customer |
-| [**aggregate_rule_groups**](FirewallManagementApi.md#aggregate_rule_groups) | **POST** /fwmgr/aggregates/rule-groups/GET/v1 | Aggregate rule groups for customer |
-| [**aggregate_rules**](FirewallManagementApi.md#aggregate_rules) | **POST** /fwmgr/aggregates/rules/GET/v1 | Aggregate rules for customer |
-| [**create_network_locations**](FirewallManagementApi.md#create_network_locations) | **POST** /fwmgr/entities/network-locations/v1 | Create new network locations provided, and return the ID. |
-| [**create_rule_group**](FirewallManagementApi.md#create_rule_group) | **POST** /fwmgr/entities/rule-groups/v1 | Create new rule group on a platform for a customer with a name and description, and return the ID |
-| [**create_rule_group_validation**](FirewallManagementApi.md#create_rule_group_validation) | **POST** /fwmgr/entities/rule-groups/validation/v1 | Validates the request of creating a new rule group on a platform for a customer with a name and description |
-| [**delete_network_locations**](FirewallManagementApi.md#delete_network_locations) | **DELETE** /fwmgr/entities/network-locations/v1 | Delete network location entities by ID. |
-| [**delete_rule_groups_0**](FirewallManagementApi.md#delete_rule_groups_0) | **DELETE** /fwmgr/entities/rule-groups/v1 | Delete rule group entities by ID |
-| [**get_events**](FirewallManagementApi.md#get_events) | **GET** /fwmgr/entities/events/v1 | Get events entities by ID and optionally version |
-| [**get_firewall_fields**](FirewallManagementApi.md#get_firewall_fields) | **GET** /fwmgr/entities/firewall-fields/v1 | Get the firewall field specifications by ID |
-| [**get_network_locations**](FirewallManagementApi.md#get_network_locations) | **GET** /fwmgr/entities/network-locations/v1 | Get a summary of network locations entities by ID |
-| [**get_network_locations_details**](FirewallManagementApi.md#get_network_locations_details) | **GET** /fwmgr/entities/network-locations-details/v1 | Get network locations entities by ID |
-| [**get_platforms**](FirewallManagementApi.md#get_platforms) | **GET** /fwmgr/entities/platforms/v1 | Get platforms by ID, e.g., windows or mac or droid |
-| [**get_policy_containers**](FirewallManagementApi.md#get_policy_containers) | **GET** /fwmgr/entities/policies/v1 | Get policy container entities by policy ID |
-| [**get_rule_groups_0**](FirewallManagementApi.md#get_rule_groups_0) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order. |
-| [**get_rules_0**](FirewallManagementApi.md#get_rules_0) | **GET** /fwmgr/entities/rules/v1 | Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string) |
-| [**query_events**](FirewallManagementApi.md#query_events) | **GET** /fwmgr/queries/events/v1 | Find all event IDs matching the query with filter |
-| [**query_firewall_fields**](FirewallManagementApi.md#query_firewall_fields) | **GET** /fwmgr/queries/firewall-fields/v1 | Get the firewall field specification IDs for the provided platform |
-| [**query_network_locations**](FirewallManagementApi.md#query_network_locations) | **GET** /fwmgr/queries/network-locations/v1 | Get a list of network location IDs |
-| [**query_platforms**](FirewallManagementApi.md#query_platforms) | **GET** /fwmgr/queries/platforms/v1 | Get the list of platform names |
-| [**query_policy_rules**](FirewallManagementApi.md#query_policy_rules) | **GET** /fwmgr/queries/policy-rules/v1 | Find all firewall rule IDs matching the query with filter, and return them in precedence order |
-| [**query_rule_groups_0**](FirewallManagementApi.md#query_rule_groups_0) | **GET** /fwmgr/queries/rule-groups/v1 | Find all rule group IDs matching the query with filter |
-| [**query_rules**](FirewallManagementApi.md#query_rules) | **GET** /fwmgr/queries/rules/v1 | Find all rule IDs matching the query with filter |
-| [**update_network_locations**](FirewallManagementApi.md#update_network_locations) | **PATCH** /fwmgr/entities/network-locations/v1 | Updates the network locations provided, and return the ID. |
-| [**update_network_locations_metadata**](FirewallManagementApi.md#update_network_locations_metadata) | **POST** /fwmgr/entities/network-locations-metadata/v1 | Updates the network locations metadata such as polling_intervals for the cid |
-| [**update_network_locations_precedence**](FirewallManagementApi.md#update_network_locations_precedence) | **POST** /fwmgr/entities/network-locations-precedence/v1 | Updates the network locations precedence according to the list of ids provided. |
-| [**update_policy_container**](FirewallManagementApi.md#update_policy_container) | **PUT** /fwmgr/entities/policies/v2 | Update an identified policy container, including local logging functionality. |
-| [**update_policy_container_v1**](FirewallManagementApi.md#update_policy_container_v1) | **PUT** /fwmgr/entities/policies/v1 | Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting. |
-| [**update_rule_group**](FirewallManagementApi.md#update_rule_group) | **PATCH** /fwmgr/entities/rule-groups/v1 | Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules |
-| [**update_rule_group_validation**](FirewallManagementApi.md#update_rule_group_validation) | **PATCH** /fwmgr/entities/rule-groups/validation/v1 | Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules |
-| [**upsert_network_locations**](FirewallManagementApi.md#upsert_network_locations) | **PUT** /fwmgr/entities/network-locations/v1 | Updates the network locations provided, and return the ID. |
-| [**validate_filepath_pattern**](FirewallManagementApi.md#validate_filepath_pattern) | **POST** /fwmgr/entities/rules/validate-filepath/v1 | Validates that the test pattern matches the executable filepath glob pattern. |
+| [**aggregate_events**](FirewallManagement.md#aggregate_events) | **POST** /fwmgr/aggregates/events/GET/v1 | Aggregate events for customer |
+| [**aggregate_policy_rules**](FirewallManagement.md#aggregate_policy_rules) | **POST** /fwmgr/aggregates/policy-rules/GET/v1 | Aggregate rules within a policy for customer |
+| [**aggregate_rule_groups**](FirewallManagement.md#aggregate_rule_groups) | **POST** /fwmgr/aggregates/rule-groups/GET/v1 | Aggregate rule groups for customer |
+| [**aggregate_rules**](FirewallManagement.md#aggregate_rules) | **POST** /fwmgr/aggregates/rules/GET/v1 | Aggregate rules for customer |
+| [**create_network_locations**](FirewallManagement.md#create_network_locations) | **POST** /fwmgr/entities/network-locations/v1 | Create new network locations provided, and return the ID. |
+| [**create_rule_group**](FirewallManagement.md#create_rule_group) | **POST** /fwmgr/entities/rule-groups/v1 | Create new rule group on a platform for a customer with a name and description, and return the ID |
+| [**create_rule_group_validation**](FirewallManagement.md#create_rule_group_validation) | **POST** /fwmgr/entities/rule-groups/validation/v1 | Validates the request of creating a new rule group on a platform for a customer with a name and description |
+| [**delete_network_locations**](FirewallManagement.md#delete_network_locations) | **DELETE** /fwmgr/entities/network-locations/v1 | Delete network location entities by ID. |
+| [**delete_rule_groups_0**](FirewallManagement.md#delete_rule_groups_0) | **DELETE** /fwmgr/entities/rule-groups/v1 | Delete rule group entities by ID |
+| [**get_events**](FirewallManagement.md#get_events) | **GET** /fwmgr/entities/events/v1 | Get events entities by ID and optionally version |
+| [**get_firewall_fields**](FirewallManagement.md#get_firewall_fields) | **GET** /fwmgr/entities/firewall-fields/v1 | Get the firewall field specifications by ID |
+| [**get_network_locations**](FirewallManagement.md#get_network_locations) | **GET** /fwmgr/entities/network-locations/v1 | Get a summary of network locations entities by ID |
+| [**get_network_locations_details**](FirewallManagement.md#get_network_locations_details) | **GET** /fwmgr/entities/network-locations-details/v1 | Get network locations entities by ID |
+| [**get_platforms**](FirewallManagement.md#get_platforms) | **GET** /fwmgr/entities/platforms/v1 | Get platforms by ID, e.g., windows or mac or droid |
+| [**get_policy_containers**](FirewallManagement.md#get_policy_containers) | **GET** /fwmgr/entities/policies/v1 | Get policy container entities by policy ID |
+| [**get_rule_groups_0**](FirewallManagement.md#get_rule_groups_0) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order. |
+| [**get_rules_0**](FirewallManagement.md#get_rules_0) | **GET** /fwmgr/entities/rules/v1 | Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string) |
+| [**query_events**](FirewallManagement.md#query_events) | **GET** /fwmgr/queries/events/v1 | Find all event IDs matching the query with filter |
+| [**query_firewall_fields**](FirewallManagement.md#query_firewall_fields) | **GET** /fwmgr/queries/firewall-fields/v1 | Get the firewall field specification IDs for the provided platform |
+| [**query_network_locations**](FirewallManagement.md#query_network_locations) | **GET** /fwmgr/queries/network-locations/v1 | Get a list of network location IDs |
+| [**query_platforms**](FirewallManagement.md#query_platforms) | **GET** /fwmgr/queries/platforms/v1 | Get the list of platform names |
+| [**query_policy_rules**](FirewallManagement.md#query_policy_rules) | **GET** /fwmgr/queries/policy-rules/v1 | Find all firewall rule IDs matching the query with filter, and return them in precedence order |
+| [**query_rule_groups_0**](FirewallManagement.md#query_rule_groups_0) | **GET** /fwmgr/queries/rule-groups/v1 | Find all rule group IDs matching the query with filter |
+| [**query_rules**](FirewallManagement.md#query_rules) | **GET** /fwmgr/queries/rules/v1 | Find all rule IDs matching the query with filter |
+| [**update_network_locations**](FirewallManagement.md#update_network_locations) | **PATCH** /fwmgr/entities/network-locations/v1 | Updates the network locations provided, and return the ID. |
+| [**update_network_locations_metadata**](FirewallManagement.md#update_network_locations_metadata) | **POST** /fwmgr/entities/network-locations-metadata/v1 | Updates the network locations metadata such as polling_intervals for the cid |
+| [**update_network_locations_precedence**](FirewallManagement.md#update_network_locations_precedence) | **POST** /fwmgr/entities/network-locations-precedence/v1 | Updates the network locations precedence according to the list of ids provided. |
+| [**update_policy_container**](FirewallManagement.md#update_policy_container) | **PUT** /fwmgr/entities/policies/v2 | Update an identified policy container, including local logging functionality. |
+| [**update_policy_container_v1**](FirewallManagement.md#update_policy_container_v1) | **PUT** /fwmgr/entities/policies/v1 | Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting. |
+| [**update_rule_group**](FirewallManagement.md#update_rule_group) | **PATCH** /fwmgr/entities/rule-groups/v1 | Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules |
+| [**update_rule_group_validation**](FirewallManagement.md#update_rule_group_validation) | **PATCH** /fwmgr/entities/rule-groups/validation/v1 | Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules |
+| [**upsert_network_locations**](FirewallManagement.md#upsert_network_locations) | **PUT** /fwmgr/entities/network-locations/v1 | Updates the network locations provided, and return the ID. |
+| [**validate_filepath_pattern**](FirewallManagement.md#validate_filepath_pattern) | **POST** /fwmgr/entities/rules/validate-filepath/v1 | Validates that the test pattern matches the executable filepath glob pattern. |
 
 
 ## aggregate_events
@@ -58,7 +58,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<FwmgrMsaAggregateQueryRequest> | Query criteria and settings
 
 begin
@@ -66,7 +66,7 @@ begin
   result = api_instance.aggregate_events(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_events: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_events: #{e}"
 end
 ```
 
@@ -84,7 +84,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_events_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_events_with_http_info: #{e}"
 end
 ```
 
@@ -127,7 +127,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<FwmgrMsaAggregateQueryRequest> | Query criteria and settings
 
 begin
@@ -135,7 +135,7 @@ begin
   result = api_instance.aggregate_policy_rules(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_policy_rules: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_policy_rules: #{e}"
 end
 ```
 
@@ -153,7 +153,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_policy_rules_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_policy_rules_with_http_info: #{e}"
 end
 ```
 
@@ -196,7 +196,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<FwmgrMsaAggregateQueryRequest> | Query criteria and settings
 
 begin
@@ -204,7 +204,7 @@ begin
   result = api_instance.aggregate_rule_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_rule_groups: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_rule_groups: #{e}"
 end
 ```
 
@@ -222,7 +222,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_rule_groups_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -265,7 +265,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::FwmgrMsaAggregateQueryRequest.new({date_ranges: [Falcon::FwmgrMsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::FwmgrMsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<FwmgrMsaAggregateQueryRequest> | Query criteria and settings
 
 begin
@@ -273,7 +273,7 @@ begin
   result = api_instance.aggregate_rules(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_rules: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_rules: #{e}"
 end
 ```
 
@@ -291,7 +291,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->aggregate_rules_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->aggregate_rules_with_http_info: #{e}"
 end
 ```
 
@@ -334,7 +334,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiNetworkLocationCreateRequestV1.new({connection_types: Falcon::FwmgrDomainConnectionType.new({wired: false, wireless: Falcon::FwmgrDomainWirelessType.new({enabled: false, require_encryption: false, ssids: ['ssids_example']})}), default_gateways: ['default_gateways_example'], description: 'description_example', dhcp_servers: ['dhcp_servers_example'], dns_resolution_targets: Falcon::FwmgrDomainDNSResolutionTargets.new({targets: [Falcon::FwmgrDomainDNSTarget.new({hostname: 'hostname_example'})]}), dns_servers: ['dns_servers_example'], enabled: false, host_addresses: ['host_addresses_example'], https_reachable_hosts: Falcon::FwmgrDomainHTTPSHosts.new({hostnames: ['hostnames_example']}), icmp_request_targets: Falcon::FwmgrDomainICMPTargets.new({targets: ['targets_example']}), name: 'name_example'}) # FwmgrApiNetworkLocationCreateRequestV1 | 
 opts = {
   clone_id: 'clone_id_example', # String | A network location ID from which to copy location. If this is provided then the body of the request is ignored.
@@ -347,7 +347,7 @@ begin
   result = api_instance.create_network_locations(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->create_network_locations: #{e}"
 end
 ```
 
@@ -365,7 +365,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiNetworkLocationsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->create_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -411,7 +411,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiRuleGroupCreateRequestV1.new({description: 'description_example', enabled: false, name: 'name_example', platform: 'platform_example', rules: [Falcon::FwmgrApiRuleCreateRequestV1.new({action: 'action_example', address_family: 'address_family_example', description: 'description_example', direction: 'direction_example', enabled: false, fields: [Falcon::FwmgrApiWorkaroundUIFieldValue.new({name: 'name_example'})], fqdn: 'fqdn_example', fqdn_enabled: false, icmp: Falcon::FwmgrDomainICMP.new({icmp_code: 'icmp_code_example', icmp_type: 'icmp_type_example'}), local_address: [Falcon::FwmgrDomainAddressRange.new({address: 'address_example'})], local_port: [Falcon::FwmgrDomainPortRange.new({_end: 37, start: 37})], log: false, monitor: Falcon::FwmgrDomainMonitoring.new({count: 'count_example', period_ms: 'period_ms_example'}), name: 'name_example', protocol: 'protocol_example', remote_address: [Falcon::FwmgrDomainAddressRange.new({address: 'address_example'})], remote_port: [Falcon::FwmgrDomainPortRange.new({_end: 37, start: 37})], temp_id: 'temp_id_example'})]}) # FwmgrApiRuleGroupCreateRequestV1 | 
 opts = {
   clone_id: 'clone_id_example', # String | A rule group ID from which to copy rules. If this is provided then the 'rules' property of the body is ignored.
@@ -424,7 +424,7 @@ begin
   result = api_instance.create_rule_group(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_rule_group: #{e}"
+  puts "Error when calling FirewallManagement->create_rule_group: #{e}"
 end
 ```
 
@@ -442,7 +442,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_rule_group_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->create_rule_group_with_http_info: #{e}"
 end
 ```
 
@@ -488,7 +488,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiRuleGroupCreateRequestV1.new({description: 'description_example', enabled: false, name: 'name_example', platform: 'platform_example', rules: [Falcon::FwmgrApiRuleCreateRequestV1.new({action: 'action_example', address_family: 'address_family_example', description: 'description_example', direction: 'direction_example', enabled: false, fields: [Falcon::FwmgrApiWorkaroundUIFieldValue.new({name: 'name_example'})], fqdn: 'fqdn_example', fqdn_enabled: false, icmp: Falcon::FwmgrDomainICMP.new({icmp_code: 'icmp_code_example', icmp_type: 'icmp_type_example'}), local_address: [Falcon::FwmgrDomainAddressRange.new({address: 'address_example'})], local_port: [Falcon::FwmgrDomainPortRange.new({_end: 37, start: 37})], log: false, monitor: Falcon::FwmgrDomainMonitoring.new({count: 'count_example', period_ms: 'period_ms_example'}), name: 'name_example', protocol: 'protocol_example', remote_address: [Falcon::FwmgrDomainAddressRange.new({address: 'address_example'})], remote_port: [Falcon::FwmgrDomainPortRange.new({_end: 37, start: 37})], temp_id: 'temp_id_example'})]}) # FwmgrApiRuleGroupCreateRequestV1 | 
 opts = {
   clone_id: 'clone_id_example', # String | A rule group ID from which to copy rules. If this is provided then the 'rules' property of the body is ignored.
@@ -501,7 +501,7 @@ begin
   result = api_instance.create_rule_group_validation(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_rule_group_validation: #{e}"
+  puts "Error when calling FirewallManagement->create_rule_group_validation: #{e}"
 end
 ```
 
@@ -519,7 +519,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->create_rule_group_validation_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->create_rule_group_validation_with_http_info: #{e}"
 end
 ```
 
@@ -565,7 +565,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The IDs of the network locations to be deleted
 
 begin
@@ -573,7 +573,7 @@ begin
   result = api_instance.delete_network_locations(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->delete_network_locations: #{e}"
 end
 ```
 
@@ -591,7 +591,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->delete_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -634,7 +634,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The IDs of the rule groups to be deleted
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -645,7 +645,7 @@ begin
   result = api_instance.delete_rule_groups_0(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_rule_groups_0: #{e}"
+  puts "Error when calling FirewallManagement->delete_rule_groups_0: #{e}"
 end
 ```
 
@@ -663,7 +663,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_rule_groups_0_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->delete_rule_groups_0_with_http_info: #{e}"
 end
 ```
 
@@ -707,7 +707,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The events to retrieve, identified by ID
 
 begin
@@ -715,7 +715,7 @@ begin
   result = api_instance.get_events(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_events: #{e}"
+  puts "Error when calling FirewallManagement->get_events: #{e}"
 end
 ```
 
@@ -733,7 +733,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiEventsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_events_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_events_with_http_info: #{e}"
 end
 ```
 
@@ -776,7 +776,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The IDs of the rule types to retrieve
 
 begin
@@ -784,7 +784,7 @@ begin
   result = api_instance.get_firewall_fields(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_firewall_fields: #{e}"
+  puts "Error when calling FirewallManagement->get_firewall_fields: #{e}"
 end
 ```
 
@@ -802,7 +802,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiFirewallFieldsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_firewall_fields_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_firewall_fields_with_http_info: #{e}"
 end
 ```
 
@@ -847,7 +847,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The events to retrieve, identified by ID
 
 begin
@@ -855,7 +855,7 @@ begin
   result = api_instance.get_network_locations(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->get_network_locations: #{e}"
 end
 ```
 
@@ -873,7 +873,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiNetworkLocationSummariesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -918,7 +918,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The events to retrieve, identified by ID
 
 begin
@@ -926,7 +926,7 @@ begin
   result = api_instance.get_network_locations_details(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_network_locations_details: #{e}"
+  puts "Error when calling FirewallManagement->get_network_locations_details: #{e}"
 end
 ```
 
@@ -944,7 +944,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiNetworkLocationsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_network_locations_details_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_network_locations_details_with_http_info: #{e}"
 end
 ```
 
@@ -987,7 +987,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The IDs of the platforms to retrieve
 
 begin
@@ -995,7 +995,7 @@ begin
   result = api_instance.get_platforms(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_platforms: #{e}"
+  puts "Error when calling FirewallManagement->get_platforms: #{e}"
 end
 ```
 
@@ -1013,7 +1013,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiPlatformsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_platforms_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_platforms_with_http_info: #{e}"
 end
 ```
 
@@ -1056,7 +1056,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The policy container(s) to retrieve, identified by policy ID
 
 begin
@@ -1064,7 +1064,7 @@ begin
   result = api_instance.get_policy_containers(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_policy_containers: #{e}"
+  puts "Error when calling FirewallManagement->get_policy_containers: #{e}"
 end
 ```
 
@@ -1082,7 +1082,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiPolicyContainersResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_policy_containers_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_policy_containers_with_http_info: #{e}"
 end
 ```
 
@@ -1125,7 +1125,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The IDs of the rule groups to retrieve
 
 begin
@@ -1133,7 +1133,7 @@ begin
   result = api_instance.get_rule_groups_0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rule_groups_0: #{e}"
+  puts "Error when calling FirewallManagement->get_rule_groups_0: #{e}"
 end
 ```
 
@@ -1151,7 +1151,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rule_groups_0_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_rule_groups_0_with_http_info: #{e}"
 end
 ```
 
@@ -1194,7 +1194,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 ids = ['inner_example'] # Array<String> | The rules to retrieve, identified by ID
 
 begin
@@ -1202,7 +1202,7 @@ begin
   result = api_instance.get_rules_0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rules_0: #{e}"
+  puts "Error when calling FirewallManagement->get_rules_0: #{e}"
 end
 ```
 
@@ -1220,7 +1220,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rules_0_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->get_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -1263,7 +1263,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   sort: 'sort_example', # String | Possible order by fields: 
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -1278,7 +1278,7 @@ begin
   result = api_instance.query_events(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_events: #{e}"
+  puts "Error when calling FirewallManagement->query_events: #{e}"
 end
 ```
 
@@ -1296,7 +1296,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_events_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_events_with_http_info: #{e}"
 end
 ```
 
@@ -1344,7 +1344,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   platform_id: 'platform_id_example', # String | Get fields configuration for this platform
   offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
@@ -1356,7 +1356,7 @@ begin
   result = api_instance.query_firewall_fields(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_firewall_fields: #{e}"
+  puts "Error when calling FirewallManagement->query_firewall_fields: #{e}"
 end
 ```
 
@@ -1374,7 +1374,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_firewall_fields_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_firewall_fields_with_http_info: #{e}"
 end
 ```
 
@@ -1421,7 +1421,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   sort: 'sort_example', # String | Possible order by fields: 
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: name
@@ -1436,7 +1436,7 @@ begin
   result = api_instance.query_network_locations(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->query_network_locations: #{e}"
 end
 ```
 
@@ -1454,7 +1454,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -1502,7 +1502,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
   limit: 56 # Integer | Number of ids to return.
@@ -1513,7 +1513,7 @@ begin
   result = api_instance.query_platforms(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_platforms: #{e}"
+  puts "Error when calling FirewallManagement->query_platforms: #{e}"
 end
 ```
 
@@ -1531,7 +1531,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_platforms_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_platforms_with_http_info: #{e}"
 end
 ```
 
@@ -1575,7 +1575,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   id: 'id_example', # String | The ID of the policy container within which to query
   sort: 'sort_example', # String | Possible order by fields: 
@@ -1590,7 +1590,7 @@ begin
   result = api_instance.query_policy_rules(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_policy_rules: #{e}"
+  puts "Error when calling FirewallManagement->query_policy_rules: #{e}"
 end
 ```
 
@@ -1608,7 +1608,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_policy_rules_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_policy_rules_with_http_info: #{e}"
 end
 ```
 
@@ -1656,7 +1656,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   sort: 'sort_example', # String | Possible order by fields: 
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -1671,7 +1671,7 @@ begin
   result = api_instance.query_rule_groups_0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rule_groups_0: #{e}"
+  puts "Error when calling FirewallManagement->query_rule_groups_0: #{e}"
 end
 ```
 
@@ -1689,7 +1689,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rule_groups_0_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_rule_groups_0_with_http_info: #{e}"
 end
 ```
 
@@ -1737,7 +1737,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 opts = {
   sort: 'sort_example', # String | Possible order by fields: 
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: enabled, platform, name, description, etc TODO. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
@@ -1752,7 +1752,7 @@ begin
   result = api_instance.query_rules(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rules: #{e}"
+  puts "Error when calling FirewallManagement->query_rules: #{e}"
 end
 ```
 
@@ -1770,7 +1770,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rules_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->query_rules_with_http_info: #{e}"
 end
 ```
 
@@ -1818,7 +1818,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiNetworkLocationModifyRequestV1.new({connection_types: Falcon::FwmgrDomainConnectionType.new({wired: false, wireless: Falcon::FwmgrDomainWirelessType.new({enabled: false, require_encryption: false, ssids: ['ssids_example']})}), default_gateways: ['default_gateways_example'], description: 'description_example', dhcp_servers: ['dhcp_servers_example'], dns_resolution_targets: Falcon::FwmgrDomainDNSResolutionTargets.new({targets: [Falcon::FwmgrDomainDNSTarget.new({hostname: 'hostname_example'})]}), dns_servers: ['dns_servers_example'], enabled: false, host_addresses: ['host_addresses_example'], https_reachable_hosts: Falcon::FwmgrDomainHTTPSHosts.new({hostnames: ['hostnames_example']}), icmp_request_targets: Falcon::FwmgrDomainICMPTargets.new({targets: ['targets_example']}), id: 'id_example', name: 'name_example'}) # FwmgrApiNetworkLocationModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -1829,7 +1829,7 @@ begin
   result = api_instance.update_network_locations(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations: #{e}"
 end
 ```
 
@@ -1847,7 +1847,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -1891,7 +1891,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiNetworkLocationModifyMetadataRequestV1.new({cid: 'cid_example', dns_resolution_targets_polling_interval: 37, https_reachable_hosts_polling_interval: 37, icmp_request_targets_polling_interval: 37, location_precedence: ['location_precedence_example']}) # FwmgrApiNetworkLocationModifyMetadataRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -1902,7 +1902,7 @@ begin
   result = api_instance.update_network_locations_metadata(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations_metadata: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations_metadata: #{e}"
 end
 ```
 
@@ -1920,7 +1920,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations_metadata_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -1964,7 +1964,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiNetworkLocationModifyPrecedenceRequestV1.new({cid: 'cid_example', location_precedence: ['location_precedence_example']}) # FwmgrApiNetworkLocationModifyPrecedenceRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -1975,7 +1975,7 @@ begin
   result = api_instance.update_network_locations_precedence(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations_precedence: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations_precedence: #{e}"
 end
 ```
 
@@ -1993,7 +1993,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_network_locations_precedence_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_network_locations_precedence_with_http_info: #{e}"
 end
 ```
 
@@ -2037,7 +2037,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiPolicyContainerUpsertRequestV1.new({default_inbound: 'default_inbound_example', default_outbound: 'default_outbound_example', enforce: false, local_logging: false, platform_id: 'platform_id_example', policy_id: 'policy_id_example', rule_group_ids: ['rule_group_ids_example'], test_mode: false}) # FwmgrApiPolicyContainerUpsertRequestV1 | 
 
 begin
@@ -2045,7 +2045,7 @@ begin
   result = api_instance.update_policy_container(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_policy_container: #{e}"
+  puts "Error when calling FirewallManagement->update_policy_container: #{e}"
 end
 ```
 
@@ -2063,7 +2063,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_policy_container_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_policy_container_with_http_info: #{e}"
 end
 ```
 
@@ -2106,7 +2106,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiPolicyContainerUpsertRequestV1.new({default_inbound: 'default_inbound_example', default_outbound: 'default_outbound_example', enforce: false, local_logging: false, platform_id: 'platform_id_example', policy_id: 'policy_id_example', rule_group_ids: ['rule_group_ids_example'], test_mode: false}) # FwmgrApiPolicyContainerUpsertRequestV1 | 
 
 begin
@@ -2114,7 +2114,7 @@ begin
   result = api_instance.update_policy_container_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_policy_container_v1: #{e}"
+  puts "Error when calling FirewallManagement->update_policy_container_v1: #{e}"
 end
 ```
 
@@ -2132,7 +2132,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_policy_container_v1_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_policy_container_v1_with_http_info: #{e}"
 end
 ```
 
@@ -2175,7 +2175,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJsonDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -2186,7 +2186,7 @@ begin
   result = api_instance.update_rule_group(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_rule_group: #{e}"
+  puts "Error when calling FirewallManagement->update_rule_group: #{e}"
 end
 ```
 
@@ -2204,7 +2204,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_rule_group_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_rule_group_with_http_info: #{e}"
 end
 ```
 
@@ -2248,7 +2248,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJsonDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -2259,7 +2259,7 @@ begin
   result = api_instance.update_rule_group_validation(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_rule_group_validation: #{e}"
+  puts "Error when calling FirewallManagement->update_rule_group_validation: #{e}"
 end
 ```
 
@@ -2277,7 +2277,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->update_rule_group_validation_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->update_rule_group_validation_with_http_info: #{e}"
 end
 ```
 
@@ -2321,7 +2321,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiNetworkLocationModifyRequestV1.new({connection_types: Falcon::FwmgrDomainConnectionType.new({wired: false, wireless: Falcon::FwmgrDomainWirelessType.new({enabled: false, require_encryption: false, ssids: ['ssids_example']})}), default_gateways: ['default_gateways_example'], description: 'description_example', dhcp_servers: ['dhcp_servers_example'], dns_resolution_targets: Falcon::FwmgrDomainDNSResolutionTargets.new({targets: [Falcon::FwmgrDomainDNSTarget.new({hostname: 'hostname_example'})]}), dns_servers: ['dns_servers_example'], enabled: false, host_addresses: ['host_addresses_example'], https_reachable_hosts: Falcon::FwmgrDomainHTTPSHosts.new({hostnames: ['hostnames_example']}), icmp_request_targets: Falcon::FwmgrDomainICMPTargets.new({targets: ['targets_example']}), id: 'id_example', name: 'name_example'}) # FwmgrApiNetworkLocationModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
@@ -2332,7 +2332,7 @@ begin
   result = api_instance.upsert_network_locations(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->upsert_network_locations: #{e}"
+  puts "Error when calling FirewallManagement->upsert_network_locations: #{e}"
 end
 ```
 
@@ -2350,7 +2350,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrMsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->upsert_network_locations_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->upsert_network_locations_with_http_info: #{e}"
 end
 ```
 
@@ -2394,7 +2394,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FirewallManagementApi.new
+api_instance = Falcon::FirewallManagement.new
 body = Falcon::FwmgrApiFilepathTestRequest.new({filepath_pattern: 'filepath_pattern_example', filepath_test_string: 'filepath_test_string_example'}) # FwmgrApiFilepathTestRequest | 
 
 begin
@@ -2402,7 +2402,7 @@ begin
   result = api_instance.validate_filepath_pattern(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->validate_filepath_pattern: #{e}"
+  puts "Error when calling FirewallManagement->validate_filepath_pattern: #{e}"
 end
 ```
 
@@ -2420,7 +2420,7 @@ begin
   p headers # => { ... }
   p data # => <FwmgrApiValidateFilepathResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->validate_filepath_pattern_with_http_info: #{e}"
+  puts "Error when calling FirewallManagement->validate_filepath_pattern_with_http_info: #{e}"
 end
 ```
 

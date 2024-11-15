@@ -1,32 +1,32 @@
-# Falcon::IntelApi
+# Falcon::Intel
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_intel_actor_entities**](IntelApi.md#get_intel_actor_entities) | **GET** /intel/entities/actors/v1 | Retrieve specific actors using their actor IDs. |
-| [**get_intel_indicator_entities**](IntelApi.md#get_intel_indicator_entities) | **POST** /intel/entities/indicators/GET/v1 | Retrieve specific indicators using their indicator IDs. |
-| [**get_intel_report_entities**](IntelApi.md#get_intel_report_entities) | **GET** /intel/entities/reports/v1 | Retrieve specific reports using their report IDs. |
-| [**get_intel_report_pdf**](IntelApi.md#get_intel_report_pdf) | **GET** /intel/entities/report-files/v1 | Return a Report PDF attachment |
-| [**get_intel_rule_entities**](IntelApi.md#get_intel_rule_entities) | **GET** /intel/entities/rules/v1 | Retrieve details for rule sets for the specified ids. |
-| [**get_intel_rule_file**](IntelApi.md#get_intel_rule_file) | **GET** /intel/entities/rules-files/v1 | Download earlier rule sets. |
-| [**get_latest_intel_rule_file**](IntelApi.md#get_latest_intel_rule_file) | **GET** /intel/entities/rules-latest-files/v1 | Download the latest rule set. |
-| [**get_malware_entities**](IntelApi.md#get_malware_entities) | **GET** /intel/entities/malware/v1 | Get malware entities for specified ids. |
-| [**get_malware_mitre_report**](IntelApi.md#get_malware_mitre_report) | **GET** /intel/entities/malware-mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given malware family. |
-| [**get_mitre_report**](IntelApi.md#get_mitre_report) | **GET** /intel/entities/mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given actor. |
-| [**get_vulnerabilities**](IntelApi.md#get_vulnerabilities) | **POST** /intel/entities/vulnerabilities/GET/v1 | Get vulnerabilities |
-| [**post_mitre_attacks**](IntelApi.md#post_mitre_attacks) | **POST** /intel/entities/mitre/v1 | Retrieves report and observable IDs associated with the given actor and attacks |
-| [**query_intel_actor_entities**](IntelApi.md#query_intel_actor_entities) | **GET** /intel/combined/actors/v1 | Get info about actors that match provided FQL filters. |
-| [**query_intel_actor_ids**](IntelApi.md#query_intel_actor_ids) | **GET** /intel/queries/actors/v1 | Get actor IDs that match provided FQL filters. |
-| [**query_intel_indicator_entities**](IntelApi.md#query_intel_indicator_entities) | **GET** /intel/combined/indicators/v1 | Get info about indicators that match provided FQL filters. |
-| [**query_intel_indicator_ids**](IntelApi.md#query_intel_indicator_ids) | **GET** /intel/queries/indicators/v1 | Get indicators IDs that match provided FQL filters. |
-| [**query_intel_report_entities**](IntelApi.md#query_intel_report_entities) | **GET** /intel/combined/reports/v1 | Get info about reports that match provided FQL filters. |
-| [**query_intel_report_ids**](IntelApi.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters. |
-| [**query_intel_rule_ids**](IntelApi.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria. |
-| [**query_malware**](IntelApi.md#query_malware) | **GET** /intel/queries/malware/v1 | Get malware family names that match provided FQL filters. |
-| [**query_mitre_attacks**](IntelApi.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071 |
-| [**query_mitre_attacks_for_malware**](IntelApi.md#query_mitre_attacks_for_malware) | **GET** /intel/queries/mitre-malware/v1 | Gets MITRE tactics and techniques for the given malware |
-| [**query_vulnerabilities**](IntelApi.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs |
+| [**get_intel_actor_entities**](Intel.md#get_intel_actor_entities) | **GET** /intel/entities/actors/v1 | Retrieve specific actors using their actor IDs. |
+| [**get_intel_indicator_entities**](Intel.md#get_intel_indicator_entities) | **POST** /intel/entities/indicators/GET/v1 | Retrieve specific indicators using their indicator IDs. |
+| [**get_intel_report_entities**](Intel.md#get_intel_report_entities) | **GET** /intel/entities/reports/v1 | Retrieve specific reports using their report IDs. |
+| [**get_intel_report_pdf**](Intel.md#get_intel_report_pdf) | **GET** /intel/entities/report-files/v1 | Return a Report PDF attachment |
+| [**get_intel_rule_entities**](Intel.md#get_intel_rule_entities) | **GET** /intel/entities/rules/v1 | Retrieve details for rule sets for the specified ids. |
+| [**get_intel_rule_file**](Intel.md#get_intel_rule_file) | **GET** /intel/entities/rules-files/v1 | Download earlier rule sets. |
+| [**get_latest_intel_rule_file**](Intel.md#get_latest_intel_rule_file) | **GET** /intel/entities/rules-latest-files/v1 | Download the latest rule set. |
+| [**get_malware_entities**](Intel.md#get_malware_entities) | **GET** /intel/entities/malware/v1 | Get malware entities for specified ids. |
+| [**get_malware_mitre_report**](Intel.md#get_malware_mitre_report) | **GET** /intel/entities/malware-mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given malware family. |
+| [**get_mitre_report**](Intel.md#get_mitre_report) | **GET** /intel/entities/mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given actor. |
+| [**get_vulnerabilities**](Intel.md#get_vulnerabilities) | **POST** /intel/entities/vulnerabilities/GET/v1 | Get vulnerabilities |
+| [**post_mitre_attacks**](Intel.md#post_mitre_attacks) | **POST** /intel/entities/mitre/v1 | Retrieves report and observable IDs associated with the given actor and attacks |
+| [**query_intel_actor_entities**](Intel.md#query_intel_actor_entities) | **GET** /intel/combined/actors/v1 | Get info about actors that match provided FQL filters. |
+| [**query_intel_actor_ids**](Intel.md#query_intel_actor_ids) | **GET** /intel/queries/actors/v1 | Get actor IDs that match provided FQL filters. |
+| [**query_intel_indicator_entities**](Intel.md#query_intel_indicator_entities) | **GET** /intel/combined/indicators/v1 | Get info about indicators that match provided FQL filters. |
+| [**query_intel_indicator_ids**](Intel.md#query_intel_indicator_ids) | **GET** /intel/queries/indicators/v1 | Get indicators IDs that match provided FQL filters. |
+| [**query_intel_report_entities**](Intel.md#query_intel_report_entities) | **GET** /intel/combined/reports/v1 | Get info about reports that match provided FQL filters. |
+| [**query_intel_report_ids**](Intel.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters. |
+| [**query_intel_rule_ids**](Intel.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria. |
+| [**query_malware**](Intel.md#query_malware) | **GET** /intel/queries/malware/v1 | Get malware family names that match provided FQL filters. |
+| [**query_mitre_attacks**](Intel.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071 |
+| [**query_mitre_attacks_for_malware**](Intel.md#query_mitre_attacks_for_malware) | **GET** /intel/queries/mitre-malware/v1 | Gets MITRE tactics and techniques for the given malware |
+| [**query_vulnerabilities**](Intel.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs |
 
 
 ## get_intel_actor_entities
@@ -48,7 +48,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 ids = ['inner_example'] # Array<String> | The IDs of the actors you want to retrieve.
 opts = {
   fields: ['inner_example'] # Array<String> | The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\<collection\\>\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_.
@@ -59,7 +59,7 @@ begin
   result = api_instance.get_intel_actor_entities(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_actor_entities: #{e}"
+  puts "Error when calling Intel->get_intel_actor_entities: #{e}"
 end
 ```
 
@@ -77,7 +77,7 @@ begin
   p headers # => { ... }
   p data # => <DomainActorsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_actor_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_actor_entities_with_http_info: #{e}"
 end
 ```
 
@@ -121,7 +121,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -129,7 +129,7 @@ begin
   result = api_instance.get_intel_indicator_entities(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_indicator_entities: #{e}"
+  puts "Error when calling Intel->get_intel_indicator_entities: #{e}"
 end
 ```
 
@@ -147,7 +147,7 @@ begin
   p headers # => { ... }
   p data # => <DomainPublicIndicatorsV3Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_indicator_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_indicator_entities_with_http_info: #{e}"
 end
 ```
 
@@ -190,7 +190,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 ids = ['inner_example'] # Array<String> | The IDs of the reports you want to retrieve.
 opts = {
   fields: ['inner_example'] # Array<String> | The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\<collection\\>\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_.
@@ -201,7 +201,7 @@ begin
   result = api_instance.get_intel_report_entities(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_report_entities: #{e}"
+  puts "Error when calling Intel->get_intel_report_entities: #{e}"
 end
 ```
 
@@ -219,7 +219,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNewsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_report_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_report_entities_with_http_info: #{e}"
 end
 ```
 
@@ -263,7 +263,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   id: 'id_example', # String | The ID of the report you want to download as a PDF.
   ids: 'ids_example' # String | The ID of the report you want to download as a PDF. This parameter is used only if no id parameter given.
@@ -274,7 +274,7 @@ begin
   result = api_instance.get_intel_report_pdf(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_report_pdf: #{e}"
+  puts "Error when calling Intel->get_intel_report_pdf: #{e}"
 end
 ```
 
@@ -292,7 +292,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_report_pdf_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_report_pdf_with_http_info: #{e}"
 end
 ```
 
@@ -336,7 +336,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 ids = ['inner_example'] # Array<String> | The ids of rules to return.
 
 begin
@@ -344,7 +344,7 @@ begin
   result = api_instance.get_intel_rule_entities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_rule_entities: #{e}"
+  puts "Error when calling Intel->get_intel_rule_entities: #{e}"
 end
 ```
 
@@ -362,7 +362,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_rule_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_rule_entities_with_http_info: #{e}"
 end
 ```
 
@@ -405,7 +405,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 id = 56 # Integer | The ID of the rule set.
 opts = {
   accept: 'accept_example', # String | Choose the format you want the rule set in.
@@ -417,7 +417,7 @@ begin
   result = api_instance.get_intel_rule_file(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_rule_file: #{e}"
+  puts "Error when calling Intel->get_intel_rule_file: #{e}"
 end
 ```
 
@@ -435,7 +435,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_intel_rule_file_with_http_info: #{e}"
+  puts "Error when calling Intel->get_intel_rule_file_with_http_info: #{e}"
 end
 ```
 
@@ -480,7 +480,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
 opts = {
   accept: 'accept_example', # String | Choose the format you want the rule set in.
@@ -495,7 +495,7 @@ begin
   result = api_instance.get_latest_intel_rule_file(type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_latest_intel_rule_file: #{e}"
+  puts "Error when calling Intel->get_latest_intel_rule_file: #{e}"
 end
 ```
 
@@ -513,7 +513,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_latest_intel_rule_file_with_http_info: #{e}"
+  puts "Error when calling Intel->get_latest_intel_rule_file_with_http_info: #{e}"
 end
 ```
 
@@ -561,7 +561,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 ids = ['inner_example'] # Array<String> | Malware family name in lower case with spaces, dots and slashes replaced with dashes
 
 begin
@@ -569,7 +569,7 @@ begin
   result = api_instance.get_malware_entities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_malware_entities: #{e}"
+  puts "Error when calling Intel->get_malware_entities: #{e}"
 end
 ```
 
@@ -587,7 +587,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMalwareResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_malware_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_malware_entities_with_http_info: #{e}"
 end
 ```
 
@@ -630,7 +630,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 id = 'id_example' # String | Malware family name in lower case with spaces replaced with dashes
 format = 'format_example' # String | Supported report formats: CSV, JSON or JSON_NAVIGATOR
 opts = {
@@ -641,7 +641,7 @@ begin
   # Export Mitre ATT&CK information for a given malware family.
   api_instance.get_malware_mitre_report(id, format, opts)
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_malware_mitre_report: #{e}"
+  puts "Error when calling Intel->get_malware_mitre_report: #{e}"
 end
 ```
 
@@ -659,7 +659,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_malware_mitre_report_with_http_info: #{e}"
+  puts "Error when calling Intel->get_malware_mitre_report_with_http_info: #{e}"
 end
 ```
 
@@ -704,7 +704,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 actor_id = 'actor_id_example' # String | Actor ID(derived from the actor's name)
 format = 'format_example' # String | Supported report formats: CSV or JSON
 
@@ -712,7 +712,7 @@ begin
   # Export Mitre ATT&CK information for a given actor.
   api_instance.get_mitre_report(actor_id, format)
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_mitre_report: #{e}"
+  puts "Error when calling Intel->get_mitre_report: #{e}"
 end
 ```
 
@@ -730,7 +730,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_mitre_report_with_http_info: #{e}"
+  puts "Error when calling Intel->get_mitre_report_with_http_info: #{e}"
 end
 ```
 
@@ -774,7 +774,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -782,7 +782,7 @@ begin
   result = api_instance.get_vulnerabilities(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_vulnerabilities: #{e}"
+  puts "Error when calling Intel->get_vulnerabilities: #{e}"
 end
 ```
 
@@ -800,7 +800,7 @@ begin
   p headers # => { ... }
   p data # => <DomainVulnerabilityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->get_vulnerabilities_with_http_info: #{e}"
+  puts "Error when calling Intel->get_vulnerabilities_with_http_info: #{e}"
 end
 ```
 
@@ -843,14 +843,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
   # Retrieves report and observable IDs associated with the given actor and attacks
   api_instance.post_mitre_attacks(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->post_mitre_attacks: #{e}"
+  puts "Error when calling Intel->post_mitre_attacks: #{e}"
 end
 ```
 
@@ -868,7 +868,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->post_mitre_attacks_with_http_info: #{e}"
+  puts "Error when calling Intel->post_mitre_attacks_with_http_info: #{e}"
 end
 ```
 
@@ -911,7 +911,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return actors from. Defaults to 0.
   limit: 56, # Integer | Set the number of actors to return. The value must be between 1 and 5000.
@@ -926,7 +926,7 @@ begin
   result = api_instance.query_intel_actor_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_actor_entities: #{e}"
+  puts "Error when calling Intel->query_intel_actor_entities: #{e}"
 end
 ```
 
@@ -944,7 +944,7 @@ begin
   p headers # => { ... }
   p data # => <DomainActorsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_actor_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_actor_entities_with_http_info: #{e}"
 end
 ```
 
@@ -992,7 +992,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return actors IDs from. Defaults to 0.
   limit: 56, # Integer | Set the number of actor IDs to return. The value must be between 1 and 5000.
@@ -1006,7 +1006,7 @@ begin
   result = api_instance.query_intel_actor_ids(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_actor_ids: #{e}"
+  puts "Error when calling Intel->query_intel_actor_ids: #{e}"
 end
 ```
 
@@ -1024,7 +1024,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_actor_ids_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_actor_ids_with_http_info: #{e}"
 end
 ```
 
@@ -1071,7 +1071,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return indicators from. Defaults to 0.
   limit: 56, # Integer | Set the number of indicators to return. The number must be between 1 and 10000
@@ -1087,7 +1087,7 @@ begin
   result = api_instance.query_intel_indicator_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_indicator_entities: #{e}"
+  puts "Error when calling Intel->query_intel_indicator_entities: #{e}"
 end
 ```
 
@@ -1105,7 +1105,7 @@ begin
   p headers # => { ... }
   p data # => <DomainPublicIndicatorsV3Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_indicator_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_indicator_entities_with_http_info: #{e}"
 end
 ```
 
@@ -1154,7 +1154,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return indicator IDs from. Defaults to 0.
   limit: 56, # Integer | Set the number of indicator IDs to return. The number must be between 1 and 10000
@@ -1170,7 +1170,7 @@ begin
   result = api_instance.query_intel_indicator_ids(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_indicator_ids: #{e}"
+  puts "Error when calling Intel->query_intel_indicator_ids: #{e}"
 end
 ```
 
@@ -1188,7 +1188,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_indicator_ids_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_indicator_ids_with_http_info: #{e}"
 end
 ```
 
@@ -1237,7 +1237,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return reports from. Defaults to 0.
   limit: 56, # Integer | Set the number of reports to return. The value must be between 1 and 5000.
@@ -1252,7 +1252,7 @@ begin
   result = api_instance.query_intel_report_entities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_report_entities: #{e}"
+  puts "Error when calling Intel->query_intel_report_entities: #{e}"
 end
 ```
 
@@ -1270,7 +1270,7 @@ begin
   p headers # => { ... }
   p data # => <DomainNewsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_report_entities_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_report_entities_with_http_info: #{e}"
 end
 ```
 
@@ -1318,7 +1318,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return report IDs from. Defaults to 0.
   limit: 56, # Integer | Set the number of report IDs to return. The value must be between 1 and 5000.
@@ -1332,7 +1332,7 @@ begin
   result = api_instance.query_intel_report_ids(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_report_ids: #{e}"
+  puts "Error when calling Intel->query_intel_report_ids: #{e}"
 end
 ```
 
@@ -1350,7 +1350,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_report_ids_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_report_ids_with_http_info: #{e}"
 end
 ```
 
@@ -1397,7 +1397,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
 opts = {
   offset: 56, # Integer | Set the starting row number to return reports from. Defaults to 0.
@@ -1416,7 +1416,7 @@ begin
   result = api_instance.query_intel_rule_ids(type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_rule_ids: #{e}"
+  puts "Error when calling Intel->query_intel_rule_ids: #{e}"
 end
 ```
 
@@ -1434,7 +1434,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_intel_rule_ids_with_http_info: #{e}"
+  puts "Error when calling Intel->query_intel_rule_ids_with_http_info: #{e}"
 end
 ```
 
@@ -1486,7 +1486,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 56, # Integer | Set the starting row number to return malware IDs from. Defaults to 0.
   limit: 56, # Integer | Set the number of malware IDs to return. The value must be between 1 and 5000.
@@ -1500,7 +1500,7 @@ begin
   result = api_instance.query_malware(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_malware: #{e}"
+  puts "Error when calling Intel->query_malware: #{e}"
 end
 ```
 
@@ -1518,7 +1518,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_malware_with_http_info: #{e}"
+  puts "Error when calling Intel->query_malware_with_http_info: #{e}"
 end
 ```
 
@@ -1565,7 +1565,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   id: 'id_example', # String | The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed
   ids: ['inner_example'] # Array<String> | The actor ID(derived from the actor's name) for which to retrieve a list of attacks, for example: fancy-bear. Multiple values are allowed
@@ -1576,7 +1576,7 @@ begin
   result = api_instance.query_mitre_attacks(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_mitre_attacks: #{e}"
+  puts "Error when calling Intel->query_mitre_attacks: #{e}"
 end
 ```
 
@@ -1594,7 +1594,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryMitreAttacksResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_mitre_attacks_with_http_info: #{e}"
+  puts "Error when calling Intel->query_mitre_attacks_with_http_info: #{e}"
 end
 ```
 
@@ -1638,7 +1638,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 ids = ['inner_example'] # Array<String> | Malware family name in lower case with spaces replaced with dashes
 
 begin
@@ -1646,7 +1646,7 @@ begin
   result = api_instance.query_mitre_attacks_for_malware(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_mitre_attacks_for_malware: #{e}"
+  puts "Error when calling Intel->query_mitre_attacks_for_malware: #{e}"
 end
 ```
 
@@ -1664,7 +1664,7 @@ begin
   p headers # => { ... }
   p data # => <DomainQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_mitre_attacks_for_malware_with_http_info: #{e}"
+  puts "Error when calling Intel->query_mitre_attacks_for_malware_with_http_info: #{e}"
 end
 ```
 
@@ -1707,7 +1707,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IntelApi.new
+api_instance = Falcon::Intel.new
 opts = {
   offset: 'offset_example', # String | Starting index of result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return.
@@ -1721,7 +1721,7 @@ begin
   result = api_instance.query_vulnerabilities(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_vulnerabilities: #{e}"
+  puts "Error when calling Intel->query_vulnerabilities: #{e}"
 end
 ```
 
@@ -1739,7 +1739,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelApi->query_vulnerabilities_with_http_info: #{e}"
+  puts "Error when calling Intel->query_vulnerabilities_with_http_info: #{e}"
 end
 ```
 

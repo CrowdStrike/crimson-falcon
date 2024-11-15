@@ -1,10 +1,10 @@
-# Falcon::ConfigurationAssessmentEvaluationLogicApi
+# Falcon::ConfigurationAssessmentEvaluationLogic
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_evaluation_logic_mixin0**](ConfigurationAssessmentEvaluationLogicApi.md#get_evaluation_logic_mixin0) | **GET** /configuration-assessment/entities/evaluation-logic/v1 | Get details on evaluation logic items by providing one or more finding IDs. |
+| [**get_evaluation_logic_mixin0**](ConfigurationAssessmentEvaluationLogic.md#get_evaluation_logic_mixin0) | **GET** /configuration-assessment/entities/evaluation-logic/v1 | Get details on evaluation logic items by providing one or more finding IDs. |
 
 
 ## get_evaluation_logic_mixin0
@@ -26,7 +26,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ConfigurationAssessmentEvaluationLogicApi.new
+api_instance = Falcon::ConfigurationAssessmentEvaluationLogic.new
 ids = ['inner_example'] # Array<String> | One or more evaluation logic finding IDs.
 
 begin
@@ -34,7 +34,7 @@ begin
   result = api_instance.get_evaluation_logic_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentEvaluationLogicApi->get_evaluation_logic_mixin0: #{e}"
+  puts "Error when calling ConfigurationAssessmentEvaluationLogic->get_evaluation_logic_mixin0: #{e}"
 end
 ```
 
@@ -52,7 +52,7 @@ begin
   p headers # => { ... }
   p data # => <DomainAPIEvaluationLogicEntitiesResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ConfigurationAssessmentEvaluationLogicApi->get_evaluation_logic_mixin0_with_http_info: #{e}"
+  puts "Error when calling ConfigurationAssessmentEvaluationLogic->get_evaluation_logic_mixin0_with_http_info: #{e}"
 end
 ```
 

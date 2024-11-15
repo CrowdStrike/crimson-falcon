@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FilevantageApi
+  class Filevantage
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,11 +53,11 @@ module Falcon
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
     def create_policies_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_policies_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.create_policies_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_policies_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_policies_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -88,7 +88,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.create_policies_0",
+        :operation => :"Filevantage.create_policies_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -99,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#create_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#create_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -121,11 +121,11 @@ module Falcon
     # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
     def create_rule_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.create_rule_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_rule_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups/v1'
@@ -156,7 +156,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.create_rule_groups",
+        :operation => :"Filevantage.create_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -167,7 +167,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#create_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#create_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -189,11 +189,11 @@ module Falcon
     # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
     def create_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_rules ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.create_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_rules"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups-rules/v1'
@@ -224,7 +224,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.create_rules",
+        :operation => :"Filevantage.create_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -235,7 +235,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#create_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#create_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -257,11 +257,11 @@ module Falcon
     # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
     def create_scheduled_exclusions_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_scheduled_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.create_scheduled_exclusions ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_scheduled_exclusions"
       end
       # resource path
       local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
@@ -292,7 +292,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.create_scheduled_exclusions",
+        :operation => :"Filevantage.create_scheduled_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -303,7 +303,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#create_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#create_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -325,11 +325,11 @@ module Falcon
     # @return [Array<(PoliciesDeleteResponse, Integer, Hash)>] PoliciesDeleteResponse data, response status code and response headers
     def delete_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_policies ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.delete_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.delete_policies"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -356,7 +356,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.delete_policies",
+        :operation => :"Filevantage.delete_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -367,7 +367,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#delete_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#delete_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -389,11 +389,11 @@ module Falcon
     # @return [Array<(RulegroupsDeleteResponse, Integer, Hash)>] RulegroupsDeleteResponse data, response status code and response headers
     def delete_rule_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.delete_rule_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.delete_rule_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups/v1'
@@ -420,7 +420,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.delete_rule_groups",
+        :operation => :"Filevantage.delete_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -431,7 +431,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#delete_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#delete_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -455,15 +455,15 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def delete_rules_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_rules ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.delete_rules ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.delete_rules"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling Filevantage.delete_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_rules"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.delete_rules"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups-rules/v1'
@@ -491,7 +491,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.delete_rules",
+        :operation => :"Filevantage.delete_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -502,7 +502,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#delete_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#delete_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -526,15 +526,15 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def delete_scheduled_exclusions_with_http_info(policy_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.delete_scheduled_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.delete_scheduled_exclusions ...'
       end
       # verify the required parameter 'policy_id' is set
       if @api_client.config.client_side_validation && policy_id.nil?
-        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.delete_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling Filevantage.delete_scheduled_exclusions"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.delete_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.delete_scheduled_exclusions"
       end
       # resource path
       local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
@@ -562,7 +562,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.delete_scheduled_exclusions",
+        :operation => :"Filevantage.delete_scheduled_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -573,7 +573,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#delete_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#delete_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -595,11 +595,11 @@ module Falcon
     # @return [Array<(ActionsGetActionResponse, Integer, Hash)>] ActionsGetActionResponse data, response status code and response headers
     def get_actions_mixin0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_actions_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_actions_mixin0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_actions_mixin0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_actions_mixin0"
       end
       # resource path
       local_var_path = '/filevantage/entities/actions/v1'
@@ -626,7 +626,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_actions_mixin0",
+        :operation => :"Filevantage.get_actions_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -637,7 +637,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -659,18 +659,18 @@ module Falcon
     # @return [Array<(PublicGetChangesResponse, Integer, Hash)>] PublicGetChangesResponse data, response status code and response headers
     def get_changes_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_changes ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_changes ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_changes"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_changes"
       end
       if @api_client.config.client_side_validation && ids.length > 500
-        fail ArgumentError, 'invalid value for "ids" when calling FilevantageApi.get_changes, number of items must be less than or equal to 500.'
+        fail ArgumentError, 'invalid value for "ids" when calling Filevantage.get_changes, number of items must be less than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && ids.length < 1
-        fail ArgumentError, 'invalid value for "ids" when calling FilevantageApi.get_changes, number of items must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "ids" when calling Filevantage.get_changes, number of items must be greater than or equal to 1.'
       end
 
       # resource path
@@ -698,7 +698,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_changes",
+        :operation => :"Filevantage.get_changes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -709,7 +709,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -733,11 +733,11 @@ module Falcon
     # @return [Array<(ContentchangesChangeContentsResponse, Integer, Hash)>] ContentchangesChangeContentsResponse data, response status code and response headers
     def get_contents_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_contents ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_contents ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling FilevantageApi.get_contents"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Filevantage.get_contents"
       end
       # resource path
       local_var_path = '/filevantage/entities/change-content/v1'
@@ -765,7 +765,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_contents",
+        :operation => :"Filevantage.get_contents",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -776,7 +776,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_contents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_contents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -798,11 +798,11 @@ module Falcon
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
     def get_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_policies ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_policies"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -829,7 +829,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_policies",
+        :operation => :"Filevantage.get_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -840,7 +840,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -862,11 +862,11 @@ module Falcon
     # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
     def get_rule_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_rule_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_rule_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups/v1'
@@ -893,7 +893,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_rule_groups",
+        :operation => :"Filevantage.get_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -904,7 +904,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -928,15 +928,15 @@ module Falcon
     # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
     def get_rules_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_rules ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_rules ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.get_rules"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling Filevantage.get_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_rules"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_rules"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups-rules/v1'
@@ -964,7 +964,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_rules",
+        :operation => :"Filevantage.get_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -975,7 +975,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -999,15 +999,15 @@ module Falcon
     # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
     def get_scheduled_exclusions_with_http_info(policy_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_scheduled_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.get_scheduled_exclusions ...'
       end
       # verify the required parameter 'policy_id' is set
       if @api_client.config.client_side_validation && policy_id.nil?
-        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.get_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling Filevantage.get_scheduled_exclusions"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.get_scheduled_exclusions"
       end
       # resource path
       local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
@@ -1035,7 +1035,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.get_scheduled_exclusions",
+        :operation => :"Filevantage.get_scheduled_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1046,7 +1046,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#get_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#get_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1074,10 +1074,10 @@ module Falcon
     # @return [Array<(ChangesHighVolumeQueryResponse, Integer, Hash)>] ChangesHighVolumeQueryResponse data, response status code and response headers
     def high_volume_query_changes_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.high_volume_query_changes ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.high_volume_query_changes ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FilevantageApi.high_volume_query_changes, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Filevantage.high_volume_query_changes, must be smaller than or equal to 5000.'
       end
 
       # resource path
@@ -1108,7 +1108,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.high_volume_query_changes",
+        :operation => :"Filevantage.high_volume_query_changes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1119,7 +1119,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#high_volume_query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#high_volume_query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1147,10 +1147,10 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_actions_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_actions_mixin0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.query_actions_mixin0 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_actions_mixin0, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Filevantage.query_actions_mixin0, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -1181,7 +1181,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.query_actions_mixin0",
+        :operation => :"Filevantage.query_actions_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1192,7 +1192,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#query_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#query_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1220,14 +1220,14 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_changes_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_changes ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.query_changes ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_changes, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Filevantage.query_changes, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FilevantageApi.query_changes, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Filevantage.query_changes, must be smaller than or equal to 500.'
       end
 
       # resource path
@@ -1258,7 +1258,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.query_changes",
+        :operation => :"Filevantage.query_changes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1269,7 +1269,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#query_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1297,14 +1297,14 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_policies_with_http_info(type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_policies ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.query_policies ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.query_policies"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Filevantage.query_policies"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Filevantage.query_policies, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -1335,7 +1335,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.query_policies",
+        :operation => :"Filevantage.query_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1346,7 +1346,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#query_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#query_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1374,14 +1374,14 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_rule_groups_with_http_info(type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.query_rule_groups ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.query_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Filevantage.query_rule_groups"
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_rule_groups, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Filevantage.query_rule_groups, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -1412,7 +1412,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.query_rule_groups",
+        :operation => :"Filevantage.query_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1423,7 +1423,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#query_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#query_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1445,11 +1445,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_scheduled_exclusions_with_http_info(policy_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_scheduled_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.query_scheduled_exclusions ...'
       end
       # verify the required parameter 'policy_id' is set
       if @api_client.config.client_side_validation && policy_id.nil?
-        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.query_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling Filevantage.query_scheduled_exclusions"
       end
       # resource path
       local_var_path = '/filevantage/queries/policy-scheduled-exclusions/v1'
@@ -1476,7 +1476,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.query_scheduled_exclusions",
+        :operation => :"Filevantage.query_scheduled_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1487,7 +1487,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#query_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#query_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1509,11 +1509,11 @@ module Falcon
     # @return [Array<(WorkflowResponse, Integer, Hash)>] WorkflowResponse data, response status code and response headers
     def signal_changes_external_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.signal_changes_external ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.signal_changes_external ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.signal_changes_external"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.signal_changes_external"
       end
       # resource path
       local_var_path = '/filevantage/entities/workflow/v1'
@@ -1544,7 +1544,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.signal_changes_external",
+        :operation => :"Filevantage.signal_changes_external",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1555,7 +1555,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#signal_changes_external\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#signal_changes_external\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1577,11 +1577,11 @@ module Falcon
     # @return [Array<(ActionsActionResponse, Integer, Hash)>] ActionsActionResponse data, response status code and response headers
     def start_actions_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.start_actions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.start_actions ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.start_actions"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.start_actions"
       end
       # resource path
       local_var_path = '/filevantage/entities/actions/v1'
@@ -1612,7 +1612,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.start_actions",
+        :operation => :"Filevantage.start_actions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1623,7 +1623,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#start_actions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#start_actions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1645,11 +1645,11 @@ module Falcon
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
     def update_policies_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policies_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policies_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_policies_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_policies_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -1680,7 +1680,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policies_0",
+        :operation => :"Filevantage.update_policies_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1691,7 +1691,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1717,19 +1717,19 @@ module Falcon
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
     def update_policy_host_groups_with_http_info(policy_id, action, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_host_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policy_host_groups ...'
       end
       # verify the required parameter 'policy_id' is set
       if @api_client.config.client_side_validation && policy_id.nil?
-        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.update_policy_host_groups"
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling Filevantage.update_policy_host_groups"
       end
       # verify the required parameter 'action' is set
       if @api_client.config.client_side_validation && action.nil?
-        fail ArgumentError, "Missing the required parameter 'action' when calling FilevantageApi.update_policy_host_groups"
+        fail ArgumentError, "Missing the required parameter 'action' when calling Filevantage.update_policy_host_groups"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_host_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_policy_host_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies-host-groups/v1'
@@ -1758,7 +1758,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policy_host_groups",
+        :operation => :"Filevantage.update_policy_host_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1769,7 +1769,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policy_host_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1793,15 +1793,15 @@ module Falcon
     # @return [Array<(PoliciesPrecedenceResponse, Integer, Hash)>] PoliciesPrecedenceResponse data, response status code and response headers
     def update_policy_precedence_0_with_http_info(ids, type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_precedence_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policy_precedence_0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_precedence_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_policy_precedence_0"
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.update_policy_precedence_0"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Filevantage.update_policy_precedence_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies-precedence/v1'
@@ -1829,7 +1829,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policy_precedence_0",
+        :operation => :"Filevantage.update_policy_precedence_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1840,7 +1840,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_precedence_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policy_precedence_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1866,19 +1866,19 @@ module Falcon
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
     def update_policy_rule_groups_with_http_info(policy_id, action, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policy_rule_groups ...'
       end
       # verify the required parameter 'policy_id' is set
       if @api_client.config.client_side_validation && policy_id.nil?
-        fail ArgumentError, "Missing the required parameter 'policy_id' when calling FilevantageApi.update_policy_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling Filevantage.update_policy_rule_groups"
       end
       # verify the required parameter 'action' is set
       if @api_client.config.client_side_validation && action.nil?
-        fail ArgumentError, "Missing the required parameter 'action' when calling FilevantageApi.update_policy_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'action' when calling Filevantage.update_policy_rule_groups"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_policy_rule_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies-rule-groups/v1'
@@ -1907,7 +1907,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policy_rule_groups",
+        :operation => :"Filevantage.update_policy_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1918,7 +1918,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policy_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1942,15 +1942,15 @@ module Falcon
     # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
     def update_rule_group_precedence_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rule_group_precedence ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_rule_group_precedence ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling FilevantageApi.update_rule_group_precedence"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling Filevantage.update_rule_group_precedence"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_rule_group_precedence"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_rule_group_precedence"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups-rule-precedence/v1'
@@ -1978,7 +1978,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_rule_group_precedence",
+        :operation => :"Filevantage.update_rule_group_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1989,7 +1989,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_rule_group_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_rule_group_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2011,11 +2011,11 @@ module Falcon
     # @return [Array<(RulegroupsResponse, Integer, Hash)>] RulegroupsResponse data, response status code and response headers
     def update_rule_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_rule_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_rule_groups"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups/v1'
@@ -2046,7 +2046,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_rule_groups",
+        :operation => :"Filevantage.update_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2057,7 +2057,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2079,11 +2079,11 @@ module Falcon
     # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
     def update_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_rules ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_rules"
       end
       # resource path
       local_var_path = '/filevantage/entities/rule-groups-rules/v1'
@@ -2114,7 +2114,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_rules",
+        :operation => :"Filevantage.update_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2125,7 +2125,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2147,11 +2147,11 @@ module Falcon
     # @return [Array<(ScheduledexclusionsResponse, Integer, Hash)>] ScheduledexclusionsResponse data, response status code and response headers
     def update_scheduled_exclusions_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_scheduled_exclusions ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_scheduled_exclusions ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_scheduled_exclusions"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_scheduled_exclusions"
       end
       # resource path
       local_var_path = '/filevantage/entities/policy-scheduled-exclusions/v1'
@@ -2182,7 +2182,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_scheduled_exclusions",
+        :operation => :"Filevantage.update_scheduled_exclusions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2193,7 +2193,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_scheduled_exclusions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -1,27 +1,27 @@
-# Falcon::SensorUpdatePoliciesApi
+# Falcon::SensorUpdatePolicies
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_sensor_update_policies**](SensorUpdatePoliciesApi.md#create_sensor_update_policies) | **POST** /policy/entities/sensor-update/v1 | Create Sensor Update Policies by specifying details about the policy to create |
-| [**create_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#create_sensor_update_policies_v2) | **POST** /policy/entities/sensor-update/v2 | Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection |
-| [**delete_sensor_update_policies**](SensorUpdatePoliciesApi.md#delete_sensor_update_policies) | **DELETE** /policy/entities/sensor-update/v1 | Delete a set of Sensor Update Policies by specifying their IDs |
-| [**get_sensor_update_policies**](SensorUpdatePoliciesApi.md#get_sensor_update_policies) | **GET** /policy/entities/sensor-update/v1 | Retrieve a set of Sensor Update Policies by specifying their IDs |
-| [**get_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#get_sensor_update_policies_v2) | **GET** /policy/entities/sensor-update/v2 | Retrieve a set of Sensor Update Policies with additional support for uninstall protection by specifying their IDs |
-| [**perform_sensor_update_policies_action**](SensorUpdatePoliciesApi.md#perform_sensor_update_policies_action) | **POST** /policy/entities/sensor-update-actions/v1 | Perform the specified action on the Sensor Update Policies specified in the request |
-| [**query_combined_sensor_update_builds**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_builds) | **GET** /policy/combined/sensor-update-builds/v1 | Retrieve available builds for use with Sensor Update Policies |
-| [**query_combined_sensor_update_kernels**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_kernels) | **GET** /policy/combined/sensor-update-kernels/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
-| [**query_combined_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies) | **GET** /policy/combined/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
-| [**query_combined_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies_v2) | **GET** /policy/combined/sensor-update/v2 | Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
-| [**query_combined_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policy_members) | **GET** /policy/combined/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_sensor_update_kernels_distinct**](SensorUpdatePoliciesApi.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct_field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
-| [**query_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_sensor_update_policies) | **GET** /policy/queries/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria |
-| [**query_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_sensor_update_policy_members) | **GET** /policy/queries/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
-| [**reveal_uninstall_token**](SensorUpdatePoliciesApi.md#reveal_uninstall_token) | **POST** /policy/combined/reveal-uninstall-token/v1 | Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39; |
-| [**set_sensor_update_policies_precedence**](SensorUpdatePoliciesApi.md#set_sensor_update_policies_precedence) | **POST** /policy/entities/sensor-update-precedence/v1 | Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
-| [**update_sensor_update_policies**](SensorUpdatePoliciesApi.md#update_sensor_update_policies) | **PATCH** /policy/entities/sensor-update/v1 | Update Sensor Update Policies by specifying the ID of the policy and details to update |
-| [**update_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#update_sensor_update_policies_v2) | **PATCH** /policy/entities/sensor-update/v2 | Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection |
+| [**create_sensor_update_policies**](SensorUpdatePolicies.md#create_sensor_update_policies) | **POST** /policy/entities/sensor-update/v1 | Create Sensor Update Policies by specifying details about the policy to create |
+| [**create_sensor_update_policies_v2**](SensorUpdatePolicies.md#create_sensor_update_policies_v2) | **POST** /policy/entities/sensor-update/v2 | Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection |
+| [**delete_sensor_update_policies**](SensorUpdatePolicies.md#delete_sensor_update_policies) | **DELETE** /policy/entities/sensor-update/v1 | Delete a set of Sensor Update Policies by specifying their IDs |
+| [**get_sensor_update_policies**](SensorUpdatePolicies.md#get_sensor_update_policies) | **GET** /policy/entities/sensor-update/v1 | Retrieve a set of Sensor Update Policies by specifying their IDs |
+| [**get_sensor_update_policies_v2**](SensorUpdatePolicies.md#get_sensor_update_policies_v2) | **GET** /policy/entities/sensor-update/v2 | Retrieve a set of Sensor Update Policies with additional support for uninstall protection by specifying their IDs |
+| [**perform_sensor_update_policies_action**](SensorUpdatePolicies.md#perform_sensor_update_policies_action) | **POST** /policy/entities/sensor-update-actions/v1 | Perform the specified action on the Sensor Update Policies specified in the request |
+| [**query_combined_sensor_update_builds**](SensorUpdatePolicies.md#query_combined_sensor_update_builds) | **GET** /policy/combined/sensor-update-builds/v1 | Retrieve available builds for use with Sensor Update Policies |
+| [**query_combined_sensor_update_kernels**](SensorUpdatePolicies.md#query_combined_sensor_update_kernels) | **GET** /policy/combined/sensor-update-kernels/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
+| [**query_combined_sensor_update_policies**](SensorUpdatePolicies.md#query_combined_sensor_update_policies) | **GET** /policy/combined/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
+| [**query_combined_sensor_update_policies_v2**](SensorUpdatePolicies.md#query_combined_sensor_update_policies_v2) | **GET** /policy/combined/sensor-update/v2 | Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
+| [**query_combined_sensor_update_policy_members**](SensorUpdatePolicies.md#query_combined_sensor_update_policy_members) | **GET** /policy/combined/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_sensor_update_kernels_distinct**](SensorUpdatePolicies.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct_field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
+| [**query_sensor_update_policies**](SensorUpdatePolicies.md#query_sensor_update_policies) | **GET** /policy/queries/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria |
+| [**query_sensor_update_policy_members**](SensorUpdatePolicies.md#query_sensor_update_policy_members) | **GET** /policy/queries/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**reveal_uninstall_token**](SensorUpdatePolicies.md#reveal_uninstall_token) | **POST** /policy/combined/reveal-uninstall-token/v1 | Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39; |
+| [**set_sensor_update_policies_precedence**](SensorUpdatePolicies.md#set_sensor_update_policies_precedence) | **POST** /policy/entities/sensor-update-precedence/v1 | Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_sensor_update_policies**](SensorUpdatePolicies.md#update_sensor_update_policies) | **PATCH** /policy/entities/sensor-update/v1 | Update Sensor Update Policies by specifying the ID of the policy and details to update |
+| [**update_sensor_update_policies_v2**](SensorUpdatePolicies.md#update_sensor_update_policies_v2) | **PATCH** /policy/entities/sensor-update/v2 | Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection |
 
 
 ## create_sensor_update_policies
@@ -43,7 +43,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::SensorUpdateCreatePoliciesReqV1.new({resources: [Falcon::SensorUpdateCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # SensorUpdateCreatePoliciesReqV1 | 
 
 begin
@@ -51,7 +51,7 @@ begin
   result = api_instance.create_sensor_update_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->create_sensor_update_policies: #{e}"
 end
 ```
 
@@ -69,7 +69,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->create_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -112,7 +112,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::SensorUpdateCreatePoliciesReqV2.new({resources: [Falcon::SensorUpdateCreatePolicyReqV2.new({name: 'name_example', platform_name: 'Windows'})]}) # SensorUpdateCreatePoliciesReqV2 | 
 
 begin
@@ -120,7 +120,7 @@ begin
   result = api_instance.create_sensor_update_policies_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies_v2: #{e}"
+  puts "Error when calling SensorUpdatePolicies->create_sensor_update_policies_v2: #{e}"
 end
 ```
 
@@ -138,7 +138,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->create_sensor_update_policies_v2_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->create_sensor_update_policies_v2_with_http_info: #{e}"
 end
 ```
 
@@ -181,7 +181,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Sensor Update Policies to delete
 
 begin
@@ -189,7 +189,7 @@ begin
   result = api_instance.delete_sensor_update_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->delete_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->delete_sensor_update_policies: #{e}"
 end
 ```
 
@@ -207,7 +207,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->delete_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->delete_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -250,7 +250,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Sensor Update Policies to return
 
 begin
@@ -258,7 +258,7 @@ begin
   result = api_instance.get_sensor_update_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->get_sensor_update_policies: #{e}"
 end
 ```
 
@@ -276,7 +276,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->get_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -319,7 +319,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 ids = ['inner_example'] # Array<String> | The IDs of the Sensor Update Policies to return
 
 begin
@@ -327,7 +327,7 @@ begin
   result = api_instance.get_sensor_update_policies_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies_v2: #{e}"
+  puts "Error when calling SensorUpdatePolicies->get_sensor_update_policies_v2: #{e}"
 end
 ```
 
@@ -345,7 +345,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->get_sensor_update_policies_v2_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->get_sensor_update_policies_v2_with_http_info: #{e}"
 end
 ```
 
@@ -388,7 +388,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 action_name = 'add-host-group' # String | The action to perform
 body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
 
@@ -397,7 +397,7 @@ begin
   result = api_instance.perform_sensor_update_policies_action(action_name, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->perform_sensor_update_policies_action: #{e}"
+  puts "Error when calling SensorUpdatePolicies->perform_sensor_update_policies_action: #{e}"
 end
 ```
 
@@ -415,7 +415,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->perform_sensor_update_policies_action_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->perform_sensor_update_policies_action_with_http_info: #{e}"
 end
 ```
 
@@ -459,7 +459,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   platform: 'linux', # String | The platform to return builds for
   stage: ['inner_example'] # Array<String> | The stages to return builds for
@@ -470,7 +470,7 @@ begin
   result = api_instance.query_combined_sensor_update_builds(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_builds: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_builds: #{e}"
 end
 ```
 
@@ -488,7 +488,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateBuildsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_builds_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_builds_with_http_info: #{e}"
 end
 ```
 
@@ -532,7 +532,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -544,7 +544,7 @@ begin
   result = api_instance.query_combined_sensor_update_kernels(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_kernels: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_kernels: #{e}"
 end
 ```
 
@@ -562,7 +562,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateKernelsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_kernels_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_kernels_with_http_info: #{e}"
 end
 ```
 
@@ -607,7 +607,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -620,7 +620,7 @@ begin
   result = api_instance.query_combined_sensor_update_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policies: #{e}"
 end
 ```
 
@@ -638,7 +638,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -684,7 +684,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -697,7 +697,7 @@ begin
   result = api_instance.query_combined_sensor_update_policies_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies_v2: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policies_v2: #{e}"
 end
 ```
 
@@ -715,7 +715,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policies_v2_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policies_v2_with_http_info: #{e}"
 end
 ```
 
@@ -761,7 +761,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Sensor Update Policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -775,7 +775,7 @@ begin
   result = api_instance.query_combined_sensor_update_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policy_members: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policy_members: #{e}"
 end
 ```
 
@@ -793,7 +793,7 @@ begin
   p headers # => { ... }
   p data # => <BasePolicyMembersRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_combined_sensor_update_policy_members_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_combined_sensor_update_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -840,7 +840,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 distinct_field = 'distinct_field_example' # String | The field name to get distinct values for
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -853,7 +853,7 @@ begin
   result = api_instance.query_sensor_update_kernels_distinct(distinct_field, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_kernels_distinct: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_kernels_distinct: #{e}"
 end
 ```
 
@@ -871,7 +871,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_kernels_distinct_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_kernels_distinct_with_http_info: #{e}"
 end
 ```
 
@@ -917,7 +917,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
   offset: 56, # Integer | The offset to start retrieving records from
@@ -930,7 +930,7 @@ begin
   result = api_instance.query_sensor_update_policies(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_policies: #{e}"
 end
 ```
 
@@ -948,7 +948,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -994,7 +994,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 opts = {
   id: 'id_example', # String | The ID of the Sensor Update Policy to search for members of
   filter: 'filter_example', # String | The filter expression that should be used to limit the results
@@ -1008,7 +1008,7 @@ begin
   result = api_instance.query_sensor_update_policy_members(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_policy_members: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_policy_members: #{e}"
 end
 ```
 
@@ -1026,7 +1026,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->query_sensor_update_policy_members_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->query_sensor_update_policy_members_with_http_info: #{e}"
 end
 ```
 
@@ -1073,7 +1073,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::UninstallTokenRevealUninstallTokenReqV1.new({device_id: 'device_id_example'}) # UninstallTokenRevealUninstallTokenReqV1 | 
 
 begin
@@ -1081,7 +1081,7 @@ begin
   result = api_instance.reveal_uninstall_token(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->reveal_uninstall_token: #{e}"
+  puts "Error when calling SensorUpdatePolicies->reveal_uninstall_token: #{e}"
 end
 ```
 
@@ -1099,7 +1099,7 @@ begin
   p headers # => { ... }
   p data # => <UninstallTokenRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->reveal_uninstall_token_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->reveal_uninstall_token_with_http_info: #{e}"
 end
 ```
 
@@ -1142,7 +1142,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
 
 begin
@@ -1150,7 +1150,7 @@ begin
   result = api_instance.set_sensor_update_policies_precedence(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->set_sensor_update_policies_precedence: #{e}"
+  puts "Error when calling SensorUpdatePolicies->set_sensor_update_policies_precedence: #{e}"
 end
 ```
 
@@ -1168,7 +1168,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->set_sensor_update_policies_precedence_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->set_sensor_update_policies_precedence_with_http_info: #{e}"
 end
 ```
 
@@ -1211,7 +1211,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::SensorUpdateUpdatePoliciesReqV1.new({resources: [Falcon::SensorUpdateUpdatePolicyReqV1.new({id: 'id_example'})]}) # SensorUpdateUpdatePoliciesReqV1 | 
 
 begin
@@ -1219,7 +1219,7 @@ begin
   result = api_instance.update_sensor_update_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies: #{e}"
+  puts "Error when calling SensorUpdatePolicies->update_sensor_update_policies: #{e}"
 end
 ```
 
@@ -1237,7 +1237,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->update_sensor_update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -1280,7 +1280,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorUpdatePoliciesApi.new
+api_instance = Falcon::SensorUpdatePolicies.new
 body = Falcon::SensorUpdateUpdatePoliciesReqV2.new({resources: [Falcon::SensorUpdateUpdatePolicyReqV2.new({id: 'id_example'})]}) # SensorUpdateUpdatePoliciesReqV2 | 
 
 begin
@@ -1288,7 +1288,7 @@ begin
   result = api_instance.update_sensor_update_policies_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies_v2: #{e}"
+  puts "Error when calling SensorUpdatePolicies->update_sensor_update_policies_v2: #{e}"
 end
 ```
 
@@ -1306,7 +1306,7 @@ begin
   p headers # => { ... }
   p data # => <SensorUpdateRespV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorUpdatePoliciesApi->update_sensor_update_policies_v2_with_http_info: #{e}"
+  puts "Error when calling SensorUpdatePolicies->update_sensor_update_policies_v2_with_http_info: #{e}"
 end
 ```
 

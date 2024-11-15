@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class CloudConnectAwsApi
+  class CloudConnectAws
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(ModelsCustomerConfigurationsV1, Integer, Hash)>] ModelsCustomerConfigurationsV1 data, response status code and response headers
     def create_or_update_aws_settings_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.create_or_update_aws_settings ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.create_or_update_aws_settings ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAwsApi.create_or_update_aws_settings"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAws.create_or_update_aws_settings"
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/settings/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.create_or_update_aws_settings",
+        :operation => :"CloudConnectAws.create_or_update_aws_settings",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#create_or_update_aws_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#create_or_update_aws_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(ModelsBaseResponseV1, Integer, Hash)>] ModelsBaseResponseV1 data, response status code and response headers
     def delete_aws_accounts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.delete_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.delete_aws_accounts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAwsApi.delete_aws_accounts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAws.delete_aws_accounts"
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/accounts/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.delete_aws_accounts",
+        :operation => :"CloudConnectAws.delete_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#delete_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#delete_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,14 +179,14 @@ module Falcon
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
     def get_aws_accounts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.get_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.get_aws_accounts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAwsApi.get_aws_accounts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAws.get_aws_accounts"
       end
       if @api_client.config.client_side_validation && ids.length > 5000
-        fail ArgumentError, 'invalid value for "ids" when calling CloudConnectAwsApi.get_aws_accounts, number of items must be less than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "ids" when calling CloudConnectAws.get_aws_accounts, number of items must be less than or equal to 5000.'
       end
 
       # resource path
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.get_aws_accounts",
+        :operation => :"CloudConnectAws.get_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#get_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#get_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -243,7 +243,7 @@ module Falcon
     # @return [Array<(ModelsCustomerConfigurationsV1, Integer, Hash)>] ModelsCustomerConfigurationsV1 data, response status code and response headers
     def get_aws_settings_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.get_aws_settings ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.get_aws_settings ...'
       end
       # resource path
       local_var_path = '/cloud-connect-aws/combined/settings/v1'
@@ -269,7 +269,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.get_aws_settings",
+        :operation => :"CloudConnectAws.get_aws_settings",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -280,7 +280,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#get_aws_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#get_aws_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -302,11 +302,11 @@ module Falcon
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
     def provision_aws_accounts_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.provision_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.provision_aws_accounts ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAwsApi.provision_aws_accounts"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAws.provision_aws_accounts"
       end
       allowable_values = ["cloudformation", "manual"]
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
@@ -342,7 +342,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.provision_aws_accounts",
+        :operation => :"CloudConnectAws.provision_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -353,7 +353,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#provision_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#provision_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -379,7 +379,7 @@ module Falcon
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
     def query_aws_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.query_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.query_aws_accounts ...'
       end
       # resource path
       local_var_path = '/cloud-connect-aws/combined/accounts/v1'
@@ -409,7 +409,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.query_aws_accounts",
+        :operation => :"CloudConnectAws.query_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -420,7 +420,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#query_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#query_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -446,7 +446,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_aws_accounts_for_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.query_aws_accounts_for_ids ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.query_aws_accounts_for_ids ...'
       end
       # resource path
       local_var_path = '/cloud-connect-aws/queries/accounts/v1'
@@ -476,7 +476,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.query_aws_accounts_for_ids",
+        :operation => :"CloudConnectAws.query_aws_accounts_for_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -487,7 +487,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#query_aws_accounts_for_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#query_aws_accounts_for_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -507,11 +507,11 @@ module Falcon
     # @return [Array<(ModelsAWSAccountsV1, Integer, Hash)>] ModelsAWSAccountsV1 data, response status code and response headers
     def update_aws_accounts_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.update_aws_accounts ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.update_aws_accounts ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAwsApi.update_aws_accounts"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudConnectAws.update_aws_accounts"
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/accounts/v1'
@@ -542,7 +542,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.update_aws_accounts",
+        :operation => :"CloudConnectAws.update_aws_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -553,7 +553,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#update_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#update_aws_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -573,11 +573,11 @@ module Falcon
     # @return [Array<(ModelsVerifyAccessResponseV1, Integer, Hash)>] ModelsVerifyAccessResponseV1 data, response status code and response headers
     def verify_aws_account_access_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudConnectAwsApi.verify_aws_account_access ...'
+        @api_client.config.logger.debug 'Calling API: CloudConnectAws.verify_aws_account_access ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAwsApi.verify_aws_account_access"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudConnectAws.verify_aws_account_access"
       end
       # resource path
       local_var_path = '/cloud-connect-aws/entities/verify-account-access/v1'
@@ -604,7 +604,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudConnectAwsApi.verify_aws_account_access",
+        :operation => :"CloudConnectAws.verify_aws_account_access",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -615,7 +615,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudConnectAwsApi#verify_aws_account_access\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudConnectAws#verify_aws_account_access\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

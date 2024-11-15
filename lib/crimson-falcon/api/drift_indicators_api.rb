@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DriftIndicatorsApi
+  class DriftIndicators
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,7 +53,7 @@ module Falcon
     # @return [Array<(DriftindicatorsDriftIndicatorsFieldValue, Integer, Hash)>] DriftindicatorsDriftIndicatorsFieldValue data, response status code and response headers
     def get_drift_indicators_values_by_date_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DriftIndicatorsApi.get_drift_indicators_values_by_date ...'
+        @api_client.config.logger.debug 'Calling API: DriftIndicators.get_drift_indicators_values_by_date ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/drift-indicators/count-by-date/v1'
@@ -81,7 +81,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DriftIndicatorsApi.get_drift_indicators_values_by_date",
+        :operation => :"DriftIndicators.get_drift_indicators_values_by_date",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -92,7 +92,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DriftIndicatorsApi#get_drift_indicators_values_by_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DriftIndicators#get_drift_indicators_values_by_date\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -112,7 +112,7 @@ module Falcon
     # @return [Array<(DriftindicatorsDriftEntityResponse, Integer, Hash)>] DriftindicatorsDriftEntityResponse data, response status code and response headers
     def read_drift_indicator_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DriftIndicatorsApi.read_drift_indicator_entities ...'
+        @api_client.config.logger.debug 'Calling API: DriftIndicators.read_drift_indicator_entities ...'
       end
       # resource path
       local_var_path = '/container-security/entities/drift-indicators/v1'
@@ -139,7 +139,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DriftIndicatorsApi.read_drift_indicator_entities",
+        :operation => :"DriftIndicators.read_drift_indicator_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -150,7 +150,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DriftIndicatorsApi#read_drift_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DriftIndicators#read_drift_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,7 +170,7 @@ module Falcon
     # @return [Array<(DriftindicatorsDriftIndicatorsCountValue, Integer, Hash)>] DriftindicatorsDriftIndicatorsCountValue data, response status code and response headers
     def read_drift_indicators_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DriftIndicatorsApi.read_drift_indicators_count ...'
+        @api_client.config.logger.debug 'Calling API: DriftIndicators.read_drift_indicators_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/drift-indicators/count/v1'
@@ -197,7 +197,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DriftIndicatorsApi.read_drift_indicators_count",
+        :operation => :"DriftIndicators.read_drift_indicators_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -208,7 +208,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DriftIndicatorsApi#read_drift_indicators_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DriftIndicators#read_drift_indicators_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -234,7 +234,7 @@ module Falcon
     # @return [Array<(DriftindicatorsDriftEntityResponse, Integer, Hash)>] DriftindicatorsDriftEntityResponse data, response status code and response headers
     def search_and_read_drift_indicator_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DriftIndicatorsApi.search_and_read_drift_indicator_entities ...'
+        @api_client.config.logger.debug 'Calling API: DriftIndicators.search_and_read_drift_indicator_entities ...'
       end
       # resource path
       local_var_path = '/container-security/combined/drift-indicators/v1'
@@ -264,7 +264,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DriftIndicatorsApi.search_and_read_drift_indicator_entities",
+        :operation => :"DriftIndicators.search_and_read_drift_indicator_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -275,7 +275,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DriftIndicatorsApi#search_and_read_drift_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DriftIndicators#search_and_read_drift_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -301,7 +301,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def search_drift_indicators_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DriftIndicatorsApi.search_drift_indicators ...'
+        @api_client.config.logger.debug 'Calling API: DriftIndicators.search_drift_indicators ...'
       end
       # resource path
       local_var_path = '/container-security/queries/drift-indicators/v1'
@@ -331,7 +331,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DriftIndicatorsApi.search_drift_indicators",
+        :operation => :"DriftIndicators.search_drift_indicators",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -342,7 +342,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DriftIndicatorsApi#search_drift_indicators\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DriftIndicators#search_drift_indicators\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

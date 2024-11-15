@@ -1,19 +1,19 @@
-# Falcon::MessageCenterApi
+# Falcon::MessageCenter
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_cases**](MessageCenterApi.md#aggregate_cases) | **POST** /message-center/aggregates/cases/GET/v1 | Retrieve aggregate case values based on the matched filter |
-| [**case_add_activity**](MessageCenterApi.md#case_add_activity) | **POST** /message-center/entities/case-activity/v1 | Add an activity to case. Only activities of type comment are allowed via API |
-| [**case_add_attachment**](MessageCenterApi.md#case_add_attachment) | **POST** /message-center/entities/case-attachment/v1 | Upload an attachment for the case. |
-| [**case_download_attachment**](MessageCenterApi.md#case_download_attachment) | **GET** /message-center/entities/case-attachment/v1 | retrieves an attachment for the case, given the attachment id |
-| [**create_case**](MessageCenterApi.md#create_case) | **POST** /message-center/entities/case/v1 | create a new case |
-| [**create_case_v2**](MessageCenterApi.md#create_case_v2) | **POST** /message-center/entities/case/v2 | create a new case |
-| [**get_case_activity_by_ids**](MessageCenterApi.md#get_case_activity_by_ids) | **POST** /message-center/entities/case-activities/GET/v1 | Retrieve activities for given id&#39;s |
-| [**get_case_entities_by_ids**](MessageCenterApi.md#get_case_entities_by_ids) | **POST** /message-center/entities/cases/GET/v1 | Retrieve message center cases |
-| [**query_activity_by_case_id**](MessageCenterApi.md#query_activity_by_case_id) | **GET** /message-center/queries/case-activities/v1 | Retrieve activities id&#39;s for a case |
-| [**query_cases_ids_by_filter**](MessageCenterApi.md#query_cases_ids_by_filter) | **GET** /message-center/queries/cases/v1 | Retrieve case id&#39;s that match the provided filter criteria |
+| [**aggregate_cases**](MessageCenter.md#aggregate_cases) | **POST** /message-center/aggregates/cases/GET/v1 | Retrieve aggregate case values based on the matched filter |
+| [**case_add_activity**](MessageCenter.md#case_add_activity) | **POST** /message-center/entities/case-activity/v1 | Add an activity to case. Only activities of type comment are allowed via API |
+| [**case_add_attachment**](MessageCenter.md#case_add_attachment) | **POST** /message-center/entities/case-attachment/v1 | Upload an attachment for the case. |
+| [**case_download_attachment**](MessageCenter.md#case_download_attachment) | **GET** /message-center/entities/case-attachment/v1 | retrieves an attachment for the case, given the attachment id |
+| [**create_case**](MessageCenter.md#create_case) | **POST** /message-center/entities/case/v1 | create a new case |
+| [**create_case_v2**](MessageCenter.md#create_case_v2) | **POST** /message-center/entities/case/v2 | create a new case |
+| [**get_case_activity_by_ids**](MessageCenter.md#get_case_activity_by_ids) | **POST** /message-center/entities/case-activities/GET/v1 | Retrieve activities for given id&#39;s |
+| [**get_case_entities_by_ids**](MessageCenter.md#get_case_entities_by_ids) | **POST** /message-center/entities/cases/GET/v1 | Retrieve message center cases |
+| [**query_activity_by_case_id**](MessageCenter.md#query_activity_by_case_id) | **GET** /message-center/queries/case-activities/v1 | Retrieve activities id&#39;s for a case |
+| [**query_cases_ids_by_filter**](MessageCenter.md#query_cases_ids_by_filter) | **GET** /message-center/queries/cases/v1 | Retrieve case id&#39;s that match the provided filter criteria |
 
 
 ## aggregate_cases
@@ -35,7 +35,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -43,7 +43,7 @@ begin
   result = api_instance.aggregate_cases(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->aggregate_cases: #{e}"
+  puts "Error when calling MessageCenter->aggregate_cases: #{e}"
 end
 ```
 
@@ -61,7 +61,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->aggregate_cases_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->aggregate_cases_with_http_info: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = Falcon::DomainActivityCreationRequest.new({body: 'body_example', case_id: 'case_id_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # DomainActivityCreationRequest | 
 
 begin
@@ -112,7 +112,7 @@ begin
   result = api_instance.case_add_activity(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_add_activity: #{e}"
+  puts "Error when calling MessageCenter->case_add_activity: #{e}"
 end
 ```
 
@@ -130,7 +130,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_add_activity_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->case_add_activity_with_http_info: #{e}"
 end
 ```
 
@@ -175,7 +175,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 case_id = 'case_id_example' # String | Case ID
 user_uuid = 'user_uuid_example' # String | User UUID
 file = File.new('/path/to/some/file') # File | File Body
@@ -185,7 +185,7 @@ begin
   result = api_instance.case_add_attachment(case_id, user_uuid, file)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_add_attachment: #{e}"
+  puts "Error when calling MessageCenter->case_add_attachment: #{e}"
 end
 ```
 
@@ -203,7 +203,7 @@ begin
   p headers # => { ... }
   p data # => <ApiMessageCenterAttachmentUploadResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_add_attachment_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->case_add_attachment_with_http_info: #{e}"
 end
 ```
 
@@ -248,7 +248,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 id = 'id_example' # String | attachment ID
 
 begin
@@ -256,7 +256,7 @@ begin
   result = api_instance.case_download_attachment(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_download_attachment: #{e}"
+  puts "Error when calling MessageCenter->case_download_attachment: #{e}"
 end
 ```
 
@@ -274,7 +274,7 @@ begin
   p headers # => { ... }
   p data # => String
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->case_download_attachment_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->case_download_attachment_with_http_info: #{e}"
 end
 ```
 
@@ -317,7 +317,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = Falcon::DomainCaseCreationRequest.new({body: 'body_example', detections: [Falcon::MessagesDetection.new({id: 'id_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # DomainCaseCreationRequest | 
 
 begin
@@ -325,7 +325,7 @@ begin
   result = api_instance.create_case(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->create_case: #{e}"
+  puts "Error when calling MessageCenter->create_case: #{e}"
 end
 ```
 
@@ -343,7 +343,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyAffectedEntities>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->create_case_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->create_case_with_http_info: #{e}"
 end
 ```
 
@@ -386,7 +386,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = Falcon::DomainCaseCreationRequestV2.new({body: 'body_example', detections: [Falcon::MessagesAlert.new({id: 'id_example', product: 'product_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], malware_submission_id: 'malware_submission_id_example', recon_rule_type: 'recon_rule_type_example', title: 'title_example', type: 'type_example'}) # DomainCaseCreationRequestV2 | 
 
 begin
@@ -394,7 +394,7 @@ begin
   result = api_instance.create_case_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->create_case_v2: #{e}"
+  puts "Error when calling MessageCenter->create_case_v2: #{e}"
 end
 ```
 
@@ -412,7 +412,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyAffectedEntities>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->create_case_v2_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->create_case_v2_with_http_info: #{e}"
 end
 ```
 
@@ -455,7 +455,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -463,7 +463,7 @@ begin
   result = api_instance.get_case_activity_by_ids(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->get_case_activity_by_ids: #{e}"
+  puts "Error when calling MessageCenter->get_case_activity_by_ids: #{e}"
 end
 ```
 
@@ -481,7 +481,7 @@ begin
   p headers # => { ... }
   p data # => <ApiMessageCenterActivityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->get_case_activity_by_ids_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->get_case_activity_by_ids_with_http_info: #{e}"
 end
 ```
 
@@ -524,7 +524,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -532,7 +532,7 @@ begin
   result = api_instance.get_case_entities_by_ids(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->get_case_entities_by_ids: #{e}"
+  puts "Error when calling MessageCenter->get_case_entities_by_ids: #{e}"
 end
 ```
 
@@ -550,7 +550,7 @@ begin
   p headers # => { ... }
   p data # => <ApiMessageCenterCasesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->get_case_entities_by_ids_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->get_case_entities_by_ids_with_http_info: #{e}"
 end
 ```
 
@@ -593,7 +593,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 case_id = 'case_id_example' # String | Case ID
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
@@ -607,7 +607,7 @@ begin
   result = api_instance.query_activity_by_case_id(case_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->query_activity_by_case_id: #{e}"
+  puts "Error when calling MessageCenter->query_activity_by_case_id: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->query_activity_by_case_id_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->query_activity_by_case_id_with_http_info: #{e}"
 end
 ```
 
@@ -672,7 +672,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MessageCenterApi.new
+api_instance = Falcon::MessageCenter.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'case.id.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
@@ -685,7 +685,7 @@ begin
   result = api_instance.query_cases_ids_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->query_cases_ids_by_filter: #{e}"
+  puts "Error when calling MessageCenter->query_cases_ids_by_filter: #{e}"
 end
 ```
 
@@ -703,7 +703,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenterApi->query_cases_ids_by_filter_with_http_info: #{e}"
+  puts "Error when calling MessageCenter->query_cases_ids_by_filter_with_http_info: #{e}"
 end
 ```
 

@@ -1,16 +1,16 @@
-# Falcon::HumioAuthProxyApi
+# Falcon::HumioAuthProxy
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_lookup_from_package_v1**](HumioAuthProxyApi.md#get_lookup_from_package_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{package}/{filename} | Download lookup file in package from NGSIEM |
-| [**get_lookup_from_package_with_namespace_v1**](HumioAuthProxyApi.md#get_lookup_from_package_with_namespace_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename} | Download lookup file in namespaced package from NGSIEM |
-| [**get_lookup_v1**](HumioAuthProxyApi.md#get_lookup_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{filename} | Download lookup file from NGSIEM |
-| [**get_search_status_v1**](HumioAuthProxyApi.md#get_search_status_v1) | **GET** /humio/api/v1/repositories/{repository}/queryjobs/{id} | Get status of search |
-| [**start_search_v1**](HumioAuthProxyApi.md#start_search_v1) | **POST** /humio/api/v1/repositories/{repository}/queryjobs | Initiate search |
-| [**stop_search_v1**](HumioAuthProxyApi.md#stop_search_v1) | **DELETE** /humio/api/v1/repositories/{repository}/queryjobs/{id} | Stop search |
-| [**upload_lookup_v1**](HumioAuthProxyApi.md#upload_lookup_v1) | **POST** /humio/api/v1/repositories/{repository}/files | Upload file to NGSIEM |
+| [**get_lookup_from_package_v1**](HumioAuthProxy.md#get_lookup_from_package_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{package}/{filename} | Download lookup file in package from NGSIEM |
+| [**get_lookup_from_package_with_namespace_v1**](HumioAuthProxy.md#get_lookup_from_package_with_namespace_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename} | Download lookup file in namespaced package from NGSIEM |
+| [**get_lookup_v1**](HumioAuthProxy.md#get_lookup_v1) | **GET** /humio/api/v1/repositories/{repository}/files/{filename} | Download lookup file from NGSIEM |
+| [**get_search_status_v1**](HumioAuthProxy.md#get_search_status_v1) | **GET** /humio/api/v1/repositories/{repository}/queryjobs/{id} | Get status of search |
+| [**start_search_v1**](HumioAuthProxy.md#start_search_v1) | **POST** /humio/api/v1/repositories/{repository}/queryjobs | Initiate search |
+| [**stop_search_v1**](HumioAuthProxy.md#stop_search_v1) | **DELETE** /humio/api/v1/repositories/{repository}/queryjobs/{id} | Stop search |
+| [**upload_lookup_v1**](HumioAuthProxy.md#upload_lookup_v1) | **POST** /humio/api/v1/repositories/{repository}/files | Upload file to NGSIEM |
 
 
 ## get_lookup_from_package_v1
@@ -32,7 +32,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 package = 'package_example' # String | name of package
 filename = 'filename_example' # String | name of lookup file
@@ -41,7 +41,7 @@ begin
   # Download lookup file in package from NGSIEM
   api_instance.get_lookup_from_package_v1(repository, package, filename)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_from_package_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_from_package_v1: #{e}"
 end
 ```
 
@@ -59,7 +59,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_from_package_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_from_package_v1_with_http_info: #{e}"
 end
 ```
 
@@ -104,7 +104,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 namespace = 'namespace_example' # String | name of namespace
 package = 'package_example' # String | name of package
@@ -114,7 +114,7 @@ begin
   # Download lookup file in namespaced package from NGSIEM
   api_instance.get_lookup_from_package_with_namespace_v1(repository, namespace, package, filename)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_from_package_with_namespace_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_from_package_with_namespace_v1: #{e}"
 end
 ```
 
@@ -132,7 +132,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_from_package_with_namespace_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_from_package_with_namespace_v1_with_http_info: #{e}"
 end
 ```
 
@@ -178,7 +178,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 filename = 'filename_example' # String | name of lookup file
 
@@ -186,7 +186,7 @@ begin
   # Download lookup file from NGSIEM
   api_instance.get_lookup_v1(repository, filename)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_v1: #{e}"
 end
 ```
 
@@ -204,7 +204,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_lookup_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->get_lookup_v1_with_http_info: #{e}"
 end
 ```
 
@@ -248,7 +248,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 id = 'id_example' # String | id of query
 
@@ -257,7 +257,7 @@ begin
   result = api_instance.get_search_status_v1(repository, id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_search_status_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->get_search_status_v1: #{e}"
 end
 ```
 
@@ -275,7 +275,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->get_search_status_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->get_search_status_v1_with_http_info: #{e}"
 end
 ```
 
@@ -319,14 +319,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 
 begin
   # Initiate search
   api_instance.start_search_v1(repository)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->start_search_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->start_search_v1: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->start_search_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->start_search_v1_with_http_info: #{e}"
 end
 ```
 
@@ -387,7 +387,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 id = 'id_example' # String | id of query
 
@@ -395,7 +395,7 @@ begin
   # Stop search
   api_instance.stop_search_v1(repository, id)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->stop_search_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->stop_search_v1: #{e}"
 end
 ```
 
@@ -413,7 +413,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->stop_search_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->stop_search_v1_with_http_info: #{e}"
 end
 ```
 
@@ -457,14 +457,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::HumioAuthProxyApi.new
+api_instance = Falcon::HumioAuthProxy.new
 repository = 'repository_example' # String | name of repository
 
 begin
   # Upload file to NGSIEM
   api_instance.upload_lookup_v1(repository)
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->upload_lookup_v1: #{e}"
+  puts "Error when calling HumioAuthProxy->upload_lookup_v1: #{e}"
 end
 ```
 
@@ -482,7 +482,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling HumioAuthProxyApi->upload_lookup_v1_with_http_info: #{e}"
+  puts "Error when calling HumioAuthProxy->upload_lookup_v1_with_http_info: #{e}"
 end
 ```
 

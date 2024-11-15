@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class UnidentifiedContainersApi
+  class UnidentifiedContainers
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,7 +51,7 @@ module Falcon
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_unidentified_containers_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UnidentifiedContainersApi.read_unidentified_containers_by_date_range_count ...'
+        @api_client.config.logger.debug 'Calling API: UnidentifiedContainers.read_unidentified_containers_by_date_range_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/unidentified-containers/count-by-date/v1'
@@ -78,7 +78,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UnidentifiedContainersApi.read_unidentified_containers_by_date_range_count",
+        :operation => :"UnidentifiedContainers.read_unidentified_containers_by_date_range_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UnidentifiedContainersApi#read_unidentified_containers_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UnidentifiedContainers#read_unidentified_containers_by_date_range_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -109,7 +109,7 @@ module Falcon
     # @return [Array<(UnidentifiedcontainersUnidentifiedContainersCountValue, Integer, Hash)>] UnidentifiedcontainersUnidentifiedContainersCountValue data, response status code and response headers
     def read_unidentified_containers_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UnidentifiedContainersApi.read_unidentified_containers_count ...'
+        @api_client.config.logger.debug 'Calling API: UnidentifiedContainers.read_unidentified_containers_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/unidentified-containers/count/v1'
@@ -136,7 +136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UnidentifiedContainersApi.read_unidentified_containers_count",
+        :operation => :"UnidentifiedContainers.read_unidentified_containers_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -147,7 +147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UnidentifiedContainersApi#read_unidentified_containers_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UnidentifiedContainers#read_unidentified_containers_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -173,7 +173,7 @@ module Falcon
     # @return [Array<(UnidentifiedcontainersUnidentifiedContainerAPIResponse, Integer, Hash)>] UnidentifiedcontainersUnidentifiedContainerAPIResponse data, response status code and response headers
     def search_and_read_unidentified_containers_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UnidentifiedContainersApi.search_and_read_unidentified_containers ...'
+        @api_client.config.logger.debug 'Calling API: UnidentifiedContainers.search_and_read_unidentified_containers ...'
       end
       # resource path
       local_var_path = '/container-security/combined/unidentified-containers/v1'
@@ -203,7 +203,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"UnidentifiedContainersApi.search_and_read_unidentified_containers",
+        :operation => :"UnidentifiedContainers.search_and_read_unidentified_containers",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -214,7 +214,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UnidentifiedContainersApi#search_and_read_unidentified_containers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UnidentifiedContainers#search_and_read_unidentified_containers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

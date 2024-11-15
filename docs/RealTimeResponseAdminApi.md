@@ -1,25 +1,25 @@
-# Falcon::RealTimeResponseAdminApi
+# Falcon::RealTimeResponseAdmin
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**batch_admin_cmd**](RealTimeResponseAdminApi.md#batch_admin_cmd) | **POST** /real-time-response/combined/batch-admin-command/v1 | Batch executes a RTR administrator command across the hosts mapped to the given batch ID. |
-| [**r_tr_check_admin_command_status**](RealTimeResponseAdminApi.md#r_tr_check_admin_command_status) | **GET** /real-time-response/entities/admin-command/v1 | Get status of an executed RTR administrator command on a single host. |
-| [**r_tr_create_put_files**](RealTimeResponseAdminApi.md#r_tr_create_put_files) | **POST** /real-time-response/entities/put-files/v1 | Upload a new put-file to use for the RTR &#x60;put&#x60; command. |
-| [**r_tr_create_scripts**](RealTimeResponseAdminApi.md#r_tr_create_scripts) | **POST** /real-time-response/entities/scripts/v1 | Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command. |
-| [**r_tr_delete_put_files**](RealTimeResponseAdminApi.md#r_tr_delete_put_files) | **DELETE** /real-time-response/entities/put-files/v1 | Delete a put-file based on the ID given.  Can only delete one file at a time. |
-| [**r_tr_delete_scripts**](RealTimeResponseAdminApi.md#r_tr_delete_scripts) | **DELETE** /real-time-response/entities/scripts/v1 | Delete a custom-script based on the ID given.  Can only delete one script at a time. |
-| [**r_tr_execute_admin_command**](RealTimeResponseAdminApi.md#r_tr_execute_admin_command) | **POST** /real-time-response/entities/admin-command/v1 | Execute a RTR administrator command on a single host. |
-| [**r_tr_get_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_get_falcon_scripts) | **GET** /real-time-response/entities/falcon-scripts/v1 | Get Falcon scripts with metadata and content of script |
-| [**r_tr_get_put_files**](RealTimeResponseAdminApi.md#r_tr_get_put_files) | **GET** /real-time-response/entities/put-files/v1 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
-| [**r_tr_get_put_files_v2**](RealTimeResponseAdminApi.md#r_tr_get_put_files_v2) | **GET** /real-time-response/entities/put-files/v2 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
-| [**r_tr_get_scripts**](RealTimeResponseAdminApi.md#r_tr_get_scripts) | **GET** /real-time-response/entities/scripts/v1 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
-| [**r_tr_get_scripts_v2**](RealTimeResponseAdminApi.md#r_tr_get_scripts_v2) | **GET** /real-time-response/entities/scripts/v2 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
-| [**r_tr_list_falcon_scripts**](RealTimeResponseAdminApi.md#r_tr_list_falcon_scripts) | **GET** /real-time-response/queries/falcon-scripts/v1 | Get a list of Falcon script IDs available to the user to run |
-| [**r_tr_list_put_files**](RealTimeResponseAdminApi.md#r_tr_list_put_files) | **GET** /real-time-response/queries/put-files/v1 | Get a list of put-file ID&#39;s that are available to the user for the &#x60;put&#x60; command. |
-| [**r_tr_list_scripts**](RealTimeResponseAdminApi.md#r_tr_list_scripts) | **GET** /real-time-response/queries/scripts/v1 | Get a list of custom-script ID&#39;s that are available to the user for the &#x60;runscript&#x60; command. |
-| [**r_tr_update_scripts**](RealTimeResponseAdminApi.md#r_tr_update_scripts) | **PATCH** /real-time-response/entities/scripts/v1 | Upload a new scripts to replace an existing one. |
+| [**batch_admin_cmd**](RealTimeResponseAdmin.md#batch_admin_cmd) | **POST** /real-time-response/combined/batch-admin-command/v1 | Batch executes a RTR administrator command across the hosts mapped to the given batch ID. |
+| [**r_tr_check_admin_command_status**](RealTimeResponseAdmin.md#r_tr_check_admin_command_status) | **GET** /real-time-response/entities/admin-command/v1 | Get status of an executed RTR administrator command on a single host. |
+| [**r_tr_create_put_files**](RealTimeResponseAdmin.md#r_tr_create_put_files) | **POST** /real-time-response/entities/put-files/v1 | Upload a new put-file to use for the RTR &#x60;put&#x60; command. |
+| [**r_tr_create_scripts**](RealTimeResponseAdmin.md#r_tr_create_scripts) | **POST** /real-time-response/entities/scripts/v1 | Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command. |
+| [**r_tr_delete_put_files**](RealTimeResponseAdmin.md#r_tr_delete_put_files) | **DELETE** /real-time-response/entities/put-files/v1 | Delete a put-file based on the ID given.  Can only delete one file at a time. |
+| [**r_tr_delete_scripts**](RealTimeResponseAdmin.md#r_tr_delete_scripts) | **DELETE** /real-time-response/entities/scripts/v1 | Delete a custom-script based on the ID given.  Can only delete one script at a time. |
+| [**r_tr_execute_admin_command**](RealTimeResponseAdmin.md#r_tr_execute_admin_command) | **POST** /real-time-response/entities/admin-command/v1 | Execute a RTR administrator command on a single host. |
+| [**r_tr_get_falcon_scripts**](RealTimeResponseAdmin.md#r_tr_get_falcon_scripts) | **GET** /real-time-response/entities/falcon-scripts/v1 | Get Falcon scripts with metadata and content of script |
+| [**r_tr_get_put_files**](RealTimeResponseAdmin.md#r_tr_get_put_files) | **GET** /real-time-response/entities/put-files/v1 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
+| [**r_tr_get_put_files_v2**](RealTimeResponseAdmin.md#r_tr_get_put_files_v2) | **GET** /real-time-response/entities/put-files/v2 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
+| [**r_tr_get_scripts**](RealTimeResponseAdmin.md#r_tr_get_scripts) | **GET** /real-time-response/entities/scripts/v1 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
+| [**r_tr_get_scripts_v2**](RealTimeResponseAdmin.md#r_tr_get_scripts_v2) | **GET** /real-time-response/entities/scripts/v2 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
+| [**r_tr_list_falcon_scripts**](RealTimeResponseAdmin.md#r_tr_list_falcon_scripts) | **GET** /real-time-response/queries/falcon-scripts/v1 | Get a list of Falcon script IDs available to the user to run |
+| [**r_tr_list_put_files**](RealTimeResponseAdmin.md#r_tr_list_put_files) | **GET** /real-time-response/queries/put-files/v1 | Get a list of put-file ID&#39;s that are available to the user for the &#x60;put&#x60; command. |
+| [**r_tr_list_scripts**](RealTimeResponseAdmin.md#r_tr_list_scripts) | **GET** /real-time-response/queries/scripts/v1 | Get a list of custom-script ID&#39;s that are available to the user for the &#x60;runscript&#x60; command. |
+| [**r_tr_update_scripts**](RealTimeResponseAdmin.md#r_tr_update_scripts) | **PATCH** /real-time-response/entities/scripts/v1 | Upload a new scripts to replace an existing one. |
 
 
 ## batch_admin_cmd
@@ -41,7 +41,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 body = Falcon::DomainBatchExecuteCommandRequest.new({base_command: 'base_command_example', batch_id: 'batch_id_example', command_string: 'command_string_example', optional_hosts: ['optional_hosts_example'], persist_all: false}) # DomainBatchExecuteCommandRequest | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`batch_id`** Batch ID to execute the command on.  Received from `/real-time-response/combined/batch-init-session/v1`. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`optional_hosts`** List of a subset of hosts we want to run the command on.  If this list is supplied, only these hosts will receive the command.
 opts = {
   timeout: 56, # Integer | Timeout for how long to wait for the request in seconds, default timeout is 30 seconds. Maximum is 5 minutes.
@@ -54,7 +54,7 @@ begin
   result = api_instance.batch_admin_cmd(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->batch_admin_cmd: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->batch_admin_cmd: #{e}"
 end
 ```
 
@@ -72,7 +72,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMultiCommandExecuteResponseWrapper>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->batch_admin_cmd_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->batch_admin_cmd_with_http_info: #{e}"
 end
 ```
 
@@ -118,7 +118,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 cloud_request_id = 'cloud_request_id_example' # String | Cloud Request ID of the executed command to query
 sequence_id = 56 # Integer | Sequence ID that we want to retrieve. Command responses are chunked across sequences
 
@@ -127,7 +127,7 @@ begin
   result = api_instance.r_tr_check_admin_command_status(cloud_request_id, sequence_id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_check_admin_command_status: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_check_admin_command_status: #{e}"
 end
 ```
 
@@ -145,7 +145,7 @@ begin
   p headers # => { ... }
   p data # => <DomainStatusResponseWrapper>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_check_admin_command_status_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_check_admin_command_status_with_http_info: #{e}"
 end
 ```
 
@@ -189,7 +189,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 file = File.new('/path/to/some/file') # File | put-file to upload
 description = 'description_example' # String | File description
 opts = {
@@ -202,7 +202,7 @@ begin
   result = api_instance.r_tr_create_put_files(file, description, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_create_put_files: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_create_put_files: #{e}"
 end
 ```
 
@@ -220,7 +220,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_create_put_files_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_create_put_files_with_http_info: #{e}"
 end
 ```
 
@@ -266,7 +266,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 description = 'description_example' # String | File description
 permission_type = 'permission_type_example' # String | Permission for the custom-script. Valid permission values:   - `private`, usable by only the user who uploaded it   - `group`, usable by all RTR Admins   - `public`, usable by all active-responders and RTR admins
 opts = {
@@ -282,7 +282,7 @@ begin
   result = api_instance.r_tr_create_scripts(description, permission_type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_create_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_create_scripts: #{e}"
 end
 ```
 
@@ -300,7 +300,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_create_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_create_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -349,7 +349,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = 'ids_example' # String | File id
 
 begin
@@ -357,7 +357,7 @@ begin
   result = api_instance.r_tr_delete_put_files(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_delete_put_files: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_delete_put_files: #{e}"
 end
 ```
 
@@ -375,7 +375,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_delete_put_files_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_delete_put_files_with_http_info: #{e}"
 end
 ```
 
@@ -418,7 +418,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = 'ids_example' # String | File id
 
 begin
@@ -426,7 +426,7 @@ begin
   result = api_instance.r_tr_delete_scripts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_delete_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_delete_scripts: #{e}"
 end
 ```
 
@@ -444,7 +444,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_delete_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_delete_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -487,7 +487,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 body = Falcon::DomainCommandExecuteRequest.new({base_command: 'base_command_example', command_string: 'command_string_example', device_id: 'device_id_example', id: 37, persist: false, session_id: 'session_id_example'}) # DomainCommandExecuteRequest | Use this endpoint to run these [real time response commands](https://falcon.crowdstrike.com/documentation/page/b8c1738c/real-time-response-and-network-containment#k893b7c0): - `cat` - `cd` - `clear` - `cp` - `encrypt` - `env` - `eventlog` - `filehash` - `get` - `getsid` - `help` - `history` - `ipconfig` - `kill` - `ls` - `map` - `memdump` - `mkdir` - `mount` - `mv` - `netstat` - `ps` - `put` - `reg query` - `reg set` - `reg delete` - `reg load` - `reg unload` - `restart` - `rm` - `run` - `runscript` - `shutdown` - `unmap` - `update history` - `update install` - `update list` - `update query` - `xmemdump` - `zip`  Required values.  The rest of the fields are unused. **`base_command`** Active-Responder command type we are going to execute, for example: `get` or `cp`.  Refer to the RTR documentation for the full list of commands. **`command_string`** Full command string for the command. For example  `get some_file.txt` **`session_id`** RTR session ID to run the command on
 
 begin
@@ -495,7 +495,7 @@ begin
   result = api_instance.r_tr_execute_admin_command(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_execute_admin_command: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_execute_admin_command: #{e}"
 end
 ```
 
@@ -513,7 +513,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCommandExecuteResponseWrapper>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_execute_admin_command_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_execute_admin_command_with_http_info: #{e}"
 end
 ```
 
@@ -556,7 +556,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = ['inner_example'] # Array<String> | IDs of the Falcon scripts you want to retrieve
 
 begin
@@ -564,7 +564,7 @@ begin
   result = api_instance.r_tr_get_falcon_scripts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_falcon_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_falcon_scripts: #{e}"
 end
 ```
 
@@ -582,7 +582,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaFalconScriptResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_falcon_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_falcon_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -625,7 +625,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = ['inner_example'] # Array<String> | File IDs
 
 begin
@@ -633,7 +633,7 @@ begin
   result = api_instance.r_tr_get_put_files(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_files: #{e}"
 end
 ```
 
@@ -651,7 +651,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaPFResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_files_with_http_info: #{e}"
 end
 ```
 
@@ -694,7 +694,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = ['inner_example'] # Array<String> | File IDs
 
 begin
@@ -702,7 +702,7 @@ begin
   result = api_instance.r_tr_get_put_files_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files_v2: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_files_v2: #{e}"
 end
 ```
 
@@ -720,7 +720,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaPFResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_put_files_v2_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_files_v2_with_http_info: #{e}"
 end
 ```
 
@@ -763,7 +763,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = ['inner_example'] # Array<String> | File IDs
 
 begin
@@ -771,7 +771,7 @@ begin
   result = api_instance.r_tr_get_scripts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_scripts: #{e}"
 end
 ```
 
@@ -789,7 +789,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaPFResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -832,7 +832,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 ids = ['inner_example'] # Array<String> | File IDs
 
 begin
@@ -840,7 +840,7 @@ begin
   result = api_instance.r_tr_get_scripts_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts_v2: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_scripts_v2: #{e}"
 end
 ```
 
@@ -858,7 +858,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaPFResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_get_scripts_v2_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_scripts_v2_with_http_info: #{e}"
 end
 ```
 
@@ -901,7 +901,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 opts = {
   filter: 'filter_example', # String | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 56, # Integer | Starting index of overall result set from which to return ids.
@@ -914,7 +914,7 @@ begin
   result = api_instance.r_tr_list_falcon_scripts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_falcon_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_falcon_scripts: #{e}"
 end
 ```
 
@@ -932,7 +932,7 @@ begin
   p headers # => { ... }
   p data # => <EmpowerapiMsaIDListResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_falcon_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_falcon_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -978,7 +978,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 opts = {
   filter: 'filter_example', # String | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
@@ -991,7 +991,7 @@ begin
   result = api_instance.r_tr_list_put_files(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_put_files: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_put_files: #{e}"
 end
 ```
 
@@ -1009,7 +1009,7 @@ begin
   p headers # => { ... }
   p data # => <BinservapiMsaPutFileResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_put_files_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_put_files_with_http_info: #{e}"
 end
 ```
 
@@ -1055,7 +1055,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 opts = {
   filter: 'filter_example', # String | Optional filter criteria in the form of an FQL query. For more information about FQL queries, see our [FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
@@ -1068,7 +1068,7 @@ begin
   result = api_instance.r_tr_list_scripts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_scripts: #{e}"
 end
 ```
 
@@ -1086,7 +1086,7 @@ begin
   p headers # => { ... }
   p data # => <BinservapiMsaPutFileResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_list_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_list_scripts_with_http_info: #{e}"
 end
 ```
 
@@ -1132,7 +1132,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::RealTimeResponseAdminApi.new
+api_instance = Falcon::RealTimeResponseAdmin.new
 id = 'id_example' # String | ID to update
 opts = {
   file: File.new('/path/to/some/file'), # File | custom-script file to upload.  These should be powershell scripts.
@@ -1149,7 +1149,7 @@ begin
   result = api_instance.r_tr_update_scripts(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_update_scripts: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_update_scripts: #{e}"
 end
 ```
 
@@ -1167,7 +1167,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling RealTimeResponseAdminApi->r_tr_update_scripts_with_http_info: #{e}"
+  puts "Error when calling RealTimeResponseAdmin->r_tr_update_scripts_with_http_info: #{e}"
 end
 ```
 

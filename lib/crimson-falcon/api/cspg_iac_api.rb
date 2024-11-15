@@ -30,35 +30,29 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class InstallationTokensSettings
+  class CspgIac
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1]
+    # Gets the registry credentials (external endpoint)
     # @param [Hash] opts the optional parameters
-    # @return [MsaspecQueryResponse]
-    def customer_settings_update(body, opts = {})
-      data, _status_code, _headers = customer_settings_update_with_http_info(body, opts)
+    # @return [CommonRegistryCredentialsResponse]
+    def get_credentials_mixin0(opts = {})
+      data, _status_code, _headers = get_credentials_mixin0_with_http_info(opts)
       data
     end
 
-    # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1]
+    # Gets the registry credentials (external endpoint)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
-    def customer_settings_update_with_http_info(body, opts = {})
+    # @return [Array<(CommonRegistryCredentialsResponse, Integer, Hash)>] CommonRegistryCredentialsResponse data, response status code and response headers
+    def get_credentials_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: InstallationTokensSettings.customer_settings_update ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling InstallationTokensSettings.customer_settings_update"
+        @api_client.config.logger.debug 'Calling API: CspgIac.get_credentials_mixin0 ...'
       end
       # resource path
-      local_var_path = '/installation-tokens/entities/customer-settings/v1'
+      local_var_path = '/iac/entities/image-registry-credentials/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -67,26 +61,21 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'CommonRegistryCredentialsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"InstallationTokensSettings.customer_settings_update",
+        :operation => :"CspgIac.get_credentials_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -95,9 +84,9 @@ module Falcon
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: InstallationTokensSettings#customer_settings_update\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspgIac#get_credentials_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

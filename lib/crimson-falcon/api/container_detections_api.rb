@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ContainerDetectionsApi
+  class ContainerDetections
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,7 +57,7 @@ module Falcon
     # @return [Array<(DetectionsApiCombinedDetections, Integer, Hash)>] DetectionsApiCombinedDetections data, response status code and response headers
     def read_combined_detections_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.read_combined_detections ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.read_combined_detections ...'
       end
       # resource path
       local_var_path = '/container-security/combined/detections/v1'
@@ -87,7 +87,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.read_combined_detections",
+        :operation => :"ContainerDetections.read_combined_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -98,7 +98,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#read_combined_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#read_combined_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -122,7 +122,7 @@ module Falcon
     # @return [Array<(DetectionsApiAssessmentDetections, Integer, Hash)>] DetectionsApiAssessmentDetections data, response status code and response headers
     def read_detections_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.read_detections ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.read_detections ...'
       end
       # resource path
       local_var_path = '/container-security/entities/detections/v1'
@@ -151,7 +151,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.read_detections",
+        :operation => :"ContainerDetections.read_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -162,7 +162,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#read_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#read_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,7 +182,7 @@ module Falcon
     # @return [Array<(DetectionsApiDetectionsCount, Integer, Hash)>] DetectionsApiDetectionsCount data, response status code and response headers
     def read_detections_count_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.read_detections_count ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.read_detections_count ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/detections/count/v1'
@@ -209,7 +209,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.read_detections_count",
+        :operation => :"ContainerDetections.read_detections_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -220,7 +220,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#read_detections_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#read_detections_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -240,7 +240,7 @@ module Falcon
     # @return [Array<(DetectionsApiDetectionsBySeverity, Integer, Hash)>] DetectionsApiDetectionsBySeverity data, response status code and response headers
     def read_detections_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.read_detections_count_by_severity ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.read_detections_count_by_severity ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/detections/count-by-severity/v1'
@@ -267,7 +267,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.read_detections_count_by_severity",
+        :operation => :"ContainerDetections.read_detections_count_by_severity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -278,7 +278,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#read_detections_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#read_detections_count_by_severity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -298,7 +298,7 @@ module Falcon
     # @return [Array<(DetectionsApiDetectionsByType, Integer, Hash)>] DetectionsApiDetectionsByType data, response status code and response headers
     def read_detections_count_by_type_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.read_detections_count_by_type ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.read_detections_count_by_type ...'
       end
       # resource path
       local_var_path = '/container-security/aggregates/detections/count-by-type/v1'
@@ -325,7 +325,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.read_detections_count_by_type",
+        :operation => :"ContainerDetections.read_detections_count_by_type",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -336,7 +336,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#read_detections_count_by_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#read_detections_count_by_type\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -360,7 +360,7 @@ module Falcon
     # @return [Array<(CommonGenericEntityResponseString, Integer, Hash)>] CommonGenericEntityResponseString data, response status code and response headers
     def search_detections_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ContainerDetectionsApi.search_detections ...'
+        @api_client.config.logger.debug 'Calling API: ContainerDetections.search_detections ...'
       end
       # resource path
       local_var_path = '/container-security/queries/detections/v1'
@@ -389,7 +389,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ContainerDetectionsApi.search_detections",
+        :operation => :"ContainerDetections.search_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -400,7 +400,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ContainerDetectionsApi#search_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ContainerDetections#search_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

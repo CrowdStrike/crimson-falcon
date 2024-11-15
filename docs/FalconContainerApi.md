@@ -1,10 +1,10 @@
-# Falcon::FalconContainerApi
+# Falcon::FalconContainer
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_credentials**](FalconContainerApi.md#get_credentials) | **GET** /container-security/entities/image-registry-credentials/v1 | Gets the registry credentials |
+| [**get_credentials**](FalconContainer.md#get_credentials) | **GET** /container-security/entities/image-registry-credentials/v1 | Gets the registry credentials |
 
 
 ## get_credentials
@@ -26,14 +26,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FalconContainerApi.new
+api_instance = Falcon::FalconContainer.new
 
 begin
   # Gets the registry credentials
   result = api_instance.get_credentials
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerApi->get_credentials: #{e}"
+  puts "Error when calling FalconContainer->get_credentials: #{e}"
 end
 ```
 
@@ -51,7 +51,7 @@ begin
   p headers # => { ... }
   p data # => <DomainRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconContainerApi->get_credentials_with_http_info: #{e}"
+  puts "Error when calling FalconContainer->get_credentials_with_http_info: #{e}"
 end
 ```
 

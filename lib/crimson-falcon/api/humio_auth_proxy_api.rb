@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class HumioAuthProxyApi
+  class HumioAuthProxy
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -55,19 +55,19 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_lookup_from_package_v1_with_http_info(repository, package, filename, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.get_lookup_from_package_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.get_lookup_from_package_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.get_lookup_from_package_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.get_lookup_from_package_v1"
       end
       # verify the required parameter 'package' is set
       if @api_client.config.client_side_validation && package.nil?
-        fail ArgumentError, "Missing the required parameter 'package' when calling HumioAuthProxyApi.get_lookup_from_package_v1"
+        fail ArgumentError, "Missing the required parameter 'package' when calling HumioAuthProxy.get_lookup_from_package_v1"
       end
       # verify the required parameter 'filename' is set
       if @api_client.config.client_side_validation && filename.nil?
-        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxyApi.get_lookup_from_package_v1"
+        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxy.get_lookup_from_package_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/files/{package}/{filename}'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s)).sub('{' + 'package' + '}', CGI.escape(package.to_s)).sub('{' + 'filename' + '}', CGI.escape(filename.to_s))
@@ -93,7 +93,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.get_lookup_from_package_v1",
+        :operation => :"HumioAuthProxy.get_lookup_from_package_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -104,7 +104,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#get_lookup_from_package_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#get_lookup_from_package_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -130,23 +130,23 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_lookup_from_package_with_namespace_v1_with_http_info(repository, namespace, package, filename, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.get_lookup_from_package_with_namespace_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.get_lookup_from_package_with_namespace_v1"
       end
       # verify the required parameter 'namespace' is set
       if @api_client.config.client_side_validation && namespace.nil?
-        fail ArgumentError, "Missing the required parameter 'namespace' when calling HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1"
+        fail ArgumentError, "Missing the required parameter 'namespace' when calling HumioAuthProxy.get_lookup_from_package_with_namespace_v1"
       end
       # verify the required parameter 'package' is set
       if @api_client.config.client_side_validation && package.nil?
-        fail ArgumentError, "Missing the required parameter 'package' when calling HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1"
+        fail ArgumentError, "Missing the required parameter 'package' when calling HumioAuthProxy.get_lookup_from_package_with_namespace_v1"
       end
       # verify the required parameter 'filename' is set
       if @api_client.config.client_side_validation && filename.nil?
-        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1"
+        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxy.get_lookup_from_package_with_namespace_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'package' + '}', CGI.escape(package.to_s)).sub('{' + 'filename' + '}', CGI.escape(filename.to_s))
@@ -172,7 +172,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.get_lookup_from_package_with_namespace_v1",
+        :operation => :"HumioAuthProxy.get_lookup_from_package_with_namespace_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -183,7 +183,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#get_lookup_from_package_with_namespace_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#get_lookup_from_package_with_namespace_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,15 +205,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_lookup_v1_with_http_info(repository, filename, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.get_lookup_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.get_lookup_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.get_lookup_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.get_lookup_v1"
       end
       # verify the required parameter 'filename' is set
       if @api_client.config.client_side_validation && filename.nil?
-        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxyApi.get_lookup_v1"
+        fail ArgumentError, "Missing the required parameter 'filename' when calling HumioAuthProxy.get_lookup_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/files/{filename}'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s)).sub('{' + 'filename' + '}', CGI.escape(filename.to_s))
@@ -239,7 +239,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.get_lookup_v1",
+        :operation => :"HumioAuthProxy.get_lookup_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -250,7 +250,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#get_lookup_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#get_lookup_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -272,15 +272,15 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def get_search_status_v1_with_http_info(repository, id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.get_search_status_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.get_search_status_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.get_search_status_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.get_search_status_v1"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling HumioAuthProxyApi.get_search_status_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling HumioAuthProxy.get_search_status_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/queryjobs/{id}'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -306,7 +306,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.get_search_status_v1",
+        :operation => :"HumioAuthProxy.get_search_status_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -317,7 +317,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#get_search_status_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#get_search_status_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -337,11 +337,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def start_search_v1_with_http_info(repository, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.start_search_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.start_search_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.start_search_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.start_search_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/queryjobs'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s))
@@ -367,7 +367,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.start_search_v1",
+        :operation => :"HumioAuthProxy.start_search_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -378,7 +378,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#start_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#start_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -400,15 +400,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def stop_search_v1_with_http_info(repository, id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.stop_search_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.stop_search_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.stop_search_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.stop_search_v1"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling HumioAuthProxyApi.stop_search_v1"
+        fail ArgumentError, "Missing the required parameter 'id' when calling HumioAuthProxy.stop_search_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/queryjobs/{id}'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
@@ -434,7 +434,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.stop_search_v1",
+        :operation => :"HumioAuthProxy.stop_search_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -445,7 +445,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#stop_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#stop_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -465,11 +465,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def upload_lookup_v1_with_http_info(repository, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HumioAuthProxyApi.upload_lookup_v1 ...'
+        @api_client.config.logger.debug 'Calling API: HumioAuthProxy.upload_lookup_v1 ...'
       end
       # verify the required parameter 'repository' is set
       if @api_client.config.client_side_validation && repository.nil?
-        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxyApi.upload_lookup_v1"
+        fail ArgumentError, "Missing the required parameter 'repository' when calling HumioAuthProxy.upload_lookup_v1"
       end
       # resource path
       local_var_path = '/humio/api/v1/repositories/{repository}/files'.sub('{' + 'repository' + '}', CGI.escape(repository.to_s))
@@ -495,7 +495,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"HumioAuthProxyApi.upload_lookup_v1",
+        :operation => :"HumioAuthProxy.upload_lookup_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -506,7 +506,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HumioAuthProxyApi#upload_lookup_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HumioAuthProxy#upload_lookup_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

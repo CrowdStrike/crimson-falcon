@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class MsspApi
+  class Mssp
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
     def add_cid_group_members_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.add_cid_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.add_cid_group_members ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.add_cid_group_members"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.add_cid_group_members"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-group-members/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.add_cid_group_members",
+        :operation => :"Mssp.add_cid_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#add_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#add_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(DomainMSSPRoleResponseV1, Integer, Hash)>] DomainMSSPRoleResponseV1 data, response status code and response headers
     def add_role_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.add_role ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.add_role ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.add_role"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.add_role"
       end
       # resource path
       local_var_path = '/mssp/entities/mssp-roles/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.add_role",
+        :operation => :"Mssp.add_role",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#add_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#add_role\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(DomainUserGroupMembersResponseV1, Integer, Hash)>] DomainUserGroupMembersResponseV1 data, response status code and response headers
     def add_user_group_members_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.add_user_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.add_user_group_members ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.add_user_group_members"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.add_user_group_members"
       end
       # resource path
       local_var_path = '/mssp/entities/user-group-members/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.add_user_group_members",
+        :operation => :"Mssp.add_user_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#add_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#add_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,11 +249,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupsResponseV1, Integer, Hash)>] DomainCIDGroupsResponseV1 data, response status code and response headers
     def create_cid_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.create_cid_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.create_cid_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.create_cid_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.create_cid_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-groups/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.create_cid_groups",
+        :operation => :"Mssp.create_cid_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#create_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#create_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(DomainUserGroupsResponseV1, Integer, Hash)>] DomainUserGroupsResponseV1 data, response status code and response headers
     def create_user_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.create_user_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.create_user_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.create_user_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.create_user_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/user-groups/v1'
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.create_user_groups",
+        :operation => :"Mssp.create_user_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#create_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#create_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -381,11 +381,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
     def delete_cid_group_members_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.delete_cid_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.delete_cid_group_members ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.delete_cid_group_members"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.delete_cid_group_members"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-group-members/v1'
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.delete_cid_group_members",
+        :operation => :"Mssp.delete_cid_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#delete_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#delete_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -447,11 +447,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
     def delete_cid_group_members_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.delete_cid_group_members_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.delete_cid_group_members_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.delete_cid_group_members_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.delete_cid_group_members_v2"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-group-members/v2'
@@ -482,7 +482,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.delete_cid_group_members_v2",
+        :operation => :"Mssp.delete_cid_group_members_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -493,7 +493,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#delete_cid_group_members_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#delete_cid_group_members_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -513,11 +513,11 @@ module Falcon
     # @return [Array<(MsaEntitiesResponse, Integer, Hash)>] MsaEntitiesResponse data, response status code and response headers
     def delete_cid_groups_with_http_info(cid_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.delete_cid_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.delete_cid_groups ...'
       end
       # verify the required parameter 'cid_group_ids' is set
       if @api_client.config.client_side_validation && cid_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling MsspApi.delete_cid_groups"
+        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling Mssp.delete_cid_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-groups/v1'
@@ -544,7 +544,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.delete_cid_groups",
+        :operation => :"Mssp.delete_cid_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -555,7 +555,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#delete_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#delete_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -575,11 +575,11 @@ module Falcon
     # @return [Array<(DomainUserGroupMembersResponseV1, Integer, Hash)>] DomainUserGroupMembersResponseV1 data, response status code and response headers
     def delete_user_group_members_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.delete_user_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.delete_user_group_members ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.delete_user_group_members"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.delete_user_group_members"
       end
       # resource path
       local_var_path = '/mssp/entities/user-group-members/v1'
@@ -610,7 +610,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.delete_user_group_members",
+        :operation => :"Mssp.delete_user_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -621,7 +621,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#delete_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#delete_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -641,11 +641,11 @@ module Falcon
     # @return [Array<(MsaEntitiesResponse, Integer, Hash)>] MsaEntitiesResponse data, response status code and response headers
     def delete_user_groups_with_http_info(user_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.delete_user_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.delete_user_groups ...'
       end
       # verify the required parameter 'user_group_ids' is set
       if @api_client.config.client_side_validation && user_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling MsspApi.delete_user_groups"
+        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling Mssp.delete_user_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/user-groups/v1'
@@ -672,7 +672,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.delete_user_groups",
+        :operation => :"Mssp.delete_user_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -683,7 +683,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#delete_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#delete_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -703,11 +703,11 @@ module Falcon
     # @return [Array<(DomainMSSPRoleResponseV1, Integer, Hash)>] DomainMSSPRoleResponseV1 data, response status code and response headers
     def deleted_roles_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.deleted_roles ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.deleted_roles ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.deleted_roles"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.deleted_roles"
       end
       # resource path
       local_var_path = '/mssp/entities/mssp-roles/v1'
@@ -738,7 +738,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.deleted_roles",
+        :operation => :"Mssp.deleted_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -749,7 +749,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#deleted_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#deleted_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -769,11 +769,11 @@ module Falcon
     # @return [Array<(DomainChildrenResponseV1, Integer, Hash)>] DomainChildrenResponseV1 data, response status code and response headers
     def get_children_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_children ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_children ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_children"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_children"
       end
       # resource path
       local_var_path = '/mssp/entities/children/v1'
@@ -800,7 +800,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_children",
+        :operation => :"Mssp.get_children",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -811,7 +811,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_children\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_children\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -831,11 +831,11 @@ module Falcon
     # @return [Array<(DomainChildrenResponseV1, Integer, Hash)>] DomainChildrenResponseV1 data, response status code and response headers
     def get_children_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_children_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_children_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.get_children_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.get_children_v2"
       end
       # resource path
       local_var_path = '/mssp/entities/children/GET/v2'
@@ -866,7 +866,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_children_v2",
+        :operation => :"Mssp.get_children_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -877,7 +877,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_children_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_children_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -897,11 +897,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupsResponseV1, Integer, Hash)>] DomainCIDGroupsResponseV1 data, response status code and response headers
     def get_cid_group_by_id_with_http_info(cid_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_cid_group_by_id ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_cid_group_by_id ...'
       end
       # verify the required parameter 'cid_group_ids' is set
       if @api_client.config.client_side_validation && cid_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling MsspApi.get_cid_group_by_id"
+        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling Mssp.get_cid_group_by_id"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-groups/v1'
@@ -928,7 +928,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_cid_group_by_id",
+        :operation => :"Mssp.get_cid_group_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -939,7 +939,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_cid_group_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_cid_group_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -959,11 +959,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupsResponseV1, Integer, Hash)>] DomainCIDGroupsResponseV1 data, response status code and response headers
     def get_cid_group_by_id_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_cid_group_by_id_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_cid_group_by_id_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_cid_group_by_id_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_cid_group_by_id_v2"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-groups/v2'
@@ -990,7 +990,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_cid_group_by_id_v2",
+        :operation => :"Mssp.get_cid_group_by_id_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1001,7 +1001,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_cid_group_by_id_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_cid_group_by_id_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1021,11 +1021,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
     def get_cid_group_members_by_with_http_info(cid_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_cid_group_members_by ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_cid_group_members_by ...'
       end
       # verify the required parameter 'cid_group_ids' is set
       if @api_client.config.client_side_validation && cid_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling MsspApi.get_cid_group_members_by"
+        fail ArgumentError, "Missing the required parameter 'cid_group_ids' when calling Mssp.get_cid_group_members_by"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-group-members/v1'
@@ -1052,7 +1052,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_cid_group_members_by",
+        :operation => :"Mssp.get_cid_group_members_by",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1063,7 +1063,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_cid_group_members_by\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_cid_group_members_by\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1083,11 +1083,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupMembersResponseV1, Integer, Hash)>] DomainCIDGroupMembersResponseV1 data, response status code and response headers
     def get_cid_group_members_by_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_cid_group_members_by_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_cid_group_members_by_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_cid_group_members_by_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_cid_group_members_by_v2"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-group-members/v2'
@@ -1114,7 +1114,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_cid_group_members_by_v2",
+        :operation => :"Mssp.get_cid_group_members_by_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1125,7 +1125,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_cid_group_members_by_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_cid_group_members_by_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1145,11 +1145,11 @@ module Falcon
     # @return [Array<(DomainMSSPRoleResponseV1, Integer, Hash)>] DomainMSSPRoleResponseV1 data, response status code and response headers
     def get_roles_by_id_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_roles_by_id ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_roles_by_id ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_roles_by_id"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_roles_by_id"
       end
       # resource path
       local_var_path = '/mssp/entities/mssp-roles/v1'
@@ -1176,7 +1176,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_roles_by_id",
+        :operation => :"Mssp.get_roles_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1187,7 +1187,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_roles_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_roles_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1207,11 +1207,11 @@ module Falcon
     # @return [Array<(DomainUserGroupMembersResponseV1, Integer, Hash)>] DomainUserGroupMembersResponseV1 data, response status code and response headers
     def get_user_group_members_by_id_with_http_info(user_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_user_group_members_by_id ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_user_group_members_by_id ...'
       end
       # verify the required parameter 'user_group_ids' is set
       if @api_client.config.client_side_validation && user_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling MsspApi.get_user_group_members_by_id"
+        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling Mssp.get_user_group_members_by_id"
       end
       # resource path
       local_var_path = '/mssp/entities/user-group-members/v1'
@@ -1238,7 +1238,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_user_group_members_by_id",
+        :operation => :"Mssp.get_user_group_members_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1249,7 +1249,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_user_group_members_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_user_group_members_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1269,11 +1269,11 @@ module Falcon
     # @return [Array<(DomainUserGroupMembersResponseV1, Integer, Hash)>] DomainUserGroupMembersResponseV1 data, response status code and response headers
     def get_user_group_members_by_idv2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_user_group_members_by_idv2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_user_group_members_by_idv2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_user_group_members_by_idv2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_user_group_members_by_idv2"
       end
       # resource path
       local_var_path = '/mssp/entities/user-group-members/v2'
@@ -1300,7 +1300,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_user_group_members_by_idv2",
+        :operation => :"Mssp.get_user_group_members_by_idv2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1311,7 +1311,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_user_group_members_by_idv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_user_group_members_by_idv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1331,11 +1331,11 @@ module Falcon
     # @return [Array<(DomainUserGroupsResponseV1, Integer, Hash)>] DomainUserGroupsResponseV1 data, response status code and response headers
     def get_user_groups_by_id_with_http_info(user_group_ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_user_groups_by_id ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_user_groups_by_id ...'
       end
       # verify the required parameter 'user_group_ids' is set
       if @api_client.config.client_side_validation && user_group_ids.nil?
-        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling MsspApi.get_user_groups_by_id"
+        fail ArgumentError, "Missing the required parameter 'user_group_ids' when calling Mssp.get_user_groups_by_id"
       end
       # resource path
       local_var_path = '/mssp/entities/user-groups/v1'
@@ -1362,7 +1362,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_user_groups_by_id",
+        :operation => :"Mssp.get_user_groups_by_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1373,7 +1373,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_user_groups_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_user_groups_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1393,11 +1393,11 @@ module Falcon
     # @return [Array<(DomainUserGroupsResponseV1, Integer, Hash)>] DomainUserGroupsResponseV1 data, response status code and response headers
     def get_user_groups_by_idv2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.get_user_groups_by_idv2 ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.get_user_groups_by_idv2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MsspApi.get_user_groups_by_idv2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Mssp.get_user_groups_by_idv2"
       end
       # resource path
       local_var_path = '/mssp/entities/user-groups/v2'
@@ -1424,7 +1424,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.get_user_groups_by_idv2",
+        :operation => :"Mssp.get_user_groups_by_idv2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1435,7 +1435,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#get_user_groups_by_idv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#get_user_groups_by_idv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1461,7 +1461,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_children_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_children ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_children ...'
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1495,7 +1495,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_children",
+        :operation => :"Mssp.query_children",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1506,7 +1506,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_children\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_children\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1532,11 +1532,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_cid_group_members_with_http_info(cid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_cid_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_cid_group_members ...'
       end
       # verify the required parameter 'cid' is set
       if @api_client.config.client_side_validation && cid.nil?
-        fail ArgumentError, "Missing the required parameter 'cid' when calling MsspApi.query_cid_group_members"
+        fail ArgumentError, "Missing the required parameter 'cid' when calling Mssp.query_cid_group_members"
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1570,7 +1570,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_cid_group_members",
+        :operation => :"Mssp.query_cid_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1581,7 +1581,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_cid_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1607,7 +1607,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_cid_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_cid_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_cid_groups ...'
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc", "name|asc", "name|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1641,7 +1641,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_cid_groups",
+        :operation => :"Mssp.query_cid_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1652,7 +1652,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1682,7 +1682,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_roles_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_roles ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_roles ...'
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1718,7 +1718,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_roles",
+        :operation => :"Mssp.query_roles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1729,7 +1729,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_roles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1755,11 +1755,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_user_group_members_with_http_info(user_uuid, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_user_group_members ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_user_group_members ...'
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling MsspApi.query_user_group_members"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling Mssp.query_user_group_members"
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1793,7 +1793,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_user_group_members",
+        :operation => :"Mssp.query_user_group_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1804,7 +1804,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_user_group_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1830,7 +1830,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_user_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.query_user_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.query_user_groups ...'
       end
       allowable_values = ["last_modified_timestamp|asc", "last_modified_timestamp|desc", "name|asc", "name|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1864,7 +1864,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.query_user_groups",
+        :operation => :"Mssp.query_user_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1875,7 +1875,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#query_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#query_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1895,11 +1895,11 @@ module Falcon
     # @return [Array<(DomainCIDGroupsResponseV1, Integer, Hash)>] DomainCIDGroupsResponseV1 data, response status code and response headers
     def update_cid_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.update_cid_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.update_cid_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.update_cid_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.update_cid_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/cid-groups/v1'
@@ -1930,7 +1930,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.update_cid_groups",
+        :operation => :"Mssp.update_cid_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1941,7 +1941,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#update_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#update_cid_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1961,11 +1961,11 @@ module Falcon
     # @return [Array<(DomainUserGroupsResponseV1, Integer, Hash)>] DomainUserGroupsResponseV1 data, response status code and response headers
     def update_user_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MsspApi.update_user_groups ...'
+        @api_client.config.logger.debug 'Calling API: Mssp.update_user_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MsspApi.update_user_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Mssp.update_user_groups"
       end
       # resource path
       local_var_path = '/mssp/entities/user-groups/v1'
@@ -1996,7 +1996,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MsspApi.update_user_groups",
+        :operation => :"Mssp.update_user_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2007,7 +2007,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MsspApi#update_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Mssp#update_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

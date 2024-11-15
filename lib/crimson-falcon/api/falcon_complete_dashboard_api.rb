@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FalconCompleteDashboardApi
+  class FalconCompleteDashboard
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_alerts_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_alerts ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_alerts ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_alerts"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_alerts"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/alerts/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_alerts",
+        :operation => :"FalconCompleteDashboard.aggregate_alerts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_alerts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_alerts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_allow_list_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_allow_list ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_allow_list ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_allow_list"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_allow_list"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/allowlist/GET/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_allow_list",
+        :operation => :"FalconCompleteDashboard.aggregate_allow_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_allow_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_allow_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_block_list_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_block_list ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_block_list ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_block_list"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_block_list"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/blocklist/GET/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_block_list",
+        :operation => :"FalconCompleteDashboard.aggregate_block_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_block_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_block_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -251,11 +251,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_detections_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_detections ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_detections ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_detections"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_detections"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/detects/GET/v1'
@@ -286,7 +286,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_detections",
+        :operation => :"FalconCompleteDashboard.aggregate_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -297,7 +297,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -317,11 +317,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_device_count_collection_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_device_count_collection ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_device_count_collection ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_device_count_collection"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_device_count_collection"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1'
@@ -352,7 +352,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_device_count_collection",
+        :operation => :"FalconCompleteDashboard.aggregate_device_count_collection",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -363,7 +363,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_device_count_collection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_device_count_collection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -383,11 +383,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_escalations_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_escalations ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_escalations ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_escalations"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_escalations"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/escalations/GET/v1'
@@ -418,7 +418,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_escalations",
+        :operation => :"FalconCompleteDashboard.aggregate_escalations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -429,7 +429,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_escalations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_escalations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -449,11 +449,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_fc_incidents_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_fc_incidents ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_fc_incidents ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_fc_incidents"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_fc_incidents"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/incidents/GET/v1'
@@ -484,7 +484,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_fc_incidents",
+        :operation => :"FalconCompleteDashboard.aggregate_fc_incidents",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -495,7 +495,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_fc_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_fc_incidents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -515,11 +515,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_prevention_policy_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_prevention_policy ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_prevention_policy ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_prevention_policy"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_prevention_policy"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/prevention-policies/v1'
@@ -550,7 +550,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_prevention_policy",
+        :operation => :"FalconCompleteDashboard.aggregate_prevention_policy",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -561,7 +561,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_prevention_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_prevention_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -581,11 +581,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_remediations_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_remediations ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_remediations ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_remediations"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_remediations"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/remediations/GET/v1'
@@ -616,7 +616,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_remediations",
+        :operation => :"FalconCompleteDashboard.aggregate_remediations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -627,7 +627,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_remediations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_remediations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -647,11 +647,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_sensor_update_policy_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_sensor_update_policy ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_sensor_update_policy ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_sensor_update_policy"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_sensor_update_policy"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/sensor-update-policies/v1'
@@ -682,7 +682,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_sensor_update_policy",
+        :operation => :"FalconCompleteDashboard.aggregate_sensor_update_policy",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -693,7 +693,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_sensor_update_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_sensor_update_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -713,11 +713,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_support_issues_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_support_issues ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_support_issues ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_support_issues"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_support_issues"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/support-issues/v1'
@@ -748,7 +748,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_support_issues",
+        :operation => :"FalconCompleteDashboard.aggregate_support_issues",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -759,7 +759,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_support_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_support_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -779,11 +779,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_total_device_counts_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_total_device_counts ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.aggregate_total_device_counts ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_total_device_counts"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboard.aggregate_total_device_counts"
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/aggregates/total-device-counts/v1'
@@ -814,7 +814,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.aggregate_total_device_counts",
+        :operation => :"FalconCompleteDashboard.aggregate_total_device_counts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -825,7 +825,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_total_device_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#aggregate_total_device_counts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -851,7 +851,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def get_device_count_collection_queries_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.get_device_count_collection_queries_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.get_device_count_collection_queries_by_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/devicecount-collections/v1'
@@ -881,7 +881,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.get_device_count_collection_queries_by_filter",
+        :operation => :"FalconCompleteDashboard.get_device_count_collection_queries_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -892,7 +892,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#get_device_count_collection_queries_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#get_device_count_collection_queries_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -918,7 +918,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_alert_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_alert_ids_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_alert_ids_by_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/alerts/v1'
@@ -948,7 +948,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_alert_ids_by_filter",
+        :operation => :"FalconCompleteDashboard.query_alert_ids_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -959,7 +959,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_alert_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_alert_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -985,7 +985,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_allow_list_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_allow_list_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_allow_list_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/allowlist/v1'
@@ -1015,7 +1015,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_allow_list_filter",
+        :operation => :"FalconCompleteDashboard.query_allow_list_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1026,7 +1026,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_allow_list_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_allow_list_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1052,7 +1052,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_block_list_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_block_list_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_block_list_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/blocklist/v1'
@@ -1082,7 +1082,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_block_list_filter",
+        :operation => :"FalconCompleteDashboard.query_block_list_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1093,7 +1093,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_block_list_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_block_list_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1119,7 +1119,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_detection_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_detection_ids_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_detection_ids_by_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/detects/v1'
@@ -1149,7 +1149,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_detection_ids_by_filter",
+        :operation => :"FalconCompleteDashboard.query_detection_ids_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1160,7 +1160,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_detection_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_detection_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1186,7 +1186,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_escalations_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_escalations_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_escalations_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/escalations/v1'
@@ -1216,7 +1216,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_escalations_filter",
+        :operation => :"FalconCompleteDashboard.query_escalations_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1227,7 +1227,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_escalations_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_escalations_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1253,7 +1253,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_incident_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_incident_ids_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_incident_ids_by_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/incidents/v1'
@@ -1283,7 +1283,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_incident_ids_by_filter",
+        :operation => :"FalconCompleteDashboard.query_incident_ids_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1294,7 +1294,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_incident_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_incident_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1320,7 +1320,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_remediations_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_remediations_filter ...'
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_remediations_filter ...'
       end
       # resource path
       local_var_path = '/falcon-complete-dashboards/queries/remediations/v1'
@@ -1350,7 +1350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FalconCompleteDashboardApi.query_remediations_filter",
+        :operation => :"FalconCompleteDashboard.query_remediations_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1361,7 +1361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#query_remediations_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_remediations_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

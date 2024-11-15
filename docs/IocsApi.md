@@ -1,13 +1,13 @@
-# Falcon::IocsApi
+# Falcon::Iocs
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**devices_count**](IocsApi.md#devices_count) | **GET** /indicators/aggregates/devices-count/v1 | Number of hosts in your customer account that have observed a given custom IOC |
-| [**devices_ran_on**](IocsApi.md#devices_ran_on) | **GET** /indicators/queries/devices/v1 | Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1 |
-| [**entities_processes**](IocsApi.md#entities_processes) | **GET** /processes/entities/processes/v1 | For the provided ProcessID retrieve the process details |
-| [**processes_ran_on**](IocsApi.md#processes_ran_on) | **GET** /indicators/queries/processes/v1 | Search for processes associated with a custom IOC |
+| [**devices_count**](Iocs.md#devices_count) | **GET** /indicators/aggregates/devices-count/v1 | Number of hosts in your customer account that have observed a given custom IOC |
+| [**devices_ran_on**](Iocs.md#devices_ran_on) | **GET** /indicators/queries/devices/v1 | Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1 |
+| [**entities_processes**](Iocs.md#entities_processes) | **GET** /processes/entities/processes/v1 | For the provided ProcessID retrieve the process details |
+| [**processes_ran_on**](Iocs.md#processes_ran_on) | **GET** /indicators/queries/processes/v1 | Search for processes associated with a custom IOC |
 
 
 ## devices_count
@@ -29,7 +29,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IocsApi.new
+api_instance = Falcon::Iocs.new
 type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
 value = 'value_example' # String | The string representation of the indicator
 
@@ -38,7 +38,7 @@ begin
   result = api_instance.devices_count(type, value)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->devices_count: #{e}"
+  puts "Error when calling Iocs->devices_count: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <IocapiMsaReplyIOCDevicesCount>
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->devices_count_with_http_info: #{e}"
+  puts "Error when calling Iocs->devices_count_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IocsApi.new
+api_instance = Falcon::Iocs.new
 type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
 value = 'value_example' # String | The string representation of the indicator
 opts = {
@@ -113,7 +113,7 @@ begin
   result = api_instance.devices_ran_on(type, value, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->devices_ran_on: #{e}"
+  puts "Error when calling Iocs->devices_ran_on: #{e}"
 end
 ```
 
@@ -131,7 +131,7 @@ begin
   p headers # => { ... }
   p data # => <IocapiMsaReplyDevicesRanOn>
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->devices_ran_on_with_http_info: #{e}"
+  puts "Error when calling Iocs->devices_ran_on_with_http_info: #{e}"
 end
 ```
 
@@ -177,7 +177,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IocsApi.new
+api_instance = Falcon::Iocs.new
 ids = ['inner_example'] # Array<String> | ProcessID for the running process you want to lookup
 
 begin
@@ -185,7 +185,7 @@ begin
   result = api_instance.entities_processes(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->entities_processes: #{e}"
+  puts "Error when calling Iocs->entities_processes: #{e}"
 end
 ```
 
@@ -203,7 +203,7 @@ begin
   p headers # => { ... }
   p data # => <ProcessesapiMsaProcessDetailResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->entities_processes_with_http_info: #{e}"
+  puts "Error when calling Iocs->entities_processes_with_http_info: #{e}"
 end
 ```
 
@@ -246,7 +246,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IocsApi.new
+api_instance = Falcon::Iocs.new
 type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
 value = 'value_example' # String | The string representation of the indicator
 device_id = 'device_id_example' # String | Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
@@ -260,7 +260,7 @@ begin
   result = api_instance.processes_ran_on(type, value, device_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->processes_ran_on: #{e}"
+  puts "Error when calling Iocs->processes_ran_on: #{e}"
 end
 ```
 
@@ -278,7 +278,7 @@ begin
   p headers # => { ... }
   p data # => <IocapiMsaReplyProcessesRanOn>
 rescue Falcon::ApiError => e
-  puts "Error when calling IocsApi->processes_ran_on_with_http_info: #{e}"
+  puts "Error when calling Iocs->processes_ran_on_with_http_info: #{e}"
 end
 ```
 

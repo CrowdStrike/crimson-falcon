@@ -1,46 +1,46 @@
-# Falcon::CspmRegistrationApi
+# Falcon::CspmRegistration
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**azure_download_certificate**](CspmRegistrationApi.md#azure_download_certificate) | **GET** /cloud-connect-cspm-azure/entities/download-certificate/v1 | Returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
-| [**connect_cspmgcp_account**](CspmRegistrationApi.md#connect_cspmgcp_account) | **POST** /cloud-connect-cspm-gcp/entities/account/v2 | Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id |
-| [**create_cspm_aws_account**](CspmRegistrationApi.md#create_cspm_aws_account) | **POST** /cloud-connect-cspm-aws/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access. |
-| [**create_cspm_azure_account**](CspmRegistrationApi.md#create_cspm_azure_account) | **POST** /cloud-connect-cspm-azure/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access. |
-| [**create_cspm_azure_management_group**](CspmRegistrationApi.md#create_cspm_azure_management_group) | **POST** /cloud-connect-cspm-azure/entities/management-group/v1 | Creates a new management group in our system for a customer. |
-| [**create_cspmgcp_account**](CspmRegistrationApi.md#create_cspmgcp_account) | **POST** /cloud-connect-cspm-gcp/entities/account/v1 | Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access. |
-| [**delete_cspm_aws_account**](CspmRegistrationApi.md#delete_cspm_aws_account) | **DELETE** /cloud-connect-cspm-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
-| [**delete_cspm_azure_account**](CspmRegistrationApi.md#delete_cspm_azure_account) | **DELETE** /cloud-connect-cspm-azure/entities/account/v1 | Deletes an Azure subscription from the system. |
-| [**delete_cspm_azure_management_group**](CspmRegistrationApi.md#delete_cspm_azure_management_group) | **DELETE** /cloud-connect-cspm-azure/entities/management-group/v1 | Deletes Azure management groups from the system. |
-| [**delete_cspmgcp_account**](CspmRegistrationApi.md#delete_cspmgcp_account) | **DELETE** /cloud-connect-cspm-gcp/entities/account/v1 | Deletes a GCP account from the system. |
-| [**get_behavior_detections**](CspmRegistrationApi.md#get_behavior_detections) | **GET** /detects/entities/ioa/v1 | Get list of detected behaviors |
-| [**get_configuration_detection_entities**](CspmRegistrationApi.md#get_configuration_detection_entities) | **GET** /detects/entities/iom/v2 | Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections. |
-| [**get_configuration_detection_ids_v2**](CspmRegistrationApi.md#get_configuration_detection_ids_v2) | **GET** /detects/queries/iom/v2 | Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections. |
-| [**get_configuration_detections**](CspmRegistrationApi.md#get_configuration_detections) | **GET** /detects/entities/iom/v1 | Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead |
-| [**get_cspm_aws_account**](CspmRegistrationApi.md#get_cspm_aws_account) | **GET** /cloud-connect-cspm-aws/entities/account/v1 | Returns information about the current status of an AWS account. |
-| [**get_cspm_aws_account_scripts_attachment**](CspmRegistrationApi.md#get_cspm_aws_account_scripts_attachment) | **GET** /cloud-connect-cspm-aws/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment. |
-| [**get_cspm_aws_console_setup_urls**](CspmRegistrationApi.md#get_cspm_aws_console_setup_urls) | **GET** /cloud-connect-cspm-aws/entities/console-setup-urls/v1 | Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment. |
-| [**get_cspm_azure_account**](CspmRegistrationApi.md#get_cspm_azure_account) | **GET** /cloud-connect-cspm-azure/entities/account/v1 | Return information about Azure account registration |
-| [**get_cspm_azure_management_group**](CspmRegistrationApi.md#get_cspm_azure_management_group) | **GET** /cloud-connect-cspm-azure/entities/management-group/v1 | Return information about Azure management group registration |
-| [**get_cspm_azure_user_scripts_attachment**](CspmRegistrationApi.md#get_cspm_azure_user_scripts_attachment) | **GET** /cloud-connect-cspm-azure/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their Azure environment as a downloadable attachment |
-| [**get_cspm_policies_details**](CspmRegistrationApi.md#get_cspm_policies_details) | **GET** /settings/entities/policy-details/v2 | Given an array of policy IDs, returns detailed policies information. |
-| [**get_cspm_policy**](CspmRegistrationApi.md#get_cspm_policy) | **GET** /settings/entities/policy-details/v1 | Given a policy ID, returns detailed policy information. |
-| [**get_cspm_policy_settings**](CspmRegistrationApi.md#get_cspm_policy_settings) | **GET** /settings/entities/policy/v1 | Returns information about current policy settings. |
-| [**get_cspm_scan_schedule**](CspmRegistrationApi.md#get_cspm_scan_schedule) | **GET** /settings/scan-schedule/v1 | Returns scan schedule configuration for one or more cloud platforms. |
-| [**get_cspmcgp_account**](CspmRegistrationApi.md#get_cspmcgp_account) | **GET** /cloud-connect-cspm-gcp/entities/account/v1 | Returns information about the current status of an GCP account. |
-| [**get_cspmgcp_service_accounts_ext**](CspmRegistrationApi.md#get_cspmgcp_service_accounts_ext) | **GET** /cloud-connect-cspm-gcp/entities/service-accounts/v1 | Returns the service account id and client email for external clients. |
-| [**get_cspmgcp_user_scripts_attachment**](CspmRegistrationApi.md#get_cspmgcp_user_scripts_attachment) | **GET** /cloud-connect-cspm-gcp/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment |
-| [**get_cspmgcp_validate_accounts_ext**](CspmRegistrationApi.md#get_cspmgcp_validate_accounts_ext) | **POST** /cloud-connect-cspm-gcp/entities/account/validate/v1 | Run a synchronous health check. |
-| [**patch_cspm_aws_account**](CspmRegistrationApi.md#patch_cspm_aws_account) | **PATCH** /cloud-connect-cspm-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
-| [**update_cspm_azure_account**](CspmRegistrationApi.md#update_cspm_azure_account) | **PATCH** /cloud-connect-cspm-azure/entities/account/v1 | Patches a existing account in our system for a customer. |
-| [**update_cspm_azure_account_client_id**](CspmRegistrationApi.md#update_cspm_azure_account_client_id) | **PATCH** /cloud-connect-cspm-azure/entities/client-id/v1 | Update an Azure service account in our system by with the user-created client_id created with the public key we&#39;ve provided |
-| [**update_cspm_azure_tenant_default_subscription_id**](CspmRegistrationApi.md#update_cspm_azure_tenant_default_subscription_id) | **PATCH** /cloud-connect-cspm-azure/entities/default-subscription-id/v1 | Update an Azure default subscription_id in our system for given tenant_id |
-| [**update_cspm_policy_settings**](CspmRegistrationApi.md#update_cspm_policy_settings) | **PATCH** /settings/entities/policy/v1 | Updates a policy setting - can be used to override policy severity or to disable a policy entirely. |
-| [**update_cspm_scan_schedule**](CspmRegistrationApi.md#update_cspm_scan_schedule) | **POST** /settings/scan-schedule/v1 | Updates scan schedule configuration for one or more cloud platforms. |
-| [**update_cspmgcp_account**](CspmRegistrationApi.md#update_cspmgcp_account) | **PATCH** /cloud-connect-cspm-gcp/entities/account/v1 | Patches a existing account in our system for a customer. |
-| [**update_cspmgcp_service_accounts_ext**](CspmRegistrationApi.md#update_cspmgcp_service_accounts_ext) | **PATCH** /cloud-connect-cspm-gcp/entities/service-accounts/v1 | Patches the service account key for external clients. |
-| [**validate_cspmgcp_service_account_ext**](CspmRegistrationApi.md#validate_cspmgcp_service_account_ext) | **POST** /cloud-connect-cspm-gcp/entities/service-accounts/validate/v1 | Validates credentials for a service account |
+| [**azure_download_certificate**](CspmRegistration.md#azure_download_certificate) | **GET** /cloud-connect-cspm-azure/entities/download-certificate/v1 | Returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
+| [**connect_cspm_gcp_account**](CspmRegistration.md#connect_cspm_gcp_account) | **POST** /cloud-connect-cspm-gcp/entities/account/v2 | Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id |
+| [**create_cspm_aws_account**](CspmRegistration.md#create_cspm_aws_account) | **POST** /cloud-connect-cspm-aws/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access. |
+| [**create_cspm_azure_account**](CspmRegistration.md#create_cspm_azure_account) | **POST** /cloud-connect-cspm-azure/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access. |
+| [**create_cspm_azure_management_group**](CspmRegistration.md#create_cspm_azure_management_group) | **POST** /cloud-connect-cspm-azure/entities/management-group/v1 | Creates a new management group in our system for a customer. |
+| [**create_cspm_gcp_account**](CspmRegistration.md#create_cspm_gcp_account) | **POST** /cloud-connect-cspm-gcp/entities/account/v1 | Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access. |
+| [**delete_cspm_aws_account**](CspmRegistration.md#delete_cspm_aws_account) | **DELETE** /cloud-connect-cspm-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
+| [**delete_cspm_azure_account**](CspmRegistration.md#delete_cspm_azure_account) | **DELETE** /cloud-connect-cspm-azure/entities/account/v1 | Deletes an Azure subscription from the system. |
+| [**delete_cspm_azure_management_group**](CspmRegistration.md#delete_cspm_azure_management_group) | **DELETE** /cloud-connect-cspm-azure/entities/management-group/v1 | Deletes Azure management groups from the system. |
+| [**delete_cspm_gcp_account**](CspmRegistration.md#delete_cspm_gcp_account) | **DELETE** /cloud-connect-cspm-gcp/entities/account/v1 | Deletes a GCP account from the system. |
+| [**get_behavior_detections**](CspmRegistration.md#get_behavior_detections) | **GET** /detects/entities/ioa/v1 | Get list of detected behaviors |
+| [**get_configuration_detection_entities**](CspmRegistration.md#get_configuration_detection_entities) | **GET** /detects/entities/iom/v2 | Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections. |
+| [**get_configuration_detection_ids_v2**](CspmRegistration.md#get_configuration_detection_ids_v2) | **GET** /detects/queries/iom/v2 | Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections. |
+| [**get_configuration_detections**](CspmRegistration.md#get_configuration_detections) | **GET** /detects/entities/iom/v1 | Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead |
+| [**get_cspm_aws_account**](CspmRegistration.md#get_cspm_aws_account) | **GET** /cloud-connect-cspm-aws/entities/account/v1 | Returns information about the current status of an AWS account. |
+| [**get_cspm_aws_account_scripts_attachment**](CspmRegistration.md#get_cspm_aws_account_scripts_attachment) | **GET** /cloud-connect-cspm-aws/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment. |
+| [**get_cspm_aws_console_setup_urls**](CspmRegistration.md#get_cspm_aws_console_setup_urls) | **GET** /cloud-connect-cspm-aws/entities/console-setup-urls/v1 | Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment. |
+| [**get_cspm_azure_account**](CspmRegistration.md#get_cspm_azure_account) | **GET** /cloud-connect-cspm-azure/entities/account/v1 | Return information about Azure account registration |
+| [**get_cspm_azure_management_group**](CspmRegistration.md#get_cspm_azure_management_group) | **GET** /cloud-connect-cspm-azure/entities/management-group/v1 | Return information about Azure management group registration |
+| [**get_cspm_azure_user_scripts_attachment**](CspmRegistration.md#get_cspm_azure_user_scripts_attachment) | **GET** /cloud-connect-cspm-azure/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their Azure environment as a downloadable attachment |
+| [**get_cspm_gcp_account**](CspmRegistration.md#get_cspm_gcp_account) | **GET** /cloud-connect-cspm-gcp/entities/account/v1 | Returns information about the current status of an GCP account. |
+| [**get_cspm_gcp_service_accounts_ext**](CspmRegistration.md#get_cspm_gcp_service_accounts_ext) | **GET** /cloud-connect-cspm-gcp/entities/service-accounts/v1 | Returns the service account id and client email for external clients. |
+| [**get_cspm_gcp_user_scripts_attachment**](CspmRegistration.md#get_cspm_gcp_user_scripts_attachment) | **GET** /cloud-connect-cspm-gcp/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment |
+| [**get_cspm_gcp_validate_accounts_ext**](CspmRegistration.md#get_cspm_gcp_validate_accounts_ext) | **POST** /cloud-connect-cspm-gcp/entities/account/validate/v1 | Run a synchronous health check. |
+| [**get_cspm_policies_details**](CspmRegistration.md#get_cspm_policies_details) | **GET** /settings/entities/policy-details/v2 | Given an array of policy IDs, returns detailed policies information. |
+| [**get_cspm_policy**](CspmRegistration.md#get_cspm_policy) | **GET** /settings/entities/policy-details/v1 | Given a policy ID, returns detailed policy information. |
+| [**get_cspm_policy_settings**](CspmRegistration.md#get_cspm_policy_settings) | **GET** /settings/entities/policy/v1 | Returns information about current policy settings. |
+| [**get_cspm_scan_schedule**](CspmRegistration.md#get_cspm_scan_schedule) | **GET** /settings/scan-schedule/v1 | Returns scan schedule configuration for one or more cloud platforms. |
+| [**patch_cspm_aws_account**](CspmRegistration.md#patch_cspm_aws_account) | **PATCH** /cloud-connect-cspm-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
+| [**update_cspm_azure_account**](CspmRegistration.md#update_cspm_azure_account) | **PATCH** /cloud-connect-cspm-azure/entities/account/v1 | Patches a existing account in our system for a customer. |
+| [**update_cspm_azure_account_client_id**](CspmRegistration.md#update_cspm_azure_account_client_id) | **PATCH** /cloud-connect-cspm-azure/entities/client-id/v1 | Update an Azure service account in our system by with the user-created client_id created with the public key we&#39;ve provided |
+| [**update_cspm_azure_tenant_default_subscription_id**](CspmRegistration.md#update_cspm_azure_tenant_default_subscription_id) | **PATCH** /cloud-connect-cspm-azure/entities/default-subscription-id/v1 | Update an Azure default subscription_id in our system for given tenant_id |
+| [**update_cspm_gcp_account**](CspmRegistration.md#update_cspm_gcp_account) | **PATCH** /cloud-connect-cspm-gcp/entities/account/v1 | Patches a existing account in our system for a customer. |
+| [**update_cspm_gcp_service_accounts_ext**](CspmRegistration.md#update_cspm_gcp_service_accounts_ext) | **PATCH** /cloud-connect-cspm-gcp/entities/service-accounts/v1 | Patches the service account key for external clients. |
+| [**update_cspm_policy_settings**](CspmRegistration.md#update_cspm_policy_settings) | **PATCH** /settings/entities/policy/v1 | Updates a policy setting - can be used to override policy severity or to disable a policy entirely. |
+| [**update_cspm_scan_schedule**](CspmRegistration.md#update_cspm_scan_schedule) | **POST** /settings/scan-schedule/v1 | Updates scan schedule configuration for one or more cloud platforms. |
+| [**validate_cspm_gcp_service_account_ext**](CspmRegistration.md#validate_cspm_gcp_service_account_ext) | **POST** /cloud-connect-cspm-gcp/entities/service-accounts/validate/v1 | Validates credentials for a service account |
 
 
 ## azure_download_certificate
@@ -62,7 +62,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 tenant_id = ['inner_example'] # Array<String> | Azure Tenant ID
 opts = {
   refresh: true, # Boolean | Setting to true will invalidate the current certificate and generate a new certificate
@@ -74,7 +74,7 @@ begin
   result = api_instance.azure_download_certificate(tenant_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->azure_download_certificate: #{e}"
+  puts "Error when calling CspmRegistration->azure_download_certificate: #{e}"
 end
 ```
 
@@ -92,7 +92,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureDownloadCertificateResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->azure_download_certificate_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->azure_download_certificate_with_http_info: #{e}"
 end
 ```
 
@@ -118,9 +118,9 @@ end
 - **Accept**: application/json, application/octet-stream
 
 
-## connect_cspmgcp_account
+## connect_cspm_gcp_account
 
-> <RegistrationGCPAccountResponseExtV2> connect_cspmgcp_account(body)
+> <RegistrationGCPAccountResponseExtV2> connect_cspm_gcp_account(body)
 
 Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
 
@@ -137,33 +137,33 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationGCPAccountExtRequestV2.new({resources: [Falcon::RegistrationGCPAccountReqObjV2.new({parent_id: 'parent_id_example'})]}) # RegistrationGCPAccountExtRequestV2 | 
 
 begin
   # Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
-  result = api_instance.connect_cspmgcp_account(body)
+  result = api_instance.connect_cspm_gcp_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->connect_cspmgcp_account: #{e}"
+  puts "Error when calling CspmRegistration->connect_cspm_gcp_account: #{e}"
 end
 ```
 
-#### Using the connect_cspmgcp_account_with_http_info variant
+#### Using the connect_cspm_gcp_account_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationGCPAccountResponseExtV2>, Integer, Hash)> connect_cspmgcp_account_with_http_info(body)
+> <Array(<RegistrationGCPAccountResponseExtV2>, Integer, Hash)> connect_cspm_gcp_account_with_http_info(body)
 
 ```ruby
 begin
   # Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
-  data, status_code, headers = api_instance.connect_cspmgcp_account_with_http_info(body)
+  data, status_code, headers = api_instance.connect_cspm_gcp_account_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistrationGCPAccountResponseExtV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->connect_cspmgcp_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->connect_cspm_gcp_account_with_http_info: #{e}"
 end
 ```
 
@@ -206,7 +206,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationAWSAccountCreateRequestExtV2.new({resources: [Falcon::RegistrationAWSAccountExtV2.new({account_id: 'account_id_example', cloudtrail_region: 'cloudtrail_region_example', iam_role_arn: 'iam_role_arn_example', organization_id: 'organization_id_example'})]}) # RegistrationAWSAccountCreateRequestExtV2 | 
 
 begin
@@ -214,7 +214,7 @@ begin
   result = api_instance.create_cspm_aws_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_aws_account: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_aws_account: #{e}"
 end
 ```
 
@@ -232,7 +232,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAWSAccountResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_aws_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -275,7 +275,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationAzureAccountCreateRequestExternalV1.new({resources: [Falcon::RegistrationAzureAccountExternalV1.new]}) # RegistrationAzureAccountCreateRequestExternalV1 | 
 
 begin
@@ -283,7 +283,7 @@ begin
   result = api_instance.create_cspm_azure_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_azure_account: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_azure_account: #{e}"
 end
 ```
 
@@ -301,7 +301,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_azure_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_azure_account_with_http_info: #{e}"
 end
 ```
 
@@ -344,7 +344,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationAzureManagementGroupCreateRequestExternalV1.new({resources: [Falcon::RegistrationAzureManagementGroupExternalV1.new({tenant_id: 'tenant_id_example'})]}) # RegistrationAzureManagementGroupCreateRequestExternalV1 | 
 
 begin
@@ -352,7 +352,7 @@ begin
   result = api_instance.create_cspm_azure_management_group(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_azure_management_group: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_azure_management_group: #{e}"
 end
 ```
 
@@ -370,7 +370,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspm_azure_management_group_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_azure_management_group_with_http_info: #{e}"
 end
 ```
 
@@ -394,9 +394,9 @@ end
 - **Accept**: application/json
 
 
-## create_cspmgcp_account
+## create_cspm_gcp_account
 
-> <RegistrationGCPAccountResponseV1> create_cspmgcp_account(body)
+> <RegistrationGCPAccountResponseV1> create_cspm_gcp_account(body)
 
 Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
 
@@ -413,33 +413,33 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationGCPAccountCreateRequestExtV1.new({resources: [Falcon::RegistrationGCPAccountExtV1.new({parent_id: 'parent_id_example'})]}) # RegistrationGCPAccountCreateRequestExtV1 | 
 
 begin
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-  result = api_instance.create_cspmgcp_account(body)
+  result = api_instance.create_cspm_gcp_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspmgcp_account: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_gcp_account: #{e}"
 end
 ```
 
-#### Using the create_cspmgcp_account_with_http_info variant
+#### Using the create_cspm_gcp_account_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> create_cspmgcp_account_with_http_info(body)
+> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> create_cspm_gcp_account_with_http_info(body)
 
 ```ruby
 begin
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-  data, status_code, headers = api_instance.create_cspmgcp_account_with_http_info(body)
+  data, status_code, headers = api_instance.create_cspm_gcp_account_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistrationGCPAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->create_cspmgcp_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->create_cspm_gcp_account_with_http_info: #{e}"
 end
 ```
 
@@ -482,7 +482,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'], # Array<String> | AWS account IDs to remove
   organization_ids: ['inner_example'] # Array<String> | AWS organization IDs to remove
@@ -493,7 +493,7 @@ begin
   result = api_instance.delete_cspm_aws_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_aws_account: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_aws_account: #{e}"
 end
 ```
 
@@ -511,7 +511,7 @@ begin
   p headers # => { ... }
   p data # => <MsaBaseEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_aws_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -555,7 +555,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'], # Array<String> | Azure subscription IDs to remove
   tenant_ids: ['inner_example'], # Array<String> | Tenant ids to remove
@@ -567,7 +567,7 @@ begin
   result = api_instance.delete_cspm_azure_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_azure_account: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_azure_account: #{e}"
 end
 ```
 
@@ -585,7 +585,7 @@ begin
   p headers # => { ... }
   p data # => <MsaBaseEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_azure_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_azure_account_with_http_info: #{e}"
 end
 ```
 
@@ -630,7 +630,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   tenant_ids: ['inner_example'] # Array<String> | Tenant ids to remove
 }
@@ -640,7 +640,7 @@ begin
   result = api_instance.delete_cspm_azure_management_group(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_azure_management_group: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_azure_management_group: #{e}"
 end
 ```
 
@@ -658,7 +658,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspm_azure_management_group_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_azure_management_group_with_http_info: #{e}"
 end
 ```
 
@@ -682,9 +682,9 @@ end
 - **Accept**: application/json
 
 
-## delete_cspmgcp_account
+## delete_cspm_gcp_account
 
-> <MsaBaseEntitiesResponse> delete_cspmgcp_account(opts)
+> <MsaBaseEntitiesResponse> delete_cspm_gcp_account(opts)
 
 Deletes a GCP account from the system.
 
@@ -701,35 +701,35 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'] # Array<String> | Hierarchical Resource IDs of accounts
 }
 
 begin
   # Deletes a GCP account from the system.
-  result = api_instance.delete_cspmgcp_account(opts)
+  result = api_instance.delete_cspm_gcp_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspmgcp_account: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_gcp_account: #{e}"
 end
 ```
 
-#### Using the delete_cspmgcp_account_with_http_info variant
+#### Using the delete_cspm_gcp_account_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaBaseEntitiesResponse>, Integer, Hash)> delete_cspmgcp_account_with_http_info(opts)
+> <Array(<MsaBaseEntitiesResponse>, Integer, Hash)> delete_cspm_gcp_account_with_http_info(opts)
 
 ```ruby
 begin
   # Deletes a GCP account from the system.
-  data, status_code, headers = api_instance.delete_cspmgcp_account_with_http_info(opts)
+  data, status_code, headers = api_instance.delete_cspm_gcp_account_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaBaseEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->delete_cspmgcp_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->delete_cspm_gcp_account_with_http_info: #{e}"
 end
 ```
 
@@ -772,7 +772,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   cloud_provider: 'aws', # String | Cloud Provider (e.g.: aws|azure)
   service: 'ACM', # String | Cloud Service (e.g. EC2 | EBS | S3)
@@ -795,7 +795,7 @@ begin
   result = api_instance.get_behavior_detections(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_behavior_detections: #{e}"
+  puts "Error when calling CspmRegistration->get_behavior_detections: #{e}"
 end
 ```
 
@@ -813,7 +813,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationExternalIOAEventResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_behavior_detections_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_behavior_detections_with_http_info: #{e}"
 end
 ```
 
@@ -869,7 +869,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 ids = ['inner_example'] # Array<String> | detection ids
 
 begin
@@ -877,7 +877,7 @@ begin
   result = api_instance.get_configuration_detection_entities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detection_entities: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detection_entities: #{e}"
 end
 ```
 
@@ -895,7 +895,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationExternalIOMEventResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detection_entities_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detection_entities_with_http_info: #{e}"
 end
 ```
 
@@ -938,7 +938,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   filter: 'filter_example', # String | use_current_scan_ids - *use this to get records for latest scans (ignored when next_token is set)* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string 
   sort: 'sort_example', # String | account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp
@@ -952,7 +952,7 @@ begin
   result = api_instance.get_configuration_detection_ids_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detection_ids_v2: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detection_ids_v2: #{e}"
 end
 ```
 
@@ -970,7 +970,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationIOMEventIDsResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detection_ids_v2_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detection_ids_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1017,7 +1017,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   cloud_provider: 'aws', # String | Cloud Provider (e.g.: aws|azure|gcp)
   account_id: 'account_id_example', # String | AWS account ID or GCP Project Number or Azure subscription ID
@@ -1036,7 +1036,7 @@ begin
   result = api_instance.get_configuration_detections(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detections: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detections: #{e}"
 end
 ```
 
@@ -1054,7 +1054,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationExternalIOMEventResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_configuration_detections_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_configuration_detections_with_http_info: #{e}"
 end
 ```
 
@@ -1106,7 +1106,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   scan_type: 'dry', # String | Type of scan, dry or full, to perform on selected accounts
   ids: ['inner_example'], # Array<String> | AWS account IDs
@@ -1125,7 +1125,7 @@ begin
   result = api_instance.get_cspm_aws_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_account: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_account: #{e}"
 end
 ```
 
@@ -1143,7 +1143,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAWSAccountResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -1195,7 +1195,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'], # Array<String> | AWS account IDs
   template: 'aws-bash', # String | Template to be rendered
@@ -1217,7 +1217,7 @@ begin
   result = api_instance.get_cspm_aws_account_scripts_attachment(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_account_scripts_attachment: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_account_scripts_attachment: #{e}"
 end
 ```
 
@@ -1235,7 +1235,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAWSProvisionGetAccountScriptResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_account_scripts_attachment_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_account_scripts_attachment_with_http_info: #{e}"
 end
 ```
 
@@ -1290,7 +1290,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'], # Array<String> | AWS account IDs
   use_existing_cloudtrail: 'true', # String | 
@@ -1303,7 +1303,7 @@ begin
   result = api_instance.get_cspm_aws_console_setup_urls(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_console_setup_urls: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_console_setup_urls: #{e}"
 end
 ```
 
@@ -1321,7 +1321,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAWSConsoleURLResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_aws_console_setup_urls_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_aws_console_setup_urls_with_http_info: #{e}"
 end
 ```
 
@@ -1367,7 +1367,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   ids: ['inner_example'], # Array<String> | SubscriptionIDs of accounts to select for this status operation. If this is empty then all accounts are returned.
   tenant_ids: ['inner_example'], # Array<String> | Tenant ids to filter azure accounts
@@ -1383,7 +1383,7 @@ begin
   result = api_instance.get_cspm_azure_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_account: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_account: #{e}"
 end
 ```
 
@@ -1401,7 +1401,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_account_with_http_info: #{e}"
 end
 ```
 
@@ -1450,7 +1450,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   tenant_ids: ['inner_example'], # Array<String> | Tenant ids to filter azure accounts
   limit: 56, # Integer | The maximum records to return. Defaults to 100.
@@ -1462,7 +1462,7 @@ begin
   result = api_instance.get_cspm_azure_management_group(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_management_group: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_management_group: #{e}"
 end
 ```
 
@@ -1480,7 +1480,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureManagementGroupResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_management_group_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_management_group_with_http_info: #{e}"
 end
 ```
 
@@ -1525,7 +1525,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   tenant_id: 'tenant_id_example', # String | Tenant ID to generate script for. Defaults to most recently registered tenant.
   subscription_ids: ['inner_example'], # Array<String> | Subscription IDs to generate script for. Defaults to all.
@@ -1539,7 +1539,7 @@ begin
   result = api_instance.get_cspm_azure_user_scripts_attachment(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_user_scripts_attachment: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_user_scripts_attachment: #{e}"
 end
 ```
 
@@ -1557,7 +1557,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureProvisionGetUserScriptResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_azure_user_scripts_attachment_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_azure_user_scripts_attachment_with_http_info: #{e}"
 end
 ```
 
@@ -1585,6 +1585,302 @@ end
 - **Accept**: application/json, application/octet-stream
 
 
+## get_cspm_gcp_account
+
+> <RegistrationGCPAccountResponseV1> get_cspm_gcp_account(opts)
+
+Returns information about the current status of an GCP account.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+opts = {
+  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
+  ids: ['inner_example'], # Array<String> | Hierarchical Resource IDs of accounts
+  scan_type: 'dry', # String | Type of scan, dry or full, to perform on selected accounts
+  status: 'operational', # String | Account status to filter results by.
+  limit: 56, # Integer | The maximum records to return. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example' # String | Order fields in ascending or descending order. Ex: parent_type|asc.
+}
+
+begin
+  # Returns information about the current status of an GCP account.
+  result = api_instance.get_cspm_gcp_account(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_account: #{e}"
+end
+```
+
+#### Using the get_cspm_gcp_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> get_cspm_gcp_account_with_http_info(opts)
+
+```ruby
+begin
+  # Returns information about the current status of an GCP account.
+  data, status_code, headers = api_instance.get_cspm_gcp_account_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPAccountResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
+| **scan_type** | **String** | Type of scan, dry or full, to perform on selected accounts | [optional] |
+| **status** | **String** | Account status to filter results by. | [optional] |
+| **limit** | **Integer** | The maximum records to return. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | Order fields in ascending or descending order. Ex: parent_type|asc. | [optional] |
+
+### Return type
+
+[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_cspm_gcp_service_accounts_ext
+
+> <RegistrationGCPServiceAccountResponseExtV1> get_cspm_gcp_service_accounts_ext(opts)
+
+Returns the service account id and client email for external clients.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+opts = {
+  id: 'id_example' # String | Service Account ID
+}
+
+begin
+  # Returns the service account id and client email for external clients.
+  result = api_instance.get_cspm_gcp_service_accounts_ext(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_service_accounts_ext: #{e}"
+end
+```
+
+#### Using the get_cspm_gcp_service_accounts_ext_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPServiceAccountResponseExtV1>, Integer, Hash)> get_cspm_gcp_service_accounts_ext_with_http_info(opts)
+
+```ruby
+begin
+  # Returns the service account id and client email for external clients.
+  data, status_code, headers = api_instance.get_cspm_gcp_service_accounts_ext_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPServiceAccountResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_service_accounts_ext_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Service Account ID | [optional] |
+
+### Return type
+
+[**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_cspm_gcp_user_scripts_attachment
+
+> <RegistrationGCPProvisionGetUserScriptResponseV1> get_cspm_gcp_user_scripts_attachment(opts)
+
+Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+opts = {
+  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
+  ids: ['inner_example'] # Array<String> | Hierarchical Resource IDs of accounts
+}
+
+begin
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+  result = api_instance.get_cspm_gcp_user_scripts_attachment(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_user_scripts_attachment: #{e}"
+end
+```
+
+#### Using the get_cspm_gcp_user_scripts_attachment_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPProvisionGetUserScriptResponseV1>, Integer, Hash)> get_cspm_gcp_user_scripts_attachment_with_http_info(opts)
+
+```ruby
+begin
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
+  data, status_code, headers = api_instance.get_cspm_gcp_user_scripts_attachment_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPProvisionGetUserScriptResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_user_scripts_attachment_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
+
+### Return type
+
+[**RegistrationGCPProvisionGetUserScriptResponseV1**](RegistrationGCPProvisionGetUserScriptResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## get_cspm_gcp_validate_accounts_ext
+
+> <RegistrationGCPAccountValidationResponseV1> get_cspm_gcp_validate_accounts_ext(body)
+
+Run a synchronous health check.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+body = Falcon::RegistrationGCPAccountValidationRequestV1.new({resources: [Falcon::RegistrationGCPAccountValidationReqObjV1.new({parent_id: 'parent_id_example'})]}) # RegistrationGCPAccountValidationRequestV1 | 
+
+begin
+  # Run a synchronous health check.
+  result = api_instance.get_cspm_gcp_validate_accounts_ext(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_validate_accounts_ext: #{e}"
+end
+```
+
+#### Using the get_cspm_gcp_validate_accounts_ext_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPAccountValidationResponseV1>, Integer, Hash)> get_cspm_gcp_validate_accounts_ext_with_http_info(body)
+
+```ruby
+begin
+  # Run a synchronous health check.
+  data, status_code, headers = api_instance.get_cspm_gcp_validate_accounts_ext_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPAccountValidationResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cspm_gcp_validate_accounts_ext_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RegistrationGCPAccountValidationRequestV1**](RegistrationGCPAccountValidationRequestV1.md) |  |  |
+
+### Return type
+
+[**RegistrationGCPAccountValidationResponseV1**](RegistrationGCPAccountValidationResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## get_cspm_policies_details
 
 > <RegistrationPolicyResponseV1> get_cspm_policies_details(ids)
@@ -1604,7 +1900,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 ids = [37] # Array<Integer> | Policy IDs
 
 begin
@@ -1612,7 +1908,7 @@ begin
   result = api_instance.get_cspm_policies_details(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policies_details: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policies_details: #{e}"
 end
 ```
 
@@ -1630,7 +1926,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationPolicyResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policies_details_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policies_details_with_http_info: #{e}"
 end
 ```
 
@@ -1673,7 +1969,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 ids = 56 # Integer | Policy ID
 
 begin
@@ -1681,7 +1977,7 @@ begin
   result = api_instance.get_cspm_policy(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policy: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policy: #{e}"
 end
 ```
 
@@ -1699,7 +1995,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationPolicyResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policy_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policy_with_http_info: #{e}"
 end
 ```
 
@@ -1742,7 +2038,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   service: 'ACM', # String | Service type to filter policy settings by.
   policy_id: 'policy_id_example', # String | Policy ID
@@ -1754,7 +2050,7 @@ begin
   result = api_instance.get_cspm_policy_settings(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policy_settings: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policy_settings: #{e}"
 end
 ```
 
@@ -1772,7 +2068,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationPolicySettingsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_policy_settings_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_policy_settings_with_http_info: #{e}"
 end
 ```
 
@@ -1817,7 +2113,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 opts = {
   cloud_platform: ['inner_example'] # Array<String> | Cloud Platform
 }
@@ -1827,7 +2123,7 @@ begin
   result = api_instance.get_cspm_scan_schedule(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_scan_schedule: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_scan_schedule: #{e}"
 end
 ```
 
@@ -1845,7 +2141,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationScanScheduleResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspm_scan_schedule_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->get_cspm_scan_schedule_with_http_info: #{e}"
 end
 ```
 
@@ -1869,302 +2165,6 @@ end
 - **Accept**: application/json
 
 
-## get_cspmcgp_account
-
-> <RegistrationGCPAccountResponseV1> get_cspmcgp_account(opts)
-
-Returns information about the current status of an GCP account.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-opts = {
-  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
-  ids: ['inner_example'], # Array<String> | Hierarchical Resource IDs of accounts
-  scan_type: 'dry', # String | Type of scan, dry or full, to perform on selected accounts
-  status: 'operational', # String | Account status to filter results by.
-  limit: 56, # Integer | The maximum records to return. Defaults to 100.
-  offset: 56, # Integer | The offset to start retrieving records from
-  sort: 'sort_example' # String | Order fields in ascending or descending order. Ex: parent_type|asc.
-}
-
-begin
-  # Returns information about the current status of an GCP account.
-  result = api_instance.get_cspmcgp_account(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmcgp_account: #{e}"
-end
-```
-
-#### Using the get_cspmcgp_account_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> get_cspmcgp_account_with_http_info(opts)
-
-```ruby
-begin
-  # Returns information about the current status of an GCP account.
-  data, status_code, headers = api_instance.get_cspmcgp_account_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPAccountResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmcgp_account_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
-| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
-| **scan_type** | **String** | Type of scan, dry or full, to perform on selected accounts | [optional] |
-| **status** | **String** | Account status to filter results by. | [optional] |
-| **limit** | **Integer** | The maximum records to return. Defaults to 100. | [optional][default to 100] |
-| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
-| **sort** | **String** | Order fields in ascending or descending order. Ex: parent_type|asc. | [optional] |
-
-### Return type
-
-[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_cspmgcp_service_accounts_ext
-
-> <RegistrationGCPServiceAccountResponseExtV1> get_cspmgcp_service_accounts_ext(opts)
-
-Returns the service account id and client email for external clients.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-opts = {
-  id: 'id_example' # String | Service Account ID
-}
-
-begin
-  # Returns the service account id and client email for external clients.
-  result = api_instance.get_cspmgcp_service_accounts_ext(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_service_accounts_ext: #{e}"
-end
-```
-
-#### Using the get_cspmgcp_service_accounts_ext_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPServiceAccountResponseExtV1>, Integer, Hash)> get_cspmgcp_service_accounts_ext_with_http_info(opts)
-
-```ruby
-begin
-  # Returns the service account id and client email for external clients.
-  data, status_code, headers = api_instance.get_cspmgcp_service_accounts_ext_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPServiceAccountResponseExtV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_service_accounts_ext_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **id** | **String** | Service Account ID | [optional] |
-
-### Return type
-
-[**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_cspmgcp_user_scripts_attachment
-
-> <RegistrationGCPProvisionGetUserScriptResponseV1> get_cspmgcp_user_scripts_attachment(opts)
-
-Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-opts = {
-  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
-  ids: ['inner_example'] # Array<String> | Hierarchical Resource IDs of accounts
-}
-
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
-  result = api_instance.get_cspmgcp_user_scripts_attachment(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_user_scripts_attachment: #{e}"
-end
-```
-
-#### Using the get_cspmgcp_user_scripts_attachment_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPProvisionGetUserScriptResponseV1>, Integer, Hash)> get_cspmgcp_user_scripts_attachment_with_http_info(opts)
-
-```ruby
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
-  data, status_code, headers = api_instance.get_cspmgcp_user_scripts_attachment_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPProvisionGetUserScriptResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_user_scripts_attachment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
-| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
-
-### Return type
-
-[**RegistrationGCPProvisionGetUserScriptResponseV1**](RegistrationGCPProvisionGetUserScriptResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/octet-stream
-
-
-## get_cspmgcp_validate_accounts_ext
-
-> <RegistrationGCPAccountValidationResponseV1> get_cspmgcp_validate_accounts_ext(body)
-
-Run a synchronous health check.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-body = Falcon::RegistrationGCPAccountValidationRequestV1.new({resources: [Falcon::RegistrationGCPAccountValidationReqObjV1.new({parent_id: 'parent_id_example'})]}) # RegistrationGCPAccountValidationRequestV1 | 
-
-begin
-  # Run a synchronous health check.
-  result = api_instance.get_cspmgcp_validate_accounts_ext(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_validate_accounts_ext: #{e}"
-end
-```
-
-#### Using the get_cspmgcp_validate_accounts_ext_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPAccountValidationResponseV1>, Integer, Hash)> get_cspmgcp_validate_accounts_ext_with_http_info(body)
-
-```ruby
-begin
-  # Run a synchronous health check.
-  data, status_code, headers = api_instance.get_cspmgcp_validate_accounts_ext_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPAccountValidationResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->get_cspmgcp_validate_accounts_ext_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**RegistrationGCPAccountValidationRequestV1**](RegistrationGCPAccountValidationRequestV1.md) |  |  |
-
-### Return type
-
-[**RegistrationGCPAccountValidationResponseV1**](RegistrationGCPAccountValidationResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## patch_cspm_aws_account
 
 > <RegistrationAWSAccountResponseV2> patch_cspm_aws_account(body)
@@ -2184,7 +2184,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationAWSAccountPatchRequest.new({resources: [Falcon::RegistrationAWSAccountPatch.new({account_id: 'account_id_example', iam_role_arn: 'iam_role_arn_example'})]}) # RegistrationAWSAccountPatchRequest | 
 
 begin
@@ -2192,7 +2192,7 @@ begin
   result = api_instance.patch_cspm_aws_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->patch_cspm_aws_account: #{e}"
+  puts "Error when calling CspmRegistration->patch_cspm_aws_account: #{e}"
 end
 ```
 
@@ -2210,7 +2210,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAWSAccountResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->patch_cspm_aws_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->patch_cspm_aws_account_with_http_info: #{e}"
 end
 ```
 
@@ -2253,7 +2253,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationAzureAccountPatchRequest.new({resources: [Falcon::RegistrationAzureAccountPatch.new({subscription_id: 'subscription_id_example'})]}) # RegistrationAzureAccountPatchRequest | 
 
 begin
@@ -2261,7 +2261,7 @@ begin
   result = api_instance.update_cspm_azure_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_account: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_account: #{e}"
 end
 ```
 
@@ -2279,7 +2279,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_account_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_account_with_http_info: #{e}"
 end
 ```
 
@@ -2322,7 +2322,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 id = 'id_example' # String | ClientID to use for the Service Principal associated with the customer's Azure account
 opts = {
   tenant_id: 'tenant_id_example' # String | Tenant ID to update client ID for. Required if multiple tenants are registered.
@@ -2333,7 +2333,7 @@ begin
   result = api_instance.update_cspm_azure_account_client_id(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_account_client_id: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_account_client_id: #{e}"
 end
 ```
 
@@ -2351,7 +2351,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureTenantConfigurationResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_account_client_id_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_account_client_id_with_http_info: #{e}"
 end
 ```
 
@@ -2395,7 +2395,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 subscription_id = 'subscription_id_example' # String | Default Subscription ID to patch for all subscriptions belonged to a tenant.
 opts = {
   tenant_id: 'tenant_id_example' # String | Tenant ID to update client ID for. Required if multiple tenants are registered.
@@ -2406,7 +2406,7 @@ begin
   result = api_instance.update_cspm_azure_tenant_default_subscription_id(subscription_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_tenant_default_subscription_id: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_tenant_default_subscription_id: #{e}"
 end
 ```
 
@@ -2424,7 +2424,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationAzureTenantDefaultSubscriptionIDResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_azure_tenant_default_subscription_id_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_azure_tenant_default_subscription_id_with_http_info: #{e}"
 end
 ```
 
@@ -2449,6 +2449,144 @@ end
 - **Accept**: application/json
 
 
+## update_cspm_gcp_account
+
+> <RegistrationGCPAccountResponseV1> update_cspm_gcp_account(body)
+
+Patches a existing account in our system for a customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+body = Falcon::RegistrationGCPAccountPatchRequestV1.new({resources: [Falcon::RegistrationGCPAccountPatchV1.new({parent_id: 'parent_id_example', service_account: Falcon::RegistrationGCPServiceAccountPatchV1.new})]}) # RegistrationGCPAccountPatchRequestV1 | 
+
+begin
+  # Patches a existing account in our system for a customer.
+  result = api_instance.update_cspm_gcp_account(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->update_cspm_gcp_account: #{e}"
+end
+```
+
+#### Using the update_cspm_gcp_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> update_cspm_gcp_account_with_http_info(body)
+
+```ruby
+begin
+  # Patches a existing account in our system for a customer.
+  data, status_code, headers = api_instance.update_cspm_gcp_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPAccountResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->update_cspm_gcp_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RegistrationGCPAccountPatchRequestV1**](RegistrationGCPAccountPatchRequestV1.md) |  |  |
+
+### Return type
+
+[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_cspm_gcp_service_accounts_ext
+
+> <RegistrationGCPServiceAccountResponseExtV1> update_cspm_gcp_service_accounts_ext(body)
+
+Patches the service account key for external clients.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+body = Falcon::RegistrationGCPServiceAccountPatchRequestV1.new({resources: [Falcon::RegistrationGCPServiceAccountPatchV1.new]}) # RegistrationGCPServiceAccountPatchRequestV1 | 
+
+begin
+  # Patches the service account key for external clients.
+  result = api_instance.update_cspm_gcp_service_accounts_ext(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->update_cspm_gcp_service_accounts_ext: #{e}"
+end
+```
+
+#### Using the update_cspm_gcp_service_accounts_ext_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPServiceAccountResponseExtV1>, Integer, Hash)> update_cspm_gcp_service_accounts_ext_with_http_info(body)
+
+```ruby
+begin
+  # Patches the service account key for external clients.
+  data, status_code, headers = api_instance.update_cspm_gcp_service_accounts_ext_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPServiceAccountResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->update_cspm_gcp_service_accounts_ext_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RegistrationGCPServiceAccountPatchRequestV1**](RegistrationGCPServiceAccountPatchRequestV1.md) |  |  |
+
+### Return type
+
+[**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## update_cspm_policy_settings
 
 > <RegistrationPolicySettingsResponseV1> update_cspm_policy_settings(body)
@@ -2468,7 +2606,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationPolicyRequestExtV1.new({resources: [Falcon::RegistrationPolicyExtV1.new({account_id: 'account_id_example', account_ids: ['account_ids_example'], enabled: false, policy_id: 37, regions: ['regions_example'], severity: 'severity_example', tag_excluded: false})]}) # RegistrationPolicyRequestExtV1 | 
 
 begin
@@ -2476,7 +2614,7 @@ begin
   result = api_instance.update_cspm_policy_settings(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_policy_settings: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_policy_settings: #{e}"
 end
 ```
 
@@ -2494,7 +2632,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationPolicySettingsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_policy_settings_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_policy_settings_with_http_info: #{e}"
 end
 ```
 
@@ -2537,7 +2675,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationScanScheduleUpdateRequestV1.new({resources: [Falcon::DomainScanScheduleDataV1.new({cloud_platform: 'cloud_platform_example'})]}) # RegistrationScanScheduleUpdateRequestV1 | 
 
 begin
@@ -2545,7 +2683,7 @@ begin
   result = api_instance.update_cspm_scan_schedule(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_scan_schedule: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_scan_schedule: #{e}"
 end
 ```
 
@@ -2563,7 +2701,7 @@ begin
   p headers # => { ... }
   p data # => <RegistrationScanScheduleResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspm_scan_schedule_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->update_cspm_scan_schedule_with_http_info: #{e}"
 end
 ```
 
@@ -2587,147 +2725,9 @@ end
 - **Accept**: application/json
 
 
-## update_cspmgcp_account
+## validate_cspm_gcp_service_account_ext
 
-> <RegistrationGCPAccountResponseV1> update_cspmgcp_account(body)
-
-Patches a existing account in our system for a customer.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-body = Falcon::RegistrationGCPAccountPatchRequestV1.new({resources: [Falcon::RegistrationGCPAccountPatchV1.new({parent_id: 'parent_id_example', service_account: Falcon::RegistrationGCPServiceAccountPatchV1.new})]}) # RegistrationGCPAccountPatchRequestV1 | 
-
-begin
-  # Patches a existing account in our system for a customer.
-  result = api_instance.update_cspmgcp_account(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspmgcp_account: #{e}"
-end
-```
-
-#### Using the update_cspmgcp_account_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> update_cspmgcp_account_with_http_info(body)
-
-```ruby
-begin
-  # Patches a existing account in our system for a customer.
-  data, status_code, headers = api_instance.update_cspmgcp_account_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPAccountResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspmgcp_account_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**RegistrationGCPAccountPatchRequestV1**](RegistrationGCPAccountPatchRequestV1.md) |  |  |
-
-### Return type
-
-[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## update_cspmgcp_service_accounts_ext
-
-> <RegistrationGCPServiceAccountResponseExtV1> update_cspmgcp_service_accounts_ext(body)
-
-Patches the service account key for external clients.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistrationApi.new
-body = Falcon::RegistrationGCPServiceAccountPatchRequestV1.new({resources: [Falcon::RegistrationGCPServiceAccountPatchV1.new]}) # RegistrationGCPServiceAccountPatchRequestV1 | 
-
-begin
-  # Patches the service account key for external clients.
-  result = api_instance.update_cspmgcp_service_accounts_ext(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspmgcp_service_accounts_ext: #{e}"
-end
-```
-
-#### Using the update_cspmgcp_service_accounts_ext_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPServiceAccountResponseExtV1>, Integer, Hash)> update_cspmgcp_service_accounts_ext_with_http_info(body)
-
-```ruby
-begin
-  # Patches the service account key for external clients.
-  data, status_code, headers = api_instance.update_cspmgcp_service_accounts_ext_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPServiceAccountResponseExtV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->update_cspmgcp_service_accounts_ext_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**RegistrationGCPServiceAccountPatchRequestV1**](RegistrationGCPServiceAccountPatchRequestV1.md) |  |  |
-
-### Return type
-
-[**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## validate_cspmgcp_service_account_ext
-
-> <RegistrationGCPServiceAccountValidationResponseV1> validate_cspmgcp_service_account_ext(body)
+> <RegistrationGCPServiceAccountValidationResponseV1> validate_cspm_gcp_service_account_ext(body)
 
 Validates credentials for a service account
 
@@ -2744,33 +2744,33 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CspmRegistrationApi.new
+api_instance = Falcon::CspmRegistration.new
 body = Falcon::RegistrationGCPServiceAccountValidationRequestV1.new({resources: [Falcon::RegistrationGCPServiceAccountValidationRequestObjV1.new]}) # RegistrationGCPServiceAccountValidationRequestV1 | 
 
 begin
   # Validates credentials for a service account
-  result = api_instance.validate_cspmgcp_service_account_ext(body)
+  result = api_instance.validate_cspm_gcp_service_account_ext(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->validate_cspmgcp_service_account_ext: #{e}"
+  puts "Error when calling CspmRegistration->validate_cspm_gcp_service_account_ext: #{e}"
 end
 ```
 
-#### Using the validate_cspmgcp_service_account_ext_with_http_info variant
+#### Using the validate_cspm_gcp_service_account_ext_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationGCPServiceAccountValidationResponseV1>, Integer, Hash)> validate_cspmgcp_service_account_ext_with_http_info(body)
+> <Array(<RegistrationGCPServiceAccountValidationResponseV1>, Integer, Hash)> validate_cspm_gcp_service_account_ext_with_http_info(body)
 
 ```ruby
 begin
   # Validates credentials for a service account
-  data, status_code, headers = api_instance.validate_cspmgcp_service_account_ext_with_http_info(body)
+  data, status_code, headers = api_instance.validate_cspm_gcp_service_account_ext_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistrationGCPServiceAccountValidationResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistrationApi->validate_cspmgcp_service_account_ext_with_http_info: #{e}"
+  puts "Error when calling CspmRegistration->validate_cspm_gcp_service_account_ext_with_http_info: #{e}"
 end
 ```
 

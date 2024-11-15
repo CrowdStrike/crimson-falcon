@@ -1,18 +1,18 @@
-# Falcon::SensorDownloadApi
+# Falcon::SensorDownload
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**download_sensor_installer_by_id**](SensorDownloadApi.md#download_sensor_installer_by_id) | **GET** /sensors/entities/download-installer/v1 | Download sensor installer by SHA256 ID |
-| [**download_sensor_installer_by_id_v2**](SensorDownloadApi.md#download_sensor_installer_by_id_v2) | **GET** /sensors/entities/download-installer/v2 | Download sensor installer by SHA256 ID |
-| [**get_combined_sensor_installers_by_query**](SensorDownloadApi.md#get_combined_sensor_installers_by_query) | **GET** /sensors/combined/installers/v1 | Get sensor installer details by provided query |
-| [**get_combined_sensor_installers_by_query_v2**](SensorDownloadApi.md#get_combined_sensor_installers_by_query_v2) | **GET** /sensors/combined/installers/v2 | Get sensor installer details by provided query |
-| [**get_sensor_installers_by_query**](SensorDownloadApi.md#get_sensor_installers_by_query) | **GET** /sensors/queries/installers/v1 | Get sensor installer IDs by provided query |
-| [**get_sensor_installers_by_query_v2**](SensorDownloadApi.md#get_sensor_installers_by_query_v2) | **GET** /sensors/queries/installers/v2 | Get sensor installer IDs by provided query |
-| [**get_sensor_installers_ccidby_query**](SensorDownloadApi.md#get_sensor_installers_ccidby_query) | **GET** /sensors/queries/installers/ccid/v1 | Get CCID to use with sensor installers |
-| [**get_sensor_installers_entities**](SensorDownloadApi.md#get_sensor_installers_entities) | **GET** /sensors/entities/installers/v1 | Get sensor installer details by provided SHA256 IDs |
-| [**get_sensor_installers_entities_v2**](SensorDownloadApi.md#get_sensor_installers_entities_v2) | **GET** /sensors/entities/installers/v2 | Get sensor installer details by provided SHA256 IDs |
+| [**download_sensor_installer_by_id**](SensorDownload.md#download_sensor_installer_by_id) | **GET** /sensors/entities/download-installer/v1 | Download sensor installer by SHA256 ID |
+| [**download_sensor_installer_by_id_v2**](SensorDownload.md#download_sensor_installer_by_id_v2) | **GET** /sensors/entities/download-installer/v2 | Download sensor installer by SHA256 ID |
+| [**get_combined_sensor_installers_by_query**](SensorDownload.md#get_combined_sensor_installers_by_query) | **GET** /sensors/combined/installers/v1 | Get sensor installer details by provided query |
+| [**get_combined_sensor_installers_by_query_v2**](SensorDownload.md#get_combined_sensor_installers_by_query_v2) | **GET** /sensors/combined/installers/v2 | Get sensor installer details by provided query |
+| [**get_sensor_installers_by_query**](SensorDownload.md#get_sensor_installers_by_query) | **GET** /sensors/queries/installers/v1 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_by_query_v2**](SensorDownload.md#get_sensor_installers_by_query_v2) | **GET** /sensors/queries/installers/v2 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_ccidby_query**](SensorDownload.md#get_sensor_installers_ccidby_query) | **GET** /sensors/queries/installers/ccid/v1 | Get CCID to use with sensor installers |
+| [**get_sensor_installers_entities**](SensorDownload.md#get_sensor_installers_entities) | **GET** /sensors/entities/installers/v1 | Get sensor installer details by provided SHA256 IDs |
+| [**get_sensor_installers_entities_v2**](SensorDownload.md#get_sensor_installers_entities_v2) | **GET** /sensors/entities/installers/v2 | Get sensor installer details by provided SHA256 IDs |
 
 
 ## download_sensor_installer_by_id
@@ -34,7 +34,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 id = 'id_example' # String | SHA256 of the installer to download
 
 begin
@@ -42,7 +42,7 @@ begin
   result = api_instance.download_sensor_installer_by_id(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->download_sensor_installer_by_id: #{e}"
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id: #{e}"
 end
 ```
 
@@ -60,7 +60,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->download_sensor_installer_by_id_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +103,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 id = 'id_example' # String | SHA256 of the installer to download
 
 begin
@@ -111,7 +111,7 @@ begin
   result = api_instance.download_sensor_installer_by_id_v2(id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->download_sensor_installer_by_id_v2: #{e}"
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->download_sensor_installer_by_id_v2_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 opts = {
   offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
@@ -185,7 +185,7 @@ begin
   result = api_instance.get_combined_sensor_installers_by_query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_combined_sensor_installers_by_query: #{e}"
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query: #{e}"
 end
 ```
 
@@ -203,7 +203,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSensorInstallersV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_combined_sensor_installers_by_query_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_with_http_info: #{e}"
 end
 ```
 
@@ -249,7 +249,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 opts = {
   offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
@@ -262,7 +262,7 @@ begin
   result = api_instance.get_combined_sensor_installers_by_query_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_combined_sensor_installers_by_query_v2: #{e}"
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2: #{e}"
 end
 ```
 
@@ -280,7 +280,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSensorInstallersV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_combined_sensor_installers_by_query_v2_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2_with_http_info: #{e}"
 end
 ```
 
@@ -326,7 +326,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 opts = {
   offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
@@ -339,7 +339,7 @@ begin
   result = api_instance.get_sensor_installers_by_query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_by_query: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query: #{e}"
 end
 ```
 
@@ -357,7 +357,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_by_query_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_with_http_info: #{e}"
 end
 ```
 
@@ -403,7 +403,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 opts = {
   offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
   limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
@@ -416,7 +416,7 @@ begin
   result = api_instance.get_sensor_installers_by_query_v2(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_by_query_v2: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2: #{e}"
 end
 ```
 
@@ -434,7 +434,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_by_query_v2_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2_with_http_info: #{e}"
 end
 ```
 
@@ -480,14 +480,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 
 begin
   # Get CCID to use with sensor installers
   result = api_instance.get_sensor_installers_ccidby_query
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_ccidby_query: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query: #{e}"
 end
 ```
 
@@ -505,7 +505,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_ccidby_query_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query_with_http_info: #{e}"
 end
 ```
 
@@ -546,7 +546,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 ids = ['inner_example'] # Array<String> | The IDs of the installers
 
 begin
@@ -554,7 +554,7 @@ begin
   result = api_instance.get_sensor_installers_entities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_entities: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_entities: #{e}"
 end
 ```
 
@@ -572,7 +572,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSensorInstallersV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_entities_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_with_http_info: #{e}"
 end
 ```
 
@@ -615,7 +615,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::SensorDownloadApi.new
+api_instance = Falcon::SensorDownload.new
 ids = ['inner_example'] # Array<String> | The IDs of the installers
 
 begin
@@ -623,7 +623,7 @@ begin
   result = api_instance.get_sensor_installers_entities_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_entities_v2: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2: #{e}"
 end
 ```
 
@@ -641,7 +641,7 @@ begin
   p headers # => { ... }
   p data # => <DomainSensorInstallersV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SensorDownloadApi->get_sensor_installers_entities_v2_with_http_info: #{e}"
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2_with_http_info: #{e}"
 end
 ```
 

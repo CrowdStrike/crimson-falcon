@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class CspmRegistrationApi
+  class CspmRegistration
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -55,23 +55,23 @@ module Falcon
     # @return [Array<(RegistrationAzureDownloadCertificateResponseV1, Integer, Hash)>] RegistrationAzureDownloadCertificateResponseV1 data, response status code and response headers
     def azure_download_certificate_with_http_info(tenant_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.azure_download_certificate ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.azure_download_certificate ...'
       end
       # verify the required parameter 'tenant_id' is set
       if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CspmRegistrationApi.azure_download_certificate"
+        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling CspmRegistration.azure_download_certificate"
       end
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length > 2
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling CspmRegistrationApi.azure_download_certificate, the character length must be smaller than or equal to 2.'
+        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling CspmRegistration.azure_download_certificate, the character length must be smaller than or equal to 2.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling CspmRegistrationApi.azure_download_certificate, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling CspmRegistration.azure_download_certificate, the character length must be great than or equal to 1.'
       end
 
       pattern = Regexp.new(/^[0-9]{1,2}$/)
       if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"years_valid\"]' when calling CspmRegistrationApi.azure_download_certificate, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"years_valid\"]' when calling CspmRegistration.azure_download_certificate, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -101,7 +101,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.azure_download_certificate",
+        :operation => :"CspmRegistration.azure_download_certificate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -112,7 +112,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#azure_download_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#azure_download_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -121,8 +121,8 @@ module Falcon
     # @param body [RegistrationGCPAccountExtRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountResponseExtV2]
-    def connect_cspmgcp_account(body, opts = {})
-      data, _status_code, _headers = connect_cspmgcp_account_with_http_info(body, opts)
+    def connect_cspm_gcp_account(body, opts = {})
+      data, _status_code, _headers = connect_cspm_gcp_account_with_http_info(body, opts)
       data
     end
 
@@ -130,13 +130,13 @@ module Falcon
     # @param body [RegistrationGCPAccountExtRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountResponseExtV2, Integer, Hash)>] RegistrationGCPAccountResponseExtV2 data, response status code and response headers
-    def connect_cspmgcp_account_with_http_info(body, opts = {})
+    def connect_cspm_gcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.connect_cspmgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.connect_cspm_gcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.connect_cspmgcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.connect_cspm_gcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/account/v2'
@@ -167,7 +167,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.connect_cspmgcp_account",
+        :operation => :"CspmRegistration.connect_cspm_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -178,7 +178,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#connect_cspmgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#connect_cspm_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -198,11 +198,11 @@ module Falcon
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def create_cspm_aws_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.create_cspm_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.create_cspm_aws_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.create_cspm_aws_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.create_cspm_aws_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-aws/entities/account/v1'
@@ -233,7 +233,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.create_cspm_aws_account",
+        :operation => :"CspmRegistration.create_cspm_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -244,7 +244,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#create_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#create_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -264,11 +264,11 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def create_cspm_azure_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.create_cspm_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.create_cspm_azure_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.create_cspm_azure_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.create_cspm_azure_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-azure/entities/account/v1'
@@ -299,7 +299,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.create_cspm_azure_account",
+        :operation => :"CspmRegistration.create_cspm_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -310,7 +310,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#create_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#create_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -330,11 +330,11 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def create_cspm_azure_management_group_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.create_cspm_azure_management_group ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.create_cspm_azure_management_group ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.create_cspm_azure_management_group"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.create_cspm_azure_management_group"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-azure/entities/management-group/v1'
@@ -365,7 +365,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.create_cspm_azure_management_group",
+        :operation => :"CspmRegistration.create_cspm_azure_management_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -376,7 +376,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#create_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#create_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -385,8 +385,8 @@ module Falcon
     # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountResponseV1]
-    def create_cspmgcp_account(body, opts = {})
-      data, _status_code, _headers = create_cspmgcp_account_with_http_info(body, opts)
+    def create_cspm_gcp_account(body, opts = {})
+      data, _status_code, _headers = create_cspm_gcp_account_with_http_info(body, opts)
       data
     end
 
@@ -394,13 +394,13 @@ module Falcon
     # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
-    def create_cspmgcp_account_with_http_info(body, opts = {})
+    def create_cspm_gcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.create_cspmgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.create_cspm_gcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.create_cspmgcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.create_cspm_gcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/account/v1'
@@ -431,7 +431,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.create_cspmgcp_account",
+        :operation => :"CspmRegistration.create_cspm_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -442,7 +442,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#create_cspmgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#create_cspm_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -464,7 +464,7 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_cspm_aws_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.delete_cspm_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.delete_cspm_aws_account ...'
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-aws/entities/account/v1'
@@ -492,7 +492,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.delete_cspm_aws_account",
+        :operation => :"CspmRegistration.delete_cspm_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -503,7 +503,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#delete_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#delete_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -527,19 +527,19 @@ module Falcon
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
     def delete_cspm_azure_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.delete_cspm_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.delete_cspm_azure_account ...'
       end
       if @api_client.config.client_side_validation && !opts[:'retain_tenant'].nil? && opts[:'retain_tenant'].to_s.length > 5
-        fail ArgumentError, 'invalid value for "opts[:"retain_tenant"]" when calling CspmRegistrationApi.delete_cspm_azure_account, the character length must be smaller than or equal to 5.'
+        fail ArgumentError, 'invalid value for "opts[:"retain_tenant"]" when calling CspmRegistration.delete_cspm_azure_account, the character length must be smaller than or equal to 5.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'retain_tenant'].nil? && opts[:'retain_tenant'].to_s.length < 4
-        fail ArgumentError, 'invalid value for "opts[:"retain_tenant"]" when calling CspmRegistrationApi.delete_cspm_azure_account, the character length must be great than or equal to 4.'
+        fail ArgumentError, 'invalid value for "opts[:"retain_tenant"]" when calling CspmRegistration.delete_cspm_azure_account, the character length must be great than or equal to 4.'
       end
 
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'retain_tenant'].nil? && opts[:'retain_tenant'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"retain_tenant\"]' when calling CspmRegistrationApi.delete_cspm_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"retain_tenant\"]' when calling CspmRegistration.delete_cspm_azure_account, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -569,7 +569,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.delete_cspm_azure_account",
+        :operation => :"CspmRegistration.delete_cspm_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -580,7 +580,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#delete_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#delete_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -600,7 +600,7 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def delete_cspm_azure_management_group_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.delete_cspm_azure_management_group ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.delete_cspm_azure_management_group ...'
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-azure/entities/management-group/v1'
@@ -627,7 +627,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.delete_cspm_azure_management_group",
+        :operation => :"CspmRegistration.delete_cspm_azure_management_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -638,7 +638,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#delete_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#delete_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -647,8 +647,8 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
     # @return [MsaBaseEntitiesResponse]
-    def delete_cspmgcp_account(opts = {})
-      data, _status_code, _headers = delete_cspmgcp_account_with_http_info(opts)
+    def delete_cspm_gcp_account(opts = {})
+      data, _status_code, _headers = delete_cspm_gcp_account_with_http_info(opts)
       data
     end
 
@@ -656,9 +656,9 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
     # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
-    def delete_cspmgcp_account_with_http_info(opts = {})
+    def delete_cspm_gcp_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.delete_cspmgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.delete_cspm_gcp_account ...'
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/account/v1'
@@ -685,7 +685,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.delete_cspmgcp_account",
+        :operation => :"CspmRegistration.delete_cspm_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -696,7 +696,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#delete_cspmgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#delete_cspm_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -742,7 +742,7 @@ module Falcon
     # @return [Array<(RegistrationExternalIOAEventResponse, Integer, Hash)>] RegistrationExternalIOAEventResponse data, response status code and response headers
     def get_behavior_detections_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_behavior_detections ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_behavior_detections ...'
       end
       allowable_values = ["aws", "azure"]
       if @api_client.config.client_side_validation && opts[:'cloud_provider'] && !allowable_values.include?(opts[:'cloud_provider'])
@@ -750,7 +750,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(aws|azure)$/)
       if @api_client.config.client_side_validation && !opts[:'cloud_provider'].nil? && opts[:'cloud_provider'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"cloud_provider\"]' when calling CspmRegistrationApi.get_behavior_detections, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"cloud_provider\"]' when calling CspmRegistration.get_behavior_detections, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["ACM", "ACR", "Any", "App Engine", "AppService", "BigQuery", "Cloud Load Balancing", "Cloud Logging", "Cloud SQL", "Cloud Storage", "CloudFormation", "CloudTrail", "CloudWatch Logs", "Cloudfront", "Compute Engine", "Config", "Disk", "DynamoDB", "EBS", "EC2", "ECR", "EFS", "EKS", "ELB", "EMR", "Elasticache", "GuardDuty", "IAM", "Identity", "KMS", "KeyVault", "Kinesis", "Kubernetes", "Lambda", "LoadBalancer", "Monitor", "NLB/ALB", "NetworkSecurityGroup", "PostgreSQL", "RDS", "Redshift", "S3", "SES", "SNS", "SQLDatabase", "SQLServer", "SQS", "SSM", "Serverless Application Repository", "StorageAccount", "Subscriptions", "VPC", "VirtualMachine", "VirtualNetwork"]
@@ -767,7 +767,7 @@ module Falcon
       end
       pattern = Regexp.new(/^\d+$/)
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling CspmRegistrationApi.get_behavior_detections, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling CspmRegistration.get_behavior_detections, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -808,7 +808,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_behavior_detections",
+        :operation => :"CspmRegistration.get_behavior_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -819,7 +819,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_behavior_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_behavior_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -839,11 +839,11 @@ module Falcon
     # @return [Array<(RegistrationExternalIOMEventResponseV2, Integer, Hash)>] RegistrationExternalIOMEventResponseV2 data, response status code and response headers
     def get_configuration_detection_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_configuration_detection_entities ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_configuration_detection_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistrationApi.get_configuration_detection_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistration.get_configuration_detection_entities"
       end
       # resource path
       local_var_path = '/detects/entities/iom/v2'
@@ -870,7 +870,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_configuration_detection_entities",
+        :operation => :"CspmRegistration.get_configuration_detection_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -881,7 +881,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_configuration_detection_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_configuration_detection_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -909,18 +909,18 @@ module Falcon
     # @return [Array<(RegistrationIOMEventIDsResponseV2, Integer, Hash)>] RegistrationIOMEventIDsResponseV2 data, response status code and response headers
     def get_configuration_detection_ids_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_configuration_detection_ids_v2 ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_configuration_detection_ids_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CspmRegistrationApi.get_configuration_detection_ids_v2, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CspmRegistration.get_configuration_detection_ids_v2, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CspmRegistrationApi.get_configuration_detection_ids_v2, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CspmRegistration.get_configuration_detection_ids_v2, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CspmRegistrationApi.get_configuration_detection_ids_v2, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CspmRegistration.get_configuration_detection_ids_v2, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -952,7 +952,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_configuration_detection_ids_v2",
+        :operation => :"CspmRegistration.get_configuration_detection_ids_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -963,7 +963,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_configuration_detection_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_configuration_detection_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1001,7 +1001,7 @@ module Falcon
     # @return [Array<(RegistrationExternalIOMEventResponse, Integer, Hash)>] RegistrationExternalIOMEventResponse data, response status code and response headers
     def get_configuration_detections_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_configuration_detections ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_configuration_detections ...'
       end
       allowable_values = ["aws", "azure", "gcp"]
       if @api_client.config.client_side_validation && opts[:'cloud_provider'] && !allowable_values.include?(opts[:'cloud_provider'])
@@ -1013,7 +1013,7 @@ module Falcon
       end
       pattern = Regexp.new(/^[0-9a-z\-_]{2,}$/)
       if @api_client.config.client_side_validation && !opts[:'region'].nil? && opts[:'region'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling CspmRegistrationApi.get_configuration_detections, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling CspmRegistration.get_configuration_detections, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["Critical", "High", "Informational", "Medium"]
@@ -1026,7 +1026,7 @@ module Falcon
       end
       pattern = Regexp.new(/^\d+$/)
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling CspmRegistrationApi.get_configuration_detections, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling CspmRegistration.get_configuration_detections, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1063,7 +1063,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_configuration_detections",
+        :operation => :"CspmRegistration.get_configuration_detections",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1074,7 +1074,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_configuration_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_configuration_detections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1112,7 +1112,7 @@ module Falcon
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def get_cspm_aws_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_aws_account ...'
       end
       allowable_values = ["dry", "full"]
       if @api_client.config.client_side_validation && opts[:'scan_type'] && !allowable_values.include?(opts[:'scan_type'])
@@ -1168,7 +1168,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_aws_account",
+        :operation => :"CspmRegistration.get_cspm_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1179,7 +1179,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1223,7 +1223,7 @@ module Falcon
     # @return [Array<(RegistrationAWSProvisionGetAccountScriptResponseV2, Integer, Hash)>] RegistrationAWSProvisionGetAccountScriptResponseV2 data, response status code and response headers
     def get_cspm_aws_account_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_aws_account_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_aws_account_scripts_attachment ...'
       end
       allowable_values = ["aws-bash", "aws-terraform"]
       if @api_client.config.client_side_validation && opts[:'template'] && !allowable_values.include?(opts[:'template'])
@@ -1251,17 +1251,17 @@ module Falcon
       end
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'organization_id'].nil? && opts[:'organization_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling CspmRegistrationApi.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling CspmRegistration.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'aws_profile'].nil? && opts[:'aws_profile'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"aws_profile\"]' when calling CspmRegistrationApi.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"aws_profile\"]' when calling CspmRegistration.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/.*/)
       if @api_client.config.client_side_validation && !opts[:'custom_role_name'].nil? && opts[:'custom_role_name'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling CspmRegistrationApi.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling CspmRegistration.get_cspm_aws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1301,7 +1301,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_aws_account_scripts_attachment",
+        :operation => :"CspmRegistration.get_cspm_aws_account_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1312,7 +1312,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_aws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_aws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1338,7 +1338,7 @@ module Falcon
     # @return [Array<(RegistrationAWSConsoleURLResponseV2, Integer, Hash)>] RegistrationAWSConsoleURLResponseV2 data, response status code and response headers
     def get_cspm_aws_console_setup_urls_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_aws_console_setup_urls ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_aws_console_setup_urls ...'
       end
       allowable_values = ["true", "false"]
       if @api_client.config.client_side_validation && opts[:'use_existing_cloudtrail'] && !allowable_values.include?(opts[:'use_existing_cloudtrail'])
@@ -1346,7 +1346,7 @@ module Falcon
       end
       pattern = Regexp.new(/^[0-9a-z-]{2,}$/)
       if @api_client.config.client_side_validation && !opts[:'region'].nil? && opts[:'region'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling CspmRegistrationApi.get_cspm_aws_console_setup_urls, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"region\"]' when calling CspmRegistration.get_cspm_aws_console_setup_urls, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["aws-url", "aws-iom-url", "aws-ioa-url", "aws-sensor-management-url", "aws-dspm-url", "aws-idp-url"]
@@ -1381,7 +1381,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_aws_console_setup_urls",
+        :operation => :"CspmRegistration.get_cspm_aws_console_setup_urls",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1392,7 +1392,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_aws_console_setup_urls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_aws_console_setup_urls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1424,24 +1424,24 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def get_cspm_azure_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_azure_account ...'
       end
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length > 4
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling CspmRegistrationApi.get_cspm_azure_account, the character length must be smaller than or equal to 4.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling CspmRegistration.get_cspm_azure_account, the character length must be smaller than or equal to 4.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling CspmRegistrationApi.get_cspm_azure_account, the character length must be great than or equal to 3.'
+        fail ArgumentError, 'invalid value for "opts[:"scan_type"]" when calling CspmRegistration.get_cspm_azure_account, the character length must be great than or equal to 3.'
       end
 
       pattern = Regexp.new(/^(full|dry)$/)
       if @api_client.config.client_side_validation && !opts[:'scan_type'].nil? && opts[:'scan_type'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling CspmRegistrationApi.get_cspm_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"scan_type\"]' when calling CspmRegistration.get_cspm_azure_account, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/^(provisioned|operational)$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling CspmRegistrationApi.get_cspm_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling CspmRegistration.get_cspm_azure_account, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["false", "true"]
@@ -1450,7 +1450,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(true|false)$/)
       if @api_client.config.client_side_validation && !opts[:'cspm_lite'].nil? && opts[:'cspm_lite'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"cspm_lite\"]' when calling CspmRegistrationApi.get_cspm_azure_account, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"cspm_lite\"]' when calling CspmRegistration.get_cspm_azure_account, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1484,7 +1484,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_azure_account",
+        :operation => :"CspmRegistration.get_cspm_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1495,7 +1495,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1519,7 +1519,7 @@ module Falcon
     # @return [Array<(RegistrationAzureManagementGroupResponseV1, Integer, Hash)>] RegistrationAzureManagementGroupResponseV1 data, response status code and response headers
     def get_cspm_azure_management_group_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_azure_management_group ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_azure_management_group ...'
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-azure/entities/management-group/v1'
@@ -1548,7 +1548,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_azure_management_group",
+        :operation => :"CspmRegistration.get_cspm_azure_management_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1559,7 +1559,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_azure_management_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1587,19 +1587,19 @@ module Falcon
     # @return [Array<(RegistrationAzureProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationAzureProvisionGetUserScriptResponseV1 data, response status code and response headers
     def get_cspm_azure_user_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_azure_user_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_azure_user_scripts_attachment ...'
       end
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.get_cspm_azure_user_scripts_attachment, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.get_cspm_azure_user_scripts_attachment, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.get_cspm_azure_user_scripts_attachment, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.get_cspm_azure_user_scripts_attachment, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistrationApi.get_cspm_azure_user_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistration.get_cspm_azure_user_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       allowable_values = ["commercial", "gov"]
@@ -1608,7 +1608,7 @@ module Falcon
       end
       pattern = Regexp.new(/^(commercial|gov)$/)
       if @api_client.config.client_side_validation && !opts[:'account_type'].nil? && opts[:'account_type'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"account_type\"]' when calling CspmRegistrationApi.get_cspm_azure_user_scripts_attachment, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"account_type\"]' when calling CspmRegistration.get_cspm_azure_user_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -1640,7 +1640,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_azure_user_scripts_attachment",
+        :operation => :"CspmRegistration.get_cspm_azure_user_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1651,276 +1651,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_azure_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Given an array of policy IDs, returns detailed policies information.
-    # @param ids [Array<Integer>] Policy IDs
-    # @param [Hash] opts the optional parameters
-    # @return [RegistrationPolicyResponseV1]
-    def get_cspm_policies_details(ids, opts = {})
-      data, _status_code, _headers = get_cspm_policies_details_with_http_info(ids, opts)
-      data
-    end
-
-    # Given an array of policy IDs, returns detailed policies information.
-    # @param ids [Array<Integer>] Policy IDs
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RegistrationPolicyResponseV1, Integer, Hash)>] RegistrationPolicyResponseV1 data, response status code and response headers
-    def get_cspm_policies_details_with_http_info(ids, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_policies_details ...'
-      end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistrationApi.get_cspm_policies_details"
-      end
-      # resource path
-      local_var_path = '/settings/entities/policy-details/v2'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationPolicyResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_policies_details",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_policies_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Given a policy ID, returns detailed policy information.
-    # @param ids [Integer] Policy ID
-    # @param [Hash] opts the optional parameters
-    # @return [RegistrationPolicyResponseV1]
-    def get_cspm_policy(ids, opts = {})
-      data, _status_code, _headers = get_cspm_policy_with_http_info(ids, opts)
-      data
-    end
-
-    # Given a policy ID, returns detailed policy information.
-    # @param ids [Integer] Policy ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RegistrationPolicyResponseV1, Integer, Hash)>] RegistrationPolicyResponseV1 data, response status code and response headers
-    def get_cspm_policy_with_http_info(ids, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_policy ...'
-      end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistrationApi.get_cspm_policy"
-      end
-      pattern = Regexp.new(/^\d+$/)
-      if @api_client.config.client_side_validation && ids !~ pattern
-        fail ArgumentError, "invalid value for 'ids' when calling CspmRegistrationApi.get_cspm_policy, must conform to the pattern #{pattern}."
-      end
-
-      # resource path
-      local_var_path = '/settings/entities/policy-details/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = ids
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationPolicyResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_policy",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Returns information about current policy settings.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :service Service type to filter policy settings by.
-    # @option opts [String] :policy_id Policy ID
-    # @option opts [String] :cloud_platform Cloud Platform (e.g.: aws|azure|gcp)
-    # @return [RegistrationPolicySettingsResponseV1]
-    def get_cspm_policy_settings(opts = {})
-      data, _status_code, _headers = get_cspm_policy_settings_with_http_info(opts)
-      data
-    end
-
-    # Returns information about current policy settings.
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :service Service type to filter policy settings by.
-    # @option opts [String] :policy_id Policy ID
-    # @option opts [String] :cloud_platform Cloud Platform (e.g.: aws|azure|gcp)
-    # @return [Array<(RegistrationPolicySettingsResponseV1, Integer, Hash)>] RegistrationPolicySettingsResponseV1 data, response status code and response headers
-    def get_cspm_policy_settings_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_policy_settings ...'
-      end
-      allowable_values = ["ACM", "ACR", "Any", "App Engine", "AppService", "BigQuery", "Cloud Load Balancing", "Cloud Logging", "Cloud SQL", "Cloud Storage", "CloudFormation", "CloudTrail", "CloudWatch Logs", "Cloudfront", "Compute Engine", "Config", "Disk", "DynamoDB", "EBS", "EC2", "ECR", "EFS", "EKS", "ELB", "EMR", "Elasticache", "GuardDuty", "IAM", "Identity", "KMS", "KeyVault", "Kinesis", "Kubernetes", "Lambda", "LoadBalancer", "Monitor", "NLB/ALB", "NetworkSecurityGroup", "PostgreSQL", "RDS", "Redshift", "S3", "SES", "SNS", "SQLDatabase", "SQLServer", "SQS", "SSM", "Serverless Application Repository", "StorageAccount", "Subscriptions", "VPC", "VirtualMachine", "VirtualNetwork"]
-      if @api_client.config.client_side_validation && opts[:'service'] && !allowable_values.include?(opts[:'service'])
-        fail ArgumentError, "invalid value for \"service\", must be one of #{allowable_values}"
-      end
-      pattern = Regexp.new(/^\d+$/)
-      if @api_client.config.client_side_validation && !opts[:'policy_id'].nil? && opts[:'policy_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"policy_id\"]' when calling CspmRegistrationApi.get_cspm_policy_settings, must conform to the pattern #{pattern}."
-      end
-
-      allowable_values = ["aws", "azure", "gcp"]
-      if @api_client.config.client_side_validation && opts[:'cloud_platform'] && !allowable_values.include?(opts[:'cloud_platform'])
-        fail ArgumentError, "invalid value for \"cloud_platform\", must be one of #{allowable_values}"
-      end
-      pattern = Regexp.new(/^(aws|azure|gcp)$/)
-      if @api_client.config.client_side_validation && !opts[:'cloud_platform'].nil? && opts[:'cloud_platform'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"cloud_platform\"]' when calling CspmRegistrationApi.get_cspm_policy_settings, must conform to the pattern #{pattern}."
-      end
-
-      # resource path
-      local_var_path = '/settings/entities/policy/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'service'] = opts[:'service'] if !opts[:'service'].nil?
-      query_params[:'policy-id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
-      query_params[:'cloud-platform'] = opts[:'cloud_platform'] if !opts[:'cloud_platform'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationPolicySettingsResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_policy_settings",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_policy_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Returns scan schedule configuration for one or more cloud platforms.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :cloud_platform Cloud Platform
-    # @return [RegistrationScanScheduleResponseV1]
-    def get_cspm_scan_schedule(opts = {})
-      data, _status_code, _headers = get_cspm_scan_schedule_with_http_info(opts)
-      data
-    end
-
-    # Returns scan schedule configuration for one or more cloud platforms.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :cloud_platform Cloud Platform
-    # @return [Array<(RegistrationScanScheduleResponseV1, Integer, Hash)>] RegistrationScanScheduleResponseV1 data, response status code and response headers
-    def get_cspm_scan_schedule_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspm_scan_schedule ...'
-      end
-      # resource path
-      local_var_path = '/settings/scan-schedule/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'cloud-platform'] = @api_client.build_collection_param(opts[:'cloud_platform'], :multi) if !opts[:'cloud_platform'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationScanScheduleResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspm_scan_schedule",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspm_scan_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_azure_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1935,8 +1666,8 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
     # @return [RegistrationGCPAccountResponseV1]
-    def get_cspmcgp_account(opts = {})
-      data, _status_code, _headers = get_cspmcgp_account_with_http_info(opts)
+    def get_cspm_gcp_account(opts = {})
+      data, _status_code, _headers = get_cspm_gcp_account_with_http_info(opts)
       data
     end
 
@@ -1950,9 +1681,9 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
-    def get_cspmcgp_account_with_http_info(opts = {})
+    def get_cspm_gcp_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspmcgp_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_gcp_account ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -1997,7 +1728,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspmcgp_account",
+        :operation => :"CspmRegistration.get_cspm_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2008,7 +1739,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspmcgp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2017,8 +1748,8 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id Service Account ID
     # @return [RegistrationGCPServiceAccountResponseExtV1]
-    def get_cspmgcp_service_accounts_ext(opts = {})
-      data, _status_code, _headers = get_cspmgcp_service_accounts_ext_with_http_info(opts)
+    def get_cspm_gcp_service_accounts_ext(opts = {})
+      data, _status_code, _headers = get_cspm_gcp_service_accounts_ext_with_http_info(opts)
       data
     end
 
@@ -2026,13 +1757,13 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id Service Account ID
     # @return [Array<(RegistrationGCPServiceAccountResponseExtV1, Integer, Hash)>] RegistrationGCPServiceAccountResponseExtV1 data, response status code and response headers
-    def get_cspmgcp_service_accounts_ext_with_http_info(opts = {})
+    def get_cspm_gcp_service_accounts_ext_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspmgcp_service_accounts_ext ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_gcp_service_accounts_ext ...'
       end
       pattern = Regexp.new(/^\d+$/)
       if @api_client.config.client_side_validation && !opts[:'id'].nil? && opts[:'id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling CspmRegistrationApi.get_cspmgcp_service_accounts_ext, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"id\"]' when calling CspmRegistration.get_cspm_gcp_service_accounts_ext, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -2060,7 +1791,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspmgcp_service_accounts_ext",
+        :operation => :"CspmRegistration.get_cspm_gcp_service_accounts_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2071,7 +1802,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspmgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_gcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2081,8 +1812,8 @@ module Falcon
     # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
     # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
     # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
-    def get_cspmgcp_user_scripts_attachment(opts = {})
-      data, _status_code, _headers = get_cspmgcp_user_scripts_attachment_with_http_info(opts)
+    def get_cspm_gcp_user_scripts_attachment(opts = {})
+      data, _status_code, _headers = get_cspm_gcp_user_scripts_attachment_with_http_info(opts)
       data
     end
 
@@ -2091,9 +1822,9 @@ module Falcon
     # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
     # @option opts [Array<String>] :ids Hierarchical Resource IDs of accounts
     # @return [Array<(RegistrationGCPProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationGCPProvisionGetUserScriptResponseV1 data, response status code and response headers
-    def get_cspmgcp_user_scripts_attachment_with_http_info(opts = {})
+    def get_cspm_gcp_user_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspmgcp_user_scripts_attachment ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_gcp_user_scripts_attachment ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -2125,7 +1856,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspmgcp_user_scripts_attachment",
+        :operation => :"CspmRegistration.get_cspm_gcp_user_scripts_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2136,7 +1867,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspmgcp_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_gcp_user_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2145,8 +1876,8 @@ module Falcon
     # @param body [RegistrationGCPAccountValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountValidationResponseV1]
-    def get_cspmgcp_validate_accounts_ext(body, opts = {})
-      data, _status_code, _headers = get_cspmgcp_validate_accounts_ext_with_http_info(body, opts)
+    def get_cspm_gcp_validate_accounts_ext(body, opts = {})
+      data, _status_code, _headers = get_cspm_gcp_validate_accounts_ext_with_http_info(body, opts)
       data
     end
 
@@ -2154,13 +1885,13 @@ module Falcon
     # @param body [RegistrationGCPAccountValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountValidationResponseV1, Integer, Hash)>] RegistrationGCPAccountValidationResponseV1 data, response status code and response headers
-    def get_cspmgcp_validate_accounts_ext_with_http_info(body, opts = {})
+    def get_cspm_gcp_validate_accounts_ext_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.get_cspmgcp_validate_accounts_ext ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_gcp_validate_accounts_ext ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.get_cspmgcp_validate_accounts_ext"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.get_cspm_gcp_validate_accounts_ext"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/account/validate/v1'
@@ -2191,7 +1922,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.get_cspmgcp_validate_accounts_ext",
+        :operation => :"CspmRegistration.get_cspm_gcp_validate_accounts_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2202,7 +1933,276 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#get_cspmgcp_validate_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_gcp_validate_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Given an array of policy IDs, returns detailed policies information.
+    # @param ids [Array<Integer>] Policy IDs
+    # @param [Hash] opts the optional parameters
+    # @return [RegistrationPolicyResponseV1]
+    def get_cspm_policies_details(ids, opts = {})
+      data, _status_code, _headers = get_cspm_policies_details_with_http_info(ids, opts)
+      data
+    end
+
+    # Given an array of policy IDs, returns detailed policies information.
+    # @param ids [Array<Integer>] Policy IDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RegistrationPolicyResponseV1, Integer, Hash)>] RegistrationPolicyResponseV1 data, response status code and response headers
+    def get_cspm_policies_details_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_policies_details ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistration.get_cspm_policies_details"
+      end
+      # resource path
+      local_var_path = '/settings/entities/policy-details/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationPolicyResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.get_cspm_policies_details",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_policies_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Given a policy ID, returns detailed policy information.
+    # @param ids [Integer] Policy ID
+    # @param [Hash] opts the optional parameters
+    # @return [RegistrationPolicyResponseV1]
+    def get_cspm_policy(ids, opts = {})
+      data, _status_code, _headers = get_cspm_policy_with_http_info(ids, opts)
+      data
+    end
+
+    # Given a policy ID, returns detailed policy information.
+    # @param ids [Integer] Policy ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RegistrationPolicyResponseV1, Integer, Hash)>] RegistrationPolicyResponseV1 data, response status code and response headers
+    def get_cspm_policy_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_policy ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CspmRegistration.get_cspm_policy"
+      end
+      pattern = Regexp.new(/^\d+$/)
+      if @api_client.config.client_side_validation && ids !~ pattern
+        fail ArgumentError, "invalid value for 'ids' when calling CspmRegistration.get_cspm_policy, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/settings/entities/policy-details/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationPolicyResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.get_cspm_policy",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns information about current policy settings.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :service Service type to filter policy settings by.
+    # @option opts [String] :policy_id Policy ID
+    # @option opts [String] :cloud_platform Cloud Platform (e.g.: aws|azure|gcp)
+    # @return [RegistrationPolicySettingsResponseV1]
+    def get_cspm_policy_settings(opts = {})
+      data, _status_code, _headers = get_cspm_policy_settings_with_http_info(opts)
+      data
+    end
+
+    # Returns information about current policy settings.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :service Service type to filter policy settings by.
+    # @option opts [String] :policy_id Policy ID
+    # @option opts [String] :cloud_platform Cloud Platform (e.g.: aws|azure|gcp)
+    # @return [Array<(RegistrationPolicySettingsResponseV1, Integer, Hash)>] RegistrationPolicySettingsResponseV1 data, response status code and response headers
+    def get_cspm_policy_settings_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_policy_settings ...'
+      end
+      allowable_values = ["ACM", "ACR", "Any", "App Engine", "AppService", "BigQuery", "Cloud Load Balancing", "Cloud Logging", "Cloud SQL", "Cloud Storage", "CloudFormation", "CloudTrail", "CloudWatch Logs", "Cloudfront", "Compute Engine", "Config", "Disk", "DynamoDB", "EBS", "EC2", "ECR", "EFS", "EKS", "ELB", "EMR", "Elasticache", "GuardDuty", "IAM", "Identity", "KMS", "KeyVault", "Kinesis", "Kubernetes", "Lambda", "LoadBalancer", "Monitor", "NLB/ALB", "NetworkSecurityGroup", "PostgreSQL", "RDS", "Redshift", "S3", "SES", "SNS", "SQLDatabase", "SQLServer", "SQS", "SSM", "Serverless Application Repository", "StorageAccount", "Subscriptions", "VPC", "VirtualMachine", "VirtualNetwork"]
+      if @api_client.config.client_side_validation && opts[:'service'] && !allowable_values.include?(opts[:'service'])
+        fail ArgumentError, "invalid value for \"service\", must be one of #{allowable_values}"
+      end
+      pattern = Regexp.new(/^\d+$/)
+      if @api_client.config.client_side_validation && !opts[:'policy_id'].nil? && opts[:'policy_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"policy_id\"]' when calling CspmRegistration.get_cspm_policy_settings, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["aws", "azure", "gcp"]
+      if @api_client.config.client_side_validation && opts[:'cloud_platform'] && !allowable_values.include?(opts[:'cloud_platform'])
+        fail ArgumentError, "invalid value for \"cloud_platform\", must be one of #{allowable_values}"
+      end
+      pattern = Regexp.new(/^(aws|azure|gcp)$/)
+      if @api_client.config.client_side_validation && !opts[:'cloud_platform'].nil? && opts[:'cloud_platform'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"cloud_platform\"]' when calling CspmRegistration.get_cspm_policy_settings, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/settings/entities/policy/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'service'] = opts[:'service'] if !opts[:'service'].nil?
+      query_params[:'policy-id'] = opts[:'policy_id'] if !opts[:'policy_id'].nil?
+      query_params[:'cloud-platform'] = opts[:'cloud_platform'] if !opts[:'cloud_platform'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationPolicySettingsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.get_cspm_policy_settings",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_policy_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Returns scan schedule configuration for one or more cloud platforms.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :cloud_platform Cloud Platform
+    # @return [RegistrationScanScheduleResponseV1]
+    def get_cspm_scan_schedule(opts = {})
+      data, _status_code, _headers = get_cspm_scan_schedule_with_http_info(opts)
+      data
+    end
+
+    # Returns scan schedule configuration for one or more cloud platforms.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :cloud_platform Cloud Platform
+    # @return [Array<(RegistrationScanScheduleResponseV1, Integer, Hash)>] RegistrationScanScheduleResponseV1 data, response status code and response headers
+    def get_cspm_scan_schedule_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cspm_scan_schedule ...'
+      end
+      # resource path
+      local_var_path = '/settings/scan-schedule/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'cloud-platform'] = @api_client.build_collection_param(opts[:'cloud_platform'], :multi) if !opts[:'cloud_platform'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationScanScheduleResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.get_cspm_scan_schedule",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cspm_scan_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2222,11 +2222,11 @@ module Falcon
     # @return [Array<(RegistrationAWSAccountResponseV2, Integer, Hash)>] RegistrationAWSAccountResponseV2 data, response status code and response headers
     def patch_cspm_aws_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.patch_cspm_aws_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.patch_cspm_aws_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.patch_cspm_aws_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.patch_cspm_aws_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-aws/entities/account/v1'
@@ -2257,7 +2257,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.patch_cspm_aws_account",
+        :operation => :"CspmRegistration.patch_cspm_aws_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2268,7 +2268,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#patch_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#patch_cspm_aws_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2288,11 +2288,11 @@ module Falcon
     # @return [Array<(RegistrationAzureAccountResponseV1, Integer, Hash)>] RegistrationAzureAccountResponseV1 data, response status code and response headers
     def update_cspm_azure_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspm_azure_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_azure_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.update_cspm_azure_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.update_cspm_azure_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-azure/entities/account/v1'
@@ -2323,7 +2323,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspm_azure_account",
+        :operation => :"CspmRegistration.update_cspm_azure_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2334,7 +2334,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_azure_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2356,36 +2356,36 @@ module Falcon
     # @return [Array<(RegistrationAzureTenantConfigurationResponseV1, Integer, Hash)>] RegistrationAzureTenantConfigurationResponseV1 data, response status code and response headers
     def update_cspm_azure_account_client_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspm_azure_account_client_id ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_azure_account_client_id ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling CspmRegistrationApi.update_cspm_azure_account_client_id"
+        fail ArgumentError, "Missing the required parameter 'id' when calling CspmRegistration.update_cspm_azure_account_client_id"
       end
       if @api_client.config.client_side_validation && id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "id" when calling CspmRegistrationApi.update_cspm_azure_account_client_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling CspmRegistration.update_cspm_azure_account_client_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && id.to_s.length < 36
-        fail ArgumentError, 'invalid value for "id" when calling CspmRegistrationApi.update_cspm_azure_account_client_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "id" when calling CspmRegistration.update_cspm_azure_account_client_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling CspmRegistrationApi.update_cspm_azure_account_client_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling CspmRegistration.update_cspm_azure_account_client_id, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.update_cspm_azure_account_client_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.update_cspm_azure_account_client_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.update_cspm_azure_account_client_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.update_cspm_azure_account_client_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistrationApi.update_cspm_azure_account_client_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistration.update_cspm_azure_account_client_id, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -2414,7 +2414,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspm_azure_account_client_id",
+        :operation => :"CspmRegistration.update_cspm_azure_account_client_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2425,7 +2425,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspm_azure_account_client_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_azure_account_client_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2447,36 +2447,36 @@ module Falcon
     # @return [Array<(RegistrationAzureTenantDefaultSubscriptionIDResponseV1, Integer, Hash)>] RegistrationAzureTenantDefaultSubscriptionIDResponseV1 data, response status code and response headers
     def update_cspm_azure_tenant_default_subscription_id_with_http_info(subscription_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_azure_tenant_default_subscription_id ...'
       end
       # verify the required parameter 'subscription_id' is set
       if @api_client.config.client_side_validation && subscription_id.nil?
-        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id"
+        fail ArgumentError, "Missing the required parameter 'subscription_id' when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id"
       end
       if @api_client.config.client_side_validation && subscription_id.to_s.length > 36
-        fail ArgumentError, 'invalid value for "subscription_id" when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "subscription_id" when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && subscription_id.to_s.length < 36
-        fail ArgumentError, 'invalid value for "subscription_id" when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "subscription_id" when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && subscription_id !~ pattern
-        fail ArgumentError, "invalid value for 'subscription_id' when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'subscription_id' when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length > 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, the character length must be smaller than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, the character length must be smaller than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'].to_s.length < 36
-        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, the character length must be great than or equal to 36.'
+        fail ArgumentError, 'invalid value for "opts[:"tenant_id"]" when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, the character length must be great than or equal to 36.'
       end
 
       pattern = Regexp.new(/^[0-9a-z-]{36}$/)
       if @api_client.config.client_side_validation && !opts[:'tenant_id'].nil? && opts[:'tenant_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"tenant_id\"]' when calling CspmRegistration.update_cspm_azure_tenant_default_subscription_id, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -2505,7 +2505,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspm_azure_tenant_default_subscription_id",
+        :operation => :"CspmRegistration.update_cspm_azure_tenant_default_subscription_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2516,139 +2516,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspm_azure_tenant_default_subscription_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
-    # @param body [RegistrationPolicyRequestExtV1]
-    # @param [Hash] opts the optional parameters
-    # @return [RegistrationPolicySettingsResponseV1]
-    def update_cspm_policy_settings(body, opts = {})
-      data, _status_code, _headers = update_cspm_policy_settings_with_http_info(body, opts)
-      data
-    end
-
-    # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
-    # @param body [RegistrationPolicyRequestExtV1]
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RegistrationPolicySettingsResponseV1, Integer, Hash)>] RegistrationPolicySettingsResponseV1 data, response status code and response headers
-    def update_cspm_policy_settings_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspm_policy_settings ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.update_cspm_policy_settings"
-      end
-      # resource path
-      local_var_path = '/settings/entities/policy/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationPolicySettingsResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspm_policy_settings",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspm_policy_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Updates scan schedule configuration for one or more cloud platforms.
-    # @param body [RegistrationScanScheduleUpdateRequestV1]
-    # @param [Hash] opts the optional parameters
-    # @return [RegistrationScanScheduleResponseV1]
-    def update_cspm_scan_schedule(body, opts = {})
-      data, _status_code, _headers = update_cspm_scan_schedule_with_http_info(body, opts)
-      data
-    end
-
-    # Updates scan schedule configuration for one or more cloud platforms.
-    # @param body [RegistrationScanScheduleUpdateRequestV1]
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RegistrationScanScheduleResponseV1, Integer, Hash)>] RegistrationScanScheduleResponseV1 data, response status code and response headers
-    def update_cspm_scan_schedule_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspm_scan_schedule ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.update_cspm_scan_schedule"
-      end
-      # resource path
-      local_var_path = '/settings/scan-schedule/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationScanScheduleResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspm_scan_schedule",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspm_scan_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_azure_tenant_default_subscription_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2657,8 +2525,8 @@ module Falcon
     # @param body [RegistrationGCPAccountPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountResponseV1]
-    def update_cspmgcp_account(body, opts = {})
-      data, _status_code, _headers = update_cspmgcp_account_with_http_info(body, opts)
+    def update_cspm_gcp_account(body, opts = {})
+      data, _status_code, _headers = update_cspm_gcp_account_with_http_info(body, opts)
       data
     end
 
@@ -2666,13 +2534,13 @@ module Falcon
     # @param body [RegistrationGCPAccountPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
-    def update_cspmgcp_account_with_http_info(body, opts = {})
+    def update_cspm_gcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspmgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_gcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.update_cspmgcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.update_cspm_gcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/account/v1'
@@ -2703,7 +2571,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspmgcp_account",
+        :operation => :"CspmRegistration.update_cspm_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2714,7 +2582,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspmgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2723,8 +2591,8 @@ module Falcon
     # @param body [RegistrationGCPServiceAccountPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPServiceAccountResponseExtV1]
-    def update_cspmgcp_service_accounts_ext(body, opts = {})
-      data, _status_code, _headers = update_cspmgcp_service_accounts_ext_with_http_info(body, opts)
+    def update_cspm_gcp_service_accounts_ext(body, opts = {})
+      data, _status_code, _headers = update_cspm_gcp_service_accounts_ext_with_http_info(body, opts)
       data
     end
 
@@ -2732,13 +2600,13 @@ module Falcon
     # @param body [RegistrationGCPServiceAccountPatchRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPServiceAccountResponseExtV1, Integer, Hash)>] RegistrationGCPServiceAccountResponseExtV1 data, response status code and response headers
-    def update_cspmgcp_service_accounts_ext_with_http_info(body, opts = {})
+    def update_cspm_gcp_service_accounts_ext_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.update_cspmgcp_service_accounts_ext ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_gcp_service_accounts_ext ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.update_cspmgcp_service_accounts_ext"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.update_cspm_gcp_service_accounts_ext"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/service-accounts/v1'
@@ -2769,7 +2637,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.update_cspmgcp_service_accounts_ext",
+        :operation => :"CspmRegistration.update_cspm_gcp_service_accounts_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2780,7 +2648,139 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#update_cspmgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_gcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
+    # @param body [RegistrationPolicyRequestExtV1]
+    # @param [Hash] opts the optional parameters
+    # @return [RegistrationPolicySettingsResponseV1]
+    def update_cspm_policy_settings(body, opts = {})
+      data, _status_code, _headers = update_cspm_policy_settings_with_http_info(body, opts)
+      data
+    end
+
+    # Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
+    # @param body [RegistrationPolicyRequestExtV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RegistrationPolicySettingsResponseV1, Integer, Hash)>] RegistrationPolicySettingsResponseV1 data, response status code and response headers
+    def update_cspm_policy_settings_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_policy_settings ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.update_cspm_policy_settings"
+      end
+      # resource path
+      local_var_path = '/settings/entities/policy/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationPolicySettingsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.update_cspm_policy_settings",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_policy_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates scan schedule configuration for one or more cloud platforms.
+    # @param body [RegistrationScanScheduleUpdateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [RegistrationScanScheduleResponseV1]
+    def update_cspm_scan_schedule(body, opts = {})
+      data, _status_code, _headers = update_cspm_scan_schedule_with_http_info(body, opts)
+      data
+    end
+
+    # Updates scan schedule configuration for one or more cloud platforms.
+    # @param body [RegistrationScanScheduleUpdateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RegistrationScanScheduleResponseV1, Integer, Hash)>] RegistrationScanScheduleResponseV1 data, response status code and response headers
+    def update_cspm_scan_schedule_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.update_cspm_scan_schedule ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.update_cspm_scan_schedule"
+      end
+      # resource path
+      local_var_path = '/settings/scan-schedule/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationScanScheduleResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.update_cspm_scan_schedule",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#update_cspm_scan_schedule\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2789,8 +2789,8 @@ module Falcon
     # @param body [RegistrationGCPServiceAccountValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPServiceAccountValidationResponseV1]
-    def validate_cspmgcp_service_account_ext(body, opts = {})
-      data, _status_code, _headers = validate_cspmgcp_service_account_ext_with_http_info(body, opts)
+    def validate_cspm_gcp_service_account_ext(body, opts = {})
+      data, _status_code, _headers = validate_cspm_gcp_service_account_ext_with_http_info(body, opts)
       data
     end
 
@@ -2798,13 +2798,13 @@ module Falcon
     # @param body [RegistrationGCPServiceAccountValidationRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPServiceAccountValidationResponseV1, Integer, Hash)>] RegistrationGCPServiceAccountValidationResponseV1 data, response status code and response headers
-    def validate_cspmgcp_service_account_ext_with_http_info(body, opts = {})
+    def validate_cspm_gcp_service_account_ext_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CspmRegistrationApi.validate_cspmgcp_service_account_ext ...'
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.validate_cspm_gcp_service_account_ext ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistrationApi.validate_cspmgcp_service_account_ext"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CspmRegistration.validate_cspm_gcp_service_account_ext"
       end
       # resource path
       local_var_path = '/cloud-connect-cspm-gcp/entities/service-accounts/validate/v1'
@@ -2835,7 +2835,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CspmRegistrationApi.validate_cspmgcp_service_account_ext",
+        :operation => :"CspmRegistration.validate_cspm_gcp_service_account_ext",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2846,7 +2846,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CspmRegistrationApi#validate_cspmgcp_service_account_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CspmRegistration#validate_cspm_gcp_service_account_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

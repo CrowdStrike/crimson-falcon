@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class MessageCenterApi
+  class MessageCenter
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_cases_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.aggregate_cases ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.aggregate_cases ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.aggregate_cases"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.aggregate_cases"
       end
       # resource path
       local_var_path = '/message-center/aggregates/cases/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.aggregate_cases",
+        :operation => :"MessageCenter.aggregate_cases",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#aggregate_cases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#aggregate_cases\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def case_add_activity_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.case_add_activity ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.case_add_activity ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.case_add_activity"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.case_add_activity"
       end
       # resource path
       local_var_path = '/message-center/entities/case-activity/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.case_add_activity",
+        :operation => :"MessageCenter.case_add_activity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#case_add_activity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#case_add_activity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -189,19 +189,19 @@ module Falcon
     # @return [Array<(ApiMessageCenterAttachmentUploadResponse, Integer, Hash)>] ApiMessageCenterAttachmentUploadResponse data, response status code and response headers
     def case_add_attachment_with_http_info(case_id, user_uuid, file, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.case_add_attachment ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.case_add_attachment ...'
       end
       # verify the required parameter 'case_id' is set
       if @api_client.config.client_side_validation && case_id.nil?
-        fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenterApi.case_add_attachment"
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenter.case_add_attachment"
       end
       # verify the required parameter 'user_uuid' is set
       if @api_client.config.client_side_validation && user_uuid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling MessageCenterApi.case_add_attachment"
+        fail ArgumentError, "Missing the required parameter 'user_uuid' when calling MessageCenter.case_add_attachment"
       end
       # verify the required parameter 'file' is set
       if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling MessageCenterApi.case_add_attachment"
+        fail ArgumentError, "Missing the required parameter 'file' when calling MessageCenter.case_add_attachment"
       end
       # resource path
       local_var_path = '/message-center/entities/case-attachment/v1'
@@ -235,7 +235,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.case_add_attachment",
+        :operation => :"MessageCenter.case_add_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -246,7 +246,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#case_add_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#case_add_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -266,11 +266,11 @@ module Falcon
     # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
     def case_download_attachment_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.case_download_attachment ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.case_download_attachment ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling MessageCenterApi.case_download_attachment"
+        fail ArgumentError, "Missing the required parameter 'id' when calling MessageCenter.case_download_attachment"
       end
       # resource path
       local_var_path = '/message-center/entities/case-attachment/v1'
@@ -297,7 +297,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.case_download_attachment",
+        :operation => :"MessageCenter.case_download_attachment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -308,7 +308,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#case_download_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#case_download_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -328,11 +328,11 @@ module Falcon
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def create_case_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.create_case ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.create_case ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.create_case"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.create_case"
       end
       # resource path
       local_var_path = '/message-center/entities/case/v1'
@@ -363,7 +363,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.create_case",
+        :operation => :"MessageCenter.create_case",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -374,7 +374,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#create_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#create_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -394,11 +394,11 @@ module Falcon
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def create_case_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.create_case_v2 ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.create_case_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.create_case_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.create_case_v2"
       end
       # resource path
       local_var_path = '/message-center/entities/case/v2'
@@ -429,7 +429,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.create_case_v2",
+        :operation => :"MessageCenter.create_case_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -440,7 +440,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#create_case_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#create_case_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -460,11 +460,11 @@ module Falcon
     # @return [Array<(ApiMessageCenterActivityResponse, Integer, Hash)>] ApiMessageCenterActivityResponse data, response status code and response headers
     def get_case_activity_by_ids_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.get_case_activity_by_ids ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.get_case_activity_by_ids ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.get_case_activity_by_ids"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.get_case_activity_by_ids"
       end
       # resource path
       local_var_path = '/message-center/entities/case-activities/GET/v1'
@@ -495,7 +495,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.get_case_activity_by_ids",
+        :operation => :"MessageCenter.get_case_activity_by_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -506,7 +506,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#get_case_activity_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#get_case_activity_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -526,11 +526,11 @@ module Falcon
     # @return [Array<(ApiMessageCenterCasesResponse, Integer, Hash)>] ApiMessageCenterCasesResponse data, response status code and response headers
     def get_case_entities_by_ids_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.get_case_entities_by_ids ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.get_case_entities_by_ids ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenterApi.get_case_entities_by_ids"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.get_case_entities_by_ids"
       end
       # resource path
       local_var_path = '/message-center/entities/cases/GET/v1'
@@ -561,7 +561,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.get_case_entities_by_ids",
+        :operation => :"MessageCenter.get_case_entities_by_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -572,7 +572,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#get_case_entities_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#get_case_entities_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -600,11 +600,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_activity_by_case_id_with_http_info(case_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.query_activity_by_case_id ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.query_activity_by_case_id ...'
       end
       # verify the required parameter 'case_id' is set
       if @api_client.config.client_side_validation && case_id.nil?
-        fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenterApi.query_activity_by_case_id"
+        fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenter.query_activity_by_case_id"
       end
       allowable_values = ["activity.created_time.asc", "activity.created_time.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -639,7 +639,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.query_activity_by_case_id",
+        :operation => :"MessageCenter.query_activity_by_case_id",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -650,7 +650,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#query_activity_by_case_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#query_activity_by_case_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -676,7 +676,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_cases_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenterApi.query_cases_ids_by_filter ...'
+        @api_client.config.logger.debug 'Calling API: MessageCenter.query_cases_ids_by_filter ...'
       end
       allowable_values = ["case.id.asc", "case.id.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -710,7 +710,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MessageCenterApi.query_cases_ids_by_filter",
+        :operation => :"MessageCenter.query_cases_ids_by_filter",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -721,7 +721,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenterApi#query_cases_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessageCenter#query_cases_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

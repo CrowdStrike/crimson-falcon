@@ -1,15 +1,15 @@
-# Falcon::QuarantineApi
+# Falcon::Quarantine
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**action_update_count**](QuarantineApi.md#action_update_count) | **GET** /quarantine/aggregates/action-update-count/v1 | Returns count of potentially affected quarantined files for each action. |
-| [**get_aggregate_files**](QuarantineApi.md#get_aggregate_files) | **POST** /quarantine/aggregates/quarantined-files/GET/v1 | Get quarantine file aggregates as specified via json in request body. |
-| [**get_quarantine_files**](QuarantineApi.md#get_quarantine_files) | **POST** /quarantine/entities/quarantined-files/GET/v1 | Get quarantine file metadata for specified ids. |
-| [**query_quarantine_files**](QuarantineApi.md#query_quarantine_files) | **GET** /quarantine/queries/quarantined-files/v1 | Get quarantine file ids that match the provided filter criteria. |
-| [**update_qf_by_query**](QuarantineApi.md#update_qf_by_query) | **PATCH** /quarantine/queries/quarantined-files/v1 | Apply quarantine file actions by query. |
-| [**update_quarantined_detects_by_ids**](QuarantineApi.md#update_quarantined_detects_by_ids) | **PATCH** /quarantine/entities/quarantined-files/v1 | Apply action by quarantine file ids |
+| [**action_update_count**](Quarantine.md#action_update_count) | **GET** /quarantine/aggregates/action-update-count/v1 | Returns count of potentially affected quarantined files for each action. |
+| [**get_aggregate_files**](Quarantine.md#get_aggregate_files) | **POST** /quarantine/aggregates/quarantined-files/GET/v1 | Get quarantine file aggregates as specified via json in request body. |
+| [**get_quarantine_files**](Quarantine.md#get_quarantine_files) | **POST** /quarantine/entities/quarantined-files/GET/v1 | Get quarantine file metadata for specified ids. |
+| [**query_quarantine_files**](Quarantine.md#query_quarantine_files) | **GET** /quarantine/queries/quarantined-files/v1 | Get quarantine file ids that match the provided filter criteria. |
+| [**update_qf_by_query**](Quarantine.md#update_qf_by_query) | **PATCH** /quarantine/queries/quarantined-files/v1 | Apply quarantine file actions by query. |
+| [**update_quarantined_detects_by_ids**](Quarantine.md#update_quarantined_detects_by_ids) | **PATCH** /quarantine/entities/quarantined-files/v1 | Apply action by quarantine file ids |
 
 
 ## action_update_count
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 filter = 'filter_example' # String | FQL specifying filter parameters.
 
 begin
@@ -39,7 +39,7 @@ begin
   result = api_instance.action_update_count(filter)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->action_update_count: #{e}"
+  puts "Error when calling Quarantine->action_update_count: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->action_update_count_with_http_info: #{e}"
+  puts "Error when calling Quarantine->action_update_count_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
 
 begin
@@ -108,7 +108,7 @@ begin
   result = api_instance.get_aggregate_files(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->get_aggregate_files: #{e}"
+  puts "Error when calling Quarantine->get_aggregate_files: #{e}"
 end
 ```
 
@@ -126,7 +126,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->get_aggregate_files_with_http_info: #{e}"
+  puts "Error when calling Quarantine->get_aggregate_files_with_http_info: #{e}"
 end
 ```
 
@@ -169,7 +169,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
 
 begin
@@ -177,7 +177,7 @@ begin
   result = api_instance.get_quarantine_files(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->get_quarantine_files: #{e}"
+  puts "Error when calling Quarantine->get_quarantine_files: #{e}"
 end
 ```
 
@@ -195,7 +195,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMsaQfResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->get_quarantine_files_with_http_info: #{e}"
+  puts "Error when calling Quarantine->get_quarantine_files_with_http_info: #{e}"
 end
 ```
 
@@ -238,7 +238,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 opts = {
   offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
   limit: 56, # Integer | Number of ids to return.
@@ -252,7 +252,7 @@ begin
   result = api_instance.query_quarantine_files(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->query_quarantine_files: #{e}"
+  puts "Error when calling Quarantine->query_quarantine_files: #{e}"
 end
 ```
 
@@ -270,7 +270,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->query_quarantine_files_with_http_info: #{e}"
+  puts "Error when calling Quarantine->query_quarantine_files_with_http_info: #{e}"
 end
 ```
 
@@ -317,7 +317,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 body = Falcon::DomainQueriesPatchRequest.new # DomainQueriesPatchRequest | 
 
 begin
@@ -325,7 +325,7 @@ begin
   result = api_instance.update_qf_by_query(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->update_qf_by_query: #{e}"
+  puts "Error when calling Quarantine->update_qf_by_query: #{e}"
 end
 ```
 
@@ -343,7 +343,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->update_qf_by_query_with_http_info: #{e}"
+  puts "Error when calling Quarantine->update_qf_by_query_with_http_info: #{e}"
 end
 ```
 
@@ -386,7 +386,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuarantineApi.new
+api_instance = Falcon::Quarantine.new
 body = Falcon::DomainEntitiesPatchRequest.new # DomainEntitiesPatchRequest | 
 
 begin
@@ -394,7 +394,7 @@ begin
   result = api_instance.update_quarantined_detects_by_ids(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->update_quarantined_detects_by_ids: #{e}"
+  puts "Error when calling Quarantine->update_quarantined_detects_by_ids: #{e}"
 end
 ```
 
@@ -412,7 +412,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuarantineApi->update_quarantined_detects_by_ids_with_http_info: #{e}"
+  puts "Error when calling Quarantine->update_quarantined_detects_by_ids_with_http_info: #{e}"
 end
 ```
 

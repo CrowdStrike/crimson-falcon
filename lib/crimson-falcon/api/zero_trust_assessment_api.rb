@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ZeroTrustAssessmentApi
+  class ZeroTrustAssessment
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainAssessmentsResponse, Integer, Hash)>] DomainAssessmentsResponse data, response status code and response headers
     def get_assessment_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessmentApi.get_assessment_v1 ...'
+        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessment.get_assessment_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ZeroTrustAssessmentApi.get_assessment_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ZeroTrustAssessment.get_assessment_v1"
       end
       # resource path
       local_var_path = '/zero-trust-assessment/entities/assessments/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ZeroTrustAssessmentApi.get_assessment_v1",
+        :operation => :"ZeroTrustAssessment.get_assessment_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ZeroTrustAssessmentApi#get_assessment_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ZeroTrustAssessment#get_assessment_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,11 +119,11 @@ module Falcon
     # @return [Array<(DomainAssessmentsByScoreResponse, Integer, Hash)>] DomainAssessmentsByScoreResponse data, response status code and response headers
     def get_assessments_by_score_v1_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessmentApi.get_assessments_by_score_v1 ...'
+        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessment.get_assessments_by_score_v1 ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling ZeroTrustAssessmentApi.get_assessments_by_score_v1"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling ZeroTrustAssessment.get_assessments_by_score_v1"
       end
       # resource path
       local_var_path = '/zero-trust-assessment/queries/assessments/v1'
@@ -153,7 +153,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ZeroTrustAssessmentApi.get_assessments_by_score_v1",
+        :operation => :"ZeroTrustAssessment.get_assessments_by_score_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -164,7 +164,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ZeroTrustAssessmentApi#get_assessments_by_score_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ZeroTrustAssessment#get_assessments_by_score_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -182,7 +182,7 @@ module Falcon
     # @return [Array<(DomainAuditResponse, Integer, Hash)>] DomainAuditResponse data, response status code and response headers
     def get_audit_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessmentApi.get_audit_v1 ...'
+        @api_client.config.logger.debug 'Calling API: ZeroTrustAssessment.get_audit_v1 ...'
       end
       # resource path
       local_var_path = '/zero-trust-assessment/entities/audit/v1'
@@ -208,7 +208,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ZeroTrustAssessmentApi.get_audit_v1",
+        :operation => :"ZeroTrustAssessment.get_audit_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -219,7 +219,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ZeroTrustAssessmentApi#get_audit_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ZeroTrustAssessment#get_audit_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

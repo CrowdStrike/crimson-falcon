@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class MobileEnrollmentApi
+  class MobileEnrollment
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -55,11 +55,11 @@ module Falcon
     # @return [Array<(ApiPostEnrollmentDetailsResponse, Integer, Hash)>] ApiPostEnrollmentDetailsResponse data, response status code and response headers
     def request_device_enrollment_v3_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MobileEnrollmentApi.request_device_enrollment_v3 ...'
+        @api_client.config.logger.debug 'Calling API: MobileEnrollment.request_device_enrollment_v3 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MobileEnrollmentApi.request_device_enrollment_v3"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MobileEnrollment.request_device_enrollment_v3"
       end
       allowable_values = ["enroll", "re-enroll"]
       if @api_client.config.client_side_validation && opts[:'action_name'] && !allowable_values.include?(opts[:'action_name'])
@@ -96,7 +96,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MobileEnrollmentApi.request_device_enrollment_v3",
+        :operation => :"MobileEnrollment.request_device_enrollment_v3",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -107,7 +107,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MobileEnrollmentApi#request_device_enrollment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MobileEnrollment#request_device_enrollment_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -131,11 +131,11 @@ module Falcon
     # @return [Array<(ApiPostEnrollmentDetailsResponse, Integer, Hash)>] ApiPostEnrollmentDetailsResponse data, response status code and response headers
     def request_device_enrollment_v4_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MobileEnrollmentApi.request_device_enrollment_v4 ...'
+        @api_client.config.logger.debug 'Calling API: MobileEnrollment.request_device_enrollment_v4 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MobileEnrollmentApi.request_device_enrollment_v4"
+        fail ArgumentError, "Missing the required parameter 'body' when calling MobileEnrollment.request_device_enrollment_v4"
       end
       allowable_values = ["enroll", "re-enroll"]
       if @api_client.config.client_side_validation && opts[:'action_name'] && !allowable_values.include?(opts[:'action_name'])
@@ -172,7 +172,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MobileEnrollmentApi.request_device_enrollment_v4",
+        :operation => :"MobileEnrollment.request_device_enrollment_v4",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -183,7 +183,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MobileEnrollmentApi#request_device_enrollment_v4\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MobileEnrollment#request_device_enrollment_v4\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

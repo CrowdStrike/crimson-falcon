@@ -1,39 +1,39 @@
-# Falcon::MsspApi
+# Falcon::Mssp
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**add_cid_group_members**](MsspApi.md#add_cid_group_members) | **POST** /mssp/entities/cid-group-members/v1 | Add new CID group member. |
-| [**add_role**](MsspApi.md#add_role) | **POST** /mssp/entities/mssp-roles/v1 | Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.  |
-| [**add_user_group_members**](MsspApi.md#add_user_group_members) | **POST** /mssp/entities/user-group-members/v1 | Add new user group member. Maximum 500 members allowed per user group. |
-| [**create_cid_groups**](MsspApi.md#create_cid_groups) | **POST** /mssp/entities/cid-groups/v1 | Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed. |
-| [**create_user_groups**](MsspApi.md#create_user_groups) | **POST** /mssp/entities/user-groups/v1 | Create new user groups. Name is a required field but description is an optional field. Maximum 500 user groups allowed per customer. |
-| [**delete_cid_group_members**](MsspApi.md#delete_cid_group_members) | **DELETE** /mssp/entities/cid-group-members/v1 | Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members. |
-| [**delete_cid_group_members_v2**](MsspApi.md#delete_cid_group_members_v2) | **DELETE** /mssp/entities/cid-group-members/v2 | Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group. |
-| [**delete_cid_groups**](MsspApi.md#delete_cid_groups) | **DELETE** /mssp/entities/cid-groups/v1 | Delete CID groups by ID. |
-| [**delete_user_group_members**](MsspApi.md#delete_user_group_members) | **DELETE** /mssp/entities/user-group-members/v1 | Delete user group members entry. |
-| [**delete_user_groups**](MsspApi.md#delete_user_groups) | **DELETE** /mssp/entities/user-groups/v1 | Delete user groups by ID. |
-| [**deleted_roles**](MsspApi.md#deleted_roles) | **DELETE** /mssp/entities/mssp-roles/v1 | Delete links or additional roles between user groups and CID groups. User group ID and CID group ID have to be specified in request. Only specified roles are removed if specified in request payload, else association between User Group and CID group is dissolved completely (if no roles specified). |
-| [**get_children**](MsspApi.md#get_children) | **GET** /mssp/entities/children/v1 | Get link to child customer by child CID(s) |
-| [**get_children_v2**](MsspApi.md#get_children_v2) | **POST** /mssp/entities/children/GET/v2 | Get link to child customer by child CID(s) |
-| [**get_cid_group_by_id**](MsspApi.md#get_cid_group_by_id) | **GET** /mssp/entities/cid-groups/v1 | Deprecated : Please use GET /mssp/entities/cid-groups/v2. Get CID groups by ID. |
-| [**get_cid_group_by_id_v2**](MsspApi.md#get_cid_group_by_id_v2) | **GET** /mssp/entities/cid-groups/v2 | Get CID Groups by ID. |
-| [**get_cid_group_members_by**](MsspApi.md#get_cid_group_members_by) | **GET** /mssp/entities/cid-group-members/v1 | Deprecated : Please use GET /mssp/entities/cid-group-members/v2. Get CID group members by CID group ID. |
-| [**get_cid_group_members_by_v2**](MsspApi.md#get_cid_group_members_by_v2) | **GET** /mssp/entities/cid-group-members/v2 | Get CID group members by CID Group ID. |
-| [**get_roles_by_id**](MsspApi.md#get_roles_by_id) | **GET** /mssp/entities/mssp-roles/v1 | Get link between user group and CID group by ID. Link ID is a string consisting of multiple components, but should be treated as opaque. |
-| [**get_user_group_members_by_id**](MsspApi.md#get_user_group_members_by_id) | **GET** /mssp/entities/user-group-members/v1 | Deprecated : Please use GET /mssp/entities/user-group-members/v2. Get user group members by user group ID. |
-| [**get_user_group_members_by_idv2**](MsspApi.md#get_user_group_members_by_idv2) | **GET** /mssp/entities/user-group-members/v2 | Get user group members by user group ID. |
-| [**get_user_groups_by_id**](MsspApi.md#get_user_groups_by_id) | **GET** /mssp/entities/user-groups/v1 | Deprecated : Please use GET /entities/user-groups/v2. Get user groups by ID. |
-| [**get_user_groups_by_idv2**](MsspApi.md#get_user_groups_by_idv2) | **GET** /mssp/entities/user-groups/v2 | Get user groups by ID. |
-| [**query_children**](MsspApi.md#query_children) | **GET** /mssp/queries/children/v1 | Query for customers linked as children |
-| [**query_cid_group_members**](MsspApi.md#query_cid_group_members) | **GET** /mssp/queries/cid-group-members/v1 | Query a CID groups members by associated CID. |
-| [**query_cid_groups**](MsspApi.md#query_cid_groups) | **GET** /mssp/queries/cid-groups/v1 | Query CID groups. |
-| [**query_roles**](MsspApi.md#query_roles) | **GET** /mssp/queries/mssp-roles/v1 | Query links between user groups and CID groups. At least one of CID group ID or user group ID should also be provided. Role ID is optional. |
-| [**query_user_group_members**](MsspApi.md#query_user_group_members) | **GET** /mssp/queries/user-group-members/v1 | Query user group member by user UUID. |
-| [**query_user_groups**](MsspApi.md#query_user_groups) | **GET** /mssp/queries/user-groups/v1 | Query user groups. |
-| [**update_cid_groups**](MsspApi.md#update_cid_groups) | **PATCH** /mssp/entities/cid-groups/v1 | Update existing CID groups. CID group ID is expected for each CID group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. CID group member(s) remain unaffected. |
-| [**update_user_groups**](MsspApi.md#update_user_groups) | **PATCH** /mssp/entities/user-groups/v1 | Update existing user group(s). User group ID is expected for each user group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. User group member(s) remain unaffected. |
+| [**add_cid_group_members**](Mssp.md#add_cid_group_members) | **POST** /mssp/entities/cid-group-members/v1 | Add new CID group member. |
+| [**add_role**](Mssp.md#add_role) | **POST** /mssp/entities/mssp-roles/v1 | Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.  |
+| [**add_user_group_members**](Mssp.md#add_user_group_members) | **POST** /mssp/entities/user-group-members/v1 | Add new user group member. Maximum 500 members allowed per user group. |
+| [**create_cid_groups**](Mssp.md#create_cid_groups) | **POST** /mssp/entities/cid-groups/v1 | Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed. |
+| [**create_user_groups**](Mssp.md#create_user_groups) | **POST** /mssp/entities/user-groups/v1 | Create new user groups. Name is a required field but description is an optional field. Maximum 500 user groups allowed per customer. |
+| [**delete_cid_group_members**](Mssp.md#delete_cid_group_members) | **DELETE** /mssp/entities/cid-group-members/v1 | Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members. |
+| [**delete_cid_group_members_v2**](Mssp.md#delete_cid_group_members_v2) | **DELETE** /mssp/entities/cid-group-members/v2 | Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group. |
+| [**delete_cid_groups**](Mssp.md#delete_cid_groups) | **DELETE** /mssp/entities/cid-groups/v1 | Delete CID groups by ID. |
+| [**delete_user_group_members**](Mssp.md#delete_user_group_members) | **DELETE** /mssp/entities/user-group-members/v1 | Delete user group members entry. |
+| [**delete_user_groups**](Mssp.md#delete_user_groups) | **DELETE** /mssp/entities/user-groups/v1 | Delete user groups by ID. |
+| [**deleted_roles**](Mssp.md#deleted_roles) | **DELETE** /mssp/entities/mssp-roles/v1 | Delete links or additional roles between user groups and CID groups. User group ID and CID group ID have to be specified in request. Only specified roles are removed if specified in request payload, else association between User Group and CID group is dissolved completely (if no roles specified). |
+| [**get_children**](Mssp.md#get_children) | **GET** /mssp/entities/children/v1 | Get link to child customer by child CID(s) |
+| [**get_children_v2**](Mssp.md#get_children_v2) | **POST** /mssp/entities/children/GET/v2 | Get link to child customer by child CID(s) |
+| [**get_cid_group_by_id**](Mssp.md#get_cid_group_by_id) | **GET** /mssp/entities/cid-groups/v1 | Deprecated : Please use GET /mssp/entities/cid-groups/v2. Get CID groups by ID. |
+| [**get_cid_group_by_id_v2**](Mssp.md#get_cid_group_by_id_v2) | **GET** /mssp/entities/cid-groups/v2 | Get CID Groups by ID. |
+| [**get_cid_group_members_by**](Mssp.md#get_cid_group_members_by) | **GET** /mssp/entities/cid-group-members/v1 | Deprecated : Please use GET /mssp/entities/cid-group-members/v2. Get CID group members by CID group ID. |
+| [**get_cid_group_members_by_v2**](Mssp.md#get_cid_group_members_by_v2) | **GET** /mssp/entities/cid-group-members/v2 | Get CID group members by CID Group ID. |
+| [**get_roles_by_id**](Mssp.md#get_roles_by_id) | **GET** /mssp/entities/mssp-roles/v1 | Get link between user group and CID group by ID. Link ID is a string consisting of multiple components, but should be treated as opaque. |
+| [**get_user_group_members_by_id**](Mssp.md#get_user_group_members_by_id) | **GET** /mssp/entities/user-group-members/v1 | Deprecated : Please use GET /mssp/entities/user-group-members/v2. Get user group members by user group ID. |
+| [**get_user_group_members_by_idv2**](Mssp.md#get_user_group_members_by_idv2) | **GET** /mssp/entities/user-group-members/v2 | Get user group members by user group ID. |
+| [**get_user_groups_by_id**](Mssp.md#get_user_groups_by_id) | **GET** /mssp/entities/user-groups/v1 | Deprecated : Please use GET /entities/user-groups/v2. Get user groups by ID. |
+| [**get_user_groups_by_idv2**](Mssp.md#get_user_groups_by_idv2) | **GET** /mssp/entities/user-groups/v2 | Get user groups by ID. |
+| [**query_children**](Mssp.md#query_children) | **GET** /mssp/queries/children/v1 | Query for customers linked as children |
+| [**query_cid_group_members**](Mssp.md#query_cid_group_members) | **GET** /mssp/queries/cid-group-members/v1 | Query a CID groups members by associated CID. |
+| [**query_cid_groups**](Mssp.md#query_cid_groups) | **GET** /mssp/queries/cid-groups/v1 | Query CID groups. |
+| [**query_roles**](Mssp.md#query_roles) | **GET** /mssp/queries/mssp-roles/v1 | Query links between user groups and CID groups. At least one of CID group ID or user group ID should also be provided. Role ID is optional. |
+| [**query_user_group_members**](Mssp.md#query_user_group_members) | **GET** /mssp/queries/user-group-members/v1 | Query user group member by user UUID. |
+| [**query_user_groups**](Mssp.md#query_user_groups) | **GET** /mssp/queries/user-groups/v1 | Query user groups. |
+| [**update_cid_groups**](Mssp.md#update_cid_groups) | **PATCH** /mssp/entities/cid-groups/v1 | Update existing CID groups. CID group ID is expected for each CID group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. CID group member(s) remain unaffected. |
+| [**update_user_groups**](Mssp.md#update_user_groups) | **PATCH** /mssp/entities/user-groups/v1 | Update existing user group(s). User group ID is expected for each user group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. User group member(s) remain unaffected. |
 
 
 ## add_cid_group_members
@@ -55,7 +55,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainCIDGroupMembersRequestV1.new({resources: [Falcon::DomainCIDGroupMembers.new({cid_group_id: 'cid_group_id_example', cids: ['cids_example']})]}) # DomainCIDGroupMembersRequestV1 | Both 'cid_group_id' and 'cids' fields are required.
 
 begin
@@ -63,7 +63,7 @@ begin
   result = api_instance.add_cid_group_members(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_cid_group_members: #{e}"
+  puts "Error when calling Mssp->add_cid_group_members: #{e}"
 end
 ```
 
@@ -81,7 +81,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_cid_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->add_cid_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -124,7 +124,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainMSSPRoleRequestV1.new({resources: [Falcon::DomainMSSPRoles.new({cid_group_id: 'cid_group_id_example', id: 'id_example', role_ids: ['role_ids_example'], user_group_id: 'user_group_id_example'})]}) # DomainMSSPRoleRequestV1 | 'user_group_id', 'cid_group_id' and 'role_ids' fields are required. Remaining are populated by system.
 
 begin
@@ -132,7 +132,7 @@ begin
   result = api_instance.add_role(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_role: #{e}"
+  puts "Error when calling Mssp->add_role: #{e}"
 end
 ```
 
@@ -150,7 +150,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMSSPRoleResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_role_with_http_info: #{e}"
+  puts "Error when calling Mssp->add_role_with_http_info: #{e}"
 end
 ```
 
@@ -193,7 +193,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainUserGroupMembersRequestV1.new({resources: [Falcon::DomainUserGroupMembers.new({user_group_id: 'user_group_id_example', user_uuids: ['user_uuids_example']})]}) # DomainUserGroupMembersRequestV1 | Both 'user_group_id' and 'user_uuids' fields are required.
 
 begin
@@ -201,7 +201,7 @@ begin
   result = api_instance.add_user_group_members(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_user_group_members: #{e}"
+  puts "Error when calling Mssp->add_user_group_members: #{e}"
 end
 ```
 
@@ -219,7 +219,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->add_user_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->add_user_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -262,7 +262,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({cid_group_id: 'cid_group_id_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
 
 begin
@@ -270,7 +270,7 @@ begin
   result = api_instance.create_cid_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->create_cid_groups: #{e}"
+  puts "Error when calling Mssp->create_cid_groups: #{e}"
 end
 ```
 
@@ -288,7 +288,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->create_cid_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->create_cid_groups_with_http_info: #{e}"
 end
 ```
 
@@ -331,7 +331,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainUserGroupsRequestV1.new({resources: [Falcon::DomainUserGroup.new({description: 'description_example', name: 'name_example'})]}) # DomainUserGroupsRequestV1 | Only 'name' and/or 'description' fields are required. Remaining are assigned by the system.
 
 begin
@@ -339,7 +339,7 @@ begin
   result = api_instance.create_user_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->create_user_groups: #{e}"
+  puts "Error when calling Mssp->create_user_groups: #{e}"
 end
 ```
 
@@ -357,7 +357,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->create_user_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->create_user_groups_with_http_info: #{e}"
 end
 ```
 
@@ -400,7 +400,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainCIDGroupMembersRequestV1.new({resources: [Falcon::DomainCIDGroupMembers.new({cid_group_id: 'cid_group_id_example', cids: ['cids_example']})]}) # DomainCIDGroupMembersRequestV1 | Both 'cid_group_id' and 'cids' fields are required.
 
 begin
@@ -408,7 +408,7 @@ begin
   result = api_instance.delete_cid_group_members(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_group_members: #{e}"
+  puts "Error when calling Mssp->delete_cid_group_members: #{e}"
 end
 ```
 
@@ -426,7 +426,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->delete_cid_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -469,7 +469,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainCIDGroupMembersRequestV1.new({resources: [Falcon::DomainCIDGroupMembers.new({cid_group_id: 'cid_group_id_example', cids: ['cids_example']})]}) # DomainCIDGroupMembersRequestV1 | Both 'cid_group_id' and 'cids' fields are required.
 
 begin
@@ -477,7 +477,7 @@ begin
   result = api_instance.delete_cid_group_members_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_group_members_v2: #{e}"
+  puts "Error when calling Mssp->delete_cid_group_members_v2: #{e}"
 end
 ```
 
@@ -495,7 +495,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_group_members_v2_with_http_info: #{e}"
+  puts "Error when calling Mssp->delete_cid_group_members_v2_with_http_info: #{e}"
 end
 ```
 
@@ -538,7 +538,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 cid_group_ids = ['inner_example'] # Array<String> | CID group ids to delete
 
 begin
@@ -546,7 +546,7 @@ begin
   result = api_instance.delete_cid_groups(cid_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_groups: #{e}"
+  puts "Error when calling Mssp->delete_cid_groups: #{e}"
 end
 ```
 
@@ -564,7 +564,7 @@ begin
   p headers # => { ... }
   p data # => <MsaEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_cid_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->delete_cid_groups_with_http_info: #{e}"
 end
 ```
 
@@ -607,7 +607,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainUserGroupMembersRequestV1.new({resources: [Falcon::DomainUserGroupMembers.new({user_group_id: 'user_group_id_example', user_uuids: ['user_uuids_example']})]}) # DomainUserGroupMembersRequestV1 | Both 'user_group_id' and 'user_uuids' fields are required.
 
 begin
@@ -615,7 +615,7 @@ begin
   result = api_instance.delete_user_group_members(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_user_group_members: #{e}"
+  puts "Error when calling Mssp->delete_user_group_members: #{e}"
 end
 ```
 
@@ -633,7 +633,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_user_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->delete_user_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -676,7 +676,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 user_group_ids = ['inner_example'] # Array<String> | User group IDs to delete
 
 begin
@@ -684,7 +684,7 @@ begin
   result = api_instance.delete_user_groups(user_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_user_groups: #{e}"
+  puts "Error when calling Mssp->delete_user_groups: #{e}"
 end
 ```
 
@@ -702,7 +702,7 @@ begin
   p headers # => { ... }
   p data # => <MsaEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->delete_user_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->delete_user_groups_with_http_info: #{e}"
 end
 ```
 
@@ -745,7 +745,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainMSSPRoleRequestV1.new({resources: [Falcon::DomainMSSPRoles.new({cid_group_id: 'cid_group_id_example', id: 'id_example', role_ids: ['role_ids_example'], user_group_id: 'user_group_id_example'})]}) # DomainMSSPRoleRequestV1 | 'user_group_id' and 'cid_group_id' fields are required. 'role_ids' field is optional. Remaining fields are ignored.
 
 begin
@@ -753,7 +753,7 @@ begin
   result = api_instance.deleted_roles(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->deleted_roles: #{e}"
+  puts "Error when calling Mssp->deleted_roles: #{e}"
 end
 ```
 
@@ -771,7 +771,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMSSPRoleResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->deleted_roles_with_http_info: #{e}"
+  puts "Error when calling Mssp->deleted_roles_with_http_info: #{e}"
 end
 ```
 
@@ -814,7 +814,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | CID of a child customer
 
 begin
@@ -822,7 +822,7 @@ begin
   result = api_instance.get_children(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_children: #{e}"
+  puts "Error when calling Mssp->get_children: #{e}"
 end
 ```
 
@@ -840,7 +840,7 @@ begin
   p headers # => { ... }
   p data # => <DomainChildrenResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_children_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_children_with_http_info: #{e}"
 end
 ```
 
@@ -883,7 +883,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::MsaspecIdsRequest.new({ids: ['ids_example']}) # MsaspecIdsRequest | 
 
 begin
@@ -891,7 +891,7 @@ begin
   result = api_instance.get_children_v2(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_children_v2: #{e}"
+  puts "Error when calling Mssp->get_children_v2: #{e}"
 end
 ```
 
@@ -909,7 +909,7 @@ begin
   p headers # => { ... }
   p data # => <DomainChildrenResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_children_v2_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_children_v2_with_http_info: #{e}"
 end
 ```
 
@@ -952,7 +952,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 cid_group_ids = ['inner_example'] # Array<String> | CID group IDs to be searched on
 
 begin
@@ -960,7 +960,7 @@ begin
   result = api_instance.get_cid_group_by_id(cid_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_by_id: #{e}"
+  puts "Error when calling Mssp->get_cid_group_by_id: #{e}"
 end
 ```
 
@@ -978,7 +978,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_by_id_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_cid_group_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -1021,7 +1021,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | CID group IDs to search for
 
 begin
@@ -1029,7 +1029,7 @@ begin
   result = api_instance.get_cid_group_by_id_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_by_id_v2: #{e}"
+  puts "Error when calling Mssp->get_cid_group_by_id_v2: #{e}"
 end
 ```
 
@@ -1047,7 +1047,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_by_id_v2_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_cid_group_by_id_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1090,7 +1090,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 cid_group_ids = ['inner_example'] # Array<String> | CID group IDs to search for
 
 begin
@@ -1098,7 +1098,7 @@ begin
   result = api_instance.get_cid_group_members_by(cid_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_members_by: #{e}"
+  puts "Error when calling Mssp->get_cid_group_members_by: #{e}"
 end
 ```
 
@@ -1116,7 +1116,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_members_by_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_cid_group_members_by_with_http_info: #{e}"
 end
 ```
 
@@ -1159,7 +1159,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | CID group IDs search for
 
 begin
@@ -1167,7 +1167,7 @@ begin
   result = api_instance.get_cid_group_members_by_v2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_members_by_v2: #{e}"
+  puts "Error when calling Mssp->get_cid_group_members_by_v2: #{e}"
 end
 ```
 
@@ -1185,7 +1185,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_cid_group_members_by_v2_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_cid_group_members_by_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1228,7 +1228,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | Link ID is a string consisting of multiple components, but should be treated as opaque.
 
 begin
@@ -1236,7 +1236,7 @@ begin
   result = api_instance.get_roles_by_id(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_roles_by_id: #{e}"
+  puts "Error when calling Mssp->get_roles_by_id: #{e}"
 end
 ```
 
@@ -1254,7 +1254,7 @@ begin
   p headers # => { ... }
   p data # => <DomainMSSPRoleResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_roles_by_id_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_roles_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -1297,7 +1297,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 user_group_ids = ['inner_example'] # Array<String> | User group IDs to search for
 
 begin
@@ -1305,7 +1305,7 @@ begin
   result = api_instance.get_user_group_members_by_id(user_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_group_members_by_id: #{e}"
+  puts "Error when calling Mssp->get_user_group_members_by_id: #{e}"
 end
 ```
 
@@ -1323,7 +1323,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_group_members_by_id_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_user_group_members_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -1366,7 +1366,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | User group IDs to search for
 
 begin
@@ -1374,7 +1374,7 @@ begin
   result = api_instance.get_user_group_members_by_idv2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_group_members_by_idv2: #{e}"
+  puts "Error when calling Mssp->get_user_group_members_by_idv2: #{e}"
 end
 ```
 
@@ -1392,7 +1392,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupMembersResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_group_members_by_idv2_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_user_group_members_by_idv2_with_http_info: #{e}"
 end
 ```
 
@@ -1435,7 +1435,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 user_group_ids = ['inner_example'] # Array<String> | User Group IDs to search for
 
 begin
@@ -1443,7 +1443,7 @@ begin
   result = api_instance.get_user_groups_by_id(user_group_ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_groups_by_id: #{e}"
+  puts "Error when calling Mssp->get_user_groups_by_id: #{e}"
 end
 ```
 
@@ -1461,7 +1461,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_groups_by_id_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_user_groups_by_id_with_http_info: #{e}"
 end
 ```
 
@@ -1504,7 +1504,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 ids = ['inner_example'] # Array<String> | User group IDs to search for
 
 begin
@@ -1512,7 +1512,7 @@ begin
   result = api_instance.get_user_groups_by_idv2(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_groups_by_idv2: #{e}"
+  puts "Error when calling Mssp->get_user_groups_by_idv2: #{e}"
 end
 ```
 
@@ -1530,7 +1530,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->get_user_groups_by_idv2_with_http_info: #{e}"
+  puts "Error when calling Mssp->get_user_groups_by_idv2_with_http_info: #{e}"
 end
 ```
 
@@ -1573,7 +1573,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 opts = {
   filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: cid
   sort: 'last_modified_timestamp|asc', # String | The sort expression used to sort the results
@@ -1586,7 +1586,7 @@ begin
   result = api_instance.query_children(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_children: #{e}"
+  puts "Error when calling Mssp->query_children: #{e}"
 end
 ```
 
@@ -1604,7 +1604,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_children_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_children_with_http_info: #{e}"
 end
 ```
 
@@ -1650,7 +1650,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 cid = 'cid_example' # String | CID to lookup associated CID group ID
 opts = {
   sort: 'last_modified_timestamp|asc', # String | The sort expression used to sort the results
@@ -1663,7 +1663,7 @@ begin
   result = api_instance.query_cid_group_members(cid, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_cid_group_members: #{e}"
+  puts "Error when calling Mssp->query_cid_group_members: #{e}"
 end
 ```
 
@@ -1681,7 +1681,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_cid_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_cid_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -1727,7 +1727,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 opts = {
   name: 'name_example', # String | Name to lookup groups for
   sort: 'last_modified_timestamp|asc', # String | The sort expression used to sort the results
@@ -1740,7 +1740,7 @@ begin
   result = api_instance.query_cid_groups(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_cid_groups: #{e}"
+  puts "Error when calling Mssp->query_cid_groups: #{e}"
 end
 ```
 
@@ -1758,7 +1758,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_cid_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_cid_groups_with_http_info: #{e}"
 end
 ```
 
@@ -1804,7 +1804,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 opts = {
   user_group_id: 'user_group_id_example', # String | User group ID to fetch MSSP role for
   cid_group_id: 'cid_group_id_example', # String | CID group ID to fetch MSSP role for
@@ -1819,7 +1819,7 @@ begin
   result = api_instance.query_roles(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_roles: #{e}"
+  puts "Error when calling Mssp->query_roles: #{e}"
 end
 ```
 
@@ -1837,7 +1837,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_roles_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_roles_with_http_info: #{e}"
 end
 ```
 
@@ -1885,7 +1885,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 user_uuid = 'user_uuid_example' # String | User UUID to lookup associated user group ID
 opts = {
   sort: 'last_modified_timestamp|asc', # String | The sort expression used to sort the results
@@ -1898,7 +1898,7 @@ begin
   result = api_instance.query_user_group_members(user_uuid, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_user_group_members: #{e}"
+  puts "Error when calling Mssp->query_user_group_members: #{e}"
 end
 ```
 
@@ -1916,7 +1916,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_user_group_members_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_user_group_members_with_http_info: #{e}"
 end
 ```
 
@@ -1962,7 +1962,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 opts = {
   name: 'name_example', # String | Name to lookup groups for
   sort: 'last_modified_timestamp|asc', # String | The sort expression used to sort the results
@@ -1975,7 +1975,7 @@ begin
   result = api_instance.query_user_groups(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_user_groups: #{e}"
+  puts "Error when calling Mssp->query_user_groups: #{e}"
 end
 ```
 
@@ -1993,7 +1993,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->query_user_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->query_user_groups_with_http_info: #{e}"
 end
 ```
 
@@ -2039,7 +2039,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainCIDGroupsRequestV1.new({resources: [Falcon::DomainCIDGroup.new({cid_group_id: 'cid_group_id_example', name: 'name_example'})]}) # DomainCIDGroupsRequestV1 | 'cid_group_id' field is required to identify the CID group to update along with 'name' and/or 'description' fields to be updated.
 
 begin
@@ -2047,7 +2047,7 @@ begin
   result = api_instance.update_cid_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->update_cid_groups: #{e}"
+  puts "Error when calling Mssp->update_cid_groups: #{e}"
 end
 ```
 
@@ -2065,7 +2065,7 @@ begin
   p headers # => { ... }
   p data # => <DomainCIDGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->update_cid_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->update_cid_groups_with_http_info: #{e}"
 end
 ```
 
@@ -2108,7 +2108,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::MsspApi.new
+api_instance = Falcon::Mssp.new
 body = Falcon::DomainUserGroupsRequestV1.new({resources: [Falcon::DomainUserGroup.new({description: 'description_example', name: 'name_example'})]}) # DomainUserGroupsRequestV1 | 'user_group_id' field is required to identify the user group to update along with 'name' and/or 'description' fields to be updated.
 
 begin
@@ -2116,7 +2116,7 @@ begin
   result = api_instance.update_user_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->update_user_groups: #{e}"
+  puts "Error when calling Mssp->update_user_groups: #{e}"
 end
 ```
 
@@ -2134,7 +2134,7 @@ begin
   p headers # => { ... }
   p data # => <DomainUserGroupsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling MsspApi->update_user_groups_with_http_info: #{e}"
+  puts "Error when calling Mssp->update_user_groups_with_http_info: #{e}"
 end
 ```
 

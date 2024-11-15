@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class RealTimeResponseAuditApi
+  class RealTimeResponseAudit
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -59,7 +59,7 @@ module Falcon
     # @return [Array<(DomainSessionResponseWrapper, Integer, Hash)>] DomainSessionResponseWrapper data, response status code and response headers
     def r_tr_audit_sessions_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAuditApi.r_tr_audit_sessions ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAudit.r_tr_audit_sessions ...'
       end
       allowable_values = ["created_at", "updated_at", "deleted_at"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -94,7 +94,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAuditApi.r_tr_audit_sessions",
+        :operation => :"RealTimeResponseAudit.r_tr_audit_sessions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -105,7 +105,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAuditApi#r_tr_audit_sessions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAudit#r_tr_audit_sessions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

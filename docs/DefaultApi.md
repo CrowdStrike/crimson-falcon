@@ -1,15 +1,15 @@
-# Falcon::DefaultApi
+# Falcon::Default
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**cloud_registration_aws_create_account**](DefaultApi.md#cloud_registration_aws_create_account) | **POST** /cloud-security-registration-aws/entities/account/v1 | Creates a new account in our system for a customer. |
-| [**cloud_registration_aws_delete_account**](DefaultApi.md#cloud_registration_aws_delete_account) | **DELETE** /cloud-security-registration-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
-| [**cloud_registration_aws_get_accounts**](DefaultApi.md#cloud_registration_aws_get_accounts) | **GET** /cloud-security-registration-aws/entities/account/v1 | Retrieve existing AWS accounts by account IDs |
-| [**cloud_registration_aws_query_accounts**](DefaultApi.md#cloud_registration_aws_query_accounts) | **GET** /cloud-security-registration-aws/queries/account/v1 | Retrieve existing AWS accounts by account IDs |
-| [**cloud_registration_aws_update_account**](DefaultApi.md#cloud_registration_aws_update_account) | **PATCH** /cloud-security-registration-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
-| [**cloud_registration_aws_validate_accounts**](DefaultApi.md#cloud_registration_aws_validate_accounts) | **POST** /cloud-security-registration-aws/entities/account/validate/v1 | Validates the AWS account in our system for a provided CID. For internal clients only. |
+| [**cloud_registration_aws_create_account**](Default.md#cloud_registration_aws_create_account) | **POST** /cloud-security-registration-aws/entities/account/v1 | Creates a new account in our system for a customer. |
+| [**cloud_registration_aws_delete_account**](Default.md#cloud_registration_aws_delete_account) | **DELETE** /cloud-security-registration-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
+| [**cloud_registration_aws_get_accounts**](Default.md#cloud_registration_aws_get_accounts) | **GET** /cloud-security-registration-aws/entities/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_query_accounts**](Default.md#cloud_registration_aws_query_accounts) | **GET** /cloud-security-registration-aws/queries/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_update_account**](Default.md#cloud_registration_aws_update_account) | **PATCH** /cloud-security-registration-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
+| [**cloud_registration_aws_validate_accounts**](Default.md#cloud_registration_aws_validate_accounts) | **POST** /cloud-security-registration-aws/entities/account/validate/v1 | Validates the AWS account in our system for a provided CID. For internal clients only. |
 
 
 ## cloud_registration_aws_create_account
@@ -31,7 +31,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({organization_id: 'organization_id_example'})]}) # RestAWSAccountCreateRequestExtv1 | 
 
 begin
@@ -39,7 +39,7 @@ begin
   result = api_instance.cloud_registration_aws_create_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_create_account: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_create_account: #{e}"
 end
 ```
 
@@ -57,7 +57,7 @@ begin
   p headers # => { ... }
   p data # => <RestAWSAccountCreateResponseExtV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_create_account_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_create_account_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 opts = {
   ids: ['inner_example'], # Array<String> | AWS account IDs to remove
   organization_ids: ['inner_example'] # Array<String> | AWS organization IDs to remove
@@ -111,7 +111,7 @@ begin
   result = api_instance.cloud_registration_aws_delete_account(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_delete_account: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_delete_account: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_delete_account_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_delete_account_with_http_info: #{e}"
 end
 ```
 
@@ -173,7 +173,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 opts = {
   ids: ['inner_example'] # Array<String> | AWS account IDs to filter
 }
@@ -183,7 +183,7 @@ begin
   result = api_instance.cloud_registration_aws_get_accounts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_get_accounts: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_get_accounts: #{e}"
 end
 ```
 
@@ -201,7 +201,7 @@ begin
   p headers # => { ... }
   p data # => <RestAWSAccountCreateResponseExtV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_get_accounts_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_get_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -244,7 +244,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 products = ['inner_example'] # Array<String> | Products registered for an account
 features = ['inner_example'] # Array<String> | Features registered for an account
 opts = {
@@ -260,7 +260,7 @@ begin
   result = api_instance.cloud_registration_aws_query_accounts(products, features, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_query_accounts: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_query_accounts: #{e}"
 end
 ```
 
@@ -278,7 +278,7 @@ begin
   p headers # => { ... }
   p data # => <RestAWSAccountCreateResponseExtV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_query_accounts_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_query_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -327,7 +327,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({organization_id: 'organization_id_example'})]}) # RestAWSAccountCreateRequestExtv1 | 
 
 begin
@@ -335,7 +335,7 @@ begin
   result = api_instance.cloud_registration_aws_update_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_update_account: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_update_account: #{e}"
 end
 ```
 
@@ -353,7 +353,7 @@ begin
   p headers # => { ... }
   p data # => <RestAWSAccountCreateResponseExtV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_update_account_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_update_account_with_http_info: #{e}"
 end
 ```
 
@@ -396,7 +396,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DefaultApi.new
+api_instance = Falcon::Default.new
 products = 'products_example' # String | Product registered for an account
 feature = ['inner_example'] # Array<String> | Features registered for an account
 opts = {
@@ -409,7 +409,7 @@ begin
   result = api_instance.cloud_registration_aws_validate_accounts(products, feature, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_validate_accounts: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_validate_accounts: #{e}"
 end
 ```
 
@@ -427,7 +427,7 @@ begin
   p headers # => { ... }
   p data # => <RestAWSAccountValidationResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DefaultApi->cloud_registration_aws_validate_accounts_with_http_info: #{e}"
+  puts "Error when calling Default->cloud_registration_aws_validate_accounts_with_http_info: #{e}"
 end
 ```
 

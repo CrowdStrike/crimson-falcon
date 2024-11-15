@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DefaultApi
+  class Default
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_create_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_create_account ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_create_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DefaultApi.cloud_registration_aws_create_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.cloud_registration_aws_create_account"
       end
       # resource path
       local_var_path = '/cloud-security-registration-aws/entities/account/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_create_account",
+        :operation => :"Default.cloud_registration_aws_create_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_create_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_create_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,7 +119,7 @@ module Falcon
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def cloud_registration_aws_delete_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_delete_account ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_delete_account ...'
       end
       # resource path
       local_var_path = '/cloud-security-registration-aws/entities/account/v1'
@@ -147,7 +147,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_delete_account",
+        :operation => :"Default.cloud_registration_aws_delete_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -158,7 +158,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_delete_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_delete_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -178,7 +178,7 @@ module Falcon
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_get_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_get_accounts ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_get_accounts ...'
       end
       # resource path
       local_var_path = '/cloud-security-registration-aws/entities/account/v1'
@@ -205,7 +205,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_get_accounts",
+        :operation => :"Default.cloud_registration_aws_get_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -216,7 +216,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -248,26 +248,26 @@ module Falcon
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_query_accounts_with_http_info(products, features, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_query_accounts ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_query_accounts ...'
       end
       # verify the required parameter 'products' is set
       if @api_client.config.client_side_validation && products.nil?
-        fail ArgumentError, "Missing the required parameter 'products' when calling DefaultApi.cloud_registration_aws_query_accounts"
+        fail ArgumentError, "Missing the required parameter 'products' when calling Default.cloud_registration_aws_query_accounts"
       end
       # verify the required parameter 'features' is set
       if @api_client.config.client_side_validation && features.nil?
-        fail ArgumentError, "Missing the required parameter 'features' when calling DefaultApi.cloud_registration_aws_query_accounts"
+        fail ArgumentError, "Missing the required parameter 'features' when calling Default.cloud_registration_aws_query_accounts"
       end
       allowable_values = ["provisioned", "operational"]
       if @api_client.config.client_side_validation && opts[:'account_status'] && !allowable_values.include?(opts[:'account_status'])
         fail ArgumentError, "invalid value for \"account_status\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.cloud_registration_aws_query_accounts, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Default.cloud_registration_aws_query_accounts, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.cloud_registration_aws_query_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Default.cloud_registration_aws_query_accounts, must be greater than or equal to 0.'
       end
 
       allowable_values = ["organization"]
@@ -305,7 +305,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_query_accounts",
+        :operation => :"Default.cloud_registration_aws_query_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -316,7 +316,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_query_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_query_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -336,11 +336,11 @@ module Falcon
     # @return [Array<(RestAWSAccountCreateResponseExtV1, Integer, Hash)>] RestAWSAccountCreateResponseExtV1 data, response status code and response headers
     def cloud_registration_aws_update_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_update_account ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_update_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DefaultApi.cloud_registration_aws_update_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.cloud_registration_aws_update_account"
       end
       # resource path
       local_var_path = '/cloud-security-registration-aws/entities/account/v1'
@@ -371,7 +371,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_update_account",
+        :operation => :"Default.cloud_registration_aws_update_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -382,7 +382,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_update_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -408,24 +408,24 @@ module Falcon
     # @return [Array<(RestAWSAccountValidationResponse, Integer, Hash)>] RestAWSAccountValidationResponse data, response status code and response headers
     def cloud_registration_aws_validate_accounts_with_http_info(products, feature, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DefaultApi.cloud_registration_aws_validate_accounts ...'
+        @api_client.config.logger.debug 'Calling API: Default.cloud_registration_aws_validate_accounts ...'
       end
       # verify the required parameter 'products' is set
       if @api_client.config.client_side_validation && products.nil?
-        fail ArgumentError, "Missing the required parameter 'products' when calling DefaultApi.cloud_registration_aws_validate_accounts"
+        fail ArgumentError, "Missing the required parameter 'products' when calling Default.cloud_registration_aws_validate_accounts"
       end
       # verify the required parameter 'feature' is set
       if @api_client.config.client_side_validation && feature.nil?
-        fail ArgumentError, "Missing the required parameter 'feature' when calling DefaultApi.cloud_registration_aws_validate_accounts"
+        fail ArgumentError, "Missing the required parameter 'feature' when calling Default.cloud_registration_aws_validate_accounts"
       end
       pattern = Regexp.new(/^\d{12}$/)
       if @api_client.config.client_side_validation && !opts[:'account_id'].nil? && opts[:'account_id'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"account_id\"]' when calling DefaultApi.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"account_id\"]' when calling Default.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
       end
 
       pattern = Regexp.new(/^arn:aws:iam::\d{12}:role\/.+/)
       if @api_client.config.client_side_validation && !opts[:'iam_role_arn'].nil? && opts[:'iam_role_arn'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"iam_role_arn\"]' when calling DefaultApi.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"iam_role_arn\"]' when calling Default.cloud_registration_aws_validate_accounts, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -456,7 +456,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DefaultApi.cloud_registration_aws_validate_accounts",
+        :operation => :"Default.cloud_registration_aws_validate_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -467,7 +467,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#cloud_registration_aws_validate_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Default#cloud_registration_aws_validate_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

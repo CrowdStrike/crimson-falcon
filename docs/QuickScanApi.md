@@ -1,13 +1,13 @@
-# Falcon::QuickScanApi
+# Falcon::QuickScan
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_scans**](QuickScanApi.md#get_scans) | **GET** /scanner/entities/scans/v1 | Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
-| [**get_scans_aggregates**](QuickScanApi.md#get_scans_aggregates) | **POST** /scanner/aggregates/scans/GET/v1 | Get scans aggregations as specified via json in request body. |
-| [**query_submissions**](QuickScanApi.md#query_submissions) | **GET** /scanner/queries/scans/v1 | Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria. |
-| [**scan_samples**](QuickScanApi.md#scan_samples) | **POST** /scanner/entities/scans/v1 | Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
+| [**get_scans**](QuickScan.md#get_scans) | **GET** /scanner/entities/scans/v1 | Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
+| [**get_scans_aggregates**](QuickScan.md#get_scans_aggregates) | **POST** /scanner/aggregates/scans/GET/v1 | Get scans aggregations as specified via json in request body. |
+| [**query_submissions**](QuickScan.md#query_submissions) | **GET** /scanner/queries/scans/v1 | Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria. |
+| [**scan_samples**](QuickScan.md#scan_samples) | **POST** /scanner/entities/scans/v1 | Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
 
 
 ## get_scans
@@ -29,7 +29,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanApi.new
+api_instance = Falcon::QuickScan.new
 ids = ['inner_example'] # Array<String> | ID of a submitted scan
 
 begin
@@ -37,7 +37,7 @@ begin
   result = api_instance.get_scans(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->get_scans: #{e}"
+  puts "Error when calling QuickScan->get_scans: #{e}"
 end
 ```
 
@@ -55,7 +55,7 @@ begin
   p headers # => { ... }
   p data # => <MlscannerapiScanV1Response>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->get_scans_with_http_info: #{e}"
+  puts "Error when calling QuickScan->get_scans_with_http_info: #{e}"
 end
 ```
 
@@ -98,14 +98,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanApi.new
+api_instance = Falcon::QuickScan.new
 body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
 
 begin
   # Get scans aggregations as specified via json in request body.
   api_instance.get_scans_aggregates(body)
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->get_scans_aggregates: #{e}"
+  puts "Error when calling QuickScan->get_scans_aggregates: #{e}"
 end
 ```
 
@@ -123,7 +123,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->get_scans_aggregates_with_http_info: #{e}"
+  puts "Error when calling QuickScan->get_scans_aggregates_with_http_info: #{e}"
 end
 ```
 
@@ -166,7 +166,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanApi.new
+api_instance = Falcon::QuickScan.new
 opts = {
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   offset: 'offset_example', # String | The offset to start retrieving submissions from.
@@ -179,7 +179,7 @@ begin
   result = api_instance.query_submissions(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->query_submissions: #{e}"
+  puts "Error when calling QuickScan->query_submissions: #{e}"
 end
 ```
 
@@ -197,7 +197,7 @@ begin
   p headers # => { ... }
   p data # => <MlscannerapiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->query_submissions_with_http_info: #{e}"
+  puts "Error when calling QuickScan->query_submissions_with_http_info: #{e}"
 end
 ```
 
@@ -243,7 +243,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::QuickScanApi.new
+api_instance = Falcon::QuickScan.new
 body = Falcon::MlscannerapiSamplesScanParameters.new({samples: ['samples_example']}) # MlscannerapiSamplesScanParameters | Submit a batch of SHA256s for ml scanning. The samples must have been previously uploaded through `/samples/entities/samples/v3`
 
 begin
@@ -251,7 +251,7 @@ begin
   result = api_instance.scan_samples(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->scan_samples: #{e}"
+  puts "Error when calling QuickScan->scan_samples: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ begin
   p headers # => { ... }
   p data # => <MlscannerapiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScanApi->scan_samples_with_http_info: #{e}"
+  puts "Error when calling QuickScan->scan_samples_with_http_info: #{e}"
 end
 ```
 

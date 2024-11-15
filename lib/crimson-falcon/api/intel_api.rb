@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IntelApi
+  class Intel
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,11 +53,11 @@ module Falcon
     # @return [Array<(DomainActorsResponse, Integer, Hash)>] DomainActorsResponse data, response status code and response headers
     def get_intel_actor_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_actor_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_actor_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.get_intel_actor_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Intel.get_intel_actor_entities"
       end
       # resource path
       local_var_path = '/intel/entities/actors/v1'
@@ -85,7 +85,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_actor_entities",
+        :operation => :"Intel.get_intel_actor_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -96,7 +96,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_actor_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_actor_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -116,11 +116,11 @@ module Falcon
     # @return [Array<(DomainPublicIndicatorsV3Response, Integer, Hash)>] DomainPublicIndicatorsV3Response data, response status code and response headers
     def get_intel_indicator_entities_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_indicator_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_indicator_entities ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IntelApi.get_intel_indicator_entities"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Intel.get_intel_indicator_entities"
       end
       # resource path
       local_var_path = '/intel/entities/indicators/GET/v1'
@@ -151,7 +151,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_indicator_entities",
+        :operation => :"Intel.get_intel_indicator_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -162,7 +162,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -184,11 +184,11 @@ module Falcon
     # @return [Array<(DomainNewsResponse, Integer, Hash)>] DomainNewsResponse data, response status code and response headers
     def get_intel_report_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_report_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_report_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.get_intel_report_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Intel.get_intel_report_entities"
       end
       # resource path
       local_var_path = '/intel/entities/reports/v1'
@@ -216,7 +216,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_report_entities",
+        :operation => :"Intel.get_intel_report_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -227,7 +227,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_report_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_report_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,7 +249,7 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_intel_report_pdf_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_report_pdf ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_report_pdf ...'
       end
       # resource path
       local_var_path = '/intel/entities/report-files/v1'
@@ -277,7 +277,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_report_pdf",
+        :operation => :"Intel.get_intel_report_pdf",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -288,7 +288,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_report_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_report_pdf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -308,11 +308,11 @@ module Falcon
     # @return [Array<(DomainRulesResponse, Integer, Hash)>] DomainRulesResponse data, response status code and response headers
     def get_intel_rule_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_rule_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_rule_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.get_intel_rule_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Intel.get_intel_rule_entities"
       end
       # resource path
       local_var_path = '/intel/entities/rules/v1'
@@ -339,7 +339,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_rule_entities",
+        :operation => :"Intel.get_intel_rule_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -350,7 +350,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_rule_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_rule_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -374,11 +374,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_intel_rule_file_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_rule_file ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_intel_rule_file ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling IntelApi.get_intel_rule_file"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Intel.get_intel_rule_file"
       end
       # resource path
       local_var_path = '/intel/entities/rules-files/v1'
@@ -407,7 +407,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_intel_rule_file",
+        :operation => :"Intel.get_intel_rule_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -418,7 +418,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_intel_rule_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_intel_rule_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -448,11 +448,11 @@ module Falcon
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_latest_intel_rule_file_with_http_info(type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_latest_intel_rule_file ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_latest_intel_rule_file ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling IntelApi.get_latest_intel_rule_file"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Intel.get_latest_intel_rule_file"
       end
       # resource path
       local_var_path = '/intel/entities/rules-latest-files/v1'
@@ -484,7 +484,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_latest_intel_rule_file",
+        :operation => :"Intel.get_latest_intel_rule_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -495,7 +495,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_latest_intel_rule_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_latest_intel_rule_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -515,11 +515,11 @@ module Falcon
     # @return [Array<(DomainMalwareResponse, Integer, Hash)>] DomainMalwareResponse data, response status code and response headers
     def get_malware_entities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_malware_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_malware_entities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.get_malware_entities"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Intel.get_malware_entities"
       end
       # resource path
       local_var_path = '/intel/entities/malware/v1'
@@ -546,7 +546,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_malware_entities",
+        :operation => :"Intel.get_malware_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -557,7 +557,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_malware_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_malware_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -581,15 +581,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_malware_mitre_report_with_http_info(id, format, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_malware_mitre_report ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_malware_mitre_report ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling IntelApi.get_malware_mitre_report"
+        fail ArgumentError, "Missing the required parameter 'id' when calling Intel.get_malware_mitre_report"
       end
       # verify the required parameter 'format' is set
       if @api_client.config.client_side_validation && format.nil?
-        fail ArgumentError, "Missing the required parameter 'format' when calling IntelApi.get_malware_mitre_report"
+        fail ArgumentError, "Missing the required parameter 'format' when calling Intel.get_malware_mitre_report"
       end
       # resource path
       local_var_path = '/intel/entities/malware-mitre-reports/v1'
@@ -618,7 +618,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_malware_mitre_report",
+        :operation => :"Intel.get_malware_mitre_report",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -629,7 +629,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_malware_mitre_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_malware_mitre_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -651,15 +651,15 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_mitre_report_with_http_info(actor_id, format, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_mitre_report ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_mitre_report ...'
       end
       # verify the required parameter 'actor_id' is set
       if @api_client.config.client_side_validation && actor_id.nil?
-        fail ArgumentError, "Missing the required parameter 'actor_id' when calling IntelApi.get_mitre_report"
+        fail ArgumentError, "Missing the required parameter 'actor_id' when calling Intel.get_mitre_report"
       end
       # verify the required parameter 'format' is set
       if @api_client.config.client_side_validation && format.nil?
-        fail ArgumentError, "Missing the required parameter 'format' when calling IntelApi.get_mitre_report"
+        fail ArgumentError, "Missing the required parameter 'format' when calling Intel.get_mitre_report"
       end
       # resource path
       local_var_path = '/intel/entities/mitre-reports/v1'
@@ -687,7 +687,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_mitre_report",
+        :operation => :"Intel.get_mitre_report",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -698,7 +698,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_mitre_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_mitre_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -718,11 +718,11 @@ module Falcon
     # @return [Array<(DomainVulnerabilityResponse, Integer, Hash)>] DomainVulnerabilityResponse data, response status code and response headers
     def get_vulnerabilities_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.get_vulnerabilities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.get_vulnerabilities ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IntelApi.get_vulnerabilities"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Intel.get_vulnerabilities"
       end
       # resource path
       local_var_path = '/intel/entities/vulnerabilities/GET/v1'
@@ -753,7 +753,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.get_vulnerabilities",
+        :operation => :"Intel.get_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -764,7 +764,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#get_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#get_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -784,11 +784,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def post_mitre_attacks_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.post_mitre_attacks ...'
+        @api_client.config.logger.debug 'Calling API: Intel.post_mitre_attacks ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IntelApi.post_mitre_attacks"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Intel.post_mitre_attacks"
       end
       # resource path
       local_var_path = '/intel/entities/mitre/v1'
@@ -819,7 +819,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.post_mitre_attacks",
+        :operation => :"Intel.post_mitre_attacks",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -830,7 +830,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#post_mitre_attacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#post_mitre_attacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -860,7 +860,7 @@ module Falcon
     # @return [Array<(DomainActorsResponse, Integer, Hash)>] DomainActorsResponse data, response status code and response headers
     def query_intel_actor_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_actor_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_actor_entities ...'
       end
       # resource path
       local_var_path = '/intel/combined/actors/v1'
@@ -892,7 +892,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_actor_entities",
+        :operation => :"Intel.query_intel_actor_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -903,7 +903,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_actor_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_actor_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -931,7 +931,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_intel_actor_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_actor_ids ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_actor_ids ...'
       end
       # resource path
       local_var_path = '/intel/queries/actors/v1'
@@ -962,7 +962,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_actor_ids",
+        :operation => :"Intel.query_intel_actor_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -973,7 +973,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_actor_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_actor_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1005,7 +1005,7 @@ module Falcon
     # @return [Array<(DomainPublicIndicatorsV3Response, Integer, Hash)>] DomainPublicIndicatorsV3Response data, response status code and response headers
     def query_intel_indicator_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_indicator_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_indicator_entities ...'
       end
       # resource path
       local_var_path = '/intel/combined/indicators/v1'
@@ -1038,7 +1038,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_indicator_entities",
+        :operation => :"Intel.query_intel_indicator_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1049,7 +1049,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_indicator_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1081,7 +1081,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_intel_indicator_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_indicator_ids ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_indicator_ids ...'
       end
       # resource path
       local_var_path = '/intel/queries/indicators/v1'
@@ -1114,7 +1114,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_indicator_ids",
+        :operation => :"Intel.query_intel_indicator_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1125,7 +1125,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_indicator_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_indicator_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1155,7 +1155,7 @@ module Falcon
     # @return [Array<(DomainNewsResponse, Integer, Hash)>] DomainNewsResponse data, response status code and response headers
     def query_intel_report_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_report_entities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_report_entities ...'
       end
       # resource path
       local_var_path = '/intel/combined/reports/v1'
@@ -1187,7 +1187,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_report_entities",
+        :operation => :"Intel.query_intel_report_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1198,7 +1198,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_report_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_report_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1226,7 +1226,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_intel_report_ids_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_report_ids ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_report_ids ...'
       end
       # resource path
       local_var_path = '/intel/queries/reports/v1'
@@ -1257,7 +1257,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_report_ids",
+        :operation => :"Intel.query_intel_report_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1268,7 +1268,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_report_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_report_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1306,11 +1306,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_intel_rule_ids_with_http_info(type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_intel_rule_ids ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_intel_rule_ids ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling IntelApi.query_intel_rule_ids"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Intel.query_intel_rule_ids"
       end
       # resource path
       local_var_path = '/intel/queries/rules/v1'
@@ -1346,7 +1346,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_intel_rule_ids",
+        :operation => :"Intel.query_intel_rule_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1357,7 +1357,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_intel_rule_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_intel_rule_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1385,7 +1385,7 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_malware_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_malware ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_malware ...'
       end
       # resource path
       local_var_path = '/intel/queries/malware/v1'
@@ -1416,7 +1416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_malware",
+        :operation => :"Intel.query_malware",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1427,7 +1427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1449,7 +1449,7 @@ module Falcon
     # @return [Array<(DomainQueryMitreAttacksResponse, Integer, Hash)>] DomainQueryMitreAttacksResponse data, response status code and response headers
     def query_mitre_attacks_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_mitre_attacks ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_mitre_attacks ...'
       end
       # resource path
       local_var_path = '/intel/queries/mitre/v1'
@@ -1477,7 +1477,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_mitre_attacks",
+        :operation => :"Intel.query_mitre_attacks",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1488,7 +1488,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_mitre_attacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_mitre_attacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1508,11 +1508,11 @@ module Falcon
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_mitre_attacks_for_malware_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_mitre_attacks_for_malware ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_mitre_attacks_for_malware ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.query_mitre_attacks_for_malware"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Intel.query_mitre_attacks_for_malware"
       end
       # resource path
       local_var_path = '/intel/queries/mitre-malware/v1'
@@ -1539,7 +1539,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_mitre_attacks_for_malware",
+        :operation => :"Intel.query_mitre_attacks_for_malware",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1550,7 +1550,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_mitre_attacks_for_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_mitre_attacks_for_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1578,7 +1578,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_vulnerabilities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelApi.query_vulnerabilities ...'
+        @api_client.config.logger.debug 'Calling API: Intel.query_vulnerabilities ...'
       end
       # resource path
       local_var_path = '/intel/queries/vulnerabilities/v1'
@@ -1609,7 +1609,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelApi.query_vulnerabilities",
+        :operation => :"Intel.query_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1620,7 +1620,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelApi#query_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Intel#query_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

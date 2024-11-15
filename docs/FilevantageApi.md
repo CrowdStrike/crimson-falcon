@@ -1,40 +1,40 @@
-# Falcon::FilevantageApi
+# Falcon::Filevantage
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_policies_0**](FilevantageApi.md#create_policies_0) | **POST** /filevantage/entities/policies/v1 | Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type. |
-| [**create_rule_groups**](FilevantageApi.md#create_rule_groups) | **POST** /filevantage/entities/rule-groups/v1 | Creates a new rule group of the specified type. |
-| [**create_rules**](FilevantageApi.md#create_rules) | **POST** /filevantage/entities/rule-groups-rules/v1 | Creates a new rule configuration within the specified rule group. |
-| [**create_scheduled_exclusions**](FilevantageApi.md#create_scheduled_exclusions) | **POST** /filevantage/entities/policy-scheduled-exclusions/v1 | Creates a new scheduled exclusion configuration for the provided policy id. |
-| [**delete_policies**](FilevantageApi.md#delete_policies) | **DELETE** /filevantage/entities/policies/v1 | Deletes 1 or more policies. |
-| [**delete_rule_groups**](FilevantageApi.md#delete_rule_groups) | **DELETE** /filevantage/entities/rule-groups/v1 | Deletes 1 or more rule groups  |
-| [**delete_rules**](FilevantageApi.md#delete_rules) | **DELETE** /filevantage/entities/rule-groups-rules/v1 | Deletes 1 or more rules from the specified rule group. |
-| [**delete_scheduled_exclusions**](FilevantageApi.md#delete_scheduled_exclusions) | **DELETE** /filevantage/entities/policy-scheduled-exclusions/v1 | Deletes 1 or more scheduled exclusions from the provided policy id. |
-| [**get_actions_mixin0**](FilevantageApi.md#get_actions_mixin0) | **GET** /filevantage/entities/actions/v1 | Retrieves the processing results for 1 or more actions. |
-| [**get_changes**](FilevantageApi.md#get_changes) | **GET** /filevantage/entities/changes/v2 | Retrieve information on changes |
-| [**get_contents**](FilevantageApi.md#get_contents) | **GET** /filevantage/entities/change-content/v1 | Retrieves the content captured for the provided change id |
-| [**get_policies**](FilevantageApi.md#get_policies) | **GET** /filevantage/entities/policies/v1 | Retrieves the configuration for 1 or more policies. |
-| [**get_rule_groups**](FilevantageApi.md#get_rule_groups) | **GET** /filevantage/entities/rule-groups/v1 | Retrieves the rule group details for 1 or more rule groups. |
-| [**get_rules**](FilevantageApi.md#get_rules) | **GET** /filevantage/entities/rule-groups-rules/v1 | Retrieves the configuration for 1 or more rules. |
-| [**get_scheduled_exclusions**](FilevantageApi.md#get_scheduled_exclusions) | **GET** /filevantage/entities/policy-scheduled-exclusions/v1 | Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id. |
-| [**high_volume_query_changes**](FilevantageApi.md#high_volume_query_changes) | **GET** /filevantage/queries/changes/v3 | Returns 1 or more change ids |
-| [**query_actions_mixin0**](FilevantageApi.md#query_actions_mixin0) | **GET** /filevantage/queries/actions/v1 | Returns one or more action ids |
-| [**query_changes**](FilevantageApi.md#query_changes) | **GET** /filevantage/queries/changes/v2 | Returns 1 or more change ids |
-| [**query_policies**](FilevantageApi.md#query_policies) | **GET** /filevantage/queries/policies/v1 | Retrieve the ids of all policies that are assigned the provided policy type. |
-| [**query_rule_groups**](FilevantageApi.md#query_rule_groups) | **GET** /filevantage/queries/rule-groups/v1 | Retrieve the ids of all rule groups that are of the provided rule group type. |
-| [**query_scheduled_exclusions**](FilevantageApi.md#query_scheduled_exclusions) | **GET** /filevantage/queries/policy-scheduled-exclusions/v1 | Retrieve the ids of all scheduled exclusions contained within the provided policy id. |
-| [**signal_changes_external**](FilevantageApi.md#signal_changes_external) | **POST** /filevantage/entities/workflow/v1 | Initiates workflows for the provided change ids |
-| [**start_actions**](FilevantageApi.md#start_actions) | **POST** /filevantage/entities/actions/v1 | Initiates the specified action on the provided change ids |
-| [**update_policies_0**](FilevantageApi.md#update_policies_0) | **PATCH** /filevantage/entities/policies/v1 | Updates the general information of the provided policy. |
-| [**update_policy_host_groups**](FilevantageApi.md#update_policy_host_groups) | **PATCH** /filevantage/entities/policies-host-groups/v1 | Manage host groups assigned to a policy. |
-| [**update_policy_precedence_0**](FilevantageApi.md#update_policy_precedence_0) | **PATCH** /filevantage/entities/policies-precedence/v1 | Updates the policy precedence for all policies of a specific type. |
-| [**update_policy_rule_groups**](FilevantageApi.md#update_policy_rule_groups) | **PATCH** /filevantage/entities/policies-rule-groups/v1 | Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy. |
-| [**update_rule_group_precedence**](FilevantageApi.md#update_rule_group_precedence) | **PATCH** /filevantage/entities/rule-groups-rule-precedence/v1 | Updates the rule precedence for all rules in the identified rule group. |
-| [**update_rule_groups**](FilevantageApi.md#update_rule_groups) | **PATCH** /filevantage/entities/rule-groups/v1 | Updates the provided rule group. |
-| [**update_rules**](FilevantageApi.md#update_rules) | **PATCH** /filevantage/entities/rule-groups-rules/v1 | Updates the provided rule configuration within the specified rule group. |
-| [**update_scheduled_exclusions**](FilevantageApi.md#update_scheduled_exclusions) | **PATCH** /filevantage/entities/policy-scheduled-exclusions/v1 | Updates the provided scheduled exclusion configuration within the provided policy. |
+| [**create_policies_0**](Filevantage.md#create_policies_0) | **POST** /filevantage/entities/policies/v1 | Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type. |
+| [**create_rule_groups**](Filevantage.md#create_rule_groups) | **POST** /filevantage/entities/rule-groups/v1 | Creates a new rule group of the specified type. |
+| [**create_rules**](Filevantage.md#create_rules) | **POST** /filevantage/entities/rule-groups-rules/v1 | Creates a new rule configuration within the specified rule group. |
+| [**create_scheduled_exclusions**](Filevantage.md#create_scheduled_exclusions) | **POST** /filevantage/entities/policy-scheduled-exclusions/v1 | Creates a new scheduled exclusion configuration for the provided policy id. |
+| [**delete_policies**](Filevantage.md#delete_policies) | **DELETE** /filevantage/entities/policies/v1 | Deletes 1 or more policies. |
+| [**delete_rule_groups**](Filevantage.md#delete_rule_groups) | **DELETE** /filevantage/entities/rule-groups/v1 | Deletes 1 or more rule groups  |
+| [**delete_rules**](Filevantage.md#delete_rules) | **DELETE** /filevantage/entities/rule-groups-rules/v1 | Deletes 1 or more rules from the specified rule group. |
+| [**delete_scheduled_exclusions**](Filevantage.md#delete_scheduled_exclusions) | **DELETE** /filevantage/entities/policy-scheduled-exclusions/v1 | Deletes 1 or more scheduled exclusions from the provided policy id. |
+| [**get_actions_mixin0**](Filevantage.md#get_actions_mixin0) | **GET** /filevantage/entities/actions/v1 | Retrieves the processing results for 1 or more actions. |
+| [**get_changes**](Filevantage.md#get_changes) | **GET** /filevantage/entities/changes/v2 | Retrieve information on changes |
+| [**get_contents**](Filevantage.md#get_contents) | **GET** /filevantage/entities/change-content/v1 | Retrieves the content captured for the provided change id |
+| [**get_policies**](Filevantage.md#get_policies) | **GET** /filevantage/entities/policies/v1 | Retrieves the configuration for 1 or more policies. |
+| [**get_rule_groups**](Filevantage.md#get_rule_groups) | **GET** /filevantage/entities/rule-groups/v1 | Retrieves the rule group details for 1 or more rule groups. |
+| [**get_rules**](Filevantage.md#get_rules) | **GET** /filevantage/entities/rule-groups-rules/v1 | Retrieves the configuration for 1 or more rules. |
+| [**get_scheduled_exclusions**](Filevantage.md#get_scheduled_exclusions) | **GET** /filevantage/entities/policy-scheduled-exclusions/v1 | Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id. |
+| [**high_volume_query_changes**](Filevantage.md#high_volume_query_changes) | **GET** /filevantage/queries/changes/v3 | Returns 1 or more change ids |
+| [**query_actions_mixin0**](Filevantage.md#query_actions_mixin0) | **GET** /filevantage/queries/actions/v1 | Returns one or more action ids |
+| [**query_changes**](Filevantage.md#query_changes) | **GET** /filevantage/queries/changes/v2 | Returns 1 or more change ids |
+| [**query_policies**](Filevantage.md#query_policies) | **GET** /filevantage/queries/policies/v1 | Retrieve the ids of all policies that are assigned the provided policy type. |
+| [**query_rule_groups**](Filevantage.md#query_rule_groups) | **GET** /filevantage/queries/rule-groups/v1 | Retrieve the ids of all rule groups that are of the provided rule group type. |
+| [**query_scheduled_exclusions**](Filevantage.md#query_scheduled_exclusions) | **GET** /filevantage/queries/policy-scheduled-exclusions/v1 | Retrieve the ids of all scheduled exclusions contained within the provided policy id. |
+| [**signal_changes_external**](Filevantage.md#signal_changes_external) | **POST** /filevantage/entities/workflow/v1 | Initiates workflows for the provided change ids |
+| [**start_actions**](Filevantage.md#start_actions) | **POST** /filevantage/entities/actions/v1 | Initiates the specified action on the provided change ids |
+| [**update_policies_0**](Filevantage.md#update_policies_0) | **PATCH** /filevantage/entities/policies/v1 | Updates the general information of the provided policy. |
+| [**update_policy_host_groups**](Filevantage.md#update_policy_host_groups) | **PATCH** /filevantage/entities/policies-host-groups/v1 | Manage host groups assigned to a policy. |
+| [**update_policy_precedence_0**](Filevantage.md#update_policy_precedence_0) | **PATCH** /filevantage/entities/policies-precedence/v1 | Updates the policy precedence for all policies of a specific type. |
+| [**update_policy_rule_groups**](Filevantage.md#update_policy_rule_groups) | **PATCH** /filevantage/entities/policies-rule-groups/v1 | Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy. |
+| [**update_rule_group_precedence**](Filevantage.md#update_rule_group_precedence) | **PATCH** /filevantage/entities/rule-groups-rule-precedence/v1 | Updates the rule precedence for all rules in the identified rule group. |
+| [**update_rule_groups**](Filevantage.md#update_rule_groups) | **PATCH** /filevantage/entities/rule-groups/v1 | Updates the provided rule group. |
+| [**update_rules**](Filevantage.md#update_rules) | **PATCH** /filevantage/entities/rule-groups-rules/v1 | Updates the provided rule configuration within the specified rule group. |
+| [**update_scheduled_exclusions**](Filevantage.md#update_scheduled_exclusions) | **PATCH** /filevantage/entities/policy-scheduled-exclusions/v1 | Updates the provided scheduled exclusion configuration within the provided policy. |
 
 
 ## create_policies_0
@@ -58,7 +58,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::PoliciesCreateRequest.new({name: 'name_example'}) # PoliciesCreateRequest | Create a new policy.   * `name` must be between 1 and 100 characters.   * `description` can be between 0 and 500 characters.   * `platform` must be one of `Windows`, `Linux`, or `Mac`   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
 
 begin
@@ -66,7 +66,7 @@ begin
   result = api_instance.create_policies_0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_policies_0: #{e}"
+  puts "Error when calling Filevantage->create_policies_0: #{e}"
 end
 ```
 
@@ -84,7 +84,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_policies_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->create_policies_0_with_http_info: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::RulegroupsCreateRequest.new({name: 'name_example', type: 'type_example'}) # RulegroupsCreateRequest | Create a new rule group of a specific type.   * `name` must be between 1 and 100 characters.   * `type` must be one of `WindowsFiles`, `WindowsRegistry`, `LinuxFiles` or `MacFiles`.   * `description` can be between 0 and 500 characters.   Note: rules are added/removed from rule groups using their dedicated end-points.
 
 begin
@@ -137,7 +137,7 @@ begin
   result = api_instance.create_rule_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_rule_groups: #{e}"
+  puts "Error when calling Filevantage->create_rule_groups: #{e}"
 end
 ```
 
@@ -155,7 +155,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->create_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -200,7 +200,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::RulegroupsRule.new({depth: 'depth_example', id: 'id_example', include: 'include_example', path: 'path_example', rule_group_id: 'rule_group_id_example', severity: 'severity_example', type: 'type_example'}) # RulegroupsRule | Create a new rule configuration for the specified rule group.   * `id` is not supported for creation of a rule, the new id of the created rule will be included in the response.   * `rule_group_id` to add the new rule configuration.   * `description` can be between 0 and 500 characters.   * `path` representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * `severity` to categorize change events produced by this rule; must be one of: `Low`, `Medium`, `High` or `Critical`   * `depth` below the base path to monitor; must be one of: `1`, `2`, `3`, `4`, `5` or `ANY`   * `precedence` - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * `include` represents the files, directories, registry keys, or registry values that will be monitored.    * `exclude` represents the files, directories, registry keys, or registry values that will `NOT` be monitored.    * `include_users` represents the changes performed by specific users that will be monitored.   * `exclude_users` represents the changes performed by specific users that will `NOT` be monitored.   * `include_processes` represents the changes performed by specific processes that will be monitored.   * `exclude_processes` represents the changes performed by specific processes that will be `NOT` monitored.   * `content_files` represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * `content_registry_values` represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * `enable_content_capture`   * `enable_hash_capture`  File system directory monitoring:   * `watch_delete_directory_changes`   * `watch_create_directory_changes`   * `watch_rename_directory_changes`   * `watch_attributes_directory_changes` (`macOS` is not supported at this time)   * `watch_permissions_directory_changes` (`macOS` is not supported at this time)  File system file monitoring:   * `watch_rename_file_changes`   * `watch_write_file_changes`   * `watch_create_file_changes`   * `watch_delete_file_changes`   * `watch_attributes_file_changes` (`macOS` is not supported at this time)   * `watch_permissions_file_changes` (`macOS` is not supported at this time)  Windows registry key and value monitoring:    * `watch_create_key_changes`   * `watch_delete_key_changes`   * `watch_rename_key_changes`   * `watch_set_value_changes`   * `watch_permissions_key_changes`   * `watch_delete_value_changes`   * `watch_create_file_changes`
 
 begin
@@ -208,7 +208,7 @@ begin
   result = api_instance.create_rules(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_rules: #{e}"
+  puts "Error when calling Filevantage->create_rules: #{e}"
 end
 ```
 
@@ -226,7 +226,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_rules_with_http_info: #{e}"
+  puts "Error when calling Filevantage->create_rules_with_http_info: #{e}"
 end
 ```
 
@@ -271,7 +271,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::ScheduledexclusionsCreateRequest.new({name: 'name_example', timezone: 'timezone_example'}) # ScheduledexclusionsCreateRequest | Create a new scheduled exclusion configuration for the specified policy.      * `policy_id` to add the scheduled exclusion to.   * `name` must be between 1 and 100 characters.   * `description` can be between 0 and 500 characters.   * `users` can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * `processes` can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * `schedule_start` must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * `schedule_end` optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * `timezone`  must be provided to indicate the TimeZone Name set for the provided `scheduled_start` and `scheduled_end` values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * `repeated` optionally provided to indicate that the exclusion is applied repeatedly within the `scheduled_start` and `scheduled_end` time.      * `start_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`      * `end_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`      * `all_day` must be `true` or `false` to indicate the exclusion is applied all day.       * `frequency` must be one of `daily`, `weekly` or `monthly`.       * `occurrence` must be one of the following when `frequency` is set to `monthly`:        * `1st`, `2nd`, `3rd`, `4th` or `Last` represents the week.        * `Days` represents specific calendar days.      * `weekly_days` must be one or more of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` or `Sunday` when `frequency` is set to `weekly` or `frequency` is set to `monthly` and `occurrence` is NOT set to `Days`.       * `monthly_days` must be set to one or more calendar days, between 1 and 31  when `frequency` is set to `monthly` and `occurrence` is set to `Days`. 
 
 begin
@@ -279,7 +279,7 @@ begin
   result = api_instance.create_scheduled_exclusions(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_scheduled_exclusions: #{e}"
+  puts "Error when calling Filevantage->create_scheduled_exclusions: #{e}"
 end
 ```
 
@@ -297,7 +297,7 @@ begin
   p headers # => { ... }
   p data # => <ScheduledexclusionsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->create_scheduled_exclusions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->create_scheduled_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -342,7 +342,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more (up to 500) policy ids in the form of `ids=ID1&ids=ID2`
 
 begin
@@ -350,7 +350,7 @@ begin
   result = api_instance.delete_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_policies: #{e}"
+  puts "Error when calling Filevantage->delete_policies: #{e}"
 end
 ```
 
@@ -368,7 +368,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesDeleteResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_policies_with_http_info: #{e}"
+  puts "Error when calling Filevantage->delete_policies_with_http_info: #{e}"
 end
 ```
 
@@ -413,7 +413,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more (up to 500) rule group ids in the form of `ids=ID1&ids=ID2`
 
 begin
@@ -421,7 +421,7 @@ begin
   result = api_instance.delete_rule_groups(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_rule_groups: #{e}"
+  puts "Error when calling Filevantage->delete_rule_groups: #{e}"
 end
 ```
 
@@ -439,7 +439,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsDeleteResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->delete_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -484,7 +484,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 rule_group_id = 'rule_group_id_example' # String | The id of the rule group from which the rules will be deleted.
 ids = ['inner_example'] # Array<String> | One or more (up to 500) rule ids in the form of `ids=ID1&ids=ID2`
 
@@ -493,7 +493,7 @@ begin
   result = api_instance.delete_rules(rule_group_id, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_rules: #{e}"
+  puts "Error when calling Filevantage->delete_rules: #{e}"
 end
 ```
 
@@ -511,7 +511,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_rules_with_http_info: #{e}"
+  puts "Error when calling Filevantage->delete_rules_with_http_info: #{e}"
 end
 ```
 
@@ -557,7 +557,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 policy_id = 'policy_id_example' # String | ID of the policy to delete the scheduled exclusions from.
 ids = ['inner_example'] # Array<String> | One or more (up to 500) scheduled exclusion ids in the form of `ids=ID1&ids=ID2`.
 
@@ -566,7 +566,7 @@ begin
   result = api_instance.delete_scheduled_exclusions(policy_id, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_scheduled_exclusions: #{e}"
+  puts "Error when calling Filevantage->delete_scheduled_exclusions: #{e}"
 end
 ```
 
@@ -584,7 +584,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->delete_scheduled_exclusions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->delete_scheduled_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -630,7 +630,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more actions ids in the form of `ids=ID1&ids=ID2`
 
 begin
@@ -638,7 +638,7 @@ begin
   result = api_instance.get_actions_mixin0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_actions_mixin0: #{e}"
+  puts "Error when calling Filevantage->get_actions_mixin0: #{e}"
 end
 ```
 
@@ -656,7 +656,7 @@ begin
   p headers # => { ... }
   p data # => <ActionsGetActionResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_actions_mixin0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_actions_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -701,7 +701,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more change ids in the form of `ids=ID1&ids=ID2`. The maximum number of ids that can be requested at once is `500`.
 
 begin
@@ -709,7 +709,7 @@ begin
   result = api_instance.get_changes(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_changes: #{e}"
+  puts "Error when calling Filevantage->get_changes: #{e}"
 end
 ```
 
@@ -727,7 +727,7 @@ begin
   p headers # => { ... }
   p data # => <PublicGetChangesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_changes_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_changes_with_http_info: #{e}"
 end
 ```
 
@@ -772,7 +772,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 id = 'id_example' # String | ID of the change in the form of id=ID1
 opts = {
   accept_encoding: 'accept_encoding_example' # String | Providing the value of `gzip` compresses the response, otherwise the content is returned uncompressed.
@@ -783,7 +783,7 @@ begin
   result = api_instance.get_contents(id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_contents: #{e}"
+  puts "Error when calling Filevantage->get_contents: #{e}"
 end
 ```
 
@@ -801,7 +801,7 @@ begin
   p headers # => { ... }
   p data # => <ContentchangesChangeContentsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_contents_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_contents_with_http_info: #{e}"
 end
 ```
 
@@ -847,7 +847,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more (up to 500) policy ids in the form of `ids=ID1&ids=ID2`
 
 begin
@@ -855,7 +855,7 @@ begin
   result = api_instance.get_policies(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_policies: #{e}"
+  puts "Error when calling Filevantage->get_policies: #{e}"
 end
 ```
 
@@ -873,7 +873,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_policies_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_policies_with_http_info: #{e}"
 end
 ```
 
@@ -918,7 +918,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | One or more (up to 500) rule group ids in the form of `ids=ID1&ids=ID2`
 
 begin
@@ -926,7 +926,7 @@ begin
   result = api_instance.get_rule_groups(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_rule_groups: #{e}"
+  puts "Error when calling Filevantage->get_rule_groups: #{e}"
 end
 ```
 
@@ -944,7 +944,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -989,7 +989,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 rule_group_id = 'rule_group_id_example' # String | Rule group from which to retrieve the rule configuration.
 ids = ['inner_example'] # Array<String> | One or more (up to 500) rule ids in the form of `ids=ID1&ids=ID2`.
 
@@ -998,7 +998,7 @@ begin
   result = api_instance.get_rules(rule_group_id, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_rules: #{e}"
+  puts "Error when calling Filevantage->get_rules: #{e}"
 end
 ```
 
@@ -1016,7 +1016,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_rules_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_rules_with_http_info: #{e}"
 end
 ```
 
@@ -1062,7 +1062,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 policy_id = 'policy_id_example' # String | The id of the policy to retrieve the scheduled exclusion configurations.
 ids = ['inner_example'] # Array<String> | One or more (up to 500) scheduled exclusion ids in the form of `ids=ID1&ids=ID2`.
 
@@ -1071,7 +1071,7 @@ begin
   result = api_instance.get_scheduled_exclusions(policy_id, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_scheduled_exclusions: #{e}"
+  puts "Error when calling Filevantage->get_scheduled_exclusions: #{e}"
 end
 ```
 
@@ -1089,7 +1089,7 @@ begin
   p headers # => { ... }
   p data # => <ScheduledexclusionsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->get_scheduled_exclusions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->get_scheduled_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -1135,7 +1135,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 opts = {
   after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request don't provide a value for the `after` token. On subsequent requests provide the `after` token value from the previous response to continue pagination from where you left. If the response returns an empty `after` token it means there are no more results to return.
   limit: 56, # Integer | The maximum number of ids to return. Defaults to `100` if not specified. The maximum number of results that can be returned in a single call is `5000`.
@@ -1148,7 +1148,7 @@ begin
   result = api_instance.high_volume_query_changes(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->high_volume_query_changes: #{e}"
+  puts "Error when calling Filevantage->high_volume_query_changes: #{e}"
 end
 ```
 
@@ -1166,7 +1166,7 @@ begin
   p headers # => { ... }
   p data # => <ChangesHighVolumeQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->high_volume_query_changes_with_http_info: #{e}"
+  puts "Error when calling Filevantage->high_volume_query_changes_with_http_info: #{e}"
 end
 ```
 
@@ -1214,7 +1214,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 opts = {
   offset: 56, # Integer | The first action index to return in the response. If not provided it will default to '0'. Use with the `limit` parameter to manage pagination of results.
   limit: 56, # Integer | The maximum number of actions to return in the response (default: 100; max: 500). Use with the `offset` parameter to manage pagination of results
@@ -1227,7 +1227,7 @@ begin
   result = api_instance.query_actions_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_actions_mixin0: #{e}"
+  puts "Error when calling Filevantage->query_actions_mixin0: #{e}"
 end
 ```
 
@@ -1245,7 +1245,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_actions_mixin0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->query_actions_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -1293,7 +1293,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from. Defaults to `0` if not specified.
   limit: 56, # Integer | The maximum number of ids to return. Defaults to `100` if not specified. The maximum number of results that can be returned in a single call is `500`.
@@ -1306,7 +1306,7 @@ begin
   result = api_instance.query_changes(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_changes: #{e}"
+  puts "Error when calling Filevantage->query_changes: #{e}"
 end
 ```
 
@@ -1324,7 +1324,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_changes_with_http_info: #{e}"
+  puts "Error when calling Filevantage->query_changes_with_http_info: #{e}"
 end
 ```
 
@@ -1372,7 +1372,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 type = 'type_example' # String | The types of policies to retrieve.   Allowed values are: `Windows`, `Linux` or `Mac`.
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from. Defaults to 0 if not specified.
@@ -1385,7 +1385,7 @@ begin
   result = api_instance.query_policies(type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_policies: #{e}"
+  puts "Error when calling Filevantage->query_policies: #{e}"
 end
 ```
 
@@ -1403,7 +1403,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_policies_with_http_info: #{e}"
+  puts "Error when calling Filevantage->query_policies_with_http_info: #{e}"
 end
 ```
 
@@ -1451,7 +1451,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 type = 'type_example' # String | The rule group type to retrieve the ids of.   Allowed values are: `WindowsFiles`, `WindowsRegistry`, `LinuxFiles` or `MacFiles`.
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from. Defaults to 0 if not specified.
@@ -1464,7 +1464,7 @@ begin
   result = api_instance.query_rule_groups(type, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_rule_groups: #{e}"
+  puts "Error when calling Filevantage->query_rule_groups: #{e}"
 end
 ```
 
@@ -1482,7 +1482,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->query_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -1530,7 +1530,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 policy_id = 'policy_id_example' # String | The id of the policy from which to retrieve the scheduled exclusion ids.
 
 begin
@@ -1538,7 +1538,7 @@ begin
   result = api_instance.query_scheduled_exclusions(policy_id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_scheduled_exclusions: #{e}"
+  puts "Error when calling Filevantage->query_scheduled_exclusions: #{e}"
 end
 ```
 
@@ -1556,7 +1556,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->query_scheduled_exclusions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->query_scheduled_exclusions_with_http_info: #{e}"
 end
 ```
 
@@ -1601,7 +1601,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::WorkflowRequest.new({ids: ['ids_example']}) # WorkflowRequest | Change ids to initiate the workflows; limited to 100 per request.
 
 begin
@@ -1609,7 +1609,7 @@ begin
   result = api_instance.signal_changes_external(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->signal_changes_external: #{e}"
+  puts "Error when calling Filevantage->signal_changes_external: #{e}"
 end
 ```
 
@@ -1627,7 +1627,7 @@ begin
   p headers # => { ... }
   p data # => <WorkflowResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->signal_changes_external_with_http_info: #{e}"
+  puts "Error when calling Filevantage->signal_changes_external_with_http_info: #{e}"
 end
 ```
 
@@ -1672,7 +1672,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::ActionsCreateActionRequest.new({change_ids: ['change_ids_example'], operation: 'operation_example'}) # ActionsCreateActionRequest | Create a new action.   * `operation` must be one of the `suppress`, `unsuppress`, or `purge`   * `change_ids` represent the ids of the changes the operation will perform; limited to 100 ids per action   * `comment` optional comment to describe the reason for the action
 
 begin
@@ -1680,7 +1680,7 @@ begin
   result = api_instance.start_actions(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->start_actions: #{e}"
+  puts "Error when calling Filevantage->start_actions: #{e}"
 end
 ```
 
@@ -1698,7 +1698,7 @@ begin
   p headers # => { ... }
   p data # => <ActionsActionResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->start_actions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->start_actions_with_http_info: #{e}"
 end
 ```
 
@@ -1743,7 +1743,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::PoliciesUpdateRequest.new({id: 'id_example'}) # PoliciesUpdateRequest | Enables updates to the following fields for an existing policy.    * `id` of the policy to update.   * `name` must be between 1 and 100 characters.   * `description` can be between 0 and 500 characters.   * `platform` may not be modified after the policy is created.   * `enabled` must be one of `true` or `false`.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
 
 begin
@@ -1751,7 +1751,7 @@ begin
   result = api_instance.update_policies_0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policies_0: #{e}"
+  puts "Error when calling Filevantage->update_policies_0: #{e}"
 end
 ```
 
@@ -1769,7 +1769,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policies_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policies_0_with_http_info: #{e}"
 end
 ```
 
@@ -1814,7 +1814,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 policy_id = 'policy_id_example' # String | The id of the policy for which to perform the action.
 action = 'action_example' # String | The action to perform with the provided ids, must be one of: `assign` or `unassign`.
 ids = ['inner_example'] # Array<String> | One or more host group ids in the form of `ids=ID1&ids=ID2`
@@ -1824,7 +1824,7 @@ begin
   result = api_instance.update_policy_host_groups(policy_id, action, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_host_groups: #{e}"
+  puts "Error when calling Filevantage->update_policy_host_groups: #{e}"
 end
 ```
 
@@ -1842,7 +1842,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_host_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policy_host_groups_with_http_info: #{e}"
 end
 ```
 
@@ -1889,7 +1889,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 ids = ['inner_example'] # Array<String> | Precedence of the policies for the provided type in the form of `ids=ID1&ids=ID2`
 type = 'type_example' # String | The policy type for which to set the precedence order, must be one of `Windows`, `Linux` or `Mac`.
 
@@ -1898,7 +1898,7 @@ begin
   result = api_instance.update_policy_precedence_0(ids, type)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_precedence_0: #{e}"
+  puts "Error when calling Filevantage->update_policy_precedence_0: #{e}"
 end
 ```
 
@@ -1916,7 +1916,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesPrecedenceResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_precedence_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policy_precedence_0_with_http_info: #{e}"
 end
 ```
 
@@ -1962,7 +1962,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 policy_id = 'policy_id_example' # String | The id of the policy for which to perform the action.
 action = 'action_example' # String | The action to perform with the provided ids, must be one of: `assign`, `unassign`, or `precedence`.
 ids = ['inner_example'] # Array<String> | One or more rule group ids in the form of ids=ID1&ids=ID2. Note, for the precedence action, precedence is controlled by the order of the ids as they are specified in the request.
@@ -1972,7 +1972,7 @@ begin
   result = api_instance.update_policy_rule_groups(policy_id, action, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_rule_groups: #{e}"
+  puts "Error when calling Filevantage->update_policy_rule_groups: #{e}"
 end
 ```
 
@@ -1990,7 +1990,7 @@ begin
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_policy_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policy_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -2037,7 +2037,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 rule_group_id = 'rule_group_id_example' # String | Rule group from which to set the precedence.
 ids = ['inner_example'] # Array<String> | One or more (up to 500) rule group ids in the form of `ids=ID1&ids=ID2`.
 
@@ -2046,7 +2046,7 @@ begin
   result = api_instance.update_rule_group_precedence(rule_group_id, ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rule_group_precedence: #{e}"
+  puts "Error when calling Filevantage->update_rule_group_precedence: #{e}"
 end
 ```
 
@@ -2064,7 +2064,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rule_group_precedence_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_rule_group_precedence_with_http_info: #{e}"
 end
 ```
 
@@ -2110,7 +2110,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::RulegroupsUpdateRequest.new({id: 'id_example', name: 'name_example'}) # RulegroupsUpdateRequest | Enables updates to the following fields for an existing rule group.    * `id` of the rule group to update.   * `name` must be between 1 and 100 characters.   * `description` can be between 0 and 500 characters.   * `type` may not be modified after the rule group is created.   Note: rules are added/removed from rule groups using their dedicated end-points.
 
 begin
@@ -2118,7 +2118,7 @@ begin
   result = api_instance.update_rule_groups(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rule_groups: #{e}"
+  puts "Error when calling Filevantage->update_rule_groups: #{e}"
 end
 ```
 
@@ -2136,7 +2136,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rule_groups_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_rule_groups_with_http_info: #{e}"
 end
 ```
 
@@ -2181,7 +2181,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::RulegroupsRule.new({depth: 'depth_example', id: 'id_example', include: 'include_example', path: 'path_example', rule_group_id: 'rule_group_id_example', severity: 'severity_example', type: 'type_example'}) # RulegroupsRule | Update the rule configuration for the specified rule ID and group.   * `id` of the rule to update.   * `rule_group_id` that contains the rule configuration.   * `description` can be between 0 and 500 characters.   * `path` representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * `severity` to categorize change events produced by this rule; must be one of: `Low`, `Medium`, `High` or `Critical`   * `depth` below the base path to monitor; must be one of: `1`, `2`, `3`, `4`, `5` or `ANY`   * `precedence` is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * `include` represents the files, directories, registry keys, or registry values that will be monitored.    * `exclude` represents the files, directories, registry keys, or registry values that will `NOT` be monitored.    * `include_users` represents the changes performed by specific users that will be monitored.   * `exclude_users` represents the changes performed by specific users that will `NOT` be monitored.   * `include_processes` represents the changes performed by specific processes that will be monitored.   * `exclude_processes` represents the changes performed by specific processes that will be `NOT` monitored.   * `content_files` represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * `content_registry_values` represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * `enable_content_capture`   * `enable_hash_capture`  File system directory monitoring:   * `watch_delete_directory_changes`   * `watch_create_directory_changes`   * `watch_rename_directory_changes`   * `watch_attributes_directory_changes` (`macOS` is not supported at this time)   * `watch_permissions_directory_changes` (`macOS` is not supported at this time)  File system file monitoring:   * `watch_rename_file_changes`   * `watch_write_file_changes`   * `watch_create_file_changes`   * `watch_delete_file_changes`   * `watch_attributes_file_changes` (`macOS` is not supported at this time)   * `watch_permissions_file_changes` (`macOS` is not supported at this time)  Windows registry key and value monitoring:    * `watch_create_key_changes`   * `watch_delete_key_changes`   * `watch_rename_key_changes`   * `watch_set_value_changes`   * `watch_delete_value_changes`   * `watch_create_file_changes`
 
 begin
@@ -2189,7 +2189,7 @@ begin
   result = api_instance.update_rules(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rules: #{e}"
+  puts "Error when calling Filevantage->update_rules: #{e}"
 end
 ```
 
@@ -2207,7 +2207,7 @@ begin
   p headers # => { ... }
   p data # => <RulegroupsRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_rules_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_rules_with_http_info: #{e}"
 end
 ```
 
@@ -2252,7 +2252,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::FilevantageApi.new
+api_instance = Falcon::Filevantage.new
 body = Falcon::ScheduledexclusionsUpdateRequest.new({id: 'id_example', name: 'name_example', timezone: 'timezone_example'}) # ScheduledexclusionsUpdateRequest | Update an existing scheduled exclusion for the specified policy.      * `policy_id` to add the scheduled exclusion to.   * `name` must be between 1 and 100 characters.   * `description` can be between 0 and 500 characters.   * `users` can be between 0 and 500 characters representing a comma separated list of user to exclude their changes.      *  admin* excludes changes made by all usernames that begin with admin. Falon GLOB syntax is supported.   * `processes` can be between 0 and 500 characters representing a comma separated list of processes to exclude their changes.      * **\\RunMe.exe or **/RunMe.sh excludes changes made by RunMe.exe or RunMe.sh in any location.   * `schedule_start` must be provided to indicate the start of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * `schedule_end` optionally provided to indicate the end of the schedule. This date/time must be an rfc3339 formatted string  https://datatracker.ietf.org/doc/html/rfc3339.   * `timezone`  must be provided to indicate the TimeZone Name set for the provided `scheduled_start` and `scheduled_end` values. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.   * `repeated` optionally provided to indicate that the exclusion is applied repeatedly within the `scheduled_start` and `scheduled_end` time.      * `start_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`      * `end_time` must be the hour(00-23) and minute(00-59) of the day formatted as `HH:MM`. Required if `all_day` is not set to `true`      * `all_day` must be `true` or `false` to indicate the exclusion is applied all day.       * `frequency` must be one of `daily`, `weekly` or `monthly`.       * `occurrence` must be one of the following when `frequency` is set to `monthly`:        * `1st`, `2nd`, `3rd`, `4th` or `Last` represents the week.        * `Days` represents specific calendar days.      * `weekly_days` must be one or more of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` or `Sunday` when `frequency` is set to `weekly` or `frequency` is set to `monthly` and `occurrence` is NOT set to `Days`.       * `monthly_days` must be set to one or more calendar days, between 1 and 31  when `frequency` is set to `monthly` and `occurrence` is set to `Days`. 
 
 begin
@@ -2260,7 +2260,7 @@ begin
   result = api_instance.update_scheduled_exclusions(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_scheduled_exclusions: #{e}"
+  puts "Error when calling Filevantage->update_scheduled_exclusions: #{e}"
 end
 ```
 
@@ -2278,7 +2278,7 @@ begin
   p headers # => { ... }
   p data # => <ScheduledexclusionsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FilevantageApi->update_scheduled_exclusions_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_scheduled_exclusions_with_http_info: #{e}"
 end
 ```
 

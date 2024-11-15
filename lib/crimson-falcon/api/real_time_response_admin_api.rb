@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class RealTimeResponseAdminApi
+  class RealTimeResponseAdmin
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,11 +57,11 @@ module Falcon
     # @return [Array<(DomainMultiCommandExecuteResponseWrapper, Integer, Hash)>] DomainMultiCommandExecuteResponseWrapper data, response status code and response headers
     def batch_admin_cmd_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.batch_admin_cmd ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.batch_admin_cmd ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling RealTimeResponseAdminApi.batch_admin_cmd"
+        fail ArgumentError, "Missing the required parameter 'body' when calling RealTimeResponseAdmin.batch_admin_cmd"
       end
       # resource path
       local_var_path = '/real-time-response/combined/batch-admin-command/v1'
@@ -95,7 +95,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.batch_admin_cmd",
+        :operation => :"RealTimeResponseAdmin.batch_admin_cmd",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -106,7 +106,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#batch_admin_cmd\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#batch_admin_cmd\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -128,15 +128,15 @@ module Falcon
     # @return [Array<(DomainStatusResponseWrapper, Integer, Hash)>] DomainStatusResponseWrapper data, response status code and response headers
     def r_tr_check_admin_command_status_with_http_info(cloud_request_id, sequence_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_check_admin_command_status ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_check_admin_command_status ...'
       end
       # verify the required parameter 'cloud_request_id' is set
       if @api_client.config.client_side_validation && cloud_request_id.nil?
-        fail ArgumentError, "Missing the required parameter 'cloud_request_id' when calling RealTimeResponseAdminApi.r_tr_check_admin_command_status"
+        fail ArgumentError, "Missing the required parameter 'cloud_request_id' when calling RealTimeResponseAdmin.r_tr_check_admin_command_status"
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling RealTimeResponseAdminApi.r_tr_check_admin_command_status"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling RealTimeResponseAdmin.r_tr_check_admin_command_status"
       end
       # resource path
       local_var_path = '/real-time-response/entities/admin-command/v1'
@@ -164,7 +164,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_check_admin_command_status",
+        :operation => :"RealTimeResponseAdmin.r_tr_check_admin_command_status",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -175,7 +175,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_check_admin_command_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_check_admin_command_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -201,22 +201,22 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_create_put_files_with_http_info(file, description, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_create_put_files ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_create_put_files ...'
       end
       # verify the required parameter 'file' is set
       if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling RealTimeResponseAdminApi.r_tr_create_put_files"
+        fail ArgumentError, "Missing the required parameter 'file' when calling RealTimeResponseAdmin.r_tr_create_put_files"
       end
       # verify the required parameter 'description' is set
       if @api_client.config.client_side_validation && description.nil?
-        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdminApi.r_tr_create_put_files"
+        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdmin.r_tr_create_put_files"
       end
       if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
-        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_create_put_files, the character length must be smaller than or equal to 32766.'
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_create_put_files, the character length must be smaller than or equal to 32766.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
-        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_create_put_files, the character length must be smaller than or equal to 4096.'
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_create_put_files, the character length must be smaller than or equal to 4096.'
       end
 
       # resource path
@@ -252,7 +252,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_create_put_files",
+        :operation => :"RealTimeResponseAdmin.r_tr_create_put_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_create_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_create_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -295,22 +295,22 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_create_scripts_with_http_info(description, permission_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_create_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_create_scripts ...'
       end
       # verify the required parameter 'description' is set
       if @api_client.config.client_side_validation && description.nil?
-        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdminApi.r_tr_create_scripts"
+        fail ArgumentError, "Missing the required parameter 'description' when calling RealTimeResponseAdmin.r_tr_create_scripts"
       end
       # verify the required parameter 'permission_type' is set
       if @api_client.config.client_side_validation && permission_type.nil?
-        fail ArgumentError, "Missing the required parameter 'permission_type' when calling RealTimeResponseAdminApi.r_tr_create_scripts"
+        fail ArgumentError, "Missing the required parameter 'permission_type' when calling RealTimeResponseAdmin.r_tr_create_scripts"
       end
       if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
-        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_create_scripts, the character length must be smaller than or equal to 32766.'
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_create_scripts, the character length must be smaller than or equal to 32766.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
-        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_create_scripts, the character length must be smaller than or equal to 4096.'
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_create_scripts, the character length must be smaller than or equal to 4096.'
       end
 
       # resource path
@@ -349,7 +349,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_create_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_create_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -360,7 +360,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_create_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_create_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -380,11 +380,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_delete_put_files_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_delete_put_files ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_delete_put_files ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_delete_put_files"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_delete_put_files"
       end
       # resource path
       local_var_path = '/real-time-response/entities/put-files/v1'
@@ -411,7 +411,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_delete_put_files",
+        :operation => :"RealTimeResponseAdmin.r_tr_delete_put_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -422,7 +422,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_delete_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_delete_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -442,11 +442,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_delete_scripts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_delete_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_delete_scripts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_delete_scripts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_delete_scripts"
       end
       # resource path
       local_var_path = '/real-time-response/entities/scripts/v1'
@@ -473,7 +473,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_delete_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_delete_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -484,7 +484,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_delete_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_delete_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -504,11 +504,11 @@ module Falcon
     # @return [Array<(DomainCommandExecuteResponseWrapper, Integer, Hash)>] DomainCommandExecuteResponseWrapper data, response status code and response headers
     def r_tr_execute_admin_command_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_execute_admin_command ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_execute_admin_command ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling RealTimeResponseAdminApi.r_tr_execute_admin_command"
+        fail ArgumentError, "Missing the required parameter 'body' when calling RealTimeResponseAdmin.r_tr_execute_admin_command"
       end
       # resource path
       local_var_path = '/real-time-response/entities/admin-command/v1'
@@ -539,7 +539,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_execute_admin_command",
+        :operation => :"RealTimeResponseAdmin.r_tr_execute_admin_command",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -550,7 +550,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_execute_admin_command\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_execute_admin_command\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -570,11 +570,11 @@ module Falcon
     # @return [Array<(EmpowerapiMsaFalconScriptResponse, Integer, Hash)>] EmpowerapiMsaFalconScriptResponse data, response status code and response headers
     def r_tr_get_falcon_scripts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_falcon_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_get_falcon_scripts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_falcon_scripts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_get_falcon_scripts"
       end
       # resource path
       local_var_path = '/real-time-response/entities/falcon-scripts/v1'
@@ -601,7 +601,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_get_falcon_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_get_falcon_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -612,7 +612,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_get_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -632,11 +632,11 @@ module Falcon
     # @return [Array<(EmpowerapiMsaPFResponseV1, Integer, Hash)>] EmpowerapiMsaPFResponseV1 data, response status code and response headers
     def r_tr_get_put_files_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_put_files ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_get_put_files ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_put_files"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_get_put_files"
       end
       # resource path
       local_var_path = '/real-time-response/entities/put-files/v1'
@@ -663,7 +663,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_get_put_files",
+        :operation => :"RealTimeResponseAdmin.r_tr_get_put_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -674,7 +674,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_get_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -694,11 +694,11 @@ module Falcon
     # @return [Array<(EmpowerapiMsaPFResponseV2, Integer, Hash)>] EmpowerapiMsaPFResponseV2 data, response status code and response headers
     def r_tr_get_put_files_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_put_files_v2 ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_get_put_files_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_put_files_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_get_put_files_v2"
       end
       # resource path
       local_var_path = '/real-time-response/entities/put-files/v2'
@@ -725,7 +725,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_get_put_files_v2",
+        :operation => :"RealTimeResponseAdmin.r_tr_get_put_files_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -736,7 +736,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_put_files_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_get_put_files_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -756,11 +756,11 @@ module Falcon
     # @return [Array<(EmpowerapiMsaPFResponseV1, Integer, Hash)>] EmpowerapiMsaPFResponseV1 data, response status code and response headers
     def r_tr_get_scripts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_get_scripts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_scripts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_get_scripts"
       end
       # resource path
       local_var_path = '/real-time-response/entities/scripts/v1'
@@ -787,7 +787,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_get_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_get_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -798,7 +798,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_get_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -818,11 +818,11 @@ module Falcon
     # @return [Array<(EmpowerapiMsaPFResponseV2, Integer, Hash)>] EmpowerapiMsaPFResponseV2 data, response status code and response headers
     def r_tr_get_scripts_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_get_scripts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_get_scripts_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdminApi.r_tr_get_scripts_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling RealTimeResponseAdmin.r_tr_get_scripts_v2"
       end
       # resource path
       local_var_path = '/real-time-response/entities/scripts/v2'
@@ -849,7 +849,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_get_scripts_v2",
+        :operation => :"RealTimeResponseAdmin.r_tr_get_scripts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -860,7 +860,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_get_scripts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_get_scripts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -886,10 +886,10 @@ module Falcon
     # @return [Array<(EmpowerapiMsaIDListResponse, Integer, Hash)>] EmpowerapiMsaIDListResponse data, response status code and response headers
     def r_tr_list_falcon_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_list_falcon_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_list_falcon_scripts ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RealTimeResponseAdminApi.r_tr_list_falcon_scripts, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RealTimeResponseAdmin.r_tr_list_falcon_scripts, must be smaller than or equal to 100.'
       end
 
       allowable_values = ["created_timestamp", "modified_timestamp", "name"]
@@ -924,7 +924,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_list_falcon_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_list_falcon_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -935,7 +935,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_list_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_list_falcon_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -961,7 +961,7 @@ module Falcon
     # @return [Array<(BinservapiMsaPutFileResponse, Integer, Hash)>] BinservapiMsaPutFileResponse data, response status code and response headers
     def r_tr_list_put_files_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_list_put_files ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_list_put_files ...'
       end
       # resource path
       local_var_path = '/real-time-response/queries/put-files/v1'
@@ -991,7 +991,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_list_put_files",
+        :operation => :"RealTimeResponseAdmin.r_tr_list_put_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1002,7 +1002,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_list_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_list_put_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1028,7 +1028,7 @@ module Falcon
     # @return [Array<(BinservapiMsaPutFileResponse, Integer, Hash)>] BinservapiMsaPutFileResponse data, response status code and response headers
     def r_tr_list_scripts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_list_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_list_scripts ...'
       end
       # resource path
       local_var_path = '/real-time-response/queries/scripts/v1'
@@ -1058,7 +1058,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_list_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_list_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1069,7 +1069,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_list_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_list_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1103,18 +1103,18 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def r_tr_update_scripts_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdminApi.r_tr_update_scripts ...'
+        @api_client.config.logger.debug 'Calling API: RealTimeResponseAdmin.r_tr_update_scripts ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling RealTimeResponseAdminApi.r_tr_update_scripts"
+        fail ArgumentError, "Missing the required parameter 'id' when calling RealTimeResponseAdmin.r_tr_update_scripts"
       end
       if @api_client.config.client_side_validation && !opts[:'name'].nil? && opts[:'name'].to_s.length > 32766
-        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdminApi.r_tr_update_scripts, the character length must be smaller than or equal to 32766.'
+        fail ArgumentError, 'invalid value for "opts[:"name"]" when calling RealTimeResponseAdmin.r_tr_update_scripts, the character length must be smaller than or equal to 32766.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'comments_for_audit_log'].nil? && opts[:'comments_for_audit_log'].to_s.length > 4096
-        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdminApi.r_tr_update_scripts, the character length must be smaller than or equal to 4096.'
+        fail ArgumentError, 'invalid value for "opts[:"comments_for_audit_log"]" when calling RealTimeResponseAdmin.r_tr_update_scripts, the character length must be smaller than or equal to 4096.'
       end
 
       # resource path
@@ -1154,7 +1154,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"RealTimeResponseAdminApi.r_tr_update_scripts",
+        :operation => :"RealTimeResponseAdmin.r_tr_update_scripts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1165,7 +1165,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RealTimeResponseAdminApi#r_tr_update_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RealTimeResponseAdmin#r_tr_update_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

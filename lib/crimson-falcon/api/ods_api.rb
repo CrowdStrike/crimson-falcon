@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class OdsApi
+  class Ods
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_query_scan_host_metadata_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.aggregate_query_scan_host_metadata ...'
+        @api_client.config.logger.debug 'Calling API: Ods.aggregate_query_scan_host_metadata ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.aggregate_query_scan_host_metadata"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.aggregate_query_scan_host_metadata"
       end
       # resource path
       local_var_path = '/ods/aggregates/scan-hosts/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.aggregate_query_scan_host_metadata",
+        :operation => :"Ods.aggregate_query_scan_host_metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#aggregate_query_scan_host_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#aggregate_query_scan_host_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_scans_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.aggregate_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.aggregate_scans ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.aggregate_scans"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.aggregate_scans"
       end
       # resource path
       local_var_path = '/ods/aggregates/scans/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.aggregate_scans",
+        :operation => :"Ods.aggregate_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#aggregate_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#aggregate_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_scheduled_scans_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.aggregate_scheduled_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.aggregate_scheduled_scans ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.aggregate_scheduled_scans"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.aggregate_scheduled_scans"
       end
       # resource path
       local_var_path = '/ods/aggregates/scheduled-scans/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.aggregate_scheduled_scans",
+        :operation => :"Ods.aggregate_scheduled_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#aggregate_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#aggregate_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,11 +249,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def cancel_scans_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.cancel_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.cancel_scans ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.cancel_scans"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.cancel_scans"
       end
       # resource path
       local_var_path = '/ods/entities/scan-control-actions/cancel/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.cancel_scans",
+        :operation => :"Ods.cancel_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#cancel_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#cancel_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(EntitiesODSScanResponse, Integer, Hash)>] EntitiesODSScanResponse data, response status code and response headers
     def create_scan_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.create_scan ...'
+        @api_client.config.logger.debug 'Calling API: Ods.create_scan ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.create_scan"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.create_scan"
       end
       # resource path
       local_var_path = '/ods/entities/scans/v1'
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.create_scan",
+        :operation => :"Ods.create_scan",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#create_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#create_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -383,11 +383,11 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def delete_scheduled_scans_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.delete_scheduled_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.delete_scheduled_scans ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.delete_scheduled_scans"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.delete_scheduled_scans"
       end
       # resource path
       local_var_path = '/ods/entities/scheduled-scans/v1'
@@ -415,7 +415,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.delete_scheduled_scans",
+        :operation => :"Ods.delete_scheduled_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -426,7 +426,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#delete_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#delete_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -446,11 +446,11 @@ module Falcon
     # @return [Array<(EntitiesODSScanMaliciousFileResponse, Integer, Hash)>] EntitiesODSScanMaliciousFileResponse data, response status code and response headers
     def get_malicious_files_by_ids_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.get_malicious_files_by_ids ...'
+        @api_client.config.logger.debug 'Calling API: Ods.get_malicious_files_by_ids ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_malicious_files_by_ids"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.get_malicious_files_by_ids"
       end
       # resource path
       local_var_path = '/ods/entities/malicious-files/v1'
@@ -477,7 +477,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.get_malicious_files_by_ids",
+        :operation => :"Ods.get_malicious_files_by_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -488,7 +488,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#get_malicious_files_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#get_malicious_files_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -508,11 +508,11 @@ module Falcon
     # @return [Array<(EntitiesODSScanHostResponse, Integer, Hash)>] EntitiesODSScanHostResponse data, response status code and response headers
     def get_scan_host_metadata_by_ids_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.get_scan_host_metadata_by_ids ...'
+        @api_client.config.logger.debug 'Calling API: Ods.get_scan_host_metadata_by_ids ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_scan_host_metadata_by_ids"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.get_scan_host_metadata_by_ids"
       end
       # resource path
       local_var_path = '/ods/entities/scan-hosts/v1'
@@ -539,7 +539,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.get_scan_host_metadata_by_ids",
+        :operation => :"Ods.get_scan_host_metadata_by_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -550,7 +550,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#get_scan_host_metadata_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#get_scan_host_metadata_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -570,11 +570,11 @@ module Falcon
     # @return [Array<(EntitiesODSScanResponse, Integer, Hash)>] EntitiesODSScanResponse data, response status code and response headers
     def get_scans_by_scan_ids_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.get_scans_by_scan_ids ...'
+        @api_client.config.logger.debug 'Calling API: Ods.get_scans_by_scan_ids ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_scans_by_scan_ids"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.get_scans_by_scan_ids"
       end
       # resource path
       local_var_path = '/ods/entities/scans/v1'
@@ -601,7 +601,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.get_scans_by_scan_ids",
+        :operation => :"Ods.get_scans_by_scan_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -612,7 +612,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#get_scans_by_scan_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#get_scans_by_scan_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -632,11 +632,11 @@ module Falcon
     # @return [Array<(EntitiesODSScanResponseV2, Integer, Hash)>] EntitiesODSScanResponseV2 data, response status code and response headers
     def get_scans_by_scan_ids_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.get_scans_by_scan_ids_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Ods.get_scans_by_scan_ids_v2 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_scans_by_scan_ids_v2"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.get_scans_by_scan_ids_v2"
       end
       # resource path
       local_var_path = '/ods/entities/scans/v2'
@@ -663,7 +663,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.get_scans_by_scan_ids_v2",
+        :operation => :"Ods.get_scans_by_scan_ids_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -674,7 +674,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#get_scans_by_scan_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#get_scans_by_scan_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -694,11 +694,11 @@ module Falcon
     # @return [Array<(EntitiesODSScheduleScanResponse, Integer, Hash)>] EntitiesODSScheduleScanResponse data, response status code and response headers
     def get_scheduled_scans_by_scan_ids_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.get_scheduled_scans_by_scan_ids ...'
+        @api_client.config.logger.debug 'Calling API: Ods.get_scheduled_scans_by_scan_ids ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling OdsApi.get_scheduled_scans_by_scan_ids"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ods.get_scheduled_scans_by_scan_ids"
       end
       # resource path
       local_var_path = '/ods/entities/scheduled-scans/v1'
@@ -725,7 +725,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.get_scheduled_scans_by_scan_ids",
+        :operation => :"Ods.get_scheduled_scans_by_scan_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -736,7 +736,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#get_scheduled_scans_by_scan_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#get_scheduled_scans_by_scan_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -762,7 +762,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_malicious_files_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.query_malicious_files ...'
+        @api_client.config.logger.debug 'Calling API: Ods.query_malicious_files ...'
       end
       allowable_values = ["id|asc", "id|desc", "scan_id|asc", "scan_id|desc", "host_id|asc", "host_id|desc", "host_scan_id|asc", "host_scan_id|desc", "filename|asc", "filename|desc", "hash|asc", "hash|desc", "pattern_id|asc", "pattern_id|desc", "severity|asc", "severity|desc", "last_updated|asc", "last_updated|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -796,7 +796,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.query_malicious_files",
+        :operation => :"Ods.query_malicious_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -807,7 +807,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#query_malicious_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#query_malicious_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -833,7 +833,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_scan_host_metadata_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.query_scan_host_metadata ...'
+        @api_client.config.logger.debug 'Calling API: Ods.query_scan_host_metadata ...'
       end
       allowable_values = ["id|asc", "id|desc", "scan_id|asc", "scan_id|desc", "host_id|asc", "host_id|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "started_on|asc", "started_on|desc", "completed_on|asc", "completed_on|desc", "last_updated|asc", "last_updated|desc", "scan_control_reason.keyword|asc", "scan_control_reason.keyword|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -867,7 +867,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.query_scan_host_metadata",
+        :operation => :"Ods.query_scan_host_metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -878,7 +878,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#query_scan_host_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#query_scan_host_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -904,7 +904,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_scans_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.query_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.query_scans ...'
       end
       allowable_values = ["id|asc", "id|desc", "initiated_from|asc", "initiated_from|desc", "description.keyword|asc", "description.keyword|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "affected_hosts_count|asc", "affected_hosts_count|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "scan_started_on|asc", "scan_started_on|desc", "scan_completed_on|asc", "scan_completed_on|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc", "targeted_host_count|asc", "targeted_host_count|desc", "missing_host_count|asc", "missing_host_count|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -938,7 +938,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.query_scans",
+        :operation => :"Ods.query_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -949,7 +949,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#query_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#query_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -975,7 +975,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_scheduled_scans_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.query_scheduled_scans ...'
+        @api_client.config.logger.debug 'Calling API: Ods.query_scheduled_scans ...'
       end
       allowable_values = ["id|asc", "id|desc", "description.keyword|asc", "description.keyword|desc", "status|asc", "status|desc", "schedule.start_timestamp|asc", "schedule.start_timestamp|desc", "schedule.interval|asc", "schedule.interval|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -1009,7 +1009,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.query_scheduled_scans",
+        :operation => :"Ods.query_scheduled_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1020,7 +1020,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#query_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#query_scheduled_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1040,11 +1040,11 @@ module Falcon
     # @return [Array<(EntitiesODSScheduleScanResponse, Integer, Hash)>] EntitiesODSScheduleScanResponse data, response status code and response headers
     def schedule_scan_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OdsApi.schedule_scan ...'
+        @api_client.config.logger.debug 'Calling API: Ods.schedule_scan ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling OdsApi.schedule_scan"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ods.schedule_scan"
       end
       # resource path
       local_var_path = '/ods/entities/scheduled-scans/v1'
@@ -1075,7 +1075,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"OdsApi.schedule_scan",
+        :operation => :"Ods.schedule_scan",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1086,7 +1086,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OdsApi#schedule_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ods#schedule_scan\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

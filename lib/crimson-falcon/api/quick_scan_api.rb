@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class QuickScanApi
+  class QuickScan
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MlscannerapiScanV1Response, Integer, Hash)>] MlscannerapiScanV1Response data, response status code and response headers
     def get_scans_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuickScanApi.get_scans ...'
+        @api_client.config.logger.debug 'Calling API: QuickScan.get_scans ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling QuickScanApi.get_scans"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling QuickScan.get_scans"
       end
       # resource path
       local_var_path = '/scanner/entities/scans/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuickScanApi.get_scans",
+        :operation => :"QuickScan.get_scans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuickScanApi#get_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuickScan#get_scans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_scans_aggregates_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuickScanApi.get_scans_aggregates ...'
+        @api_client.config.logger.debug 'Calling API: QuickScan.get_scans_aggregates ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuickScanApi.get_scans_aggregates"
+        fail ArgumentError, "Missing the required parameter 'body' when calling QuickScan.get_scans_aggregates"
       end
       # resource path
       local_var_path = '/scanner/aggregates/scans/GET/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuickScanApi.get_scans_aggregates",
+        :operation => :"QuickScan.get_scans_aggregates",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuickScanApi#get_scans_aggregates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuickScan#get_scans_aggregates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -185,7 +185,7 @@ module Falcon
     # @return [Array<(MlscannerapiQueryResponse, Integer, Hash)>] MlscannerapiQueryResponse data, response status code and response headers
     def query_submissions_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuickScanApi.query_submissions ...'
+        @api_client.config.logger.debug 'Calling API: QuickScan.query_submissions ...'
       end
       # resource path
       local_var_path = '/scanner/queries/scans/v1'
@@ -215,7 +215,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuickScanApi.query_submissions",
+        :operation => :"QuickScan.query_submissions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -226,7 +226,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuickScanApi#query_submissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuickScan#query_submissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -246,11 +246,11 @@ module Falcon
     # @return [Array<(MlscannerapiQueryResponse, Integer, Hash)>] MlscannerapiQueryResponse data, response status code and response headers
     def scan_samples_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuickScanApi.scan_samples ...'
+        @api_client.config.logger.debug 'Calling API: QuickScan.scan_samples ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuickScanApi.scan_samples"
+        fail ArgumentError, "Missing the required parameter 'body' when calling QuickScan.scan_samples"
       end
       # resource path
       local_var_path = '/scanner/entities/scans/v1'
@@ -281,7 +281,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuickScanApi.scan_samples",
+        :operation => :"QuickScan.scan_samples",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -292,7 +292,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuickScanApi#scan_samples\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuickScan#scan_samples\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

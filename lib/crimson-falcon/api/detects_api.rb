@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DetectsApi
+  class Detects
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def get_aggregate_detects_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DetectsApi.get_aggregate_detects ...'
+        @api_client.config.logger.debug 'Calling API: Detects.get_aggregate_detects ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DetectsApi.get_aggregate_detects"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Detects.get_aggregate_detects"
       end
       # resource path
       local_var_path = '/detects/aggregates/detects/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DetectsApi.get_aggregate_detects",
+        :operation => :"Detects.get_aggregate_detects",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DetectsApi#get_aggregate_detects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Detects#get_aggregate_detects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(DomainMsaDetectSummariesResponse, Integer, Hash)>] DomainMsaDetectSummariesResponse data, response status code and response headers
     def get_detect_summaries_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DetectsApi.get_detect_summaries ...'
+        @api_client.config.logger.debug 'Calling API: Detects.get_detect_summaries ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DetectsApi.get_detect_summaries"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Detects.get_detect_summaries"
       end
       # resource path
       local_var_path = '/detects/entities/summaries/GET/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DetectsApi.get_detect_summaries",
+        :operation => :"Detects.get_detect_summaries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DetectsApi#get_detect_summaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Detects#get_detect_summaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -191,14 +191,14 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_detects_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DetectsApi.query_detects ...'
+        @api_client.config.logger.debug 'Calling API: Detects.query_detects ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 9999
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DetectsApi.query_detects, must be smaller than or equal to 9999.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Detects.query_detects, must be smaller than or equal to 9999.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DetectsApi.query_detects, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Detects.query_detects, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -230,7 +230,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DetectsApi.query_detects",
+        :operation => :"Detects.query_detects",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -241,7 +241,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DetectsApi#query_detects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Detects#query_detects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -261,11 +261,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def update_detects_by_ids_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DetectsApi.update_detects_by_ids_v2 ...'
+        @api_client.config.logger.debug 'Calling API: Detects.update_detects_by_ids_v2 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DetectsApi.update_detects_by_ids_v2"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Detects.update_detects_by_ids_v2"
       end
       # resource path
       local_var_path = '/detects/entities/detects/v2'
@@ -296,7 +296,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DetectsApi.update_detects_by_ids_v2",
+        :operation => :"Detects.update_detects_by_ids_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -307,7 +307,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DetectsApi#update_detects_by_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Detects#update_detects_by_ids_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

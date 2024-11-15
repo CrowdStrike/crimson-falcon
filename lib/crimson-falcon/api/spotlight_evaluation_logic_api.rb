@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class SpotlightEvaluationLogicApi
+  class SpotlightEvaluationLogic
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -57,11 +57,11 @@ module Falcon
     # @return [Array<(DomainSPAPIEvaluationLogicCombinedResponseV1, Integer, Hash)>] DomainSPAPIEvaluationLogicCombinedResponseV1 data, response status code and response headers
     def combined_query_evaluation_logic_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogicApi.combined_query_evaluation_logic ...'
+        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogic.combined_query_evaluation_logic ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightEvaluationLogicApi.combined_query_evaluation_logic"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightEvaluationLogic.combined_query_evaluation_logic"
       end
       # resource path
       local_var_path = '/spotlight/combined/evaluation-logic/v1'
@@ -91,7 +91,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SpotlightEvaluationLogicApi.combined_query_evaluation_logic",
+        :operation => :"SpotlightEvaluationLogic.combined_query_evaluation_logic",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -102,7 +102,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SpotlightEvaluationLogicApi#combined_query_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SpotlightEvaluationLogic#combined_query_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -122,11 +122,11 @@ module Falcon
     # @return [Array<(DomainSPAPIEvaluationLogicEntitiesResponseV1, Integer, Hash)>] DomainSPAPIEvaluationLogicEntitiesResponseV1 data, response status code and response headers
     def get_evaluation_logic_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogicApi.get_evaluation_logic ...'
+        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogic.get_evaluation_logic ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SpotlightEvaluationLogicApi.get_evaluation_logic"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SpotlightEvaluationLogic.get_evaluation_logic"
       end
       # resource path
       local_var_path = '/spotlight/entities/evaluation-logic/v1'
@@ -153,7 +153,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SpotlightEvaluationLogicApi.get_evaluation_logic",
+        :operation => :"SpotlightEvaluationLogic.get_evaluation_logic",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -164,7 +164,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SpotlightEvaluationLogicApi#get_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SpotlightEvaluationLogic#get_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -190,11 +190,11 @@ module Falcon
     # @return [Array<(DomainSPAPIQueryResponse, Integer, Hash)>] DomainSPAPIQueryResponse data, response status code and response headers
     def query_evaluation_logic_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogicApi.query_evaluation_logic ...'
+        @api_client.config.logger.debug 'Calling API: SpotlightEvaluationLogic.query_evaluation_logic ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightEvaluationLogicApi.query_evaluation_logic"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightEvaluationLogic.query_evaluation_logic"
       end
       # resource path
       local_var_path = '/spotlight/queries/evaluation-logic/v1'
@@ -224,7 +224,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SpotlightEvaluationLogicApi.query_evaluation_logic",
+        :operation => :"SpotlightEvaluationLogic.query_evaluation_logic",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -235,7 +235,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SpotlightEvaluationLogicApi#query_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SpotlightEvaluationLogic#query_evaluation_logic\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

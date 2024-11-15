@@ -1,12 +1,12 @@
-# Falcon::EventSchemaApi
+# Falcon::EventSchema
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**fdrschema_combined_event_get**](EventSchemaApi.md#fdrschema_combined_event_get) | **GET** /fdr/combined/schema-members/v1 | Fetch combined schema |
-| [**fdrschema_entities_event_get**](EventSchemaApi.md#fdrschema_entities_event_get) | **GET** /fdr/entities/schema-events/v1 | Fetch event schema by ID |
-| [**fdrschema_queries_event_get**](EventSchemaApi.md#fdrschema_queries_event_get) | **GET** /fdr/queries/schema-events/v1 | Get list of event IDs given a particular query. |
+| [**fdrschema_combined_event_get**](EventSchema.md#fdrschema_combined_event_get) | **GET** /fdr/combined/schema-members/v1 | Fetch combined schema |
+| [**fdrschema_entities_event_get**](EventSchema.md#fdrschema_entities_event_get) | **GET** /fdr/entities/schema-events/v1 | Fetch event schema by ID |
+| [**fdrschema_queries_event_get**](EventSchema.md#fdrschema_queries_event_get) | **GET** /fdr/queries/schema-events/v1 | Get list of event IDs given a particular query. |
 
 
 ## fdrschema_combined_event_get
@@ -28,14 +28,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::EventSchemaApi.new
+api_instance = Falcon::EventSchema.new
 
 begin
   # Fetch combined schema
   result = api_instance.fdrschema_combined_event_get
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_combined_event_get: #{e}"
+  puts "Error when calling EventSchema->fdrschema_combined_event_get: #{e}"
 end
 ```
 
@@ -53,7 +53,7 @@ begin
   p headers # => { ... }
   p data # => <SchemaSensorEventResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_combined_event_get_with_http_info: #{e}"
+  puts "Error when calling EventSchema->fdrschema_combined_event_get_with_http_info: #{e}"
 end
 ```
 
@@ -94,7 +94,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::EventSchemaApi.new
+api_instance = Falcon::EventSchema.new
 opts = {
   ids: ['inner_example'] # Array<String> | Specify feed IDs to fetch
 }
@@ -104,7 +104,7 @@ begin
   result = api_instance.fdrschema_entities_event_get(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_entities_event_get: #{e}"
+  puts "Error when calling EventSchema->fdrschema_entities_event_get: #{e}"
 end
 ```
 
@@ -122,7 +122,7 @@ begin
   p headers # => { ... }
   p data # => <SchemaSensorEventResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_entities_event_get_with_http_info: #{e}"
+  puts "Error when calling EventSchema->fdrschema_entities_event_get_with_http_info: #{e}"
 end
 ```
 
@@ -165,7 +165,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::EventSchemaApi.new
+api_instance = Falcon::EventSchema.new
 opts = {
   limit: 56, # Integer | Limit of the data
   offset: 56, # Integer | Offset into the data
@@ -178,7 +178,7 @@ begin
   result = api_instance.fdrschema_queries_event_get(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_queries_event_get: #{e}"
+  puts "Error when calling EventSchema->fdrschema_queries_event_get: #{e}"
 end
 ```
 
@@ -196,7 +196,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling EventSchemaApi->fdrschema_queries_event_get_with_http_info: #{e}"
+  puts "Error when calling EventSchema->fdrschema_queries_event_get_with_http_info: #{e}"
 end
 ```
 

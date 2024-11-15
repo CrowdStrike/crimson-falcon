@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ApiIntegrationsApi
+  class ApiIntegrations
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainExecuteCommandResultsV1, Integer, Hash)>] DomainExecuteCommandResultsV1 data, response status code and response headers
     def execute_command_with_http_info(resources, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiIntegrationsApi.execute_command ...'
+        @api_client.config.logger.debug 'Calling API: ApiIntegrations.execute_command ...'
       end
       # verify the required parameter 'resources' is set
       if @api_client.config.client_side_validation && resources.nil?
-        fail ArgumentError, "Missing the required parameter 'resources' when calling ApiIntegrationsApi.execute_command"
+        fail ArgumentError, "Missing the required parameter 'resources' when calling ApiIntegrations.execute_command"
       end
       # resource path
       local_var_path = '/plugins/entities/execute/v1'
@@ -87,7 +87,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ApiIntegrationsApi.execute_command",
+        :operation => :"ApiIntegrations.execute_command",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -98,7 +98,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiIntegrationsApi#execute_command\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiIntegrations#execute_command\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -118,11 +118,11 @@ module Falcon
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def execute_command_proxy_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiIntegrationsApi.execute_command_proxy ...'
+        @api_client.config.logger.debug 'Calling API: ApiIntegrations.execute_command_proxy ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ApiIntegrationsApi.execute_command_proxy"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ApiIntegrations.execute_command_proxy"
       end
       # resource path
       local_var_path = '/plugins/entities/execute-proxy/v1'
@@ -153,7 +153,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ApiIntegrationsApi.execute_command_proxy",
+        :operation => :"ApiIntegrations.execute_command_proxy",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -164,7 +164,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiIntegrationsApi#execute_command_proxy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiIntegrations#execute_command_proxy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -190,7 +190,7 @@ module Falcon
     # @return [Array<(DomainConfigsV1, Integer, Hash)>] DomainConfigsV1 data, response status code and response headers
     def get_combined_plugin_configs_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiIntegrationsApi.get_combined_plugin_configs ...'
+        @api_client.config.logger.debug 'Calling API: ApiIntegrations.get_combined_plugin_configs ...'
       end
       # resource path
       local_var_path = '/plugins/combined/configs/v1'
@@ -220,7 +220,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ApiIntegrationsApi.get_combined_plugin_configs",
+        :operation => :"ApiIntegrations.get_combined_plugin_configs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -231,7 +231,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiIntegrationsApi#get_combined_plugin_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiIntegrations#get_combined_plugin_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

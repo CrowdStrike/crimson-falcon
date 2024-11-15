@@ -1,11 +1,11 @@
-# Falcon::EventStreamsApi
+# Falcon::EventStreams
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**list_available_streams_o_auth2**](EventStreamsApi.md#list_available_streams_o_auth2) | **GET** /sensors/entities/datafeed/v2 | Discover all event streams in your environment |
-| [**refresh_active_stream_session**](EventStreamsApi.md#refresh_active_stream_session) | **POST** /sensors/entities/datafeed-actions/v1/{partition} | Refresh an active event stream. Use the URL shown in a GET /sensors/entities/datafeed/v2 response. |
+| [**list_available_streams_o_auth2**](EventStreams.md#list_available_streams_o_auth2) | **GET** /sensors/entities/datafeed/v2 | Discover all event streams in your environment |
+| [**refresh_active_stream_session**](EventStreams.md#refresh_active_stream_session) | **POST** /sensors/entities/datafeed-actions/v1/{partition} | Refresh an active event stream. Use the URL shown in a GET /sensors/entities/datafeed/v2 response. |
 
 
 ## list_available_streams_o_auth2
@@ -27,7 +27,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::EventStreamsApi.new
+api_instance = Falcon::EventStreams.new
 app_id = 'app_id_example' # String | Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
 opts = {
   format: 'format_example' # String | Format for streaming events. Valid values: json, flatjson
@@ -38,7 +38,7 @@ begin
   result = api_instance.list_available_streams_o_auth2(app_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling EventStreamsApi->list_available_streams_o_auth2: #{e}"
+  puts "Error when calling EventStreams->list_available_streams_o_auth2: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <MainDiscoveryResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling EventStreamsApi->list_available_streams_o_auth2_with_http_info: #{e}"
+  puts "Error when calling EventStreams->list_available_streams_o_auth2_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::EventStreamsApi.new
+api_instance = Falcon::EventStreams.new
 action_name = 'action_name_example' # String | Action name. Allowed value is refresh_active_stream_session.
 app_id = 'app_id_example' # String | Label that identifies your connection. Max: 32 alphanumeric characters (a-z, A-Z, 0-9).
 partition = 56 # Integer | Partition to request data for.
@@ -110,7 +110,7 @@ begin
   result = api_instance.refresh_active_stream_session(action_name, app_id, partition)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling EventStreamsApi->refresh_active_stream_session: #{e}"
+  puts "Error when calling EventStreams->refresh_active_stream_session: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling EventStreamsApi->refresh_active_stream_session_with_http_info: #{e}"
+  puts "Error when calling EventStreams->refresh_active_stream_session_with_http_info: #{e}"
 end
 ```
 

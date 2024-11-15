@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DiscoverIotApi
+  class DiscoverIot
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DomainDiscoverAPIIoTHostEntitiesResponse, Integer, Hash)>] DomainDiscoverAPIIoTHostEntitiesResponse data, response status code and response headers
     def get_iot_hosts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverIotApi.get_iot_hosts ...'
+        @api_client.config.logger.debug 'Calling API: DiscoverIot.get_iot_hosts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverIotApi.get_iot_hosts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverIot.get_iot_hosts"
       end
       # resource path
       local_var_path = '/discover/entities/iot-hosts/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverIotApi.get_iot_hosts",
+        :operation => :"DiscoverIot.get_iot_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverIotApi#get_iot_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DiscoverIot#get_iot_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -119,18 +119,18 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_iot_hosts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverIotApi.query_iot_hosts ...'
+        @api_client.config.logger.debug 'Calling API: DiscoverIot.query_iot_hosts ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverIotApi.query_iot_hosts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverIot.query_iot_hosts, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIot.query_iot_hosts, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIot.query_iot_hosts, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -161,7 +161,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverIotApi.query_iot_hosts",
+        :operation => :"DiscoverIot.query_iot_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -172,7 +172,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverIotApi#query_iot_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DiscoverIot#query_iot_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -198,14 +198,14 @@ module Falcon
     # @return [Array<(DomainDiscoverAPIResponse, Integer, Hash)>] DomainDiscoverAPIResponse data, response status code and response headers
     def query_iot_hosts_v2_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverIotApi.query_iot_hosts_v2 ...'
+        @api_client.config.logger.debug 'Calling API: DiscoverIot.query_iot_hosts_v2 ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts_v2, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIot.query_iot_hosts_v2, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts_v2, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIot.query_iot_hosts_v2, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -236,7 +236,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverIotApi.query_iot_hosts_v2",
+        :operation => :"DiscoverIot.query_iot_hosts_v2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -247,7 +247,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverIotApi#query_iot_hosts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DiscoverIot#query_iot_hosts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class EventStreamsApi
+  class EventStreams
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,11 +53,11 @@ module Falcon
     # @return [Array<(MainDiscoveryResponseV2, Integer, Hash)>] MainDiscoveryResponseV2 data, response status code and response headers
     def list_available_streams_o_auth2_with_http_info(app_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EventStreamsApi.list_available_streams_o_auth2 ...'
+        @api_client.config.logger.debug 'Calling API: EventStreams.list_available_streams_o_auth2 ...'
       end
       # verify the required parameter 'app_id' is set
       if @api_client.config.client_side_validation && app_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_id' when calling EventStreamsApi.list_available_streams_o_auth2"
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling EventStreams.list_available_streams_o_auth2"
       end
       # resource path
       local_var_path = '/sensors/entities/datafeed/v2'
@@ -85,7 +85,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"EventStreamsApi.list_available_streams_o_auth2",
+        :operation => :"EventStreams.list_available_streams_o_auth2",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -96,7 +96,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EventStreamsApi#list_available_streams_o_auth2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EventStreams#list_available_streams_o_auth2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -120,19 +120,19 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def refresh_active_stream_session_with_http_info(action_name, app_id, partition, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: EventStreamsApi.refresh_active_stream_session ...'
+        @api_client.config.logger.debug 'Calling API: EventStreams.refresh_active_stream_session ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling EventStreamsApi.refresh_active_stream_session"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling EventStreams.refresh_active_stream_session"
       end
       # verify the required parameter 'app_id' is set
       if @api_client.config.client_side_validation && app_id.nil?
-        fail ArgumentError, "Missing the required parameter 'app_id' when calling EventStreamsApi.refresh_active_stream_session"
+        fail ArgumentError, "Missing the required parameter 'app_id' when calling EventStreams.refresh_active_stream_session"
       end
       # verify the required parameter 'partition' is set
       if @api_client.config.client_side_validation && partition.nil?
-        fail ArgumentError, "Missing the required parameter 'partition' when calling EventStreamsApi.refresh_active_stream_session"
+        fail ArgumentError, "Missing the required parameter 'partition' when calling EventStreams.refresh_active_stream_session"
       end
       # resource path
       local_var_path = '/sensors/entities/datafeed-actions/v1/{partition}'.sub('{' + 'partition' + '}', CGI.escape(partition.to_s))
@@ -160,7 +160,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"EventStreamsApi.refresh_active_stream_session",
+        :operation => :"EventStreams.refresh_active_stream_session",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -171,7 +171,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: EventStreamsApi#refresh_active_stream_session\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: EventStreams#refresh_active_stream_session\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

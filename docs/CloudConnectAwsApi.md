@@ -1,18 +1,18 @@
-# Falcon::CloudConnectAwsApi
+# Falcon::CloudConnectAws
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_or_update_aws_settings**](CloudConnectAwsApi.md#create_or_update_aws_settings) | **POST** /cloud-connect-aws/entities/settings/v1 | Create or update Global Settings which are applicable to all provisioned AWS accounts |
-| [**delete_aws_accounts**](CloudConnectAwsApi.md#delete_aws_accounts) | **DELETE** /cloud-connect-aws/entities/accounts/v1 | Delete a set of AWS Accounts by specifying their IDs |
-| [**get_aws_accounts**](CloudConnectAwsApi.md#get_aws_accounts) | **GET** /cloud-connect-aws/entities/accounts/v1 | Retrieve a set of AWS Accounts by specifying their IDs |
-| [**get_aws_settings**](CloudConnectAwsApi.md#get_aws_settings) | **GET** /cloud-connect-aws/combined/settings/v1 | Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts |
-| [**provision_aws_accounts**](CloudConnectAwsApi.md#provision_aws_accounts) | **POST** /cloud-connect-aws/entities/accounts/v1 | Provision AWS Accounts by specifying details about the accounts to provision |
-| [**query_aws_accounts**](CloudConnectAwsApi.md#query_aws_accounts) | **GET** /cloud-connect-aws/combined/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria |
-| [**query_aws_accounts_for_ids**](CloudConnectAwsApi.md#query_aws_accounts_for_ids) | **GET** /cloud-connect-aws/queries/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria |
-| [**update_aws_accounts**](CloudConnectAwsApi.md#update_aws_accounts) | **PATCH** /cloud-connect-aws/entities/accounts/v1 | Update AWS Accounts by specifying the ID of the account and details to update |
-| [**verify_aws_account_access**](CloudConnectAwsApi.md#verify_aws_account_access) | **POST** /cloud-connect-aws/entities/verify-account-access/v1 | Performs an Access Verification check on the specified AWS Account IDs |
+| [**create_or_update_aws_settings**](CloudConnectAws.md#create_or_update_aws_settings) | **POST** /cloud-connect-aws/entities/settings/v1 | Create or update Global Settings which are applicable to all provisioned AWS accounts |
+| [**delete_aws_accounts**](CloudConnectAws.md#delete_aws_accounts) | **DELETE** /cloud-connect-aws/entities/accounts/v1 | Delete a set of AWS Accounts by specifying their IDs |
+| [**get_aws_accounts**](CloudConnectAws.md#get_aws_accounts) | **GET** /cloud-connect-aws/entities/accounts/v1 | Retrieve a set of AWS Accounts by specifying their IDs |
+| [**get_aws_settings**](CloudConnectAws.md#get_aws_settings) | **GET** /cloud-connect-aws/combined/settings/v1 | Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts |
+| [**provision_aws_accounts**](CloudConnectAws.md#provision_aws_accounts) | **POST** /cloud-connect-aws/entities/accounts/v1 | Provision AWS Accounts by specifying details about the accounts to provision |
+| [**query_aws_accounts**](CloudConnectAws.md#query_aws_accounts) | **GET** /cloud-connect-aws/combined/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria |
+| [**query_aws_accounts_for_ids**](CloudConnectAws.md#query_aws_accounts_for_ids) | **GET** /cloud-connect-aws/queries/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria |
+| [**update_aws_accounts**](CloudConnectAws.md#update_aws_accounts) | **PATCH** /cloud-connect-aws/entities/accounts/v1 | Update AWS Accounts by specifying the ID of the account and details to update |
+| [**verify_aws_account_access**](CloudConnectAws.md#verify_aws_account_access) | **POST** /cloud-connect-aws/entities/verify-account-access/v1 | Performs an Access Verification check on the specified AWS Account IDs |
 
 
 ## create_or_update_aws_settings
@@ -34,7 +34,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 body = Falcon::ModelsModifyAWSCustomerSettingsV1.new({resources: [Falcon::ModelsAWSCustomerSettingsRequestV1.new]}) # ModelsModifyAWSCustomerSettingsV1 | 
 
 begin
@@ -42,7 +42,7 @@ begin
   result = api_instance.create_or_update_aws_settings(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->create_or_update_aws_settings: #{e}"
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings: #{e}"
 end
 ```
 
@@ -60,7 +60,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsCustomerConfigurationsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->create_or_update_aws_settings_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +103,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 ids = ['inner_example'] # Array<String> | IDs of accounts to remove
 
 begin
@@ -111,7 +111,7 @@ begin
   result = api_instance.delete_aws_accounts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->delete_aws_accounts: #{e}"
+  puts "Error when calling CloudConnectAws->delete_aws_accounts: #{e}"
 end
 ```
 
@@ -129,7 +129,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsBaseResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->delete_aws_accounts_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->delete_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 ids = ['inner_example'] # Array<String> | IDs of accounts to retrieve details
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.get_aws_accounts(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->get_aws_accounts: #{e}"
+  puts "Error when calling CloudConnectAws->get_aws_accounts: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAWSAccountsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->get_aws_accounts_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->get_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -241,14 +241,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 
 begin
   # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
   result = api_instance.get_aws_settings
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->get_aws_settings: #{e}"
+  puts "Error when calling CloudConnectAws->get_aws_settings: #{e}"
 end
 ```
 
@@ -266,7 +266,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsCustomerConfigurationsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->get_aws_settings_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->get_aws_settings_with_http_info: #{e}"
 end
 ```
 
@@ -307,7 +307,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 body = Falcon::ModelsCreateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsCreateAWSAccountsV1 | 
 opts = {
   mode: 'cloudformation' # String | Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.
@@ -318,7 +318,7 @@ begin
   result = api_instance.provision_aws_accounts(body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->provision_aws_accounts: #{e}"
+  puts "Error when calling CloudConnectAws->provision_aws_accounts: #{e}"
 end
 ```
 
@@ -336,7 +336,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAWSAccountsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->provision_aws_accounts_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->provision_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -380,7 +380,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
   offset: 56, # Integer | The offset to start retrieving records from
@@ -393,7 +393,7 @@ begin
   result = api_instance.query_aws_accounts(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->query_aws_accounts: #{e}"
+  puts "Error when calling CloudConnectAws->query_aws_accounts: #{e}"
 end
 ```
 
@@ -411,7 +411,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAWSAccountsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->query_aws_accounts_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->query_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -457,7 +457,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
   offset: 56, # Integer | The offset to start retrieving records from
@@ -470,7 +470,7 @@ begin
   result = api_instance.query_aws_accounts_for_ids(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->query_aws_accounts_for_ids: #{e}"
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids: #{e}"
 end
 ```
 
@@ -488,7 +488,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->query_aws_accounts_for_ids_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids_with_http_info: #{e}"
 end
 ```
 
@@ -534,7 +534,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 body = Falcon::ModelsUpdateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsUpdateAWSAccountsV1 | 
 
 begin
@@ -542,7 +542,7 @@ begin
   result = api_instance.update_aws_accounts(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->update_aws_accounts: #{e}"
+  puts "Error when calling CloudConnectAws->update_aws_accounts: #{e}"
 end
 ```
 
@@ -560,7 +560,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsAWSAccountsV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->update_aws_accounts_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->update_aws_accounts_with_http_info: #{e}"
 end
 ```
 
@@ -603,7 +603,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CloudConnectAwsApi.new
+api_instance = Falcon::CloudConnectAws.new
 ids = ['inner_example'] # Array<String> | IDs of accounts to verify access on
 
 begin
@@ -611,7 +611,7 @@ begin
   result = api_instance.verify_aws_account_access(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->verify_aws_account_access: #{e}"
+  puts "Error when calling CloudConnectAws->verify_aws_account_access: #{e}"
 end
 ```
 
@@ -629,7 +629,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsVerifyAccessResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudConnectAwsApi->verify_aws_account_access_with_http_info: #{e}"
+  puts "Error when calling CloudConnectAws->verify_aws_account_access_with_http_info: #{e}"
 end
 ```
 

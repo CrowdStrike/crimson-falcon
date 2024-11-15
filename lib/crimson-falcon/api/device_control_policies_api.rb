@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DeviceControlPoliciesApi
+  class DeviceControlPolicies
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DeviceControlRespV2, Integer, Hash)>] DeviceControlRespV2 data, response status code and response headers
     def create_device_control_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.create_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.create_device_control_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPoliciesApi.create_device_control_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.create_device_control_policies"
       end
       # resource path
       local_var_path = '/policy/entities/device-control/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.create_device_control_policies",
+        :operation => :"DeviceControlPolicies.create_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#create_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#create_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def delete_device_control_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.delete_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.delete_device_control_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DeviceControlPoliciesApi.delete_device_control_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DeviceControlPolicies.delete_device_control_policies"
       end
       # resource path
       local_var_path = '/policy/entities/device-control/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.delete_device_control_policies",
+        :operation => :"DeviceControlPolicies.delete_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#delete_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#delete_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -177,7 +177,7 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def get_default_device_control_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.get_default_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.get_default_device_control_policies ...'
       end
       # resource path
       local_var_path = '/policy/entities/default-device-control/v1'
@@ -203,7 +203,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.get_default_device_control_policies",
+        :operation => :"DeviceControlPolicies.get_default_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -214,7 +214,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#get_default_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#get_default_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -234,11 +234,11 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def get_device_control_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.get_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.get_device_control_policies ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DeviceControlPoliciesApi.get_device_control_policies"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling DeviceControlPolicies.get_device_control_policies"
       end
       # resource path
       local_var_path = '/policy/entities/device-control/v1'
@@ -265,7 +265,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.get_device_control_policies",
+        :operation => :"DeviceControlPolicies.get_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -276,7 +276,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#get_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#get_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -298,11 +298,11 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def perform_device_control_policies_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.perform_device_control_policies_action ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.perform_device_control_policies_action ...'
       end
       # verify the required parameter 'action_name' is set
       if @api_client.config.client_side_validation && action_name.nil?
-        fail ArgumentError, "Missing the required parameter 'action_name' when calling DeviceControlPoliciesApi.perform_device_control_policies_action"
+        fail ArgumentError, "Missing the required parameter 'action_name' when calling DeviceControlPolicies.perform_device_control_policies_action"
       end
       # verify enum value
       allowable_values = ["add-host-group", "add-rule-group", "disable", "enable", "remove-host-group", "remove-rule-group"]
@@ -311,7 +311,7 @@ module Falcon
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPoliciesApi.perform_device_control_policies_action"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.perform_device_control_policies_action"
       end
       # resource path
       local_var_path = '/policy/entities/device-control-actions/v1'
@@ -343,7 +343,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.perform_device_control_policies_action",
+        :operation => :"DeviceControlPolicies.perform_device_control_policies_action",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -354,7 +354,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#perform_device_control_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#perform_device_control_policies_action\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -380,18 +380,18 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def query_combined_device_control_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.query_combined_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.query_combined_device_control_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPolicies.query_combined_device_control_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_combined_device_control_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_combined_device_control_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -426,7 +426,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.query_combined_device_control_policies",
+        :operation => :"DeviceControlPolicies.query_combined_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -437,7 +437,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#query_combined_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#query_combined_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -465,18 +465,18 @@ module Falcon
     # @return [Array<(BasePolicyMembersRespV1, Integer, Hash)>] BasePolicyMembersRespV1 data, response status code and response headers
     def query_combined_device_control_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.query_combined_device_control_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.query_combined_device_control_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPolicies.query_combined_device_control_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_combined_device_control_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_combined_device_control_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_combined_device_control_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -508,7 +508,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.query_combined_device_control_policy_members",
+        :operation => :"DeviceControlPolicies.query_combined_device_control_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -519,7 +519,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#query_combined_device_control_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#query_combined_device_control_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -545,18 +545,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_device_control_policies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.query_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.query_device_control_policies ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPoliciesApi.query_device_control_policies, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPolicies.query_device_control_policies, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_device_control_policies, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_device_control_policies, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_device_control_policies, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_device_control_policies, must be greater than or equal to 1.'
       end
 
       allowable_values = ["created_by.asc", "created_by.desc", "created_timestamp.asc", "created_timestamp.desc", "enabled.asc", "enabled.desc", "modified_by.asc", "modified_by.desc", "modified_timestamp.asc", "modified_timestamp.desc", "name.asc", "name.desc", "platform_name.asc", "platform_name.desc", "precedence.asc", "precedence.desc"]
@@ -591,7 +591,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.query_device_control_policies",
+        :operation => :"DeviceControlPolicies.query_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -602,7 +602,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#query_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#query_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -630,18 +630,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_device_control_policy_members_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.query_device_control_policy_members ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.query_device_control_policy_members ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPoliciesApi.query_device_control_policy_members, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DeviceControlPolicies.query_device_control_policy_members, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 5000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_device_control_policy_members, must be smaller than or equal to 5000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_device_control_policy_members, must be smaller than or equal to 5000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPoliciesApi.query_device_control_policy_members, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DeviceControlPolicies.query_device_control_policy_members, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -673,7 +673,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.query_device_control_policy_members",
+        :operation => :"DeviceControlPolicies.query_device_control_policy_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -684,7 +684,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#query_device_control_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#query_device_control_policy_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -704,11 +704,11 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_device_control_policies_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.set_device_control_policies_precedence ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.set_device_control_policies_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPoliciesApi.set_device_control_policies_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.set_device_control_policies_precedence"
       end
       # resource path
       local_var_path = '/policy/entities/device-control-precedence/v1'
@@ -739,7 +739,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.set_device_control_policies_precedence",
+        :operation => :"DeviceControlPolicies.set_device_control_policies_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -750,7 +750,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#set_device_control_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#set_device_control_policies_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -770,11 +770,11 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def update_default_device_control_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.update_default_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.update_default_device_control_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPoliciesApi.update_default_device_control_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.update_default_device_control_policies"
       end
       # resource path
       local_var_path = '/policy/entities/default-device-control/v1'
@@ -805,7 +805,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.update_default_device_control_policies",
+        :operation => :"DeviceControlPolicies.update_default_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -816,7 +816,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#update_default_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#update_default_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -836,11 +836,11 @@ module Falcon
     # @return [Array<(DeviceControlRespV1, Integer, Hash)>] DeviceControlRespV1 data, response status code and response headers
     def update_device_control_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeviceControlPoliciesApi.update_device_control_policies ...'
+        @api_client.config.logger.debug 'Calling API: DeviceControlPolicies.update_device_control_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPoliciesApi.update_device_control_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeviceControlPolicies.update_device_control_policies"
       end
       # resource path
       local_var_path = '/policy/entities/device-control/v1'
@@ -871,7 +871,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeviceControlPoliciesApi.update_device_control_policies",
+        :operation => :"DeviceControlPolicies.update_device_control_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -882,7 +882,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeviceControlPoliciesApi#update_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeviceControlPolicies#update_device_control_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

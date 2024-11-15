@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class CloudSnapshotsApi
+  class CloudSnapshots
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
     def create_deployment_entity_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.create_deployment_entity ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.create_deployment_entity ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSnapshotsApi.create_deployment_entity"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSnapshots.create_deployment_entity"
       end
       # resource path
       local_var_path = '/snapshots/entities/deployments/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.create_deployment_entity",
+        :operation => :"CloudSnapshots.create_deployment_entity",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#create_deployment_entity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#create_deployment_entity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -115,7 +115,7 @@ module Falcon
     # @return [Array<(ModelsRegistryCredentialsResponse, Integer, Hash)>] ModelsRegistryCredentialsResponse data, response status code and response headers
     def get_credentials_mixin0_mixin57_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.get_credentials_mixin0_mixin57 ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.get_credentials_mixin0_mixin57 ...'
       end
       # resource path
       local_var_path = '/snapshots/entities/image-registry-credentials/v1'
@@ -141,7 +141,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.get_credentials_mixin0_mixin57",
+        :operation => :"CloudSnapshots.get_credentials_mixin0_mixin57",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -152,7 +152,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#get_credentials_mixin0_mixin57\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#get_credentials_mixin0_mixin57\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -172,11 +172,11 @@ module Falcon
     # @return [Array<(ScanreportsEntitiesResponse, Integer, Hash)>] ScanreportsEntitiesResponse data, response status code and response headers
     def get_scan_report_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.get_scan_report ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.get_scan_report ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudSnapshotsApi.get_scan_report"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudSnapshots.get_scan_report"
       end
       # resource path
       local_var_path = '/snapshots/entities/scanreports/v1'
@@ -203,7 +203,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.get_scan_report",
+        :operation => :"CloudSnapshots.get_scan_report",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -214,7 +214,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#get_scan_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#get_scan_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -240,7 +240,7 @@ module Falcon
     # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
     def read_deployments_combined_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.read_deployments_combined ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.read_deployments_combined ...'
       end
       # resource path
       local_var_path = '/snapshots/combined/deployments/v1'
@@ -270,7 +270,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.read_deployments_combined",
+        :operation => :"CloudSnapshots.read_deployments_combined",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -281,7 +281,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#read_deployments_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#read_deployments_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -301,7 +301,7 @@ module Falcon
     # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
     def read_deployments_entities_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.read_deployments_entities ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.read_deployments_entities ...'
       end
       # resource path
       local_var_path = '/snapshots/entities/deployments/v1'
@@ -328,7 +328,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.read_deployments_entities",
+        :operation => :"CloudSnapshots.read_deployments_entities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -339,7 +339,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#read_deployments_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#read_deployments_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -359,11 +359,11 @@ module Falcon
     # @return [Array<(ModelsAccountStatusResponse, Integer, Hash)>] ModelsAccountStatusResponse data, response status code and response headers
     def register_cspm_snapshot_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.register_cspm_snapshot_account ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.register_cspm_snapshot_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSnapshotsApi.register_cspm_snapshot_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSnapshots.register_cspm_snapshot_account"
       end
       # resource path
       local_var_path = '/snapshots/entities/accounts/v1'
@@ -394,7 +394,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshotsApi.register_cspm_snapshot_account",
+        :operation => :"CloudSnapshots.register_cspm_snapshot_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -405,7 +405,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshotsApi#register_cspm_snapshot_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#register_cspm_snapshot_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

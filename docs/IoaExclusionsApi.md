@@ -1,14 +1,14 @@
-# Falcon::IoaExclusionsApi
+# Falcon::IoaExclusions
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_ioa_exclusions_v1**](IoaExclusionsApi.md#create_ioa_exclusions_v1) | **POST** /policy/entities/ioa-exclusions/v1 | Create the IOA exclusions |
-| [**delete_ioa_exclusions_v1**](IoaExclusionsApi.md#delete_ioa_exclusions_v1) | **DELETE** /policy/entities/ioa-exclusions/v1 | Delete the IOA exclusions by id |
-| [**get_ioa_exclusions_v1**](IoaExclusionsApi.md#get_ioa_exclusions_v1) | **GET** /policy/entities/ioa-exclusions/v1 | Get a set of IOA Exclusions by specifying their IDs |
-| [**query_ioa_exclusions_v1**](IoaExclusionsApi.md#query_ioa_exclusions_v1) | **GET** /policy/queries/ioa-exclusions/v1 | Search for IOA exclusions. |
-| [**update_ioa_exclusions_v1**](IoaExclusionsApi.md#update_ioa_exclusions_v1) | **PATCH** /policy/entities/ioa-exclusions/v1 | Update the IOA exclusions |
+| [**create_ioa_exclusions_v1**](IoaExclusions.md#create_ioa_exclusions_v1) | **POST** /policy/entities/ioa-exclusions/v1 | Create the IOA exclusions |
+| [**delete_ioa_exclusions_v1**](IoaExclusions.md#delete_ioa_exclusions_v1) | **DELETE** /policy/entities/ioa-exclusions/v1 | Delete the IOA exclusions by id |
+| [**get_ioa_exclusions_v1**](IoaExclusions.md#get_ioa_exclusions_v1) | **GET** /policy/entities/ioa-exclusions/v1 | Get a set of IOA Exclusions by specifying their IDs |
+| [**query_ioa_exclusions_v1**](IoaExclusions.md#query_ioa_exclusions_v1) | **GET** /policy/queries/ioa-exclusions/v1 | Search for IOA exclusions. |
+| [**update_ioa_exclusions_v1**](IoaExclusions.md#update_ioa_exclusions_v1) | **PATCH** /policy/entities/ioa-exclusions/v1 | Update the IOA exclusions |
 
 
 ## create_ioa_exclusions_v1
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IoaExclusionsApi.new
+api_instance = Falcon::IoaExclusions.new
 body = Falcon::IoaExclusionsIoaExclusionCreateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # IoaExclusionsIoaExclusionCreateReqV1 | 
 
 begin
@@ -38,7 +38,7 @@ begin
   result = api_instance.create_ioa_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->create_ioa_exclusions_v1: #{e}"
+  puts "Error when calling IoaExclusions->create_ioa_exclusions_v1: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->create_ioa_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling IoaExclusions->create_ioa_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IoaExclusionsApi.new
+api_instance = Falcon::IoaExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to delete
 opts = {
   comment: 'comment_example' # String | Explains why this exclusions was deleted
@@ -110,7 +110,7 @@ begin
   result = api_instance.delete_ioa_exclusions_v1(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->delete_ioa_exclusions_v1: #{e}"
+  puts "Error when calling IoaExclusions->delete_ioa_exclusions_v1: #{e}"
 end
 ```
 
@@ -128,7 +128,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->delete_ioa_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling IoaExclusions->delete_ioa_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -172,7 +172,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IoaExclusionsApi.new
+api_instance = Falcon::IoaExclusions.new
 ids = ['inner_example'] # Array<String> | The ids of the exclusions to retrieve
 
 begin
@@ -180,7 +180,7 @@ begin
   result = api_instance.get_ioa_exclusions_v1(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->get_ioa_exclusions_v1: #{e}"
+  puts "Error when calling IoaExclusions->get_ioa_exclusions_v1: #{e}"
 end
 ```
 
@@ -198,7 +198,7 @@ begin
   p headers # => { ... }
   p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->get_ioa_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling IoaExclusions->get_ioa_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -241,7 +241,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IoaExclusionsApi.new
+api_instance = Falcon::IoaExclusions.new
 opts = {
   filter: 'filter_example', # String | The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the `ifn_regex` and `cl_regex` parameters.
   ifn_regex: 'ifn_regex_example', # String | The `ifn_regex` expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
@@ -256,7 +256,7 @@ begin
   result = api_instance.query_ioa_exclusions_v1(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->query_ioa_exclusions_v1: #{e}"
+  puts "Error when calling IoaExclusions->query_ioa_exclusions_v1: #{e}"
 end
 ```
 
@@ -274,7 +274,7 @@ begin
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->query_ioa_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling IoaExclusions->query_ioa_exclusions_v1_with_http_info: #{e}"
 end
 ```
 
@@ -322,7 +322,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IoaExclusionsApi.new
+api_instance = Falcon::IoaExclusions.new
 body = Falcon::IoaExclusionsIoaExclusionUpdateReqV1.new({cl_regex: 'cl_regex_example', description: 'description_example', detection_json: 'detection_json_example', groups: ['groups_example'], id: 'id_example', ifn_regex: 'ifn_regex_example', name: 'name_example', pattern_id: 'pattern_id_example', pattern_name: 'pattern_name_example'}) # IoaExclusionsIoaExclusionUpdateReqV1 | 
 
 begin
@@ -330,7 +330,7 @@ begin
   result = api_instance.update_ioa_exclusions_v1(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->update_ioa_exclusions_v1: #{e}"
+  puts "Error when calling IoaExclusions->update_ioa_exclusions_v1: #{e}"
 end
 ```
 
@@ -348,7 +348,7 @@ begin
   p headers # => { ... }
   p data # => <IoaExclusionsIoaExclusionsRespV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling IoaExclusionsApi->update_ioa_exclusions_v1_with_http_info: #{e}"
+  puts "Error when calling IoaExclusions->update_ioa_exclusions_v1_with_http_info: #{e}"
 end
 ```
 

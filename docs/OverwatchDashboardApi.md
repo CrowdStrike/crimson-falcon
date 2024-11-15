@@ -1,14 +1,14 @@
-# Falcon::OverwatchDashboardApi
+# Falcon::OverwatchDashboard
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregates_detections_global_counts**](OverwatchDashboardApi.md#aggregates_detections_global_counts) | **GET** /overwatch-dashboards/aggregates/detections-global-counts/v1 | Get the total number of detections pushed across all customers |
-| [**aggregates_events**](OverwatchDashboardApi.md#aggregates_events) | **POST** /overwatch-dashboards/aggregates/events/GET/v1 | Get aggregate OverWatch detection event info by providing an aggregate query |
-| [**aggregates_events_collections**](OverwatchDashboardApi.md#aggregates_events_collections) | **POST** /overwatch-dashboards/aggregates/events-collections/GET/v1 | Get OverWatch detection event collection info by providing an aggregate query |
-| [**aggregates_incidents_global_counts**](OverwatchDashboardApi.md#aggregates_incidents_global_counts) | **GET** /overwatch-dashboards/aggregates/incidents-global-counts/v1 | Get the total number of incidents pushed across all customers |
-| [**aggregates_ow_events_global_counts**](OverwatchDashboardApi.md#aggregates_ow_events_global_counts) | **GET** /overwatch-dashboards/aggregates/ow-events-global-counts/v1 | Get the total number of OverWatch events across all customers |
+| [**aggregates_detections_global_counts**](OverwatchDashboard.md#aggregates_detections_global_counts) | **GET** /overwatch-dashboards/aggregates/detections-global-counts/v1 | Get the total number of detections pushed across all customers |
+| [**aggregates_events**](OverwatchDashboard.md#aggregates_events) | **POST** /overwatch-dashboards/aggregates/events/GET/v1 | Get aggregate OverWatch detection event info by providing an aggregate query |
+| [**aggregates_events_collections**](OverwatchDashboard.md#aggregates_events_collections) | **POST** /overwatch-dashboards/aggregates/events-collections/GET/v1 | Get OverWatch detection event collection info by providing an aggregate query |
+| [**aggregates_incidents_global_counts**](OverwatchDashboard.md#aggregates_incidents_global_counts) | **GET** /overwatch-dashboards/aggregates/incidents-global-counts/v1 | Get the total number of incidents pushed across all customers |
+| [**aggregates_ow_events_global_counts**](OverwatchDashboard.md#aggregates_ow_events_global_counts) | **GET** /overwatch-dashboards/aggregates/ow-events-global-counts/v1 | Get the total number of OverWatch events across all customers |
 
 
 ## aggregates_detections_global_counts
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OverwatchDashboardApi.new
+api_instance = Falcon::OverwatchDashboard.new
 filter = 'filter_example' # String | An FQL filter string
 
 begin
@@ -38,7 +38,7 @@ begin
   result = api_instance.aggregates_detections_global_counts(filter)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_detections_global_counts: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_detections_global_counts: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => <MsaFacetsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_detections_global_counts_with_http_info: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_detections_global_counts_with_http_info: #{e}"
 end
 ```
 
@@ -99,7 +99,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OverwatchDashboardApi.new
+api_instance = Falcon::OverwatchDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -107,7 +107,7 @@ begin
   result = api_instance.aggregates_events(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_events: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_events: #{e}"
 end
 ```
 
@@ -125,7 +125,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_events_with_http_info: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_events_with_http_info: #{e}"
 end
 ```
 
@@ -168,7 +168,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OverwatchDashboardApi.new
+api_instance = Falcon::OverwatchDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
@@ -176,7 +176,7 @@ begin
   result = api_instance.aggregates_events_collections(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_events_collections: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_events_collections: #{e}"
 end
 ```
 
@@ -194,7 +194,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_events_collections_with_http_info: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_events_collections_with_http_info: #{e}"
 end
 ```
 
@@ -237,7 +237,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OverwatchDashboardApi.new
+api_instance = Falcon::OverwatchDashboard.new
 filter = 'filter_example' # String | An FQL filter string
 
 begin
@@ -245,7 +245,7 @@ begin
   result = api_instance.aggregates_incidents_global_counts(filter)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_incidents_global_counts: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_incidents_global_counts: #{e}"
 end
 ```
 
@@ -263,7 +263,7 @@ begin
   p headers # => { ... }
   p data # => <MsaFacetsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_incidents_global_counts_with_http_info: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_incidents_global_counts_with_http_info: #{e}"
 end
 ```
 
@@ -306,7 +306,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::OverwatchDashboardApi.new
+api_instance = Falcon::OverwatchDashboard.new
 filter = 'filter_example' # String | An FQL filter string
 
 begin
@@ -314,7 +314,7 @@ begin
   result = api_instance.aggregates_ow_events_global_counts(filter)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_ow_events_global_counts: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_ow_events_global_counts: #{e}"
 end
 ```
 
@@ -332,7 +332,7 @@ begin
   p headers # => { ... }
   p data # => <MsaFacetsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling OverwatchDashboardApi->aggregates_ow_events_global_counts_with_http_info: #{e}"
+  puts "Error when calling OverwatchDashboard->aggregates_ow_events_global_counts_with_http_info: #{e}"
 end
 ```
 

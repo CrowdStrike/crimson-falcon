@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class IocApi
+  class Ioc
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,7 +51,7 @@ module Falcon
     # @return [Array<(ApiActionRespV1, Integer, Hash)>] ApiActionRespV1 data, response status code and response headers
     def action_get_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.action_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.action_get_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/entities/actions/v1'
@@ -78,7 +78,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.action_get_v1",
+        :operation => :"Ioc.action_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#action_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#action_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -111,7 +111,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def action_query_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.action_query_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.action_query_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/queries/actions/v1'
@@ -139,7 +139,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.action_query_v1",
+        :operation => :"Ioc.action_query_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -150,7 +150,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#action_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#action_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -170,11 +170,11 @@ module Falcon
     # @return [Array<(MsaEntitiesResponse, Integer, Hash)>] MsaEntitiesResponse data, response status code and response headers
     def get_indicators_report_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.get_indicators_report ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.get_indicators_report ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IocApi.get_indicators_report"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ioc.get_indicators_report"
       end
       # resource path
       local_var_path = '/iocs/entities/indicators-reports/v1'
@@ -205,7 +205,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.get_indicators_report",
+        :operation => :"Ioc.get_indicators_report",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -216,7 +216,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#get_indicators_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#get_indicators_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -240,11 +240,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def indicator_aggregate_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_aggregate_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_aggregate_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IocApi.indicator_aggregate_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ioc.indicator_aggregate_v1"
       end
       # resource path
       local_var_path = '/iocs/aggregates/indicators/v1'
@@ -277,7 +277,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_aggregate_v1",
+        :operation => :"Ioc.indicator_aggregate_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -288,7 +288,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_aggregate_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_aggregate_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -318,7 +318,7 @@ module Falcon
     # @return [Array<(ApiIndicatorRespV1, Integer, Hash)>] ApiIndicatorRespV1 data, response status code and response headers
     def indicator_combined_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_combined_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_combined_v1 ...'
       end
       allowable_values = ["action", "applied_globally", "metadata.av_hits", "metadata.company_name.raw", "created_by", "created_on", "expiration", "expired", "metadata.filename.raw", "modified_by", "modified_on", "metadata.original_filename.raw", "metadata.product_name.raw", "metadata.product_version", "severity_number", "source", "type", "value"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -354,7 +354,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_combined_v1",
+        :operation => :"Ioc.indicator_combined_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -365,7 +365,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_combined_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_combined_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -389,11 +389,11 @@ module Falcon
     # @return [Array<(ApiIndicatorRespV1, Integer, Hash)>] ApiIndicatorRespV1 data, response status code and response headers
     def indicator_create_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_create_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_create_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IocApi.indicator_create_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ioc.indicator_create_v1"
       end
       # resource path
       local_var_path = '/iocs/entities/indicators/v1'
@@ -426,7 +426,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_create_v1",
+        :operation => :"Ioc.indicator_create_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -437,7 +437,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_create_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -463,7 +463,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def indicator_delete_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_delete_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_delete_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/entities/indicators/v1'
@@ -493,7 +493,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_delete_v1",
+        :operation => :"Ioc.indicator_delete_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -504,7 +504,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_delete_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -526,15 +526,15 @@ module Falcon
     # @return [Array<(ApiDeviceCountRespV1, Integer, Hash)>] ApiDeviceCountRespV1 data, response status code and response headers
     def indicator_get_device_count_v1_with_http_info(type, value, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_device_count_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_get_device_count_v1 ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_device_count_v1"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Ioc.indicator_get_device_count_v1"
       end
       # verify the required parameter 'value' is set
       if @api_client.config.client_side_validation && value.nil?
-        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_device_count_v1"
+        fail ArgumentError, "Missing the required parameter 'value' when calling Ioc.indicator_get_device_count_v1"
       end
       # resource path
       local_var_path = '/iocs/aggregates/indicators/device-count/v1'
@@ -562,7 +562,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_get_device_count_v1",
+        :operation => :"Ioc.indicator_get_device_count_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -573,7 +573,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_get_device_count_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_get_device_count_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -599,15 +599,15 @@ module Falcon
     # @return [Array<(ApiDevicesRanOnRespV1, Integer, Hash)>] ApiDevicesRanOnRespV1 data, response status code and response headers
     def indicator_get_devices_ran_on_v1_with_http_info(type, value, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_devices_ran_on_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_get_devices_ran_on_v1 ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_devices_ran_on_v1"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Ioc.indicator_get_devices_ran_on_v1"
       end
       # verify the required parameter 'value' is set
       if @api_client.config.client_side_validation && value.nil?
-        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_devices_ran_on_v1"
+        fail ArgumentError, "Missing the required parameter 'value' when calling Ioc.indicator_get_devices_ran_on_v1"
       end
       # resource path
       local_var_path = '/iocs/queries/indicators/devices/v1'
@@ -637,7 +637,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_get_devices_ran_on_v1",
+        :operation => :"Ioc.indicator_get_devices_ran_on_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -648,7 +648,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_get_devices_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_get_devices_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -676,19 +676,19 @@ module Falcon
     # @return [Array<(ApiProcessesRanOnRespV1, Integer, Hash)>] ApiProcessesRanOnRespV1 data, response status code and response headers
     def indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_processes_ran_on_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_get_processes_ran_on_v1 ...'
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling IocApi.indicator_get_processes_ran_on_v1"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Ioc.indicator_get_processes_ran_on_v1"
       end
       # verify the required parameter 'value' is set
       if @api_client.config.client_side_validation && value.nil?
-        fail ArgumentError, "Missing the required parameter 'value' when calling IocApi.indicator_get_processes_ran_on_v1"
+        fail ArgumentError, "Missing the required parameter 'value' when calling Ioc.indicator_get_processes_ran_on_v1"
       end
       # verify the required parameter 'device_id' is set
       if @api_client.config.client_side_validation && device_id.nil?
-        fail ArgumentError, "Missing the required parameter 'device_id' when calling IocApi.indicator_get_processes_ran_on_v1"
+        fail ArgumentError, "Missing the required parameter 'device_id' when calling Ioc.indicator_get_processes_ran_on_v1"
       end
       # resource path
       local_var_path = '/iocs/queries/indicators/processes/v1'
@@ -719,7 +719,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_get_processes_ran_on_v1",
+        :operation => :"Ioc.indicator_get_processes_ran_on_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -730,7 +730,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_get_processes_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_get_processes_ran_on_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -750,11 +750,11 @@ module Falcon
     # @return [Array<(ApiIndicatorRespV1, Integer, Hash)>] ApiIndicatorRespV1 data, response status code and response headers
     def indicator_get_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_get_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_get_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling IocApi.indicator_get_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ioc.indicator_get_v1"
       end
       # resource path
       local_var_path = '/iocs/entities/indicators/v1'
@@ -781,7 +781,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_get_v1",
+        :operation => :"Ioc.indicator_get_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -792,7 +792,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_get_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -822,7 +822,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def indicator_search_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_search_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_search_v1 ...'
       end
       allowable_values = ["action", "applied_globally", "metadata.av_hits", "metadata.company_name.raw", "created_by", "created_on", "expiration", "expired", "metadata.filename.raw", "modified_by", "modified_on", "metadata.original_filename.raw", "metadata.product_name.raw", "metadata.product_version", "severity_number", "source", "type", "value"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
@@ -858,7 +858,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_search_v1",
+        :operation => :"Ioc.indicator_search_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -869,7 +869,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -893,11 +893,11 @@ module Falcon
     # @return [Array<(ApiIndicatorRespV1, Integer, Hash)>] ApiIndicatorRespV1 data, response status code and response headers
     def indicator_update_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.indicator_update_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.indicator_update_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IocApi.indicator_update_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ioc.indicator_update_v1"
       end
       # resource path
       local_var_path = '/iocs/entities/indicators/v1'
@@ -930,7 +930,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.indicator_update_v1",
+        :operation => :"Ioc.indicator_update_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -941,7 +941,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#indicator_update_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#indicator_update_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -963,7 +963,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def ioc_type_query_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.ioc_type_query_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.ioc_type_query_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/queries/ioc-types/v1'
@@ -991,7 +991,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.ioc_type_query_v1",
+        :operation => :"Ioc.ioc_type_query_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1002,7 +1002,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#ioc_type_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#ioc_type_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1024,7 +1024,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def platform_query_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.platform_query_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.platform_query_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/queries/platforms/v1'
@@ -1052,7 +1052,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.platform_query_v1",
+        :operation => :"Ioc.platform_query_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1063,7 +1063,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#platform_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#platform_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1085,7 +1085,7 @@ module Falcon
     # @return [Array<(ApiIndicatorQueryRespV1, Integer, Hash)>] ApiIndicatorQueryRespV1 data, response status code and response headers
     def severity_query_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IocApi.severity_query_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Ioc.severity_query_v1 ...'
       end
       # resource path
       local_var_path = '/iocs/queries/severities/v1'
@@ -1113,7 +1113,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IocApi.severity_query_v1",
+        :operation => :"Ioc.severity_query_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1124,7 +1124,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IocApi#severity_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Ioc#severity_query_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

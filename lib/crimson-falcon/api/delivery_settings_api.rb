@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DeliverySettingsApi
+  class DeliverySettings
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -49,7 +49,7 @@ module Falcon
     # @return [Array<(ModelsDeliverySettingsEntityResponse, Integer, Hash)>] ModelsDeliverySettingsEntityResponse data, response status code and response headers
     def get_delivery_settings_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeliverySettingsApi.get_delivery_settings ...'
+        @api_client.config.logger.debug 'Calling API: DeliverySettings.get_delivery_settings ...'
       end
       # resource path
       local_var_path = '/delivery-settings/entities/delivery-settings/v1'
@@ -75,7 +75,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeliverySettingsApi.get_delivery_settings",
+        :operation => :"DeliverySettings.get_delivery_settings",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -86,7 +86,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeliverySettingsApi#get_delivery_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeliverySettings#get_delivery_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -106,11 +106,11 @@ module Falcon
     # @return [Array<(ModelsDeliverySettingsEntityResponse, Integer, Hash)>] ModelsDeliverySettingsEntityResponse data, response status code and response headers
     def post_delivery_settings_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeliverySettingsApi.post_delivery_settings ...'
+        @api_client.config.logger.debug 'Calling API: DeliverySettings.post_delivery_settings ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling DeliverySettingsApi.post_delivery_settings"
+        fail ArgumentError, "Missing the required parameter 'body' when calling DeliverySettings.post_delivery_settings"
       end
       # resource path
       local_var_path = '/delivery-settings/entities/delivery-settings/v1'
@@ -141,7 +141,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DeliverySettingsApi.post_delivery_settings",
+        :operation => :"DeliverySettings.post_delivery_settings",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -152,7 +152,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeliverySettingsApi#post_delivery_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeliverySettings#post_delivery_settings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class DiscoverApi
+  class Discover
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -59,18 +59,18 @@ module Falcon
     # @return [Array<(DomainDiscoverAPICombinedApplicationsResponse, Integer, Hash)>] DomainDiscoverAPICombinedApplicationsResponse data, response status code and response headers
     def combined_applications_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.combined_applications ...'
+        @api_client.config.logger.debug 'Calling API: Discover.combined_applications ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling DiscoverApi.combined_applications"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling Discover.combined_applications"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.combined_applications, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.combined_applications, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.combined_applications, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.combined_applications, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -102,7 +102,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.combined_applications",
+        :operation => :"Discover.combined_applications",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -113,7 +113,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#combined_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#combined_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -141,18 +141,18 @@ module Falcon
     # @return [Array<(DomainDiscoverAPICombinedHostsResponse, Integer, Hash)>] DomainDiscoverAPICombinedHostsResponse data, response status code and response headers
     def combined_hosts_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.combined_hosts ...'
+        @api_client.config.logger.debug 'Calling API: Discover.combined_hosts ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling DiscoverApi.combined_hosts"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling Discover.combined_hosts"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.combined_hosts, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.combined_hosts, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.combined_hosts, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.combined_hosts, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -184,7 +184,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.combined_hosts",
+        :operation => :"Discover.combined_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -195,7 +195,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#combined_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#combined_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -215,11 +215,11 @@ module Falcon
     # @return [Array<(DomainDiscoverAPIAccountEntitiesResponse, Integer, Hash)>] DomainDiscoverAPIAccountEntitiesResponse data, response status code and response headers
     def get_accounts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.get_accounts ...'
+        @api_client.config.logger.debug 'Calling API: Discover.get_accounts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverApi.get_accounts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Discover.get_accounts"
       end
       # resource path
       local_var_path = '/discover/entities/accounts/v1'
@@ -246,7 +246,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.get_accounts",
+        :operation => :"Discover.get_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -257,7 +257,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#get_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -277,11 +277,11 @@ module Falcon
     # @return [Array<(DomainDiscoverAPIApplicationEntitiesResponse, Integer, Hash)>] DomainDiscoverAPIApplicationEntitiesResponse data, response status code and response headers
     def get_applications_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.get_applications ...'
+        @api_client.config.logger.debug 'Calling API: Discover.get_applications ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverApi.get_applications"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Discover.get_applications"
       end
       # resource path
       local_var_path = '/discover/entities/applications/v1'
@@ -308,7 +308,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.get_applications",
+        :operation => :"Discover.get_applications",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -319,7 +319,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#get_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#get_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -339,11 +339,11 @@ module Falcon
     # @return [Array<(DomainDiscoverAPIHostEntitiesResponse, Integer, Hash)>] DomainDiscoverAPIHostEntitiesResponse data, response status code and response headers
     def get_hosts_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.get_hosts ...'
+        @api_client.config.logger.debug 'Calling API: Discover.get_hosts ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverApi.get_hosts"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Discover.get_hosts"
       end
       # resource path
       local_var_path = '/discover/entities/hosts/v1'
@@ -370,7 +370,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.get_hosts",
+        :operation => :"Discover.get_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -381,7 +381,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#get_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#get_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -401,11 +401,11 @@ module Falcon
     # @return [Array<(DomainDiscoverAPILoginEntitiesResponse, Integer, Hash)>] DomainDiscoverAPILoginEntitiesResponse data, response status code and response headers
     def get_logins_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.get_logins ...'
+        @api_client.config.logger.debug 'Calling API: Discover.get_logins ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling DiscoverApi.get_logins"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Discover.get_logins"
       end
       # resource path
       local_var_path = '/discover/entities/logins/v1'
@@ -432,7 +432,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.get_logins",
+        :operation => :"Discover.get_logins",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -443,7 +443,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#get_logins\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#get_logins\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -469,18 +469,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_accounts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.query_accounts ...'
+        @api_client.config.logger.debug 'Calling API: Discover.query_accounts ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverApi.query_accounts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Discover.query_accounts, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_accounts, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_accounts, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_accounts, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_accounts, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -511,7 +511,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.query_accounts",
+        :operation => :"Discover.query_accounts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -522,7 +522,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#query_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#query_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -548,18 +548,18 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_applications_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.query_applications ...'
+        @api_client.config.logger.debug 'Calling API: Discover.query_applications ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverApi.query_applications, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Discover.query_applications, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_applications, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_applications, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_applications, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_applications, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -590,7 +590,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.query_applications",
+        :operation => :"Discover.query_applications",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -601,7 +601,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#query_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#query_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -627,18 +627,18 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_hosts_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.query_hosts ...'
+        @api_client.config.logger.debug 'Calling API: Discover.query_hosts ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverApi.query_hosts, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Discover.query_hosts, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_hosts, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_hosts, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_hosts, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_hosts, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -669,7 +669,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.query_hosts",
+        :operation => :"Discover.query_hosts",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -680,7 +680,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#query_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#query_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -706,18 +706,18 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_logins_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DiscoverApi.query_logins ...'
+        @api_client.config.logger.debug 'Calling API: Discover.query_logins ...'
       end
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DiscoverApi.query_logins, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling Discover.query_logins, must be greater than or equal to 0.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_logins, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_logins, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverApi.query_logins, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling Discover.query_logins, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -748,7 +748,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"DiscoverApi.query_logins",
+        :operation => :"Discover.query_logins",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -759,7 +759,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DiscoverApi#query_logins\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Discover#query_logins\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

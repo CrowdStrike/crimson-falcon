@@ -1,11 +1,11 @@
-# Falcon::DeliverySettingsApi
+# Falcon::DeliverySettings
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_delivery_settings**](DeliverySettingsApi.md#get_delivery_settings) | **GET** /delivery-settings/entities/delivery-settings/v1 | Get Delivery Settings |
-| [**post_delivery_settings**](DeliverySettingsApi.md#post_delivery_settings) | **POST** /delivery-settings/entities/delivery-settings/v1 | Create Delivery Settings |
+| [**get_delivery_settings**](DeliverySettings.md#get_delivery_settings) | **GET** /delivery-settings/entities/delivery-settings/v1 | Get Delivery Settings |
+| [**post_delivery_settings**](DeliverySettings.md#post_delivery_settings) | **POST** /delivery-settings/entities/delivery-settings/v1 | Create Delivery Settings |
 
 
 ## get_delivery_settings
@@ -27,14 +27,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DeliverySettingsApi.new
+api_instance = Falcon::DeliverySettings.new
 
 begin
   # Get Delivery Settings
   result = api_instance.get_delivery_settings
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DeliverySettingsApi->get_delivery_settings: #{e}"
+  puts "Error when calling DeliverySettings->get_delivery_settings: #{e}"
 end
 ```
 
@@ -52,7 +52,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsDeliverySettingsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DeliverySettingsApi->get_delivery_settings_with_http_info: #{e}"
+  puts "Error when calling DeliverySettings->get_delivery_settings_with_http_info: #{e}"
 end
 ```
 
@@ -93,7 +93,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DeliverySettingsApi.new
+api_instance = Falcon::DeliverySettings.new
 body = Falcon::ModelsDeliverySettingsRequest.new({delivery_settings: [Falcon::ModelsDeliverySettingsInput.new({delivery_cadence: 'delivery_cadence_example', delivery_type: 'delivery_type_example'})]}) # ModelsDeliverySettingsRequest | 
 
 begin
@@ -101,7 +101,7 @@ begin
   result = api_instance.post_delivery_settings(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DeliverySettingsApi->post_delivery_settings: #{e}"
+  puts "Error when calling DeliverySettings->post_delivery_settings: #{e}"
 end
 ```
 
@@ -119,7 +119,7 @@ begin
   p headers # => { ... }
   p data # => <ModelsDeliverySettingsEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling DeliverySettingsApi->post_delivery_settings_with_http_info: #{e}"
+  puts "Error when calling DeliverySettings->post_delivery_settings_with_http_info: #{e}"
 end
 ```
 

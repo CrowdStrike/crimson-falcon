@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class MalqueryApi
+  class Malquery
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_mal_query_download_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.get_mal_query_download_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.get_mal_query_download_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MalqueryApi.get_mal_query_download_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Malquery.get_mal_query_download_v1"
       end
       # resource path
       local_var_path = '/malquery/entities/download-files/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.get_mal_query_download_v1",
+        :operation => :"Malquery.get_mal_query_download_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#get_mal_query_download_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#get_mal_query_download_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def get_mal_query_entities_samples_fetch_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.get_mal_query_entities_samples_fetch_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.get_mal_query_entities_samples_fetch_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MalqueryApi.get_mal_query_entities_samples_fetch_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Malquery.get_mal_query_entities_samples_fetch_v1"
       end
       # resource path
       local_var_path = '/malquery/entities/samples-fetch/v1'
@@ -144,7 +144,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.get_mal_query_entities_samples_fetch_v1",
+        :operation => :"Malquery.get_mal_query_entities_samples_fetch_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -155,7 +155,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#get_mal_query_entities_samples_fetch_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#get_mal_query_entities_samples_fetch_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -175,11 +175,11 @@ module Falcon
     # @return [Array<(MalquerySampleMetadataResponse, Integer, Hash)>] MalquerySampleMetadataResponse data, response status code and response headers
     def get_mal_query_metadata_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.get_mal_query_metadata_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.get_mal_query_metadata_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MalqueryApi.get_mal_query_metadata_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Malquery.get_mal_query_metadata_v1"
       end
       # resource path
       local_var_path = '/malquery/entities/metadata/v1'
@@ -206,7 +206,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.get_mal_query_metadata_v1",
+        :operation => :"Malquery.get_mal_query_metadata_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -217,7 +217,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#get_mal_query_metadata_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#get_mal_query_metadata_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -235,7 +235,7 @@ module Falcon
     # @return [Array<(MalqueryRateLimitsResponse, Integer, Hash)>] MalqueryRateLimitsResponse data, response status code and response headers
     def get_mal_query_quotas_v1_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.get_mal_query_quotas_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.get_mal_query_quotas_v1 ...'
       end
       # resource path
       local_var_path = '/malquery/aggregates/quotas/v1'
@@ -261,7 +261,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.get_mal_query_quotas_v1",
+        :operation => :"Malquery.get_mal_query_quotas_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -272,7 +272,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#get_mal_query_quotas_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#get_mal_query_quotas_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -292,11 +292,11 @@ module Falcon
     # @return [Array<(MalqueryRequestResponse, Integer, Hash)>] MalqueryRequestResponse data, response status code and response headers
     def get_mal_query_request_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.get_mal_query_request_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.get_mal_query_request_v1 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling MalqueryApi.get_mal_query_request_v1"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Malquery.get_mal_query_request_v1"
       end
       # resource path
       local_var_path = '/malquery/entities/requests/v1'
@@ -323,7 +323,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.get_mal_query_request_v1",
+        :operation => :"Malquery.get_mal_query_request_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -334,7 +334,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#get_mal_query_request_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#get_mal_query_request_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -354,11 +354,11 @@ module Falcon
     # @return [Array<(MalqueryExternalQueryResponse, Integer, Hash)>] MalqueryExternalQueryResponse data, response status code and response headers
     def post_mal_query_entities_samples_multidownload_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.post_mal_query_entities_samples_multidownload_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.post_mal_query_entities_samples_multidownload_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MalqueryApi.post_mal_query_entities_samples_multidownload_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Malquery.post_mal_query_entities_samples_multidownload_v1"
       end
       # resource path
       local_var_path = '/malquery/entities/samples-multidownload/v1'
@@ -389,7 +389,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.post_mal_query_entities_samples_multidownload_v1",
+        :operation => :"Malquery.post_mal_query_entities_samples_multidownload_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -400,7 +400,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#post_mal_query_entities_samples_multidownload_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#post_mal_query_entities_samples_multidownload_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -420,11 +420,11 @@ module Falcon
     # @return [Array<(MalqueryExternalQueryResponse, Integer, Hash)>] MalqueryExternalQueryResponse data, response status code and response headers
     def post_mal_query_exact_search_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.post_mal_query_exact_search_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.post_mal_query_exact_search_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MalqueryApi.post_mal_query_exact_search_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Malquery.post_mal_query_exact_search_v1"
       end
       # resource path
       local_var_path = '/malquery/queries/exact-search/v1'
@@ -455,7 +455,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.post_mal_query_exact_search_v1",
+        :operation => :"Malquery.post_mal_query_exact_search_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -466,7 +466,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#post_mal_query_exact_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#post_mal_query_exact_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -486,11 +486,11 @@ module Falcon
     # @return [Array<(MalqueryFuzzySearchResponse, Integer, Hash)>] MalqueryFuzzySearchResponse data, response status code and response headers
     def post_mal_query_fuzzy_search_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.post_mal_query_fuzzy_search_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.post_mal_query_fuzzy_search_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MalqueryApi.post_mal_query_fuzzy_search_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Malquery.post_mal_query_fuzzy_search_v1"
       end
       # resource path
       local_var_path = '/malquery/combined/fuzzy-search/v1'
@@ -521,7 +521,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.post_mal_query_fuzzy_search_v1",
+        :operation => :"Malquery.post_mal_query_fuzzy_search_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -532,7 +532,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#post_mal_query_fuzzy_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#post_mal_query_fuzzy_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -552,11 +552,11 @@ module Falcon
     # @return [Array<(MalqueryExternalQueryResponse, Integer, Hash)>] MalqueryExternalQueryResponse data, response status code and response headers
     def post_mal_query_hunt_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MalqueryApi.post_mal_query_hunt_v1 ...'
+        @api_client.config.logger.debug 'Calling API: Malquery.post_mal_query_hunt_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MalqueryApi.post_mal_query_hunt_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Malquery.post_mal_query_hunt_v1"
       end
       # resource path
       local_var_path = '/malquery/queries/hunt/v1'
@@ -587,7 +587,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"MalqueryApi.post_mal_query_hunt_v1",
+        :operation => :"Malquery.post_mal_query_hunt_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -598,7 +598,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MalqueryApi#post_mal_query_hunt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Malquery#post_mal_query_hunt_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

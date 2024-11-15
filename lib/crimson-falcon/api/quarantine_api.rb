@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class QuarantineApi
+  class Quarantine
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def action_update_count_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.action_update_count ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.action_update_count ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling QuarantineApi.action_update_count"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling Quarantine.action_update_count"
       end
       # resource path
       local_var_path = '/quarantine/aggregates/action-update-count/v1'
@@ -82,7 +82,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.action_update_count",
+        :operation => :"Quarantine.action_update_count",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -93,7 +93,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#action_update_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#action_update_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -113,11 +113,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def get_aggregate_files_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.get_aggregate_files ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.get_aggregate_files ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuarantineApi.get_aggregate_files"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Quarantine.get_aggregate_files"
       end
       # resource path
       local_var_path = '/quarantine/aggregates/quarantined-files/GET/v1'
@@ -148,7 +148,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.get_aggregate_files",
+        :operation => :"Quarantine.get_aggregate_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +159,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#get_aggregate_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#get_aggregate_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -179,11 +179,11 @@ module Falcon
     # @return [Array<(DomainMsaQfResponse, Integer, Hash)>] DomainMsaQfResponse data, response status code and response headers
     def get_quarantine_files_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.get_quarantine_files ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.get_quarantine_files ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuarantineApi.get_quarantine_files"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Quarantine.get_quarantine_files"
       end
       # resource path
       local_var_path = '/quarantine/entities/quarantined-files/GET/v1'
@@ -214,7 +214,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.get_quarantine_files",
+        :operation => :"Quarantine.get_quarantine_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -225,7 +225,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#get_quarantine_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#get_quarantine_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -253,7 +253,7 @@ module Falcon
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_quarantine_files_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.query_quarantine_files ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.query_quarantine_files ...'
       end
       # resource path
       local_var_path = '/quarantine/queries/quarantined-files/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.query_quarantine_files",
+        :operation => :"Quarantine.query_quarantine_files",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#query_quarantine_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#query_quarantine_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -315,11 +315,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def update_qf_by_query_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.update_qf_by_query ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.update_qf_by_query ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuarantineApi.update_qf_by_query"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Quarantine.update_qf_by_query"
       end
       # resource path
       local_var_path = '/quarantine/queries/quarantined-files/v1'
@@ -350,7 +350,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.update_qf_by_query",
+        :operation => :"Quarantine.update_qf_by_query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -361,7 +361,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#update_qf_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#update_qf_by_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -381,11 +381,11 @@ module Falcon
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def update_quarantined_detects_by_ids_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuarantineApi.update_quarantined_detects_by_ids ...'
+        @api_client.config.logger.debug 'Calling API: Quarantine.update_quarantined_detects_by_ids ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling QuarantineApi.update_quarantined_detects_by_ids"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Quarantine.update_quarantined_detects_by_ids"
       end
       # resource path
       local_var_path = '/quarantine/entities/quarantined-files/v1'
@@ -416,7 +416,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuarantineApi.update_quarantined_detects_by_ids",
+        :operation => :"Quarantine.update_quarantined_detects_by_ids",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -427,7 +427,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuarantineApi#update_quarantined_detects_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Quarantine#update_quarantined_detects_by_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

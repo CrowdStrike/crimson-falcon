@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class FirewallManagementApi
+  class FirewallManagement
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -51,11 +51,11 @@ module Falcon
     # @return [Array<(FwmgrApiAggregatesResponse, Integer, Hash)>] FwmgrApiAggregatesResponse data, response status code and response headers
     def aggregate_events_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.aggregate_events ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.aggregate_events ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.aggregate_events"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.aggregate_events"
       end
       # resource path
       local_var_path = '/fwmgr/aggregates/events/GET/v1'
@@ -86,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.aggregate_events",
+        :operation => :"FirewallManagement.aggregate_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#aggregate_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#aggregate_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -117,11 +117,11 @@ module Falcon
     # @return [Array<(FwmgrApiAggregatesResponse, Integer, Hash)>] FwmgrApiAggregatesResponse data, response status code and response headers
     def aggregate_policy_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.aggregate_policy_rules ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.aggregate_policy_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.aggregate_policy_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.aggregate_policy_rules"
       end
       # resource path
       local_var_path = '/fwmgr/aggregates/policy-rules/GET/v1'
@@ -152,7 +152,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.aggregate_policy_rules",
+        :operation => :"FirewallManagement.aggregate_policy_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -163,7 +163,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#aggregate_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#aggregate_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -183,11 +183,11 @@ module Falcon
     # @return [Array<(FwmgrApiAggregatesResponse, Integer, Hash)>] FwmgrApiAggregatesResponse data, response status code and response headers
     def aggregate_rule_groups_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.aggregate_rule_groups ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.aggregate_rule_groups ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.aggregate_rule_groups"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.aggregate_rule_groups"
       end
       # resource path
       local_var_path = '/fwmgr/aggregates/rule-groups/GET/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.aggregate_rule_groups",
+        :operation => :"FirewallManagement.aggregate_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#aggregate_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#aggregate_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,11 +249,11 @@ module Falcon
     # @return [Array<(FwmgrApiAggregatesResponse, Integer, Hash)>] FwmgrApiAggregatesResponse data, response status code and response headers
     def aggregate_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.aggregate_rules ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.aggregate_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.aggregate_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.aggregate_rules"
       end
       # resource path
       local_var_path = '/fwmgr/aggregates/rules/GET/v1'
@@ -284,7 +284,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.aggregate_rules",
+        :operation => :"FirewallManagement.aggregate_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -295,7 +295,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#aggregate_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#aggregate_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -321,11 +321,11 @@ module Falcon
     # @return [Array<(FwmgrApiNetworkLocationsResponse, Integer, Hash)>] FwmgrApiNetworkLocationsResponse data, response status code and response headers
     def create_network_locations_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.create_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.create_network_locations ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.create_network_locations"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.create_network_locations"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations/v1'
@@ -359,7 +359,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.create_network_locations",
+        :operation => :"FirewallManagement.create_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -370,7 +370,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#create_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#create_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -396,11 +396,11 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def create_rule_group_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.create_rule_group ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.create_rule_group ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.create_rule_group"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.create_rule_group"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -434,7 +434,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.create_rule_group",
+        :operation => :"FirewallManagement.create_rule_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -445,7 +445,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#create_rule_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#create_rule_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -471,11 +471,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def create_rule_group_validation_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.create_rule_group_validation ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.create_rule_group_validation ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.create_rule_group_validation"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.create_rule_group_validation"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/validation/v1'
@@ -509,7 +509,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.create_rule_group_validation",
+        :operation => :"FirewallManagement.create_rule_group_validation",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -520,7 +520,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#create_rule_group_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#create_rule_group_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -540,11 +540,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def delete_network_locations_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.delete_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.delete_network_locations ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.delete_network_locations"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.delete_network_locations"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations/v1'
@@ -571,7 +571,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.delete_network_locations",
+        :operation => :"FirewallManagement.delete_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -582,7 +582,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#delete_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#delete_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -604,11 +604,11 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def delete_rule_groups_0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.delete_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.delete_rule_groups_0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.delete_rule_groups_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.delete_rule_groups_0"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -636,7 +636,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.delete_rule_groups_0",
+        :operation => :"FirewallManagement.delete_rule_groups_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -647,7 +647,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#delete_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#delete_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -667,11 +667,11 @@ module Falcon
     # @return [Array<(FwmgrApiEventsResponse, Integer, Hash)>] FwmgrApiEventsResponse data, response status code and response headers
     def get_events_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_events ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_events ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_events"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_events"
       end
       # resource path
       local_var_path = '/fwmgr/entities/events/v1'
@@ -698,7 +698,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_events",
+        :operation => :"FirewallManagement.get_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -709,7 +709,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -729,11 +729,11 @@ module Falcon
     # @return [Array<(FwmgrApiFirewallFieldsResponse, Integer, Hash)>] FwmgrApiFirewallFieldsResponse data, response status code and response headers
     def get_firewall_fields_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_firewall_fields ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_firewall_fields ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_firewall_fields"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_firewall_fields"
       end
       # resource path
       local_var_path = '/fwmgr/entities/firewall-fields/v1'
@@ -760,7 +760,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_firewall_fields",
+        :operation => :"FirewallManagement.get_firewall_fields",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -771,7 +771,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_firewall_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_firewall_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -793,11 +793,11 @@ module Falcon
     # @return [Array<(FwmgrApiNetworkLocationSummariesResponse, Integer, Hash)>] FwmgrApiNetworkLocationSummariesResponse data, response status code and response headers
     def get_network_locations_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_network_locations ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_network_locations"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_network_locations"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations/v1'
@@ -824,7 +824,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_network_locations",
+        :operation => :"FirewallManagement.get_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -835,7 +835,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -857,11 +857,11 @@ module Falcon
     # @return [Array<(FwmgrApiNetworkLocationsResponse, Integer, Hash)>] FwmgrApiNetworkLocationsResponse data, response status code and response headers
     def get_network_locations_details_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_network_locations_details ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_network_locations_details ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_network_locations_details"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_network_locations_details"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations-details/v1'
@@ -888,7 +888,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_network_locations_details",
+        :operation => :"FirewallManagement.get_network_locations_details",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -899,7 +899,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_network_locations_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_network_locations_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -919,11 +919,11 @@ module Falcon
     # @return [Array<(FwmgrApiPlatformsResponse, Integer, Hash)>] FwmgrApiPlatformsResponse data, response status code and response headers
     def get_platforms_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_platforms ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_platforms ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_platforms"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_platforms"
       end
       # resource path
       local_var_path = '/fwmgr/entities/platforms/v1'
@@ -950,7 +950,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_platforms",
+        :operation => :"FirewallManagement.get_platforms",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -961,7 +961,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_platforms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_platforms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -981,11 +981,11 @@ module Falcon
     # @return [Array<(FwmgrApiPolicyContainersResponse, Integer, Hash)>] FwmgrApiPolicyContainersResponse data, response status code and response headers
     def get_policy_containers_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_policy_containers ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_policy_containers ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_policy_containers"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_policy_containers"
       end
       # resource path
       local_var_path = '/fwmgr/entities/policies/v1'
@@ -1012,7 +1012,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_policy_containers",
+        :operation => :"FirewallManagement.get_policy_containers",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1023,7 +1023,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_policy_containers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_policy_containers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1043,11 +1043,11 @@ module Falcon
     # @return [Array<(FwmgrApiRuleGroupsResponse, Integer, Hash)>] FwmgrApiRuleGroupsResponse data, response status code and response headers
     def get_rule_groups_0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rule_groups_0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_rule_groups_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rule_groups_0"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -1074,7 +1074,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_rule_groups_0",
+        :operation => :"FirewallManagement.get_rule_groups_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1085,7 +1085,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1105,11 +1105,11 @@ module Falcon
     # @return [Array<(FwmgrApiRulesResponse, Integer, Hash)>] FwmgrApiRulesResponse data, response status code and response headers
     def get_rules_0_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.get_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rules_0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagementApi.get_rules_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rules_0"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rules/v1'
@@ -1136,7 +1136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.get_rules_0",
+        :operation => :"FirewallManagement.get_rules_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1147,7 +1147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#get_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1177,7 +1177,7 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def query_events_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_events ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_events ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/events/v1'
@@ -1209,7 +1209,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_events",
+        :operation => :"FirewallManagement.query_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1220,7 +1220,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1244,7 +1244,7 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def query_firewall_fields_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_firewall_fields ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_firewall_fields ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/firewall-fields/v1'
@@ -1273,7 +1273,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_firewall_fields",
+        :operation => :"FirewallManagement.query_firewall_fields",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1284,7 +1284,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_firewall_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_firewall_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1316,7 +1316,7 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def query_network_locations_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_network_locations ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/network-locations/v1'
@@ -1348,7 +1348,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_network_locations",
+        :operation => :"FirewallManagement.query_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1359,7 +1359,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1381,7 +1381,7 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def query_platforms_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_platforms ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_platforms ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/platforms/v1'
@@ -1409,7 +1409,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_platforms",
+        :operation => :"FirewallManagement.query_platforms",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1420,7 +1420,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_platforms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_platforms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1450,7 +1450,7 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def query_policy_rules_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_policy_rules ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_policy_rules ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/policy-rules/v1'
@@ -1482,7 +1482,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_policy_rules",
+        :operation => :"FirewallManagement.query_policy_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1493,7 +1493,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_policy_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1523,7 +1523,7 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def query_rule_groups_0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_rule_groups_0 ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/rule-groups/v1'
@@ -1555,7 +1555,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_rule_groups_0",
+        :operation => :"FirewallManagement.query_rule_groups_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1566,7 +1566,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1596,7 +1596,7 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def query_rules_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.query_rules ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_rules ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/rules/v1'
@@ -1628,7 +1628,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.query_rules",
+        :operation => :"FirewallManagement.query_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1639,7 +1639,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#query_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1661,11 +1661,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def update_network_locations_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_network_locations ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_network_locations"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_network_locations"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations/v1'
@@ -1697,7 +1697,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_network_locations",
+        :operation => :"FirewallManagement.update_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1708,7 +1708,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1730,11 +1730,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def update_network_locations_metadata_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_network_locations_metadata ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_network_locations_metadata ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_network_locations_metadata"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_network_locations_metadata"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations-metadata/v1'
@@ -1766,7 +1766,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_network_locations_metadata",
+        :operation => :"FirewallManagement.update_network_locations_metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1777,7 +1777,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_network_locations_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_network_locations_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1799,11 +1799,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def update_network_locations_precedence_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_network_locations_precedence ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_network_locations_precedence ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_network_locations_precedence"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_network_locations_precedence"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations-precedence/v1'
@@ -1835,7 +1835,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_network_locations_precedence",
+        :operation => :"FirewallManagement.update_network_locations_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1846,7 +1846,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_network_locations_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_network_locations_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1866,11 +1866,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecResponseFields, Integer, Hash)>] FwmgrMsaspecResponseFields data, response status code and response headers
     def update_policy_container_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_policy_container ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_policy_container ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_policy_container"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_policy_container"
       end
       # resource path
       local_var_path = '/fwmgr/entities/policies/v2'
@@ -1901,7 +1901,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_policy_container",
+        :operation => :"FirewallManagement.update_policy_container",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1912,7 +1912,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_policy_container\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_policy_container\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1932,11 +1932,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecResponseFields, Integer, Hash)>] FwmgrMsaspecResponseFields data, response status code and response headers
     def update_policy_container_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_policy_container_v1 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_policy_container_v1 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_policy_container_v1"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_policy_container_v1"
       end
       # resource path
       local_var_path = '/fwmgr/entities/policies/v1'
@@ -1967,7 +1967,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_policy_container_v1",
+        :operation => :"FirewallManagement.update_policy_container_v1",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1978,7 +1978,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_policy_container_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_policy_container_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2000,11 +2000,11 @@ module Falcon
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
     def update_rule_group_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_rule_group ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_rule_group ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_rule_group"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_rule_group"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -2036,7 +2036,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_rule_group",
+        :operation => :"FirewallManagement.update_rule_group",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2047,7 +2047,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_rule_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_rule_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2069,11 +2069,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def update_rule_group_validation_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.update_rule_group_validation ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.update_rule_group_validation ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.update_rule_group_validation"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.update_rule_group_validation"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/validation/v1'
@@ -2105,7 +2105,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.update_rule_group_validation",
+        :operation => :"FirewallManagement.update_rule_group_validation",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2116,7 +2116,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#update_rule_group_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#update_rule_group_validation\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2138,11 +2138,11 @@ module Falcon
     # @return [Array<(FwmgrMsaspecQueryResponse, Integer, Hash)>] FwmgrMsaspecQueryResponse data, response status code and response headers
     def upsert_network_locations_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.upsert_network_locations ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.upsert_network_locations ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.upsert_network_locations"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.upsert_network_locations"
       end
       # resource path
       local_var_path = '/fwmgr/entities/network-locations/v1'
@@ -2174,7 +2174,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.upsert_network_locations",
+        :operation => :"FirewallManagement.upsert_network_locations",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2185,7 +2185,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#upsert_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#upsert_network_locations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2205,11 +2205,11 @@ module Falcon
     # @return [Array<(FwmgrApiValidateFilepathResponse, Integer, Hash)>] FwmgrApiValidateFilepathResponse data, response status code and response headers
     def validate_filepath_pattern_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagementApi.validate_filepath_pattern ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.validate_filepath_pattern ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagementApi.validate_filepath_pattern"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FirewallManagement.validate_filepath_pattern"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rules/validate-filepath/v1'
@@ -2240,7 +2240,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagementApi.validate_filepath_pattern",
+        :operation => :"FirewallManagement.validate_filepath_pattern",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -2251,7 +2251,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagementApi#validate_filepath_pattern\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#validate_filepath_pattern\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

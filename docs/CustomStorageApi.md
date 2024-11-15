@@ -1,21 +1,21 @@
-# Falcon::CustomStorageApi
+# Falcon::CustomStorage
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_object**](CustomStorageApi.md#delete_object) | **DELETE** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Delete the specified object |
-| [**delete_versioned_object**](CustomStorageApi.md#delete_versioned_object) | **DELETE** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Delete the specified versioned object |
-| [**get_object**](CustomStorageApi.md#get_object) | **GET** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Get the bytes for the specified object |
-| [**get_object_metadata**](CustomStorageApi.md#get_object_metadata) | **GET** /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata | Get the metadata for the specified object |
-| [**get_versioned_object**](CustomStorageApi.md#get_versioned_object) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Get the bytes for the specified object |
-| [**get_versioned_object_metadata**](CustomStorageApi.md#get_versioned_object_metadata) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata | Get the metadata for the specified object |
-| [**list_objects**](CustomStorageApi.md#list_objects) | **GET** /customobjects/v1/collections/{collection_name}/objects | List the object keys in the specified collection in alphabetical order |
-| [**list_objects_by_version**](CustomStorageApi.md#list_objects_by_version) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects | List the object keys in the specified collection in alphabetical order |
-| [**put_object**](CustomStorageApi.md#put_object) | **PUT** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Put the specified new object at the given key or overwrite an existing object at the given key |
-| [**put_object_by_version**](CustomStorageApi.md#put_object_by_version) | **PUT** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Put the specified new object at the given key or overwrite an existing object at the given key |
-| [**search_objects**](CustomStorageApi.md#search_objects) | **POST** /customobjects/v1/collections/{collection_name}/objects | Search for objects that match the specified filter criteria (returns metadata, not actual objects) |
-| [**search_objects_by_version**](CustomStorageApi.md#search_objects_by_version) | **POST** /customobjects/v1/collections/{collection_name}/{collection_version}/objects | Search for objects that match the specified filter criteria (returns metadata, not actual objects) |
+| [**delete_object**](CustomStorage.md#delete_object) | **DELETE** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Delete the specified object |
+| [**delete_versioned_object**](CustomStorage.md#delete_versioned_object) | **DELETE** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Delete the specified versioned object |
+| [**get_object**](CustomStorage.md#get_object) | **GET** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Get the bytes for the specified object |
+| [**get_object_metadata**](CustomStorage.md#get_object_metadata) | **GET** /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata | Get the metadata for the specified object |
+| [**get_versioned_object**](CustomStorage.md#get_versioned_object) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Get the bytes for the specified object |
+| [**get_versioned_object_metadata**](CustomStorage.md#get_versioned_object_metadata) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata | Get the metadata for the specified object |
+| [**list_objects**](CustomStorage.md#list_objects) | **GET** /customobjects/v1/collections/{collection_name}/objects | List the object keys in the specified collection in alphabetical order |
+| [**list_objects_by_version**](CustomStorage.md#list_objects_by_version) | **GET** /customobjects/v1/collections/{collection_name}/{collection_version}/objects | List the object keys in the specified collection in alphabetical order |
+| [**put_object**](CustomStorage.md#put_object) | **PUT** /customobjects/v1/collections/{collection_name}/objects/{object_key} | Put the specified new object at the given key or overwrite an existing object at the given key |
+| [**put_object_by_version**](CustomStorage.md#put_object_by_version) | **PUT** /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key} | Put the specified new object at the given key or overwrite an existing object at the given key |
+| [**search_objects**](CustomStorage.md#search_objects) | **POST** /customobjects/v1/collections/{collection_name}/objects | Search for objects that match the specified filter criteria (returns metadata, not actual objects) |
+| [**search_objects_by_version**](CustomStorage.md#search_objects_by_version) | **POST** /customobjects/v1/collections/{collection_name}/{collection_version}/objects | Search for objects that match the specified filter criteria (returns metadata, not actual objects) |
 
 
 ## delete_object
@@ -37,7 +37,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 object_key = 'object_key_example' # String | The object key
 opts = {
@@ -49,7 +49,7 @@ begin
   result = api_instance.delete_object(collection_name, object_key, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->delete_object: #{e}"
+  puts "Error when calling CustomStorage->delete_object: #{e}"
 end
 ```
 
@@ -67,7 +67,7 @@ begin
   p headers # => { ... }
   p data # => <CustomStorageResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->delete_object_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->delete_object_with_http_info: #{e}"
 end
 ```
 
@@ -112,7 +112,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 object_key = 'object_key_example' # String | The object key
@@ -125,7 +125,7 @@ begin
   result = api_instance.delete_versioned_object(collection_name, collection_version, object_key, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->delete_versioned_object: #{e}"
+  puts "Error when calling CustomStorage->delete_versioned_object: #{e}"
 end
 ```
 
@@ -143,7 +143,7 @@ begin
   p headers # => { ... }
   p data # => <CustomType3191042536>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->delete_versioned_object_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->delete_versioned_object_with_http_info: #{e}"
 end
 ```
 
@@ -189,7 +189,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 object_key = 'object_key_example' # String | The object key
 
@@ -198,7 +198,7 @@ begin
   result = api_instance.get_object(collection_name, object_key)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_object: #{e}"
+  puts "Error when calling CustomStorage->get_object: #{e}"
 end
 ```
 
@@ -216,7 +216,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_object_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->get_object_with_http_info: #{e}"
 end
 ```
 
@@ -260,7 +260,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 object_key = 'object_key_example' # String | The object key
 
@@ -269,7 +269,7 @@ begin
   result = api_instance.get_object_metadata(collection_name, object_key)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_object_metadata: #{e}"
+  puts "Error when calling CustomStorage->get_object_metadata: #{e}"
 end
 ```
 
@@ -287,7 +287,7 @@ begin
   p headers # => { ... }
   p data # => <CustomStorageResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_object_metadata_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->get_object_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -331,7 +331,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 object_key = 'object_key_example' # String | The object key
@@ -341,7 +341,7 @@ begin
   result = api_instance.get_versioned_object(collection_name, collection_version, object_key)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_versioned_object: #{e}"
+  puts "Error when calling CustomStorage->get_versioned_object: #{e}"
 end
 ```
 
@@ -359,7 +359,7 @@ begin
   p headers # => { ... }
   p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_versioned_object_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->get_versioned_object_with_http_info: #{e}"
 end
 ```
 
@@ -404,7 +404,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 object_key = 'object_key_example' # String | The object key
@@ -414,7 +414,7 @@ begin
   result = api_instance.get_versioned_object_metadata(collection_name, collection_version, object_key)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_versioned_object_metadata: #{e}"
+  puts "Error when calling CustomStorage->get_versioned_object_metadata: #{e}"
 end
 ```
 
@@ -432,7 +432,7 @@ begin
   p headers # => { ... }
   p data # => <CustomType3191042536>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->get_versioned_object_metadata_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->get_versioned_object_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -477,7 +477,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 opts = {
   _end: '_end_example', # String | The end key to end listing to
@@ -490,7 +490,7 @@ begin
   result = api_instance.list_objects(collection_name, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->list_objects: #{e}"
+  puts "Error when calling CustomStorage->list_objects: #{e}"
 end
 ```
 
@@ -508,7 +508,7 @@ begin
   p headers # => { ... }
   p data # => <CustomStorageObjectKeys>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->list_objects_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->list_objects_with_http_info: #{e}"
 end
 ```
 
@@ -554,7 +554,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 opts = {
@@ -568,7 +568,7 @@ begin
   result = api_instance.list_objects_by_version(collection_name, collection_version, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->list_objects_by_version: #{e}"
+  puts "Error when calling CustomStorage->list_objects_by_version: #{e}"
 end
 ```
 
@@ -586,7 +586,7 @@ begin
   p headers # => { ... }
   p data # => <CustomType1255839303>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->list_objects_by_version_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->list_objects_by_version_with_http_info: #{e}"
 end
 ```
 
@@ -633,7 +633,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 object_key = 'object_key_example' # String | The object key
 body = File.new('/path/to/some/file') # File | 
@@ -647,7 +647,7 @@ begin
   result = api_instance.put_object(collection_name, object_key, body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->put_object: #{e}"
+  puts "Error when calling CustomStorage->put_object: #{e}"
 end
 ```
 
@@ -665,7 +665,7 @@ begin
   p headers # => { ... }
   p data # => <CustomStorageResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->put_object_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->put_object_with_http_info: #{e}"
 end
 ```
 
@@ -712,7 +712,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 object_key = 'object_key_example' # String | The object key
@@ -726,7 +726,7 @@ begin
   result = api_instance.put_object_by_version(collection_name, collection_version, object_key, body, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->put_object_by_version: #{e}"
+  puts "Error when calling CustomStorage->put_object_by_version: #{e}"
 end
 ```
 
@@ -744,7 +744,7 @@ begin
   p headers # => { ... }
   p data # => <CustomType3191042536>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->put_object_by_version_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->put_object_by_version_with_http_info: #{e}"
 end
 ```
 
@@ -791,7 +791,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 filter = 'filter_example' # String | The filter to limit the returned results.
 opts = {
@@ -805,7 +805,7 @@ begin
   result = api_instance.search_objects(collection_name, filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->search_objects: #{e}"
+  puts "Error when calling CustomStorage->search_objects: #{e}"
 end
 ```
 
@@ -823,7 +823,7 @@ begin
   p headers # => { ... }
   p data # => <CustomStorageResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->search_objects_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->search_objects_with_http_info: #{e}"
 end
 ```
 
@@ -870,7 +870,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::CustomStorageApi.new
+api_instance = Falcon::CustomStorage.new
 collection_name = 'collection_name_example' # String | The name of the collection
 collection_version = 'collection_version_example' # String | The version of the collection
 filter = 'filter_example' # String | The filter to limit the returned results.
@@ -885,7 +885,7 @@ begin
   result = api_instance.search_objects_by_version(collection_name, collection_version, filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->search_objects_by_version: #{e}"
+  puts "Error when calling CustomStorage->search_objects_by_version: #{e}"
 end
 ```
 
@@ -903,7 +903,7 @@ begin
   p headers # => { ... }
   p data # => <CustomType3191042536>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomStorageApi->search_objects_by_version_with_http_info: #{e}"
+  puts "Error when calling CustomStorage->search_objects_by_version_with_http_info: #{e}"
 end
 ```
 

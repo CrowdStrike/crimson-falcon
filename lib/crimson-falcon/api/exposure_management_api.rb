@@ -30,7 +30,7 @@ SOFTWARE.
 require 'cgi'
 
 module Falcon
-  class ExposureManagementApi
+  class ExposureManagement
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -53,11 +53,11 @@ module Falcon
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_external_assets_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.aggregate_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.aggregate_external_assets ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagementApi.aggregate_external_assets"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagement.aggregate_external_assets"
       end
       # resource path
       local_var_path = '/fem/aggregates/external-assets/v1'
@@ -88,7 +88,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.aggregate_external_assets",
+        :operation => :"ExposureManagement.aggregate_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -99,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#aggregate_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#aggregate_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -123,15 +123,15 @@ module Falcon
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def blob_download_external_assets_with_http_info(asset_id, hash, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.blob_download_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.blob_download_external_assets ...'
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
-        fail ArgumentError, "Missing the required parameter 'asset_id' when calling ExposureManagementApi.blob_download_external_assets"
+        fail ArgumentError, "Missing the required parameter 'asset_id' when calling ExposureManagement.blob_download_external_assets"
       end
       # verify the required parameter 'hash' is set
       if @api_client.config.client_side_validation && hash.nil?
-        fail ArgumentError, "Missing the required parameter 'hash' when calling ExposureManagementApi.blob_download_external_assets"
+        fail ArgumentError, "Missing the required parameter 'hash' when calling ExposureManagement.blob_download_external_assets"
       end
       # resource path
       local_var_path = '/fem/entities/blobs-download/v1'
@@ -159,7 +159,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.blob_download_external_assets",
+        :operation => :"ExposureManagement.blob_download_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -170,7 +170,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#blob_download_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#blob_download_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -194,15 +194,15 @@ module Falcon
     # @return [Array<(DomainExternalAssetsBlobAPITypeV1, Integer, Hash)>] DomainExternalAssetsBlobAPITypeV1 data, response status code and response headers
     def blob_preview_external_assets_with_http_info(asset_id, hash, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.blob_preview_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.blob_preview_external_assets ...'
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
-        fail ArgumentError, "Missing the required parameter 'asset_id' when calling ExposureManagementApi.blob_preview_external_assets"
+        fail ArgumentError, "Missing the required parameter 'asset_id' when calling ExposureManagement.blob_preview_external_assets"
       end
       # verify the required parameter 'hash' is set
       if @api_client.config.client_side_validation && hash.nil?
-        fail ArgumentError, "Missing the required parameter 'hash' when calling ExposureManagementApi.blob_preview_external_assets"
+        fail ArgumentError, "Missing the required parameter 'hash' when calling ExposureManagement.blob_preview_external_assets"
       end
       # resource path
       local_var_path = '/fem/entities/blobs-preview/v1'
@@ -230,7 +230,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.blob_preview_external_assets",
+        :operation => :"ExposureManagement.blob_preview_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -241,7 +241,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#blob_preview_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#blob_preview_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -267,7 +267,7 @@ module Falcon
     # @return [Array<(DomainFemEcosystemSubsidiariesEntitiesResponse, Integer, Hash)>] DomainFemEcosystemSubsidiariesEntitiesResponse data, response status code and response headers
     def combined_ecosystem_subsidiaries_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.combined_ecosystem_subsidiaries ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.combined_ecosystem_subsidiaries ...'
       end
       # resource path
       local_var_path = '/fem/combined/ecosystem-subsidiaries/v1'
@@ -297,7 +297,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.combined_ecosystem_subsidiaries",
+        :operation => :"ExposureManagement.combined_ecosystem_subsidiaries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -308,7 +308,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#combined_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#combined_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -330,15 +330,15 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def delete_external_assets_with_http_info(ids, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.delete_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.delete_external_assets ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagementApi.delete_external_assets"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagement.delete_external_assets"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagementApi.delete_external_assets"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagement.delete_external_assets"
       end
       # resource path
       local_var_path = '/fem/entities/external-assets/v1'
@@ -370,7 +370,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.delete_external_assets",
+        :operation => :"ExposureManagement.delete_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -381,7 +381,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#delete_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#delete_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -403,11 +403,11 @@ module Falcon
     # @return [Array<(DomainFemEcosystemSubsidiariesEntitiesResponse, Integer, Hash)>] DomainFemEcosystemSubsidiariesEntitiesResponse data, response status code and response headers
     def get_ecosystem_subsidiaries_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.get_ecosystem_subsidiaries ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.get_ecosystem_subsidiaries ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagementApi.get_ecosystem_subsidiaries"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagement.get_ecosystem_subsidiaries"
       end
       # resource path
       local_var_path = '/fem/entities/ecosystem-subsidiaries/v1'
@@ -435,7 +435,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.get_ecosystem_subsidiaries",
+        :operation => :"ExposureManagement.get_ecosystem_subsidiaries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -446,7 +446,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#get_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#get_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -466,11 +466,11 @@ module Falcon
     # @return [Array<(DomainExternalAssetsAPITypeV1, Integer, Hash)>] DomainExternalAssetsAPITypeV1 data, response status code and response headers
     def get_external_assets_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.get_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.get_external_assets ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagementApi.get_external_assets"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ExposureManagement.get_external_assets"
       end
       # resource path
       local_var_path = '/fem/entities/external-assets/v1'
@@ -497,7 +497,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.get_external_assets",
+        :operation => :"ExposureManagement.get_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -508,7 +508,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#get_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#get_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -528,11 +528,11 @@ module Falcon
     # @return [Array<(DomainExternalAssetsAPITypeV1, Integer, Hash)>] DomainExternalAssetsAPITypeV1 data, response status code and response headers
     def patch_external_assets_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.patch_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.patch_external_assets ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagementApi.patch_external_assets"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ExposureManagement.patch_external_assets"
       end
       # resource path
       local_var_path = '/fem/entities/external-assets/v1'
@@ -563,7 +563,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.patch_external_assets",
+        :operation => :"ExposureManagement.patch_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -574,7 +574,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#patch_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#patch_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -600,7 +600,7 @@ module Falcon
     # @return [Array<(DomainFemEcosystemSubsidiariesQueryResponse, Integer, Hash)>] DomainFemEcosystemSubsidiariesQueryResponse data, response status code and response headers
     def query_ecosystem_subsidiaries_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.query_ecosystem_subsidiaries ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.query_ecosystem_subsidiaries ...'
       end
       # resource path
       local_var_path = '/fem/queries/ecosystem-subsidiaries/v1'
@@ -630,7 +630,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.query_ecosystem_subsidiaries",
+        :operation => :"ExposureManagement.query_ecosystem_subsidiaries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -641,7 +641,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#query_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#query_ecosystem_subsidiaries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -667,7 +667,7 @@ module Falcon
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_external_assets_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ExposureManagementApi.query_external_assets ...'
+        @api_client.config.logger.debug 'Calling API: ExposureManagement.query_external_assets ...'
       end
       # resource path
       local_var_path = '/fem/queries/external-assets/v1'
@@ -697,7 +697,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ExposureManagementApi.query_external_assets",
+        :operation => :"ExposureManagement.query_external_assets",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -708,7 +708,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ExposureManagementApi#query_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ExposureManagement#query_external_assets\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

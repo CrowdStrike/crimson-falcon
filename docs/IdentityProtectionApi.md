@@ -1,14 +1,14 @@
-# Falcon::IdentityProtectionApi
+# Falcon::IdentityProtection
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**api_preempt_proxy_delete_policy_rules**](IdentityProtectionApi.md#api_preempt_proxy_delete_policy_rules) | **DELETE** /identity-protection/entities/policy-rules/v1 | Delete policy rules |
-| [**api_preempt_proxy_get_policy_rules**](IdentityProtectionApi.md#api_preempt_proxy_get_policy_rules) | **GET** /identity-protection/entities/policy-rules/v1 | Get policy rules |
-| [**api_preempt_proxy_get_policy_rules_query**](IdentityProtectionApi.md#api_preempt_proxy_get_policy_rules_query) | **GET** /identity-protection/queries/policy-rules/v1 | Query policy rule IDs |
-| [**api_preempt_proxy_post_graphql**](IdentityProtectionApi.md#api_preempt_proxy_post_graphql) | **POST** /identity-protection/combined/graphql/v1 | Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents. |
-| [**api_preempt_proxy_post_policy_rules**](IdentityProtectionApi.md#api_preempt_proxy_post_policy_rules) | **POST** /identity-protection/entities/policy-rules/v1 | Create policy rule |
+| [**api_preempt_proxy_delete_policy_rules**](IdentityProtection.md#api_preempt_proxy_delete_policy_rules) | **DELETE** /identity-protection/entities/policy-rules/v1 | Delete policy rules |
+| [**api_preempt_proxy_get_policy_rules**](IdentityProtection.md#api_preempt_proxy_get_policy_rules) | **GET** /identity-protection/entities/policy-rules/v1 | Get policy rules |
+| [**api_preempt_proxy_get_policy_rules_query**](IdentityProtection.md#api_preempt_proxy_get_policy_rules_query) | **GET** /identity-protection/queries/policy-rules/v1 | Query policy rule IDs |
+| [**api_preempt_proxy_post_graphql**](IdentityProtection.md#api_preempt_proxy_post_graphql) | **POST** /identity-protection/combined/graphql/v1 | Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents. |
+| [**api_preempt_proxy_post_policy_rules**](IdentityProtection.md#api_preempt_proxy_post_policy_rules) | **POST** /identity-protection/entities/policy-rules/v1 | Create policy rule |
 
 
 ## api_preempt_proxy_delete_policy_rules
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityProtectionApi.new
+api_instance = Falcon::IdentityProtection.new
 authorization = 'authorization_example' # String | Authorization Header
 ids = ['inner_example'] # Array<String> | Rule IDs
 
@@ -38,7 +38,7 @@ begin
   # Delete policy rules
   api_instance.api_preempt_proxy_delete_policy_rules(authorization, ids)
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_delete_policy_rules: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_delete_policy_rules: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_delete_policy_rules_with_http_info: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_delete_policy_rules_with_http_info: #{e}"
 end
 ```
 
@@ -100,7 +100,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityProtectionApi.new
+api_instance = Falcon::IdentityProtection.new
 authorization = 'authorization_example' # String | Authorization Header
 ids = ['inner_example'] # Array<String> | Rule IDs
 
@@ -108,7 +108,7 @@ begin
   # Get policy rules
   api_instance.api_preempt_proxy_get_policy_rules(authorization, ids)
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_get_policy_rules: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_get_policy_rules: #{e}"
 end
 ```
 
@@ -126,7 +126,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_get_policy_rules_with_http_info: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_get_policy_rules_with_http_info: #{e}"
 end
 ```
 
@@ -170,7 +170,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityProtectionApi.new
+api_instance = Falcon::IdentityProtection.new
 authorization = 'authorization_example' # String | Authorization Header
 opts = {
   enabled: true, # Boolean | Whether the rule is enabled
@@ -182,7 +182,7 @@ begin
   # Query policy rule IDs
   api_instance.api_preempt_proxy_get_policy_rules_query(authorization, opts)
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_get_policy_rules_query: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_get_policy_rules_query: #{e}"
 end
 ```
 
@@ -200,7 +200,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_get_policy_rules_query_with_http_info: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_get_policy_rules_query_with_http_info: #{e}"
 end
 ```
 
@@ -246,14 +246,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityProtectionApi.new
+api_instance = Falcon::IdentityProtection.new
 authorization = 'authorization_example' # String | Authorization Header
 
 begin
   # Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
   api_instance.api_preempt_proxy_post_graphql(authorization)
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_post_graphql: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_post_graphql: #{e}"
 end
 ```
 
@@ -271,7 +271,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_post_graphql_with_http_info: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_post_graphql_with_http_info: #{e}"
 end
 ```
 
@@ -314,7 +314,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::IdentityProtectionApi.new
+api_instance = Falcon::IdentityProtection.new
 authorization = 'authorization_example' # String | Authorization Header
 body = Falcon::TypesPolicyRulesCreateBody.new({action: 'action_example', enabled: false, name: 'name_example', simulation_mode: false, trigger: 'trigger_example'}) # TypesPolicyRulesCreateBody | 
 
@@ -322,7 +322,7 @@ begin
   # Create policy rule
   api_instance.api_preempt_proxy_post_policy_rules(authorization, body)
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_post_policy_rules: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_post_policy_rules: #{e}"
 end
 ```
 
@@ -340,7 +340,7 @@ begin
   p headers # => { ... }
   p data # => nil
 rescue Falcon::ApiError => e
-  puts "Error when calling IdentityProtectionApi->api_preempt_proxy_post_policy_rules_with_http_info: #{e}"
+  puts "Error when calling IdentityProtection->api_preempt_proxy_post_policy_rules_with_http_info: #{e}"
 end
 ```
 

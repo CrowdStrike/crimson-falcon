@@ -1,19 +1,19 @@
-# Falcon::ExposureManagementApi
+# Falcon::ExposureManagement
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_external_assets**](ExposureManagementApi.md#aggregate_external_assets) | **POST** /fem/aggregates/external-assets/v1 | Returns external assets aggregates. |
-| [**blob_download_external_assets**](ExposureManagementApi.md#blob_download_external_assets) | **GET** /fem/entities/blobs-download/v1 | Download the entire contents of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request. |
-| [**blob_preview_external_assets**](ExposureManagementApi.md#blob_preview_external_assets) | **GET** /fem/entities/blobs-preview/v1 | Download a preview of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request. |
-| [**combined_ecosystem_subsidiaries**](ExposureManagementApi.md#combined_ecosystem_subsidiaries) | **GET** /fem/combined/ecosystem-subsidiaries/v1 | Retrieves a list of ecosystem subsidiaries with their detailed information. |
-| [**delete_external_assets**](ExposureManagementApi.md#delete_external_assets) | **DELETE** /fem/entities/external-assets/v1 | Delete multiple external assets. |
-| [**get_ecosystem_subsidiaries**](ExposureManagementApi.md#get_ecosystem_subsidiaries) | **GET** /fem/entities/ecosystem-subsidiaries/v1 | Retrieves detailed information about ecosystem subsidiaries by ID. |
-| [**get_external_assets**](ExposureManagementApi.md#get_external_assets) | **GET** /fem/entities/external-assets/v1 | Get details on external assets by providing one or more IDs. |
-| [**patch_external_assets**](ExposureManagementApi.md#patch_external_assets) | **PATCH** /fem/entities/external-assets/v1 | Update the details of external assets. |
-| [**query_ecosystem_subsidiaries**](ExposureManagementApi.md#query_ecosystem_subsidiaries) | **GET** /fem/queries/ecosystem-subsidiaries/v1 | Retrieves a list of IDs for ecosystem subsidiaries. Use these IDs with the /entities/ecosystem-subsidiaries/v1 endpoints. |
-| [**query_external_assets**](ExposureManagementApi.md#query_external_assets) | **GET** /fem/queries/external-assets/v1 | Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoints |
+| [**aggregate_external_assets**](ExposureManagement.md#aggregate_external_assets) | **POST** /fem/aggregates/external-assets/v1 | Returns external assets aggregates. |
+| [**blob_download_external_assets**](ExposureManagement.md#blob_download_external_assets) | **GET** /fem/entities/blobs-download/v1 | Download the entire contents of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request. |
+| [**blob_preview_external_assets**](ExposureManagement.md#blob_preview_external_assets) | **GET** /fem/entities/blobs-preview/v1 | Download a preview of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request. |
+| [**combined_ecosystem_subsidiaries**](ExposureManagement.md#combined_ecosystem_subsidiaries) | **GET** /fem/combined/ecosystem-subsidiaries/v1 | Retrieves a list of ecosystem subsidiaries with their detailed information. |
+| [**delete_external_assets**](ExposureManagement.md#delete_external_assets) | **DELETE** /fem/entities/external-assets/v1 | Delete multiple external assets. |
+| [**get_ecosystem_subsidiaries**](ExposureManagement.md#get_ecosystem_subsidiaries) | **GET** /fem/entities/ecosystem-subsidiaries/v1 | Retrieves detailed information about ecosystem subsidiaries by ID. |
+| [**get_external_assets**](ExposureManagement.md#get_external_assets) | **GET** /fem/entities/external-assets/v1 | Get details on external assets by providing one or more IDs. |
+| [**patch_external_assets**](ExposureManagement.md#patch_external_assets) | **PATCH** /fem/entities/external-assets/v1 | Update the details of external assets. |
+| [**query_ecosystem_subsidiaries**](ExposureManagement.md#query_ecosystem_subsidiaries) | **GET** /fem/queries/ecosystem-subsidiaries/v1 | Retrieves a list of IDs for ecosystem subsidiaries. Use these IDs with the /entities/ecosystem-subsidiaries/v1 endpoints. |
+| [**query_external_assets**](ExposureManagement.md#query_external_assets) | **GET** /fem/queries/external-assets/v1 | Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoints |
 
 
 ## aggregate_external_assets
@@ -37,7 +37,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | Aggregation specification.
 
 begin
@@ -45,7 +45,7 @@ begin
   result = api_instance.aggregate_external_assets(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->aggregate_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->aggregate_external_assets: #{e}"
 end
 ```
 
@@ -63,7 +63,7 @@ begin
   p headers # => { ... }
   p data # => <MsaAggregatesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->aggregate_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->aggregate_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -108,7 +108,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 asset_id = 'asset_id_example' # String | The Asset ID
 hash = 'hash_example' # String | The File Hash
 
@@ -117,7 +117,7 @@ begin
   result = api_instance.blob_download_external_assets(asset_id, hash)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->blob_download_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->blob_download_external_assets: #{e}"
 end
 ```
 
@@ -135,7 +135,7 @@ begin
   p headers # => { ... }
   p data # => Array&lt;Integer&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->blob_download_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->blob_download_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -181,7 +181,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 asset_id = 'asset_id_example' # String | The Asset ID
 hash = 'hash_example' # String | The File Hash
 
@@ -190,7 +190,7 @@ begin
   result = api_instance.blob_preview_external_assets(asset_id, hash)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->blob_preview_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->blob_preview_external_assets: #{e}"
 end
 ```
 
@@ -208,7 +208,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalAssetsBlobAPITypeV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->blob_preview_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->blob_preview_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -252,7 +252,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 opts = {
   offset: 56, # Integer | Starting index of result set from which to return subsidiaries
   limit: 56, # Integer | The maximum number of subsidiaries to return in the response.
@@ -265,7 +265,7 @@ begin
   result = api_instance.combined_ecosystem_subsidiaries(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->combined_ecosystem_subsidiaries: #{e}"
+  puts "Error when calling ExposureManagement->combined_ecosystem_subsidiaries: #{e}"
 end
 ```
 
@@ -283,7 +283,7 @@ begin
   p headers # => { ... }
   p data # => <DomainFemEcosystemSubsidiariesEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->combined_ecosystem_subsidiaries_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->combined_ecosystem_subsidiaries_with_http_info: #{e}"
 end
 ```
 
@@ -329,7 +329,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100).
 body = Falcon::DomainExternalAssetAPIDeleteRequestV1.new # DomainExternalAssetAPIDeleteRequestV1 | 
 
@@ -338,7 +338,7 @@ begin
   result = api_instance.delete_external_assets(ids, body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->delete_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->delete_external_assets: #{e}"
 end
 ```
 
@@ -356,7 +356,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->delete_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->delete_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -400,7 +400,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100). Find ecosystem subsidiary IDs with GET `/fem/entities/ecosystem-subsidiaries/v1`
 opts = {
   version_id: 'version_id_example' # String | The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written.
@@ -411,7 +411,7 @@ begin
   result = api_instance.get_ecosystem_subsidiaries(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->get_ecosystem_subsidiaries: #{e}"
+  puts "Error when calling ExposureManagement->get_ecosystem_subsidiaries: #{e}"
 end
 ```
 
@@ -429,7 +429,7 @@ begin
   p headers # => { ... }
   p data # => <DomainFemEcosystemSubsidiariesEntitiesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->get_ecosystem_subsidiaries_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->get_ecosystem_subsidiaries_with_http_info: #{e}"
 end
 ```
 
@@ -473,7 +473,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100). Find asset IDs with GET `/fem/queries/external-assets/v1`
 
 begin
@@ -481,7 +481,7 @@ begin
   result = api_instance.get_external_assets(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->get_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->get_external_assets: #{e}"
 end
 ```
 
@@ -499,7 +499,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalAssetsAPITypeV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->get_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->get_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -542,7 +542,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 body = Falcon::DomainExternalAssetAPIPatchRequestV1.new({assets: [Falcon::DomainExternalAssetsAPIPatch.new({id: 'id_example'})]}) # DomainExternalAssetAPIPatchRequestV1 | 
 
 begin
@@ -550,7 +550,7 @@ begin
   result = api_instance.patch_external_assets(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->patch_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->patch_external_assets: #{e}"
 end
 ```
 
@@ -568,7 +568,7 @@ begin
   p headers # => { ... }
   p data # => <DomainExternalAssetsAPITypeV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->patch_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->patch_external_assets_with_http_info: #{e}"
 end
 ```
 
@@ -611,7 +611,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 opts = {
   offset: 56, # Integer | Starting index of result set from which to return subsidiaries
   limit: 56, # Integer | The maximum number of IDs to return in the response.
@@ -624,7 +624,7 @@ begin
   result = api_instance.query_ecosystem_subsidiaries(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->query_ecosystem_subsidiaries: #{e}"
+  puts "Error when calling ExposureManagement->query_ecosystem_subsidiaries: #{e}"
 end
 ```
 
@@ -642,7 +642,7 @@ begin
   p headers # => { ... }
   p data # => <DomainFemEcosystemSubsidiariesQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->query_ecosystem_subsidiaries_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->query_ecosystem_subsidiaries_with_http_info: #{e}"
 end
 ```
 
@@ -688,7 +688,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::ExposureManagementApi.new
+api_instance = Falcon::ExposureManagement.new
 opts = {
   offset: 'offset_example', # String | Starting index of result set from which to return IDs.
   limit: 56, # Integer | Number of IDs to return.
@@ -701,7 +701,7 @@ begin
   result = api_instance.query_external_assets(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->query_external_assets: #{e}"
+  puts "Error when calling ExposureManagement->query_external_assets: #{e}"
 end
 ```
 
@@ -719,7 +719,7 @@ begin
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ExposureManagementApi->query_external_assets_with_http_info: #{e}"
+  puts "Error when calling ExposureManagement->query_external_assets_with_http_info: #{e}"
 end
 ```
 

@@ -1,12 +1,12 @@
-# Falcon::DatascannerApi
+# Falcon::Datascanner
 
 All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_data_scanner_tasks**](DatascannerApi.md#get_data_scanner_tasks) | **GET** /data-security-dspm/entities/scanner-tasks/v1 |  |
-| [**get_image_registry_credentials**](DatascannerApi.md#get_image_registry_credentials) | **GET** /data-security-dspm/entities/image-registry-credentials/v1 |  |
-| [**update_data_scanner_tasks**](DatascannerApi.md#update_data_scanner_tasks) | **PATCH** /data-security-dspm/entities/scanner-tasks/v1 |  |
+| [**get_data_scanner_tasks**](Datascanner.md#get_data_scanner_tasks) | **GET** /data-security-dspm/entities/scanner-tasks/v1 |  |
+| [**get_image_registry_credentials**](Datascanner.md#get_image_registry_credentials) | **GET** /data-security-dspm/entities/image-registry-credentials/v1 |  |
+| [**update_data_scanner_tasks**](Datascanner.md#update_data_scanner_tasks) | **PATCH** /data-security-dspm/entities/scanner-tasks/v1 |  |
 
 
 ## get_data_scanner_tasks
@@ -30,7 +30,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DatascannerApi.new
+api_instance = Falcon::Datascanner.new
 x_scanner_id = 'x_scanner_id_example' # String | ID of the data scanner
 
 begin
@@ -38,7 +38,7 @@ begin
   result = api_instance.get_data_scanner_tasks(x_scanner_id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->get_data_scanner_tasks: #{e}"
+  puts "Error when calling Datascanner->get_data_scanner_tasks: #{e}"
 end
 ```
 
@@ -56,7 +56,7 @@ begin
   p headers # => { ... }
   p data # => Hash&lt;String, String&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->get_data_scanner_tasks_with_http_info: #{e}"
+  puts "Error when calling Datascanner->get_data_scanner_tasks_with_http_info: #{e}"
 end
 ```
 
@@ -101,14 +101,14 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DatascannerApi.new
+api_instance = Falcon::Datascanner.new
 
 begin
   
   result = api_instance.get_image_registry_credentials
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->get_image_registry_credentials: #{e}"
+  puts "Error when calling Datascanner->get_image_registry_credentials: #{e}"
 end
 ```
 
@@ -126,7 +126,7 @@ begin
   p headers # => { ... }
   p data # => Hash&lt;String, String&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->get_image_registry_credentials_with_http_info: #{e}"
+  puts "Error when calling Datascanner->get_image_registry_credentials_with_http_info: #{e}"
 end
 ```
 
@@ -169,7 +169,7 @@ Falcon.configure do |config|
   config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
 end
 
-api_instance = Falcon::DatascannerApi.new
+api_instance = Falcon::Datascanner.new
 x_scanner_id = 'x_scanner_id_example' # String | ID of the data scanner
 x_machine_id = 'x_machine_id_example' # String | Provider ID of machine
 
@@ -178,7 +178,7 @@ begin
   result = api_instance.update_data_scanner_tasks(x_scanner_id, x_machine_id)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->update_data_scanner_tasks: #{e}"
+  puts "Error when calling Datascanner->update_data_scanner_tasks: #{e}"
 end
 ```
 
@@ -196,7 +196,7 @@ begin
   p headers # => { ... }
   p data # => Hash&lt;String, String&gt;
 rescue Falcon::ApiError => e
-  puts "Error when calling DatascannerApi->update_data_scanner_tasks_with_http_info: #{e}"
+  puts "Error when calling Datascanner->update_data_scanner_tasks_with_http_info: #{e}"
 end
 ```
 
