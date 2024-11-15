@@ -10,6 +10,7 @@
 | **updated_at** | **Time** |  |  |
 | **cid** | **String** |  |  |
 | **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
+| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
 | **cspm_enabled** | **Boolean** |  |  |
 | **display_name** | **String** | GCP Display Name | [optional] |
 | **environment** | **String** |  | [optional] |
@@ -23,6 +24,7 @@
 | **project_id** | **String** | GCP Project ID | [optional] |
 | **service_account_client_email** | **String** |  | [optional] |
 | **service_account_client_id** | **String** |  | [optional] |
+| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** | GCP service account ID | [optional] |
 | **service_account_private_key_id** | **String** |  | [optional] |
 | **service_account_project_id** | **String** |  |  |
@@ -40,6 +42,7 @@ instance = Falcon::DomainGCPAccountV1.new(
   updated_at: null,
   cid: null,
   cloud_scopes: null,
+  conditions: null,
   cspm_enabled: null,
   display_name: null,
   environment: null,
@@ -53,6 +56,7 @@ instance = Falcon::DomainGCPAccountV1.new(
   project_id: null,
   service_account_client_email: null,
   service_account_client_id: null,
+  service_account_conditions: null,
   service_account_id: null,
   service_account_private_key_id: null,
   service_account_project_id: null,

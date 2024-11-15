@@ -53,6 +53,9 @@ module Falcon
     # Details for the results of each loop in the workflow definition.
     attr_accessor :loops
 
+    # Output from this workflow execution
+    attr_accessor :output_data
+
     # A boolean value indicating whether the failed workflow execution is retryable
     attr_accessor :retryable
 
@@ -61,6 +64,9 @@ module Falcon
 
     # Overall status for the execution.
     attr_accessor :status
+
+    # Execution summary if defined in the workflow definition
+    attr_accessor :summary
 
     attr_accessor :trigger
 
@@ -74,9 +80,11 @@ module Falcon
         :'end_timestamp' => :'end_timestamp',
         :'execution_id' => :'execution_id',
         :'loops' => :'loops',
+        :'output_data' => :'output_data',
         :'retryable' => :'retryable',
         :'start_timestamp' => :'start_timestamp',
         :'status' => :'status',
+        :'summary' => :'summary',
         :'trigger' => :'trigger'
       }
     end
@@ -96,9 +104,11 @@ module Falcon
         :'end_timestamp' => :'Time',
         :'execution_id' => :'String',
         :'loops' => :'Array<ExecutionsLoopResult>',
+        :'output_data' => :'Object',
         :'retryable' => :'Boolean',
         :'start_timestamp' => :'Time',
         :'status' => :'String',
+        :'summary' => :'String',
         :'trigger' => :'ExecutionsTriggerResult'
       }
     end
@@ -158,6 +168,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'output_data')
+        self.output_data = attributes[:'output_data']
+      end
+
       if attributes.key?(:'retryable')
         self.retryable = attributes[:'retryable']
       end
@@ -168,6 +182,10 @@ module Falcon
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
 
       if attributes.key?(:'trigger')
@@ -250,9 +268,11 @@ module Falcon
           end_timestamp == o.end_timestamp &&
           execution_id == o.execution_id &&
           loops == o.loops &&
+          output_data == o.output_data &&
           retryable == o.retryable &&
           start_timestamp == o.start_timestamp &&
           status == o.status &&
+          summary == o.summary &&
           trigger == o.trigger
     end
 
@@ -265,7 +285,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, loops, retryable, start_timestamp, status, trigger].hash
+      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, loops, output_data, retryable, start_timestamp, status, summary, trigger].hash
     end
 
     # Builds the object from hash

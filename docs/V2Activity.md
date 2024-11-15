@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **_class** | **String** |  | [optional] |
 | **id** | **String** |  |  |
 | **_next** | **Array&lt;String&gt;** |  | [optional] |
 | **properties** | **Object** |  |  |
@@ -14,6 +15,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::V2Activity.new(
+  _class: null,
   id: null,
   _next: null,
   properties: null

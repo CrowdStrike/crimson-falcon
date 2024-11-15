@@ -13,6 +13,7 @@
 | **job_reference** | **String** |  | [optional] |
 | **last_updated_on** | **Time** |  |  |
 | **report_file_reference** | **String** |  | [optional] |
+| **report_params** | [**DomainReportParams**](DomainReportParams.md) |  |  |
 | **result_metadata** | [**DomainResultMetadata**](DomainResultMetadata.md) |  | [optional] |
 | **scheduled_report_id** | **String** |  |  |
 | **shared_with** | **Array&lt;String&gt;** |  |  |
@@ -40,6 +41,7 @@ instance = Falcon::DomainReportExecutionV1.new(
   job_reference: null,
   last_updated_on: null,
   report_file_reference: null,
+  report_params: null,
   result_metadata: null,
   scheduled_report_id: null,
   shared_with: null,

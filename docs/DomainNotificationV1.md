@@ -22,6 +22,9 @@
 | **item_type** | **String** | Type of the item which matched the rule: &#x60;post&#x60;, &#x60;reply&#x60;, &#x60;botnet_config&#x60;, &#x60;breach&#x60;, etc. |  |
 | **logs** | [**Array&lt;SadomainNotificationLog&gt;**](SadomainNotificationLog.md) |  | [optional] |
 | **raw_intel_id** | **String** | ID of the raw intel item that matched the rule |  |
+| **rule_creator_name** | **String** | The name of the user who created the rule | [optional] |
+| **rule_creator_uid** | **String** | The user ID of the user who created the rule | [optional] |
+| **rule_creator_uuid** | **String** | The unique UUID of the user who created the rule | [optional] |
 | **rule_id** | **String** | The ID of the rule that generated this notification |  |
 | **rule_name** | **String** | The name of the rule that generated this notification |  |
 | **rule_priority** | **String** | The priority of the rule that generated this notification |  |
@@ -55,6 +58,9 @@ instance = Falcon::DomainNotificationV1.new(
   item_type: null,
   logs: null,
   raw_intel_id: null,
+  rule_creator_name: null,
+  rule_creator_uid: null,
+  rule_creator_uuid: null,
   rule_id: null,
   rule_name: null,
   rule_priority: null,

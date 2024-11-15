@@ -55,8 +55,22 @@ describe 'CustomStorageApi' do
   # @param object_key The object key
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
-  # @return [CustomType3191042536]
+  # @return [CustomStorageResponse]
   describe 'delete_object test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_versioned_object
+  # Delete the specified versioned object
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param object_key The object key
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
+  # @return [CustomType3191042536]
+  describe 'delete_versioned_object test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -79,8 +93,34 @@ describe 'CustomStorageApi' do
   # @param collection_name The name of the collection
   # @param object_key The object key
   # @param [Hash] opts the optional parameters
-  # @return [CustomType3191042536]
+  # @return [CustomStorageResponse]
   describe 'get_object_metadata test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_versioned_object
+  # Get the bytes for the specified object
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param object_key The object key
+  # @param [Hash] opts the optional parameters
+  # @return [File]
+  describe 'get_versioned_object test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_versioned_object_metadata
+  # Get the metadata for the specified object
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param object_key The object key
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType3191042536]
+  describe 'get_versioned_object_metadata test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -93,8 +133,23 @@ describe 'CustomStorageApi' do
   # @option opts [String] :_end The end key to end listing to
   # @option opts [Integer] :limit The limit of results to return
   # @option opts [String] :start The start key to start listing from
-  # @return [CustomType1255839303]
+  # @return [CustomStorageObjectKeys]
   describe 'list_objects test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_objects_by_version
+  # List the object keys in the specified collection in alphabetical order
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :_end The end key to end listing to
+  # @option opts [Integer] :limit The limit of results to return
+  # @option opts [String] :start The start key to start listing from
+  # @return [CustomType1255839303]
+  describe 'list_objects_by_version test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -108,8 +163,23 @@ describe 'CustomStorageApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
   # @option opts [String] :schema_version The version of the collection schema
-  # @return [CustomType3191042536]
+  # @return [CustomStorageResponse]
   describe 'put_object test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for put_object_by_version
+  # Put the specified new object at the given key or overwrite an existing object at the given key
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param object_key The object key
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
+  # @return [CustomType3191042536]
+  describe 'put_object_by_version test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -123,8 +193,24 @@ describe 'CustomStorageApi' do
   # @option opts [Integer] :limit The limit of results to return
   # @option opts [Integer] :offset The offset of results to return
   # @option opts [String] :sort The sort order for the returned results.
-  # @return [CustomType3191042536]
+  # @return [CustomStorageResponse]
   describe 'search_objects test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for search_objects_by_version
+  # Search for objects that match the specified filter criteria (returns metadata, not actual objects)
+  # @param collection_name The name of the collection
+  # @param collection_version The version of the collection
+  # @param filter The filter to limit the returned results.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The limit of results to return
+  # @option opts [Integer] :offset The offset of results to return
+  # @option opts [String] :sort The sort order for the returned results.
+  # @return [CustomType3191042536]
+  describe 'search_objects_by_version test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

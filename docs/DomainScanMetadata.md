@@ -7,6 +7,7 @@
 | **completed_on** | **Time** |  | [optional] |
 | **filecount** | [**DomainFileCount**](DomainFileCount.md) |  | [optional] |
 | **host_id** | **String** |  |  |
+| **host_name** | **String** |  | [optional] |
 | **host_scan_id** | **String** |  | [optional] |
 | **last_updated** | **Time** |  | [optional] |
 | **scan_control_reason** | **String** |  | [optional] |
@@ -24,6 +25,7 @@ instance = Falcon::DomainScanMetadata.new(
   completed_on: null,
   filecount: null,
   host_id: null,
+  host_name: null,
   host_scan_id: null,
   last_updated: null,
   scan_control_reason: null,

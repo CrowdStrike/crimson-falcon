@@ -56,7 +56,7 @@ module Falcon
     def self.openapi_types
       {
         :'errors' => :'Array<DomainReconAPIError>',
-        :'meta' => :'MsaspecMetaInfo',
+        :'meta' => :'MsaMetaInfo',
         :'resources' => :'Array<DomainDetailedNotificationV1>'
       }
     end

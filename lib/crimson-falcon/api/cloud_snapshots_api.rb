@@ -36,6 +36,314 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Launch a snapshot scan for a given cloud asset
+    # @param body [ModelsCreateDeploymentInput]
+    # @param [Hash] opts the optional parameters
+    # @return [DeploymentsEntityResponse]
+    def create_deployment_entity(body, opts = {})
+      data, _status_code, _headers = create_deployment_entity_with_http_info(body, opts)
+      data
+    end
+
+    # Launch a snapshot scan for a given cloud asset
+    # @param body [ModelsCreateDeploymentInput]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
+    def create_deployment_entity_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.create_deployment_entity ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CloudSnapshotsApi.create_deployment_entity"
+      end
+      # resource path
+      local_var_path = '/snapshots/entities/deployments/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentsEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSnapshotsApi.create_deployment_entity",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSnapshotsApi#create_deployment_entity\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets the registry credentials
+    # @param [Hash] opts the optional parameters
+    # @return [ModelsRegistryCredentialsResponse]
+    def get_credentials_mixin0_mixin57(opts = {})
+      data, _status_code, _headers = get_credentials_mixin0_mixin57_with_http_info(opts)
+      data
+    end
+
+    # Gets the registry credentials
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ModelsRegistryCredentialsResponse, Integer, Hash)>] ModelsRegistryCredentialsResponse data, response status code and response headers
+    def get_credentials_mixin0_mixin57_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.get_credentials_mixin0_mixin57 ...'
+      end
+      # resource path
+      local_var_path = '/snapshots/entities/image-registry-credentials/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsRegistryCredentialsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSnapshotsApi.get_credentials_mixin0_mixin57",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSnapshotsApi#get_credentials_mixin0_mixin57\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # retrieve the scan report for an instance
+    # @param ids [Array<String>] the instance identifiers to fetch the report for
+    # @param [Hash] opts the optional parameters
+    # @return [ScanreportsEntitiesResponse]
+    def get_scan_report(ids, opts = {})
+      data, _status_code, _headers = get_scan_report_with_http_info(ids, opts)
+      data
+    end
+
+    # retrieve the scan report for an instance
+    # @param ids [Array<String>] the instance identifiers to fetch the report for
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ScanreportsEntitiesResponse, Integer, Hash)>] ScanreportsEntitiesResponse data, response status code and response headers
+    def get_scan_report_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.get_scan_report ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CloudSnapshotsApi.get_scan_report"
+      end
+      # resource path
+      local_var_path = '/snapshots/entities/scanreports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ScanreportsEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSnapshotsApi.get_scan_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSnapshotsApi#get_scan_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve snapshot jobs identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search snapshot jobs using a query in Falcon Query Language (FQL). Supported filters:  account_id,asset_identifier,cloud_provider,region,status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [account_id asset_identifier cloud_provider instance_type last_updated_timestamp region status]
+    # @return [DeploymentsEntityResponse]
+    def read_deployments_combined(opts = {})
+      data, _status_code, _headers = read_deployments_combined_with_http_info(opts)
+      data
+    end
+
+    # Retrieve snapshot jobs identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search snapshot jobs using a query in Falcon Query Language (FQL). Supported filters:  account_id,asset_identifier,cloud_provider,region,status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [account_id asset_identifier cloud_provider instance_type last_updated_timestamp region status]
+    # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
+    def read_deployments_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.read_deployments_combined ...'
+      end
+      # resource path
+      local_var_path = '/snapshots/combined/deployments/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentsEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSnapshotsApi.read_deployments_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSnapshotsApi#read_deployments_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve snapshot jobs identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Search snapshot jobs by ids - The maximum amount is 100 IDs
+    # @return [DeploymentsEntityResponse]
+    def read_deployments_entities(opts = {})
+      data, _status_code, _headers = read_deployments_entities_with_http_info(opts)
+      data
+    end
+
+    # Retrieve snapshot jobs identified by the provided IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Search snapshot jobs by ids - The maximum amount is 100 IDs
+    # @return [Array<(DeploymentsEntityResponse, Integer, Hash)>] DeploymentsEntityResponse data, response status code and response headers
+    def read_deployments_entities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CloudSnapshotsApi.read_deployments_entities ...'
+      end
+      # resource path
+      local_var_path = '/snapshots/entities/deployments/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeploymentsEntityResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CloudSnapshotsApi.read_deployments_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CloudSnapshotsApi#read_deployments_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Register customer cloud account for snapshot scanning
     # @param body [ModelsAccountEntitiesInput]
     # @param [Hash] opts the optional parameters

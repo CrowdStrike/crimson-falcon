@@ -38,13 +38,10 @@ module Falcon
 
     attr_accessor :multi
 
-    # Optional user provided name for the activity, if not specified a name based on the array field is used.
+    # Optional user provided name for the submodel.
     attr_accessor :name
 
     attr_accessor :node_id
-
-    # Name of the output field that contains the result from sub-model.
-    attr_accessor :output_field
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -53,8 +50,7 @@ module Falcon
         :'model' => :'model',
         :'multi' => :'multi',
         :'name' => :'name',
-        :'node_id' => :'nodeID',
-        :'output_field' => :'output_field'
+        :'node_id' => :'nodeID'
       }
     end
 
@@ -70,8 +66,7 @@ module Falcon
         :'model' => :'GraphDefinitionModel',
         :'multi' => :'GraphMulti',
         :'name' => :'String',
-        :'node_id' => :'String',
-        :'output_field' => :'String'
+        :'node_id' => :'String'
       }
     end
 
@@ -114,10 +109,6 @@ module Falcon
 
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
-      end
-
-      if attributes.key?(:'output_field')
-        self.output_field = attributes[:'output_field']
       end
     end
 
@@ -163,8 +154,7 @@ module Falcon
           model == o.model &&
           multi == o.multi &&
           name == o.name &&
-          node_id == o.node_id &&
-          output_field == o.output_field
+          node_id == o.node_id
     end
 
     # @see the `==` method
@@ -176,7 +166,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flows, model, multi, name, node_id, output_field].hash
+      [flows, model, multi, name, node_id].hash
     end
 
     # Builds the object from hash

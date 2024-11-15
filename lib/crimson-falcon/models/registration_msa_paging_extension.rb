@@ -52,7 +52,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'paging' => :'MsaspecPaging',
+        :'paging' => :'MsaPaging',
         :'next_token' => :'String'
       }
     end

@@ -7,9 +7,8 @@
 | **flows** | [**Flows**](Flows.md) |  |  |
 | **model** | [**GraphDefinitionModel**](GraphDefinitionModel.md) |  |  |
 | **multi** | [**GraphMulti**](GraphMulti.md) |  |  |
-| **name** | **String** | Optional user provided name for the activity, if not specified a name based on the array field is used. | [optional] |
+| **name** | **String** | Optional user provided name for the submodel. | [optional] |
 | **node_id** | **String** |  |  |
-| **output_field** | **String** | Name of the output field that contains the result from sub-model. | [optional] |
 
 ## Example
 
@@ -21,8 +20,7 @@ instance = Falcon::GraphSubModel.new(
   model: null,
   multi: null,
   name: null,
-  node_id: null,
-  output_field: null
+  node_id: null
 )
 ```
 

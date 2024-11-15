@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
+| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** |  | [optional] |
 | **status** | **String** |  | [optional] |

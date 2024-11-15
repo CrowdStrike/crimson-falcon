@@ -4,8 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **aid** | **String** |  | [optional] |
 | **cid** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  | [optional] |
+| **has_recording** | **Boolean** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **index_timestamp** | **String** |  | [optional] |
 | **intel** | [**Array&lt;FalconxIntelReportV1&gt;**](FalconxIntelReportV1.md) |  | [optional] |
@@ -35,8 +37,10 @@
 require 'crimson-falcon'
 
 instance = Falcon::FalconxReportV1.new(
+  aid: null,
   cid: null,
   created_timestamp: null,
+  has_recording: null,
   id: null,
   index_timestamp: null,
   intel: null,

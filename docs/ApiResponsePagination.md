@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **offset** | **Object** |  | [optional] |
+| **offset** | **String** | Encoded state used for pagination | [optional] |
 | **total** | **Integer** | The total number of elements |  |
 
 ## Example

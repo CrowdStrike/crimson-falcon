@@ -32,6 +32,7 @@ require 'time'
 
 module Falcon
   class ApiResponsePagination
+    # Encoded state used for pagination
     attr_accessor :offset
 
     # The total number of elements
@@ -53,7 +54,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'offset' => :'Object',
+        :'offset' => :'String',
         :'total' => :'Integer'
       }
     end

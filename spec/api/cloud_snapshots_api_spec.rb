@@ -49,6 +49,63 @@ describe 'CloudSnapshotsApi' do
     end
   end
 
+  # unit tests for create_deployment_entity
+  # Launch a snapshot scan for a given cloud asset
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DeploymentsEntityResponse]
+  describe 'create_deployment_entity test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_credentials_mixin0_mixin57
+  # Gets the registry credentials
+  # @param [Hash] opts the optional parameters
+  # @return [ModelsRegistryCredentialsResponse]
+  describe 'get_credentials_mixin0_mixin57 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_scan_report
+  # retrieve the scan report for an instance
+  # @param ids the instance identifiers to fetch the report for
+  # @param [Hash] opts the optional parameters
+  # @return [ScanreportsEntitiesResponse]
+  describe 'get_scan_report test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_deployments_combined
+  # Retrieve snapshot jobs identified by the provided IDs
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Search snapshot jobs using a query in Falcon Query Language (FQL). Supported filters:  account_id,asset_identifier,cloud_provider,region,status
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [String] :sort The fields to sort the records on. Supported columns:  [account_id asset_identifier cloud_provider instance_type last_updated_timestamp region status]
+  # @return [DeploymentsEntityResponse]
+  describe 'read_deployments_combined test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_deployments_entities
+  # Retrieve snapshot jobs identified by the provided IDs
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids Search snapshot jobs by ids - The maximum amount is 100 IDs
+  # @return [DeploymentsEntityResponse]
+  describe 'read_deployments_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for register_cspm_snapshot_account
   # Register customer cloud account for snapshot scanning
   # @param body

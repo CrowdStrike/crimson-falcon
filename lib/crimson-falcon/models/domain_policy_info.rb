@@ -72,13 +72,21 @@ module Falcon
 
     attr_accessor :cloud_service_friendly
 
+    attr_accessor :cloud_service_id
+
     attr_accessor :cloud_service_subtype
 
     attr_accessor :cloud_service_type
 
+    attr_accessor :compliance
+
     attr_accessor :confidence
 
+    attr_accessor :controls
+
     attr_accessor :default_severity
+
+    attr_accessor :deprecated
 
     attr_accessor :description
 
@@ -124,6 +132,10 @@ module Falcon
 
     attr_accessor :remediation_summary
 
+    attr_accessor :resource_type_friendly_name
+
+    attr_accessor :resource_type_id
+
     attr_accessor :soc2_benchmark_ids
 
     attr_accessor :tactic
@@ -161,10 +173,14 @@ module Falcon
         :'cloud_platform_type' => :'cloud_platform_type',
         :'cloud_service' => :'cloud_service',
         :'cloud_service_friendly' => :'cloud_service_friendly',
+        :'cloud_service_id' => :'cloud_service_id',
         :'cloud_service_subtype' => :'cloud_service_subtype',
         :'cloud_service_type' => :'cloud_service_type',
+        :'compliance' => :'compliance',
         :'confidence' => :'confidence',
+        :'controls' => :'controls',
         :'default_severity' => :'default_severity',
+        :'deprecated' => :'deprecated',
         :'description' => :'description',
         :'event_type' => :'event_type',
         :'fql_policy' => :'fql_policy',
@@ -187,6 +203,8 @@ module Falcon
         :'policy_statement' => :'policy_statement',
         :'policy_type' => :'policy_type',
         :'remediation_summary' => :'remediation_summary',
+        :'resource_type_friendly_name' => :'resource_type_friendly_name',
+        :'resource_type_id' => :'resource_type_id',
         :'soc2_benchmark_ids' => :'soc2_benchmark_ids',
         :'tactic' => :'tactic',
         :'tactic_id' => :'tactic_id',
@@ -225,10 +243,14 @@ module Falcon
         :'cloud_platform_type' => :'String',
         :'cloud_service' => :'Integer',
         :'cloud_service_friendly' => :'String',
+        :'cloud_service_id' => :'Integer',
         :'cloud_service_subtype' => :'String',
         :'cloud_service_type' => :'String',
+        :'compliance' => :'DomainCompliance',
         :'confidence' => :'String',
+        :'controls' => :'Array<DomainControl>',
         :'default_severity' => :'String',
+        :'deprecated' => :'Boolean',
         :'description' => :'String',
         :'event_type' => :'String',
         :'fql_policy' => :'String',
@@ -251,6 +273,8 @@ module Falcon
         :'policy_statement' => :'String',
         :'policy_type' => :'String',
         :'remediation_summary' => :'String',
+        :'resource_type_friendly_name' => :'String',
+        :'resource_type_id' => :'String',
         :'soc2_benchmark_ids' => :'Array<Integer>',
         :'tactic' => :'String',
         :'tactic_id' => :'String',
@@ -368,6 +392,10 @@ module Falcon
         self.cloud_service_friendly = attributes[:'cloud_service_friendly']
       end
 
+      if attributes.key?(:'cloud_service_id')
+        self.cloud_service_id = attributes[:'cloud_service_id']
+      end
+
       if attributes.key?(:'cloud_service_subtype')
         self.cloud_service_subtype = attributes[:'cloud_service_subtype']
       end
@@ -376,12 +404,26 @@ module Falcon
         self.cloud_service_type = attributes[:'cloud_service_type']
       end
 
+      if attributes.key?(:'compliance')
+        self.compliance = attributes[:'compliance']
+      end
+
       if attributes.key?(:'confidence')
         self.confidence = attributes[:'confidence']
       end
 
+      if attributes.key?(:'controls')
+        if (value = attributes[:'controls']).is_a?(Array)
+          self.controls = value
+        end
+      end
+
       if attributes.key?(:'default_severity')
         self.default_severity = attributes[:'default_severity']
+      end
+
+      if attributes.key?(:'deprecated')
+        self.deprecated = attributes[:'deprecated']
       end
 
       if attributes.key?(:'description')
@@ -480,6 +522,14 @@ module Falcon
 
       if attributes.key?(:'remediation_summary')
         self.remediation_summary = attributes[:'remediation_summary']
+      end
+
+      if attributes.key?(:'resource_type_friendly_name')
+        self.resource_type_friendly_name = attributes[:'resource_type_friendly_name']
+      end
+
+      if attributes.key?(:'resource_type_id')
+        self.resource_type_id = attributes[:'resource_type_id']
       end
 
       if attributes.key?(:'soc2_benchmark_ids')
@@ -586,10 +636,14 @@ module Falcon
           cloud_platform_type == o.cloud_platform_type &&
           cloud_service == o.cloud_service &&
           cloud_service_friendly == o.cloud_service_friendly &&
+          cloud_service_id == o.cloud_service_id &&
           cloud_service_subtype == o.cloud_service_subtype &&
           cloud_service_type == o.cloud_service_type &&
+          compliance == o.compliance &&
           confidence == o.confidence &&
+          controls == o.controls &&
           default_severity == o.default_severity &&
+          deprecated == o.deprecated &&
           description == o.description &&
           event_type == o.event_type &&
           fql_policy == o.fql_policy &&
@@ -612,6 +666,8 @@ module Falcon
           policy_statement == o.policy_statement &&
           policy_type == o.policy_type &&
           remediation_summary == o.remediation_summary &&
+          resource_type_friendly_name == o.resource_type_friendly_name &&
+          resource_type_id == o.resource_type_id &&
           soc2_benchmark_ids == o.soc2_benchmark_ids &&
           tactic == o.tactic &&
           tactic_id == o.tactic_id &&
@@ -630,7 +686,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_subtype, cloud_service_type, confidence, default_severity, description, event_type, fql_policy, hipaa_benchmark_ids, hitrust_benchmark_ids, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
+      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_id, cloud_service_subtype, cloud_service_type, compliance, confidence, controls, default_severity, deprecated, description, event_type, fql_policy, hipaa_benchmark_ids, hitrust_benchmark_ids, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, resource_type_friendly_name, resource_type_id, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
     end
 
     # Builds the object from hash

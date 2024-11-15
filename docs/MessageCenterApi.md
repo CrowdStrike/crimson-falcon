@@ -1,6 +1,6 @@
 # Falcon::MessageCenterApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -387,7 +387,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::MessageCenterApi.new
-body = Falcon::DomainCaseCreationRequestV2.new({body: 'body_example', detections: [Falcon::MessagesAlert.new({id: 'id_example', product: 'product_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example'}) # DomainCaseCreationRequestV2 | 
+body = Falcon::DomainCaseCreationRequestV2.new({body: 'body_example', detections: [Falcon::MessagesAlert.new({id: 'id_example', product: 'product_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], malware_submission_id: 'malware_submission_id_example', recon_rule_type: 'recon_rule_type_example', title: 'title_example', type: 'type_example'}) # DomainCaseCreationRequestV2 | 
 
 begin
   # create a new case
@@ -597,7 +597,7 @@ api_instance = Falcon::MessageCenterApi.new
 case_id = 'case_id_example' # String | Case ID
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'activity.type.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'activity.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }

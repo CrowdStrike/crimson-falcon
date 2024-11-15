@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :benchmark_title
 
+    attr_accessor :compliance_mappings
+
     attr_accessor :description
 
     attr_accessor :id
@@ -71,6 +73,7 @@ module Falcon
         :'audit_procedure' => :'audit_procedure',
         :'authority' => :'authority',
         :'benchmark_title' => :'benchmark_title',
+        :'compliance_mappings' => :'compliance_mappings',
         :'description' => :'description',
         :'id' => :'id',
         :'impact_statement' => :'impact_statement',
@@ -97,6 +100,7 @@ module Falcon
         :'audit_procedure' => :'String',
         :'authority' => :'String',
         :'benchmark_title' => :'String',
+        :'compliance_mappings' => :'Array<DomainAPIComplianceMappingV1>',
         :'description' => :'String',
         :'id' => :'String',
         :'impact_statement' => :'String',
@@ -154,6 +158,12 @@ module Falcon
 
       if attributes.key?(:'benchmark_title')
         self.benchmark_title = attributes[:'benchmark_title']
+      end
+
+      if attributes.key?(:'compliance_mappings')
+        if (value = attributes[:'compliance_mappings']).is_a?(Array)
+          self.compliance_mappings = value
+        end
       end
 
       if attributes.key?(:'description')
@@ -289,6 +299,7 @@ module Falcon
           audit_procedure == o.audit_procedure &&
           authority == o.authority &&
           benchmark_title == o.benchmark_title &&
+          compliance_mappings == o.compliance_mappings &&
           description == o.description &&
           id == o.id &&
           impact_statement == o.impact_statement &&
@@ -309,7 +320,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_information, applicable_profiles, assessment_status, audit_procedure, authority, benchmark_title, description, id, impact_statement, platform, rationale_statement, recommendation_id, references, remediation_procedure, title].hash
+      [additional_information, applicable_profiles, assessment_status, audit_procedure, authority, benchmark_title, compliance_mappings, description, id, impact_statement, platform, rationale_statement, recommendation_id, references, remediation_procedure, title].hash
     end
 
     # Builds the object from hash

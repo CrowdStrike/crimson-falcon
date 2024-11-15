@@ -32,36 +32,96 @@ require 'time'
 
 module Falcon
   class ModelsDeployment
-    attr_accessor :account_id
+    attr_accessor :agents
 
-    attr_accessor :asset_identifier
+    attr_accessor :annotations
 
-    attr_accessor :cloud_provider
+    attr_accessor :annotations_list
 
-    attr_accessor :id
+    attr_accessor :cid
 
-    attr_accessor :instance_type
+    attr_accessor :cloud_account_id
 
-    attr_accessor :last_updated_timestamp
+    attr_accessor :cloud_name
 
-    attr_accessor :region
+    attr_accessor :cloud_region
+
+    attr_accessor :cloud_service
+
+    attr_accessor :cluster_id
+
+    attr_accessor :cluster_name
+
+    attr_accessor :container_count
+
+    attr_accessor :created_at
+
+    attr_accessor :deleted_at
+
+    attr_accessor :deployment_id
+
+    attr_accessor :deployment_name
+
+    attr_accessor :first_seen
+
+    attr_accessor :kac_agent_id
+
+    attr_accessor :labels
+
+    attr_accessor :labels_list
+
+    attr_accessor :last_seen
+
+    attr_accessor :management_status
+
+    attr_accessor :namespace
+
+    attr_accessor :pod_count
+
+    attr_accessor :resource_status
+
+    attr_accessor :resource_version
+
+    attr_accessor :revision
+
+    attr_accessor :selector
+
+    attr_accessor :service_account_name
 
     attr_accessor :status
-
-    attr_accessor :status_detail
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_id' => :'account_id',
-        :'asset_identifier' => :'asset_identifier',
-        :'cloud_provider' => :'cloud_provider',
-        :'id' => :'id',
-        :'instance_type' => :'instance_type',
-        :'last_updated_timestamp' => :'last_updated_timestamp',
-        :'region' => :'region',
-        :'status' => :'status',
-        :'status_detail' => :'status_detail'
+        :'agents' => :'agents',
+        :'annotations' => :'annotations',
+        :'annotations_list' => :'annotations_list',
+        :'cid' => :'cid',
+        :'cloud_account_id' => :'cloud_account_id',
+        :'cloud_name' => :'cloud_name',
+        :'cloud_region' => :'cloud_region',
+        :'cloud_service' => :'cloud_service',
+        :'cluster_id' => :'cluster_id',
+        :'cluster_name' => :'cluster_name',
+        :'container_count' => :'container_count',
+        :'created_at' => :'created_at',
+        :'deleted_at' => :'deleted_at',
+        :'deployment_id' => :'deployment_id',
+        :'deployment_name' => :'deployment_name',
+        :'first_seen' => :'first_seen',
+        :'kac_agent_id' => :'kac_agent_id',
+        :'labels' => :'labels',
+        :'labels_list' => :'labels_list',
+        :'last_seen' => :'last_seen',
+        :'management_status' => :'management_status',
+        :'namespace' => :'namespace',
+        :'pod_count' => :'pod_count',
+        :'resource_status' => :'resource_status',
+        :'resource_version' => :'resource_version',
+        :'revision' => :'revision',
+        :'selector' => :'selector',
+        :'service_account_name' => :'service_account_name',
+        :'status' => :'status'
       }
     end
 
@@ -73,15 +133,35 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_id' => :'String',
-        :'asset_identifier' => :'String',
-        :'cloud_provider' => :'String',
-        :'id' => :'String',
-        :'instance_type' => :'String',
-        :'last_updated_timestamp' => :'String',
-        :'region' => :'String',
-        :'status' => :'String',
-        :'status_detail' => :'String'
+        :'agents' => :'Array<Hash>',
+        :'annotations' => :'Hash<String, String>',
+        :'annotations_list' => :'Array<String>',
+        :'cid' => :'String',
+        :'cloud_account_id' => :'String',
+        :'cloud_name' => :'String',
+        :'cloud_region' => :'String',
+        :'cloud_service' => :'String',
+        :'cluster_id' => :'String',
+        :'cluster_name' => :'String',
+        :'container_count' => :'Integer',
+        :'created_at' => :'String',
+        :'deleted_at' => :'String',
+        :'deployment_id' => :'String',
+        :'deployment_name' => :'String',
+        :'first_seen' => :'String',
+        :'kac_agent_id' => :'String',
+        :'labels' => :'Hash<String, String>',
+        :'labels_list' => :'Array<String>',
+        :'last_seen' => :'String',
+        :'management_status' => :'String',
+        :'namespace' => :'String',
+        :'pod_count' => :'Integer',
+        :'resource_status' => :'String',
+        :'resource_version' => :'Integer',
+        :'revision' => :'Integer',
+        :'selector' => :'String',
+        :'service_account_name' => :'String',
+        :'status' => :'String'
       }
     end
 
@@ -106,40 +186,130 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
+      if attributes.key?(:'agents')
+        if (value = attributes[:'agents']).is_a?(Array)
+          self.agents = value
+        end
       end
 
-      if attributes.key?(:'asset_identifier')
-        self.asset_identifier = attributes[:'asset_identifier']
+      if attributes.key?(:'annotations')
+        if (value = attributes[:'annotations']).is_a?(Hash)
+          self.annotations = value
+        end
       end
 
-      if attributes.key?(:'cloud_provider')
-        self.cloud_provider = attributes[:'cloud_provider']
+      if attributes.key?(:'annotations_list')
+        if (value = attributes[:'annotations_list']).is_a?(Array)
+          self.annotations_list = value
+        end
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'cid')
+        self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'instance_type')
-        self.instance_type = attributes[:'instance_type']
+      if attributes.key?(:'cloud_account_id')
+        self.cloud_account_id = attributes[:'cloud_account_id']
       end
 
-      if attributes.key?(:'last_updated_timestamp')
-        self.last_updated_timestamp = attributes[:'last_updated_timestamp']
+      if attributes.key?(:'cloud_name')
+        self.cloud_name = attributes[:'cloud_name']
       end
 
-      if attributes.key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.key?(:'cloud_region')
+        self.cloud_region = attributes[:'cloud_region']
+      end
+
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
+      end
+
+      if attributes.key?(:'cluster_id')
+        self.cluster_id = attributes[:'cluster_id']
+      end
+
+      if attributes.key?(:'cluster_name')
+        self.cluster_name = attributes[:'cluster_name']
+      end
+
+      if attributes.key?(:'container_count')
+        self.container_count = attributes[:'container_count']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
+      if attributes.key?(:'deployment_id')
+        self.deployment_id = attributes[:'deployment_id']
+      end
+
+      if attributes.key?(:'deployment_name')
+        self.deployment_name = attributes[:'deployment_name']
+      end
+
+      if attributes.key?(:'first_seen')
+        self.first_seen = attributes[:'first_seen']
+      end
+
+      if attributes.key?(:'kac_agent_id')
+        self.kac_agent_id = attributes[:'kac_agent_id']
+      end
+
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Hash)
+          self.labels = value
+        end
+      end
+
+      if attributes.key?(:'labels_list')
+        if (value = attributes[:'labels_list']).is_a?(Array)
+          self.labels_list = value
+        end
+      end
+
+      if attributes.key?(:'last_seen')
+        self.last_seen = attributes[:'last_seen']
+      end
+
+      if attributes.key?(:'management_status')
+        self.management_status = attributes[:'management_status']
+      end
+
+      if attributes.key?(:'namespace')
+        self.namespace = attributes[:'namespace']
+      end
+
+      if attributes.key?(:'pod_count')
+        self.pod_count = attributes[:'pod_count']
+      end
+
+      if attributes.key?(:'resource_status')
+        self.resource_status = attributes[:'resource_status']
+      end
+
+      if attributes.key?(:'resource_version')
+        self.resource_version = attributes[:'resource_version']
+      end
+
+      if attributes.key?(:'revision')
+        self.revision = attributes[:'revision']
+      end
+
+      if attributes.key?(:'selector')
+        self.selector = attributes[:'selector']
+      end
+
+      if attributes.key?(:'service_account_name')
+        self.service_account_name = attributes[:'service_account_name']
       end
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'status_detail')
-        self.status_detail = attributes[:'status_detail']
       end
     end
 
@@ -147,40 +317,112 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
+      if @agents.nil?
+        invalid_properties.push('invalid value for "agents", agents cannot be nil.')
       end
 
-      if @asset_identifier.nil?
-        invalid_properties.push('invalid value for "asset_identifier", asset_identifier cannot be nil.')
+      if @annotations.nil?
+        invalid_properties.push('invalid value for "annotations", annotations cannot be nil.')
       end
 
-      if @cloud_provider.nil?
-        invalid_properties.push('invalid value for "cloud_provider", cloud_provider cannot be nil.')
+      if @annotations_list.nil?
+        invalid_properties.push('invalid value for "annotations_list", annotations_list cannot be nil.')
       end
 
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @cid.nil?
+        invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
-      if @instance_type.nil?
-        invalid_properties.push('invalid value for "instance_type", instance_type cannot be nil.')
+      if @cloud_account_id.nil?
+        invalid_properties.push('invalid value for "cloud_account_id", cloud_account_id cannot be nil.')
       end
 
-      if @last_updated_timestamp.nil?
-        invalid_properties.push('invalid value for "last_updated_timestamp", last_updated_timestamp cannot be nil.')
+      if @cloud_name.nil?
+        invalid_properties.push('invalid value for "cloud_name", cloud_name cannot be nil.')
       end
 
-      if @region.nil?
-        invalid_properties.push('invalid value for "region", region cannot be nil.')
+      if @cloud_region.nil?
+        invalid_properties.push('invalid value for "cloud_region", cloud_region cannot be nil.')
+      end
+
+      if @cloud_service.nil?
+        invalid_properties.push('invalid value for "cloud_service", cloud_service cannot be nil.')
+      end
+
+      if @cluster_id.nil?
+        invalid_properties.push('invalid value for "cluster_id", cluster_id cannot be nil.')
+      end
+
+      if @cluster_name.nil?
+        invalid_properties.push('invalid value for "cluster_name", cluster_name cannot be nil.')
+      end
+
+      if @container_count.nil?
+        invalid_properties.push('invalid value for "container_count", container_count cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @deployment_id.nil?
+        invalid_properties.push('invalid value for "deployment_id", deployment_id cannot be nil.')
+      end
+
+      if @deployment_name.nil?
+        invalid_properties.push('invalid value for "deployment_name", deployment_name cannot be nil.')
+      end
+
+      if @first_seen.nil?
+        invalid_properties.push('invalid value for "first_seen", first_seen cannot be nil.')
+      end
+
+      if @kac_agent_id.nil?
+        invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
+      end
+
+      if @labels.nil?
+        invalid_properties.push('invalid value for "labels", labels cannot be nil.')
+      end
+
+      if @labels_list.nil?
+        invalid_properties.push('invalid value for "labels_list", labels_list cannot be nil.')
+      end
+
+      if @last_seen.nil?
+        invalid_properties.push('invalid value for "last_seen", last_seen cannot be nil.')
+      end
+
+      if @management_status.nil?
+        invalid_properties.push('invalid value for "management_status", management_status cannot be nil.')
+      end
+
+      if @namespace.nil?
+        invalid_properties.push('invalid value for "namespace", namespace cannot be nil.')
+      end
+
+      if @pod_count.nil?
+        invalid_properties.push('invalid value for "pod_count", pod_count cannot be nil.')
+      end
+
+      if @resource_status.nil?
+        invalid_properties.push('invalid value for "resource_status", resource_status cannot be nil.')
+      end
+
+      if @resource_version.nil?
+        invalid_properties.push('invalid value for "resource_version", resource_version cannot be nil.')
+      end
+
+      if @selector.nil?
+        invalid_properties.push('invalid value for "selector", selector cannot be nil.')
+      end
+
+      if @service_account_name.nil?
+        invalid_properties.push('invalid value for "service_account_name", service_account_name cannot be nil.')
       end
 
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
-      if @status_detail.nil?
-        invalid_properties.push('invalid value for "status_detail", status_detail cannot be nil.')
       end
 
       invalid_properties
@@ -189,15 +431,33 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @account_id.nil?
-      return false if @asset_identifier.nil?
-      return false if @cloud_provider.nil?
-      return false if @id.nil?
-      return false if @instance_type.nil?
-      return false if @last_updated_timestamp.nil?
-      return false if @region.nil?
+      return false if @agents.nil?
+      return false if @annotations.nil?
+      return false if @annotations_list.nil?
+      return false if @cid.nil?
+      return false if @cloud_account_id.nil?
+      return false if @cloud_name.nil?
+      return false if @cloud_region.nil?
+      return false if @cloud_service.nil?
+      return false if @cluster_id.nil?
+      return false if @cluster_name.nil?
+      return false if @container_count.nil?
+      return false if @created_at.nil?
+      return false if @deployment_id.nil?
+      return false if @deployment_name.nil?
+      return false if @first_seen.nil?
+      return false if @kac_agent_id.nil?
+      return false if @labels.nil?
+      return false if @labels_list.nil?
+      return false if @last_seen.nil?
+      return false if @management_status.nil?
+      return false if @namespace.nil?
+      return false if @pod_count.nil?
+      return false if @resource_status.nil?
+      return false if @resource_version.nil?
+      return false if @selector.nil?
+      return false if @service_account_name.nil?
       return false if @status.nil?
-      return false if @status_detail.nil?
       true
     end
 
@@ -206,15 +466,35 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_id == o.account_id &&
-          asset_identifier == o.asset_identifier &&
-          cloud_provider == o.cloud_provider &&
-          id == o.id &&
-          instance_type == o.instance_type &&
-          last_updated_timestamp == o.last_updated_timestamp &&
-          region == o.region &&
-          status == o.status &&
-          status_detail == o.status_detail
+          agents == o.agents &&
+          annotations == o.annotations &&
+          annotations_list == o.annotations_list &&
+          cid == o.cid &&
+          cloud_account_id == o.cloud_account_id &&
+          cloud_name == o.cloud_name &&
+          cloud_region == o.cloud_region &&
+          cloud_service == o.cloud_service &&
+          cluster_id == o.cluster_id &&
+          cluster_name == o.cluster_name &&
+          container_count == o.container_count &&
+          created_at == o.created_at &&
+          deleted_at == o.deleted_at &&
+          deployment_id == o.deployment_id &&
+          deployment_name == o.deployment_name &&
+          first_seen == o.first_seen &&
+          kac_agent_id == o.kac_agent_id &&
+          labels == o.labels &&
+          labels_list == o.labels_list &&
+          last_seen == o.last_seen &&
+          management_status == o.management_status &&
+          namespace == o.namespace &&
+          pod_count == o.pod_count &&
+          resource_status == o.resource_status &&
+          resource_version == o.resource_version &&
+          revision == o.revision &&
+          selector == o.selector &&
+          service_account_name == o.service_account_name &&
+          status == o.status
     end
 
     # @see the `==` method
@@ -226,7 +506,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, asset_identifier, cloud_provider, id, instance_type, last_updated_timestamp, region, status, status_detail].hash
+      [agents, annotations, annotations_list, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, container_count, created_at, deleted_at, deployment_id, deployment_name, first_seen, kac_agent_id, labels, labels_list, last_seen, management_status, namespace, pod_count, resource_status, resource_version, revision, selector, service_account_name, status].hash
     end
 
     # Builds the object from hash

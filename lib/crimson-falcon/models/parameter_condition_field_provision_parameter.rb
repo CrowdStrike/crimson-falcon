@@ -32,6 +32,9 @@ require 'time'
 
 module Falcon
   class ParameterConditionFieldProvisionParameter
+    # specifies the conditin group id inside the flow node. This is needed since with or support now we can have multiple instances of the same variable
+    attr_accessor :condition_group_id
+
     # Fully qualified name of the field
     attr_accessor :name
 
@@ -43,6 +46,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'condition_group_id' => :'condition_group_id',
         :'name' => :'name',
         :'operator' => :'operator',
         :'value' => :'value'
@@ -57,6 +61,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'condition_group_id' => :'String',
         :'name' => :'String',
         :'operator' => :'String',
         :'value' => :'Object'
@@ -84,6 +89,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'condition_group_id')
+        self.condition_group_id = attributes[:'condition_group_id']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -101,6 +110,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @condition_group_id.nil?
+        invalid_properties.push('invalid value for "condition_group_id", condition_group_id cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -119,6 +132,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @condition_group_id.nil?
       return false if @name.nil?
       return false if @operator.nil?
       return false if @value.nil?
@@ -130,6 +144,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          condition_group_id == o.condition_group_id &&
           name == o.name &&
           operator == o.operator &&
           value == o.value
@@ -144,7 +159,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, operator, value].hash
+      [condition_group_id, name, operator, value].hash
     end
 
     # Builds the object from hash

@@ -82,6 +82,15 @@ module Falcon
     # ID of the raw intel item that matched the rule
     attr_accessor :raw_intel_id
 
+    # The name of the user who created the rule
+    attr_accessor :rule_creator_name
+
+    # The user ID of the user who created the rule
+    attr_accessor :rule_creator_uid
+
+    # The unique UUID of the user who created the rule
+    attr_accessor :rule_creator_uuid
+
     # The ID of the rule that generated this notification
     attr_accessor :rule_id
 
@@ -126,6 +135,9 @@ module Falcon
         :'item_type' => :'item_type',
         :'logs' => :'logs',
         :'raw_intel_id' => :'raw_intel_id',
+        :'rule_creator_name' => :'rule_creator_name',
+        :'rule_creator_uid' => :'rule_creator_uid',
+        :'rule_creator_uuid' => :'rule_creator_uuid',
         :'rule_id' => :'rule_id',
         :'rule_name' => :'rule_name',
         :'rule_priority' => :'rule_priority',
@@ -163,6 +175,9 @@ module Falcon
         :'item_type' => :'String',
         :'logs' => :'Array<SadomainNotificationLog>',
         :'raw_intel_id' => :'String',
+        :'rule_creator_name' => :'String',
+        :'rule_creator_uid' => :'String',
+        :'rule_creator_uuid' => :'String',
         :'rule_id' => :'String',
         :'rule_name' => :'String',
         :'rule_priority' => :'String',
@@ -269,6 +284,18 @@ module Falcon
 
       if attributes.key?(:'raw_intel_id')
         self.raw_intel_id = attributes[:'raw_intel_id']
+      end
+
+      if attributes.key?(:'rule_creator_name')
+        self.rule_creator_name = attributes[:'rule_creator_name']
+      end
+
+      if attributes.key?(:'rule_creator_uid')
+        self.rule_creator_uid = attributes[:'rule_creator_uid']
+      end
+
+      if attributes.key?(:'rule_creator_uuid')
+        self.rule_creator_uuid = attributes[:'rule_creator_uuid']
       end
 
       if attributes.key?(:'rule_id')
@@ -410,6 +437,9 @@ module Falcon
           item_type == o.item_type &&
           logs == o.logs &&
           raw_intel_id == o.raw_intel_id &&
+          rule_creator_name == o.rule_creator_name &&
+          rule_creator_uid == o.rule_creator_uid &&
+          rule_creator_uuid == o.rule_creator_uuid &&
           rule_id == o.rule_id &&
           rule_name == o.rule_name &&
           rule_priority == o.rule_priority &&
@@ -429,7 +459,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
+      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_creator_name, rule_creator_uid, rule_creator_uuid, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
     end
 
     # Builds the object from hash

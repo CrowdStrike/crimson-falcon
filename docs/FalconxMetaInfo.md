@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **meta_info** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **meta_info** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **quota** | [**FalconxQuota**](FalconxQuota.md) |  | [optional] |
 
 ## Example

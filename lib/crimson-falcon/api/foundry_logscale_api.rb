@@ -42,8 +42,11 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :mode Mode to execute the query under.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def create_saved_searches_dynamic_execute_alt_v1(body, opts = {})
       data, _status_code, _headers = create_saved_searches_dynamic_execute_alt_v1_with_http_info(body, opts)
@@ -56,8 +59,11 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :mode Mode to execute the query under.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_dynamic_execute_alt_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -71,6 +77,14 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_alt_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches-dynamic-execute/v1'
 
@@ -79,6 +93,8 @@ module Falcon
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
       query_params[:'include_schema_generation'] = opts[:'include_schema_generation'] if !opts[:'include_schema_generation'].nil?
       query_params[:'include_test_data'] = opts[:'include_test_data'] if !opts[:'include_test_data'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
       query_params[:'mode'] = opts[:'mode'] if !opts[:'mode'].nil?
 
@@ -91,6 +107,7 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -127,8 +144,11 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :mode Mode to execute the query under.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def create_saved_searches_dynamic_execute_v1(body, opts = {})
       data, _status_code, _headers = create_saved_searches_dynamic_execute_v1_with_http_info(body, opts)
@@ -141,8 +161,11 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :mode Mode to execute the query under.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_dynamic_execute_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -156,6 +179,14 @@ module Falcon
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_dynamic_execute_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches/execute-dynamic/v1'
 
@@ -164,6 +195,8 @@ module Falcon
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
       query_params[:'include_schema_generation'] = opts[:'include_schema_generation'] if !opts[:'include_schema_generation'].nil?
       query_params[:'include_test_data'] = opts[:'include_test_data'] if !opts[:'include_test_data'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
       query_params[:'mode'] = opts[:'mode'] if !opts[:'mode'].nil?
 
@@ -176,6 +209,7 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -212,7 +246,10 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def create_saved_searches_execute_alt_v1(body, opts = {})
       data, _status_code, _headers = create_saved_searches_execute_alt_v1_with_http_info(body, opts)
@@ -225,7 +262,10 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_execute_alt_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -235,6 +275,14 @@ module Falcon
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches-execute/v1'
 
@@ -243,6 +291,8 @@ module Falcon
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
       query_params[:'detailed'] = opts[:'detailed'] if !opts[:'detailed'].nil?
       query_params[:'include_test_data'] = opts[:'include_test_data'] if !opts[:'include_test_data'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
 
       # header parameters
@@ -254,6 +304,7 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -290,7 +341,10 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def create_saved_searches_execute_v1(body, opts = {})
       data, _status_code, _headers = create_saved_searches_execute_v1_with_http_info(body, opts)
@@ -303,7 +357,10 @@ module Falcon
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
     # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def create_saved_searches_execute_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
@@ -313,6 +370,14 @@ module Falcon
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscaleApi.create_saved_searches_execute_v1"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.create_saved_searches_execute_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches/execute/v1'
 
@@ -321,6 +386,8 @@ module Falcon
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
       query_params[:'detailed'] = opts[:'detailed'] if !opts[:'detailed'].nil?
       query_params[:'include_test_data'] = opts[:'include_test_data'] if !opts[:'include_test_data'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
 
       # header parameters
@@ -332,6 +399,7 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -482,9 +550,13 @@ module Falcon
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned (default to false)
     # @option opts [String] :limit Maximum number of records to return.
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def get_saved_searches_execute_alt_v1(job_id, opts = {})
       data, _status_code, _headers = get_saved_searches_execute_alt_v1_with_http_info(job_id, opts)
@@ -495,9 +567,13 @@ module Falcon
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned (default to false)
     # @option opts [String] :limit Maximum number of records to return.
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def get_saved_searches_execute_alt_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
@@ -507,6 +583,14 @@ module Falcon
       if @api_client.config.client_side_validation && job_id.nil?
         fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_alt_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches-execute/v1'
 
@@ -514,7 +598,10 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'job_id'] = job_id
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'job_status_only'] = opts[:'job_status_only'] if !opts[:'job_status_only'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
@@ -522,6 +609,7 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -556,9 +644,13 @@ module Falcon
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned (default to false)
     # @option opts [String] :limit Maximum number of records to return.
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [ApidomainQueryResponseWrapperV1]
     def get_saved_searches_execute_v1(job_id, opts = {})
       data, _status_code, _headers = get_saved_searches_execute_v1_with_http_info(job_id, opts)
@@ -569,9 +661,13 @@ module Falcon
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
+    # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned (default to false)
     # @option opts [String] :limit Maximum number of records to return.
+    # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
     # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @return [Array<(ApidomainQueryResponseWrapperV1, Integer, Hash)>] ApidomainQueryResponseWrapperV1 data, response status code and response headers
     def get_saved_searches_execute_v1_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
@@ -581,6 +677,14 @@ module Falcon
       if @api_client.config.client_side_validation && job_id.nil?
         fail ArgumentError, "Missing the required parameter 'job_id' when calling FoundryLogscaleApi.get_saved_searches_execute_v1"
       end
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling FoundryLogscaleApi.get_saved_searches_execute_v1, the character length must be great than or equal to 36.'
+      end
+
       # resource path
       local_var_path = '/loggingapi/entities/saved-searches/execute/v1'
 
@@ -588,7 +692,10 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'job_id'] = job_id
       query_params[:'app_id'] = opts[:'app_id'] if !opts[:'app_id'].nil?
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
+      query_params[:'job_status_only'] = opts[:'job_status_only'] if !opts[:'job_status_only'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'match_response_schema'] = opts[:'match_response_schema'] if !opts[:'match_response_schema'].nil?
       query_params[:'metadata'] = opts[:'metadata'] if !opts[:'metadata'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 
@@ -596,6 +703,7 @@ module Falcon
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -629,6 +737,7 @@ module Falcon
     # Get the results of a saved search as a file
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [String] :result_format Result Format
     # @return [File]
     def get_saved_searches_job_results_download_alt_v1(job_id, opts = {})
@@ -639,6 +748,7 @@ module Falcon
     # Get the results of a saved search as a file
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [String] :result_format Result Format
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_saved_searches_job_results_download_alt_v1_with_http_info(job_id, opts = {})
@@ -659,12 +769,13 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'job_id'] = job_id
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
       query_params[:'result_format'] = opts[:'result_format'] if !opts[:'result_format'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'text/csv', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -698,6 +809,7 @@ module Falcon
     # Get the results of a saved search as a file
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [String] :result_format Result Format
     # @return [File]
     def get_saved_searches_job_results_download_v1(job_id, opts = {})
@@ -708,6 +820,7 @@ module Falcon
     # Get the results of a saved search as a file
     # @param job_id [String] Job ID for a previously executed async query
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [String] :result_format Result Format
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_saved_searches_job_results_download_v1_with_http_info(job_id, opts = {})
@@ -728,12 +841,13 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'job_id'] = job_id
+      query_params[:'infer_json_types'] = opts[:'infer_json_types'] if !opts[:'infer_json_types'].nil?
       query_params[:'result_format'] = opts[:'result_format'] if !opts[:'result_format'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'text/csv', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -764,32 +878,108 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Ingest data into the application repository
-    # @param data_file [File] Data file to ingest
+    # Asynchronously ingest data into the application repository
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :data_content JSON data to ingest
+    # @option opts [File] :data_file Data file to ingest
+    # @option opts [String] :repo Repository name if not part of a foundry app
     # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
     # @option opts [String] :tag_source Tag the data with the specified source
     # @option opts [Boolean] :test_data Tag the data with test-ingest (default to false)
     # @return [ClientDataIngestResponseWrapperV1]
-    def ingest_data_v1(data_file, opts = {})
-      data, _status_code, _headers = ingest_data_v1_with_http_info(data_file, opts)
+    def ingest_data_async_v1(opts = {})
+      data, _status_code, _headers = ingest_data_async_v1_with_http_info(opts)
       data
     end
 
-    # Ingest data into the application repository
-    # @param data_file [File] Data file to ingest
+    # Asynchronously ingest data into the application repository
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :data_content JSON data to ingest
+    # @option opts [File] :data_file Data file to ingest
+    # @option opts [String] :repo Repository name if not part of a foundry app
     # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
     # @option opts [String] :tag_source Tag the data with the specified source
     # @option opts [Boolean] :test_data Tag the data with test-ingest (default to false)
     # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
-    def ingest_data_v1_with_http_info(data_file, opts = {})
+    def ingest_data_async_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.ingest_data_async_v1 ...'
+      end
+      # resource path
+      local_var_path = '/loggingapi/entities/data-ingestion/ingest-async/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['data_content'] = opts[:'data_content'] if !opts[:'data_content'].nil?
+      form_params['data_file'] = opts[:'data_file'] if !opts[:'data_file'].nil?
+      form_params['repo'] = opts[:'repo'] if !opts[:'repo'].nil?
+      form_params['tag'] = @api_client.build_collection_param(opts[:'tag'], :csv) if !opts[:'tag'].nil?
+      form_params['tag_source'] = opts[:'tag_source'] if !opts[:'tag_source'].nil?
+      form_params['test_data'] = opts[:'test_data'] if !opts[:'test_data'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ClientDataIngestResponseWrapperV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FoundryLogscaleApi.ingest_data_async_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FoundryLogscaleApi#ingest_data_async_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Synchronously ingest data into the application repository
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :data_content JSON data to ingest
+    # @option opts [File] :data_file Data file to ingest
+    # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
+    # @option opts [String] :tag_source Tag the data with the specified source
+    # @option opts [Boolean] :test_data Tag the data with test-ingest (default to false)
+    # @return [ClientDataIngestResponseWrapperV1]
+    def ingest_data_v1(opts = {})
+      data, _status_code, _headers = ingest_data_v1_with_http_info(opts)
+      data
+    end
+
+    # Synchronously ingest data into the application repository
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :data_content JSON data to ingest
+    # @option opts [File] :data_file Data file to ingest
+    # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
+    # @option opts [String] :tag_source Tag the data with the specified source
+    # @option opts [Boolean] :test_data Tag the data with test-ingest (default to false)
+    # @return [Array<(ClientDataIngestResponseWrapperV1, Integer, Hash)>] ClientDataIngestResponseWrapperV1 data, response status code and response headers
+    def ingest_data_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FoundryLogscaleApi.ingest_data_v1 ...'
-      end
-      # verify the required parameter 'data_file' is set
-      if @api_client.config.client_side_validation && data_file.nil?
-        fail ArgumentError, "Missing the required parameter 'data_file' when calling FoundryLogscaleApi.ingest_data_v1"
       end
       # resource path
       local_var_path = '/loggingapi/entities/data-ingestion/ingest/v1'
@@ -809,7 +999,8 @@ module Falcon
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['data_file'] = data_file
+      form_params['data_content'] = opts[:'data_content'] if !opts[:'data_content'].nil?
+      form_params['data_file'] = opts[:'data_file'] if !opts[:'data_file'].nil?
       form_params['tag'] = @api_client.build_collection_param(opts[:'tag'], :csv) if !opts[:'tag'].nil?
       form_params['tag_source'] = opts[:'tag_source'] if !opts[:'tag_source'].nil?
       form_params['test_data'] = opts[:'test_data'] if !opts[:'test_data'].nil?

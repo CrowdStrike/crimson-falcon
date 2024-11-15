@@ -12,6 +12,7 @@
 | **iterations** | [**ExecutionsIterations**](ExecutionsIterations.md) |  |  |
 | **mocked** | **Boolean** | Whether this node&#39;s result is mocked | [optional] |
 | **node_id** | **String** | Unique id of the node as specified in the definition. |  |
+| **outputs** | **Array&lt;Object&gt;** | Outputs from all the iterations of the sub model | [optional] |
 | **start_timestamp** | **Time** | Timestamp of when the execution first started. |  |
 | **status** | **String** | Current status of execution for the activity. |  |
 
@@ -29,6 +30,7 @@ instance = Falcon::ExecutionsLoopResult.new(
   iterations: null,
   mocked: null,
   node_id: null,
+  outputs: null,
   start_timestamp: null,
   status: null
 )

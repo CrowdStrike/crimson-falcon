@@ -9,6 +9,7 @@
 | **parent_id** | **String** |  |  |
 | **parent_type** | **String** |  | [optional] |
 | **project_id** | **String** |  | [optional] |
+| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** |  | [optional] |
 
 ## Example
@@ -22,6 +23,7 @@ instance = Falcon::RegistrationGCPAccountRspObjV2.new(
   parent_id: null,
   parent_type: null,
   project_id: null,
+  service_account_conditions: null,
   service_account_id: null
 )
 ```

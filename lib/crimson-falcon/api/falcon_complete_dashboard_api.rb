@@ -698,6 +698,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve aggregate support issue ticket values based on the matched filter
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [MsaAggregatesResponse]
+    def aggregate_support_issues(body, opts = {})
+      data, _status_code, _headers = aggregate_support_issues_with_http_info(body, opts)
+      data
+    end
+
+    # Retrieve aggregate support issue ticket values based on the matched filter
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
+    def aggregate_support_issues_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.aggregate_support_issues ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconCompleteDashboardApi.aggregate_support_issues"
+      end
+      # resource path
+      local_var_path = '/falcon-complete-dashboards/aggregates/support-issues/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconCompleteDashboardApi.aggregate_support_issues",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconCompleteDashboardApi#aggregate_support_issues\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve aggregate total host/devices based on the matched filter
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
@@ -770,7 +836,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def get_device_count_collection_queries_by_filter(opts = {})
       data, _status_code, _headers = get_device_count_collection_queries_by_filter_with_http_info(opts)
       data
@@ -782,7 +848,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def get_device_count_collection_queries_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.get_device_count_collection_queries_by_filter ...'
@@ -809,7 +875,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -837,7 +903,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_alert_ids_by_filter(opts = {})
       data, _status_code, _headers = query_alert_ids_by_filter_with_http_info(opts)
       data
@@ -849,7 +915,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_alert_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_alert_ids_by_filter ...'
@@ -876,7 +942,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -904,7 +970,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_allow_list_filter(opts = {})
       data, _status_code, _headers = query_allow_list_filter_with_http_info(opts)
       data
@@ -916,7 +982,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_allow_list_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_allow_list_filter ...'
@@ -943,7 +1009,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -971,7 +1037,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_block_list_filter(opts = {})
       data, _status_code, _headers = query_block_list_filter_with_http_info(opts)
       data
@@ -983,7 +1049,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_block_list_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_block_list_filter ...'
@@ -1010,7 +1076,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1038,7 +1104,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_detection_ids_by_filter(opts = {})
       data, _status_code, _headers = query_detection_ids_by_filter_with_http_info(opts)
       data
@@ -1050,7 +1116,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_detection_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_detection_ids_by_filter ...'
@@ -1077,7 +1143,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1105,7 +1171,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_escalations_filter(opts = {})
       data, _status_code, _headers = query_escalations_filter_with_http_info(opts)
       data
@@ -1117,7 +1183,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_escalations_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_escalations_filter ...'
@@ -1144,7 +1210,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1172,7 +1238,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_incident_ids_by_filter(opts = {})
       data, _status_code, _headers = query_incident_ids_by_filter_with_http_info(opts)
       data
@@ -1184,7 +1250,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_incident_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_incident_ids_by_filter ...'
@@ -1211,7 +1277,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1239,7 +1305,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [MsaspecQueryResponse]
+    # @return [MsaQueryResponse]
     def query_remediations_filter(opts = {})
       data, _status_code, _headers = query_remediations_filter_with_http_info(opts)
       data
@@ -1251,7 +1317,7 @@ module Falcon
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_remediations_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FalconCompleteDashboardApi.query_remediations_filter ...'
@@ -1278,7 +1344,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

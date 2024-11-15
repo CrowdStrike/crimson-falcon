@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainExecutionMetadataSummary
+    attr_accessor :report_params
+
     attr_accessor :subtype
 
     attr_accessor :unscheduled_execution_type
@@ -43,6 +45,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'report_params' => :'report_params',
         :'subtype' => :'subtype',
         :'unscheduled_execution_type' => :'unscheduled_execution_type',
         :'xdr_data' => :'xdr_data',
@@ -58,6 +61,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'report_params' => :'DomainReportParams',
         :'subtype' => :'String',
         :'unscheduled_execution_type' => :'String',
         :'xdr_data' => :'DomainXDRData',
@@ -86,6 +90,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'report_params')
+        self.report_params = attributes[:'report_params']
+      end
+
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
       end
@@ -107,6 +115,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @report_params.nil?
+        invalid_properties.push('invalid value for "report_params", report_params cannot be nil.')
+      end
+
       if @subtype.nil?
         invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
@@ -129,6 +141,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @report_params.nil?
       return false if @subtype.nil?
       return false if @unscheduled_execution_type.nil?
       return false if @xdr_data.nil?
@@ -141,6 +154,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          report_params == o.report_params &&
           subtype == o.subtype &&
           unscheduled_execution_type == o.unscheduled_execution_type &&
           xdr_data == o.xdr_data &&
@@ -156,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
+      [report_params, subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
     end
 
     # Builds the object from hash

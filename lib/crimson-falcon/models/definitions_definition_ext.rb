@@ -32,7 +32,11 @@ require 'time'
 
 module Falcon
   class DefinitionsDefinitionExt
-    attr_accessor :definition
+    attr_accessor :actions
+
+    attr_accessor :conditions
+
+    attr_accessor :description
 
     # Indicates whether the workflow is enabled and active or not.
     attr_accessor :enabled
@@ -40,8 +44,38 @@ module Falcon
     # Unique identifier for the trigger.
     attr_accessor :id
 
+    attr_accessor :labels
+
     # Timestamp of when this version of the workflow was created.
     attr_accessor :last_modified_timestamp
+
+    attr_accessor :loops
+
+    attr_accessor :multi_instance
+
+    attr_accessor :name
+
+    attr_accessor :node_registry
+
+    attr_accessor :output_fields
+
+    attr_accessor :parameters
+
+    attr_accessor :parent
+
+    attr_accessor :provision_on_install
+
+    attr_accessor :summary
+
+    attr_accessor :trigger
+
+    attr_accessor :type
+
+    attr_accessor :uniq_node_seen
+
+    attr_accessor :use_cases
+
+    attr_accessor :vendors
 
     # Version of the workflow. A given definition ID can have many versions. Each time an update is applied a new version is generated.
     attr_accessor :version
@@ -49,10 +83,27 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'definition' => :'Definition',
+        :'actions' => :'actions',
+        :'conditions' => :'conditions',
+        :'description' => :'description',
         :'enabled' => :'enabled',
         :'id' => :'id',
+        :'labels' => :'labels',
         :'last_modified_timestamp' => :'last_modified_timestamp',
+        :'loops' => :'loops',
+        :'multi_instance' => :'multi_instance',
+        :'name' => :'name',
+        :'node_registry' => :'nodeRegistry',
+        :'output_fields' => :'output_fields',
+        :'parameters' => :'parameters',
+        :'parent' => :'parent',
+        :'provision_on_install' => :'provision_on_install',
+        :'summary' => :'summary',
+        :'trigger' => :'trigger',
+        :'type' => :'type',
+        :'uniq_node_seen' => :'uniqNodeSeen',
+        :'use_cases' => :'use_cases',
+        :'vendors' => :'vendors',
         :'version' => :'version'
       }
     end
@@ -65,10 +116,27 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'definition' => :'V2Definition',
+        :'actions' => :'Hash<String, V2Activity>',
+        :'conditions' => :'Hash<String, V2Condition>',
+        :'description' => :'String',
         :'enabled' => :'Boolean',
         :'id' => :'String',
+        :'labels' => :'Array<String>',
         :'last_modified_timestamp' => :'Time',
+        :'loops' => :'Hash<String, V2Loop>',
+        :'multi_instance' => :'Boolean',
+        :'name' => :'String',
+        :'node_registry' => :'Hash<String, String>',
+        :'output_fields' => :'Array<String>',
+        :'parameters' => :'V2Parameters',
+        :'parent' => :'V2Model',
+        :'provision_on_install' => :'Boolean',
+        :'summary' => :'String',
+        :'trigger' => :'V2Trigger',
+        :'type' => :'String',
+        :'uniq_node_seen' => :'Hash<String, Boolean>',
+        :'use_cases' => :'Array<String>',
+        :'vendors' => :'Array<String>',
         :'version' => :'Integer'
       }
     end
@@ -94,8 +162,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'definition')
-        self.definition = attributes[:'definition']
+      if attributes.key?(:'actions')
+        if (value = attributes[:'actions']).is_a?(Hash)
+          self.actions = value
+        end
+      end
+
+      if attributes.key?(:'conditions')
+        if (value = attributes[:'conditions']).is_a?(Hash)
+          self.conditions = value
+        end
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.key?(:'enabled')
@@ -106,8 +186,82 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'labels')
+        if (value = attributes[:'labels']).is_a?(Array)
+          self.labels = value
+        end
+      end
+
       if attributes.key?(:'last_modified_timestamp')
         self.last_modified_timestamp = attributes[:'last_modified_timestamp']
+      end
+
+      if attributes.key?(:'loops')
+        if (value = attributes[:'loops']).is_a?(Hash)
+          self.loops = value
+        end
+      end
+
+      if attributes.key?(:'multi_instance')
+        self.multi_instance = attributes[:'multi_instance']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'node_registry')
+        if (value = attributes[:'node_registry']).is_a?(Hash)
+          self.node_registry = value
+        end
+      end
+
+      if attributes.key?(:'output_fields')
+        if (value = attributes[:'output_fields']).is_a?(Array)
+          self.output_fields = value
+        end
+      end
+
+      if attributes.key?(:'parameters')
+        self.parameters = attributes[:'parameters']
+      end
+
+      if attributes.key?(:'parent')
+        self.parent = attributes[:'parent']
+      end
+
+      if attributes.key?(:'provision_on_install')
+        self.provision_on_install = attributes[:'provision_on_install']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
+
+      if attributes.key?(:'trigger')
+        self.trigger = attributes[:'trigger']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'uniq_node_seen')
+        if (value = attributes[:'uniq_node_seen']).is_a?(Hash)
+          self.uniq_node_seen = value
+        end
+      end
+
+      if attributes.key?(:'use_cases')
+        if (value = attributes[:'use_cases']).is_a?(Array)
+          self.use_cases = value
+        end
+      end
+
+      if attributes.key?(:'vendors')
+        if (value = attributes[:'vendors']).is_a?(Array)
+          self.vendors = value
+        end
       end
 
       if attributes.key?(:'version')
@@ -119,10 +273,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @definition.nil?
-        invalid_properties.push('invalid value for "definition", definition cannot be nil.')
-      end
-
       if @enabled.nil?
         invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
       end
@@ -135,6 +285,26 @@ module Falcon
         invalid_properties.push('invalid value for "last_modified_timestamp", last_modified_timestamp cannot be nil.')
       end
 
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @node_registry.nil?
+        invalid_properties.push('invalid value for "node_registry", node_registry cannot be nil.')
+      end
+
+      if @parent.nil?
+        invalid_properties.push('invalid value for "parent", parent cannot be nil.')
+      end
+
+      if @trigger.nil?
+        invalid_properties.push('invalid value for "trigger", trigger cannot be nil.')
+      end
+
+      if @uniq_node_seen.nil?
+        invalid_properties.push('invalid value for "uniq_node_seen", uniq_node_seen cannot be nil.')
+      end
+
       if @version.nil?
         invalid_properties.push('invalid value for "version", version cannot be nil.')
       end
@@ -145,10 +315,14 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @definition.nil?
       return false if @enabled.nil?
       return false if @id.nil?
       return false if @last_modified_timestamp.nil?
+      return false if @name.nil?
+      return false if @node_registry.nil?
+      return false if @parent.nil?
+      return false if @trigger.nil?
+      return false if @uniq_node_seen.nil?
       return false if @version.nil?
       true
     end
@@ -158,10 +332,27 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          definition == o.definition &&
+          actions == o.actions &&
+          conditions == o.conditions &&
+          description == o.description &&
           enabled == o.enabled &&
           id == o.id &&
+          labels == o.labels &&
           last_modified_timestamp == o.last_modified_timestamp &&
+          loops == o.loops &&
+          multi_instance == o.multi_instance &&
+          name == o.name &&
+          node_registry == o.node_registry &&
+          output_fields == o.output_fields &&
+          parameters == o.parameters &&
+          parent == o.parent &&
+          provision_on_install == o.provision_on_install &&
+          summary == o.summary &&
+          trigger == o.trigger &&
+          type == o.type &&
+          uniq_node_seen == o.uniq_node_seen &&
+          use_cases == o.use_cases &&
+          vendors == o.vendors &&
           version == o.version
     end
 
@@ -174,7 +365,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [definition, enabled, id, last_modified_timestamp, version].hash
+      [actions, conditions, description, enabled, id, labels, last_modified_timestamp, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors, version].hash
     end
 
     # Builds the object from hash

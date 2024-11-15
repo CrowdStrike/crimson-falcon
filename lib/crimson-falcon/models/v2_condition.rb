@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class V2Condition
+    attr_accessor :cel_expression
+
     attr_accessor :display
 
     attr_accessor :_else
@@ -45,6 +47,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cel_expression' => :'cel_expression',
         :'display' => :'display',
         :'_else' => :'else',
         :'else_if' => :'else_if',
@@ -61,6 +64,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cel_expression' => :'String',
         :'display' => :'Array<String>',
         :'_else' => :'Array<String>',
         :'else_if' => :'String',
@@ -89,6 +93,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cel_expression')
+        self.cel_expression = attributes[:'cel_expression']
+      end
 
       if attributes.key?(:'display')
         if (value = attributes[:'display']).is_a?(Array)
@@ -121,10 +129,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @expression.nil?
-        invalid_properties.push('invalid value for "expression", expression cannot be nil.')
-      end
-
       if @_next.nil?
         invalid_properties.push('invalid value for "_next", _next cannot be nil.')
       end
@@ -135,7 +139,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @expression.nil?
       return false if @_next.nil?
       true
     end
@@ -145,6 +148,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cel_expression == o.cel_expression &&
           display == o.display &&
           _else == o._else &&
           else_if == o.else_if &&
@@ -161,7 +165,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display, _else, else_if, expression, _next].hash
+      [cel_expression, display, _else, else_if, expression, _next].hash
     end
 
     # Builds the object from hash

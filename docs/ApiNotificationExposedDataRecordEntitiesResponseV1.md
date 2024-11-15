@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;DomainReconAPIError&gt;**](DomainReconAPIError.md) |  |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;ApiNotificationExposedDataRecordV1&gt;**](ApiNotificationExposedDataRecordV1.md) |  |  |
 
 ## Example

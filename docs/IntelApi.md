@@ -1,6 +1,6 @@
 # Falcon::IntelApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -11,6 +11,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_intel_rule_entities**](IntelApi.md#get_intel_rule_entities) | **GET** /intel/entities/rules/v1 | Retrieve details for rule sets for the specified ids. |
 | [**get_intel_rule_file**](IntelApi.md#get_intel_rule_file) | **GET** /intel/entities/rules-files/v1 | Download earlier rule sets. |
 | [**get_latest_intel_rule_file**](IntelApi.md#get_latest_intel_rule_file) | **GET** /intel/entities/rules-latest-files/v1 | Download the latest rule set. |
+| [**get_malware_entities**](IntelApi.md#get_malware_entities) | **GET** /intel/entities/malware/v1 | Get malware entities for specified ids. |
+| [**get_malware_mitre_report**](IntelApi.md#get_malware_mitre_report) | **GET** /intel/entities/malware-mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given malware family. |
 | [**get_mitre_report**](IntelApi.md#get_mitre_report) | **GET** /intel/entities/mitre-reports/v1 | Export Mitre ATT&amp;CK information for a given actor. |
 | [**get_vulnerabilities**](IntelApi.md#get_vulnerabilities) | **POST** /intel/entities/vulnerabilities/GET/v1 | Get vulnerabilities |
 | [**post_mitre_attacks**](IntelApi.md#post_mitre_attacks) | **POST** /intel/entities/mitre/v1 | Retrieves report and observable IDs associated with the given actor and attacks |
@@ -21,7 +23,9 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_intel_report_entities**](IntelApi.md#query_intel_report_entities) | **GET** /intel/combined/reports/v1 | Get info about reports that match provided FQL filters. |
 | [**query_intel_report_ids**](IntelApi.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters. |
 | [**query_intel_rule_ids**](IntelApi.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria. |
+| [**query_malware**](IntelApi.md#query_malware) | **GET** /intel/queries/malware/v1 | Get malware family names that match provided FQL filters. |
 | [**query_mitre_attacks**](IntelApi.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071 |
+| [**query_mitre_attacks_for_malware**](IntelApi.md#query_mitre_attacks_for_malware) | **GET** /intel/queries/mitre-malware/v1 | Gets MITRE tactics and techniques for the given malware |
 | [**query_vulnerabilities**](IntelApi.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs |
 
 
@@ -242,7 +246,7 @@ end
 
 ## get_intel_report_pdf
 
-> get_intel_report_pdf(opts)
+> File get_intel_report_pdf(opts)
 
 Return a Report PDF attachment
 
@@ -267,7 +271,8 @@ opts = {
 
 begin
   # Return a Report PDF attachment
-  api_instance.get_intel_report_pdf(opts)
+  result = api_instance.get_intel_report_pdf(opts)
+  p result
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_intel_report_pdf: #{e}"
 end
@@ -275,9 +280,9 @@ end
 
 #### Using the get_intel_report_pdf_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_intel_report_pdf_with_http_info(opts)
+> <Array(File, Integer, Hash)> get_intel_report_pdf_with_http_info(opts)
 
 ```ruby
 begin
@@ -285,7 +290,7 @@ begin
   data, status_code, headers = api_instance.get_intel_report_pdf_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => File
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_intel_report_pdf_with_http_info: #{e}"
 end
@@ -300,7 +305,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -383,7 +388,7 @@ end
 
 ## get_intel_rule_file
 
-> get_intel_rule_file(id, opts)
+> File get_intel_rule_file(id, opts)
 
 Download earlier rule sets.
 
@@ -409,7 +414,8 @@ opts = {
 
 begin
   # Download earlier rule sets.
-  api_instance.get_intel_rule_file(id, opts)
+  result = api_instance.get_intel_rule_file(id, opts)
+  p result
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_intel_rule_file: #{e}"
 end
@@ -417,9 +423,9 @@ end
 
 #### Using the get_intel_rule_file_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_intel_rule_file_with_http_info(id, opts)
+> <Array(File, Integer, Hash)> get_intel_rule_file_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -427,7 +433,7 @@ begin
   data, status_code, headers = api_instance.get_intel_rule_file_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => File
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_intel_rule_file_with_http_info: #{e}"
 end
@@ -443,7 +449,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+**File**
 
 ### Authorization
 
@@ -457,7 +463,7 @@ nil (empty response body)
 
 ## get_latest_intel_rule_file
 
-> get_latest_intel_rule_file(type, opts)
+> File get_latest_intel_rule_file(type, opts)
 
 Download the latest rule set.
 
@@ -475,17 +481,19 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IntelApi.new
-type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
 opts = {
   accept: 'accept_example', # String | Choose the format you want the rule set in.
   if_none_match: 'if_none_match_example', # String | Download the latest rule set only if it doesn't have an ETag matching the given ones.
   if_modified_since: 'if_modified_since_example', # String | Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted
-  format: 'format_example' # String | Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
+  format: 'format_example', # String | Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
+  if_modified_since2: 'if_modified_since_example' # String | Download Only if changed since
 }
 
 begin
   # Download the latest rule set.
-  api_instance.get_latest_intel_rule_file(type, opts)
+  result = api_instance.get_latest_intel_rule_file(type, opts)
+  p result
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_latest_intel_rule_file: #{e}"
 end
@@ -493,9 +501,9 @@ end
 
 #### Using the get_latest_intel_rule_file_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_latest_intel_rule_file_with_http_info(type, opts)
+> <Array(File, Integer, Hash)> get_latest_intel_rule_file_with_http_info(type, opts)
 
 ```ruby
 begin
@@ -503,7 +511,7 @@ begin
   data, status_code, headers = api_instance.get_latest_intel_rule_file_with_http_info(type, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => File
 rescue Falcon::ApiError => e
   puts "Error when calling IntelApi->get_latest_intel_rule_file_with_http_info: #{e}"
 end
@@ -513,11 +521,155 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness |  |
+| **type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog |  |
 | **accept** | **String** | Choose the format you want the rule set in. | [optional] |
 | **if_none_match** | **String** | Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones. | [optional] |
 | **if_modified_since** | **String** | Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted | [optional] |
 | **format** | **String** | Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip. | [optional] |
+| **if_modified_since2** | **String** | Download Only if changed since | [optional] |
+
+### Return type
+
+**File**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
+
+
+## get_malware_entities
+
+> <DomainMalwareResponse> get_malware_entities(ids)
+
+Get malware entities for specified ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IntelApi.new
+ids = ['inner_example'] # Array<String> | Malware family name in lower case with spaces, dots and slashes replaced with dashes
+
+begin
+  # Get malware entities for specified ids.
+  result = api_instance.get_malware_entities(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->get_malware_entities: #{e}"
+end
+```
+
+#### Using the get_malware_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainMalwareResponse>, Integer, Hash)> get_malware_entities_with_http_info(ids)
+
+```ruby
+begin
+  # Get malware entities for specified ids.
+  data, status_code, headers = api_instance.get_malware_entities_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainMalwareResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->get_malware_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Malware family name in lower case with spaces, dots and slashes replaced with dashes |  |
+
+### Return type
+
+[**DomainMalwareResponse**](DomainMalwareResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_malware_mitre_report
+
+> get_malware_mitre_report(id, format, opts)
+
+Export Mitre ATT&CK information for a given malware family.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IntelApi.new
+id = 'id_example' # String | Malware family name in lower case with spaces replaced with dashes
+format = 'format_example' # String | Supported report formats: CSV, JSON or JSON_NAVIGATOR
+opts = {
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | User id
+}
+
+begin
+  # Export Mitre ATT&CK information for a given malware family.
+  api_instance.get_malware_mitre_report(id, format, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->get_malware_mitre_report: #{e}"
+end
+```
+
+#### Using the get_malware_mitre_report_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> get_malware_mitre_report_with_http_info(id, format, opts)
+
+```ruby
+begin
+  # Export Mitre ATT&CK information for a given malware family.
+  data, status_code, headers = api_instance.get_malware_mitre_report_with_http_info(id, format, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->get_malware_mitre_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Malware family name in lower case with spaces replaced with dashes |  |
+| **format** | **String** | Supported report formats: CSV, JSON or JSON_NAVIGATOR |  |
+| **x_cs_useruuid** | **String** | User id | [optional] |
 
 ### Return type
 
@@ -530,7 +682,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/zip, application/gzip, application/octet-stream, application/json, */*
+- **Accept**: application/json, text/csv
 
 
 ## get_mitre_report
@@ -1246,7 +1398,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IntelApi.new
-type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+type = 'type_example' # String | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
 opts = {
   offset: 56, # Integer | Set the starting row number to return reports from. Defaults to 0.
   limit: 56, # Integer | The number of rule IDs to return. Defaults to 10.
@@ -1290,7 +1442,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness |  |
+| **type** | **String** | The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog |  |
 | **offset** | **Integer** | Set the starting row number to return reports from. Defaults to 0. | [optional] |
 | **limit** | **Integer** | The number of rule IDs to return. Defaults to 10. | [optional] |
 | **sort** | **String** | Order fields in ascending or descending order.  Ex: created_date|asc. | [optional] |
@@ -1304,6 +1456,85 @@ end
 ### Return type
 
 [**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_malware
+
+> <DomainQueryResponse> query_malware(opts)
+
+Get malware family names that match provided FQL filters.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IntelApi.new
+opts = {
+  offset: 56, # Integer | Set the starting row number to return malware IDs from. Defaults to 0.
+  limit: 56, # Integer | Set the number of malware IDs to return. The value must be between 1 and 5000.
+  sort: 'sort_example', # String | Order fields in ascending or descending order.  Ex: created_date|asc.
+  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters.
+  q: 'q_example' # String | Perform a generic substring search across all fields.
+}
+
+begin
+  # Get malware family names that match provided FQL filters.
+  result = api_instance.query_malware(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->query_malware: #{e}"
+end
+```
+
+#### Using the query_malware_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_malware_with_http_info(opts)
+
+```ruby
+begin
+  # Get malware family names that match provided FQL filters.
+  data, status_code, headers = api_instance.query_malware_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->query_malware_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | Set the starting row number to return malware IDs from. Defaults to 0. | [optional] |
+| **limit** | **Integer** | Set the number of malware IDs to return. The value must be between 1 and 5000. | [optional] |
+| **sort** | **String** | Order fields in ascending or descending order.  Ex: created_date|asc. | [optional] |
+| **filter** | **String** | Filter your query by specifying FQL filter parameters. | [optional] |
+| **q** | **String** | Perform a generic substring search across all fields. | [optional] |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
 
 ### Authorization
 
@@ -1377,6 +1608,75 @@ end
 ### Return type
 
 [**DomainQueryMitreAttacksResponse**](DomainQueryMitreAttacksResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_mitre_attacks_for_malware
+
+> <DomainQueryResponse> query_mitre_attacks_for_malware(ids)
+
+Gets MITRE tactics and techniques for the given malware
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::IntelApi.new
+ids = ['inner_example'] # Array<String> | Malware family name in lower case with spaces replaced with dashes
+
+begin
+  # Gets MITRE tactics and techniques for the given malware
+  result = api_instance.query_mitre_attacks_for_malware(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->query_mitre_attacks_for_malware: #{e}"
+end
+```
+
+#### Using the query_mitre_attacks_for_malware_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_mitre_attacks_for_malware_with_http_info(ids)
+
+```ruby
+begin
+  # Gets MITRE tactics and techniques for the given malware
+  data, status_code, headers = api_instance.query_mitre_attacks_for_malware_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling IntelApi->query_mitre_attacks_for_malware_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Malware family name in lower case with spaces replaced with dashes |  |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
 
 ### Authorization
 

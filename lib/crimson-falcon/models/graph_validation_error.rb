@@ -41,6 +41,9 @@ module Falcon
     # Display name for the property if it exists in a trigger or activity
     attr_accessor :display_name
 
+    # Level is used to indicate if this is an error or warning validation. If empty it should be assumed to be Error Level
+    attr_accessor :level
+
     # Detail of why the node is invalid.
     attr_accessor :message
 
@@ -53,16 +56,21 @@ module Falcon
     # Used to specify an exact property that is invalid for fql evaluation
     attr_accessor :property
 
+    # Resource ID for property if it exists, e.g. trigger ID or activity ID
+    attr_accessor :resource_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'cid' => :'cid',
         :'code' => :'code',
         :'display_name' => :'display_name',
+        :'level' => :'level',
         :'message' => :'message',
         :'node_id' => :'node_id',
         :'parent_node_id' => :'parent_node_id',
-        :'property' => :'property'
+        :'property' => :'property',
+        :'resource_id' => :'resource_id'
       }
     end
 
@@ -77,10 +85,12 @@ module Falcon
         :'cid' => :'String',
         :'code' => :'Integer',
         :'display_name' => :'String',
+        :'level' => :'String',
         :'message' => :'String',
         :'node_id' => :'String',
         :'parent_node_id' => :'String',
-        :'property' => :'String'
+        :'property' => :'String',
+        :'resource_id' => :'String'
       }
     end
 
@@ -117,6 +127,10 @@ module Falcon
         self.display_name = attributes[:'display_name']
       end
 
+      if attributes.key?(:'level')
+        self.level = attributes[:'level']
+      end
+
       if attributes.key?(:'message')
         self.message = attributes[:'message']
       end
@@ -131,6 +145,10 @@ module Falcon
 
       if attributes.key?(:'property')
         self.property = attributes[:'property']
+      end
+
+      if attributes.key?(:'resource_id')
+        self.resource_id = attributes[:'resource_id']
       end
     end
 
@@ -160,10 +178,12 @@ module Falcon
           cid == o.cid &&
           code == o.code &&
           display_name == o.display_name &&
+          level == o.level &&
           message == o.message &&
           node_id == o.node_id &&
           parent_node_id == o.parent_node_id &&
-          property == o.property
+          property == o.property &&
+          resource_id == o.resource_id
     end
 
     # @see the `==` method
@@ -175,7 +195,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, code, display_name, message, node_id, parent_node_id, property].hash
+      [cid, code, display_name, level, message, node_id, parent_node_id, property, resource_id].hash
     end
 
     # Builds the object from hash

@@ -1,10 +1,10 @@
 # Falcon::ReportExecutionsApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**report_executions_download_get**](ReportExecutionsApi.md#report_executions_download_get) | **GET** /reports/entities/report-executions-download/v1 | Get report entity download |
+| [**report_executions_download_get**](ReportExecutionsApi.md#report_executions_download_get) | **GET** /reports/entities/report-executions-download/v1 | Get report entity download. Returns either a JSON object or a CSV string. |
 | [**report_executions_get**](ReportExecutionsApi.md#report_executions_get) | **GET** /reports/entities/report-executions/v1 | Retrieve report details for the provided report IDs. |
 | [**report_executions_query**](ReportExecutionsApi.md#report_executions_query) | **GET** /reports/queries/report-executions/v1 | Find all report execution IDs matching the query with filter |
 | [**report_executions_retry**](ReportExecutionsApi.md#report_executions_retry) | **POST** /reports/entities/report-executions-retry/v1 | This endpoint will be used to retry report executions |
@@ -12,9 +12,9 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 ## report_executions_download_get
 
-> Array&lt;Integer&gt; report_executions_download_get(ids)
+> Object report_executions_download_get(ids)
 
-Get report entity download
+Get report entity download. Returns either a JSON object or a CSV string.
 
 ### Examples
 
@@ -33,7 +33,7 @@ api_instance = Falcon::ReportExecutionsApi.new
 ids = 'ids_example' # String | The report_execution id to download
 
 begin
-  # Get report entity download
+  # Get report entity download. Returns either a JSON object or a CSV string.
   result = api_instance.report_executions_download_get(ids)
   p result
 rescue Falcon::ApiError => e
@@ -45,15 +45,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Array&lt;Integer&gt;, Integer, Hash)> report_executions_download_get_with_http_info(ids)
+> <Array(Object, Integer, Hash)> report_executions_download_get_with_http_info(ids)
 
 ```ruby
 begin
-  # Get report entity download
+  # Get report entity download. Returns either a JSON object or a CSV string.
   data, status_code, headers = api_instance.report_executions_download_get_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Array&lt;Integer&gt;
+  p data # => Object
 rescue Falcon::ApiError => e
   puts "Error when calling ReportExecutionsApi->report_executions_download_get_with_http_info: #{e}"
 end
@@ -67,7 +67,7 @@ end
 
 ### Return type
 
-**Array&lt;Integer&gt;**
+**Object**
 
 ### Authorization
 
@@ -76,7 +76,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
+- **Accept**: */*, application/json, text/csv
 
 
 ## report_executions_get

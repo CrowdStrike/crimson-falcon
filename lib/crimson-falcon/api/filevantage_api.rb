@@ -41,8 +41,8 @@ module Falcon
     # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesResponse]
-    def create_policies(body, opts = {})
-      data, _status_code, _headers = create_policies_with_http_info(body, opts)
+    def create_policies_0(body, opts = {})
+      data, _status_code, _headers = create_policies_0_with_http_info(body, opts)
       data
     end
 
@@ -51,13 +51,13 @@ module Falcon
     # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
-    def create_policies_with_http_info(body, opts = {})
+    def create_policies_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_policies ...'
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.create_policies_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.create_policies_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -88,7 +88,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.create_policies",
+        :operation => :"FilevantageApi.create_policies_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -99,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#create_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilevantageApi#create_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -174,7 +174,7 @@ module Falcon
 
     # Creates a new rule configuration within the specified rule group.
     # Creates a new rule configuration within the specified rule group.
-    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;   * &#x60;enable_hash_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_permissions_key_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
     # @param [Hash] opts the optional parameters
     # @return [RulegroupsRulesResponse]
     def create_rules(body, opts = {})
@@ -184,7 +184,7 @@ module Falcon
 
     # Creates a new rule configuration within the specified rule group.
     # Creates a new rule configuration within the specified rule group.
-    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param body [RulegroupsRule] Create a new rule configuration for the specified rule group.   * &#x60;id&#x60; is not supported for creation of a rule, the new id of the created rule will be included in the response.   * &#x60;rule_group_id&#x60; to add the new rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; - is not supported for creation of a rule, new rules will be added last in precedence order.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files whose content will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;   * &#x60;enable_hash_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_permissions_key_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
     # @param [Hash] opts the optional parameters
     # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
     def create_rules_with_http_info(body, opts = {})
@@ -578,11 +578,75 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieves the processing results for 1 or more actions.
+    # The processing results of each action that match the provided ids will be returned.
+    # @param ids [Array<String>] One or more actions ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [ActionsGetActionResponse]
+    def get_actions_mixin0(ids, opts = {})
+      data, _status_code, _headers = get_actions_mixin0_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieves the processing results for 1 or more actions.
+    # The processing results of each action that match the provided ids will be returned.
+    # @param ids [Array<String>] One or more actions ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ActionsGetActionResponse, Integer, Hash)>] ActionsGetActionResponse data, response status code and response headers
+    def get_actions_mixin0_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_actions_mixin0 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.get_actions_mixin0"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/actions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ActionsGetActionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_actions_mixin0",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve information on changes
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
     # @param ids [Array<String>] One or more change ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;. The maximum number of ids that can be requested at once is &#x60;500&#x60;.
     # @param [Hash] opts the optional parameters
-    # @return [ChangesGetChangesResponse]
+    # @return [PublicGetChangesResponse]
     def get_changes(ids, opts = {})
       data, _status_code, _headers = get_changes_with_http_info(ids, opts)
       data
@@ -592,7 +656,7 @@ module Falcon
     # Retrieve key attributes of Falcon FileVantage changes for the specified ids.
     # @param ids [Array<String>] One or more change ids in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;. The maximum number of ids that can be requested at once is &#x60;500&#x60;.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ChangesGetChangesResponse, Integer, Hash)>] ChangesGetChangesResponse data, response status code and response headers
+    # @return [Array<(PublicGetChangesResponse, Integer, Hash)>] PublicGetChangesResponse data, response status code and response headers
     def get_changes_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilevantageApi.get_changes ...'
@@ -628,7 +692,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ChangesGetChangesResponse'
+      return_type = opts[:debug_return_type] || 'PublicGetChangesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -646,6 +710,73 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilevantageApi#get_changes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves the content captured for the provided change id
+    # Retrieves the before and after change content for the provided change id.
+    # @param id [String] ID of the change in the form of id&#x3D;ID1
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :accept_encoding Providing the value of &#x60;gzip&#x60; compresses the response, otherwise the content is returned uncompressed.
+    # @return [ContentchangesChangeContentsResponse]
+    def get_contents(id, opts = {})
+      data, _status_code, _headers = get_contents_with_http_info(id, opts)
+      data
+    end
+
+    # Retrieves the content captured for the provided change id
+    # Retrieves the before and after change content for the provided change id.
+    # @param id [String] ID of the change in the form of id&#x3D;ID1
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :accept_encoding Providing the value of &#x60;gzip&#x60; compresses the response, otherwise the content is returned uncompressed.
+    # @return [Array<(ContentchangesChangeContentsResponse, Integer, Hash)>] ContentchangesChangeContentsResponse data, response status code and response headers
+    def get_contents_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.get_contents ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FilevantageApi.get_contents"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/change-content/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Accept-Encoding'] = opts[:'accept_encoding'] if !opts[:'accept_encoding'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ContentchangesChangeContentsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.get_contents",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#get_contents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -921,7 +1052,7 @@ module Falcon
     end
 
     # Returns 1 or more change ids
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+    # Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request don&#39;t provide a value for the &#x60;after&#x60; token. On subsequent requests provide the &#x60;after&#x60; token value from the previous response to continue pagination from where you left. If the response returns an empty &#x60;after&#x60; token it means there are no more results to return.
     # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;5000&#x60;. (default to 100)
@@ -934,7 +1065,7 @@ module Falcon
     end
 
     # Returns 1 or more change ids
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
+    # Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. It can retrieve an unlimited number of results using multiple requests.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request don&#39;t provide a value for the &#x60;after&#x60; token. On subsequent requests provide the &#x60;after&#x60; token value from the previous response to continue pagination from where you left. If the response returns an empty &#x60;after&#x60; token it means there are no more results to return.
     # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;5000&#x60;. (default to 100)
@@ -993,8 +1124,81 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Returns one or more action ids
+    # Returns the list of action ids filtered, sorted, and limited to the query parameters provided.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first action index to return in the response. If not provided it will default to &#39;0&#39;. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of actions to return in the response (default: 100; max: 500). Use with the &#x60;offset&#x60; parameter to manage pagination of results
+    # @option opts [String] :sort The sort expression that should be used to sort the results (e.g. created_date|desc)
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;status&#x60;  - &#x60;operation_type&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @return [MsaspecQueryResponse]
+    def query_actions_mixin0(opts = {})
+      data, _status_code, _headers = query_actions_mixin0_with_http_info(opts)
+      data
+    end
+
+    # Returns one or more action ids
+    # Returns the list of action ids filtered, sorted, and limited to the query parameters provided.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset The first action index to return in the response. If not provided it will default to &#39;0&#39;. Use with the &#x60;limit&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of actions to return in the response (default: 100; max: 500). Use with the &#x60;offset&#x60; parameter to manage pagination of results
+    # @option opts [String] :sort The sort expression that should be used to sort the results (e.g. created_date|desc)
+    # @option opts [String] :filter Filter changes using a query in Falcon Query Language (FQL).   Common filter options include:   - &#x60;status&#x60;  - &#x60;operation_type&#x60;   The full list of allowed filter parameters can be reviewed in our API documentation.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_actions_mixin0_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.query_actions_mixin0 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FilevantageApi.query_actions_mixin0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/filevantage/queries/actions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.query_actions_mixin0",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#query_actions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Returns 1 or more change ids
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
+    # Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to `10000` results by using pagination with multiple requests. If you need to retrieve more than `10000` results consider using the `/queries/changes/v3` endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to &#x60;0&#x60; if not specified. (default to 0)
     # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;500&#x60;. (default to 100)
@@ -1007,7 +1211,7 @@ module Falcon
     end
 
     # Returns 1 or more change ids
-    # Returns a list of Falcon FileVantage change IDs filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to &#x60;10000&#x60; results by using pagination with multiple requests. If you need to retrieve more than &#x60;10000&#x60; results consider using the &#x60;/queries/changes/v3&#x60; endpoint
+    # Returns a list of Falcon FileVantage change ids filtered, sorted and limited by the query parameters provided. Using this endpoint you can retrieve up to &#x60;10000&#x60; results by using pagination with multiple requests. If you need to retrieve more than &#x60;10000&#x60; results consider using the &#x60;/queries/changes/v3&#x60; endpoint
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The offset to start retrieving records from. Defaults to &#x60;0&#x60; if not specified. (default to 0)
     # @option opts [Integer] :limit The maximum number of ids to return. Defaults to &#x60;100&#x60; if not specified. The maximum number of results that can be returned in a single call is &#x60;500&#x60;. (default to 100)
@@ -1288,13 +1492,149 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Initiates workflows for the provided change ids
+    # Provides the ability to initiate workflows for the specified change ids. Only 100 change ids can be provided per workflow request.
+    # @param body [WorkflowRequest] Change ids to initiate the workflows; limited to 100 per request.
+    # @param [Hash] opts the optional parameters
+    # @return [WorkflowResponse]
+    def signal_changes_external(body, opts = {})
+      data, _status_code, _headers = signal_changes_external_with_http_info(body, opts)
+      data
+    end
+
+    # Initiates workflows for the provided change ids
+    # Provides the ability to initiate workflows for the specified change ids. Only 100 change ids can be provided per workflow request.
+    # @param body [WorkflowRequest] Change ids to initiate the workflows; limited to 100 per request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(WorkflowResponse, Integer, Hash)>] WorkflowResponse data, response status code and response headers
+    def signal_changes_external_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.signal_changes_external ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.signal_changes_external"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/workflow/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkflowResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.signal_changes_external",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#signal_changes_external\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Initiates the specified action on the provided change ids
+    # Initiates the suppression, unsuppression, or purging of the provided change ids. Note that only 1 action may be initiated and active at a time.
+    # @param body [ActionsCreateActionRequest] Create a new action.   * &#x60;operation&#x60; must be one of the &#x60;suppress&#x60;, &#x60;unsuppress&#x60;, or &#x60;purge&#x60;   * &#x60;change_ids&#x60; represent the ids of the changes the operation will perform; limited to 100 ids per action   * &#x60;comment&#x60; optional comment to describe the reason for the action
+    # @param [Hash] opts the optional parameters
+    # @return [ActionsActionResponse]
+    def start_actions(body, opts = {})
+      data, _status_code, _headers = start_actions_with_http_info(body, opts)
+      data
+    end
+
+    # Initiates the specified action on the provided change ids
+    # Initiates the suppression, unsuppression, or purging of the provided change ids. Note that only 1 action may be initiated and active at a time.
+    # @param body [ActionsCreateActionRequest] Create a new action.   * &#x60;operation&#x60; must be one of the &#x60;suppress&#x60;, &#x60;unsuppress&#x60;, or &#x60;purge&#x60;   * &#x60;change_ids&#x60; represent the ids of the changes the operation will perform; limited to 100 ids per action   * &#x60;comment&#x60; optional comment to describe the reason for the action
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ActionsActionResponse, Integer, Hash)>] ActionsActionResponse data, response status code and response headers
+    def start_actions_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.start_actions ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.start_actions"
+      end
+      # resource path
+      local_var_path = '/filevantage/entities/actions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ActionsActionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FilevantageApi.start_actions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FilevantageApi#start_actions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Updates the general information of the provided policy.
     # Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
     # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesResponse]
-    def update_policies(body, opts = {})
-      data, _status_code, _headers = update_policies_with_http_info(body, opts)
+    def update_policies_0(body, opts = {})
+      data, _status_code, _headers = update_policies_0_with_http_info(body, opts)
       data
     end
 
@@ -1303,13 +1643,13 @@ module Falcon
     # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
-    def update_policies_with_http_info(body, opts = {})
+    def update_policies_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policies ...'
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policies_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_policies"
+        fail ArgumentError, "Missing the required parameter 'body' when calling FilevantageApi.update_policies_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -1340,7 +1680,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policies",
+        :operation => :"FilevantageApi.update_policies_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1351,7 +1691,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1440,8 +1780,8 @@ module Falcon
     # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesPrecedenceResponse]
-    def update_policy_precedence(ids, type, opts = {})
-      data, _status_code, _headers = update_policy_precedence_with_http_info(ids, type, opts)
+    def update_policy_precedence_0(ids, type, opts = {})
+      data, _status_code, _headers = update_policy_precedence_0_with_http_info(ids, type, opts)
       data
     end
 
@@ -1451,17 +1791,17 @@ module Falcon
     # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesPrecedenceResponse, Integer, Hash)>] PoliciesPrecedenceResponse data, response status code and response headers
-    def update_policy_precedence_with_http_info(ids, type, opts = {})
+    def update_policy_precedence_0_with_http_info(ids, type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_precedence ...'
+        @api_client.config.logger.debug 'Calling API: FilevantageApi.update_policy_precedence_0 ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_precedence"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FilevantageApi.update_policy_precedence_0"
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.update_policy_precedence"
+        fail ArgumentError, "Missing the required parameter 'type' when calling FilevantageApi.update_policy_precedence_0"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies-precedence/v1'
@@ -1489,7 +1829,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FilevantageApi.update_policy_precedence",
+        :operation => :"FilevantageApi.update_policy_precedence_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1500,7 +1840,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilevantageApi#update_policy_precedence_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1724,7 +2064,7 @@ module Falcon
 
     # Updates the provided rule configuration within the specified rule group.
     # The rule must currently exist within the specified rule group.
-    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;   * &#x60;enable_hash_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
     # @param [Hash] opts the optional parameters
     # @return [RulegroupsRulesResponse]
     def update_rules(body, opts = {})
@@ -1734,7 +2074,7 @@ module Falcon
 
     # Updates the provided rule configuration within the specified rule group.
     # The rule must currently exist within the specified rule group.
-    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
+    # @param body [RulegroupsRule] Update the rule configuration for the specified rule ID and group.   * &#x60;id&#x60; of the rule to update.   * &#x60;rule_group_id&#x60; that contains the rule configuration.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;path&#x60; representing the file system or registry path to monitor.     * must be between 1 and 250 characters.      * All paths must end with the path separator, e.g. c:\\windows\\ /usr/bin/    * &#x60;severity&#x60; to categorize change events produced by this rule; must be one of: &#x60;Low&#x60;, &#x60;Medium&#x60;, &#x60;High&#x60; or &#x60;Critical&#x60;   * &#x60;depth&#x60; below the base path to monitor; must be one of: &#x60;1&#x60;, &#x60;2&#x60;, &#x60;3&#x60;, &#x60;4&#x60;, &#x60;5&#x60; or &#x60;ANY&#x60;   * &#x60;precedence&#x60; is the order in which rules will be evaluated starting with 1. Specifying a precedence value that is already set for another rule in the group will result this rule being placed before that existing rule.  Falcon GLOB syntax is supported for the following 6 properties. Allowed rule group configuration is based on the type of rule group the rule group is added to.   * &#x60;include&#x60; represents the files, directories, registry keys, or registry values that will be monitored.    * &#x60;exclude&#x60; represents the files, directories, registry keys, or registry values that will &#x60;NOT&#x60; be monitored.    * &#x60;include_users&#x60; represents the changes performed by specific users that will be monitored.   * &#x60;exclude_users&#x60; represents the changes performed by specific users that will &#x60;NOT&#x60; be monitored.   * &#x60;include_processes&#x60; represents the changes performed by specific processes that will be monitored.   * &#x60;exclude_processes&#x60; represents the changes performed by specific processes that will be &#x60;NOT&#x60; monitored.   * &#x60;content_files&#x60; represents the files that will be monitored. Listed files must match the file include pattern and not match the file exclude pattern   * &#x60;content_registry_values&#x60; represents the registry values whose content will be monitored. Listed registry values must match the registry include pattern and not match the registry exclude pattern   * &#x60;enable_content_capture&#x60;   * &#x60;enable_hash_capture&#x60;  File system directory monitoring:   * &#x60;watch_delete_directory_changes&#x60;   * &#x60;watch_create_directory_changes&#x60;   * &#x60;watch_rename_directory_changes&#x60;   * &#x60;watch_attributes_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_directory_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  File system file monitoring:   * &#x60;watch_rename_file_changes&#x60;   * &#x60;watch_write_file_changes&#x60;   * &#x60;watch_create_file_changes&#x60;   * &#x60;watch_delete_file_changes&#x60;   * &#x60;watch_attributes_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)   * &#x60;watch_permissions_file_changes&#x60; (&#x60;macOS&#x60; is not supported at this time)  Windows registry key and value monitoring:    * &#x60;watch_create_key_changes&#x60;   * &#x60;watch_delete_key_changes&#x60;   * &#x60;watch_rename_key_changes&#x60;   * &#x60;watch_set_value_changes&#x60;   * &#x60;watch_delete_value_changes&#x60;   * &#x60;watch_create_file_changes&#x60;
     # @param [Hash] opts the optional parameters
     # @return [Array<(RulegroupsRulesResponse, Integer, Hash)>] RulegroupsRulesResponse data, response status code and response headers
     def update_rules_with_http_info(body, opts = {})

@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainExecutionMetadataV1
+    attr_accessor :report_params
+
     attr_accessor :retry_allowed
 
     attr_accessor :retry_performed
@@ -49,6 +51,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'report_params' => :'report_params',
         :'retry_allowed' => :'retry_allowed',
         :'retry_performed' => :'retry_performed',
         :'retry_report_execution_id' => :'retry_report_execution_id',
@@ -67,6 +70,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'report_params' => :'DomainReportParams',
         :'retry_allowed' => :'Boolean',
         :'retry_performed' => :'Boolean',
         :'retry_report_execution_id' => :'String',
@@ -97,6 +101,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'report_params')
+        self.report_params = attributes[:'report_params']
+      end
 
       if attributes.key?(:'retry_allowed')
         self.retry_allowed = attributes[:'retry_allowed']
@@ -131,6 +139,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @report_params.nil?
+        invalid_properties.push('invalid value for "report_params", report_params cannot be nil.')
+      end
+
       if @retry_allowed.nil?
         invalid_properties.push('invalid value for "retry_allowed", retry_allowed cannot be nil.')
       end
@@ -165,6 +177,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @report_params.nil?
       return false if @retry_allowed.nil?
       return false if @retry_performed.nil?
       return false if @retry_report_execution_id.nil?
@@ -180,6 +193,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          report_params == o.report_params &&
           retry_allowed == o.retry_allowed &&
           retry_performed == o.retry_performed &&
           retry_report_execution_id == o.retry_report_execution_id &&
@@ -198,7 +212,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [retry_allowed, retry_performed, retry_report_execution_id, subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
+      [report_params, retry_allowed, retry_performed, retry_report_execution_id, subtype, unscheduled_execution_type, xdr_data, xdr_params].hash
     end
 
     # Builds the object from hash

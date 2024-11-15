@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
 | **meta** | [**DomainAPIQueryMetaV1**](DomainAPIQueryMetaV1.md) |  |  |
 | **resources** | [**Array&lt;DomainAPIFindingFacetV1&gt;**](DomainAPIFindingFacetV1.md) |  |  |
 

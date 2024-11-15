@@ -42,6 +42,12 @@ describe Falcon::DomainExecutionMetadataV1 do
       expect(instance).to be_instance_of(Falcon::DomainExecutionMetadataV1)
     end
   end
+  describe 'test attribute "report_params"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "retry_allowed"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -1,6 +1,6 @@
 # Falcon::ReconApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -16,8 +16,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_actions_v1**](ReconApi.md#get_actions_v1) | **GET** /recon/entities/actions/v1 | Get actions based on their IDs. IDs can be retrieved using the GET /queries/actions/v1 endpoint. |
 | [**get_export_jobs_v1**](ReconApi.md#get_export_jobs_v1) | **GET** /recon/entities/exports/v1 | Get the status of export jobs based on their IDs. Export jobs can be launched by calling POST /entities/exports/v1. When a job is complete, use the job ID to download the file(s) associated with it using GET entities/export-files/v1. |
 | [**get_file_content_for_export_jobs_v1**](ReconApi.md#get_file_content_for_export_jobs_v1) | **GET** /recon/entities/export-files/v1 | Download the file associated with a job ID. |
-| [**get_notifications_detailed_translated_v1**](ReconApi.md#get_notifications_detailed_translated_v1) | **GET** /recon/entities/notifications-detailed-translated/v1 | Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request |
-| [**get_notifications_detailed_v1**](ReconApi.md#get_notifications_detailed_v1) | **GET** /recon/entities/notifications-detailed/v1 | Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match. |
+| [**get_notifications_detailed_translated_v1**](ReconApi.md#get_notifications_detailed_translated_v1) | **GET** /recon/entities/notifications-detailed-translated/v1 | Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.  |
+| [**get_notifications_detailed_v1**](ReconApi.md#get_notifications_detailed_v1) | **GET** /recon/entities/notifications-detailed/v1 | Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.  |
 | [**get_notifications_exposed_data_records_v1**](ReconApi.md#get_notifications_exposed_data_records_v1) | **GET** /recon/entities/notifications-exposed-data-records/v1 | Get notifications exposed data records based on their IDs. IDs can be retrieved using the GET /queries/notifications-exposed-data-records/v1 endpoint. The associate notification can be fetched using the /entities/notifications/v* endpoints |
 | [**get_notifications_translated_v1**](ReconApi.md#get_notifications_translated_v1) | **GET** /recon/entities/notifications-translated/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. This endpoint will return translated notification content. The only target language available is English. |
 | [**get_notifications_v1**](ReconApi.md#get_notifications_v1) | **GET** /recon/entities/notifications/v1 | Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. |
@@ -328,7 +328,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ReconApi.new
-body = [Falcon::SadomainCreateRuleRequestV1.new({breach_monitoring_enabled: false, filter: 'filter_example', name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false, topic: 'topic_example'})] # Array<SadomainCreateRuleRequestV1> | 
+body = [Falcon::SadomainCreateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', match_on_tsq_result_types: ['match_on_tsq_result_types_example'], name: 'name_example', originating_template_id: 'originating_template_id_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false, topic: 'topic_example'})] # Array<SadomainCreateRuleRequestV1> | 
 
 begin
   # Create monitoring rules.
@@ -861,14 +861,16 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 
 ## get_notifications_detailed_translated_v1
 
 > <DomainNotificationDetailsResponseV1> get_notifications_detailed_translated_v1(ids)
 
-Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
+
+Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item's content is only partial, a URL is provided under the resource's 'details.full_content_url' path, but the content available at this URL will be the original one. 
 
 ### Examples
 
@@ -887,7 +889,7 @@ api_instance = Falcon::ReconApi.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+  # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
   result = api_instance.get_notifications_detailed_translated_v1(ids)
   p result
 rescue Falcon::ApiError => e
@@ -903,7 +905,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+  # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
   data, status_code, headers = api_instance.get_notifications_detailed_translated_v1_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
@@ -937,7 +939,9 @@ end
 
 > <DomainNotificationDetailsResponseV1> get_notifications_detailed_v1(ids)
 
-Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
+
+Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource's 'details.full_content_url' path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint. 
 
 ### Examples
 
@@ -956,7 +960,7 @@ api_instance = Falcon::ReconApi.new
 ids = ['inner_example'] # Array<String> | Notification IDs.
 
 begin
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
   result = api_instance.get_notifications_detailed_v1(ids)
   p result
 rescue Falcon::ApiError => e
@@ -972,7 +976,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
   data, status_code, headers = api_instance.get_notifications_detailed_v1_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1609,7 +1613,8 @@ opts = {
   limit: 56, # Integer | Number of IDs to return. Offset + limit should NOT be above 10K.
   sort: 'sort_example', # String | Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
   filter: 'filter_example', # String | FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
-  q: 'q_example' # String | Free text search across all indexed fields.
+  q: 'q_example', # String | Free text search across all indexed fields.
+  secondary_sort: 'secondary_sort_example' # String | Possible order by fields: created_timestamp, last_updated_timestamp. Ex: `last_updated_timestamp|desc`.
 }
 
 begin
@@ -1648,6 +1653,7 @@ end
 | **sort** | **String** | Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;. | [optional] |
 | **filter** | **String** | FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp]. | [optional] |
 | **q** | **String** | Free text search across all indexed fields. | [optional] |
+| **secondary_sort** | **String** | Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;. | [optional] |
 
 ### Return type
 
@@ -1821,7 +1827,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ReconApi.new
-body = [Falcon::DomainUpdateRuleRequestV1.new({breach_monitoring_enabled: false, filter: 'filter_example', id: 'id_example', name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false})] # Array<DomainUpdateRuleRequestV1> | 
+body = [Falcon::DomainUpdateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', id: 'id_example', name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false})] # Array<DomainUpdateRuleRequestV1> | 
 
 begin
   # Update monitoring rules.

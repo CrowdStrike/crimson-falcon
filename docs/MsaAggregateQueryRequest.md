@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **date_ranges** | [**Array&lt;MsaDateRangeSpec&gt;**](MsaDateRangeSpec.md) |  |  |
 | **exclude** | **String** |  |  |
+| **extended_bounds** | [**MsaExtendedBoundsSpec**](MsaExtendedBoundsSpec.md) |  | [optional] |
 | **field** | **String** |  |  |
 | **filter** | **String** |  |  |
 | **from** | **Integer** |  |  |
@@ -31,6 +32,7 @@ require 'crimson-falcon'
 instance = Falcon::MsaAggregateQueryRequest.new(
   date_ranges: null,
   exclude: null,
+  extended_bounds: null,
   field: null,
   filter: null,
   from: null,

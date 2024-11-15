@@ -32,15 +32,30 @@ require 'time'
 
 module Falcon
   class V2ForLoop
+    attr_accessor :condition
+
+    attr_accessor :condition_display
+
     attr_accessor :continue_on_partial_execution
 
     attr_accessor :input
 
+    attr_accessor :max_execution_seconds
+
+    attr_accessor :max_iteration_count
+
+    attr_accessor :sequential
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'condition' => :'condition',
+        :'condition_display' => :'condition_display',
         :'continue_on_partial_execution' => :'continue_on_partial_execution',
-        :'input' => :'input'
+        :'input' => :'input',
+        :'max_execution_seconds' => :'max_execution_seconds',
+        :'max_iteration_count' => :'max_iteration_count',
+        :'sequential' => :'sequential'
       }
     end
 
@@ -52,8 +67,13 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'condition' => :'String',
+        :'condition_display' => :'Array<String>',
         :'continue_on_partial_execution' => :'Boolean',
-        :'input' => :'String'
+        :'input' => :'String',
+        :'max_execution_seconds' => :'Integer',
+        :'max_iteration_count' => :'Integer',
+        :'sequential' => :'Boolean'
       }
     end
 
@@ -78,12 +98,34 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'condition')
+        self.condition = attributes[:'condition']
+      end
+
+      if attributes.key?(:'condition_display')
+        if (value = attributes[:'condition_display']).is_a?(Array)
+          self.condition_display = value
+        end
+      end
+
       if attributes.key?(:'continue_on_partial_execution')
         self.continue_on_partial_execution = attributes[:'continue_on_partial_execution']
       end
 
       if attributes.key?(:'input')
         self.input = attributes[:'input']
+      end
+
+      if attributes.key?(:'max_execution_seconds')
+        self.max_execution_seconds = attributes[:'max_execution_seconds']
+      end
+
+      if attributes.key?(:'max_iteration_count')
+        self.max_iteration_count = attributes[:'max_iteration_count']
+      end
+
+      if attributes.key?(:'sequential')
+        self.sequential = attributes[:'sequential']
       end
     end
 
@@ -115,8 +157,13 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          condition == o.condition &&
+          condition_display == o.condition_display &&
           continue_on_partial_execution == o.continue_on_partial_execution &&
-          input == o.input
+          input == o.input &&
+          max_execution_seconds == o.max_execution_seconds &&
+          max_iteration_count == o.max_iteration_count &&
+          sequential == o.sequential
     end
 
     # @see the `==` method
@@ -128,7 +175,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [continue_on_partial_execution, input].hash
+      [condition, condition_display, continue_on_partial_execution, input, max_execution_seconds, max_iteration_count, sequential].hash
     end
 
     # Builds the object from hash

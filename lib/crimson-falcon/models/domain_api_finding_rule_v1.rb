@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :cce
 
+    attr_accessor :compliance_mappings
+
     attr_accessor :edited
 
     attr_accessor :group_id
@@ -68,6 +70,7 @@ module Falcon
         :'authority' => :'authority',
         :'benchmark_type' => :'benchmark_type',
         :'cce' => :'cce',
+        :'compliance_mappings' => :'compliance_mappings',
         :'edited' => :'edited',
         :'group_id' => :'group_id',
         :'group_name' => :'group_name',
@@ -94,6 +97,7 @@ module Falcon
         :'authority' => :'String',
         :'benchmark_type' => :'String',
         :'cce' => :'String',
+        :'compliance_mappings' => :'Array<DomainAPIComplianceMappingV1>',
         :'edited' => :'Boolean',
         :'group_id' => :'String',
         :'group_name' => :'String',
@@ -140,6 +144,12 @@ module Falcon
 
       if attributes.key?(:'cce')
         self.cce = attributes[:'cce']
+      end
+
+      if attributes.key?(:'compliance_mappings')
+        if (value = attributes[:'compliance_mappings']).is_a?(Array)
+          self.compliance_mappings = value
+        end
       end
 
       if attributes.key?(:'edited')
@@ -224,6 +234,7 @@ module Falcon
           authority == o.authority &&
           benchmark_type == o.benchmark_type &&
           cce == o.cce &&
+          compliance_mappings == o.compliance_mappings &&
           edited == o.edited &&
           group_id == o.group_id &&
           group_name == o.group_name &&
@@ -247,7 +258,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authority, benchmark_type, cce, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, platform_name, policy_id, policy_name, recommendation_id, severity].hash
+      [authority, benchmark_type, cce, compliance_mappings, edited, group_id, group_name, id, last_edited_timestamp, mitre_attack_tactics, name, platform_name, policy_id, policy_name, recommendation_id, severity].hash
     end
 
     # Builds the object from hash

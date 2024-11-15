@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  |  |
-| **label** | **String** |  |  |
+| **id** | **Integer** |  |  |
+| **name** | **String** |  |  |
 
 ## Example
 
@@ -14,7 +14,7 @@ require 'crimson-falcon'
 
 instance = Falcon::DomainPlatform.new(
   id: null,
-  label: null
+  name: null
 )
 ```
 

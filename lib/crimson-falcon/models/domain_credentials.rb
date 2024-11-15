@@ -32,18 +32,12 @@ require 'time'
 
 module Falcon
   class DomainCredentials
-    attr_accessor :sites_all
-
-    attr_accessor :sites_with_cookie_only
-
-    attr_accessor :sites_with_password
+    attr_accessor :token
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sites_all' => :'sites_all',
-        :'sites_with_cookie_only' => :'sites_with_cookie_only',
-        :'sites_with_password' => :'sites_with_password'
+        :'token' => :'token'
       }
     end
 
@@ -55,9 +49,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sites_all' => :'Array<String>',
-        :'sites_with_cookie_only' => :'Array<String>',
-        :'sites_with_password' => :'Array<String>'
+        :'token' => :'String'
       }
     end
 
@@ -82,22 +74,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'sites_all')
-        if (value = attributes[:'sites_all']).is_a?(Array)
-          self.sites_all = value
-        end
-      end
-
-      if attributes.key?(:'sites_with_cookie_only')
-        if (value = attributes[:'sites_with_cookie_only']).is_a?(Array)
-          self.sites_with_cookie_only = value
-        end
-      end
-
-      if attributes.key?(:'sites_with_password')
-        if (value = attributes[:'sites_with_password']).is_a?(Array)
-          self.sites_with_password = value
-        end
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
     end
 
@@ -105,12 +83,17 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @token.nil?
+        invalid_properties.push('invalid value for "token", token cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @token.nil?
       true
     end
 
@@ -119,9 +102,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sites_all == o.sites_all &&
-          sites_with_cookie_only == o.sites_with_cookie_only &&
-          sites_with_password == o.sites_with_password
+          token == o.token
     end
 
     # @see the `==` method
@@ -133,7 +114,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sites_all, sites_with_cookie_only, sites_with_password].hash
+      [token].hash
     end
 
     # Builds the object from hash

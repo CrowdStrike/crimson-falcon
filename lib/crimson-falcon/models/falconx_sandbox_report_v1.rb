@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class FalconxSandboxReportV1
+    attr_accessor :all_extracted_strings_artifact_id
+
     attr_accessor :architecture
 
     attr_accessor :certificates
@@ -173,6 +175,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'all_extracted_strings_artifact_id' => :'all_extracted_strings_artifact_id',
         :'architecture' => :'architecture',
         :'certificates' => :'certificates',
         :'certificates_validation_message' => :'certificates_validation_message',
@@ -253,6 +256,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'all_extracted_strings_artifact_id' => :'String',
         :'architecture' => :'String',
         :'certificates' => :'Array<FalconxCertificate>',
         :'certificates_validation_message' => :'String',
@@ -345,6 +349,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'all_extracted_strings_artifact_id')
+        self.all_extracted_strings_artifact_id = attributes[:'all_extracted_strings_artifact_id']
+      end
 
       if attributes.key?(:'architecture')
         self.architecture = attributes[:'architecture']
@@ -702,6 +710,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          all_extracted_strings_artifact_id == o.all_extracted_strings_artifact_id &&
           architecture == o.architecture &&
           certificates == o.certificates &&
           certificates_validation_message == o.certificates_validation_message &&
@@ -782,7 +791,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architecture, certificates, certificates_validation_message, classification, classification_tags, contacted_hosts, dll_characteristics, dns_requests, entrypoint, entrypoint_preview_count, entrypoint_preview_instructions, entrypoint_section, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_data_directories, file_imports, file_metadata, file_resources, file_sections, file_size, file_type, file_type_short, http_requests, icon, image_base, image_file_characteristics, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, is_certificates_valid, language, major_os_version, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, minor_os_version, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, subsystem, suricata_alerts, target_url, threat_score, urls, verdict, version_info, visualization, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
+      [all_extracted_strings_artifact_id, architecture, certificates, certificates_validation_message, classification, classification_tags, contacted_hosts, dll_characteristics, dns_requests, entrypoint, entrypoint_preview_count, entrypoint_preview_instructions, entrypoint_section, environment_description, environment_id, error_message, error_origin, error_type, exact_deep_hash, extracted_files, extracted_interesting_strings, file_data_directories, file_imports, file_metadata, file_resources, file_sections, file_size, file_type, file_type_short, http_requests, icon, image_base, image_file_characteristics, incidents, intelligence_mitre_attacks, ioc_report_broad_artifact_id, ioc_report_strict_artifact_id, is_certificates_valid, language, major_os_version, memory_dumps, memory_dumps_artifact_id, memory_forensics, memory_strings_artifact_id, minor_os_version, mitre_attacks, network_settings, packer, pcap_report_artifact_id, processes, sample_flags, screenshots_artifact_ids, sha256, signatures, submission_type, submit_name, submit_url, subsystem, suricata_alerts, target_url, threat_score, urls, verdict, version_info, visualization, windows_version_bitness, windows_version_edition, windows_version_name, windows_version_service_pack, windows_version_version].hash
     end
 
     # Builds the object from hash

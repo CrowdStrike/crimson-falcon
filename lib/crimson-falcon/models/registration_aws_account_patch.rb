@@ -38,6 +38,10 @@ module Falcon
 
     attr_accessor :cloudtrail_region
 
+    attr_accessor :dspm_enabled
+
+    attr_accessor :dspm_role
+
     attr_accessor :environment
 
     attr_accessor :iam_role_arn
@@ -48,17 +52,22 @@ module Falcon
 
     attr_accessor :sensor_management_enabled
 
+    attr_accessor :target_ous
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'account_id' => :'account_id',
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cloudtrail_region' => :'cloudtrail_region',
+        :'dspm_enabled' => :'dspm_enabled',
+        :'dspm_role' => :'dspm_role',
         :'environment' => :'environment',
         :'iam_role_arn' => :'iam_role_arn',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
-        :'sensor_management_enabled' => :'sensor_management_enabled'
+        :'sensor_management_enabled' => :'sensor_management_enabled',
+        :'target_ous' => :'target_ous'
       }
     end
 
@@ -73,11 +82,14 @@ module Falcon
         :'account_id' => :'String',
         :'behavior_assessment_enabled' => :'Boolean',
         :'cloudtrail_region' => :'String',
+        :'dspm_enabled' => :'Boolean',
+        :'dspm_role' => :'String',
         :'environment' => :'String',
         :'iam_role_arn' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
-        :'sensor_management_enabled' => :'Boolean'
+        :'sensor_management_enabled' => :'Boolean',
+        :'target_ous' => :'Array<String>'
       }
     end
 
@@ -114,6 +126,14 @@ module Falcon
         self.cloudtrail_region = attributes[:'cloudtrail_region']
       end
 
+      if attributes.key?(:'dspm_enabled')
+        self.dspm_enabled = attributes[:'dspm_enabled']
+      end
+
+      if attributes.key?(:'dspm_role')
+        self.dspm_role = attributes[:'dspm_role']
+      end
+
       if attributes.key?(:'environment')
         self.environment = attributes[:'environment']
       end
@@ -132,6 +152,12 @@ module Falcon
 
       if attributes.key?(:'sensor_management_enabled')
         self.sensor_management_enabled = attributes[:'sensor_management_enabled']
+      end
+
+      if attributes.key?(:'target_ous')
+        if (value = attributes[:'target_ous']).is_a?(Array)
+          self.target_ous = value
+        end
       end
     end
 
@@ -166,11 +192,14 @@ module Falcon
           account_id == o.account_id &&
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cloudtrail_region == o.cloudtrail_region &&
+          dspm_enabled == o.dspm_enabled &&
+          dspm_role == o.dspm_role &&
           environment == o.environment &&
           iam_role_arn == o.iam_role_arn &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
-          sensor_management_enabled == o.sensor_management_enabled
+          sensor_management_enabled == o.sensor_management_enabled &&
+          target_ous == o.target_ous
     end
 
     # @see the `==` method
@@ -182,7 +211,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, behavior_assessment_enabled, cloudtrail_region, environment, iam_role_arn, remediation_region, remediation_tou_accepted, sensor_management_enabled].hash
+      [account_id, behavior_assessment_enabled, cloudtrail_region, dspm_enabled, dspm_role, environment, iam_role_arn, remediation_region, remediation_tou_accepted, sensor_management_enabled, target_ous].hash
     end
 
     # Builds the object from hash

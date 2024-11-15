@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :host_id
 
+    attr_accessor :host_name
+
     attr_accessor :host_scan_id
 
     attr_accessor :last_updated
@@ -58,6 +60,7 @@ module Falcon
         :'completed_on' => :'completed_on',
         :'filecount' => :'filecount',
         :'host_id' => :'host_id',
+        :'host_name' => :'host_name',
         :'host_scan_id' => :'host_scan_id',
         :'last_updated' => :'last_updated',
         :'scan_control_reason' => :'scan_control_reason',
@@ -79,6 +82,7 @@ module Falcon
         :'completed_on' => :'Time',
         :'filecount' => :'DomainFileCount',
         :'host_id' => :'String',
+        :'host_name' => :'String',
         :'host_scan_id' => :'String',
         :'last_updated' => :'Time',
         :'scan_control_reason' => :'String',
@@ -120,6 +124,10 @@ module Falcon
 
       if attributes.key?(:'host_id')
         self.host_id = attributes[:'host_id']
+      end
+
+      if attributes.key?(:'host_name')
+        self.host_name = attributes[:'host_name']
       end
 
       if attributes.key?(:'host_scan_id')
@@ -177,6 +185,7 @@ module Falcon
           completed_on == o.completed_on &&
           filecount == o.filecount &&
           host_id == o.host_id &&
+          host_name == o.host_name &&
           host_scan_id == o.host_scan_id &&
           last_updated == o.last_updated &&
           scan_control_reason == o.scan_control_reason &&
@@ -195,7 +204,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [completed_on, filecount, host_id, host_scan_id, last_updated, scan_control_reason, scan_host_metadata_id, severity, started_on, status].hash
+      [completed_on, filecount, host_id, host_name, host_scan_id, last_updated, scan_control_reason, scan_host_metadata_id, severity, started_on, status].hash
     end
 
     # Builds the object from hash

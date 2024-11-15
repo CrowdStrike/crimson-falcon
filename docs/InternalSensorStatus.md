@@ -7,6 +7,7 @@
 | **agent_version** | **String** |  | [optional] |
 | **cid** | **String** |  |  |
 | **device_id** | **String** |  |  |
+| **heartbeat_time** | **Integer** |  | [optional] |
 | **hostname** | **String** |  | [optional] |
 | **idp_policy_id** | **String** |  | [optional] |
 | **idp_policy_name** | **String** |  | [optional] |
@@ -32,6 +33,7 @@ instance = Falcon::InternalSensorStatus.new(
   agent_version: null,
   cid: null,
   device_id: null,
+  heartbeat_time: null,
   hostname: null,
   idp_policy_id: null,
   idp_policy_name: null,

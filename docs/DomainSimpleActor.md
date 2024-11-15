@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **entitlements** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  | [optional] |
+| **entitlements** | **Array&lt;Object&gt;** |  | [optional] |
 | **id** | **Integer** |  |  |
 | **name** | **String** |  | [optional] |
 | **slug** | **String** |  | [optional] |

@@ -94,7 +94,7 @@ module Falcon
       return_type = opts[:debug_return_type] || 'DomainAccessTokenResponseV1'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['basicAuth']
+      auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
         :operation => :"Oauth2Api.oauth2_access_token",
@@ -117,7 +117,7 @@ module Falcon
     # @param token [String] The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (&#x60;Authorization: basic &lt;encoded API client ID and secret&gt;&#x60;) in your request header.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :client_id The OAuth2 client ID you are revoking the token for.
-    # @return [MsaReplyMetaOnly]
+    # @return [MsaspecResponseFields]
     def oauth2_revoke_token(token, opts = {})
       data, _status_code, _headers = oauth2_revoke_token_with_http_info(token, opts)
       data
@@ -127,7 +127,7 @@ module Falcon
     # @param token [String] The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (&#x60;Authorization: basic &lt;encoded API client ID and secret&gt;&#x60;) in your request header.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :client_id The OAuth2 client ID you are revoking the token for.
-    # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def oauth2_revoke_token_with_http_info(token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Oauth2Api.oauth2_revoke_token ...'
@@ -161,10 +161,10 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaReplyMetaOnly'
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || ['basicAuth']
+      auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
         :operation => :"Oauth2Api.oauth2_revoke_token",

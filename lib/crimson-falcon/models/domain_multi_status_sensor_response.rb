@@ -82,7 +82,7 @@ module Falcon
         :'aid' => :'String',
         :'base_command' => :'String',
         :'complete' => :'Boolean',
-        :'errors' => :'Array<MsaspecError>',
+        :'errors' => :'Array<MsaAPIError>',
         :'offline_queued' => :'Boolean',
         :'query_time' => :'Float',
         :'sequence_id' => :'Integer',

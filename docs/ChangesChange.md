@@ -14,16 +14,18 @@
 | **entity_path** | **String** |  |  |
 | **entity_path_new** | **String** |  | [optional] |
 | **entity_type** | **String** | Possible values: UNKNOWN, FILE, DIR, REGKEY,  REGVAL. |  |
+| **file_size** | **Integer** |  |  |
 | **grandparent_process_image_file_name** | **String** |  | [optional] |
 | **host** | [**ChangesHost**](ChangesHost.md) |  | [optional] |
 | **id** | **String** |  |  |
 | **ingestion_timestamp** | **String** |  |  |
-| **is_from_different_mount_namespace** | **Boolean** |  | [optional] |
+| **is_from_different_mount_namespace** | **Boolean** |  |  |
 | **is_suppressed** | **Boolean** |  |  |
 | **oci_container_id** | **String** |  | [optional] |
 | **parent_process_image_file_name** | **String** |  | [optional] |
 | **permissions** | [**ChangesPermissions**](ChangesPermissions.md) |  | [optional] |
 | **permissions_lin** | [**ChangesPermissionsLin**](ChangesPermissionsLin.md) |  | [optional] |
+| **permissions_mac** | [**ChangesPermissionsMac**](ChangesPermissionsMac.md) |  | [optional] |
 | **platform_name** | **String** |  |  |
 | **policy** | [**ChangesPolicy**](ChangesPolicy.md) |  | [optional] |
 | **prevalence** | [**ChangesPrevalence**](ChangesPrevalence.md) |  | [optional] |
@@ -51,6 +53,7 @@ instance = Falcon::ChangesChange.new(
   entity_path: null,
   entity_path_new: null,
   entity_type: null,
+  file_size: null,
   grandparent_process_image_file_name: null,
   host: null,
   id: null,
@@ -61,6 +64,7 @@ instance = Falcon::ChangesChange.new(
   parent_process_image_file_name: null,
   permissions: null,
   permissions_lin: null,
+  permissions_mac: null,
   platform_name: null,
   policy: null,
   prevalence: null,

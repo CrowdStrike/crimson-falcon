@@ -1,6 +1,6 @@
 # Falcon::HostsApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -609,8 +609,8 @@ end
 
 api_instance = Falcon::HostsApi.new
 opts = {
-  offset: 'offset_example', # String | The offset to page from, for the next result set
-  limit: 56, # Integer | The maximum records to return. [1-5000]
+  offset: 'offset_example', # String | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
   sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
   filter: 'filter_example' # String | The filter expression that should be used to limit the results
 }
@@ -646,8 +646,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **offset** | **String** | The offset to page from, for the next result set | [optional] |
-| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **offset** | **String** | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional] |
 | **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
 | **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
 

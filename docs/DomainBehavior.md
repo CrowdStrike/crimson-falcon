@@ -15,6 +15,7 @@
 | **domain** | **String** |  | [optional] |
 | **exclusion_type** | **String** |  | [optional] |
 | **filepath** | **String** |  | [optional] |
+| **grouping_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **incident_id** | **String** |  | [optional] |
 | **incident_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **ioc_source** | **String** |  | [optional] |
@@ -50,6 +51,7 @@ instance = Falcon::DomainBehavior.new(
   domain: null,
   exclusion_type: null,
   filepath: null,
+  grouping_ids: null,
   incident_id: null,
   incident_ids: null,
   ioc_source: null,

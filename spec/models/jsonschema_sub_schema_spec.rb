@@ -318,6 +318,12 @@ describe Falcon::JsonschemaSubSchema do
     end
   end
 
+  describe 'test attribute "x_cs_immutable"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "x_cs_indexable"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -385,6 +391,12 @@ describe Falcon::JsonschemaSubSchema do
   end
 
   describe 'test attribute "x_cs_tags"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "x_cs_ui"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

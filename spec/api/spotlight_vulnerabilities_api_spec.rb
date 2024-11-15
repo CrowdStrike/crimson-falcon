@@ -75,18 +75,18 @@ describe 'SpotlightVulnerabilitiesApi' do
     end
   end
 
-  # unit tests for get_vulnerabilities
+  # unit tests for get_vulnerabilities_0
   # Get details on vulnerabilities by providing one or more IDs
   # @param ids One or more vulnerability IDs (max: 400). Find vulnerability IDs with GET /spotlight/queries/vulnerabilities/v1
   # @param [Hash] opts the optional parameters
   # @return [DomainSPAPIVulnerabilitiesEntitiesResponseV2]
-  describe 'get_vulnerabilities test' do
+  describe 'get_vulnerabilities_0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  # unit tests for query_vulnerabilities
+  # unit tests for query_vulnerabilities_0
   # Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
   # @param filter Filter items using a query in Falcon Query Language (FQL). Wildcards * and empty filter values are unsupported.    Available filter fields that supports match (~): N/A    Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level, cve.cps_rating, cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.types, host_info.asset_criticality, host_info.asset_roles, host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name, suppression_info.is_suppressed, suppression_info.reason    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, closed_timestamp, updated_timestamp
   # @param [Hash] opts the optional parameters
@@ -94,7 +94,7 @@ describe 'SpotlightVulnerabilitiesApi' do
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
   # @option opts [String] :sort Sort vulnerabilities by their properties. Available sort options:  &lt;ul&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;/ul&gt;. Can be used in a format &lt;field&gt;|asc for ascending order or &lt;field&gt;|desc for descending order.
   # @return [DomainSPAPIQueryResponse]
-  describe 'query_vulnerabilities test' do
+  describe 'query_vulnerabilities_0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

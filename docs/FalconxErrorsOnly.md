@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **meta_info** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **meta_info** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
 | **quota** | [**FalconxQuota**](FalconxQuota.md) |  | [optional] |
 
 ## Example

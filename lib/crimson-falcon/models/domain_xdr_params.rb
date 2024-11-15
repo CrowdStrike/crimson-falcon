@@ -36,9 +36,13 @@ module Falcon
 
     attr_accessor :assign_to_uuid
 
+    attr_accessor :author
+
     attr_accessor :comment
 
     attr_accessor :execution_offset
+
+    attr_accessor :origin
 
     attr_accessor :severity
 
@@ -50,6 +54,10 @@ module Falcon
 
     attr_accessor :technique
 
+    attr_accessor :template_id
+
+    attr_accessor :trigger_mode
+
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -57,13 +65,17 @@ module Falcon
       {
         :'assign_to' => :'assign_to',
         :'assign_to_uuid' => :'assign_to_uuid',
+        :'author' => :'author',
         :'comment' => :'comment',
         :'execution_offset' => :'execution_offset',
+        :'origin' => :'origin',
         :'severity' => :'severity',
         :'status' => :'status',
         :'tactic' => :'tactic',
         :'tags' => :'tags',
         :'technique' => :'technique',
+        :'template_id' => :'template_id',
+        :'trigger_mode' => :'trigger_mode',
         :'type' => :'type'
       }
     end
@@ -78,13 +90,17 @@ module Falcon
       {
         :'assign_to' => :'String',
         :'assign_to_uuid' => :'String',
+        :'author' => :'String',
         :'comment' => :'String',
         :'execution_offset' => :'String',
+        :'origin' => :'String',
         :'severity' => :'Integer',
         :'status' => :'String',
         :'tactic' => :'String',
         :'tags' => :'Array<String>',
         :'technique' => :'String',
+        :'template_id' => :'String',
+        :'trigger_mode' => :'String',
         :'type' => :'String'
       }
     end
@@ -118,12 +134,20 @@ module Falcon
         self.assign_to_uuid = attributes[:'assign_to_uuid']
       end
 
+      if attributes.key?(:'author')
+        self.author = attributes[:'author']
+      end
+
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
       end
 
       if attributes.key?(:'execution_offset')
         self.execution_offset = attributes[:'execution_offset']
+      end
+
+      if attributes.key?(:'origin')
+        self.origin = attributes[:'origin']
       end
 
       if attributes.key?(:'severity')
@@ -148,6 +172,14 @@ module Falcon
         self.technique = attributes[:'technique']
       end
 
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
+      end
+
+      if attributes.key?(:'trigger_mode')
+        self.trigger_mode = attributes[:'trigger_mode']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -165,12 +197,20 @@ module Falcon
         invalid_properties.push('invalid value for "assign_to_uuid", assign_to_uuid cannot be nil.')
       end
 
+      if @author.nil?
+        invalid_properties.push('invalid value for "author", author cannot be nil.')
+      end
+
       if @comment.nil?
         invalid_properties.push('invalid value for "comment", comment cannot be nil.')
       end
 
       if @execution_offset.nil?
         invalid_properties.push('invalid value for "execution_offset", execution_offset cannot be nil.')
+      end
+
+      if @origin.nil?
+        invalid_properties.push('invalid value for "origin", origin cannot be nil.')
       end
 
       if @severity.nil?
@@ -193,6 +233,14 @@ module Falcon
         invalid_properties.push('invalid value for "technique", technique cannot be nil.')
       end
 
+      if @template_id.nil?
+        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
+      end
+
+      if @trigger_mode.nil?
+        invalid_properties.push('invalid value for "trigger_mode", trigger_mode cannot be nil.')
+      end
+
       if @type.nil?
         invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
@@ -205,13 +253,17 @@ module Falcon
     def valid?
       return false if @assign_to.nil?
       return false if @assign_to_uuid.nil?
+      return false if @author.nil?
       return false if @comment.nil?
       return false if @execution_offset.nil?
+      return false if @origin.nil?
       return false if @severity.nil?
       return false if @status.nil?
       return false if @tactic.nil?
       return false if @tags.nil?
       return false if @technique.nil?
+      return false if @template_id.nil?
+      return false if @trigger_mode.nil?
       return false if @type.nil?
       true
     end
@@ -223,13 +275,17 @@ module Falcon
       self.class == o.class &&
           assign_to == o.assign_to &&
           assign_to_uuid == o.assign_to_uuid &&
+          author == o.author &&
           comment == o.comment &&
           execution_offset == o.execution_offset &&
+          origin == o.origin &&
           severity == o.severity &&
           status == o.status &&
           tactic == o.tactic &&
           tags == o.tags &&
           technique == o.technique &&
+          template_id == o.template_id &&
+          trigger_mode == o.trigger_mode &&
           type == o.type
     end
 
@@ -242,7 +298,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assign_to, assign_to_uuid, comment, execution_offset, severity, status, tactic, tags, technique, type].hash
+      [assign_to, assign_to_uuid, author, comment, execution_offset, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
     end
 
     # Builds the object from hash

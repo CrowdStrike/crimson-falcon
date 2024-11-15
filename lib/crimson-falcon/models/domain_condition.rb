@@ -32,6 +32,10 @@ require 'time'
 
 module Falcon
   class DomainCondition
+    attr_accessor :feature
+
+    attr_accessor :is_visible
+
     attr_accessor :last_transition
 
     attr_accessor :message
@@ -45,6 +49,8 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'feature' => :'feature',
+        :'is_visible' => :'is_visible',
         :'last_transition' => :'last_transition',
         :'message' => :'message',
         :'reason' => :'reason',
@@ -61,6 +67,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'feature' => :'String',
+        :'is_visible' => :'Boolean',
         :'last_transition' => :'Time',
         :'message' => :'String',
         :'reason' => :'String',
@@ -90,6 +98,14 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'feature')
+        self.feature = attributes[:'feature']
+      end
+
+      if attributes.key?(:'is_visible')
+        self.is_visible = attributes[:'is_visible']
+      end
+
       if attributes.key?(:'last_transition')
         self.last_transition = attributes[:'last_transition']
       end
@@ -115,6 +131,14 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @feature.nil?
+        invalid_properties.push('invalid value for "feature", feature cannot be nil.')
+      end
+
+      if @is_visible.nil?
+        invalid_properties.push('invalid value for "is_visible", is_visible cannot be nil.')
+      end
+
       if @last_transition.nil?
         invalid_properties.push('invalid value for "last_transition", last_transition cannot be nil.')
       end
@@ -133,6 +157,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @feature.nil?
+      return false if @is_visible.nil?
       return false if @last_transition.nil?
       return false if @status.nil?
       return false if @type.nil?
@@ -144,6 +170,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          feature == o.feature &&
+          is_visible == o.is_visible &&
           last_transition == o.last_transition &&
           message == o.message &&
           reason == o.reason &&
@@ -160,7 +188,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [last_transition, message, reason, status, type].hash
+      [feature, is_visible, last_transition, message, reason, status, type].hash
     end
 
     # Builds the object from hash

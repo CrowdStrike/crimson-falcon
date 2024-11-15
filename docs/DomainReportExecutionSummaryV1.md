@@ -8,6 +8,7 @@
 | **id** | **String** |  |  |
 | **last_updated_on** | **Time** |  |  |
 | **report_file_reference** | **String** |  | [optional] |
+| **report_params** | [**DomainReportParams**](DomainReportParams.md) |  |  |
 | **result_metadata** | [**DomainResultMetadata**](DomainResultMetadata.md) |  | [optional] |
 | **status** | **String** |  |  |
 | **status_display** | **String** |  |  |
@@ -23,6 +24,7 @@ instance = Falcon::DomainReportExecutionSummaryV1.new(
   id: null,
   last_updated_on: null,
   report_file_reference: null,
+  report_params: null,
   result_metadata: null,
   status: null,
   status_display: null,

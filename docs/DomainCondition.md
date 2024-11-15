@@ -4,6 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **feature** | **String** |  |  |
+| **is_visible** | **Boolean** |  |  |
 | **last_transition** | **Time** |  |  |
 | **message** | **String** |  | [optional] |
 | **reason** | **String** |  | [optional] |
@@ -16,6 +18,8 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainCondition.new(
+  feature: null,
+  is_visible: null,
   last_transition: null,
   message: null,
   reason: null,

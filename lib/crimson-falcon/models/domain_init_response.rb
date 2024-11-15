@@ -34,9 +34,13 @@ module Falcon
   class DomainInitResponse
     attr_accessor :created_at
 
+    attr_accessor :device_id
+
     attr_accessor :existing_aid_sessions
 
     attr_accessor :offline_queued
+
+    attr_accessor :platform
 
     attr_accessor :previous_commands
 
@@ -50,8 +54,10 @@ module Falcon
     def self.attribute_map
       {
         :'created_at' => :'created_at',
+        :'device_id' => :'device_id',
         :'existing_aid_sessions' => :'existing_aid_sessions',
         :'offline_queued' => :'offline_queued',
+        :'platform' => :'platform',
         :'previous_commands' => :'previous_commands',
         :'pwd' => :'pwd',
         :'scripts' => :'scripts',
@@ -68,8 +74,10 @@ module Falcon
     def self.openapi_types
       {
         :'created_at' => :'Time',
+        :'device_id' => :'String',
         :'existing_aid_sessions' => :'Integer',
         :'offline_queued' => :'Boolean',
+        :'platform' => :'String',
         :'previous_commands' => :'Array<String>',
         :'pwd' => :'String',
         :'scripts' => :'Array<DomainScriptHelp>',
@@ -102,12 +110,20 @@ module Falcon
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'device_id')
+        self.device_id = attributes[:'device_id']
+      end
+
       if attributes.key?(:'existing_aid_sessions')
         self.existing_aid_sessions = attributes[:'existing_aid_sessions']
       end
 
       if attributes.key?(:'offline_queued')
         self.offline_queued = attributes[:'offline_queued']
+      end
+
+      if attributes.key?(:'platform')
+        self.platform = attributes[:'platform']
       end
 
       if attributes.key?(:'previous_commands')
@@ -175,8 +191,10 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           created_at == o.created_at &&
+          device_id == o.device_id &&
           existing_aid_sessions == o.existing_aid_sessions &&
           offline_queued == o.offline_queued &&
+          platform == o.platform &&
           previous_commands == o.previous_commands &&
           pwd == o.pwd &&
           scripts == o.scripts &&
@@ -192,7 +210,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, existing_aid_sessions, offline_queued, previous_commands, pwd, scripts, session_id].hash
+      [created_at, device_id, existing_aid_sessions, offline_queued, platform, previous_commands, pwd, scripts, session_id].hash
     end
 
     # Builds the object from hash

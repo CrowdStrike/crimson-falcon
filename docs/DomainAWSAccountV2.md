@@ -24,15 +24,19 @@
 | **cspm_enabled** | **Boolean** |  | [optional] |
 | **d4c** | [**DomainAWSD4CAccountV1**](DomainAWSD4CAccountV1.md) |  | [optional] |
 | **d4c_migrated** | **Boolean** |  | [optional] |
+| **dspm_enabled** | **Boolean** |  | [optional] |
+| **dspm_role_arn** | **String** |  | [optional] |
 | **environment** | **String** |  | [optional] |
 | **eventbus_name** | **String** |  | [optional] |
 | **external_id** | **String** | ID assigned for use with cross account IAM role access. | [optional] |
 | **iam_role_arn** | **String** | The full arn of the IAM role created in this account to control access. | [optional] |
 | **intermediate_role_arn** | **String** |  | [optional] |
+| **inventory_filter** | [**Array&lt;DomainAWSInventoryFilterSetting&gt;**](DomainAWSInventoryFilterSetting.md) |  |  |
 | **is_cspm_lite** | **Boolean** | Is CSPM Lite enabled. | [optional] |
 | **is_custom_rolename** | **Boolean** |  |  |
 | **is_master** | **Boolean** |  | [optional] |
 | **organization_id** | **String** | Up to 34 character AWS provided unique identifier for the organization. | [optional] |
+| **products** | **Array&lt;String&gt;** |  | [optional] |
 | **remediation_cloudformation_url** | **String** |  | [optional] |
 | **remediation_region** | **String** |  | [optional] |
 | **remediation_tou_accepted** | **Time** |  | [optional] |
@@ -42,6 +46,7 @@
 | **sensor_management_enabled** | **Boolean** |  |  |
 | **settings** | **Object** |  | [optional] |
 | **status** | **String** | Account registration status. | [optional] |
+| **target_ous** | **Array&lt;String&gt;** |  | [optional] |
 | **use_existing_cloudtrail** | **Boolean** |  | [optional] |
 | **valid** | **Boolean** |  | [optional] |
 
@@ -71,15 +76,19 @@ instance = Falcon::DomainAWSAccountV2.new(
   cspm_enabled: null,
   d4c: null,
   d4c_migrated: null,
+  dspm_enabled: null,
+  dspm_role_arn: null,
   environment: null,
   eventbus_name: null,
   external_id: null,
   iam_role_arn: null,
   intermediate_role_arn: null,
+  inventory_filter: null,
   is_cspm_lite: null,
   is_custom_rolename: null,
   is_master: null,
   organization_id: null,
+  products: null,
   remediation_cloudformation_url: null,
   remediation_region: null,
   remediation_tou_accepted: null,
@@ -89,6 +98,7 @@ instance = Falcon::DomainAWSAccountV2.new(
   sensor_management_enabled: null,
   settings: null,
   status: null,
+  target_ous: null,
   use_existing_cloudtrail: null,
   valid: null
 )

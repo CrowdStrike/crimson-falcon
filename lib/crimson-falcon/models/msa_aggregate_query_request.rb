@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :exclude
 
+    attr_accessor :extended_bounds
+
     attr_accessor :field
 
     attr_accessor :filter
@@ -73,6 +75,7 @@ module Falcon
       {
         :'date_ranges' => :'date_ranges',
         :'exclude' => :'exclude',
+        :'extended_bounds' => :'extended_bounds',
         :'field' => :'field',
         :'filter' => :'filter',
         :'from' => :'from',
@@ -102,6 +105,7 @@ module Falcon
       {
         :'date_ranges' => :'Array<MsaDateRangeSpec>',
         :'exclude' => :'String',
+        :'extended_bounds' => :'MsaExtendedBoundsSpec',
         :'field' => :'String',
         :'filter' => :'String',
         :'from' => :'Integer',
@@ -150,6 +154,10 @@ module Falcon
 
       if attributes.key?(:'exclude')
         self.exclude = attributes[:'exclude']
+      end
+
+      if attributes.key?(:'extended_bounds')
+        self.extended_bounds = attributes[:'extended_bounds']
       end
 
       if attributes.key?(:'field')
@@ -321,6 +329,7 @@ module Falcon
       self.class == o.class &&
           date_ranges == o.date_ranges &&
           exclude == o.exclude &&
+          extended_bounds == o.extended_bounds &&
           field == o.field &&
           filter == o.filter &&
           from == o.from &&
@@ -348,7 +357,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [date_ranges, exclude, field, filter, from, include, interval, max_doc_count, min_doc_count, missing, name, q, ranges, size, sort, sub_aggregates, time_zone, type].hash
+      [date_ranges, exclude, extended_bounds, field, filter, from, include, interval, max_doc_count, min_doc_count, missing, name, q, ranges, size, sort, sub_aggregates, time_zone, type].hash
     end
 
     # Builds the object from hash

@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **action_script** | **String** |  | [optional] |
+| **browser** | **String** |  | [optional] |
 | **command_line** | **String** |  | [optional] |
 | **document_password** | **String** |  | [optional] |
 | **enable_tor** | **Boolean** |  | [optional] |
@@ -24,6 +25,7 @@ require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxParametersV1.new(
   action_script: null,
+  browser: null,
   command_line: null,
   document_password: null,
   enable_tor: null,

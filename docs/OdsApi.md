@@ -1,6 +1,6 @@
 # Falcon::OdsApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -318,7 +318,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::OdsApi.new
-body = Falcon::EntitiesODSScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], hosts: ['hosts_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScanRequest | 
+body = Falcon::EntitiesODSScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], hosts: ['hosts_example'], initiated_from: 'initiated_from_example', max_duration: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScanRequest | 
 
 begin
   # Create ODS scan and start or schedule scan for the given scan request.
@@ -1113,7 +1113,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::OdsApi.new
-body = Falcon::EntitiesODSScheduleScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], schedule: Falcon::DomainSchedule.new, sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScheduleScanRequest | 
+body = Falcon::EntitiesODSScheduleScanRequest.new({cloud_ml_level_detection: 37, cloud_ml_level_prevention: 37, cpu_priority: 37, description: 'description_example', endpoint_notification: false, file_paths: ['file_paths_example'], host_groups: ['host_groups_example'], initiated_from: 'initiated_from_example', max_duration: 37, max_file_size: 37, pause_duration: 37, quarantine: false, scan_exclusions: ['scan_exclusions_example'], scan_inclusions: ['scan_inclusions_example'], schedule: Falcon::DomainSchedule.new({can_stagger: false, definition: 'definition_example', display: 'display_example'}), sensor_ml_level_detection: 37, sensor_ml_level_prevention: 37}) # EntitiesODSScheduleScanRequest | 
 
 begin
   # Create ODS scan and start or schedule scan for the given scan request.

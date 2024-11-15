@@ -10,6 +10,7 @@
 | **depth** | **String** |  |  |
 | **description** | **String** |  | [optional] |
 | **enable_content_capture** | **Boolean** |  | [optional] |
+| **enable_hash_capture** | **Boolean** |  | [optional] |
 | **exclude** | **String** |  | [optional] |
 | **exclude_processes** | **String** |  | [optional] |
 | **exclude_users** | **String** |  | [optional] |
@@ -34,6 +35,7 @@
 | **watch_delete_value_changes** | **Boolean** |  | [optional] |
 | **watch_permissions_directory_changes** | **Boolean** |  | [optional] |
 | **watch_permissions_file_changes** | **Boolean** |  | [optional] |
+| **watch_permissions_key_changes** | **Boolean** |  | [optional] |
 | **watch_rename_directory_changes** | **Boolean** |  | [optional] |
 | **watch_rename_file_changes** | **Boolean** |  | [optional] |
 | **watch_rename_key_changes** | **Boolean** |  | [optional] |
@@ -52,6 +54,7 @@ instance = Falcon::RulegroupsRule.new(
   depth: null,
   description: null,
   enable_content_capture: null,
+  enable_hash_capture: null,
   exclude: null,
   exclude_processes: null,
   exclude_users: null,
@@ -76,6 +79,7 @@ instance = Falcon::RulegroupsRule.new(
   watch_delete_value_changes: null,
   watch_permissions_directory_changes: null,
   watch_permissions_file_changes: null,
+  watch_permissions_key_changes: null,
   watch_rename_directory_changes: null,
   watch_rename_file_changes: null,
   watch_rename_key_changes: null,

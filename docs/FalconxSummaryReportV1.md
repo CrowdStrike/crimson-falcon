@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  | [optional] |
+| **has_recording** | **Boolean** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **intel** | [**Array&lt;FalconxIntelSummaryReportV1&gt;**](FalconxIntelSummaryReportV1.md) |  | [optional] |
 | **ioc_report_broad_csv_artifact_id** | **String** |  | [optional] |
@@ -32,6 +33,7 @@ require 'crimson-falcon'
 instance = Falcon::FalconxSummaryReportV1.new(
   cid: null,
   created_timestamp: null,
+  has_recording: null,
   id: null,
   intel: null,
   ioc_report_broad_csv_artifact_id: null,

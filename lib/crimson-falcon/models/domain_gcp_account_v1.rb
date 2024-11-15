@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :cloud_scopes
 
+    attr_accessor :conditions
+
     attr_accessor :cspm_enabled
 
     # GCP Display Name
@@ -79,6 +81,8 @@ module Falcon
 
     attr_accessor :service_account_client_id
 
+    attr_accessor :service_account_conditions
+
     # GCP service account ID
     attr_accessor :service_account_id
 
@@ -98,6 +102,7 @@ module Falcon
         :'updated_at' => :'UpdatedAt',
         :'cid' => :'cid',
         :'cloud_scopes' => :'cloud_scopes',
+        :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
         :'display_name' => :'display_name',
         :'environment' => :'environment',
@@ -111,6 +116,7 @@ module Falcon
         :'project_id' => :'project_id',
         :'service_account_client_email' => :'service_account_client_email',
         :'service_account_client_id' => :'service_account_client_id',
+        :'service_account_conditions' => :'service_account_conditions',
         :'service_account_id' => :'service_account_id',
         :'service_account_private_key_id' => :'service_account_private_key_id',
         :'service_account_project_id' => :'service_account_project_id',
@@ -132,6 +138,7 @@ module Falcon
         :'updated_at' => :'Time',
         :'cid' => :'String',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'conditions' => :'Array<DomainCondition>',
         :'cspm_enabled' => :'Boolean',
         :'display_name' => :'String',
         :'environment' => :'String',
@@ -145,6 +152,7 @@ module Falcon
         :'project_id' => :'String',
         :'service_account_client_email' => :'String',
         :'service_account_client_id' => :'String',
+        :'service_account_conditions' => :'Array<DomainCondition>',
         :'service_account_id' => :'Integer',
         :'service_account_private_key_id' => :'String',
         :'service_account_project_id' => :'String',
@@ -196,6 +204,12 @@ module Falcon
       if attributes.key?(:'cloud_scopes')
         if (value = attributes[:'cloud_scopes']).is_a?(Array)
           self.cloud_scopes = value
+        end
+      end
+
+      if attributes.key?(:'conditions')
+        if (value = attributes[:'conditions']).is_a?(Array)
+          self.conditions = value
         end
       end
 
@@ -251,6 +265,12 @@ module Falcon
 
       if attributes.key?(:'service_account_client_id')
         self.service_account_client_id = attributes[:'service_account_client_id']
+      end
+
+      if attributes.key?(:'service_account_conditions')
+        if (value = attributes[:'service_account_conditions']).is_a?(Array)
+          self.service_account_conditions = value
+        end
       end
 
       if attributes.key?(:'service_account_id')
@@ -339,6 +359,7 @@ module Falcon
           updated_at == o.updated_at &&
           cid == o.cid &&
           cloud_scopes == o.cloud_scopes &&
+          conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
           display_name == o.display_name &&
           environment == o.environment &&
@@ -352,6 +373,7 @@ module Falcon
           project_id == o.project_id &&
           service_account_client_email == o.service_account_client_email &&
           service_account_client_id == o.service_account_client_id &&
+          service_account_conditions == o.service_account_conditions &&
           service_account_id == o.service_account_id &&
           service_account_private_key_id == o.service_account_private_key_id &&
           service_account_project_id == o.service_account_project_id &&
@@ -367,7 +389,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_id, service_account_private_key_id, service_account_project_id, status].hash
+      [created_at, deleted_at, id, updated_at, cid, cloud_scopes, conditions, cspm_enabled, display_name, environment, folder_id, folder_name, gcp_permissions_status, organization_id, organization_name, parent_id, parent_type, project_id, service_account_client_email, service_account_client_id, service_account_conditions, service_account_id, service_account_private_key_id, service_account_project_id, status].hash
     end
 
     # Builds the object from hash

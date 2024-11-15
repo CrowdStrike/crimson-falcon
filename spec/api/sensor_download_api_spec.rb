@@ -53,8 +53,19 @@ describe 'SensorDownloadApi' do
   # Download sensor installer by SHA256 ID
   # @param id SHA256 of the installer to download
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [File]
   describe 'download_sensor_installer_by_id test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for download_sensor_installer_by_id_v2
+  # Download sensor installer by SHA256 ID
+  # @param id SHA256 of the installer to download
+  # @param [Hash] opts the optional parameters
+  # @return [File]
+  describe 'download_sensor_installer_by_id_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -74,6 +85,20 @@ describe 'SensorDownloadApi' do
     end
   end
 
+  # unit tests for get_combined_sensor_installers_by_query_v2
+  # Get sensor installer details by provided query
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  # @option opts [String] :sort Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\&quot;windows\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\&quot;5.2\&quot;&lt;/li&gt;&lt;/ul&gt;
+  # @return [DomainSensorInstallersV2]
+  describe 'get_combined_sensor_installers_by_query_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_sensor_installers_by_query
   # Get sensor installer IDs by provided query
   # @param [Hash] opts the optional parameters
@@ -83,6 +108,20 @@ describe 'SensorDownloadApi' do
   # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\&quot;windows\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\&quot;5.2\&quot;&lt;/li&gt;&lt;/ul&gt;
   # @return [MsaspecQueryResponse]
   describe 'get_sensor_installers_by_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_sensor_installers_by_query_v2
+  # Get sensor installer IDs by provided query
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  # @option opts [String] :sort Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  # @option opts [String] :filter Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\&quot;windows\&quot;&lt;/li&gt;&lt;li&gt;version:&gt;\&quot;5.2\&quot;&lt;/li&gt;&lt;/ul&gt;
+  # @return [MsaspecQueryResponse]
+  describe 'get_sensor_installers_by_query_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -104,6 +143,17 @@ describe 'SensorDownloadApi' do
   # @param [Hash] opts the optional parameters
   # @return [DomainSensorInstallersV1]
   describe 'get_sensor_installers_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_sensor_installers_entities_v2
+  # Get sensor installer details by provided SHA256 IDs
+  # @param ids The IDs of the installers
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSensorInstallersV2]
+  describe 'get_sensor_installers_entities_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

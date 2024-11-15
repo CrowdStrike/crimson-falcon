@@ -11,12 +11,15 @@
 | **cloud_account_id** | **String** |  |  |
 | **cloud_name** | **String** |  |  |
 | **cloud_region** | **String** |  |  |
+| **cloud_service** | **String** |  |  |
 | **cluster_id** | **String** |  |  |
 | **cluster_name** | **String** |  |  |
 | **cluster_security_group** | **String** |  |  |
 | **cluster_status** | **String** |  |  |
 | **container_count** | **Integer** |  |  |
 | **first_seen** | **String** |  |  |
+| **iar_coverage** | **Boolean** |  |  |
+| **kac_agent_id** | **String** |  |  |
 | **kubernetes_version** | **String** |  |  |
 | **labels_list** | **Array&lt;String&gt;** |  |  |
 | **last_seen** | **String** |  |  |
@@ -40,12 +43,15 @@ instance = Falcon::ModelsCluster.new(
   cloud_account_id: null,
   cloud_name: null,
   cloud_region: null,
+  cloud_service: null,
   cluster_id: null,
   cluster_name: null,
   cluster_security_group: null,
   cluster_status: null,
   container_count: null,
   first_seen: null,
+  iar_coverage: null,
+  kac_agent_id: null,
   kubernetes_version: null,
   labels_list: null,
   last_seen: null,

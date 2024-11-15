@@ -10,6 +10,7 @@
 | **audit_procedure** | **String** |  |  |
 | **authority** | **String** |  |  |
 | **benchmark_title** | **String** |  |  |
+| **compliance_mappings** | [**Array&lt;DomainAPIComplianceMappingV1&gt;**](DomainAPIComplianceMappingV1.md) |  | [optional] |
 | **description** | **String** |  |  |
 | **id** | **String** |  |  |
 | **impact_statement** | **String** |  |  |
@@ -32,6 +33,7 @@ instance = Falcon::DomainAPIRuleDetailsV1.new(
   audit_procedure: null,
   authority: null,
   benchmark_title: null,
+  compliance_mappings: null,
   description: null,
   id: null,
   impact_statement: null,

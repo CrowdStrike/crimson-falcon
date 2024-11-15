@@ -42,6 +42,12 @@ describe Falcon::ModelsAPIImageCombinedExport do
       expect(instance).to be_instance_of(Falcon::ModelsAPIImageCombinedExport)
     end
   end
+  describe 'test attribute "architecture"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "base_os"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -102,6 +108,12 @@ describe Falcon::ModelsAPIImageCombinedExport do
     end
   end
 
+  describe 'test attribute "is_base_image"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "last_seen"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -121,6 +133,12 @@ describe Falcon::ModelsAPIImageCombinedExport do
   end
 
   describe 'test attribute "repository"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "source"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -73,6 +73,9 @@ module Falcon
     # Rich text description with markup
     attr_accessor :rich_text_description
 
+    # Rich text short description with markup
+    attr_accessor :rich_text_short_description
+
     # Short description of the report content
     attr_accessor :short_description
 
@@ -116,6 +119,7 @@ module Falcon
         :'name' => :'name',
         :'notify_users' => :'notify_users',
         :'rich_text_description' => :'rich_text_description',
+        :'rich_text_short_description' => :'rich_text_short_description',
         :'short_description' => :'short_description',
         :'slug' => :'slug',
         :'sub_type' => :'sub_type',
@@ -142,24 +146,25 @@ module Falcon
         :'attachments' => :'Array<DomainFile>',
         :'created_date' => :'Integer',
         :'description' => :'String',
-        :'entitlements' => :'Array<DomainEntity>',
+        :'entitlements' => :'Array<Object>',
         :'id' => :'Integer',
         :'image' => :'DomainImage',
         :'last_modified_date' => :'Integer',
         :'malware' => :'Array<DomainReportMalware>',
-        :'motivations' => :'Array<DomainEntity>',
+        :'motivations' => :'Array<Object>',
         :'name' => :'String',
         :'notify_users' => :'Boolean',
         :'rich_text_description' => :'String',
+        :'rich_text_short_description' => :'String',
         :'short_description' => :'String',
         :'slug' => :'String',
-        :'sub_type' => :'DomainEntity',
-        :'tags' => :'Array<DomainEntity>',
-        :'target_countries' => :'Array<DomainEntity>',
-        :'target_industries' => :'Array<DomainEntity>',
+        :'sub_type' => :'Object',
+        :'tags' => :'Array<Object>',
+        :'target_countries' => :'Array<Object>',
+        :'target_industries' => :'Array<Object>',
         :'thumbnail' => :'DomainImage',
-        :'topic' => :'DomainEntity',
-        :'type' => :'DomainEntity',
+        :'topic' => :'Object',
+        :'type' => :'Object',
         :'url' => :'String'
       }
     end
@@ -249,6 +254,10 @@ module Falcon
 
       if attributes.key?(:'rich_text_description')
         self.rich_text_description = attributes[:'rich_text_description']
+      end
+
+      if attributes.key?(:'rich_text_short_description')
+        self.rich_text_short_description = attributes[:'rich_text_short_description']
       end
 
       if attributes.key?(:'short_description')
@@ -385,6 +394,7 @@ module Falcon
           name == o.name &&
           notify_users == o.notify_users &&
           rich_text_description == o.rich_text_description &&
+          rich_text_short_description == o.rich_text_short_description &&
           short_description == o.short_description &&
           slug == o.slug &&
           sub_type == o.sub_type &&
@@ -406,7 +416,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, rich_text_description, short_description, slug, sub_type, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
+      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, rich_text_description, rich_text_short_description, short_description, slug, sub_type, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
     end
 
     # Builds the object from hash

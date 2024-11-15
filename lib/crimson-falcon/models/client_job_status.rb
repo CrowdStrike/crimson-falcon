@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :file_link
 
+    attr_accessor :filtered_event_count
+
     attr_accessor :job_id
 
     attr_accessor :job_url
@@ -64,6 +66,7 @@ module Falcon
         :'digest_hex' => :'digest_hex',
         :'event_count' => :'event_count',
         :'file_link' => :'file_link',
+        :'filtered_event_count' => :'filtered_event_count',
         :'job_id' => :'job_id',
         :'job_url' => :'job_url',
         :'message' => :'message',
@@ -87,6 +90,7 @@ module Falcon
         :'digest_hex' => :'String',
         :'event_count' => :'Integer',
         :'file_link' => :'String',
+        :'filtered_event_count' => :'Integer',
         :'job_id' => :'String',
         :'job_url' => :'String',
         :'message' => :'String',
@@ -136,6 +140,10 @@ module Falcon
 
       if attributes.key?(:'file_link')
         self.file_link = attributes[:'file_link']
+      end
+
+      if attributes.key?(:'filtered_event_count')
+        self.filtered_event_count = attributes[:'filtered_event_count']
       end
 
       if attributes.key?(:'job_id')
@@ -195,6 +203,7 @@ module Falcon
           digest_hex == o.digest_hex &&
           event_count == o.event_count &&
           file_link == o.file_link &&
+          filtered_event_count == o.filtered_event_count &&
           job_id == o.job_id &&
           job_url == o.job_url &&
           message == o.message &&
@@ -213,7 +222,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content_length, digest_algo, digest_hex, event_count, file_link, job_id, job_url, message, percent_complete, result_count, run_duration, status].hash
+      [content_length, digest_algo, digest_hex, event_count, file_link, filtered_event_count, job_id, job_url, message, percent_complete, result_count, run_duration, status].hash
     end
 
     # Builds the object from hash

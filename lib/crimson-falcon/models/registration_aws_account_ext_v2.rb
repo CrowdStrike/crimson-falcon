@@ -40,6 +40,10 @@ module Falcon
 
     attr_accessor :cloudtrail_region
 
+    attr_accessor :dspm_enabled
+
+    attr_accessor :dspm_role
+
     attr_accessor :iam_role_arn
 
     attr_accessor :is_master
@@ -47,6 +51,8 @@ module Falcon
     attr_accessor :organization_id
 
     attr_accessor :sensor_management_enabled
+
+    attr_accessor :target_ous
 
     attr_accessor :use_existing_cloudtrail
 
@@ -57,10 +63,13 @@ module Falcon
         :'account_type' => :'account_type',
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cloudtrail_region' => :'cloudtrail_region',
+        :'dspm_enabled' => :'dspm_enabled',
+        :'dspm_role' => :'dspm_role',
         :'iam_role_arn' => :'iam_role_arn',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
         :'sensor_management_enabled' => :'sensor_management_enabled',
+        :'target_ous' => :'target_ous',
         :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
       }
     end
@@ -77,10 +86,13 @@ module Falcon
         :'account_type' => :'String',
         :'behavior_assessment_enabled' => :'Boolean',
         :'cloudtrail_region' => :'String',
+        :'dspm_enabled' => :'Boolean',
+        :'dspm_role' => :'String',
         :'iam_role_arn' => :'String',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
         :'sensor_management_enabled' => :'Boolean',
+        :'target_ous' => :'Array<String>',
         :'use_existing_cloudtrail' => :'Boolean'
       }
     end
@@ -122,6 +134,14 @@ module Falcon
         self.cloudtrail_region = attributes[:'cloudtrail_region']
       end
 
+      if attributes.key?(:'dspm_enabled')
+        self.dspm_enabled = attributes[:'dspm_enabled']
+      end
+
+      if attributes.key?(:'dspm_role')
+        self.dspm_role = attributes[:'dspm_role']
+      end
+
       if attributes.key?(:'iam_role_arn')
         self.iam_role_arn = attributes[:'iam_role_arn']
       end
@@ -136,6 +156,12 @@ module Falcon
 
       if attributes.key?(:'sensor_management_enabled')
         self.sensor_management_enabled = attributes[:'sensor_management_enabled']
+      end
+
+      if attributes.key?(:'target_ous')
+        if (value = attributes[:'target_ous']).is_a?(Array)
+          self.target_ous = value
+        end
       end
 
       if attributes.key?(:'use_existing_cloudtrail')
@@ -185,10 +211,13 @@ module Falcon
           account_type == o.account_type &&
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cloudtrail_region == o.cloudtrail_region &&
+          dspm_enabled == o.dspm_enabled &&
+          dspm_role == o.dspm_role &&
           iam_role_arn == o.iam_role_arn &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
           sensor_management_enabled == o.sensor_management_enabled &&
+          target_ous == o.target_ous &&
           use_existing_cloudtrail == o.use_existing_cloudtrail
     end
 
@@ -201,7 +230,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, iam_role_arn, is_master, organization_id, sensor_management_enabled, use_existing_cloudtrail].hash
+      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, dspm_enabled, dspm_role, iam_role_arn, is_master, organization_id, sensor_management_enabled, target_ous, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

@@ -96,7 +96,7 @@ module Falcon
 
     # Aggregate count of images
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,layer_digest,package_name_version,registry,repository,tag,vulnerability_count,vulnerability_severity
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
     # @return [ImagesApiImageCount]
     def aggregate_image_count(opts = {})
       data, _status_code, _headers = aggregate_image_count_with_http_info(opts)
@@ -105,7 +105,7 @@ module Falcon
 
     # Aggregate count of images
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,layer_digest,package_name_version,registry,repository,tag,vulnerability_count,vulnerability_severity
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
     # @return [Array<(ImagesApiImageCount, Integer, Hash)>] ImagesApiImageCount data, response status code and response headers
     def aggregate_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -268,6 +268,64 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve base images for provided filter
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search base images using a query in Falcon Query Language (FQL). Supported filters:  image_digest,image_id,registry,repository,tag
+    # @return [CoreEntitiesResponse]
+    def combined_base_images(opts = {})
+      data, _status_code, _headers = combined_base_images_with_http_info(opts)
+      data
+    end
+
+    # Retrieve base images for provided filter
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search base images using a query in Falcon Query Language (FQL). Supported filters:  image_digest,image_id,registry,repository,tag
+    # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
+    def combined_base_images_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.combined_base_images ...'
+      end
+      # resource path
+      local_var_path = '/container-security/combined/base-images/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoreEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ContainerImagesApi.combined_base_images",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContainerImagesApi#combined_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve top x images with the most vulnerabilities
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag
@@ -408,6 +466,7 @@ module Falcon
     # @param repository [String] repository name
     # @param tag [String] tag name
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_base_image_vuln include base image vulnerabilities
     # @return [ImagesApiImageIssuesSummary]
     def combined_image_issues_summary(cid, registry, repository, tag, opts = {})
       data, _status_code, _headers = combined_image_issues_summary_with_http_info(cid, registry, repository, tag, opts)
@@ -420,6 +479,7 @@ module Falcon
     # @param repository [String] repository name
     # @param tag [String] tag name
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_base_image_vuln include base image vulnerabilities
     # @return [Array<(ImagesApiImageIssuesSummary, Integer, Hash)>] ImagesApiImageIssuesSummary data, response status code and response headers
     def combined_image_issues_summary_with_http_info(cid, registry, repository, tag, opts = {})
       if @api_client.config.debugging
@@ -450,6 +510,7 @@ module Falcon
       query_params[:'registry'] = registry
       query_params[:'repository'] = repository
       query_params[:'tag'] = tag
+      query_params[:'include_base_image_vuln'] = opts[:'include_base_image_vuln'] if !opts[:'include_base_image_vuln'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -491,6 +552,7 @@ module Falcon
     # @param repository [String] repository name
     # @param tag [String] tag name
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_base_image_vuln include base image vulnerabilities
     # @return [ImagesApiImageVulnerabilitiesSummary]
     def combined_image_vulnerability_summary(cid, registry, repository, tag, opts = {})
       data, _status_code, _headers = combined_image_vulnerability_summary_with_http_info(cid, registry, repository, tag, opts)
@@ -503,6 +565,7 @@ module Falcon
     # @param repository [String] repository name
     # @param tag [String] tag name
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_base_image_vuln include base image vulnerabilities
     # @return [Array<(ImagesApiImageVulnerabilitiesSummary, Integer, Hash)>] ImagesApiImageVulnerabilitiesSummary data, response status code and response headers
     def combined_image_vulnerability_summary_with_http_info(cid, registry, repository, tag, opts = {})
       if @api_client.config.debugging
@@ -533,6 +596,7 @@ module Falcon
       query_params[:'registry'] = registry
       query_params[:'repository'] = repository
       query_params[:'tag'] = tag
+      query_params[:'include_base_image_vuln'] = opts[:'include_base_image_vuln'] if !opts[:'include_base_image_vuln'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -568,12 +632,140 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Creates base images using the provided details
+    # @param body [ModelsCreateBaseImagesRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [CoreEntitiesResponse]
+    def create_base_images_entities(body, opts = {})
+      data, _status_code, _headers = create_base_images_entities_with_http_info(body, opts)
+      data
+    end
+
+    # Creates base images using the provided details
+    # @param body [ModelsCreateBaseImagesRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
+    def create_base_images_entities_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.create_base_images_entities ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ContainerImagesApi.create_base_images_entities"
+      end
+      # resource path
+      local_var_path = '/container-security/entities/base-images/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoreEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ContainerImagesApi.create_base_images_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContainerImagesApi#create_base_images_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete base images by base image uuid
+    # @param ids [Array<String>] BaseImageIDs
+    # @param [Hash] opts the optional parameters
+    # @return [CoreEntitiesResponse]
+    def delete_base_images(ids, opts = {})
+      data, _status_code, _headers = delete_base_images_with_http_info(ids, opts)
+      data
+    end
+
+    # Delete base images by base image uuid
+    # @param ids [Array<String>] BaseImageIDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
+    def delete_base_images_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContainerImagesApi.delete_base_images ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ContainerImagesApi.delete_base_images"
+      end
+      # resource path
+      local_var_path = '/container-security/entities/base-images/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoreEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ContainerImagesApi.delete_base_images",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContainerImagesApi#delete_base_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get image assessment results by providing an FQL filter and paging details
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_id, container_running_status, cve_id, detection_name, detection_severity, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve [1-100]
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository tag]
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository source tag]
     # @return [ImagesExtCombinedImagesResponse]
     def get_combined_images(opts = {})
       data, _status_code, _headers = get_combined_images_with_http_info(opts)
@@ -585,7 +777,7 @@ module Falcon
     # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_id, container_running_status, cve_id, detection_name, detection_severity, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve [1-100]
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository tag]
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository source tag]
     # @return [Array<(ImagesExtCombinedImagesResponse, Integer, Hash)>] ImagesExtCombinedImagesResponse data, response status code and response headers
     def get_combined_images_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -637,12 +829,12 @@ module Falcon
 
     # Retrieve images with an option to expand aggregated vulnerabilities/detections
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,layer_digest,package_name_version,registry,repository,tag,vulnerability_count,vulnerability_severity
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
     # @option opts [Boolean] :expand_vulnerabilities expand vulnerabilities
     # @option opts [Boolean] :expand_detections expand detections
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [base_os cid containers detections firstScanned first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository tag vulnerabilities]
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository source tag vulnerabilities]
     # @return [ImagesApiCombinedImageExport]
     def read_combined_images_export(opts = {})
       data, _status_code, _headers = read_combined_images_export_with_http_info(opts)
@@ -651,12 +843,12 @@ module Falcon
 
     # Retrieve images with an option to expand aggregated vulnerabilities/detections
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,layer_digest,package_name_version,registry,repository,tag,vulnerability_count,vulnerability_severity
+    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
     # @option opts [Boolean] :expand_vulnerabilities expand vulnerabilities
     # @option opts [Boolean] :expand_detections expand detections
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [base_os cid containers detections firstScanned first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository tag vulnerabilities]
+    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository source tag vulnerabilities]
     # @return [Array<(ImagesApiCombinedImageExport, Integer, Hash)>] ImagesApiCombinedImageExport data, response status code and response headers
     def read_combined_images_export_with_http_info(opts = {})
       if @api_client.config.debugging

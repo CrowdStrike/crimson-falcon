@@ -36,19 +36,19 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get report entity download
+    # Get report entity download. Returns either a JSON object or a CSV string.
     # @param ids [String] The report_execution id to download
     # @param [Hash] opts the optional parameters
-    # @return [Array<Integer>]
+    # @return [Object]
     def report_executions_download_get(ids, opts = {})
       data, _status_code, _headers = report_executions_download_get_with_http_info(ids, opts)
       data
     end
 
-    # Get report entity download
+    # Get report entity download. Returns either a JSON object or a CSV string.
     # @param ids [String] The report_execution id to download
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def report_executions_download_get_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportExecutionsApi.report_executions_download_get ...'
@@ -67,7 +67,7 @@ module Falcon
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*'])
+      header_params['Accept'] = @api_client.select_header_accept(['*/*', 'application/json', 'text/csv'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -76,7 +76,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<Integer>'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

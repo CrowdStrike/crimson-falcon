@@ -23,7 +23,6 @@
 | **initiated_from** | **String** |  | [optional] |
 | **last_updated** | **Time** |  | [optional] |
 | **max_duration** | **Integer** |  | [optional] |
-| **max_file_size** | **Integer** |  | [optional] |
 | **metadata** | [**Array&lt;DomainScanMetadata&gt;**](DomainScanMetadata.md) |  | [optional] |
 | **missing_host_count** | **Integer** |  | [optional] |
 | **not_started_host_count** | **Integer** |  | [optional] |
@@ -32,6 +31,7 @@
 | **preemption_priority** | **Integer** |  | [optional] |
 | **profile_id** | **String** |  | [optional] |
 | **quarantine** | **Boolean** |  | [optional] |
+| **rollup_version** | **Integer** |  | [optional] |
 | **scan_completed_on** | **Time** |  | [optional] |
 | **scan_exclusions** | **Array&lt;String&gt;** |  | [optional] |
 | **scan_inclusions** | **Array&lt;String&gt;** |  | [optional] |
@@ -69,7 +69,6 @@ instance = Falcon::DomainScan.new(
   initiated_from: null,
   last_updated: null,
   max_duration: null,
-  max_file_size: null,
   metadata: null,
   missing_host_count: null,
   not_started_host_count: null,
@@ -78,6 +77,7 @@ instance = Falcon::DomainScan.new(
   preemption_priority: null,
   profile_id: null,
   quarantine: null,
+  rollup_version: null,
   scan_completed_on: null,
   scan_exclusions: null,
   scan_inclusions: null,

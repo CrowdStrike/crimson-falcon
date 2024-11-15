@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class PoliciesPolicy
+    attr_accessor :cid
+
     attr_accessor :created_by
 
     attr_accessor :created_timestamp
@@ -59,6 +61,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cid' => :'cid',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
         :'description' => :'description',
@@ -82,6 +85,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cid' => :'String',
         :'created_by' => :'String',
         :'created_timestamp' => :'String',
         :'description' => :'String',
@@ -117,6 +121,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cid')
+        self.cid = attributes[:'cid']
+      end
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
@@ -175,6 +183,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @cid.nil?
+        invalid_properties.push('invalid value for "cid", cid cannot be nil.')
+      end
+
       if @created_timestamp.nil?
         invalid_properties.push('invalid value for "created_timestamp", created_timestamp cannot be nil.')
       end
@@ -201,6 +213,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @cid.nil?
       return false if @created_timestamp.nil?
       return false if @enabled.nil?
       return false if @id.nil?
@@ -214,6 +227,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cid == o.cid &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
           description == o.description &&
@@ -237,7 +251,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by, created_timestamp, description, enabled, host_groups, id, modified_by, modified_timestamp, name, platform, precedence, rule_groups].hash
+      [cid, created_by, created_timestamp, description, enabled, host_groups, id, modified_by, modified_timestamp, name, platform, precedence, rule_groups].hash
     end
 
     # Builds the object from hash

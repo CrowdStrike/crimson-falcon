@@ -15,6 +15,7 @@
 | **name** | **String** |  |  |
 | **next_execution_on** | **Time** |  | [optional] |
 | **notifications** | [**Array&lt;DomainNotifications&gt;**](DomainNotifications.md) |  |  |
+| **owned_by_cs** | **Boolean** |  | [optional] |
 | **report_metadata** | [**DomainReportMetadata**](DomainReportMetadata.md) |  | [optional] |
 | **report_params** | [**DomainReportParams**](DomainReportParams.md) |  |  |
 | **schedule** | [**DomainSchedule**](DomainSchedule.md) |  |  |
@@ -45,6 +46,7 @@ instance = Falcon::DomainScheduledReportV1.new(
   name: null,
   next_execution_on: null,
   notifications: null,
+  owned_by_cs: null,
   report_metadata: null,
   report_params: null,
   schedule: null,

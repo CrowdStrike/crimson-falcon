@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;CommonCountAsResource&gt;**](CommonCountAsResource.md) |  |  |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
 
 ## Example
 
@@ -14,9 +14,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::K8siomsKubernetesIOMCountValue.new(
-  resources: null,
   errors: null,
-  meta: null
+  meta: null,
+  resources: null
 )
 ```
 

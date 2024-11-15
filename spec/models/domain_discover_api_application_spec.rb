@@ -48,6 +48,12 @@ describe Falcon::DomainDiscoverAPIApplication do
     end
   end
 
+  describe 'test attribute "browser_extension"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "category"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -157,6 +163,12 @@ describe Falcon::DomainDiscoverAPIApplication do
   end
 
   describe 'test attribute "name_vendor_version"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "software_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

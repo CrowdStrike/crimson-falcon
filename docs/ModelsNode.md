@@ -14,16 +14,19 @@
 | **cloud_instance_type** | **String** |  |  |
 | **cloud_name** | **String** |  |  |
 | **cloud_region** | **String** |  |  |
+| **cloud_service** | **String** |  |  |
 | **cluster_id** | **String** |  |  |
 | **cluster_name** | **String** |  |  |
 | **container_count** | **Integer** |  |  |
 | **container_runtime_version** | **String** |  |  |
 | **cpu** | **String** |  |  |
 | **created_at** | **String** |  |  |
+| **deleted_at** | **String** |  | [optional] |
 | **external_ip** | **String** |  |  |
 | **first_seen** | **String** |  |  |
 | **ipv4** | **String** |  |  |
 | **ipv6** | **String** |  |  |
+| **kac_agent_id** | **String** |  |  |
 | **kernel_version** | **String** |  |  |
 | **kubernetes_version** | **String** |  |  |
 | **labels** | **Hash&lt;String, String&gt;** |  |  |
@@ -37,6 +40,7 @@
 | **pod_cidr** | **String** |  |  |
 | **pod_count** | **Integer** |  |  |
 | **provider_id** | **String** |  |  |
+| **resource_status** | **String** |  |  |
 | **storage** | **String** |  |  |
 | **uid** | **String** |  |  |
 
@@ -56,16 +60,19 @@ instance = Falcon::ModelsNode.new(
   cloud_instance_type: null,
   cloud_name: null,
   cloud_region: null,
+  cloud_service: null,
   cluster_id: null,
   cluster_name: null,
   container_count: null,
   container_runtime_version: null,
   cpu: null,
   created_at: null,
+  deleted_at: null,
   external_ip: null,
   first_seen: null,
   ipv4: null,
   ipv6: null,
+  kac_agent_id: null,
   kernel_version: null,
   kubernetes_version: null,
   labels: null,
@@ -79,6 +86,7 @@ instance = Falcon::ModelsNode.new(
   pod_cidr: null,
   pod_count: null,
   provider_id: null,
+  resource_status: null,
   storage: null,
   uid: null
 )

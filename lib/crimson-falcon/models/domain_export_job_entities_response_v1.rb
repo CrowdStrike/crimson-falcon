@@ -56,7 +56,7 @@ module Falcon
     def self.openapi_types
       {
         :'errors' => :'Array<ReconmsaAPIError>',
-        :'meta' => :'MsaspecMetaInfo',
+        :'meta' => :'MsaMetaInfo',
         :'resources' => :'Array<DomainExportJobMetadataV1>'
       }
     end

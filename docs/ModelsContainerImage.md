@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** |  |  |
+| **cluster_info** | [**Array&lt;ModelsClusterInfo&gt;**](ModelsClusterInfo.md) |  |  |
 | **container_count** | **Integer** |  |  |
 | **containers_running_status** | **Hash&lt;String, Boolean&gt;** |  |  |
 | **hosts** | **Array&lt;String&gt;** |  |  |
@@ -28,6 +29,7 @@ require 'crimson-falcon'
 
 instance = Falcon::ModelsContainerImage.new(
   cid: null,
+  cluster_info: null,
   container_count: null,
   containers_running_status: null,
   hosts: null,

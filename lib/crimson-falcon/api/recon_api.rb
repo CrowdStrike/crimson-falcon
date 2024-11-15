@@ -772,7 +772,7 @@ module Falcon
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -803,7 +803,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item's content is only partial, a URL is provided under the resource's 'details.full_content_url' path, but the content available at this URL will be the original one.
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationDetailsResponseV1]
@@ -812,7 +813,8 @@ module Falcon
       data
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item&#39;s content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path, but the content available at this URL will be the original one.
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
@@ -865,7 +867,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource's 'details.full_content_url' path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint.
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationDetailsResponseV1]
@@ -874,7 +877,8 @@ module Falcon
       data
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint.
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
@@ -1482,6 +1486,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [DomainRuleQueryResponseV1]
     def query_rules_v1(opts = {})
       data, _status_code, _headers = query_rules_v1_with_http_info(opts)
@@ -1495,6 +1500,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [Array<(DomainRuleQueryResponseV1, Integer, Hash)>] DomainRuleQueryResponseV1 data, response status code and response headers
     def query_rules_v1_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1518,6 +1524,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+      query_params[:'secondarySort'] = opts[:'secondary_sort'] if !opts[:'secondary_sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

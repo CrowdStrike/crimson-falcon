@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **breach_monitor_only** | **Boolean** | Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true. |  |
 | **breach_monitoring_enabled** | **Boolean** | Whether to monitor for breach data. Available only for &#x60;Company Domains&#x60; and &#x60;Email addresses&#x60; rule topics. When enabled, ownership of the monitored domains or emails is required |  |
 | **filter** | **String** | The FQL filter to be used for searching |  |
 | **id** | **String** | The rule ID to be updated |  |
@@ -18,6 +19,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainUpdateRuleRequestV1.new(
+  breach_monitor_only: null,
   breach_monitoring_enabled: null,
   filter: null,
   id: null,

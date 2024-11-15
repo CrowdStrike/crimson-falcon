@@ -93,7 +93,7 @@ module Falcon
     def self.openapi_types
       {
         :'options' => :'MalqueryExternalHuntOptions',
-        :'pagination' => :'MsaspecPaging',
+        :'pagination' => :'MsaPaging',
         :'patterns' => :'Array<MalquerySearchParameter>',
         :'powered_by' => :'String',
         :'query_time' => :'Float',

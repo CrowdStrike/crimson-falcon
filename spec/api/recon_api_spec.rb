@@ -183,7 +183,8 @@ describe 'ReconApi' do
   end
 
   # unit tests for get_notifications_detailed_translated_v1
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+  # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
+  # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item&#39;s content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path, but the content available at this URL will be the original one.
   # @param ids Notification IDs.
   # @param [Hash] opts the optional parameters
   # @return [DomainNotificationDetailsResponseV1]
@@ -194,7 +195,8 @@ describe 'ReconApi' do
   end
 
   # unit tests for get_notifications_detailed_v1
-  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
+  # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint.
   # @param ids Notification IDs.
   # @param [Hash] opts the optional parameters
   # @return [DomainNotificationDetailsResponseV1]
@@ -312,6 +314,7 @@ describe 'ReconApi' do
   # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
   # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
   # @option opts [String] :q Free text search across all indexed fields.
+  # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
   # @return [DomainRuleQueryResponseV1]
   describe 'query_rules_v1 test' do
     it 'should work' do

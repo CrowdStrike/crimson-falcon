@@ -172,8 +172,8 @@ module Falcon
     # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [RegistrationGCPAccountResponseV1]
-    def create_d4_cgcp_account(body, opts = {})
-      data, _status_code, _headers = create_d4_cgcp_account_with_http_info(body, opts)
+    def create_d4_c_gcp_account(body, opts = {})
+      data, _status_code, _headers = create_d4_c_gcp_account_with_http_info(body, opts)
       data
     end
 
@@ -181,13 +181,13 @@ module Falcon
     # @param body [RegistrationGCPAccountCreateRequestExtV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
-    def create_d4_cgcp_account_with_http_info(body, opts = {})
+    def create_d4_c_gcp_account_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.create_d4_cgcp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.create_d4_c_gcp_account ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.create_d4_cgcp_account"
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.create_d4_c_gcp_account"
       end
       # resource path
       local_var_path = '/cloud-connect-gcp/entities/account/v1'
@@ -218,7 +218,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.create_d4_cgcp_account",
+        :operation => :"D4cRegistrationApi.create_d4_c_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +229,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#create_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistrationApi#create_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -601,7 +601,7 @@ module Falcon
     # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :region Region
-    # @return [RegistrationAWSAccountConsoleURL]
+    # @return [RegistrationAWSConsoleURLResponseV2]
     def get_d4_c_aws_console_setup_urls(opts = {})
       data, _status_code, _headers = get_d4_c_aws_console_setup_urls_with_http_info(opts)
       data
@@ -610,7 +610,7 @@ module Falcon
     # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :region Region
-    # @return [Array<(RegistrationAWSAccountConsoleURL, Integer, Hash)>] RegistrationAWSAccountConsoleURL data, response status code and response headers
+    # @return [Array<(RegistrationAWSConsoleURLResponseV2, Integer, Hash)>] RegistrationAWSConsoleURLResponseV2 data, response status code and response headers
     def get_d4_c_aws_console_setup_urls_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_aws_console_setup_urls ...'
@@ -639,7 +639,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationAWSAccountConsoleURL'
+      return_type = opts[:debug_return_type] || 'RegistrationAWSConsoleURLResponseV2'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -661,64 +661,6 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :ids AWS account IDs
-    # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
-    def get_d4_caws_account_scripts_attachment(opts = {})
-      data, _status_code, _headers = get_d4_caws_account_scripts_attachment_with_http_info(opts)
-      data
-    end
-
-    # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-    # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :ids AWS account IDs
-    # @return [Array<(RegistrationAWSProvisionGetAccountScriptResponseV2, Integer, Hash)>] RegistrationAWSProvisionGetAccountScriptResponseV2 data, response status code and response headers
-    def get_d4_caws_account_scripts_attachment_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_caws_account_scripts_attachment ...'
-      end
-      # resource path
-      local_var_path = '/cloud-connect-aws/entities/user-scripts-download/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :multi) if !opts[:'ids'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationAWSProvisionGetAccountScriptResponseV2'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_caws_account_scripts_attachment",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_caws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Returns information about the current status of an GCP account.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
@@ -729,8 +671,8 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
     # @return [RegistrationGCPAccountResponseV1]
-    def get_d4_ccgp_account(opts = {})
-      data, _status_code, _headers = get_d4_ccgp_account_with_http_info(opts)
+    def get_d4_c_gcp_account(opts = {})
+      data, _status_code, _headers = get_d4_c_gcp_account_with_http_info(opts)
       data
     end
 
@@ -744,9 +686,9 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
     # @return [Array<(RegistrationGCPAccountResponseV1, Integer, Hash)>] RegistrationGCPAccountResponseV1 data, response status code and response headers
-    def get_d4_ccgp_account_with_http_info(opts = {})
+    def get_d4_c_gcp_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_ccgp_account ...'
+        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_gcp_account ...'
       end
       allowable_values = ["Folder", "Organization", "Project"]
       if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
@@ -791,7 +733,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_ccgp_account",
+        :operation => :"D4cRegistrationApi.get_d4_c_gcp_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -802,7 +744,195 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_ccgp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_gcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+    # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
+    def get_d4_c_gcp_user_scripts(opts = {})
+      data, _status_code, _headers = get_d4_c_gcp_user_scripts_with_http_info(opts)
+      data
+    end
+
+    # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+    # @return [Array<(RegistrationGCPProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationGCPProvisionGetUserScriptResponseV1 data, response status code and response headers
+    def get_d4_c_gcp_user_scripts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_c_gcp_user_scripts ...'
+      end
+      allowable_values = ["Folder", "Organization", "Project"]
+      if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
+        fail ArgumentError, "invalid value for \"parent_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/cloud-connect-gcp/entities/user-scripts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'parent_type'] = opts[:'parent_type'] if !opts[:'parent_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationGCPProvisionGetUserScriptResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"D4cRegistrationApi.get_d4_c_gcp_user_scripts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_c_gcp_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids AWS account IDs
+    # @option opts [String] :template Template to be rendered (default to 'aws-bash')
+    # @option opts [Array<String>] :accounts The list of accounts to register
+    # @option opts [String] :behavior_assessment_enabled
+    # @option opts [String] :sensor_management_enabled
+    # @option opts [String] :dspm_enabled
+    # @option opts [Array<String>] :dspm_regions
+    # @option opts [String] :dspm_role
+    # @option opts [String] :use_existing_cloudtrail
+    # @option opts [String] :organization_id The AWS organization ID to be registered
+    # @option opts [String] :aws_profile The AWS profile to be used during registration
+    # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+    # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
+    def get_d4_caws_account_scripts_attachment(opts = {})
+      data, _status_code, _headers = get_d4_caws_account_scripts_attachment_with_http_info(opts)
+      data
+    end
+
+    # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids AWS account IDs
+    # @option opts [String] :template Template to be rendered (default to 'aws-bash')
+    # @option opts [Array<String>] :accounts The list of accounts to register
+    # @option opts [String] :behavior_assessment_enabled
+    # @option opts [String] :sensor_management_enabled
+    # @option opts [String] :dspm_enabled
+    # @option opts [Array<String>] :dspm_regions
+    # @option opts [String] :dspm_role
+    # @option opts [String] :use_existing_cloudtrail
+    # @option opts [String] :organization_id The AWS organization ID to be registered
+    # @option opts [String] :aws_profile The AWS profile to be used during registration
+    # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+    # @return [Array<(RegistrationAWSProvisionGetAccountScriptResponseV2, Integer, Hash)>] RegistrationAWSProvisionGetAccountScriptResponseV2 data, response status code and response headers
+    def get_d4_caws_account_scripts_attachment_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_caws_account_scripts_attachment ...'
+      end
+      allowable_values = ["aws-bash"]
+      if @api_client.config.client_side_validation && opts[:'template'] && !allowable_values.include?(opts[:'template'])
+        fail ArgumentError, "invalid value for \"template\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'behavior_assessment_enabled'] && !allowable_values.include?(opts[:'behavior_assessment_enabled'])
+        fail ArgumentError, "invalid value for \"behavior_assessment_enabled\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'sensor_management_enabled'] && !allowable_values.include?(opts[:'sensor_management_enabled'])
+        fail ArgumentError, "invalid value for \"sensor_management_enabled\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'dspm_enabled'] && !allowable_values.include?(opts[:'dspm_enabled'])
+        fail ArgumentError, "invalid value for \"dspm_enabled\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'use_existing_cloudtrail'] && !allowable_values.include?(opts[:'use_existing_cloudtrail'])
+        fail ArgumentError, "invalid value for \"use_existing_cloudtrail\", must be one of #{allowable_values}"
+      end
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'organization_id'].nil? && opts[:'organization_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"organization_id\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'aws_profile'].nil? && opts[:'aws_profile'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"aws_profile\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'custom_role_name'].nil? && opts[:'custom_role_name'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling D4cRegistrationApi.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/cloud-connect-aws/entities/user-scripts-download/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :multi) if !opts[:'ids'].nil?
+      query_params[:'template'] = opts[:'template'] if !opts[:'template'].nil?
+      query_params[:'accounts'] = @api_client.build_collection_param(opts[:'accounts'], :multi) if !opts[:'accounts'].nil?
+      query_params[:'behavior_assessment_enabled'] = opts[:'behavior_assessment_enabled'] if !opts[:'behavior_assessment_enabled'].nil?
+      query_params[:'sensor_management_enabled'] = opts[:'sensor_management_enabled'] if !opts[:'sensor_management_enabled'].nil?
+      query_params[:'dspm_enabled'] = opts[:'dspm_enabled'] if !opts[:'dspm_enabled'].nil?
+      query_params[:'dspm_regions'] = @api_client.build_collection_param(opts[:'dspm_regions'], :csv) if !opts[:'dspm_regions'].nil?
+      query_params[:'dspm_role'] = opts[:'dspm_role'] if !opts[:'dspm_role'].nil?
+      query_params[:'use_existing_cloudtrail'] = opts[:'use_existing_cloudtrail'] if !opts[:'use_existing_cloudtrail'].nil?
+      query_params[:'organization_id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
+      query_params[:'aws_profile'] = opts[:'aws_profile'] if !opts[:'aws_profile'].nil?
+      query_params[:'custom_role_name'] = opts[:'custom_role_name'] if !opts[:'custom_role_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationAWSProvisionGetAccountScriptResponseV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"D4cRegistrationApi.get_d4_caws_account_scripts_attachment",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_caws_account_scripts_attachment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -866,68 +996,6 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
-    # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
-    def get_d4_cgcp_user_scripts(opts = {})
-      data, _status_code, _headers = get_d4_cgcp_user_scripts_with_http_info(opts)
-      data
-    end
-
-    # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
-    # @return [Array<(RegistrationGCPProvisionGetUserScriptResponseV1, Integer, Hash)>] RegistrationGCPProvisionGetUserScriptResponseV1 data, response status code and response headers
-    def get_d4_cgcp_user_scripts_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.get_d4_cgcp_user_scripts ...'
-      end
-      allowable_values = ["Folder", "Organization", "Project"]
-      if @api_client.config.client_side_validation && opts[:'parent_type'] && !allowable_values.include?(opts[:'parent_type'])
-        fail ArgumentError, "invalid value for \"parent_type\", must be one of #{allowable_values}"
-      end
-      # resource path
-      local_var_path = '/cloud-connect-gcp/entities/user-scripts/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'parent_type'] = opts[:'parent_type'] if !opts[:'parent_type'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationGCPProvisionGetUserScriptResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"D4cRegistrationApi.get_d4_cgcp_user_scripts",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistrationApi#get_d4_cgcp_user_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1371,6 +1439,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: D4cRegistrationApi#get_horizon_d4_c_scripts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patches the service account key for external clients.
+    # @param body [RegistrationGCPServiceAccountPatchRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [RegistrationGCPServiceAccountResponseExtV1]
+    def update_d4_cgcp_service_accounts_ext(body, opts = {})
+      data, _status_code, _headers = update_d4_cgcp_service_accounts_ext_with_http_info(body, opts)
+      data
+    end
+
+    # Patches the service account key for external clients.
+    # @param body [RegistrationGCPServiceAccountPatchRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RegistrationGCPServiceAccountResponseExtV1, Integer, Hash)>] RegistrationGCPServiceAccountResponseExtV1 data, response status code and response headers
+    def update_d4_cgcp_service_accounts_ext_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: D4cRegistrationApi.update_d4_cgcp_service_accounts_ext ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling D4cRegistrationApi.update_d4_cgcp_service_accounts_ext"
+      end
+      # resource path
+      local_var_path = '/cloud-connect-gcp/entities/service-accounts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RegistrationGCPServiceAccountResponseExtV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"D4cRegistrationApi.update_d4_cgcp_service_accounts_ext",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: D4cRegistrationApi#update_d4_cgcp_service_accounts_ext\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

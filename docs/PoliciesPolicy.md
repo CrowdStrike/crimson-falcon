@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **cid** | **String** |  |  |
 | **created_by** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  |  |
 | **description** | **String** |  | [optional] |
@@ -23,6 +24,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::PoliciesPolicy.new(
+  cid: null,
   created_by: null,
   created_timestamp: null,
   description: null,

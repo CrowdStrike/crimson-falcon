@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **actions** | [**V2ActivityParameters**](V2ActivityParameters.md) |  | [optional] |
-| **conditions** | [**Hash&lt;String, V2ConditionParameters&gt;**](V2ConditionParameters.md) |  | [optional] |
+| **conditions** | **Hash&lt;String, Array&lt;V2ConditionGroups&gt;&gt;** |  | [optional] |
 | **install_instructions** | **String** | Installation instructions for the template. | [optional] |
 | **trigger** | [**ParameterTriggerParameter**](ParameterTriggerParameter.md) |  | [optional] |
 

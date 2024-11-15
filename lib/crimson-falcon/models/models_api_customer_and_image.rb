@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsAPICustomerAndImage
+    attr_accessor :base_image_id
+
     attr_accessor :base_os
 
     attr_accessor :base_os_version
@@ -56,9 +58,15 @@ module Falcon
 
     attr_accessor :image_size
 
+    attr_accessor :is_base_image
+
     attr_accessor :registry
 
     attr_accessor :repository
+
+    attr_accessor :source
+
+    attr_accessor :source_base_image
 
     attr_accessor :tag
 
@@ -66,9 +74,12 @@ module Falcon
 
     attr_accessor :uuid
 
+    attr_accessor :warning
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'base_image_id' => :'base_image_id',
         :'base_os' => :'base_os',
         :'base_os_version' => :'base_os_version',
         :'cid' => :'cid',
@@ -81,11 +92,15 @@ module Falcon
         :'image_id' => :'image_id',
         :'image_scanning_active' => :'image_scanning_active',
         :'image_size' => :'image_size',
+        :'is_base_image' => :'is_base_image',
         :'registry' => :'registry',
         :'repository' => :'repository',
+        :'source' => :'source',
+        :'source_base_image' => :'source_base_image',
         :'tag' => :'tag',
         :'updated_at' => :'updated_at',
-        :'uuid' => :'uuid'
+        :'uuid' => :'uuid',
+        :'warning' => :'warning'
       }
     end
 
@@ -97,6 +112,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'base_image_id' => :'String',
         :'base_os' => :'String',
         :'base_os_version' => :'String',
         :'cid' => :'String',
@@ -109,11 +125,15 @@ module Falcon
         :'image_id' => :'String',
         :'image_scanning_active' => :'Boolean',
         :'image_size' => :'Integer',
+        :'is_base_image' => :'Boolean',
         :'registry' => :'String',
         :'repository' => :'String',
+        :'source' => :'String',
+        :'source_base_image' => :'ModelsImageDetails',
         :'tag' => :'String',
         :'updated_at' => :'String',
-        :'uuid' => :'String'
+        :'uuid' => :'String',
+        :'warning' => :'Integer'
       }
     end
 
@@ -137,6 +157,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'base_image_id')
+        self.base_image_id = attributes[:'base_image_id']
+      end
 
       if attributes.key?(:'base_os')
         self.base_os = attributes[:'base_os']
@@ -186,12 +210,24 @@ module Falcon
         self.image_size = attributes[:'image_size']
       end
 
+      if attributes.key?(:'is_base_image')
+        self.is_base_image = attributes[:'is_base_image']
+      end
+
       if attributes.key?(:'registry')
         self.registry = attributes[:'registry']
       end
 
       if attributes.key?(:'repository')
         self.repository = attributes[:'repository']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
+      end
+
+      if attributes.key?(:'source_base_image')
+        self.source_base_image = attributes[:'source_base_image']
       end
 
       if attributes.key?(:'tag')
@@ -204,6 +240,10 @@ module Falcon
 
       if attributes.key?(:'uuid')
         self.uuid = attributes[:'uuid']
+      end
+
+      if attributes.key?(:'warning')
+        self.warning = attributes[:'warning']
       end
     end
 
@@ -255,12 +295,24 @@ module Falcon
         invalid_properties.push('invalid value for "image_size", image_size cannot be nil.')
       end
 
+      if @is_base_image.nil?
+        invalid_properties.push('invalid value for "is_base_image", is_base_image cannot be nil.')
+      end
+
       if @registry.nil?
         invalid_properties.push('invalid value for "registry", registry cannot be nil.')
       end
 
       if @repository.nil?
         invalid_properties.push('invalid value for "repository", repository cannot be nil.')
+      end
+
+      if @source.nil?
+        invalid_properties.push('invalid value for "source", source cannot be nil.')
+      end
+
+      if @source_base_image.nil?
+        invalid_properties.push('invalid value for "source_base_image", source_base_image cannot be nil.')
       end
 
       if @tag.nil?
@@ -273,6 +325,10 @@ module Falcon
 
       if @uuid.nil?
         invalid_properties.push('invalid value for "uuid", uuid cannot be nil.')
+      end
+
+      if @warning.nil?
+        invalid_properties.push('invalid value for "warning", warning cannot be nil.')
       end
 
       invalid_properties
@@ -292,11 +348,15 @@ module Falcon
       return false if @image_id.nil?
       return false if @image_scanning_active.nil?
       return false if @image_size.nil?
+      return false if @is_base_image.nil?
       return false if @registry.nil?
       return false if @repository.nil?
+      return false if @source.nil?
+      return false if @source_base_image.nil?
       return false if @tag.nil?
       return false if @updated_at.nil?
       return false if @uuid.nil?
+      return false if @warning.nil?
       true
     end
 
@@ -305,6 +365,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          base_image_id == o.base_image_id &&
           base_os == o.base_os &&
           base_os_version == o.base_os_version &&
           cid == o.cid &&
@@ -317,11 +378,15 @@ module Falcon
           image_id == o.image_id &&
           image_scanning_active == o.image_scanning_active &&
           image_size == o.image_size &&
+          is_base_image == o.is_base_image &&
           registry == o.registry &&
           repository == o.repository &&
+          source == o.source &&
+          source_base_image == o.source_base_image &&
           tag == o.tag &&
           updated_at == o.updated_at &&
-          uuid == o.uuid
+          uuid == o.uuid &&
+          warning == o.warning
     end
 
     # @see the `==` method
@@ -333,7 +398,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, registry, repository, tag, updated_at, uuid].hash
+      [base_image_id, base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, is_base_image, registry, repository, source, source_base_image, tag, updated_at, uuid, warning].hash
     end
 
     # Builds the object from hash

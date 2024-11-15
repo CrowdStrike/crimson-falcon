@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
 | **meta** | [**DomainMetaInfo**](DomainMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainAPIVulnerabilityV2&gt;**](DomainAPIVulnerabilityV2.md) |  |  |
 

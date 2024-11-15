@@ -34,6 +34,8 @@ module Falcon
   class ApiObjectMetadata
     attr_accessor :collection_name
 
+    attr_accessor :collection_version
+
     attr_accessor :last_modified_time
 
     attr_accessor :namespace
@@ -46,6 +48,7 @@ module Falcon
     def self.attribute_map
       {
         :'collection_name' => :'collection_name',
+        :'collection_version' => :'collection_version',
         :'last_modified_time' => :'last_modified_time',
         :'namespace' => :'namespace',
         :'object_key' => :'object_key',
@@ -62,6 +65,7 @@ module Falcon
     def self.openapi_types
       {
         :'collection_name' => :'String',
+        :'collection_version' => :'String',
         :'last_modified_time' => :'Time',
         :'namespace' => :'String',
         :'object_key' => :'String',
@@ -92,6 +96,10 @@ module Falcon
 
       if attributes.key?(:'collection_name')
         self.collection_name = attributes[:'collection_name']
+      end
+
+      if attributes.key?(:'collection_version')
+        self.collection_version = attributes[:'collection_version']
       end
 
       if attributes.key?(:'last_modified_time')
@@ -150,6 +158,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           collection_name == o.collection_name &&
+          collection_version == o.collection_version &&
           last_modified_time == o.last_modified_time &&
           namespace == o.namespace &&
           object_key == o.object_key &&
@@ -165,7 +174,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [collection_name, last_modified_time, namespace, object_key, schema_version].hash
+      [collection_name, collection_version, last_modified_time, namespace, object_key, schema_version].hash
     end
 
     # Builds the object from hash

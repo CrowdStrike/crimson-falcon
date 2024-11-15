@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
+| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** | Elapsed time since the request started in seconds | [optional] |
 | **reqid** | **String** | Request ID returned after creating a hunt or exact search | [optional] |

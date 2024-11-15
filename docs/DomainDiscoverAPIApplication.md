@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **architectures** | **Array&lt;String&gt;** | Represents the application architectures (x86 / x64). | [optional] |
+| **browser_extension** | [**DomainDiscoverAPIApplicationBrowserExtension**](DomainDiscoverAPIApplicationBrowserExtension.md) |  | [optional] |
 | **category** | **String** | The category of the application. | [optional] |
 | **cid** | **String** | The customer ID of this application. |  |
 | **first_seen_timestamp** | **String** | Timestamp when this application was first seen by the cloud. | [optional] |
@@ -24,6 +25,7 @@
 | **name** | **String** | The name of the application. | [optional] |
 | **name_vendor** | **String** | The combined field on which we will be able to group by app. | [optional] |
 | **name_vendor_version** | **String** | The combined field on which we will be able to group by app + version. | [optional] |
+| **software_type** | **String** | The type of software of the application. | [optional] |
 | **vendor** | **String** | The name the application&#39;s vendor. | [optional] |
 | **version** | **String** | The version of the application. | [optional] |
 | **versioning_scheme** | **String** | The version scheme of the application. | [optional] |
@@ -35,6 +37,7 @@ require 'crimson-falcon'
 
 instance = Falcon::DomainDiscoverAPIApplication.new(
   architectures: null,
+  browser_extension: null,
   category: null,
   cid: null,
   first_seen_timestamp: null,
@@ -54,6 +57,7 @@ instance = Falcon::DomainDiscoverAPIApplication.new(
   name: null,
   name_vendor: null,
   name_vendor_version: null,
+  software_type: null,
   vendor: null,
   version: null,
   versioning_scheme: null

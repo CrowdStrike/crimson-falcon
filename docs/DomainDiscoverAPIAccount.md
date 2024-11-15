@@ -12,13 +12,13 @@
 | **id** | **String** | The unique ID of the account. |  |
 | **last_failed_login_hostname** | **String** | The hostname of the asset on which the account last made a failed login. | [optional] |
 | **last_failed_login_timestamp** | **String** | The date and time of the account&#39;s most recent failed login. | [optional] |
-| **last_failed_login_type** | **String** | The type of the account&#39;s most recent failed login. &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Batch&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Unlock&lt;/li&gt;&lt;li&gt;Network cleartext&lt;/li&gt;&lt;li&gt;New credentials&lt;/li&gt;&lt;li&gt;Terminal server&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **last_failed_login_type** | **String** | The type of the account&#39;s most recent failed login. &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Batch&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Unlock&lt;/li&gt;&lt;li&gt;Network cleartext&lt;/li&gt;&lt;li&gt;New credentials&lt;/li&gt;&lt;li&gt;Remote interactive&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
 | **last_successful_login_host_city** | **String** | The name of the city where the asset is located on which the account last successfully logged in. | [optional] |
 | **last_successful_login_host_country** | **String** | The name of the country where the asset is located on which the account last successfully logged in. | [optional] |
 | **last_successful_login_hostname** | **String** | The hostname of the asset on which the account last successfully logged in. | [optional] |
 | **last_successful_login_remote_ip** | **String** | The remote IP address of the asset on which the account last successfully logged in. | [optional] |
 | **last_successful_login_timestamp** | **String** | The date and time of the account&#39;s most recent successful login. | [optional] |
-| **last_successful_login_type** | **String** | The type of the account&#39;s most recent successful login. &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Terminal server&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **last_successful_login_type** | **String** | The type of the account&#39;s most recent successful login. &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Remote interactive&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
 | **local_admin_privileges** | **String** | Whether the account has local administrator privileges (Yes, No). | [optional] |
 | **login_domain** | **String** | The domain of the asset the account successfully logged in to. | [optional] |
 | **password_last_set_timestamp** | **String** | The most recent date and time the account&#39;s password was changed. | [optional] |

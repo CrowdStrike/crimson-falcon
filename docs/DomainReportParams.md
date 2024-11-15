@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **columns** | **Array&lt;String&gt;** |  |  |
 | **dashboard_id** | **String** |  |  |
 | **dashboard_visibility** | **String** |  |  |
 | **filter** | **String** |  |  |
@@ -12,6 +13,7 @@
 | **format** | **String** |  |  |
 | **report_type_options** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **sort** | **String** |  |  |
+| **spotlight_params** | [**DomainSpotlightParams**](DomainSpotlightParams.md) |  | [optional] |
 
 ## Example
 
@@ -19,6 +21,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainReportParams.new(
+  columns: null,
   dashboard_id: null,
   dashboard_visibility: null,
   filter: null,
@@ -26,7 +29,8 @@ instance = Falcon::DomainReportParams.new(
   filter_ui: null,
   format: null,
   report_type_options: null,
-  sort: null
+  sort: null,
+  spotlight_params: null
 )
 ```
 

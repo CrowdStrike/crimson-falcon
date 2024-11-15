@@ -37,6 +37,9 @@ module Falcon
     # Specifies whether the given activity configuration property can be overridden at provisioning time.
     attr_accessor :deny_override
 
+    # Optional text/description which can be used to provide differentiation for parameterized fields during app installation.
+    attr_accessor :helper_text
+
     # Indication of whether the property must be specified as a parameter during template provisioning.
     attr_accessor :required
 
@@ -45,6 +48,7 @@ module Falcon
       {
         :'default_value' => :'default_value',
         :'deny_override' => :'deny_override',
+        :'helper_text' => :'helperText',
         :'required' => :'required'
       }
     end
@@ -59,6 +63,7 @@ module Falcon
       {
         :'default_value' => :'Object',
         :'deny_override' => :'Boolean',
+        :'helper_text' => :'String',
         :'required' => :'Boolean'
       }
     end
@@ -92,6 +97,10 @@ module Falcon
         self.deny_override = attributes[:'deny_override']
       end
 
+      if attributes.key?(:'helper_text')
+        self.helper_text = attributes[:'helper_text']
+      end
+
       if attributes.key?(:'required')
         self.required = attributes[:'required']
       end
@@ -122,6 +131,7 @@ module Falcon
       self.class == o.class &&
           default_value == o.default_value &&
           deny_override == o.deny_override &&
+          helper_text == o.helper_text &&
           required == o.required
     end
 
@@ -134,7 +144,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [default_value, deny_override, required].hash
+      [default_value, deny_override, helper_text, required].hash
     end
 
     # Builds the object from hash

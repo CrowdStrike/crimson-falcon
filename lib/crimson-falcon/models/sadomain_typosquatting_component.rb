@@ -42,6 +42,8 @@ module Falcon
     # The Punycode representation of the infrastructure component, i.e. starting with `xn--`
     attr_accessor :punycode_format
 
+    attr_accessor :subdomain
+
     attr_accessor :submit_for_blocking_info
 
     attr_accessor :submit_for_takedown_info
@@ -56,6 +58,7 @@ module Falcon
         :'id' => :'id',
         :'parent_domain' => :'parent_domain',
         :'punycode_format' => :'punycode_format',
+        :'subdomain' => :'subdomain',
         :'submit_for_blocking_info' => :'submit_for_blocking_info',
         :'submit_for_takedown_info' => :'submit_for_takedown_info',
         :'unicode_format' => :'unicode_format'
@@ -74,6 +77,7 @@ module Falcon
         :'id' => :'String',
         :'parent_domain' => :'SadomainTyposquattingParentDomain',
         :'punycode_format' => :'String',
+        :'subdomain' => :'SadomainTyposquattingSubdomain',
         :'submit_for_blocking_info' => :'SadomainSubmissionInformation',
         :'submit_for_takedown_info' => :'SadomainSubmissionInformation',
         :'unicode_format' => :'String'
@@ -115,6 +119,10 @@ module Falcon
 
       if attributes.key?(:'punycode_format')
         self.punycode_format = attributes[:'punycode_format']
+      end
+
+      if attributes.key?(:'subdomain')
+        self.subdomain = attributes[:'subdomain']
       end
 
       if attributes.key?(:'submit_for_blocking_info')
@@ -177,6 +185,7 @@ module Falcon
           id == o.id &&
           parent_domain == o.parent_domain &&
           punycode_format == o.punycode_format &&
+          subdomain == o.subdomain &&
           submit_for_blocking_info == o.submit_for_blocking_info &&
           submit_for_takedown_info == o.submit_for_takedown_info &&
           unicode_format == o.unicode_format
@@ -191,7 +200,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [base_domain, id, parent_domain, punycode_format, submit_for_blocking_info, submit_for_takedown_info, unicode_format].hash
+      [base_domain, id, parent_domain, punycode_format, subdomain, submit_for_blocking_info, submit_for_takedown_info, unicode_format].hash
     end
 
     # Builds the object from hash

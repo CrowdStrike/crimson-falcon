@@ -164,6 +164,254 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Download an export file
+    # @param id [String] Export job ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<Integer>]
+    def download_export_file(id, opts = {})
+      data, _status_code, _headers = download_export_file_with_http_info(id, opts)
+      data
+    end
+
+    # Download an export file
+    # @param id [String] Export job ID.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
+    def download_export_file_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.download_export_file ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling FalconContainerImageApi.download_export_file"
+      end
+      # resource path
+      local_var_path = '/container-security/entities/exports/files/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<Integer>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImageApi.download_export_file",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImageApi#download_export_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [ExportsLaunchExportResponse]
+    def launch_export_job(body, opts = {})
+      data, _status_code, _headers = launch_export_job_with_http_info(body, opts)
+      data
+    end
+
+    # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ExportsLaunchExportResponse, Integer, Hash)>] ExportsLaunchExportResponse data, response status code and response headers
+    def launch_export_job_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.launch_export_job ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling FalconContainerImageApi.launch_export_job"
+      end
+      # resource path
+      local_var_path = '/container-security/entities/exports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExportsLaunchExportResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImageApi.launch_export_job",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImageApi#launch_export_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Query export jobs entities
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string)
+    # @return [MsaspecQueryResponse]
+    def query_export_jobs(opts = {})
+      data, _status_code, _headers = query_export_jobs_with_http_info(opts)
+      data
+    end
+
+    # Query export jobs entities
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string)
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_export_jobs_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.query_export_jobs ...'
+      end
+      # resource path
+      local_var_path = '/container-security/queries/exports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImageApi.query_export_jobs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImageApi#query_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read export jobs entities
+    # @param ids [Array<String>] Export Job IDs to read. Allowed up to 100 IDs per request.
+    # @param [Hash] opts the optional parameters
+    # @return [ExportsExportsResponse]
+    def read_export_jobs(ids, opts = {})
+      data, _status_code, _headers = read_export_jobs_with_http_info(ids, opts)
+      data
+    end
+
+    # Read export jobs entities
+    # @param ids [Array<String>] Export Job IDs to read. Allowed up to 100 IDs per request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ExportsExportsResponse, Integer, Hash)>] ExportsExportsResponse data, response status code and response headers
+    def read_export_jobs_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImageApi.read_export_jobs ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FalconContainerImageApi.read_export_jobs"
+      end
+      # resource path
+      local_var_path = '/container-security/entities/exports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ExportsExportsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImageApi.read_export_jobs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImageApi#read_export_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve registry entities identified by the customer id
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.

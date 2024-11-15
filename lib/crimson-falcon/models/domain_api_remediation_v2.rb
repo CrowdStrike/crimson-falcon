@@ -41,6 +41,12 @@ module Falcon
     # Link to the remediation page for the vendor
     attr_accessor :link
 
+    # The timestamp that this remediation was published
+    attr_accessor :patch_publication_date
+
+    # The type of recommendation for this remediation, usually either 'recommended' or 'minimum'
+    attr_accessor :recommendation_type
+
     # Relevant reference for the remediation that can be used to get additional details for the remediation. For example, a KB number that needs to be installed for a KB_SECURITY_UPDATE
     attr_accessor :reference
 
@@ -56,6 +62,8 @@ module Falcon
         :'action' => :'action',
         :'id' => :'id',
         :'link' => :'link',
+        :'patch_publication_date' => :'patch_publication_date',
+        :'recommendation_type' => :'recommendation_type',
         :'reference' => :'reference',
         :'title' => :'title',
         :'vendor_url' => :'vendor_url'
@@ -73,6 +81,8 @@ module Falcon
         :'action' => :'String',
         :'id' => :'String',
         :'link' => :'String',
+        :'patch_publication_date' => :'String',
+        :'recommendation_type' => :'String',
         :'reference' => :'String',
         :'title' => :'String',
         :'vendor_url' => :'String'
@@ -110,6 +120,14 @@ module Falcon
 
       if attributes.key?(:'link')
         self.link = attributes[:'link']
+      end
+
+      if attributes.key?(:'patch_publication_date')
+        self.patch_publication_date = attributes[:'patch_publication_date']
+      end
+
+      if attributes.key?(:'recommendation_type')
+        self.recommendation_type = attributes[:'recommendation_type']
       end
 
       if attributes.key?(:'reference')
@@ -176,6 +194,8 @@ module Falcon
           action == o.action &&
           id == o.id &&
           link == o.link &&
+          patch_publication_date == o.patch_publication_date &&
+          recommendation_type == o.recommendation_type &&
           reference == o.reference &&
           title == o.title &&
           vendor_url == o.vendor_url
@@ -190,7 +210,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, id, link, reference, title, vendor_url].hash
+      [action, id, link, patch_publication_date, recommendation_type, reference, title, vendor_url].hash
     end
 
     # Builds the object from hash

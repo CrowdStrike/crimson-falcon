@@ -37,11 +37,19 @@ module Falcon
 
     attr_accessor :node_id
 
+    # Keys of the fields that are the output for this model
+    attr_accessor :output_fields
+
+    # Summary of the workflow is free form text with possibly embedded variables
+    attr_accessor :summary
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'incoming_flows' => :'incoming_flows',
-        :'node_id' => :'nodeID'
+        :'node_id' => :'nodeID',
+        :'output_fields' => :'output_fields',
+        :'summary' => :'summary'
       }
     end
 
@@ -54,7 +62,9 @@ module Falcon
     def self.openapi_types
       {
         :'incoming_flows' => :'Array<String>',
-        :'node_id' => :'String'
+        :'node_id' => :'String',
+        :'output_fields' => :'Array<String>',
+        :'summary' => :'String'
       }
     end
 
@@ -88,6 +98,16 @@ module Falcon
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
       end
+
+      if attributes.key?(:'output_fields')
+        if (value = attributes[:'output_fields']).is_a?(Array)
+          self.output_fields = value
+        end
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -119,7 +139,9 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           incoming_flows == o.incoming_flows &&
-          node_id == o.node_id
+          node_id == o.node_id &&
+          output_fields == o.output_fields &&
+          summary == o.summary
     end
 
     # @see the `==` method
@@ -131,7 +153,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [incoming_flows, node_id].hash
+      [incoming_flows, node_id, output_fields, summary].hash
     end
 
     # Builds the object from hash

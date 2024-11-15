@@ -50,10 +50,10 @@ describe 'ReportExecutionsApi' do
   end
 
   # unit tests for report_executions_download_get
-  # Get report entity download
+  # Get report entity download. Returns either a JSON object or a CSV string.
   # @param ids The report_execution id to download
   # @param [Hash] opts the optional parameters
-  # @return [Array<Integer>]
+  # @return [Object]
   describe 'report_executions_download_get test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

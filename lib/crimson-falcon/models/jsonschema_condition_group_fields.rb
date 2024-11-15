@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :dependent_control
 
+    attr_accessor :requires_meta
+
     attr_accessor :reset_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -49,6 +51,7 @@ module Falcon
         :'control_name' => :'control_name',
         :'controller' => :'controller',
         :'dependent_control' => :'dependent_control',
+        :'requires_meta' => :'requires_meta',
         :'reset_fields' => :'reset_fields'
       }
     end
@@ -65,6 +68,7 @@ module Falcon
         :'control_name' => :'String',
         :'controller' => :'Boolean',
         :'dependent_control' => :'String',
+        :'requires_meta' => :'String',
         :'reset_fields' => :'JsonschemaResetFields'
       }
     end
@@ -106,6 +110,10 @@ module Falcon
         self.dependent_control = attributes[:'dependent_control']
       end
 
+      if attributes.key?(:'requires_meta')
+        self.requires_meta = attributes[:'requires_meta']
+      end
+
       if attributes.key?(:'reset_fields')
         self.reset_fields = attributes[:'reset_fields']
       end
@@ -133,6 +141,7 @@ module Falcon
           control_name == o.control_name &&
           controller == o.controller &&
           dependent_control == o.dependent_control &&
+          requires_meta == o.requires_meta &&
           reset_fields == o.reset_fields
     end
 
@@ -145,7 +154,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [condition_control, control_name, controller, dependent_control, reset_fields].hash
+      [condition_control, control_name, controller, dependent_control, requires_meta, reset_fields].hash
     end
 
     # Builds the object from hash

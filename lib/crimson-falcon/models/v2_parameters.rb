@@ -60,7 +60,7 @@ module Falcon
     def self.openapi_types
       {
         :'actions' => :'V2ActivityParameters',
-        :'conditions' => :'Hash<String, V2ConditionParameters>',
+        :'conditions' => :'Hash<String, Array<V2ConditionGroups>>',
         :'install_instructions' => :'String',
         :'trigger' => :'ParameterTriggerParameter'
       }

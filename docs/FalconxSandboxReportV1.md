@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **all_extracted_strings_artifact_id** | **String** |  | [optional] |
 | **architecture** | **String** |  | [optional] |
 | **certificates** | [**Array&lt;FalconxCertificate&gt;**](FalconxCertificate.md) |  | [optional] |
 | **certificates_validation_message** | **String** |  | [optional] |
@@ -80,6 +81,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::FalconxSandboxReportV1.new(
+  all_extracted_strings_artifact_id: null,
   architecture: null,
   certificates: null,
   certificates_validation_message: null,

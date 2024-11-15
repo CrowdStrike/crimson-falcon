@@ -142,6 +142,17 @@ describe 'CspmRegistrationApi' do
     end
   end
 
+  # unit tests for delete_cspm_azure_management_group
+  # Deletes Azure management groups from the system.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :tenant_ids Tenant ids to remove
+  # @return [MsaspecResponseFields]
+  describe 'delete_cspm_azure_management_group test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for delete_cspmgcp_account
   # Deletes a GCP account from the system.
   # @param [Hash] opts the optional parameters
@@ -191,7 +202,7 @@ describe 'CspmRegistrationApi' do
   # unit tests for get_configuration_detection_ids_v2
   # Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
+  # @option opts [String] :filter use_current_scan_ids - *use this to get records for latest scans (ignored when next_token is set)* account_name account_id agent_id attack_types azure_subscription_id cloud_provider cloud_service_keyword custom_policy_id is_managed policy_id policy_type resource_id region status scan_time severity severity_string
   # @option opts [String] :sort account_name account_id attack_types azure_subscription_id cloud_provider cloud_service_keyword status is_managed policy_id policy_type resource_id region scan_time severity severity_string timestamp
   # @option opts [Integer] :limit The max number of detections to return
   # @option opts [Integer] :offset Offset returned detections. Cannot be combined with next_token filter
@@ -247,6 +258,18 @@ describe 'CspmRegistrationApi' do
   # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS account IDs
+  # @option opts [String] :template Template to be rendered
+  # @option opts [String] :account_type Type of account, it can be commercial or gov
+  # @option opts [Array<String>] :accounts The list of accounts to register, values should be in the form: account,profile
+  # @option opts [String] :behavior_assessment_enabled
+  # @option opts [String] :sensor_management_enabled
+  # @option opts [String] :dspm_enabled
+  # @option opts [Array<String>] :dspm_regions
+  # @option opts [String] :dspm_role
+  # @option opts [String] :use_existing_cloudtrail
+  # @option opts [String] :organization_id The AWS organization ID to be registered
+  # @option opts [String] :aws_profile The AWS profile to be used during registration
+  # @option opts [String] :custom_role_name The custom IAM role to be used during registration
   # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
   describe 'get_cspm_aws_account_scripts_attachment test' do
     it 'should work' do
@@ -260,7 +283,8 @@ describe 'CspmRegistrationApi' do
   # @option opts [Array<String>] :ids AWS account IDs
   # @option opts [String] :use_existing_cloudtrail
   # @option opts [String] :region Region
-  # @return [RegistrationAWSAccountConsoleURL]
+  # @option opts [String] :template Template to be rendered
+  # @return [RegistrationAWSConsoleURLResponseV2]
   describe 'get_cspm_aws_console_setup_urls test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -398,6 +422,17 @@ describe 'CspmRegistrationApi' do
     end
   end
 
+  # unit tests for get_cspmgcp_validate_accounts_ext
+  # Run a synchronous health check.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPAccountValidationResponseV1]
+  describe 'get_cspmgcp_validate_accounts_ext test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for patch_cspm_aws_account
   # Patches a existing account in our system for a customer.
   # @param body
@@ -472,6 +507,28 @@ describe 'CspmRegistrationApi' do
   # @param [Hash] opts the optional parameters
   # @return [RegistrationGCPAccountResponseV1]
   describe 'update_cspmgcp_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_cspmgcp_service_accounts_ext
+  # Patches the service account key for external clients.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPServiceAccountResponseExtV1]
+  describe 'update_cspmgcp_service_accounts_ext test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for validate_cspmgcp_service_account_ext
+  # Validates credentials for a service account
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPServiceAccountValidationResponseV1]
+  describe 'validate_cspmgcp_service_account_ext test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

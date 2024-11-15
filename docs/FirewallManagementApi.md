@@ -1,6 +1,6 @@
 # Falcon::FirewallManagementApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -12,21 +12,21 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**create_rule_group**](FirewallManagementApi.md#create_rule_group) | **POST** /fwmgr/entities/rule-groups/v1 | Create new rule group on a platform for a customer with a name and description, and return the ID |
 | [**create_rule_group_validation**](FirewallManagementApi.md#create_rule_group_validation) | **POST** /fwmgr/entities/rule-groups/validation/v1 | Validates the request of creating a new rule group on a platform for a customer with a name and description |
 | [**delete_network_locations**](FirewallManagementApi.md#delete_network_locations) | **DELETE** /fwmgr/entities/network-locations/v1 | Delete network location entities by ID. |
-| [**delete_rule_groups**](FirewallManagementApi.md#delete_rule_groups) | **DELETE** /fwmgr/entities/rule-groups/v1 | Delete rule group entities by ID |
+| [**delete_rule_groups_0**](FirewallManagementApi.md#delete_rule_groups_0) | **DELETE** /fwmgr/entities/rule-groups/v1 | Delete rule group entities by ID |
 | [**get_events**](FirewallManagementApi.md#get_events) | **GET** /fwmgr/entities/events/v1 | Get events entities by ID and optionally version |
 | [**get_firewall_fields**](FirewallManagementApi.md#get_firewall_fields) | **GET** /fwmgr/entities/firewall-fields/v1 | Get the firewall field specifications by ID |
 | [**get_network_locations**](FirewallManagementApi.md#get_network_locations) | **GET** /fwmgr/entities/network-locations/v1 | Get a summary of network locations entities by ID |
 | [**get_network_locations_details**](FirewallManagementApi.md#get_network_locations_details) | **GET** /fwmgr/entities/network-locations-details/v1 | Get network locations entities by ID |
 | [**get_platforms**](FirewallManagementApi.md#get_platforms) | **GET** /fwmgr/entities/platforms/v1 | Get platforms by ID, e.g., windows or mac or droid |
 | [**get_policy_containers**](FirewallManagementApi.md#get_policy_containers) | **GET** /fwmgr/entities/policies/v1 | Get policy container entities by policy ID |
-| [**get_rule_groups**](FirewallManagementApi.md#get_rule_groups) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order. |
-| [**get_rules**](FirewallManagementApi.md#get_rules) | **GET** /fwmgr/entities/rules/v1 | Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string) |
+| [**get_rule_groups_0**](FirewallManagementApi.md#get_rule_groups_0) | **GET** /fwmgr/entities/rule-groups/v1 | Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order. |
+| [**get_rules_0**](FirewallManagementApi.md#get_rules_0) | **GET** /fwmgr/entities/rules/v1 | Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string) |
 | [**query_events**](FirewallManagementApi.md#query_events) | **GET** /fwmgr/queries/events/v1 | Find all event IDs matching the query with filter |
 | [**query_firewall_fields**](FirewallManagementApi.md#query_firewall_fields) | **GET** /fwmgr/queries/firewall-fields/v1 | Get the firewall field specification IDs for the provided platform |
 | [**query_network_locations**](FirewallManagementApi.md#query_network_locations) | **GET** /fwmgr/queries/network-locations/v1 | Get a list of network location IDs |
 | [**query_platforms**](FirewallManagementApi.md#query_platforms) | **GET** /fwmgr/queries/platforms/v1 | Get the list of platform names |
 | [**query_policy_rules**](FirewallManagementApi.md#query_policy_rules) | **GET** /fwmgr/queries/policy-rules/v1 | Find all firewall rule IDs matching the query with filter, and return them in precedence order |
-| [**query_rule_groups**](FirewallManagementApi.md#query_rule_groups) | **GET** /fwmgr/queries/rule-groups/v1 | Find all rule group IDs matching the query with filter |
+| [**query_rule_groups_0**](FirewallManagementApi.md#query_rule_groups_0) | **GET** /fwmgr/queries/rule-groups/v1 | Find all rule group IDs matching the query with filter |
 | [**query_rules**](FirewallManagementApi.md#query_rules) | **GET** /fwmgr/queries/rules/v1 | Find all rule IDs matching the query with filter |
 | [**update_network_locations**](FirewallManagementApi.md#update_network_locations) | **PATCH** /fwmgr/entities/network-locations/v1 | Updates the network locations provided, and return the ID. |
 | [**update_network_locations_metadata**](FirewallManagementApi.md#update_network_locations_metadata) | **POST** /fwmgr/entities/network-locations-metadata/v1 | Updates the network locations metadata such as polling_intervals for the cid |
@@ -615,9 +615,9 @@ end
 - **Accept**: application/json
 
 
-## delete_rule_groups
+## delete_rule_groups_0
 
-> <FwmgrApiQueryResponse> delete_rule_groups(ids, opts)
+> <FwmgrApiQueryResponse> delete_rule_groups_0(ids, opts)
 
 Delete rule group entities by ID
 
@@ -642,28 +642,28 @@ opts = {
 
 begin
   # Delete rule group entities by ID
-  result = api_instance.delete_rule_groups(ids, opts)
+  result = api_instance.delete_rule_groups_0(ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_rule_groups: #{e}"
+  puts "Error when calling FirewallManagementApi->delete_rule_groups_0: #{e}"
 end
 ```
 
-#### Using the delete_rule_groups_with_http_info variant
+#### Using the delete_rule_groups_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FwmgrApiQueryResponse>, Integer, Hash)> delete_rule_groups_with_http_info(ids, opts)
+> <Array(<FwmgrApiQueryResponse>, Integer, Hash)> delete_rule_groups_0_with_http_info(ids, opts)
 
 ```ruby
 begin
   # Delete rule group entities by ID
-  data, status_code, headers = api_instance.delete_rule_groups_with_http_info(ids, opts)
+  data, status_code, headers = api_instance.delete_rule_groups_0_with_http_info(ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->delete_rule_groups_with_http_info: #{e}"
+  puts "Error when calling FirewallManagementApi->delete_rule_groups_0_with_http_info: #{e}"
 end
 ```
 
@@ -1106,9 +1106,9 @@ end
 - **Accept**: application/json
 
 
-## get_rule_groups
+## get_rule_groups_0
 
-> <FwmgrApiRuleGroupsResponse> get_rule_groups(ids)
+> <FwmgrApiRuleGroupsResponse> get_rule_groups_0(ids)
 
 Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
 
@@ -1130,28 +1130,28 @@ ids = ['inner_example'] # Array<String> | The IDs of the rule groups to retrieve
 
 begin
   # Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
-  result = api_instance.get_rule_groups(ids)
+  result = api_instance.get_rule_groups_0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rule_groups: #{e}"
+  puts "Error when calling FirewallManagementApi->get_rule_groups_0: #{e}"
 end
 ```
 
-#### Using the get_rule_groups_with_http_info variant
+#### Using the get_rule_groups_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FwmgrApiRuleGroupsResponse>, Integer, Hash)> get_rule_groups_with_http_info(ids)
+> <Array(<FwmgrApiRuleGroupsResponse>, Integer, Hash)> get_rule_groups_0_with_http_info(ids)
 
 ```ruby
 begin
   # Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
-  data, status_code, headers = api_instance.get_rule_groups_with_http_info(ids)
+  data, status_code, headers = api_instance.get_rule_groups_0_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FwmgrApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rule_groups_with_http_info: #{e}"
+  puts "Error when calling FirewallManagementApi->get_rule_groups_0_with_http_info: #{e}"
 end
 ```
 
@@ -1175,9 +1175,9 @@ end
 - **Accept**: application/json
 
 
-## get_rules
+## get_rules_0
 
-> <FwmgrApiRulesResponse> get_rules(ids)
+> <FwmgrApiRulesResponse> get_rules_0(ids)
 
 Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
 
@@ -1199,28 +1199,28 @@ ids = ['inner_example'] # Array<String> | The rules to retrieve, identified by I
 
 begin
   # Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
-  result = api_instance.get_rules(ids)
+  result = api_instance.get_rules_0(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rules: #{e}"
+  puts "Error when calling FirewallManagementApi->get_rules_0: #{e}"
 end
 ```
 
-#### Using the get_rules_with_http_info variant
+#### Using the get_rules_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FwmgrApiRulesResponse>, Integer, Hash)> get_rules_with_http_info(ids)
+> <Array(<FwmgrApiRulesResponse>, Integer, Hash)> get_rules_0_with_http_info(ids)
 
 ```ruby
 begin
   # Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
-  data, status_code, headers = api_instance.get_rules_with_http_info(ids)
+  data, status_code, headers = api_instance.get_rules_0_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FwmgrApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->get_rules_with_http_info: #{e}"
+  puts "Error when calling FirewallManagementApi->get_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -1637,9 +1637,9 @@ end
 - **Accept**: application/json
 
 
-## query_rule_groups
+## query_rule_groups_0
 
-> <FwmgrApiQueryResponse> query_rule_groups(opts)
+> <FwmgrApiQueryResponse> query_rule_groups_0(opts)
 
 Find all rule group IDs matching the query with filter
 
@@ -1668,28 +1668,28 @@ opts = {
 
 begin
   # Find all rule group IDs matching the query with filter
-  result = api_instance.query_rule_groups(opts)
+  result = api_instance.query_rule_groups_0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rule_groups: #{e}"
+  puts "Error when calling FirewallManagementApi->query_rule_groups_0: #{e}"
 end
 ```
 
-#### Using the query_rule_groups_with_http_info variant
+#### Using the query_rule_groups_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FwmgrApiQueryResponse>, Integer, Hash)> query_rule_groups_with_http_info(opts)
+> <Array(<FwmgrApiQueryResponse>, Integer, Hash)> query_rule_groups_0_with_http_info(opts)
 
 ```ruby
 begin
   # Find all rule group IDs matching the query with filter
-  data, status_code, headers = api_instance.query_rule_groups_with_http_info(opts)
+  data, status_code, headers = api_instance.query_rule_groups_0_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FwmgrApiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FirewallManagementApi->query_rule_groups_with_http_info: #{e}"
+  puts "Error when calling FirewallManagementApi->query_rule_groups_0_with_http_info: #{e}"
 end
 ```
 

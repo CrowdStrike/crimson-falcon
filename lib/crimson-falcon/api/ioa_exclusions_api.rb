@@ -231,7 +231,9 @@ module Falcon
 
     # Search for IOA exclusions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter expression that should be used to limit the results.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters.
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The sort expression that should be used to sort the results.
@@ -243,7 +245,9 @@ module Falcon
 
     # Search for IOA exclusions.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter The filter expression that should be used to limit the results.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters.
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The sort expression that should be used to sort the results.
@@ -262,6 +266,8 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'ifn_regex'] = opts[:'ifn_regex'] if !opts[:'ifn_regex'].nil?
+      query_params[:'cl_regex'] = opts[:'cl_regex'] if !opts[:'cl_regex'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?

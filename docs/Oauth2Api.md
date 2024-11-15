@@ -1,6 +1,6 @@
 # Falcon::Oauth2Api
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -75,7 +75,7 @@ end
 
 ### Authorization
 
-**basicAuth**
+No authorization required
 
 ### HTTP request headers
 
@@ -85,7 +85,7 @@ end
 
 ## oauth2_revoke_token
 
-> <MsaReplyMetaOnly> oauth2_revoke_token(token, opts)
+> <MsaspecResponseFields> oauth2_revoke_token(token, opts)
 
 Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
 
@@ -121,7 +121,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> oauth2_revoke_token_with_http_info(token, opts)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> oauth2_revoke_token_with_http_info(token, opts)
 
 ```ruby
 begin
@@ -129,7 +129,7 @@ begin
   data, status_code, headers = api_instance.oauth2_revoke_token_with_http_info(token, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaReplyMetaOnly>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling Oauth2Api->oauth2_revoke_token_with_http_info: #{e}"
 end
@@ -144,11 +144,11 @@ end
 
 ### Return type
 
-[**MsaReplyMetaOnly**](MsaReplyMetaOnly.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
-**basicAuth**
+No authorization required
 
 ### HTTP request headers
 

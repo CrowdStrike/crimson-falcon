@@ -72,6 +72,12 @@ describe Falcon::ClientJobStatus do
     end
   end
 
+  describe 'test attribute "filtered_event_count"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "job_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

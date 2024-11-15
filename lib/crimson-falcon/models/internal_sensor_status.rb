@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :device_id
 
+    attr_accessor :heartbeat_time
+
     attr_accessor :hostname
 
     attr_accessor :idp_policy_id
@@ -74,6 +76,7 @@ module Falcon
         :'agent_version' => :'agent_version',
         :'cid' => :'cid',
         :'device_id' => :'device_id',
+        :'heartbeat_time' => :'heartbeat_time',
         :'hostname' => :'hostname',
         :'idp_policy_id' => :'idp_policy_id',
         :'idp_policy_name' => :'idp_policy_name',
@@ -103,6 +106,7 @@ module Falcon
         :'agent_version' => :'String',
         :'cid' => :'String',
         :'device_id' => :'String',
+        :'heartbeat_time' => :'Integer',
         :'hostname' => :'String',
         :'idp_policy_id' => :'String',
         :'idp_policy_name' => :'String',
@@ -152,6 +156,10 @@ module Falcon
 
       if attributes.key?(:'device_id')
         self.device_id = attributes[:'device_id']
+      end
+
+      if attributes.key?(:'heartbeat_time')
+        self.heartbeat_time = attributes[:'heartbeat_time']
       end
 
       if attributes.key?(:'hostname')
@@ -248,6 +256,7 @@ module Falcon
           agent_version == o.agent_version &&
           cid == o.cid &&
           device_id == o.device_id &&
+          heartbeat_time == o.heartbeat_time &&
           hostname == o.hostname &&
           idp_policy_id == o.idp_policy_id &&
           idp_policy_name == o.idp_policy_name &&
@@ -274,7 +283,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, cid, device_id, hostname, idp_policy_id, idp_policy_name, kerberos_config, ldap_config, ldaps_config, local_ip, machine_domain, ntlm_config, os_version, rdp_to_dc_config, smb_to_dc_config, status, status_causes, ti_enabled].hash
+      [agent_version, cid, device_id, heartbeat_time, hostname, idp_policy_id, idp_policy_name, kerberos_config, ldap_config, ldaps_config, local_ip, machine_domain, ntlm_config, os_version, rdp_to_dc_config, smb_to_dc_config, status, status_causes, ti_enabled].hash
     end
 
     # Builds the object from hash

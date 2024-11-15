@@ -606,7 +606,7 @@ module Falcon
       if @api_client.config.client_side_validation && case_id.nil?
         fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenterApi.query_activity_by_case_id"
       end
-      allowable_values = ["activity.type.asc", "activity.type.desc"]
+      allowable_values = ["activity.created_time.asc", "activity.created_time.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

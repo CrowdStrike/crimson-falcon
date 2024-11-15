@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **description** | **String** |  | [optional] |
+| **max_file_size** | **Integer** | max file size allowed in bytes | [optional] |
 | **name** | **String** |  | [optional] |
 | **node_id** | **String** |  | [optional] |
 | **system** | **Boolean** |  | [optional] |
@@ -18,6 +19,7 @@ require 'crimson-falcon'
 
 instance = Falcon::JsonschemaWorkflowExtensions.new(
   description: null,
+  max_file_size: null,
   name: null,
   node_id: null,
   system: null,

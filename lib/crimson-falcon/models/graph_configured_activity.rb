@@ -32,6 +32,9 @@ require 'time'
 
 module Falcon
   class GraphConfiguredActivity
+    # The class of activity. If undefined it is an ActivityClassExternal
+    attr_accessor :_class
+
     attr_accessor :flows
 
     # The unique identifier of the selected activity that is being configured.
@@ -51,6 +54,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'_class' => :'class',
         :'flows' => :'flows',
         :'id' => :'id',
         :'max_seconds' => :'max_seconds',
@@ -68,6 +72,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'_class' => :'String',
         :'flows' => :'Flows',
         :'id' => :'String',
         :'max_seconds' => :'String',
@@ -97,6 +102,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'_class')
+        self._class = attributes[:'_class']
+      end
 
       if attributes.key?(:'flows')
         self.flows = attributes[:'flows']
@@ -166,6 +175,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          _class == o._class &&
           flows == o.flows &&
           id == o.id &&
           max_seconds == o.max_seconds &&
@@ -183,7 +193,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flows, id, max_seconds, name, node_id, properties].hash
+      [_class, flows, id, max_seconds, name, node_id, properties].hash
     end
 
     # Builds the object from hash

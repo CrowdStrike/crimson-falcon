@@ -34,6 +34,8 @@ module Falcon
   class FalconxSandboxParametersV1
     attr_accessor :action_script
 
+    attr_accessor :browser
+
     attr_accessor :command_line
 
     attr_accessor :document_password
@@ -60,6 +62,7 @@ module Falcon
     def self.attribute_map
       {
         :'action_script' => :'action_script',
+        :'browser' => :'browser',
         :'command_line' => :'command_line',
         :'document_password' => :'document_password',
         :'enable_tor' => :'enable_tor',
@@ -83,6 +86,7 @@ module Falcon
     def self.openapi_types
       {
         :'action_script' => :'String',
+        :'browser' => :'String',
         :'command_line' => :'String',
         :'document_password' => :'String',
         :'enable_tor' => :'Boolean',
@@ -120,6 +124,10 @@ module Falcon
 
       if attributes.key?(:'action_script')
         self.action_script = attributes[:'action_script']
+      end
+
+      if attributes.key?(:'browser')
+        self.browser = attributes[:'browser']
       end
 
       if attributes.key?(:'command_line')
@@ -186,6 +194,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           action_script == o.action_script &&
+          browser == o.browser &&
           command_line == o.command_line &&
           document_password == o.document_password &&
           enable_tor == o.enable_tor &&
@@ -208,7 +217,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action_script, command_line, document_password, enable_tor, environment_id, interactivity, network_settings, sha256, submit_name, system_date, system_time, url].hash
+      [action_script, browser, command_line, document_password, enable_tor, environment_id, interactivity, network_settings, sha256, submit_name, system_date, system_time, url].hash
     end
 
     # Builds the object from hash
