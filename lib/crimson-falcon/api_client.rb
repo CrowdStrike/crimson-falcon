@@ -386,6 +386,8 @@ module Falcon
       # ensuring a default content type
       content_type = response.headers["Content-Type"] || "application/json"
 
+      return body if content_type.start_with?("text/")
+
       fail "Content-Type is not supported: #{content_type}" unless json_mime?(content_type)
 
       begin
