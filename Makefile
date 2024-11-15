@@ -43,7 +43,7 @@ rebuild: uninstall build install clean
 #------------------------
 # SDK Generation tasks
 #------------------------
-.PHONY: build-sdk fix-regex clean-generated-files rubocop
+.PHONY: build-sdk fix-regex clean-generated-files rubocop remove-suffix
 
 build-sdk:
 	@echo "Generating SDK..."
@@ -77,10 +77,14 @@ rubocop:
 	@echo "Running rubocop..."
 	@rubocop -a
 
+remove-suffix:
+	@echo "Removing generated API suffix..."
+	@ruby remove-suffix.rb
+
 clean-generated-files:
 	@echo "Cleaning up generated files..."
 	@rm -rf docs/* lib/crimson-falcon/models/* lib/crimson-falcon/api/* spec/*
 
 .PHONY: generate
-generate: clean-generated-files .openapi-generator/swagger-stripped-oauth.json build-sdk fix-regex rubocop
+generate: clean-generated-files .openapi-generator/swagger-stripped-oauth.json build-sdk fix-regex remove-suffix rubocop
 	@echo "SDK generated successfully."
