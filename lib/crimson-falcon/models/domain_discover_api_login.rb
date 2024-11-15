@@ -93,7 +93,7 @@ module Falcon
     # The date and time of the most recent attempt in the login.
     attr_accessor :login_timestamp
 
-    # The type of the login.  For successful logins: <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul> For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    # The type of the login.  For successful logins: <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul> For failed logins: <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote Credentials</li><li>Cached credentials</li><li>Auditing</li></ul>
     attr_accessor :login_type
 
     # The remote IP address where the login was initiated.

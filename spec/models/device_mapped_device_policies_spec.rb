@@ -60,6 +60,12 @@ describe Falcon::DeviceMappedDevicePolicies do
     end
   end
 
+  describe 'test attribute "customer_entitlements"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "data_protection"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -67,6 +73,12 @@ describe Falcon::DeviceMappedDevicePolicies do
   end
 
   describe 'test attribute "device_control"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "falcon_for_it"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -114,6 +126,12 @@ describe Falcon::DeviceMappedDevicePolicies do
     end
   end
 
+  describe 'test attribute "legacy_os"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "mobile"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -151,6 +169,12 @@ describe Falcon::DeviceMappedDevicePolicies do
   end
 
   describe 'test attribute "system_tray"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_management"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -52,8 +52,6 @@ module Falcon
 
     attr_accessor :max_duration
 
-    attr_accessor :max_file_size
-
     attr_accessor :pause_duration
 
     attr_accessor :quarantine
@@ -79,7 +77,6 @@ module Falcon
         :'hosts' => :'hosts',
         :'initiated_from' => :'initiated_from',
         :'max_duration' => :'max_duration',
-        :'max_file_size' => :'max_file_size',
         :'pause_duration' => :'pause_duration',
         :'quarantine' => :'quarantine',
         :'scan_exclusions' => :'scan_exclusions',
@@ -107,7 +104,6 @@ module Falcon
         :'hosts' => :'Array<String>',
         :'initiated_from' => :'String',
         :'max_duration' => :'Integer',
-        :'max_file_size' => :'Integer',
         :'pause_duration' => :'Integer',
         :'quarantine' => :'Boolean',
         :'scan_exclusions' => :'Array<String>',
@@ -184,10 +180,6 @@ module Falcon
         self.max_duration = attributes[:'max_duration']
       end
 
-      if attributes.key?(:'max_file_size')
-        self.max_file_size = attributes[:'max_file_size']
-      end
-
       if attributes.key?(:'pause_duration')
         self.pause_duration = attributes[:'pause_duration']
       end
@@ -261,10 +253,6 @@ module Falcon
         invalid_properties.push('invalid value for "max_duration", max_duration cannot be nil.')
       end
 
-      if @max_file_size.nil?
-        invalid_properties.push('invalid value for "max_file_size", max_file_size cannot be nil.')
-      end
-
       if @pause_duration.nil?
         invalid_properties.push('invalid value for "pause_duration", pause_duration cannot be nil.')
       end
@@ -305,7 +293,6 @@ module Falcon
       return false if @hosts.nil?
       return false if @initiated_from.nil?
       return false if @max_duration.nil?
-      return false if @max_file_size.nil?
       return false if @pause_duration.nil?
       return false if @quarantine.nil?
       return false if @scan_exclusions.nil?
@@ -330,7 +317,6 @@ module Falcon
           hosts == o.hosts &&
           initiated_from == o.initiated_from &&
           max_duration == o.max_duration &&
-          max_file_size == o.max_file_size &&
           pause_duration == o.pause_duration &&
           quarantine == o.quarantine &&
           scan_exclusions == o.scan_exclusions &&
@@ -348,7 +334,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, description, endpoint_notification, file_paths, host_groups, hosts, initiated_from, max_duration, max_file_size, pause_duration, quarantine, scan_exclusions, scan_inclusions, sensor_ml_level_detection, sensor_ml_level_prevention].hash
+      [cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, description, endpoint_notification, file_paths, host_groups, hosts, initiated_from, max_duration, pause_duration, quarantine, scan_exclusions, scan_inclusions, sensor_ml_level_detection, sensor_ml_level_prevention].hash
     end
 
     # Builds the object from hash

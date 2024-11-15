@@ -14,7 +14,6 @@
 | **hosts** | **Array&lt;String&gt;** |  |  |
 | **initiated_from** | **String** |  |  |
 | **max_duration** | **Integer** |  |  |
-| **max_file_size** | **Integer** |  |  |
 | **pause_duration** | **Integer** |  |  |
 | **quarantine** | **Boolean** |  |  |
 | **scan_exclusions** | **Array&lt;String&gt;** |  |  |
@@ -38,7 +37,6 @@ instance = Falcon::EntitiesODSScanRequest.new(
   hosts: null,
   initiated_from: null,
   max_duration: null,
-  max_file_size: null,
   pause_duration: null,
   quarantine: null,
   scan_exclusions: null,

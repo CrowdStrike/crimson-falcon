@@ -111,5 +111,81 @@ module Falcon
       end
       return data, status_code, headers
     end
+
+    # Trigger on-boarding process for a mobile device
+    # @param body [ApiPostEnrollmentDetailsV4]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :action_name Action to perform
+    # @option opts [String] :filter FQL filter
+    # @return [ApiPostEnrollmentDetailsResponse]
+    def request_device_enrollment_v4(body, opts = {})
+      data, _status_code, _headers = request_device_enrollment_v4_with_http_info(body, opts)
+      data
+    end
+
+    # Trigger on-boarding process for a mobile device
+    # @param body [ApiPostEnrollmentDetailsV4]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :action_name Action to perform
+    # @option opts [String] :filter FQL filter
+    # @return [Array<(ApiPostEnrollmentDetailsResponse, Integer, Hash)>] ApiPostEnrollmentDetailsResponse data, response status code and response headers
+    def request_device_enrollment_v4_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MobileEnrollmentApi.request_device_enrollment_v4 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling MobileEnrollmentApi.request_device_enrollment_v4"
+      end
+      allowable_values = ["enroll", "re-enroll"]
+      if @api_client.config.client_side_validation && opts[:'action_name'] && !allowable_values.include?(opts[:'action_name'])
+        fail ArgumentError, "invalid value for \"action_name\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/enrollments/entities/details/v4'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'action_name'] = opts[:'action_name'] if !opts[:'action_name'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiPostEnrollmentDetailsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"MobileEnrollmentApi.request_device_enrollment_v4",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MobileEnrollmentApi#request_device_enrollment_v4\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

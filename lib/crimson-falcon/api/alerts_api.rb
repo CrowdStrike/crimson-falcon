@@ -36,26 +36,26 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # retrieves all Alerts ids that match a given query
+    # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
-    # @option opts [String] :q Search all detection metadata for the provided string
+    # @option opts [String] :q Search all alert metadata for the provided string
     # @return [DetectsapiAlertQueryResponse]
     def get_queries_alerts_v1(opts = {})
       data, _status_code, _headers = get_queries_alerts_v1_with_http_info(opts)
       data
     end
 
-    # retrieves all Alerts ids that match a given query
+    # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
-    # @option opts [String] :q Search all detection metadata for the provided string
+    # @option opts [String] :q Search all alert metadata for the provided string
     # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
     def get_queries_alerts_v1_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -114,28 +114,28 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves all Alerts ids that match a given query
+    # Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
-    # @option opts [String] :q Search all detection metadata for the provided string
+    # @option opts [String] :q Search all alert metadata for the provided string
     # @return [DetectsapiAlertQueryResponse]
     def get_queries_alerts_v2(opts = {})
       data, _status_code, _headers = get_queries_alerts_v2_with_http_info(opts)
       data
     end
 
-    # retrieves all Alerts ids that match a given query
+    # Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
-    # @option opts [String] :q Search all detection metadata for the provided string
+    # @option opts [String] :q Search all alert metadata for the provided string
     # @return [Array<(DetectsapiAlertQueryResponse, Integer, Hash)>] DetectsapiAlertQueryResponse data, response status code and response headers
     def get_queries_alerts_v2_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -195,8 +195,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
-    # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
+    # Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # @param body [DetectsapiPatchEntitiesAlertsV2Request] &#x60;ids&#x60; - IDs of Alerts to modify.  &#x60;action_parameters&#x60; values - &#x60;assign_to_uuid&#x60;  - Assign Alert to user UUID, such as &#x60;00000000-0000-0000-0000-000000000000&#x60; - &#x60;assign_to_user_id&#x60;  - Assign Alert to user ID, such as &#x60;user@example.com&#x60; - &#x60;assign_to_name&#x60;  - Assign Alert to username, such as &#x60;John Doe&#x60; - &#x60;unassign&#x60;  - Unassign Alert clears out the assigned user UUID, user ID, and username. - &#x60;add_tag&#x60;   - Add a tag to the Alert. - &#x60;remove_tag&#x60;  - Remove a tag from the Alert. - &#x60;remove_tags_by_prefix&#x60;  - Remove tags from the Alert based on the prefix. - &#x60;append_comment&#x60;  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - &#x60;update_status&#x60; values  - &#x60;new&#x60;  - &#x60;in_progress&#x60;  - &#x60;reopened&#x60;  - &#x60;closed&#x60; - &#x60;show_in_ui&#x60; values  - &#x60;true&#x60;: This alert is displayed in Falcon  - &#x60;false&#x60;: This alert is not displayed in Falcon.
     # @param [Hash] opts the optional parameters
     # @return [DetectsapiResponseFields]
     def patch_entities_alerts_v2(body, opts = {})
@@ -204,8 +204,8 @@ module Falcon
       data
     end
 
-    # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
-    # @param body [DetectsapiPatchEntitiesAlertsV2Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
+    # Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
+    # @param body [DetectsapiPatchEntitiesAlertsV2Request] &#x60;ids&#x60; - IDs of Alerts to modify.  &#x60;action_parameters&#x60; values - &#x60;assign_to_uuid&#x60;  - Assign Alert to user UUID, such as &#x60;00000000-0000-0000-0000-000000000000&#x60; - &#x60;assign_to_user_id&#x60;  - Assign Alert to user ID, such as &#x60;user@example.com&#x60; - &#x60;assign_to_name&#x60;  - Assign Alert to username, such as &#x60;John Doe&#x60; - &#x60;unassign&#x60;  - Unassign Alert clears out the assigned user UUID, user ID, and username. - &#x60;add_tag&#x60;   - Add a tag to the Alert. - &#x60;remove_tag&#x60;  - Remove a tag from the Alert. - &#x60;remove_tags_by_prefix&#x60;  - Remove tags from the Alert based on the prefix. - &#x60;append_comment&#x60;  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - &#x60;update_status&#x60; values  - &#x60;new&#x60;  - &#x60;in_progress&#x60;  - &#x60;reopened&#x60;  - &#x60;closed&#x60; - &#x60;show_in_ui&#x60; values  - &#x60;true&#x60;: This alert is displayed in Falcon  - &#x60;false&#x60;: This alert is not displayed in Falcon.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
     def patch_entities_alerts_v2_with_http_info(body, opts = {})
@@ -262,7 +262,7 @@ module Falcon
     end
 
     # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
-    # @param body [DetectsapiPatchEntitiesAlertsV3Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
+    # @param body [DetectsapiPatchEntitiesAlertsV3Request] &#x60;composite_ids&#x60; - CompositeIDs of Alerts to modify.  &#x60;action_parameters&#x60; values - &#x60;assign_to_uuid&#x60;  - Assign Alert to user UUID, such as &#x60;00000000-0000-0000-0000-000000000000&#x60; - &#x60;assign_to_user_id&#x60;  - Assign Alert to user ID, such as &#x60;user@example.com&#x60; - &#x60;assign_to_name&#x60;  - Assign Alert to username, such as &#x60;John Doe&#x60; - &#x60;unassign&#x60;  - Unassign Alert clears out the assigned user UUID, user ID, and username. - &#x60;add_tag&#x60;   - Add a tag to the Alert. - &#x60;remove_tag&#x60;  - Remove a tag from the Alert. - &#x60;remove_tags_by_prefix&#x60;  - Remove tags from the Alert based on the prefix. - &#x60;append_comment&#x60;  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - &#x60;update_status&#x60; values  - &#x60;new&#x60;  - &#x60;in_progress&#x60;  - &#x60;reopened&#x60;  - &#x60;closed&#x60; - &#x60;show_in_ui&#x60; values  - &#x60;true&#x60;: This alert is displayed in Falcon  - &#x60;false&#x60;: This alert is not displayed in Falcon.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @return [DetectsapiResponseFields]
@@ -272,7 +272,7 @@ module Falcon
     end
 
     # Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
-    # @param body [DetectsapiPatchEntitiesAlertsV3Request] request body takes a list of action parameter request that is applied against all \&quot;ids\&quot; provided
+    # @param body [DetectsapiPatchEntitiesAlertsV3Request] &#x60;composite_ids&#x60; - CompositeIDs of Alerts to modify.  &#x60;action_parameters&#x60; values - &#x60;assign_to_uuid&#x60;  - Assign Alert to user UUID, such as &#x60;00000000-0000-0000-0000-000000000000&#x60; - &#x60;assign_to_user_id&#x60;  - Assign Alert to user ID, such as &#x60;user@example.com&#x60; - &#x60;assign_to_name&#x60;  - Assign Alert to username, such as &#x60;John Doe&#x60; - &#x60;unassign&#x60;  - Unassign Alert clears out the assigned user UUID, user ID, and username. - &#x60;add_tag&#x60;   - Add a tag to the Alert. - &#x60;remove_tag&#x60;  - Remove a tag from the Alert. - &#x60;remove_tags_by_prefix&#x60;  - Remove tags from the Alert based on the prefix. - &#x60;append_comment&#x60;  - Comments are displayed with the Alert in Falcon and are usually used to provide context or notes for other Falcon users. An Alert can have multiple comments over time. - &#x60;update_status&#x60; values  - &#x60;new&#x60;  - &#x60;in_progress&#x60;  - &#x60;reopened&#x60;  - &#x60;closed&#x60; - &#x60;show_in_ui&#x60; values  - &#x60;true&#x60;: This alert is displayed in Falcon  - &#x60;false&#x60;: This alert is not displayed in Falcon.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @return [Array<(DetectsapiResponseFields, Integer, Hash)>] DetectsapiResponseFields data, response status code and response headers
@@ -330,7 +330,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves aggregate values for Alerts across all CIDs
+    # Deprecated: Please use version v2 of this endpoint. Retrieves aggregate values for Alerts across all CIDs.
     # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
     # @param [Hash] opts the optional parameters
     # @return [DetectsapiAggregatesResponse]
@@ -339,7 +339,7 @@ module Falcon
       data
     end
 
-    # retrieves aggregate values for Alerts across all CIDs
+    # Deprecated: Please use version v2 of this endpoint. Retrieves aggregate values for Alerts across all CIDs.
     # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
     # @param [Hash] opts the optional parameters
     # @return [Array<(DetectsapiAggregatesResponse, Integer, Hash)>] DetectsapiAggregatesResponse data, response status code and response headers
@@ -396,7 +396,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves aggregate values for Alerts across all CIDs
+    # Retrieves aggregate values for Alerts across all CIDs.
     # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
@@ -406,7 +406,7 @@ module Falcon
       data
     end
 
-    # retrieves aggregate values for Alerts across all CIDs
+    # Retrieves aggregate values for Alerts across all CIDs.
     # @param body [Array<DetectsapiAggregateAlertQueryRequest>] request body takes a list of aggregate-alert query requests
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
@@ -465,19 +465,19 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves all Alerts given their ids
+    # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids.
     # @param body [DetectsapiPostEntitiesAlertsV1Request]
     # @param [Hash] opts the optional parameters
-    # @return [DetectsapiPostEntitiesAlertsV1Response]
+    # @return [DetectsapiPostEntitiesAlertsV1ResponseSwagger]
     def post_entities_alerts_v1(body, opts = {})
       data, _status_code, _headers = post_entities_alerts_v1_with_http_info(body, opts)
       data
     end
 
-    # retrieves all Alerts given their ids
+    # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids.
     # @param body [DetectsapiPostEntitiesAlertsV1Request]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DetectsapiPostEntitiesAlertsV1Response, Integer, Hash)>] DetectsapiPostEntitiesAlertsV1Response data, response status code and response headers
+    # @return [Array<(DetectsapiPostEntitiesAlertsV1ResponseSwagger, Integer, Hash)>] DetectsapiPostEntitiesAlertsV1ResponseSwagger data, response status code and response headers
     def post_entities_alerts_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlertsApi.post_entities_alerts_v1 ...'
@@ -509,7 +509,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DetectsapiPostEntitiesAlertsV1Response'
+      return_type = opts[:debug_return_type] || 'DetectsapiPostEntitiesAlertsV1ResponseSwagger'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -531,21 +531,21 @@ module Falcon
       return data, status_code, headers
     end
 
-    # retrieves all Alerts given their composite ids
+    # Retrieves all Alerts given their composite ids.
     # @param body [DetectsapiPostEntitiesAlertsV2Request]
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
-    # @return [DetectsapiPostEntitiesAlertsV2Response]
+    # @return [DetectsapiPostEntitiesAlertsV2ResponseSwagger]
     def post_entities_alerts_v2(body, opts = {})
       data, _status_code, _headers = post_entities_alerts_v2_with_http_info(body, opts)
       data
     end
 
-    # retrieves all Alerts given their composite ids
+    # Retrieves all Alerts given their composite ids.
     # @param body [DetectsapiPostEntitiesAlertsV2Request]
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
-    # @return [Array<(DetectsapiPostEntitiesAlertsV2Response, Integer, Hash)>] DetectsapiPostEntitiesAlertsV2Response data, response status code and response headers
+    # @return [Array<(DetectsapiPostEntitiesAlertsV2ResponseSwagger, Integer, Hash)>] DetectsapiPostEntitiesAlertsV2ResponseSwagger data, response status code and response headers
     def post_entities_alerts_v2_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlertsApi.post_entities_alerts_v2 ...'
@@ -578,7 +578,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DetectsapiPostEntitiesAlertsV2Response'
+      return_type = opts[:debug_return_type] || 'DetectsapiPostEntitiesAlertsV2ResponseSwagger'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

@@ -49,6 +49,20 @@ describe 'WorkflowsApi' do
     end
   end
 
+  # unit tests for workflow_activities_combined
+  # Search for activities by name. Returns all supported activities if no filter specified
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying filter parameters.
+  # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [Integer] :limit Maximum number of records to return.
+  # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+  # @return [ActivitiesActivityExternalResponse]
+  describe 'workflow_activities_combined test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for workflow_definitions_combined
   # Search workflow definitions based on the provided filter
   # @param [Hash] opts the optional parameters
@@ -63,22 +77,11 @@ describe 'WorkflowsApi' do
     end
   end
 
-  # unit tests for workflow_definitions_create
-  # Creates a workflow definition based on the provided model
-  # @param body
-  # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :validate_only When enabled, prevents saving workflow after validating
-  # @return [ApiResourceIDsResponse]
-  describe 'workflow_definitions_create test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for workflow_definitions_export
   # Exports a workflow definition for the given definition ID
   # @param id ID of workflow definitions to return details for
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported
   # @return [Array<Integer>]
   describe 'workflow_definitions_export test' do
     it 'should work' do
@@ -123,6 +126,24 @@ describe 'WorkflowsApi' do
   # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
   # @return [ApiResourceIDsResponse]
   describe 'workflow_execute test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for workflow_execute_internal
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
+  # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
+  # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+  # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
+  # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+  # @return [ApiResourceIDsResponse]
+  describe 'workflow_execute_internal test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -176,6 +197,24 @@ describe 'WorkflowsApi' do
     end
   end
 
+  # unit tests for workflow_mock_execute
+  # Executes a workflow definition with mocks
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  # @option opts [String] :definition_id Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  # @option opts [String] :name Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+  # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+  # @option opts [Boolean] :validate_only When enabled, prevents execution after validating mocks against definition
+  # @return [ApiResourceIDsResponse]
+  describe 'workflow_mock_execute test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for workflow_system_definitions_de_provision
   # Deprovisions a system definition that was previously provisioned on the target CID
   # @param body
@@ -204,6 +243,17 @@ describe 'WorkflowsApi' do
   # @param [Hash] opts the optional parameters
   # @return [ClientSystemDefinitionCreateResponse]
   describe 'workflow_system_definitions_provision test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for workflow_triggers_combined
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying filter parameters.
+  # @return [TriggersTriggerExternalResponse]
+  describe 'workflow_triggers_combined test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

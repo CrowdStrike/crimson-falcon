@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) | Array of API Errors |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) | Array of API Errors |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainActorDocument&gt;**](DomainActorDocument.md) |  |  |
 
 ## Example

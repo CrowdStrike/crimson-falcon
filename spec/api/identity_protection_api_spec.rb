@@ -49,12 +49,62 @@ describe 'IdentityProtectionApi' do
     end
   end
 
+  # unit tests for api_preempt_proxy_delete_policy_rules
+  # Delete policy rules
+  # @param authorization Authorization Header
+  # @param ids Rule IDs
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'api_preempt_proxy_delete_policy_rules test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for api_preempt_proxy_get_policy_rules
+  # Get policy rules
+  # @param authorization Authorization Header
+  # @param ids Rule IDs
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'api_preempt_proxy_get_policy_rules test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for api_preempt_proxy_get_policy_rules_query
+  # Query policy rule IDs
+  # @param authorization Authorization Header
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :enabled Whether the rule is enabled
+  # @option opts [Boolean] :simulation_mode Whether the rule is in simulation mode
+  # @option opts [String] :name Rule name
+  # @return [nil]
+  describe 'api_preempt_proxy_get_policy_rules_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for api_preempt_proxy_post_graphql
   # Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
   # @param authorization Authorization Header
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'api_preempt_proxy_post_graphql test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for api_preempt_proxy_post_policy_rules
+  # Create policy rule
+  # @param authorization Authorization Header
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'api_preempt_proxy_post_policy_rules test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

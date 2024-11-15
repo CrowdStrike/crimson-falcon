@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :last_name
 
+    attr_accessor :status
+
     attr_accessor :uid
 
     attr_accessor :uuid
@@ -48,6 +50,7 @@ module Falcon
         :'customer' => :'customer',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
+        :'status' => :'status',
         :'uid' => :'uid',
         :'uuid' => :'uuid'
       }
@@ -64,6 +67,7 @@ module Falcon
         :'customer' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'status' => :'String',
         :'uid' => :'String',
         :'uuid' => :'String'
       }
@@ -100,6 +104,10 @@ module Falcon
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
       end
 
       if attributes.key?(:'uid')
@@ -142,6 +150,7 @@ module Falcon
           customer == o.customer &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          status == o.status &&
           uid == o.uid &&
           uuid == o.uuid
     end
@@ -155,7 +164,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [customer, first_name, last_name, uid, uuid].hash
+      [customer, first_name, last_name, status, uid, uuid].hash
     end
 
     # Builds the object from hash

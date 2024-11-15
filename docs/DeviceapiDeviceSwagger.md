@@ -7,6 +7,7 @@
 | **agent_load_flags** | **String** |  | [optional] |
 | **agent_local_time** | **String** |  | [optional] |
 | **agent_version** | **String** |  | [optional] |
+| **base_image_version** | **String** |  | [optional] |
 | **bios_manufacturer** | **String** |  | [optional] |
 | **bios_version** | **String** |  | [optional] |
 | **build_number** | **String** |  | [optional] |
@@ -27,6 +28,7 @@
 | **device_policies** | [**DeviceMappedDevicePolicies**](DeviceMappedDevicePolicies.md) |  | [optional] |
 | **email** | **String** |  | [optional] |
 | **external_ip** | **String** |  | [optional] |
+| **filesystem_containment_status** | **String** |  | [optional] |
 | **first_login_timestamp** | **String** |  | [optional] |
 | **first_seen** | **String** |  | [optional] |
 | **group_hash** | **String** |  | [optional] |
@@ -53,6 +55,7 @@
 | **major_version** | **String** |  | [optional] |
 | **managed_apps** | [**DeviceManagedApps**](DeviceManagedApps.md) |  | [optional] |
 | **meta** | [**DeviceDeviceMeta**](DeviceDeviceMeta.md) |  | [optional] |
+| **migration_completed_time** | **String** |  | [optional] |
 | **minor_version** | **String** |  | [optional] |
 | **modified_timestamp** | **String** |  | [optional] |
 | **notes** | **Array&lt;String&gt;** |  | [optional] |
@@ -80,6 +83,7 @@
 | **provision_status** | **String** |  | [optional] |
 | **reduced_functionality_mode** | **String** |  | [optional] |
 | **release_group** | **String** |  | [optional] |
+| **rtr_state** | **String** |  | [optional] |
 | **serial_number** | **String** |  | [optional] |
 | **service_pack_major** | **String** |  | [optional] |
 | **service_pack_minor** | **String** |  | [optional] |
@@ -101,6 +105,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   agent_load_flags: null,
   agent_local_time: null,
   agent_version: null,
+  base_image_version: null,
   bios_manufacturer: null,
   bios_version: null,
   build_number: null,
@@ -121,6 +126,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   device_policies: null,
   email: null,
   external_ip: null,
+  filesystem_containment_status: null,
   first_login_timestamp: null,
   first_seen: null,
   group_hash: null,
@@ -147,6 +153,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   major_version: null,
   managed_apps: null,
   meta: null,
+  migration_completed_time: null,
   minor_version: null,
   modified_timestamp: null,
   notes: null,
@@ -174,6 +181,7 @@ instance = Falcon::DeviceapiDeviceSwagger.new(
   provision_status: null,
   reduced_functionality_mode: null,
   release_group: null,
+  rtr_state: null,
   serial_number: null,
   service_pack_major: null,
   service_pack_minor: null,

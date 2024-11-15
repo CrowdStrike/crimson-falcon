@@ -75,7 +75,7 @@ describe 'KubernetesProtectionApi' do
   # Delete AWS accounts.
   # @param ids AWS Account IDs
   # @param [Hash] opts the optional parameters
-  # @return [MsaspecMetaInfo]
+  # @return [MsaMetaInfo]
   describe 'delete_aws_accounts_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -99,7 +99,7 @@ describe 'KubernetesProtectionApi' do
   # @option opts [Integer] :limit The upper-bound on the number of container records to retrieve.
   # @option opts [Integer] :offset It is used to get the offset
   # @option opts [String] :sort Field to sort results by
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsContainerRuntimePivotResponse]
   describe 'find_containers_by_container_run_time_version test' do
     it 'should work' do
@@ -240,7 +240,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for group_containers_by_managed
   # Group the containers by Managed
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsContainerCoverageResponseEntity]
   describe 'group_containers_by_managed test' do
     it 'should work' do
@@ -279,7 +279,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_cluster_combined
   # Retrieve kubernetes clusters identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -293,7 +293,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_cluster_count
   # Retrieve cluster counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
   # @return [CommonCountResponse]
   describe 'read_cluster_count test' do
     it 'should work' do
@@ -326,7 +326,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_clusters_by_kubernetes_version_count
   # Bucket clusters by kubernetes version
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_clusters_by_kubernetes_version_count test' do
     it 'should work' do
@@ -337,7 +337,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_clusters_by_status_count
   # Bucket clusters by status
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_clusters_by_status_count test' do
     it 'should work' do
@@ -348,7 +348,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_container_combined
   # Retrieve containers identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -362,7 +362,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_container_count
   # Retrieve container counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [CommonCountResponse]
   describe 'read_container_count test' do
     it 'should work' do
@@ -397,7 +397,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_container_image_detections_count_by_date
   # Retrieve count of image assessment detections on running containers over a period of time
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAPIFilterResponse]
   describe 'read_container_image_detections_count_by_date test' do
     it 'should work' do
@@ -408,7 +408,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_container_images_by_most_used
   # Bucket container by image-digest
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_container_images_by_most_used test' do
     it 'should work' do
@@ -430,7 +430,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_container_vulnerabilities_by_severity_count
   # Retrieve container vulnerabilities by severity counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_container_vulnerabilities_by_severity_count test' do
     it 'should work' do
@@ -441,7 +441,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_containers_by_date_range_count
   # Retrieve containers by date range counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_containers_by_date_range_count test' do
     it 'should work' do
@@ -452,7 +452,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_containers_sensor_coverage
   # Bucket containers by agent type and calculate sensor coverage
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_containers_sensor_coverage test' do
     it 'should work' do
@@ -463,7 +463,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_deployment_combined
   # Retrieve kubernetes deployments identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+  # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -477,7 +477,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_deployment_count
   # Retrieve deployment counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
+  # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
   # @return [CommonCountResponse]
   describe 'read_deployment_count test' do
     it 'should work' do
@@ -510,7 +510,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_distinct_container_image_count
   # Retrieve count of distinct images running on containers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAPIFilterResponse]
   describe 'read_distinct_container_image_count test' do
     it 'should work' do
@@ -521,7 +521,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_kubernetes_iom_by_date_range
   # Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
   # @return [K8siomsKubernetesIOMFieldValue]
   describe 'read_kubernetes_iom_by_date_range test' do
     it 'should work' do
@@ -532,7 +532,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_kubernetes_iom_count
   # Returns the total count of Kubernetes IOMs over the past seven days
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
   # @return [K8siomsKubernetesIOMCountValue]
   describe 'read_kubernetes_iom_count test' do
     it 'should work' do
@@ -551,10 +551,31 @@ describe 'KubernetesProtectionApi' do
     end
   end
 
+  # unit tests for read_namespace_count
+  # Retrieve namespace counts
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status
+  # @return [CommonCountResponse]
+  describe 'read_namespace_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_namespaces_by_date_range_count
+  # Retrieve namespaces by date range counts
+  # @param [Hash] opts the optional parameters
+  # @return [ModelsAggregateValuesByFieldResponse]
+  describe 'read_namespaces_by_date_range_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for read_node_combined
   # Retrieve kubernetes nodes identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -568,7 +589,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_node_count
   # Retrieve node counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
   # @return [CommonCountResponse]
   describe 'read_node_count test' do
     it 'should work' do
@@ -591,7 +612,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_nodes_by_cloud_count
   # Bucket nodes by cloud providers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_cloud_count test' do
     it 'should work' do
@@ -602,7 +623,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_nodes_by_container_engine_version_count
   # Bucket nodes by their container engine version
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_container_engine_version_count test' do
     it 'should work' do
@@ -613,7 +634,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_nodes_by_date_range_count
   # Retrieve nodes by date range counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_date_range_count test' do
     it 'should work' do
@@ -624,7 +645,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_pod_combined
   # Retrieve kubernetes pods identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+  # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -638,7 +659,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_pod_count
   # Retrieve pod counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
+  # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
   # @return [CommonCountResponse]
   describe 'read_pod_count test' do
     it 'should work' do
@@ -671,7 +692,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_running_container_images
   # Retrieve images on running containers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
+  # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,cluster_id,cluster_name,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort Field to sort results by
@@ -685,7 +706,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for read_vulnerable_container_image_count
   # Retrieve count of vulnerable images running on containers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
   # @return [ModelsAPIFilterResponse]
   describe 'read_vulnerable_container_image_count test' do
     it 'should work' do
@@ -706,7 +727,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for search_and_read_kubernetes_iom_entities
   # Search Kubernetes IOM by the provided search criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort The fields to sort the records on.
@@ -720,7 +741,7 @@ describe 'KubernetesProtectionApi' do
   # unit tests for search_kubernetes_ioms
   # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort The fields to sort the records on.

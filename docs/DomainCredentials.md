@@ -4,9 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sites_all** | **Array&lt;String&gt;** |  | [optional] |
-| **sites_with_cookie_only** | **Array&lt;String&gt;** |  | [optional] |
-| **sites_with_password** | **Array&lt;String&gt;** |  | [optional] |
+| **token** | **String** |  |  |
 
 ## Example
 
@@ -14,9 +12,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainCredentials.new(
-  sites_all: null,
-  sites_with_cookie_only: null,
-  sites_with_password: null
+  token: null
 )
 ```
 

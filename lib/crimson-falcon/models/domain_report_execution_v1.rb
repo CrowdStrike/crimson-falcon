@@ -50,6 +50,8 @@ module Falcon
 
     attr_accessor :report_file_reference
 
+    attr_accessor :report_params
+
     attr_accessor :result_metadata
 
     attr_accessor :scheduled_report_id
@@ -84,6 +86,7 @@ module Falcon
         :'job_reference' => :'job_reference',
         :'last_updated_on' => :'last_updated_on',
         :'report_file_reference' => :'report_file_reference',
+        :'report_params' => :'report_params',
         :'result_metadata' => :'result_metadata',
         :'scheduled_report_id' => :'scheduled_report_id',
         :'shared_with' => :'shared_with',
@@ -115,6 +118,7 @@ module Falcon
         :'job_reference' => :'String',
         :'last_updated_on' => :'Time',
         :'report_file_reference' => :'String',
+        :'report_params' => :'DomainReportParams',
         :'result_metadata' => :'DomainResultMetadata',
         :'scheduled_report_id' => :'String',
         :'shared_with' => :'Array<String>',
@@ -184,6 +188,10 @@ module Falcon
 
       if attributes.key?(:'report_file_reference')
         self.report_file_reference = attributes[:'report_file_reference']
+      end
+
+      if attributes.key?(:'report_params')
+        self.report_params = attributes[:'report_params']
       end
 
       if attributes.key?(:'result_metadata')
@@ -257,6 +265,10 @@ module Falcon
         invalid_properties.push('invalid value for "last_updated_on", last_updated_on cannot be nil.')
       end
 
+      if @report_params.nil?
+        invalid_properties.push('invalid value for "report_params", report_params cannot be nil.')
+      end
+
       if @scheduled_report_id.nil?
         invalid_properties.push('invalid value for "scheduled_report_id", scheduled_report_id cannot be nil.')
       end
@@ -300,6 +312,7 @@ module Falcon
       return false if @expiration_on.nil?
       return false if @id.nil?
       return false if @last_updated_on.nil?
+      return false if @report_params.nil?
       return false if @scheduled_report_id.nil?
       return false if @shared_with.nil?
       return false if @status.nil?
@@ -325,6 +338,7 @@ module Falcon
           job_reference == o.job_reference &&
           last_updated_on == o.last_updated_on &&
           report_file_reference == o.report_file_reference &&
+          report_params == o.report_params &&
           result_metadata == o.result_metadata &&
           scheduled_report_id == o.scheduled_report_id &&
           shared_with == o.shared_with &&
@@ -347,7 +361,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [can_write, created_on, customer_id, execution_metadata, expiration_on, id, job_reference, last_updated_on, report_file_reference, result_metadata, scheduled_report_id, shared_with, status, status_display, status_msg, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [can_write, created_on, customer_id, execution_metadata, expiration_on, id, job_reference, last_updated_on, report_file_reference, report_params, result_metadata, scheduled_report_id, shared_with, status, status_display, status_msg, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

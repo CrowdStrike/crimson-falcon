@@ -1,6 +1,6 @@
 # Falcon::FalconCompleteDashboardApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -14,6 +14,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**aggregate_prevention_policy**](FalconCompleteDashboardApi.md#aggregate_prevention_policy) | **POST** /falcon-complete-dashboards/aggregates/prevention-policies/v1 | Retrieve prevention policies aggregate values based on the matched filter |
 | [**aggregate_remediations**](FalconCompleteDashboardApi.md#aggregate_remediations) | **POST** /falcon-complete-dashboards/aggregates/remediations/GET/v1 | Retrieve aggregate remediation ticket values based on the matched filter |
 | [**aggregate_sensor_update_policy**](FalconCompleteDashboardApi.md#aggregate_sensor_update_policy) | **POST** /falcon-complete-dashboards/aggregates/sensor-update-policies/v1 | Retrieve sensor update policies aggregate values |
+| [**aggregate_support_issues**](FalconCompleteDashboardApi.md#aggregate_support_issues) | **POST** /falcon-complete-dashboards/aggregates/support-issues/v1 | Retrieve aggregate support issue ticket values based on the matched filter |
 | [**aggregate_total_device_counts**](FalconCompleteDashboardApi.md#aggregate_total_device_counts) | **POST** /falcon-complete-dashboards/aggregates/total-device-counts/v1 | Retrieve aggregate total host/devices based on the matched filter |
 | [**get_device_count_collection_queries_by_filter**](FalconCompleteDashboardApi.md#get_device_count_collection_queries_by_filter) | **GET** /falcon-complete-dashboards/queries/devicecount-collections/v1 | Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled |
 | [**query_alert_ids_by_filter**](FalconCompleteDashboardApi.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled |
@@ -717,6 +718,75 @@ end
 - **Accept**: application/json
 
 
+## aggregate_support_issues
+
+> <MsaAggregatesResponse> aggregate_support_issues(body)
+
+Retrieve aggregate support issue ticket values based on the matched filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FalconCompleteDashboardApi.new
+body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
+
+begin
+  # Retrieve aggregate support issue ticket values based on the matched filter
+  result = api_instance.aggregate_support_issues(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconCompleteDashboardApi->aggregate_support_issues: #{e}"
+end
+```
+
+#### Using the aggregate_support_issues_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaAggregatesResponse>, Integer, Hash)> aggregate_support_issues_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve aggregate support issue ticket values based on the matched filter
+  data, status_code, headers = api_instance.aggregate_support_issues_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaAggregatesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconCompleteDashboardApi->aggregate_support_issues_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;MsaAggregateQueryRequest&gt;**](MsaAggregateQueryRequest.md) |  |  |
+
+### Return type
+
+[**MsaAggregatesResponse**](MsaAggregatesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## aggregate_total_device_counts
 
 > <MsaAggregatesResponse> aggregate_total_device_counts(body)
@@ -788,7 +858,7 @@ end
 
 ## get_device_count_collection_queries_by_filter
 
-> <MsaspecQueryResponse> get_device_count_collection_queries_by_filter(opts)
+> <MsaQueryResponse> get_device_count_collection_queries_by_filter(opts)
 
 Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled
 
@@ -826,7 +896,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_device_count_collection_queries_by_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> get_device_count_collection_queries_by_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -834,7 +904,7 @@ begin
   data, status_code, headers = api_instance.get_device_count_collection_queries_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->get_device_count_collection_queries_by_filter_with_http_info: #{e}"
 end
@@ -851,7 +921,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -865,7 +935,7 @@ end
 
 ## query_alert_ids_by_filter
 
-> <MsaspecQueryResponse> query_alert_ids_by_filter(opts)
+> <MsaQueryResponse> query_alert_ids_by_filter(opts)
 
 Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
 
@@ -903,7 +973,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_alert_ids_by_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_alert_ids_by_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -911,7 +981,7 @@ begin
   data, status_code, headers = api_instance.query_alert_ids_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_alert_ids_by_filter_with_http_info: #{e}"
 end
@@ -928,7 +998,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -942,7 +1012,7 @@ end
 
 ## query_allow_list_filter
 
-> <MsaspecQueryResponse> query_allow_list_filter(opts)
+> <MsaQueryResponse> query_allow_list_filter(opts)
 
 Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled
 
@@ -980,7 +1050,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_allow_list_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_allow_list_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -988,7 +1058,7 @@ begin
   data, status_code, headers = api_instance.query_allow_list_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_allow_list_filter_with_http_info: #{e}"
 end
@@ -1005,7 +1075,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -1019,7 +1089,7 @@ end
 
 ## query_block_list_filter
 
-> <MsaspecQueryResponse> query_block_list_filter(opts)
+> <MsaQueryResponse> query_block_list_filter(opts)
 
 Retrieve block listtickets that match the provided filter criteria with scrolling enabled
 
@@ -1057,7 +1127,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_block_list_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_block_list_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -1065,7 +1135,7 @@ begin
   data, status_code, headers = api_instance.query_block_list_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_block_list_filter_with_http_info: #{e}"
 end
@@ -1082,7 +1152,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -1096,7 +1166,7 @@ end
 
 ## query_detection_ids_by_filter
 
-> <MsaspecQueryResponse> query_detection_ids_by_filter(opts)
+> <MsaQueryResponse> query_detection_ids_by_filter(opts)
 
 Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
 
@@ -1134,7 +1204,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_detection_ids_by_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_detection_ids_by_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -1142,7 +1212,7 @@ begin
   data, status_code, headers = api_instance.query_detection_ids_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_detection_ids_by_filter_with_http_info: #{e}"
 end
@@ -1159,7 +1229,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -1173,7 +1243,7 @@ end
 
 ## query_escalations_filter
 
-> <MsaspecQueryResponse> query_escalations_filter(opts)
+> <MsaQueryResponse> query_escalations_filter(opts)
 
 Retrieve escalation tickets that match the provided filter criteria with scrolling enabled
 
@@ -1211,7 +1281,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_escalations_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_escalations_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -1219,7 +1289,7 @@ begin
   data, status_code, headers = api_instance.query_escalations_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_escalations_filter_with_http_info: #{e}"
 end
@@ -1236,7 +1306,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -1250,7 +1320,7 @@ end
 
 ## query_incident_ids_by_filter
 
-> <MsaspecQueryResponse> query_incident_ids_by_filter(opts)
+> <MsaQueryResponse> query_incident_ids_by_filter(opts)
 
 Retrieve incidents that match the provided filter criteria with scrolling enabled
 
@@ -1288,7 +1358,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_incident_ids_by_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_incident_ids_by_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -1296,7 +1366,7 @@ begin
   data, status_code, headers = api_instance.query_incident_ids_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_incident_ids_by_filter_with_http_info: #{e}"
 end
@@ -1313,7 +1383,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 
@@ -1327,7 +1397,7 @@ end
 
 ## query_remediations_filter
 
-> <MsaspecQueryResponse> query_remediations_filter(opts)
+> <MsaQueryResponse> query_remediations_filter(opts)
 
 Retrieve remediation tickets that match the provided filter criteria with scrolling enabled
 
@@ -1365,7 +1435,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_remediations_filter_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_remediations_filter_with_http_info(opts)
 
 ```ruby
 begin
@@ -1373,7 +1443,7 @@ begin
   data, status_code, headers = api_instance.query_remediations_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling FalconCompleteDashboardApi->query_remediations_filter_with_http_info: #{e}"
 end
@@ -1390,7 +1460,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**MsaQueryResponse**](MsaQueryResponse.md)
 
 ### Authorization
 

@@ -46,6 +46,8 @@ module Falcon
 
     attr_accessor :os_version
 
+    attr_accessor :tags
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -55,7 +57,8 @@ module Falcon
         :'groups' => :'groups',
         :'local_ip' => :'local_ip',
         :'name' => :'name',
-        :'os_version' => :'os_version'
+        :'os_version' => :'os_version',
+        :'tags' => :'tags'
       }
     end
 
@@ -73,7 +76,8 @@ module Falcon
         :'groups' => :'Array<ChangesHostGroup>',
         :'local_ip' => :'String',
         :'name' => :'String',
-        :'os_version' => :'String'
+        :'os_version' => :'String',
+        :'tags' => :'Array<String>'
       }
     end
 
@@ -127,6 +131,12 @@ module Falcon
       if attributes.key?(:'os_version')
         self.os_version = attributes[:'os_version']
       end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -153,7 +163,8 @@ module Falcon
           groups == o.groups &&
           local_ip == o.local_ip &&
           name == o.name &&
-          os_version == o.os_version
+          os_version == o.os_version &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -165,7 +176,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, containment_status, external_ip, groups, local_ip, name, os_version].hash
+      [agent_version, containment_status, external_ip, groups, local_ip, name, os_version, tags].hash
     end
 
     # Builds the object from hash

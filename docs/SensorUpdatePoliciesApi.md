@@ -1,6 +1,6 @@
 # Falcon::SensorUpdatePoliciesApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_combined_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies) | **GET** /policy/combined/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
 | [**query_combined_sensor_update_policies_v2**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policies_v2) | **GET** /policy/combined/sensor-update/v2 | Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria |
 | [**query_combined_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_combined_sensor_update_policy_members) | **GET** /policy/combined/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
-| [**query_sensor_update_kernels_distinct**](SensorUpdatePoliciesApi.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct-field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
+| [**query_sensor_update_kernels_distinct**](SensorUpdatePoliciesApi.md#query_sensor_update_kernels_distinct) | **GET** /policy/queries/sensor-update-kernels/{distinct_field}/v1 | Retrieve kernel compatibility info for Sensor Update Builds |
 | [**query_sensor_update_policies**](SensorUpdatePoliciesApi.md#query_sensor_update_policies) | **GET** /policy/queries/sensor-update/v1 | Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria |
 | [**query_sensor_update_policy_members**](SensorUpdatePoliciesApi.md#query_sensor_update_policy_members) | **GET** /policy/queries/sensor-update-members/v1 | Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
 | [**reveal_uninstall_token**](SensorUpdatePoliciesApi.md#reveal_uninstall_token) | **POST** /policy/combined/reveal-uninstall-token/v1 | Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39; |

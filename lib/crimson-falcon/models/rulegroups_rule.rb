@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :enable_content_capture
 
+    attr_accessor :enable_hash_capture
+
     attr_accessor :exclude
 
     attr_accessor :exclude_processes
@@ -92,6 +94,8 @@ module Falcon
 
     attr_accessor :watch_permissions_file_changes
 
+    attr_accessor :watch_permissions_key_changes
+
     attr_accessor :watch_rename_directory_changes
 
     attr_accessor :watch_rename_file_changes
@@ -111,6 +115,7 @@ module Falcon
         :'depth' => :'depth',
         :'description' => :'description',
         :'enable_content_capture' => :'enable_content_capture',
+        :'enable_hash_capture' => :'enable_hash_capture',
         :'exclude' => :'exclude',
         :'exclude_processes' => :'exclude_processes',
         :'exclude_users' => :'exclude_users',
@@ -135,6 +140,7 @@ module Falcon
         :'watch_delete_value_changes' => :'watch_delete_value_changes',
         :'watch_permissions_directory_changes' => :'watch_permissions_directory_changes',
         :'watch_permissions_file_changes' => :'watch_permissions_file_changes',
+        :'watch_permissions_key_changes' => :'watch_permissions_key_changes',
         :'watch_rename_directory_changes' => :'watch_rename_directory_changes',
         :'watch_rename_file_changes' => :'watch_rename_file_changes',
         :'watch_rename_key_changes' => :'watch_rename_key_changes',
@@ -157,6 +163,7 @@ module Falcon
         :'depth' => :'String',
         :'description' => :'String',
         :'enable_content_capture' => :'Boolean',
+        :'enable_hash_capture' => :'Boolean',
         :'exclude' => :'String',
         :'exclude_processes' => :'String',
         :'exclude_users' => :'String',
@@ -181,6 +188,7 @@ module Falcon
         :'watch_delete_value_changes' => :'Boolean',
         :'watch_permissions_directory_changes' => :'Boolean',
         :'watch_permissions_file_changes' => :'Boolean',
+        :'watch_permissions_key_changes' => :'Boolean',
         :'watch_rename_directory_changes' => :'Boolean',
         :'watch_rename_file_changes' => :'Boolean',
         :'watch_rename_key_changes' => :'Boolean',
@@ -236,6 +244,10 @@ module Falcon
 
       if attributes.key?(:'enable_content_capture')
         self.enable_content_capture = attributes[:'enable_content_capture']
+      end
+
+      if attributes.key?(:'enable_hash_capture')
+        self.enable_hash_capture = attributes[:'enable_hash_capture']
       end
 
       if attributes.key?(:'exclude')
@@ -334,6 +346,10 @@ module Falcon
         self.watch_permissions_file_changes = attributes[:'watch_permissions_file_changes']
       end
 
+      if attributes.key?(:'watch_permissions_key_changes')
+        self.watch_permissions_key_changes = attributes[:'watch_permissions_key_changes']
+      end
+
       if attributes.key?(:'watch_rename_directory_changes')
         self.watch_rename_directory_changes = attributes[:'watch_rename_directory_changes']
       end
@@ -414,6 +430,7 @@ module Falcon
           depth == o.depth &&
           description == o.description &&
           enable_content_capture == o.enable_content_capture &&
+          enable_hash_capture == o.enable_hash_capture &&
           exclude == o.exclude &&
           exclude_processes == o.exclude_processes &&
           exclude_users == o.exclude_users &&
@@ -438,6 +455,7 @@ module Falcon
           watch_delete_value_changes == o.watch_delete_value_changes &&
           watch_permissions_directory_changes == o.watch_permissions_directory_changes &&
           watch_permissions_file_changes == o.watch_permissions_file_changes &&
+          watch_permissions_key_changes == o.watch_permissions_key_changes &&
           watch_rename_directory_changes == o.watch_rename_directory_changes &&
           watch_rename_file_changes == o.watch_rename_file_changes &&
           watch_rename_key_changes == o.watch_rename_key_changes &&
@@ -454,7 +472,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [content_files, content_registry_values, created_timestamp, depth, description, enable_content_capture, exclude, exclude_processes, exclude_users, id, include, include_processes, include_users, modified_timestamp, path, precedence, rule_group_id, severity, type, watch_attributes_directory_changes, watch_attributes_file_changes, watch_create_directory_changes, watch_create_file_changes, watch_create_key_changes, watch_delete_directory_changes, watch_delete_file_changes, watch_delete_key_changes, watch_delete_value_changes, watch_permissions_directory_changes, watch_permissions_file_changes, watch_rename_directory_changes, watch_rename_file_changes, watch_rename_key_changes, watch_set_value_changes, watch_write_file_changes].hash
+      [content_files, content_registry_values, created_timestamp, depth, description, enable_content_capture, enable_hash_capture, exclude, exclude_processes, exclude_users, id, include, include_processes, include_users, modified_timestamp, path, precedence, rule_group_id, severity, type, watch_attributes_directory_changes, watch_attributes_file_changes, watch_create_directory_changes, watch_create_file_changes, watch_create_key_changes, watch_delete_directory_changes, watch_delete_file_changes, watch_delete_key_changes, watch_delete_value_changes, watch_permissions_directory_changes, watch_permissions_file_changes, watch_permissions_key_changes, watch_rename_directory_changes, watch_rename_file_changes, watch_rename_key_changes, watch_set_value_changes, watch_write_file_changes].hash
     end
 
     # Builds the object from hash

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **libraries** | [**Array&lt;ModelsApplicationLibrary&gt;**](ModelsApplicationLibrary.md) |  |  |
-| **type** | **String** |  |  |
+| **type** | **Integer** |  |  |
 
 ## Example
 

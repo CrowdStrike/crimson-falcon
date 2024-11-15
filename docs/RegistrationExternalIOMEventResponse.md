@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
 | **meta** | [**RegistrationMSAMetaInfoExtension**](RegistrationMSAMetaInfoExtension.md) |  |  |
 | **resources** | [**RegistrationIOMResources**](RegistrationIOMResources.md) |  | [optional] |
 

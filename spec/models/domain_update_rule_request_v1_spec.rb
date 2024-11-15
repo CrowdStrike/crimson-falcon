@@ -42,6 +42,12 @@ describe Falcon::DomainUpdateRuleRequestV1 do
       expect(instance).to be_instance_of(Falcon::DomainUpdateRuleRequestV1)
     end
   end
+  describe 'test attribute "breach_monitor_only"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "breach_monitoring_enabled"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

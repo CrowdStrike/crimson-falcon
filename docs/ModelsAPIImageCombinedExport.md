@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **architecture** | **String** |  |  |
 | **base_os** | **String** |  |  |
 | **cid** | **String** |  |  |
 | **cve_id** | **String** |  |  |
@@ -14,10 +15,12 @@
 | **first_seen** | **String** |  |  |
 | **image_digest** | **String** |  |  |
 | **image_id** | **String** |  |  |
+| **is_base_image** | **Boolean** |  |  |
 | **last_seen** | **String** |  |  |
 | **packages_impacted** | **Integer** |  |  |
 | **registry** | **String** |  |  |
 | **repository** | **String** |  |  |
+| **source** | **String** |  |  |
 | **started_containers** | **Integer** |  |  |
 | **stopped_containers** | **Integer** |  |  |
 | **tag** | **String** |  |  |
@@ -31,6 +34,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsAPIImageCombinedExport.new(
+  architecture: null,
   base_os: null,
   cid: null,
   cve_id: null,
@@ -41,10 +45,12 @@ instance = Falcon::ModelsAPIImageCombinedExport.new(
   first_seen: null,
   image_digest: null,
   image_id: null,
+  is_base_image: null,
   last_seen: null,
   packages_impacted: null,
   registry: null,
   repository: null,
+  source: null,
   started_containers: null,
   stopped_containers: null,
   tag: null,

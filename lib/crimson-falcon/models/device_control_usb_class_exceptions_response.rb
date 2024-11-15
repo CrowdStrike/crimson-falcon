@@ -145,7 +145,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @action.nil?
-      action_validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "READ_ONLY"])
+      action_validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "READ_ONLY", "BLOCK_EXECUTE"])
       return false unless action_validator.valid?(@action)
       return false if @exceptions.nil?
       return false if @id.nil?
@@ -155,7 +155,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] action Object to be assigned
     def action=(action)
-      validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "READ_ONLY"])
+      validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "READ_ONLY", "BLOCK_EXECUTE"])
       unless validator.valid?(action)
         fail ArgumentError, "invalid value for \"action\", must be one of #{validator.allowable_values}."
       end

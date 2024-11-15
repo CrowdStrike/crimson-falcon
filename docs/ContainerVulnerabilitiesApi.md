@@ -1,6 +1,6 @@
 # Falcon::ContainerVulnerabilitiesApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -37,7 +37,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
   sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity]
@@ -74,7 +74,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 | **sort** | **String** | The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity] | [optional] |
@@ -115,7 +115,7 @@ end
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 id = 'id_example' # String | Image UUID
 opts = {
-  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,is_zero_day,remediation_available,severity
+  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -152,7 +152,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | Image UUID |  |
-| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,is_zero_day,remediation_available,severity | [optional] |
+| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
@@ -416,7 +416,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -452,7 +452,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
@@ -491,7 +491,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -527,7 +527,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
@@ -566,7 +566,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -602,7 +602,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
@@ -641,7 +641,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -677,7 +677,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
@@ -716,7 +716,7 @@ end
 
 api_instance = Falcon::ContainerVulnerabilitiesApi.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
@@ -752,7 +752,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 

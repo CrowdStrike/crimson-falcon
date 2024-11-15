@@ -62,4 +62,17 @@ describe 'MobileEnrollmentApi' do
     end
   end
 
+  # unit tests for request_device_enrollment_v4
+  # Trigger on-boarding process for a mobile device
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :action_name Action to perform
+  # @option opts [String] :filter FQL filter
+  # @return [ApiPostEnrollmentDetailsResponse]
+  describe 'request_device_enrollment_v4 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

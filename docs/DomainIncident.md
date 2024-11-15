@@ -13,6 +13,7 @@
 | **_end** | **Time** |  |  |
 | **events_histogram** | [**Array&lt;DomainEventHistogram&gt;**](DomainEventHistogram.md) |  | [optional] |
 | **fine_score** | **Integer** |  |  |
+| **grouping_ids** | **Array&lt;String&gt;** |  | [optional] |
 | **host_ids** | **Array&lt;String&gt;** |  |  |
 | **hosts** | [**Array&lt;DetectsDeviceDetailIndexed&gt;**](DetectsDeviceDetailIndexed.md) |  | [optional] |
 | **incident_id** | **String** |  |  |
@@ -48,6 +49,7 @@ instance = Falcon::DomainIncident.new(
   _end: null,
   events_histogram: null,
   fine_score: null,
+  grouping_ids: null,
   host_ids: null,
   hosts: null,
   incident_id: null,

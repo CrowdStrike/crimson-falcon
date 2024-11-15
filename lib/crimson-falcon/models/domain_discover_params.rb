@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :application_vendors
 
+    attr_accessor :inline_app_filter
+
     attr_accessor :requirement_criteria
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -46,6 +48,7 @@ module Falcon
         :'application_filters' => :'application_filters',
         :'application_group_id' => :'application_group_id',
         :'application_vendors' => :'application_vendors',
+        :'inline_app_filter' => :'inline_app_filter',
         :'requirement_criteria' => :'requirement_criteria'
       }
     end
@@ -61,6 +64,7 @@ module Falcon
         :'application_filters' => :'String',
         :'application_group_id' => :'String',
         :'application_vendors' => :'String',
+        :'inline_app_filter' => :'String',
         :'requirement_criteria' => :'String'
       }
     end
@@ -98,6 +102,10 @@ module Falcon
         self.application_vendors = attributes[:'application_vendors']
       end
 
+      if attributes.key?(:'inline_app_filter')
+        self.inline_app_filter = attributes[:'inline_app_filter']
+      end
+
       if attributes.key?(:'requirement_criteria')
         self.requirement_criteria = attributes[:'requirement_criteria']
       end
@@ -119,6 +127,10 @@ module Falcon
         invalid_properties.push('invalid value for "application_vendors", application_vendors cannot be nil.')
       end
 
+      if @inline_app_filter.nil?
+        invalid_properties.push('invalid value for "inline_app_filter", inline_app_filter cannot be nil.')
+      end
+
       if @requirement_criteria.nil?
         invalid_properties.push('invalid value for "requirement_criteria", requirement_criteria cannot be nil.')
       end
@@ -132,6 +144,7 @@ module Falcon
       return false if @application_filters.nil?
       return false if @application_group_id.nil?
       return false if @application_vendors.nil?
+      return false if @inline_app_filter.nil?
       return false if @requirement_criteria.nil?
       true
     end
@@ -144,6 +157,7 @@ module Falcon
           application_filters == o.application_filters &&
           application_group_id == o.application_group_id &&
           application_vendors == o.application_vendors &&
+          inline_app_filter == o.inline_app_filter &&
           requirement_criteria == o.requirement_criteria
     end
 
@@ -156,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_filters, application_group_id, application_vendors, requirement_criteria].hash
+      [application_filters, application_group_id, application_vendors, inline_app_filter, requirement_criteria].hash
     end
 
     # Builds the object from hash

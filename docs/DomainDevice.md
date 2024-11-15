@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **platform_id_numeric** | **Integer** |  |  |
+| **_** | **Integer** |  |  |
 | **agent_version** | **String** |  | [optional] |
 | **config_id_base** | **String** |  | [optional] |
 | **config_id_build** | **String** |  | [optional] |
@@ -46,7 +46,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainDevice.new(
-  platform_id_numeric: null,
+  _: null,
   agent_version: null,
   config_id_base: null,
   config_id_build: null,

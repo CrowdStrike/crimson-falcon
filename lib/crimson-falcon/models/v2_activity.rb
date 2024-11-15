@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class V2Activity
+    attr_accessor :_class
+
     attr_accessor :id
 
     attr_accessor :_next
@@ -41,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'_class' => :'class',
         :'id' => :'id',
         :'_next' => :'next',
         :'properties' => :'properties'
@@ -55,6 +58,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'_class' => :'String',
         :'id' => :'String',
         :'_next' => :'Array<String>',
         :'properties' => :'Object'
@@ -81,6 +85,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'_class')
+        self._class = attributes[:'_class']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -125,6 +133,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          _class == o._class &&
           id == o.id &&
           _next == o._next &&
           properties == o.properties
@@ -139,7 +148,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, _next, properties].hash
+      [_class, id, _next, properties].hash
     end
 
     # Builds the object from hash

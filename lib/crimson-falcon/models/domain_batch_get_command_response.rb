@@ -60,8 +60,8 @@ module Falcon
       {
         :'batch_get_cmd_req_id' => :'String',
         :'combined' => :'DomainMultiCommandExecuteResponse',
-        :'errors' => :'Array<MsaspecError>',
-        :'meta' => :'MsaspecMetaInfo'
+        :'errors' => :'Array<MsaAPIError>',
+        :'meta' => :'MsaMetaInfo'
       }
     end
 

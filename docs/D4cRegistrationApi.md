@@ -1,28 +1,29 @@
 # Falcon::D4cRegistrationApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**connect_d4_cgcp_account**](D4cRegistrationApi.md#connect_d4_cgcp_account) | **POST** /cloud-connect-gcp/entities/account/v2 | Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id |
 | [**create_d4_c_aws_account**](D4cRegistrationApi.md#create_d4_c_aws_account) | **POST** /cloud-connect-aws/entities/account/v2 | Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access. |
-| [**create_d4_cgcp_account**](D4cRegistrationApi.md#create_d4_cgcp_account) | **POST** /cloud-connect-gcp/entities/account/v1 | Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access. |
+| [**create_d4_c_gcp_account**](D4cRegistrationApi.md#create_d4_c_gcp_account) | **POST** /cloud-connect-gcp/entities/account/v1 | Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access. |
 | [**create_discover_cloud_azure_account**](D4cRegistrationApi.md#create_discover_cloud_azure_account) | **POST** /cloud-connect-azure/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access. |
 | [**delete_d4_c_aws_account**](D4cRegistrationApi.md#delete_d4_c_aws_account) | **DELETE** /cloud-connect-aws/entities/account/v2 | Deletes an existing AWS account or organization in our system. |
 | [**delete_d4_cgcp_account**](D4cRegistrationApi.md#delete_d4_cgcp_account) | **DELETE** /cloud-connect-gcp/entities/account/v1 | Deletes a GCP account from the system. |
 | [**discover_cloud_azure_download_certificate**](D4cRegistrationApi.md#discover_cloud_azure_download_certificate) | **GET** /cloud-connect-azure/entities/download-certificate/v1 | Returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
 | [**get_d4_c_aws_account**](D4cRegistrationApi.md#get_d4_c_aws_account) | **GET** /cloud-connect-aws/entities/account/v2 | Returns information about the current status of an AWS account. |
 | [**get_d4_c_aws_console_setup_urls**](D4cRegistrationApi.md#get_d4_c_aws_console_setup_urls) | **GET** /cloud-connect-aws/entities/console-setup-urls/v1 | Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment. |
+| [**get_d4_c_gcp_account**](D4cRegistrationApi.md#get_d4_c_gcp_account) | **GET** /cloud-connect-gcp/entities/account/v1 | Returns information about the current status of an GCP account. |
+| [**get_d4_c_gcp_user_scripts**](D4cRegistrationApi.md#get_d4_c_gcp_user_scripts) | **GET** /cloud-connect-gcp/entities/user-scripts/v1 | Return a script for customer to run in their cloud environment to grant us access to their GCP environment |
 | [**get_d4_caws_account_scripts_attachment**](D4cRegistrationApi.md#get_d4_caws_account_scripts_attachment) | **GET** /cloud-connect-aws/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment. |
-| [**get_d4_ccgp_account**](D4cRegistrationApi.md#get_d4_ccgp_account) | **GET** /cloud-connect-gcp/entities/account/v1 | Returns information about the current status of an GCP account. |
 | [**get_d4_cgcp_service_accounts_ext**](D4cRegistrationApi.md#get_d4_cgcp_service_accounts_ext) | **GET** /cloud-connect-gcp/entities/service-accounts/v1 | Returns the service account id and client email for external clients. |
-| [**get_d4_cgcp_user_scripts**](D4cRegistrationApi.md#get_d4_cgcp_user_scripts) | **GET** /cloud-connect-gcp/entities/user-scripts/v1 | Return a script for customer to run in their cloud environment to grant us access to their GCP environment |
 | [**get_d4_cgcp_user_scripts_attachment**](D4cRegistrationApi.md#get_d4_cgcp_user_scripts_attachment) | **GET** /cloud-connect-gcp/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment |
 | [**get_discover_cloud_azure_account**](D4cRegistrationApi.md#get_discover_cloud_azure_account) | **GET** /cloud-connect-azure/entities/account/v1 | Return information about Azure account registration |
 | [**get_discover_cloud_azure_tenant_ids**](D4cRegistrationApi.md#get_discover_cloud_azure_tenant_ids) | **GET** /cloud-connect-azure/entities/tenant-id/v1 | Return available tenant ids for discover for cloud |
 | [**get_discover_cloud_azure_user_scripts**](D4cRegistrationApi.md#get_discover_cloud_azure_user_scripts) | **GET** /cloud-connect-azure/entities/user-scripts/v1 | Return a script for customer to run in their cloud environment to grant us access to their Azure environment |
 | [**get_discover_cloud_azure_user_scripts_attachment**](D4cRegistrationApi.md#get_discover_cloud_azure_user_scripts_attachment) | **GET** /cloud-connect-azure/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their Azure environment as a downloadable attachment |
 | [**get_horizon_d4_c_scripts**](D4cRegistrationApi.md#get_horizon_d4_c_scripts) | **GET** /settings-discover/entities/gen/scripts/v1 | Returns static install scripts for Horizon. |
+| [**update_d4_cgcp_service_accounts_ext**](D4cRegistrationApi.md#update_d4_cgcp_service_accounts_ext) | **PATCH** /cloud-connect-gcp/entities/service-accounts/v1 | Patches the service account key for external clients. |
 | [**update_discover_cloud_azure_account_client_id**](D4cRegistrationApi.md#update_discover_cloud_azure_account_client_id) | **PATCH** /cloud-connect-azure/entities/client-id/v1 | Update an Azure service account in our system by with the user-created client_id created with the public key we&#39;ve provided |
 
 
@@ -164,9 +165,9 @@ end
 - **Accept**: application/json
 
 
-## create_d4_cgcp_account
+## create_d4_c_gcp_account
 
-> <RegistrationGCPAccountResponseV1> create_d4_cgcp_account(body)
+> <RegistrationGCPAccountResponseV1> create_d4_c_gcp_account(body)
 
 Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
 
@@ -188,28 +189,28 @@ body = Falcon::RegistrationGCPAccountCreateRequestExtV1.new({resources: [Falcon:
 
 begin
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-  result = api_instance.create_d4_cgcp_account(body)
+  result = api_instance.create_d4_c_gcp_account(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->create_d4_cgcp_account: #{e}"
+  puts "Error when calling D4cRegistrationApi->create_d4_c_gcp_account: #{e}"
 end
 ```
 
-#### Using the create_d4_cgcp_account_with_http_info variant
+#### Using the create_d4_c_gcp_account_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> create_d4_cgcp_account_with_http_info(body)
+> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> create_d4_c_gcp_account_with_http_info(body)
 
 ```ruby
 begin
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
-  data, status_code, headers = api_instance.create_d4_cgcp_account_with_http_info(body)
+  data, status_code, headers = api_instance.create_d4_c_gcp_account_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistrationGCPAccountResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->create_d4_cgcp_account_with_http_info: #{e}"
+  puts "Error when calling D4cRegistrationApi->create_d4_c_gcp_account_with_http_info: #{e}"
 end
 ```
 
@@ -606,7 +607,7 @@ end
 
 ## get_d4_c_aws_console_setup_urls
 
-> <RegistrationAWSAccountConsoleURL> get_d4_c_aws_console_setup_urls(opts)
+> <RegistrationAWSConsoleURLResponseV2> get_d4_c_aws_console_setup_urls(opts)
 
 Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
 
@@ -641,7 +642,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationAWSAccountConsoleURL>, Integer, Hash)> get_d4_c_aws_console_setup_urls_with_http_info(opts)
+> <Array(<RegistrationAWSConsoleURLResponseV2>, Integer, Hash)> get_d4_c_aws_console_setup_urls_with_http_info(opts)
 
 ```ruby
 begin
@@ -649,7 +650,7 @@ begin
   data, status_code, headers = api_instance.get_d4_c_aws_console_setup_urls_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <RegistrationAWSAccountConsoleURL>
+  p data # => <RegistrationAWSConsoleURLResponseV2>
 rescue Falcon::ApiError => e
   puts "Error when calling D4cRegistrationApi->get_d4_c_aws_console_setup_urls_with_http_info: #{e}"
 end
@@ -663,7 +664,161 @@ end
 
 ### Return type
 
-[**RegistrationAWSAccountConsoleURL**](RegistrationAWSAccountConsoleURL.md)
+[**RegistrationAWSConsoleURLResponseV2**](RegistrationAWSConsoleURLResponseV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_d4_c_gcp_account
+
+> <RegistrationGCPAccountResponseV1> get_d4_c_gcp_account(opts)
+
+Returns information about the current status of an GCP account.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::D4cRegistrationApi.new
+opts = {
+  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
+  ids: ['inner_example'], # Array<String> | Hierarchical Resource IDs of accounts
+  scan_type: 'dry', # String | Type of scan, dry or full, to perform on selected accounts
+  status: 'operational', # String | Account status to filter results by.
+  limit: 56, # Integer | The maximum records to return. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example' # String | Order fields in ascending or descending order. Ex: parent_type|asc.
+}
+
+begin
+  # Returns information about the current status of an GCP account.
+  result = api_instance.get_d4_c_gcp_account(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->get_d4_c_gcp_account: #{e}"
+end
+```
+
+#### Using the get_d4_c_gcp_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> get_d4_c_gcp_account_with_http_info(opts)
+
+```ruby
+begin
+  # Returns information about the current status of an GCP account.
+  data, status_code, headers = api_instance.get_d4_c_gcp_account_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPAccountResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->get_d4_c_gcp_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
+| **scan_type** | **String** | Type of scan, dry or full, to perform on selected accounts | [optional] |
+| **status** | **String** | Account status to filter results by. | [optional] |
+| **limit** | **Integer** | The maximum records to return. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | Order fields in ascending or descending order. Ex: parent_type|asc. | [optional] |
+
+### Return type
+
+[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_d4_c_gcp_user_scripts
+
+> <RegistrationGCPProvisionGetUserScriptResponseV1> get_d4_c_gcp_user_scripts(opts)
+
+Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::D4cRegistrationApi.new
+opts = {
+  parent_type: 'Folder' # String | GCP Hierarchy Parent Type, organization/folder/project
+}
+
+begin
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+  result = api_instance.get_d4_c_gcp_user_scripts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->get_d4_c_gcp_user_scripts: #{e}"
+end
+```
+
+#### Using the get_d4_c_gcp_user_scripts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPProvisionGetUserScriptResponseV1>, Integer, Hash)> get_d4_c_gcp_user_scripts_with_http_info(opts)
+
+```ruby
+begin
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+  data, status_code, headers = api_instance.get_d4_c_gcp_user_scripts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPProvisionGetUserScriptResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->get_d4_c_gcp_user_scripts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
+
+### Return type
+
+[**RegistrationGCPProvisionGetUserScriptResponseV1**](RegistrationGCPProvisionGetUserScriptResponseV1.md)
 
 ### Authorization
 
@@ -696,7 +851,18 @@ end
 
 api_instance = Falcon::D4cRegistrationApi.new
 opts = {
-  ids: ['inner_example'] # Array<String> | AWS account IDs
+  ids: ['inner_example'], # Array<String> | AWS account IDs
+  template: 'aws-bash', # String | Template to be rendered
+  accounts: ['inner_example'], # Array<String> | The list of accounts to register
+  behavior_assessment_enabled: 'true', # String | 
+  sensor_management_enabled: 'true', # String | 
+  dspm_enabled: 'true', # String | 
+  dspm_regions: ['inner_example'], # Array<String> | 
+  dspm_role: 'dspm_role_example', # String | 
+  use_existing_cloudtrail: 'true', # String | 
+  organization_id: 'organization_id_example', # String | The AWS organization ID to be registered
+  aws_profile: 'aws_profile_example', # String | The AWS profile to be used during registration
+  custom_role_name: 'custom_role_name_example' # String | The custom IAM role to be used during registration
 }
 
 begin
@@ -731,6 +897,17 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs | [optional] |
+| **template** | **String** | Template to be rendered | [optional][default to &#39;aws-bash&#39;] |
+| **accounts** | [**Array&lt;String&gt;**](String.md) | The list of accounts to register | [optional] |
+| **behavior_assessment_enabled** | **String** |  | [optional] |
+| **sensor_management_enabled** | **String** |  | [optional] |
+| **dspm_enabled** | **String** |  | [optional] |
+| **dspm_regions** | [**Array&lt;String&gt;**](String.md) |  | [optional] |
+| **dspm_role** | **String** |  | [optional] |
+| **use_existing_cloudtrail** | **String** |  | [optional] |
+| **organization_id** | **String** | The AWS organization ID to be registered | [optional] |
+| **aws_profile** | **String** | The AWS profile to be used during registration | [optional] |
+| **custom_role_name** | **String** | The custom IAM role to be used during registration | [optional] |
 
 ### Return type
 
@@ -744,89 +921,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json, application/octet-stream
-
-
-## get_d4_ccgp_account
-
-> <RegistrationGCPAccountResponseV1> get_d4_ccgp_account(opts)
-
-Returns information about the current status of an GCP account.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::D4cRegistrationApi.new
-opts = {
-  parent_type: 'Folder', # String | GCP Hierarchy Parent Type, organization/folder/project
-  ids: ['inner_example'], # Array<String> | Hierarchical Resource IDs of accounts
-  scan_type: 'dry', # String | Type of scan, dry or full, to perform on selected accounts
-  status: 'operational', # String | Account status to filter results by.
-  limit: 56, # Integer | The maximum records to return. Defaults to 100.
-  offset: 56, # Integer | The offset to start retrieving records from
-  sort: 'sort_example' # String | Order fields in ascending or descending order. Ex: parent_type|asc.
-}
-
-begin
-  # Returns information about the current status of an GCP account.
-  result = api_instance.get_d4_ccgp_account(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->get_d4_ccgp_account: #{e}"
-end
-```
-
-#### Using the get_d4_ccgp_account_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPAccountResponseV1>, Integer, Hash)> get_d4_ccgp_account_with_http_info(opts)
-
-```ruby
-begin
-  # Returns information about the current status of an GCP account.
-  data, status_code, headers = api_instance.get_d4_ccgp_account_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPAccountResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->get_d4_ccgp_account_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
-| **ids** | [**Array&lt;String&gt;**](String.md) | Hierarchical Resource IDs of accounts | [optional] |
-| **scan_type** | **String** | Type of scan, dry or full, to perform on selected accounts | [optional] |
-| **status** | **String** | Account status to filter results by. | [optional] |
-| **limit** | **Integer** | The maximum records to return. Defaults to 100. | [optional][default to 100] |
-| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
-| **sort** | **String** | Order fields in ascending or descending order. Ex: parent_type|asc. | [optional] |
-
-### Return type
-
-[**RegistrationGCPAccountResponseV1**](RegistrationGCPAccountResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
 
 
 ## get_d4_cgcp_service_accounts_ext
@@ -889,77 +983,6 @@ end
 ### Return type
 
 [**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_d4_cgcp_user_scripts
-
-> <RegistrationGCPProvisionGetUserScriptResponseV1> get_d4_cgcp_user_scripts(opts)
-
-Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::D4cRegistrationApi.new
-opts = {
-  parent_type: 'Folder' # String | GCP Hierarchy Parent Type, organization/folder/project
-}
-
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-  result = api_instance.get_d4_cgcp_user_scripts(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->get_d4_cgcp_user_scripts: #{e}"
-end
-```
-
-#### Using the get_d4_cgcp_user_scripts_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationGCPProvisionGetUserScriptResponseV1>, Integer, Hash)> get_d4_cgcp_user_scripts_with_http_info(opts)
-
-```ruby
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-  data, status_code, headers = api_instance.get_d4_cgcp_user_scripts_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationGCPProvisionGetUserScriptResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistrationApi->get_d4_cgcp_user_scripts_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **parent_type** | **String** | GCP Hierarchy Parent Type, organization/folder/project | [optional] |
-
-### Return type
-
-[**RegistrationGCPProvisionGetUserScriptResponseV1**](RegistrationGCPProvisionGetUserScriptResponseV1.md)
 
 ### Authorization
 
@@ -1410,6 +1433,75 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_d4_cgcp_service_accounts_ext
+
+> <RegistrationGCPServiceAccountResponseExtV1> update_d4_cgcp_service_accounts_ext(body)
+
+Patches the service account key for external clients.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::D4cRegistrationApi.new
+body = Falcon::RegistrationGCPServiceAccountPatchRequestV1.new({resources: [Falcon::RegistrationGCPServiceAccountPatchV1.new]}) # RegistrationGCPServiceAccountPatchRequestV1 | 
+
+begin
+  # Patches the service account key for external clients.
+  result = api_instance.update_d4_cgcp_service_accounts_ext(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->update_d4_cgcp_service_accounts_ext: #{e}"
+end
+```
+
+#### Using the update_d4_cgcp_service_accounts_ext_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationGCPServiceAccountResponseExtV1>, Integer, Hash)> update_d4_cgcp_service_accounts_ext_with_http_info(body)
+
+```ruby
+begin
+  # Patches the service account key for external clients.
+  data, status_code, headers = api_instance.update_d4_cgcp_service_accounts_ext_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationGCPServiceAccountResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling D4cRegistrationApi->update_d4_cgcp_service_accounts_ext_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RegistrationGCPServiceAccountPatchRequestV1**](RegistrationGCPServiceAccountPatchRequestV1.md) |  |  |
+
+### Return type
+
+[**RegistrationGCPServiceAccountResponseExtV1**](RegistrationGCPServiceAccountResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

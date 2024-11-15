@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) | A collection of any errors which occurred during execution of the request |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) | A collection of any errors which occurred during execution of the request |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;SensorUpdateKernelRespV1&gt;**](SensorUpdateKernelRespV1.md) |  |  |
 
 ## Example

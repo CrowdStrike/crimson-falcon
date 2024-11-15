@@ -52,6 +52,8 @@ module Falcon
 
     attr_accessor :cloud_region
 
+    attr_accessor :cloud_service
+
     attr_accessor :cluster_id
 
     attr_accessor :cluster_name
@@ -64,6 +66,8 @@ module Falcon
 
     attr_accessor :created_at
 
+    attr_accessor :deleted_at
+
     attr_accessor :external_ip
 
     attr_accessor :first_seen
@@ -71,6 +75,8 @@ module Falcon
     attr_accessor :ipv4
 
     attr_accessor :ipv6
+
+    attr_accessor :kac_agent_id
 
     attr_accessor :kernel_version
 
@@ -98,6 +104,8 @@ module Falcon
 
     attr_accessor :provider_id
 
+    attr_accessor :resource_status
+
     attr_accessor :storage
 
     attr_accessor :uid
@@ -115,16 +123,19 @@ module Falcon
         :'cloud_instance_type' => :'cloud_instance_type',
         :'cloud_name' => :'cloud_name',
         :'cloud_region' => :'cloud_region',
+        :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
         :'container_count' => :'container_count',
         :'container_runtime_version' => :'container_runtime_version',
         :'cpu' => :'cpu',
         :'created_at' => :'created_at',
+        :'deleted_at' => :'deleted_at',
         :'external_ip' => :'external_ip',
         :'first_seen' => :'first_seen',
         :'ipv4' => :'ipv4',
         :'ipv6' => :'ipv6',
+        :'kac_agent_id' => :'kac_agent_id',
         :'kernel_version' => :'kernel_version',
         :'kubernetes_version' => :'kubernetes_version',
         :'labels' => :'labels',
@@ -138,6 +149,7 @@ module Falcon
         :'pod_cidr' => :'pod_cidr',
         :'pod_count' => :'pod_count',
         :'provider_id' => :'provider_id',
+        :'resource_status' => :'resource_status',
         :'storage' => :'storage',
         :'uid' => :'uid'
       }
@@ -161,16 +173,19 @@ module Falcon
         :'cloud_instance_type' => :'String',
         :'cloud_name' => :'String',
         :'cloud_region' => :'String',
+        :'cloud_service' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
         :'container_count' => :'Integer',
         :'container_runtime_version' => :'String',
         :'cpu' => :'String',
         :'created_at' => :'String',
+        :'deleted_at' => :'String',
         :'external_ip' => :'String',
         :'first_seen' => :'String',
         :'ipv4' => :'String',
         :'ipv6' => :'String',
+        :'kac_agent_id' => :'String',
         :'kernel_version' => :'String',
         :'kubernetes_version' => :'String',
         :'labels' => :'Hash<String, String>',
@@ -184,6 +199,7 @@ module Falcon
         :'pod_cidr' => :'String',
         :'pod_count' => :'Integer',
         :'provider_id' => :'String',
+        :'resource_status' => :'String',
         :'storage' => :'String',
         :'uid' => :'String'
       }
@@ -254,6 +270,10 @@ module Falcon
         self.cloud_region = attributes[:'cloud_region']
       end
 
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
+      end
+
       if attributes.key?(:'cluster_id')
         self.cluster_id = attributes[:'cluster_id']
       end
@@ -278,6 +298,10 @@ module Falcon
         self.created_at = attributes[:'created_at']
       end
 
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
       if attributes.key?(:'external_ip')
         self.external_ip = attributes[:'external_ip']
       end
@@ -292,6 +316,10 @@ module Falcon
 
       if attributes.key?(:'ipv6')
         self.ipv6 = attributes[:'ipv6']
+      end
+
+      if attributes.key?(:'kac_agent_id')
+        self.kac_agent_id = attributes[:'kac_agent_id']
       end
 
       if attributes.key?(:'kernel_version')
@@ -350,6 +378,10 @@ module Falcon
         self.provider_id = attributes[:'provider_id']
       end
 
+      if attributes.key?(:'resource_status')
+        self.resource_status = attributes[:'resource_status']
+      end
+
       if attributes.key?(:'storage')
         self.storage = attributes[:'storage']
       end
@@ -403,6 +435,10 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_region", cloud_region cannot be nil.')
       end
 
+      if @cloud_service.nil?
+        invalid_properties.push('invalid value for "cloud_service", cloud_service cannot be nil.')
+      end
+
       if @cluster_id.nil?
         invalid_properties.push('invalid value for "cluster_id", cluster_id cannot be nil.')
       end
@@ -441,6 +477,10 @@ module Falcon
 
       if @ipv6.nil?
         invalid_properties.push('invalid value for "ipv6", ipv6 cannot be nil.')
+      end
+
+      if @kac_agent_id.nil?
+        invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
       end
 
       if @kernel_version.nil?
@@ -495,6 +535,10 @@ module Falcon
         invalid_properties.push('invalid value for "provider_id", provider_id cannot be nil.')
       end
 
+      if @resource_status.nil?
+        invalid_properties.push('invalid value for "resource_status", resource_status cannot be nil.')
+      end
+
       if @storage.nil?
         invalid_properties.push('invalid value for "storage", storage cannot be nil.')
       end
@@ -519,6 +563,7 @@ module Falcon
       return false if @cloud_instance_type.nil?
       return false if @cloud_name.nil?
       return false if @cloud_region.nil?
+      return false if @cloud_service.nil?
       return false if @cluster_id.nil?
       return false if @cluster_name.nil?
       return false if @container_count.nil?
@@ -529,6 +574,7 @@ module Falcon
       return false if @first_seen.nil?
       return false if @ipv4.nil?
       return false if @ipv6.nil?
+      return false if @kac_agent_id.nil?
       return false if @kernel_version.nil?
       return false if @kubernetes_version.nil?
       return false if @labels.nil?
@@ -542,6 +588,7 @@ module Falcon
       return false if @pod_cidr.nil?
       return false if @pod_count.nil?
       return false if @provider_id.nil?
+      return false if @resource_status.nil?
       return false if @storage.nil?
       return false if @uid.nil?
       true
@@ -562,16 +609,19 @@ module Falcon
           cloud_instance_type == o.cloud_instance_type &&
           cloud_name == o.cloud_name &&
           cloud_region == o.cloud_region &&
+          cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
           container_count == o.container_count &&
           container_runtime_version == o.container_runtime_version &&
           cpu == o.cpu &&
           created_at == o.created_at &&
+          deleted_at == o.deleted_at &&
           external_ip == o.external_ip &&
           first_seen == o.first_seen &&
           ipv4 == o.ipv4 &&
           ipv6 == o.ipv6 &&
+          kac_agent_id == o.kac_agent_id &&
           kernel_version == o.kernel_version &&
           kubernetes_version == o.kubernetes_version &&
           labels == o.labels &&
@@ -585,6 +635,7 @@ module Falcon
           pod_cidr == o.pod_cidr &&
           pod_count == o.pod_count &&
           provider_id == o.provider_id &&
+          resource_status == o.resource_status &&
           storage == o.storage &&
           uid == o.uid
     end
@@ -598,7 +649,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agents, annotations_list, architecture, base_image, cid, cloud_account_id, cloud_instance_id, cloud_instance_type, cloud_name, cloud_region, cluster_id, cluster_name, container_count, container_runtime_version, cpu, created_at, external_ip, first_seen, ipv4, ipv6, kernel_version, kubernetes_version, labels, labels_list, last_seen, linux_sensor_coverage, memory, node_id, node_name, os, pod_cidr, pod_count, provider_id, storage, uid].hash
+      [agents, annotations_list, architecture, base_image, cid, cloud_account_id, cloud_instance_id, cloud_instance_type, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, container_count, container_runtime_version, cpu, created_at, deleted_at, external_ip, first_seen, ipv4, ipv6, kac_agent_id, kernel_version, kubernetes_version, labels, labels_list, last_seen, linux_sensor_coverage, memory, node_id, node_name, os, pod_cidr, pod_count, provider_id, resource_status, storage, uid].hash
     end
 
     # Builds the object from hash

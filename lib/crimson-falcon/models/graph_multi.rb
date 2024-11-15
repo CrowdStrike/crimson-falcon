@@ -38,19 +38,30 @@ module Falcon
     # Display name of the field that contains the array in input data
     attr_accessor :array_field_display_name
 
+    attr_accessor :condition
+
     # If true will allow the workflow to continue execution even if some loop iterations fail or when there are no iterations to execute
     attr_accessor :continue_on_partial_execution
 
+    # Maximum number of seconds the submodel will run for, if this is exceeded no new iterations will run. If unset a default value is used during execution
+    attr_accessor :max_execution_seconds
+
     # Maximum number of iterations allowed in sub model
     attr_accessor :max_iteration_count
+
+    # Indicates the loop will run sequentially
+    attr_accessor :sequential
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'array_field' => :'array_field',
         :'array_field_display_name' => :'array_field_display_name',
+        :'condition' => :'condition',
         :'continue_on_partial_execution' => :'continue_on_partial_execution',
-        :'max_iteration_count' => :'max_iteration_count'
+        :'max_execution_seconds' => :'max_execution_seconds',
+        :'max_iteration_count' => :'max_iteration_count',
+        :'sequential' => :'sequential'
       }
     end
 
@@ -64,8 +75,11 @@ module Falcon
       {
         :'array_field' => :'String',
         :'array_field_display_name' => :'String',
+        :'condition' => :'GraphCondition',
         :'continue_on_partial_execution' => :'Boolean',
-        :'max_iteration_count' => :'Integer'
+        :'max_execution_seconds' => :'Integer',
+        :'max_iteration_count' => :'Integer',
+        :'sequential' => :'Boolean'
       }
     end
 
@@ -98,12 +112,24 @@ module Falcon
         self.array_field_display_name = attributes[:'array_field_display_name']
       end
 
+      if attributes.key?(:'condition')
+        self.condition = attributes[:'condition']
+      end
+
       if attributes.key?(:'continue_on_partial_execution')
         self.continue_on_partial_execution = attributes[:'continue_on_partial_execution']
       end
 
+      if attributes.key?(:'max_execution_seconds')
+        self.max_execution_seconds = attributes[:'max_execution_seconds']
+      end
+
       if attributes.key?(:'max_iteration_count')
         self.max_iteration_count = attributes[:'max_iteration_count']
+      end
+
+      if attributes.key?(:'sequential')
+        self.sequential = attributes[:'sequential']
       end
     end
 
@@ -123,6 +149,10 @@ module Falcon
         invalid_properties.push('invalid value for "continue_on_partial_execution", continue_on_partial_execution cannot be nil.')
       end
 
+      if @max_execution_seconds.nil?
+        invalid_properties.push('invalid value for "max_execution_seconds", max_execution_seconds cannot be nil.')
+      end
+
       if @max_iteration_count.nil?
         invalid_properties.push('invalid value for "max_iteration_count", max_iteration_count cannot be nil.')
       end
@@ -136,6 +166,7 @@ module Falcon
       return false if @array_field.nil?
       return false if @array_field_display_name.nil?
       return false if @continue_on_partial_execution.nil?
+      return false if @max_execution_seconds.nil?
       return false if @max_iteration_count.nil?
       true
     end
@@ -147,8 +178,11 @@ module Falcon
       self.class == o.class &&
           array_field == o.array_field &&
           array_field_display_name == o.array_field_display_name &&
+          condition == o.condition &&
           continue_on_partial_execution == o.continue_on_partial_execution &&
-          max_iteration_count == o.max_iteration_count
+          max_execution_seconds == o.max_execution_seconds &&
+          max_iteration_count == o.max_iteration_count &&
+          sequential == o.sequential
     end
 
     # @see the `==` method
@@ -160,7 +194,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [array_field, array_field_display_name, continue_on_partial_execution, max_iteration_count].hash
+      [array_field, array_field_display_name, condition, continue_on_partial_execution, max_execution_seconds, max_iteration_count, sequential].hash
     end
 
     # Builds the object from hash

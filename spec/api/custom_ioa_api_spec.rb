@@ -83,14 +83,14 @@ describe 'CustomIoaApi' do
     end
   end
 
-  # unit tests for delete_rules
+  # unit tests for delete_rules_0
   # Delete rules from a rule group by ID.
   # @param rule_group_id The parent rule group
   # @param ids The IDs of the entities
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Explains why the entity is being deleted
   # @return [MsaReplyMetaOnly]
-  describe 'delete_rules test' do
+  describe 'delete_rules_0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -189,12 +189,12 @@ describe 'CustomIoaApi' do
   # unit tests for query_rule_groups_full
   # Find all rule groups matching the query with optional filter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+  # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields
   # @option opts [String] :offset Starting index of overall result set from which to return IDs
   # @option opts [Integer] :limit Number of IDs to return
-  # @return [MsaQueryResponse]
+  # @return [ApiRuleGroupsResponse]
   describe 'query_rule_groups_full test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -204,7 +204,7 @@ describe 'CustomIoaApi' do
   # unit tests for query_rule_groups_mixin0
   # Finds all rule group IDs matching the query with optional filter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+  # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields
   # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -231,7 +231,7 @@ describe 'CustomIoaApi' do
   # unit tests for query_rules_mixin0
   # Finds all rule IDs matching the query with optional filter.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :sort Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
+  # @option opts [String] :sort Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name}
   # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
   # @option opts [String] :q Match query criteria, which includes all the filter string fields
   # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -254,12 +254,23 @@ describe 'CustomIoaApi' do
     end
   end
 
-  # unit tests for update_rules
+  # unit tests for update_rules_0
   # Update rules within a rule group. Return the updated rules.
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRulesResponse]
-  describe 'update_rules test' do
+  describe 'update_rules_0 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_rules_v2
+  # Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiRulesResponse]
+  describe 'update_rules_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

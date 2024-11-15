@@ -32,6 +32,9 @@ require 'time'
 
 module Falcon
   class DomainUpdateRuleRequestV1
+    # Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true.
+    attr_accessor :breach_monitor_only
+
     # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
     attr_accessor :breach_monitoring_enabled
 
@@ -56,6 +59,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'filter' => :'filter',
         :'id' => :'id',
@@ -74,6 +78,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'filter' => :'String',
         :'id' => :'String',
@@ -104,6 +109,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'breach_monitor_only')
+        self.breach_monitor_only = attributes[:'breach_monitor_only']
+      end
 
       if attributes.key?(:'breach_monitoring_enabled')
         self.breach_monitoring_enabled = attributes[:'breach_monitoring_enabled']
@@ -138,6 +147,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @breach_monitor_only.nil?
+        invalid_properties.push('invalid value for "breach_monitor_only", breach_monitor_only cannot be nil.')
+      end
+
       if @breach_monitoring_enabled.nil?
         invalid_properties.push('invalid value for "breach_monitoring_enabled", breach_monitoring_enabled cannot be nil.')
       end
@@ -172,6 +185,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @breach_monitor_only.nil?
       return false if @breach_monitoring_enabled.nil?
       return false if @filter.nil?
       return false if @id.nil?
@@ -187,6 +201,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           filter == o.filter &&
           id == o.id &&
@@ -205,7 +220,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitoring_enabled, filter, id, name, permissions, priority, substring_matching_enabled].hash
+      [breach_monitor_only, breach_monitoring_enabled, filter, id, name, permissions, priority, substring_matching_enabled].hash
     end
 
     # Builds the object from hash

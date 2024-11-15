@@ -54,12 +54,6 @@ describe Falcon::DomainAPIEvaluationLogicItemV1 do
     end
   end
 
-  describe 'test attribute "description"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "determined_by_comparison"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -85,6 +79,12 @@ describe Falcon::DomainAPIEvaluationLogicItemV1 do
   end
 
   describe 'test attribute "negate"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "status"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

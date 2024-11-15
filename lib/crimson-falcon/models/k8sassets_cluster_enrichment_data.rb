@@ -34,6 +34,8 @@ module Falcon
   class K8sassetsClusterEnrichmentData
     attr_accessor :container_count
 
+    attr_accessor :image_count
+
     attr_accessor :node_count
 
     attr_accessor :pod_count
@@ -42,6 +44,7 @@ module Falcon
     def self.attribute_map
       {
         :'container_count' => :'container_count',
+        :'image_count' => :'image_count',
         :'node_count' => :'node_count',
         :'pod_count' => :'pod_count'
       }
@@ -56,6 +59,7 @@ module Falcon
     def self.openapi_types
       {
         :'container_count' => :'Integer',
+        :'image_count' => :'Integer',
         :'node_count' => :'Integer',
         :'pod_count' => :'Integer'
       }
@@ -86,6 +90,10 @@ module Falcon
         self.container_count = attributes[:'container_count']
       end
 
+      if attributes.key?(:'image_count')
+        self.image_count = attributes[:'image_count']
+      end
+
       if attributes.key?(:'node_count')
         self.node_count = attributes[:'node_count']
       end
@@ -103,6 +111,10 @@ module Falcon
         invalid_properties.push('invalid value for "container_count", container_count cannot be nil.')
       end
 
+      if @image_count.nil?
+        invalid_properties.push('invalid value for "image_count", image_count cannot be nil.')
+      end
+
       if @node_count.nil?
         invalid_properties.push('invalid value for "node_count", node_count cannot be nil.')
       end
@@ -118,6 +130,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @container_count.nil?
+      return false if @image_count.nil?
       return false if @node_count.nil?
       return false if @pod_count.nil?
       true
@@ -129,6 +142,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           container_count == o.container_count &&
+          image_count == o.image_count &&
           node_count == o.node_count &&
           pod_count == o.pod_count
     end
@@ -142,7 +156,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [container_count, node_count, pod_count].hash
+      [container_count, image_count, node_count, pod_count].hash
     end
 
     # Builds the object from hash

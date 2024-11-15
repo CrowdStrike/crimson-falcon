@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **architecture** | **String** |  |  |
 | **base_os** | **String** |  |  |
 | **cid** | **String** |  |  |
 | **containers** | **Integer** |  |  |
@@ -30,6 +31,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsExtAPIImageCombined.new(
+  architecture: null,
   base_os: null,
   cid: null,
   containers: null,

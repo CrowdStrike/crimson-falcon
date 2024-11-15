@@ -1,6 +1,6 @@
 # Falcon::MsspApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |

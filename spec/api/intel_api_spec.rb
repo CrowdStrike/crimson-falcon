@@ -89,7 +89,7 @@ describe 'IntelApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :id The ID of the report you want to download as a PDF.
   # @option opts [String] :ids The ID of the report you want to download as a PDF. This parameter is used only if no id parameter given.
-  # @return [nil]
+  # @return [File]
   describe 'get_intel_report_pdf test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -113,7 +113,7 @@ describe 'IntelApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :accept Choose the format you want the rule set in.
   # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-  # @return [nil]
+  # @return [File]
   describe 'get_intel_rule_file test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -122,14 +122,39 @@ describe 'IntelApi' do
 
   # unit tests for get_latest_intel_rule_file
   # Download the latest rule set.
-  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
   # @param [Hash] opts the optional parameters
   # @option opts [String] :accept Choose the format you want the rule set in.
   # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
   # @option opts [String] :if_modified_since Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted
   # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-  # @return [nil]
+  # @option opts [String] :if_modified_since2 Download Only if changed since
+  # @return [File]
   describe 'get_latest_intel_rule_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_malware_entities
+  # Get malware entities for specified ids.
+  # @param ids Malware family name in lower case with spaces, dots and slashes replaced with dashes
+  # @param [Hash] opts the optional parameters
+  # @return [DomainMalwareResponse]
+  describe 'get_malware_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_malware_mitre_report
+  # Export Mitre ATT&amp;CK information for a given malware family.
+  # @param id Malware family name in lower case with spaces replaced with dashes
+  # @param format Supported report formats: CSV, JSON or JSON_NAVIGATOR
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_cs_useruuid User id
+  # @return [nil]
+  describe 'get_malware_mitre_report test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -267,7 +292,7 @@ describe 'IntelApi' do
 
   # unit tests for query_intel_rule_ids
   # Search for rule IDs that match provided filter criteria.
-  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+  # @param type The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
   # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.
@@ -285,6 +310,21 @@ describe 'IntelApi' do
     end
   end
 
+  # unit tests for query_malware
+  # Get malware family names that match provided FQL filters.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+  # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+  # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+  # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+  # @option opts [String] :q Perform a generic substring search across all fields.
+  # @return [DomainQueryResponse]
+  describe 'query_malware test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for query_mitre_attacks
   # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
   # @param [Hash] opts the optional parameters
@@ -292,6 +332,17 @@ describe 'IntelApi' do
   # @option opts [Array<String>] :ids The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks, for example: fancy-bear. Multiple values are allowed
   # @return [DomainQueryMitreAttacksResponse]
   describe 'query_mitre_attacks test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for query_mitre_attacks_for_malware
+  # Gets MITRE tactics and techniques for the given malware
+  # @param ids Malware family name in lower case with spaces replaced with dashes
+  # @param [Hash] opts the optional parameters
+  # @return [DomainQueryResponse]
+  describe 'query_mitre_attacks_for_malware test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

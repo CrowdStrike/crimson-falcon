@@ -69,7 +69,7 @@ module Falcon
       {
         :'card' => :'DomainCard',
         :'country_code' => :'String',
-        :'credentials' => :'DomainCredentials',
+        :'credentials' => :'DomainMarketplaceCredentials',
         :'host' => :'DomainHost',
         :'location' => :'String',
         :'price' => :'String',

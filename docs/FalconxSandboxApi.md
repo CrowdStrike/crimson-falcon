@@ -1,6 +1,6 @@
 # Falcon::FalconxSandboxApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_summary_reports**](FalconxSandboxApi.md#get_summary_reports) | **GET** /falconx/entities/report-summaries/v1 | Get a short summary version of a sandbox report. |
 | [**query_reports**](FalconxSandboxApi.md#query_reports) | **GET** /falconx/queries/reports/v1 | Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria. |
 | [**query_sample_v1**](FalconxSandboxApi.md#query_sample_v1) | **POST** /samples/queries/samples/GET/v1 | Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200 |
-| [**query_submissions**](FalconxSandboxApi.md#query_submissions) | **GET** /falconx/queries/submissions/v1 | Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria. |
+| [**query_submissions_mixin0**](FalconxSandboxApi.md#query_submissions_mixin0) | **GET** /falconx/queries/submissions/v1 | Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria. |
 | [**submit**](FalconxSandboxApi.md#submit) | **POST** /falconx/entities/submissions/v1 | Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes. |
 | [**upload_sample_v2**](FalconxSandboxApi.md#upload_sample_v2) | **POST** /samples/entities/samples/v2 | Upload a file for sandbox analysis. After uploading, use &#x60;/falconx/entities/submissions/v1&#x60; to start analyzing the file. |
 
@@ -885,9 +885,9 @@ end
 - **Accept**: application/json
 
 
-## query_submissions
+## query_submissions_mixin0
 
-> <MsaspecQueryResponse> query_submissions(opts)
+> <MsaspecQueryResponse> query_submissions_mixin0(opts)
 
 Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
 
@@ -914,28 +914,28 @@ opts = {
 
 begin
   # Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
-  result = api_instance.query_submissions(opts)
+  result = api_instance.query_submissions_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_submissions: #{e}"
+  puts "Error when calling FalconxSandboxApi->query_submissions_mixin0: #{e}"
 end
 ```
 
-#### Using the query_submissions_with_http_info variant
+#### Using the query_submissions_mixin0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_submissions_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_submissions_mixin0_with_http_info(opts)
 
 ```ruby
 begin
   # Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
-  data, status_code, headers = api_instance.query_submissions_with_http_info(opts)
+  data, status_code, headers = api_instance.query_submissions_mixin0_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling FalconxSandboxApi->query_submissions_with_http_info: #{e}"
+  puts "Error when calling FalconxSandboxApi->query_submissions_mixin0_with_http_info: #{e}"
 end
 ```
 
@@ -964,7 +964,7 @@ end
 
 ## submit
 
-> <FalconxSubmissionV1Response> submit(body)
+> <FalconxSubmissionV1Response> submit(body, opts)
 
 Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 
@@ -982,11 +982,14 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FalconxSandboxApi.new
-body = Falcon::FalconxSubmissionParametersV1.new # FalconxSubmissionParametersV1 | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.  **`environment_id`**: Specifies the sandbox environment used for analysis. Values:  - `400`: MacOS Catalina 10.15 - `300`: Linux Ubuntu 16.04, 64-bit - `200`: Android (static analysis) - `160`: Windows 10, 64-bit - `140`: Windows 11, 64-bit - `110`: Windows 7, 64-bit - `100`: Windows 7, 32-bit  **`sha256`** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with `/falconx/queries/submissions/v1`.The `url` parameter must be unset if `sha256` is used.  **`url`** A web page or file URL. It can be HTTP(S) or FTP. The `sha256` parameter must be unset if `url` is used.  **`action_script`** (optional): Runtime script for sandbox analysis. Values:  - `default` - `default_maxantievasion` - `default_randomfiles` - `default_randomtheme` - `default_openie`  **`command_line`** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **`document_password`** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **`enable_tor`** (optional): Deprecated, please use `network_settings` instead. If `true`, sandbox analysis routes network traffic via TOR. Default: `false`.  **`network_settings`** (optional): Specifies the sandbox network_settings used for analysis. Values:  - `default`: Fully operating network - `tor`: Route network traffic via TOR - `simulated`: Simulate network traffic - `offline`: No network traffic  **`submit_name`** (optional): Name of the malware sample that's used for file type detection and analysis  **`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment  **`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment.
+body = Falcon::FalconxSubmissionParametersV1.new # FalconxSubmissionParametersV1 | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through `/samples/entities/samples/v2`. You must specify a JSON object that includes the `falconx.SubmissionParametersV1` key/value pairs shown below.  **`environment_id`**: Specifies the sandbox environment used for analysis. Values:  - `400`: MacOS Catalina 10.15 - `410`: MacOS Sonoma ARM 64 bit - `300`: Linux Ubuntu 16.04, 64-bit - `200`: Android (static analysis) - `160`: Windows 10, 64-bit - `140`: Windows 11, 64-bit - `110`: Windows 7, 64-bit - `100`: Windows 7, 32-bit  **`sha256`** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with `/falconx/queries/submissions/v1`.The `url` parameter must be unset if `sha256` is used.  **`url`** A web page or file URL. It can be HTTP(S) or FTP. The `sha256` parameter must be unset if `url` is used.  **`action_script`** (optional): Runtime script for sandbox analysis. Values:  - `default` - `default_maxantievasion` - `default_randomfiles` - `default_randomtheme` - `default_openie`  **`command_line`** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **`document_password`** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **`enable_tor`** (optional): Deprecated, please use `network_settings` instead. If `true`, sandbox analysis routes network traffic via TOR. Default: `false`.  **`network_settings`** (optional): Specifies the sandbox network_settings used for analysis. Values:  - `default`: Fully operating network - `tor`: Route network traffic via TOR - `simulated`: Simulate network traffic - `offline`: No network traffic  **`submit_name`** (optional): Name of the malware sample that's used for file type detection and analysis  **`system_date`** (optional): Set a custom date in the format `yyyy-MM-dd` for the sandbox environment  **`system_time`** (optional): Set a custom time in the format `HH:mm` for the sandbox environment.
+opts = {
+  aid: 'aid_example' # String | Agent ID
+}
 
 begin
   # Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
-  result = api_instance.submit(body)
+  result = api_instance.submit(body, opts)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling FalconxSandboxApi->submit: #{e}"
@@ -997,12 +1000,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FalconxSubmissionV1Response>, Integer, Hash)> submit_with_http_info(body)
+> <Array(<FalconxSubmissionV1Response>, Integer, Hash)> submit_with_http_info(body, opts)
 
 ```ruby
 begin
   # Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
-  data, status_code, headers = api_instance.submit_with_http_info(body)
+  data, status_code, headers = api_instance.submit_with_http_info(body, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FalconxSubmissionV1Response>
@@ -1015,7 +1018,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**FalconxSubmissionParametersV1**](FalconxSubmissionParametersV1.md) | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through &#x60;/samples/entities/samples/v2&#x60;. You must specify a JSON object that includes the &#x60;falconx.SubmissionParametersV1&#x60; key/value pairs shown below.  **&#x60;environment_id&#x60;**: Specifies the sandbox environment used for analysis. Values:  - &#x60;400&#x60;: MacOS Catalina 10.15 - &#x60;300&#x60;: Linux Ubuntu 16.04, 64-bit - &#x60;200&#x60;: Android (static analysis) - &#x60;160&#x60;: Windows 10, 64-bit - &#x60;140&#x60;: Windows 11, 64-bit - &#x60;110&#x60;: Windows 7, 64-bit - &#x60;100&#x60;: Windows 7, 32-bit  **&#x60;sha256&#x60;** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with &#x60;/falconx/queries/submissions/v1&#x60;.The &#x60;url&#x60; parameter must be unset if &#x60;sha256&#x60; is used.  **&#x60;url&#x60;** A web page or file URL. It can be HTTP(S) or FTP. The &#x60;sha256&#x60; parameter must be unset if &#x60;url&#x60; is used.  **&#x60;action_script&#x60;** (optional): Runtime script for sandbox analysis. Values:  - &#x60;default&#x60; - &#x60;default_maxantievasion&#x60; - &#x60;default_randomfiles&#x60; - &#x60;default_randomtheme&#x60; - &#x60;default_openie&#x60;  **&#x60;command_line&#x60;** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **&#x60;document_password&#x60;** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **&#x60;enable_tor&#x60;** (optional): Deprecated, please use &#x60;network_settings&#x60; instead. If &#x60;true&#x60;, sandbox analysis routes network traffic via TOR. Default: &#x60;false&#x60;.  **&#x60;network_settings&#x60;** (optional): Specifies the sandbox network_settings used for analysis. Values:  - &#x60;default&#x60;: Fully operating network - &#x60;tor&#x60;: Route network traffic via TOR - &#x60;simulated&#x60;: Simulate network traffic - &#x60;offline&#x60;: No network traffic  **&#x60;submit_name&#x60;** (optional): Name of the malware sample that&#39;s used for file type detection and analysis  **&#x60;system_date&#x60;** (optional): Set a custom date in the format &#x60;yyyy-MM-dd&#x60; for the sandbox environment  **&#x60;system_time&#x60;** (optional): Set a custom time in the format &#x60;HH:mm&#x60; for the sandbox environment. |  |
+| **body** | [**FalconxSubmissionParametersV1**](FalconxSubmissionParametersV1.md) | Submit either a URL or a sample SHA256 for sandbox analysis. The sample file must have been previously uploaded through &#x60;/samples/entities/samples/v2&#x60;. You must specify a JSON object that includes the &#x60;falconx.SubmissionParametersV1&#x60; key/value pairs shown below.  **&#x60;environment_id&#x60;**: Specifies the sandbox environment used for analysis. Values:  - &#x60;400&#x60;: MacOS Catalina 10.15 - &#x60;410&#x60;: MacOS Sonoma ARM 64 bit - &#x60;300&#x60;: Linux Ubuntu 16.04, 64-bit - &#x60;200&#x60;: Android (static analysis) - &#x60;160&#x60;: Windows 10, 64-bit - &#x60;140&#x60;: Windows 11, 64-bit - &#x60;110&#x60;: Windows 7, 64-bit - &#x60;100&#x60;: Windows 7, 32-bit  **&#x60;sha256&#x60;** ID of the sample, which is a SHA256 hash value. Find a sample ID from the response when uploading a malware sample or search with &#x60;/falconx/queries/submissions/v1&#x60;.The &#x60;url&#x60; parameter must be unset if &#x60;sha256&#x60; is used.  **&#x60;url&#x60;** A web page or file URL. It can be HTTP(S) or FTP. The &#x60;sha256&#x60; parameter must be unset if &#x60;url&#x60; is used.  **&#x60;action_script&#x60;** (optional): Runtime script for sandbox analysis. Values:  - &#x60;default&#x60; - &#x60;default_maxantievasion&#x60; - &#x60;default_randomfiles&#x60; - &#x60;default_randomtheme&#x60; - &#x60;default_openie&#x60;  **&#x60;command_line&#x60;** (optional): Command line script passed to the submitted file at runtime. Max length: 2048 characters  **&#x60;document_password&#x60;** (optional): Auto-filled for Adobe or Office files that prompt for a password. Max length: 32 characters  **&#x60;enable_tor&#x60;** (optional): Deprecated, please use &#x60;network_settings&#x60; instead. If &#x60;true&#x60;, sandbox analysis routes network traffic via TOR. Default: &#x60;false&#x60;.  **&#x60;network_settings&#x60;** (optional): Specifies the sandbox network_settings used for analysis. Values:  - &#x60;default&#x60;: Fully operating network - &#x60;tor&#x60;: Route network traffic via TOR - &#x60;simulated&#x60;: Simulate network traffic - &#x60;offline&#x60;: No network traffic  **&#x60;submit_name&#x60;** (optional): Name of the malware sample that&#39;s used for file type detection and analysis  **&#x60;system_date&#x60;** (optional): Set a custom date in the format &#x60;yyyy-MM-dd&#x60; for the sandbox environment  **&#x60;system_time&#x60;** (optional): Set a custom time in the format &#x60;HH:mm&#x60; for the sandbox environment. |  |
+| **aid** | **String** | Agent ID | [optional] |
 
 ### Return type
 

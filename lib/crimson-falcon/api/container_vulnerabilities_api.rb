@@ -38,7 +38,7 @@ module Falcon
     end
     # Retrieve vulnerability and aggregate data filtered by the provided FQL
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @option opts [String] :sort The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity]
@@ -50,7 +50,7 @@ module Falcon
 
     # Retrieve vulnerability and aggregate data filtered by the provided FQL
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @option opts [String] :sort The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity]
@@ -106,7 +106,7 @@ module Falcon
     # Retrieve vulnerability details related to an image
     # @param id [String] Image UUID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,is_zero_day,remediation_available,severity
+    # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiCombinedVulnerabilityDetails]
@@ -118,7 +118,7 @@ module Falcon
     # Retrieve vulnerability details related to an image
     # @param id [String] Image UUID
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,is_zero_day,remediation_available,severity
+    # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiCombinedVulnerabilityDetails, Integer, Hash)>] VulnerabilitiesApiCombinedVulnerabilityDetails data, response status code and response headers
@@ -372,7 +372,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiVulnCount]
@@ -383,7 +383,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiVulnCount, Integer, Hash)>] VulnerabilitiesApiVulnCount data, response status code and response headers
@@ -436,7 +436,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by actively exploited
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiVulnCountByActivelyExploited]
@@ -447,7 +447,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by actively exploited
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiVulnCountByActivelyExploited, Integer, Hash)>] VulnerabilitiesApiVulnCountByActivelyExploited data, response status code and response headers
@@ -500,7 +500,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by csp_rating
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiVulnCountByCSPRating]
@@ -511,7 +511,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by csp_rating
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiVulnCountByCSPRating, Integer, Hash)>] VulnerabilitiesApiVulnCountByCSPRating data, response status code and response headers
@@ -564,7 +564,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by cvss score
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiVulnCountByCVSSScore]
@@ -575,7 +575,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by cvss score
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiVulnCountByCVSSScore, Integer, Hash)>] VulnerabilitiesApiVulnCountByCVSSScore data, response status code and response headers
@@ -628,7 +628,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by severity
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiVulnCountBySeverity]
@@ -639,7 +639,7 @@ module Falcon
 
     # Aggregate count of vulnerabilities grouped by severity
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,package_name_version,registry,repository,severity,tag
+    # @option opts [String] :filter Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiVulnCountBySeverity, Integer, Hash)>] VulnerabilitiesApiVulnCountBySeverity data, response status code and response headers

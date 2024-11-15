@@ -34,6 +34,9 @@ module Falcon
   class JsonschemaWorkflowExtensions
     attr_accessor :description
 
+    # max file size allowed in bytes
+    attr_accessor :max_file_size
+
     attr_accessor :name
 
     attr_accessor :node_id
@@ -48,6 +51,7 @@ module Falcon
     def self.attribute_map
       {
         :'description' => :'description',
+        :'max_file_size' => :'max_file_size',
         :'name' => :'name',
         :'node_id' => :'node_id',
         :'system' => :'system',
@@ -65,6 +69,7 @@ module Falcon
     def self.openapi_types
       {
         :'description' => :'String',
+        :'max_file_size' => :'Integer',
         :'name' => :'String',
         :'node_id' => :'String',
         :'system' => :'Boolean',
@@ -96,6 +101,10 @@ module Falcon
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'max_file_size')
+        self.max_file_size = attributes[:'max_file_size']
       end
 
       if attributes.key?(:'name')
@@ -140,6 +149,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
+          max_file_size == o.max_file_size &&
           name == o.name &&
           node_id == o.node_id &&
           system == o.system &&
@@ -156,7 +166,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, name, node_id, system, tags, x_cs_no_variable_injection].hash
+      [description, max_file_size, name, node_id, system, tags, x_cs_no_variable_injection].hash
     end
 
     # Builds the object from hash

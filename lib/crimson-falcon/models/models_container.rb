@@ -38,11 +38,13 @@ module Falcon
 
     attr_accessor :cid
 
-    attr_accessor :cloud
-
     attr_accessor :cloud_account_id
 
+    attr_accessor :cloud_name
+
     attr_accessor :cloud_region
+
+    attr_accessor :cloud_service
 
     attr_accessor :cluster_id
 
@@ -50,31 +52,19 @@ module Falcon
 
     attr_accessor :config_labels
 
-    attr_accessor :config_user
+    attr_accessor :container_id
 
-    attr_accessor :container_image_id
+    attr_accessor :container_name
 
     attr_accessor :created_at
 
-    attr_accessor :cve_ids
-
     attr_accessor :first_seen
-
-    attr_accessor :host_config_devices
-
-    attr_accessor :id
 
     attr_accessor :image_application_package_count
 
     attr_accessor :image_assessed_at
 
     attr_accessor :image_detection_count
-
-    attr_accessor :image_detection_id_list
-
-    attr_accessor :image_detection_name_list
-
-    attr_accessor :image_detection_severity_by_type
 
     attr_accessor :image_digest
 
@@ -88,13 +78,11 @@ module Falcon
 
     attr_accessor :image_registry
 
-    attr_accessor :image_repo
+    attr_accessor :image_repository
 
     attr_accessor :image_tag
 
     attr_accessor :image_vulnerability_count
-
-    attr_accessor :image_vulnerability_severity_by_type
 
     attr_accessor :insecure_mount_source
 
@@ -108,7 +96,7 @@ module Falcon
 
     attr_accessor :ipv6
 
-    attr_accessor :kpa_coverage
+    attr_accessor :kac_agent_id
 
     attr_accessor :labels
 
@@ -116,47 +104,27 @@ module Falcon
 
     attr_accessor :last_seen
 
-    attr_accessor :linux_sensor_aid
-
-    attr_accessor :linux_sensor_config_build
-
-    attr_accessor :linux_sensor_coverage
-
-    attr_accessor :lumos_sensor_aid
-
-    attr_accessor :lumos_sensor_config_build
-
-    attr_accessor :lumos_sensor_coverage
-
-    attr_accessor :name
-
     attr_accessor :namespace
 
-    attr_accessor :node_id
-
     attr_accessor :node_name
+
+    attr_accessor :node_uid
 
     attr_accessor :pod_id
 
     attr_accessor :pod_name
 
-    attr_accessor :port_list
+    attr_accessor :ports
 
     attr_accessor :privileged
 
     attr_accessor :root_write_access
-
-    attr_accessor :rpd
 
     attr_accessor :run_as_root_group
 
     attr_accessor :run_as_root_user
 
     attr_accessor :running_status
-
-    attr_accessor :snapshot_coverage
-
-    attr_accessor :unidentified
 
     attr_accessor :volume_mounts
 
@@ -166,66 +134,50 @@ module Falcon
         :'agents' => :'agents',
         :'allow_privilege_escalation' => :'allow_privilege_escalation',
         :'cid' => :'cid',
-        :'cloud' => :'cloud',
         :'cloud_account_id' => :'cloud_account_id',
+        :'cloud_name' => :'cloud_name',
         :'cloud_region' => :'cloud_region',
+        :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
         :'config_labels' => :'config_labels',
-        :'config_user' => :'config_user',
-        :'container_image_id' => :'container_image_id',
+        :'container_id' => :'container_id',
+        :'container_name' => :'container_name',
         :'created_at' => :'created_at',
-        :'cve_ids' => :'cve_ids',
         :'first_seen' => :'first_seen',
-        :'host_config_devices' => :'host_config_devices',
-        :'id' => :'id',
         :'image_application_package_count' => :'image_application_package_count',
         :'image_assessed_at' => :'image_assessed_at',
         :'image_detection_count' => :'image_detection_count',
-        :'image_detection_id_list' => :'image_detection_id_list',
-        :'image_detection_name_list' => :'image_detection_name_list',
-        :'image_detection_severity_by_type' => :'image_detection_severity_by_type',
         :'image_digest' => :'image_digest',
         :'image_has_been_assessed' => :'image_has_been_assessed',
         :'image_highest_severity_vulnerability' => :'image_highest_severity_vulnerability',
         :'image_id' => :'image_id',
         :'image_package_count' => :'image_package_count',
         :'image_registry' => :'image_registry',
-        :'image_repo' => :'image_repo',
+        :'image_repository' => :'image_repository',
         :'image_tag' => :'image_tag',
         :'image_vulnerability_count' => :'image_vulnerability_count',
-        :'image_vulnerability_severity_by_type' => :'image_vulnerability_severity_by_type',
         :'insecure_mount_source' => :'insecure_mount_source',
         :'insecure_mount_type' => :'insecure_mount_type',
         :'insecure_propagation_mode' => :'insecure_propagation_mode',
         :'interactive_mode' => :'interactive_mode',
         :'ipv4' => :'ipv4',
         :'ipv6' => :'ipv6',
-        :'kpa_coverage' => :'kpa_coverage',
+        :'kac_agent_id' => :'kac_agent_id',
         :'labels' => :'labels',
         :'labels_list' => :'labels_list',
         :'last_seen' => :'last_seen',
-        :'linux_sensor_aid' => :'linux_sensor_aid',
-        :'linux_sensor_config_build' => :'linux_sensor_config_build',
-        :'linux_sensor_coverage' => :'linux_sensor_coverage',
-        :'lumos_sensor_aid' => :'lumos_sensor_aid',
-        :'lumos_sensor_config_build' => :'lumos_sensor_config_build',
-        :'lumos_sensor_coverage' => :'lumos_sensor_coverage',
-        :'name' => :'name',
         :'namespace' => :'namespace',
-        :'node_id' => :'node_id',
         :'node_name' => :'node_name',
+        :'node_uid' => :'node_uid',
         :'pod_id' => :'pod_id',
         :'pod_name' => :'pod_name',
-        :'port_list' => :'port_list',
+        :'ports' => :'ports',
         :'privileged' => :'privileged',
         :'root_write_access' => :'root_write_access',
-        :'rpd' => :'rpd',
         :'run_as_root_group' => :'run_as_root_group',
         :'run_as_root_user' => :'run_as_root_user',
         :'running_status' => :'running_status',
-        :'snapshot_coverage' => :'snapshot_coverage',
-        :'unidentified' => :'unidentified',
         :'volume_mounts' => :'volume_mounts'
       }
     end
@@ -241,66 +193,50 @@ module Falcon
         :'agents' => :'Array<Hash>',
         :'allow_privilege_escalation' => :'Boolean',
         :'cid' => :'String',
-        :'cloud' => :'String',
         :'cloud_account_id' => :'String',
+        :'cloud_name' => :'String',
         :'cloud_region' => :'String',
+        :'cloud_service' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
         :'config_labels' => :'String',
-        :'config_user' => :'String',
-        :'container_image_id' => :'String',
-        :'created_at' => :'Integer',
-        :'cve_ids' => :'Array<String>',
-        :'first_seen' => :'Integer',
-        :'host_config_devices' => :'String',
-        :'id' => :'String',
+        :'container_id' => :'String',
+        :'container_name' => :'String',
+        :'created_at' => :'String',
+        :'first_seen' => :'String',
         :'image_application_package_count' => :'Integer',
         :'image_assessed_at' => :'Integer',
         :'image_detection_count' => :'Integer',
-        :'image_detection_id_list' => :'Array<String>',
-        :'image_detection_name_list' => :'Array<String>',
-        :'image_detection_severity_by_type' => :'Hash<String, Integer>',
         :'image_digest' => :'String',
         :'image_has_been_assessed' => :'Boolean',
         :'image_highest_severity_vulnerability' => :'String',
         :'image_id' => :'String',
         :'image_package_count' => :'Integer',
         :'image_registry' => :'String',
-        :'image_repo' => :'String',
+        :'image_repository' => :'String',
         :'image_tag' => :'String',
         :'image_vulnerability_count' => :'Integer',
-        :'image_vulnerability_severity_by_type' => :'Hash<String, Integer>',
         :'insecure_mount_source' => :'String',
         :'insecure_mount_type' => :'String',
         :'insecure_propagation_mode' => :'Boolean',
         :'interactive_mode' => :'Boolean',
         :'ipv4' => :'String',
         :'ipv6' => :'String',
-        :'kpa_coverage' => :'Boolean',
+        :'kac_agent_id' => :'String',
         :'labels' => :'Hash<String, String>',
         :'labels_list' => :'Array<String>',
-        :'last_seen' => :'Integer',
-        :'linux_sensor_aid' => :'String',
-        :'linux_sensor_config_build' => :'String',
-        :'linux_sensor_coverage' => :'Boolean',
-        :'lumos_sensor_aid' => :'String',
-        :'lumos_sensor_config_build' => :'String',
-        :'lumos_sensor_coverage' => :'Boolean',
-        :'name' => :'String',
+        :'last_seen' => :'String',
         :'namespace' => :'String',
-        :'node_id' => :'String',
         :'node_name' => :'String',
+        :'node_uid' => :'String',
         :'pod_id' => :'String',
         :'pod_name' => :'String',
-        :'port_list' => :'Array<Hash>',
+        :'ports' => :'Array<Hash>',
         :'privileged' => :'Boolean',
         :'root_write_access' => :'Boolean',
-        :'rpd' => :'Array<Integer>',
         :'run_as_root_group' => :'Boolean',
         :'run_as_root_user' => :'Boolean',
         :'running_status' => :'Boolean',
-        :'snapshot_coverage' => :'Boolean',
-        :'unidentified' => :'Boolean',
         :'volume_mounts' => :'String'
       }
     end
@@ -340,16 +276,20 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
-      if attributes.key?(:'cloud')
-        self.cloud = attributes[:'cloud']
-      end
-
       if attributes.key?(:'cloud_account_id')
         self.cloud_account_id = attributes[:'cloud_account_id']
       end
 
+      if attributes.key?(:'cloud_name')
+        self.cloud_name = attributes[:'cloud_name']
+      end
+
       if attributes.key?(:'cloud_region')
         self.cloud_region = attributes[:'cloud_region']
+      end
+
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
       end
 
       if attributes.key?(:'cluster_id')
@@ -364,34 +304,20 @@ module Falcon
         self.config_labels = attributes[:'config_labels']
       end
 
-      if attributes.key?(:'config_user')
-        self.config_user = attributes[:'config_user']
+      if attributes.key?(:'container_id')
+        self.container_id = attributes[:'container_id']
       end
 
-      if attributes.key?(:'container_image_id')
-        self.container_image_id = attributes[:'container_image_id']
+      if attributes.key?(:'container_name')
+        self.container_name = attributes[:'container_name']
       end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
 
-      if attributes.key?(:'cve_ids')
-        if (value = attributes[:'cve_ids']).is_a?(Array)
-          self.cve_ids = value
-        end
-      end
-
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
-      end
-
-      if attributes.key?(:'host_config_devices')
-        self.host_config_devices = attributes[:'host_config_devices']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
       end
 
       if attributes.key?(:'image_application_package_count')
@@ -404,24 +330,6 @@ module Falcon
 
       if attributes.key?(:'image_detection_count')
         self.image_detection_count = attributes[:'image_detection_count']
-      end
-
-      if attributes.key?(:'image_detection_id_list')
-        if (value = attributes[:'image_detection_id_list']).is_a?(Array)
-          self.image_detection_id_list = value
-        end
-      end
-
-      if attributes.key?(:'image_detection_name_list')
-        if (value = attributes[:'image_detection_name_list']).is_a?(Array)
-          self.image_detection_name_list = value
-        end
-      end
-
-      if attributes.key?(:'image_detection_severity_by_type')
-        if (value = attributes[:'image_detection_severity_by_type']).is_a?(Hash)
-          self.image_detection_severity_by_type = value
-        end
       end
 
       if attributes.key?(:'image_digest')
@@ -448,8 +356,8 @@ module Falcon
         self.image_registry = attributes[:'image_registry']
       end
 
-      if attributes.key?(:'image_repo')
-        self.image_repo = attributes[:'image_repo']
+      if attributes.key?(:'image_repository')
+        self.image_repository = attributes[:'image_repository']
       end
 
       if attributes.key?(:'image_tag')
@@ -458,12 +366,6 @@ module Falcon
 
       if attributes.key?(:'image_vulnerability_count')
         self.image_vulnerability_count = attributes[:'image_vulnerability_count']
-      end
-
-      if attributes.key?(:'image_vulnerability_severity_by_type')
-        if (value = attributes[:'image_vulnerability_severity_by_type']).is_a?(Hash)
-          self.image_vulnerability_severity_by_type = value
-        end
       end
 
       if attributes.key?(:'insecure_mount_source')
@@ -490,8 +392,8 @@ module Falcon
         self.ipv6 = attributes[:'ipv6']
       end
 
-      if attributes.key?(:'kpa_coverage')
-        self.kpa_coverage = attributes[:'kpa_coverage']
+      if attributes.key?(:'kac_agent_id')
+        self.kac_agent_id = attributes[:'kac_agent_id']
       end
 
       if attributes.key?(:'labels')
@@ -510,44 +412,16 @@ module Falcon
         self.last_seen = attributes[:'last_seen']
       end
 
-      if attributes.key?(:'linux_sensor_aid')
-        self.linux_sensor_aid = attributes[:'linux_sensor_aid']
-      end
-
-      if attributes.key?(:'linux_sensor_config_build')
-        self.linux_sensor_config_build = attributes[:'linux_sensor_config_build']
-      end
-
-      if attributes.key?(:'linux_sensor_coverage')
-        self.linux_sensor_coverage = attributes[:'linux_sensor_coverage']
-      end
-
-      if attributes.key?(:'lumos_sensor_aid')
-        self.lumos_sensor_aid = attributes[:'lumos_sensor_aid']
-      end
-
-      if attributes.key?(:'lumos_sensor_config_build')
-        self.lumos_sensor_config_build = attributes[:'lumos_sensor_config_build']
-      end
-
-      if attributes.key?(:'lumos_sensor_coverage')
-        self.lumos_sensor_coverage = attributes[:'lumos_sensor_coverage']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.key?(:'namespace')
         self.namespace = attributes[:'namespace']
       end
 
-      if attributes.key?(:'node_id')
-        self.node_id = attributes[:'node_id']
-      end
-
       if attributes.key?(:'node_name')
         self.node_name = attributes[:'node_name']
+      end
+
+      if attributes.key?(:'node_uid')
+        self.node_uid = attributes[:'node_uid']
       end
 
       if attributes.key?(:'pod_id')
@@ -558,9 +432,9 @@ module Falcon
         self.pod_name = attributes[:'pod_name']
       end
 
-      if attributes.key?(:'port_list')
-        if (value = attributes[:'port_list']).is_a?(Array)
-          self.port_list = value
+      if attributes.key?(:'ports')
+        if (value = attributes[:'ports']).is_a?(Array)
+          self.ports = value
         end
       end
 
@@ -570,12 +444,6 @@ module Falcon
 
       if attributes.key?(:'root_write_access')
         self.root_write_access = attributes[:'root_write_access']
-      end
-
-      if attributes.key?(:'rpd')
-        if (value = attributes[:'rpd']).is_a?(Array)
-          self.rpd = value
-        end
       end
 
       if attributes.key?(:'run_as_root_group')
@@ -590,14 +458,6 @@ module Falcon
         self.running_status = attributes[:'running_status']
       end
 
-      if attributes.key?(:'snapshot_coverage')
-        self.snapshot_coverage = attributes[:'snapshot_coverage']
-      end
-
-      if attributes.key?(:'unidentified')
-        self.unidentified = attributes[:'unidentified']
-      end
-
       if attributes.key?(:'volume_mounts')
         self.volume_mounts = attributes[:'volume_mounts']
       end
@@ -607,12 +467,196 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @agents.nil?
+        invalid_properties.push('invalid value for "agents", agents cannot be nil.')
+      end
+
+      if @allow_privilege_escalation.nil?
+        invalid_properties.push('invalid value for "allow_privilege_escalation", allow_privilege_escalation cannot be nil.')
+      end
+
       if @cid.nil?
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      if @cloud_account_id.nil?
+        invalid_properties.push('invalid value for "cloud_account_id", cloud_account_id cannot be nil.')
+      end
+
+      if @cloud_name.nil?
+        invalid_properties.push('invalid value for "cloud_name", cloud_name cannot be nil.')
+      end
+
+      if @cloud_region.nil?
+        invalid_properties.push('invalid value for "cloud_region", cloud_region cannot be nil.')
+      end
+
+      if @cloud_service.nil?
+        invalid_properties.push('invalid value for "cloud_service", cloud_service cannot be nil.')
+      end
+
+      if @cluster_id.nil?
+        invalid_properties.push('invalid value for "cluster_id", cluster_id cannot be nil.')
+      end
+
+      if @cluster_name.nil?
+        invalid_properties.push('invalid value for "cluster_name", cluster_name cannot be nil.')
+      end
+
+      if @config_labels.nil?
+        invalid_properties.push('invalid value for "config_labels", config_labels cannot be nil.')
+      end
+
+      if @container_id.nil?
+        invalid_properties.push('invalid value for "container_id", container_id cannot be nil.')
+      end
+
+      if @container_name.nil?
+        invalid_properties.push('invalid value for "container_name", container_name cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @first_seen.nil?
+        invalid_properties.push('invalid value for "first_seen", first_seen cannot be nil.')
+      end
+
+      if @image_application_package_count.nil?
+        invalid_properties.push('invalid value for "image_application_package_count", image_application_package_count cannot be nil.')
+      end
+
+      if @image_assessed_at.nil?
+        invalid_properties.push('invalid value for "image_assessed_at", image_assessed_at cannot be nil.')
+      end
+
+      if @image_detection_count.nil?
+        invalid_properties.push('invalid value for "image_detection_count", image_detection_count cannot be nil.')
+      end
+
+      if @image_digest.nil?
+        invalid_properties.push('invalid value for "image_digest", image_digest cannot be nil.')
+      end
+
+      if @image_has_been_assessed.nil?
+        invalid_properties.push('invalid value for "image_has_been_assessed", image_has_been_assessed cannot be nil.')
+      end
+
+      if @image_highest_severity_vulnerability.nil?
+        invalid_properties.push('invalid value for "image_highest_severity_vulnerability", image_highest_severity_vulnerability cannot be nil.')
+      end
+
+      if @image_id.nil?
+        invalid_properties.push('invalid value for "image_id", image_id cannot be nil.')
+      end
+
+      if @image_package_count.nil?
+        invalid_properties.push('invalid value for "image_package_count", image_package_count cannot be nil.')
+      end
+
+      if @image_registry.nil?
+        invalid_properties.push('invalid value for "image_registry", image_registry cannot be nil.')
+      end
+
+      if @image_repository.nil?
+        invalid_properties.push('invalid value for "image_repository", image_repository cannot be nil.')
+      end
+
+      if @image_tag.nil?
+        invalid_properties.push('invalid value for "image_tag", image_tag cannot be nil.')
+      end
+
+      if @image_vulnerability_count.nil?
+        invalid_properties.push('invalid value for "image_vulnerability_count", image_vulnerability_count cannot be nil.')
+      end
+
+      if @insecure_mount_source.nil?
+        invalid_properties.push('invalid value for "insecure_mount_source", insecure_mount_source cannot be nil.')
+      end
+
+      if @insecure_mount_type.nil?
+        invalid_properties.push('invalid value for "insecure_mount_type", insecure_mount_type cannot be nil.')
+      end
+
+      if @insecure_propagation_mode.nil?
+        invalid_properties.push('invalid value for "insecure_propagation_mode", insecure_propagation_mode cannot be nil.')
+      end
+
+      if @interactive_mode.nil?
+        invalid_properties.push('invalid value for "interactive_mode", interactive_mode cannot be nil.')
+      end
+
+      if @ipv4.nil?
+        invalid_properties.push('invalid value for "ipv4", ipv4 cannot be nil.')
+      end
+
+      if @ipv6.nil?
+        invalid_properties.push('invalid value for "ipv6", ipv6 cannot be nil.')
+      end
+
+      if @kac_agent_id.nil?
+        invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
+      end
+
+      if @labels.nil?
+        invalid_properties.push('invalid value for "labels", labels cannot be nil.')
+      end
+
+      if @labels_list.nil?
+        invalid_properties.push('invalid value for "labels_list", labels_list cannot be nil.')
+      end
+
+      if @last_seen.nil?
+        invalid_properties.push('invalid value for "last_seen", last_seen cannot be nil.')
+      end
+
+      if @namespace.nil?
+        invalid_properties.push('invalid value for "namespace", namespace cannot be nil.')
+      end
+
+      if @node_name.nil?
+        invalid_properties.push('invalid value for "node_name", node_name cannot be nil.')
+      end
+
+      if @node_uid.nil?
+        invalid_properties.push('invalid value for "node_uid", node_uid cannot be nil.')
+      end
+
+      if @pod_id.nil?
+        invalid_properties.push('invalid value for "pod_id", pod_id cannot be nil.')
+      end
+
+      if @pod_name.nil?
+        invalid_properties.push('invalid value for "pod_name", pod_name cannot be nil.')
+      end
+
+      if @ports.nil?
+        invalid_properties.push('invalid value for "ports", ports cannot be nil.')
+      end
+
+      if @privileged.nil?
+        invalid_properties.push('invalid value for "privileged", privileged cannot be nil.')
+      end
+
+      if @root_write_access.nil?
+        invalid_properties.push('invalid value for "root_write_access", root_write_access cannot be nil.')
+      end
+
+      if @run_as_root_group.nil?
+        invalid_properties.push('invalid value for "run_as_root_group", run_as_root_group cannot be nil.')
+      end
+
+      if @run_as_root_user.nil?
+        invalid_properties.push('invalid value for "run_as_root_user", run_as_root_user cannot be nil.')
+      end
+
+      if @running_status.nil?
+        invalid_properties.push('invalid value for "running_status", running_status cannot be nil.')
+      end
+
+      if @volume_mounts.nil?
+        invalid_properties.push('invalid value for "volume_mounts", volume_mounts cannot be nil.')
       end
 
       invalid_properties
@@ -621,8 +665,54 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @agents.nil?
+      return false if @allow_privilege_escalation.nil?
       return false if @cid.nil?
-      return false if @id.nil?
+      return false if @cloud_account_id.nil?
+      return false if @cloud_name.nil?
+      return false if @cloud_region.nil?
+      return false if @cloud_service.nil?
+      return false if @cluster_id.nil?
+      return false if @cluster_name.nil?
+      return false if @config_labels.nil?
+      return false if @container_id.nil?
+      return false if @container_name.nil?
+      return false if @created_at.nil?
+      return false if @first_seen.nil?
+      return false if @image_application_package_count.nil?
+      return false if @image_assessed_at.nil?
+      return false if @image_detection_count.nil?
+      return false if @image_digest.nil?
+      return false if @image_has_been_assessed.nil?
+      return false if @image_highest_severity_vulnerability.nil?
+      return false if @image_id.nil?
+      return false if @image_package_count.nil?
+      return false if @image_registry.nil?
+      return false if @image_repository.nil?
+      return false if @image_tag.nil?
+      return false if @image_vulnerability_count.nil?
+      return false if @insecure_mount_source.nil?
+      return false if @insecure_mount_type.nil?
+      return false if @insecure_propagation_mode.nil?
+      return false if @interactive_mode.nil?
+      return false if @ipv4.nil?
+      return false if @ipv6.nil?
+      return false if @kac_agent_id.nil?
+      return false if @labels.nil?
+      return false if @labels_list.nil?
+      return false if @last_seen.nil?
+      return false if @namespace.nil?
+      return false if @node_name.nil?
+      return false if @node_uid.nil?
+      return false if @pod_id.nil?
+      return false if @pod_name.nil?
+      return false if @ports.nil?
+      return false if @privileged.nil?
+      return false if @root_write_access.nil?
+      return false if @run_as_root_group.nil?
+      return false if @run_as_root_user.nil?
+      return false if @running_status.nil?
+      return false if @volume_mounts.nil?
       true
     end
 
@@ -634,66 +724,50 @@ module Falcon
           agents == o.agents &&
           allow_privilege_escalation == o.allow_privilege_escalation &&
           cid == o.cid &&
-          cloud == o.cloud &&
           cloud_account_id == o.cloud_account_id &&
+          cloud_name == o.cloud_name &&
           cloud_region == o.cloud_region &&
+          cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
           config_labels == o.config_labels &&
-          config_user == o.config_user &&
-          container_image_id == o.container_image_id &&
+          container_id == o.container_id &&
+          container_name == o.container_name &&
           created_at == o.created_at &&
-          cve_ids == o.cve_ids &&
           first_seen == o.first_seen &&
-          host_config_devices == o.host_config_devices &&
-          id == o.id &&
           image_application_package_count == o.image_application_package_count &&
           image_assessed_at == o.image_assessed_at &&
           image_detection_count == o.image_detection_count &&
-          image_detection_id_list == o.image_detection_id_list &&
-          image_detection_name_list == o.image_detection_name_list &&
-          image_detection_severity_by_type == o.image_detection_severity_by_type &&
           image_digest == o.image_digest &&
           image_has_been_assessed == o.image_has_been_assessed &&
           image_highest_severity_vulnerability == o.image_highest_severity_vulnerability &&
           image_id == o.image_id &&
           image_package_count == o.image_package_count &&
           image_registry == o.image_registry &&
-          image_repo == o.image_repo &&
+          image_repository == o.image_repository &&
           image_tag == o.image_tag &&
           image_vulnerability_count == o.image_vulnerability_count &&
-          image_vulnerability_severity_by_type == o.image_vulnerability_severity_by_type &&
           insecure_mount_source == o.insecure_mount_source &&
           insecure_mount_type == o.insecure_mount_type &&
           insecure_propagation_mode == o.insecure_propagation_mode &&
           interactive_mode == o.interactive_mode &&
           ipv4 == o.ipv4 &&
           ipv6 == o.ipv6 &&
-          kpa_coverage == o.kpa_coverage &&
+          kac_agent_id == o.kac_agent_id &&
           labels == o.labels &&
           labels_list == o.labels_list &&
           last_seen == o.last_seen &&
-          linux_sensor_aid == o.linux_sensor_aid &&
-          linux_sensor_config_build == o.linux_sensor_config_build &&
-          linux_sensor_coverage == o.linux_sensor_coverage &&
-          lumos_sensor_aid == o.lumos_sensor_aid &&
-          lumos_sensor_config_build == o.lumos_sensor_config_build &&
-          lumos_sensor_coverage == o.lumos_sensor_coverage &&
-          name == o.name &&
           namespace == o.namespace &&
-          node_id == o.node_id &&
           node_name == o.node_name &&
+          node_uid == o.node_uid &&
           pod_id == o.pod_id &&
           pod_name == o.pod_name &&
-          port_list == o.port_list &&
+          ports == o.ports &&
           privileged == o.privileged &&
           root_write_access == o.root_write_access &&
-          rpd == o.rpd &&
           run_as_root_group == o.run_as_root_group &&
           run_as_root_user == o.run_as_root_user &&
           running_status == o.running_status &&
-          snapshot_coverage == o.snapshot_coverage &&
-          unidentified == o.unidentified &&
           volume_mounts == o.volume_mounts
     end
 
@@ -706,7 +780,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agents, allow_privilege_escalation, cid, cloud, cloud_account_id, cloud_region, cluster_id, cluster_name, config_labels, config_user, container_image_id, created_at, cve_ids, first_seen, host_config_devices, id, image_application_package_count, image_assessed_at, image_detection_count, image_detection_id_list, image_detection_name_list, image_detection_severity_by_type, image_digest, image_has_been_assessed, image_highest_severity_vulnerability, image_id, image_package_count, image_registry, image_repo, image_tag, image_vulnerability_count, image_vulnerability_severity_by_type, insecure_mount_source, insecure_mount_type, insecure_propagation_mode, interactive_mode, ipv4, ipv6, kpa_coverage, labels, labels_list, last_seen, linux_sensor_aid, linux_sensor_config_build, linux_sensor_coverage, lumos_sensor_aid, lumos_sensor_config_build, lumos_sensor_coverage, name, namespace, node_id, node_name, pod_id, pod_name, port_list, privileged, root_write_access, rpd, run_as_root_group, run_as_root_user, running_status, snapshot_coverage, unidentified, volume_mounts].hash
+      [agents, allow_privilege_escalation, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, config_labels, container_id, container_name, created_at, first_seen, image_application_package_count, image_assessed_at, image_detection_count, image_digest, image_has_been_assessed, image_highest_severity_vulnerability, image_id, image_package_count, image_registry, image_repository, image_tag, image_vulnerability_count, insecure_mount_source, insecure_mount_type, insecure_propagation_mode, interactive_mode, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_name, node_uid, pod_id, pod_name, ports, privileged, root_write_access, run_as_root_group, run_as_root_user, running_status, volume_mounts].hash
     end
 
     # Builds the object from hash

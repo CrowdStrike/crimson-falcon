@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **report_params** | [**DomainReportParams**](DomainReportParams.md) |  |  |
 | **retry_allowed** | **Boolean** |  |  |
 | **retry_performed** | **Boolean** |  |  |
 | **retry_report_execution_id** | **String** |  |  |
@@ -18,6 +19,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainExecutionMetadataV1.new(
+  report_params: null,
   retry_allowed: null,
   retry_performed: null,
   retry_report_execution_id: null,

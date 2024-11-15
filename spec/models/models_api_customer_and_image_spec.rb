@@ -42,6 +42,12 @@ describe Falcon::ModelsAPICustomerAndImage do
       expect(instance).to be_instance_of(Falcon::ModelsAPICustomerAndImage)
     end
   end
+  describe 'test attribute "base_image_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "base_os"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -114,6 +120,12 @@ describe Falcon::ModelsAPICustomerAndImage do
     end
   end
 
+  describe 'test attribute "is_base_image"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "registry"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -121,6 +133,18 @@ describe Falcon::ModelsAPICustomerAndImage do
   end
 
   describe 'test attribute "repository"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "source"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "source_base_image"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -139,6 +163,12 @@ describe Falcon::ModelsAPICustomerAndImage do
   end
 
   describe 'test attribute "uuid"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "warning"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

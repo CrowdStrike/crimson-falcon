@@ -11,6 +11,7 @@
 | **private_key** | **String** |  | [optional] |
 | **private_key_id** | **String** |  | [optional] |
 | **project_id** | **String** |  | [optional] |
+| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** |  | [optional] |
 
 ## Example
@@ -26,6 +27,7 @@ instance = Falcon::RegistrationGCPAccountReqObjV2.new(
   private_key: null,
   private_key_id: null,
   project_id: null,
+  service_account_conditions: null,
   service_account_id: null
 )
 ```

@@ -42,12 +42,6 @@ describe Falcon::DetectionsApiDetectionsCount do
       expect(instance).to be_instance_of(Falcon::DetectionsApiDetectionsCount)
     end
   end
-  describe 'test attribute "resources"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "errors"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -55,6 +49,12 @@ describe Falcon::DetectionsApiDetectionsCount do
   end
 
   describe 'test attribute "meta"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "resources"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

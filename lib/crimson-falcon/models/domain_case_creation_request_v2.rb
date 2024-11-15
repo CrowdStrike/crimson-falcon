@@ -38,6 +38,10 @@ module Falcon
 
     attr_accessor :incidents
 
+    attr_accessor :malware_submission_id
+
+    attr_accessor :recon_rule_type
+
     attr_accessor :title
 
     attr_accessor :type
@@ -50,6 +54,8 @@ module Falcon
         :'body' => :'body',
         :'detections' => :'detections',
         :'incidents' => :'incidents',
+        :'malware_submission_id' => :'malware_submission_id',
+        :'recon_rule_type' => :'recon_rule_type',
         :'title' => :'title',
         :'type' => :'type',
         :'user_uuid' => :'user_uuid'
@@ -67,6 +73,8 @@ module Falcon
         :'body' => :'String',
         :'detections' => :'Array<MessagesAlert>',
         :'incidents' => :'Array<MessagesIncident>',
+        :'malware_submission_id' => :'String',
+        :'recon_rule_type' => :'String',
         :'title' => :'String',
         :'type' => :'String',
         :'user_uuid' => :'String'
@@ -110,6 +118,14 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'malware_submission_id')
+        self.malware_submission_id = attributes[:'malware_submission_id']
+      end
+
+      if attributes.key?(:'recon_rule_type')
+        self.recon_rule_type = attributes[:'recon_rule_type']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -139,6 +155,14 @@ module Falcon
         invalid_properties.push('invalid value for "incidents", incidents cannot be nil.')
       end
 
+      if @malware_submission_id.nil?
+        invalid_properties.push('invalid value for "malware_submission_id", malware_submission_id cannot be nil.')
+      end
+
+      if @recon_rule_type.nil?
+        invalid_properties.push('invalid value for "recon_rule_type", recon_rule_type cannot be nil.')
+      end
+
       if @title.nil?
         invalid_properties.push('invalid value for "title", title cannot be nil.')
       end
@@ -156,6 +180,8 @@ module Falcon
       return false if @body.nil?
       return false if @detections.nil?
       return false if @incidents.nil?
+      return false if @malware_submission_id.nil?
+      return false if @recon_rule_type.nil?
       return false if @title.nil?
       return false if @type.nil?
       true
@@ -169,6 +195,8 @@ module Falcon
           body == o.body &&
           detections == o.detections &&
           incidents == o.incidents &&
+          malware_submission_id == o.malware_submission_id &&
+          recon_rule_type == o.recon_rule_type &&
           title == o.title &&
           type == o.type &&
           user_uuid == o.user_uuid
@@ -183,7 +211,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [body, detections, incidents, title, type, user_uuid].hash
+      [body, detections, incidents, malware_submission_id, recon_rule_type, title, type, user_uuid].hash
     end
 
     # Builds the object from hash

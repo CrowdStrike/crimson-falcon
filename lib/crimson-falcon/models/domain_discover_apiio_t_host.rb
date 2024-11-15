@@ -31,24 +31,44 @@ require 'date'
 require 'time'
 
 module Falcon
-  # Represents information about a managed, an unmanaged or an unsupported asset.
   class DomainDiscoverAPIIoTHost
+    # Whether the asset is account-enabled in Active Directory (Yes or No).
+    attr_accessor :account_enabled
+
+    # The user account control properties in Active Directory.
+    attr_accessor :ad_user_account_control
+
     # The version of the Falcon sensor that's installed on the asset.
     attr_accessor :agent_version
 
     # The agent ID of the Falcon sensor installed on the asset.
     attr_accessor :aid
 
-    # The Amount of available disk space on the asset in GB
+    # The asset role or roles currently assigned to the asset either automatically or by a user (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
+    attr_accessor :asset_roles
+
+    # The first and last name of the person who is assigned to this asset.
+    attr_accessor :assigned_to
+
+    # The available disk space in the last 15 minutes on the host
     attr_accessor :available_disk_space
 
-    # The average memory usage in the last 15 minutes on the asset
+    # The available disk space percent in the last 15 minutes on the host
+    attr_accessor :available_disk_space_pct
+
+    # The average memory usage in the last 15 minutes on the host
     attr_accessor :average_memory_usage
 
-    # The average processor usage in the last 15 minutes on the asset
+    # The average memory usage percent in the last 15 minutes on the host
+    attr_accessor :average_memory_usage_pct
+
+    # The average processor usage in the last 15 minutes on the host
     attr_accessor :average_processor_usage
 
-    # The id of the bios on the asset
+    # The list of found sha256 and their measurement types
+    attr_accessor :bios_hashes_data
+
+    # The id of the bios on the host
     attr_accessor :bios_id
 
     # The name of the asset's BIOS manufacturer.
@@ -69,13 +89,19 @@ module Falcon
     # The external ID of the IoT Device in 3rd Party System(Claroty).
     attr_accessor :claroty_id
 
-    # Whether the asset is exposed to the internet (Yes or Unknown)
+    # How the server is classified, such as production, development, disaster recovery, or user acceptance testing.
+    attr_accessor :classification
+
+    # The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server).
+    attr_accessor :computed_asset_roles
+
+    # Whether the asset is exposed to the internet as determined automatically (Yes, No, or Pending).
     attr_accessor :computed_internet_exposure
 
-    # External IP that is exposed to the Internet
+    # External IP exposed to the internet.
     attr_accessor :computed_internet_exposure_external_ip
 
-    # Timestamp when the asset was last seen as exposed to the Internet
+    # When the asset was last seen as internet exposed.
     attr_accessor :computed_internet_exposure_last_seen
 
     # The level of confidence that the asset is a corporate asset (25 = low confidence, 50 = medium confidence, 75 = high confidence).
@@ -84,20 +110,47 @@ module Falcon
     # The name of the country where the asset is located.
     attr_accessor :country
 
-    # The Detailed processor name
+    # The manufacturer of the asset's CPU.
+    attr_accessor :cpu_manufacturer
+
+    # The name of the processor on the system
     attr_accessor :cpu_processor_name
 
-    # The credential guard status of the asset
-    attr_accessor :credential_guard_status
+    # The time the asset was created in Active Directory, according to LDAP info.
+    attr_accessor :creation_timestamp
+
+    # The criticality level of the asset (Critical, High, Noncritical, or Unassigned)
+    attr_accessor :criticality
+
+    # The description the user entered when manually assigning a criticality level
+    attr_accessor :criticality_description
+
+    # The ID of the criticality rule that has most recently applied to the asset.
+    attr_accessor :criticality_rule_id
+
+    # The date and time the criticality level was manually assigned
+    attr_accessor :criticality_timestamp
+
+    # The username of the account that manually assigned the criticality level
+    attr_accessor :criticality_username
 
     # The last seen local IPv4 address of the asset.
     attr_accessor :current_local_ip
 
-    # The asset's data providers.
+    # The last seen network prefix of the asset.
+    attr_accessor :current_network_prefix
+
+    # Where the data about the asset came from (such as CrowdStrike, ServiceNow, or Active Directory).
     attr_accessor :data_providers
 
-    # The number of data providers for the asset.
+    # How many services provided data about the asset.
     attr_accessor :data_providers_count
+
+    # The department where the asset is used.
+    attr_accessor :department
+
+    # The descriptions of the asset in Active Directory (Cannot be used for filtering, sorting, or querying).
+    attr_accessor :descriptions
 
     # The Device Class of IoT Asset
     attr_accessor :device_class
@@ -105,8 +158,8 @@ module Falcon
     # The Device Family of IoT Asset
     attr_accessor :device_family
 
-    # The device guard status of the asset
-    attr_accessor :device_guard_status
+    # The device mode of the host
+    attr_accessor :device_mode
 
     # The slots of IoT Asset
     attr_accessor :device_slots
@@ -114,14 +167,32 @@ module Falcon
     # The Device Type of IoT Asset
     attr_accessor :device_type
 
+    # The agent IDs of the Falcon sensors installed on the sources that discovered the asset.
+    attr_accessor :discoverer_aids
+
     # The number of sources that discovered the asset.
     attr_accessor :discoverer_count
+
+    # The criticalities of the sources that discovered the asset
+    attr_accessor :discoverer_criticalities
+
+    # The hostnames of the sources that discovered the asset.
+    attr_accessor :discoverer_hostnames
 
     # A list of agent IDs of the Falcon sensors installed on the source hosts that discovered the asset via ICS Asset discovery mechanism
     attr_accessor :discoverer_ics_collector_ids
 
+    # The platform names of the sources that discovered the asset.
+    attr_accessor :discoverer_platform_names
+
     # The product type descriptions of the sources that discovered the asset.
     attr_accessor :discoverer_product_type_descs
+
+    # The tags of the sources that discovered the asset.
+    attr_accessor :discoverer_tags
+
+    # Represents the status of a managed host (“Not Discovering“, “Passive“, “Active“ or both).
+    attr_accessor :discovering_by
 
     # The names and sizes of the disks on the asset
     attr_accessor :disk_sizes
@@ -129,13 +200,16 @@ module Falcon
     # The ID generated by dragos asset discovery mechanism
     attr_accessor :dragos_id
 
-    # The list of encrypted drives on the asset
+    # The email of the asset as listed in Active Directory.
+    attr_accessor :email
+
+    # The list of encrypted drives on the host
     attr_accessor :encrypted_drives
 
-    # The count of encrypted drives on the asset
+    # The count of encrypted drives on the host
     attr_accessor :encrypted_drives_count
 
-    # The encryption status of the asset
+    # The encryption status of the host
     attr_accessor :encryption_status
 
     # The type of asset (managed, unmanaged, unsupported).
@@ -147,13 +221,22 @@ module Falcon
     # Lists the data providers for each property in the response (Cannot be used for filtering, sorting, or querying).
     attr_accessor :field_metadata
 
+    # The agent ID of the Falcon sensor on the source that first discovered the asset.
+    attr_accessor :first_discoverer_aid
+
     # The first time the asset was seen in your environment.
     attr_accessor :first_seen_timestamp
+
+    # The form factor of the host
+    attr_accessor :form_factor
+
+    # The fully qualified domain name of the asset.
+    attr_accessor :fqdn
 
     # The host management groups the asset is part of.
     attr_accessor :groups
 
-    # The asset's hostname .
+    # The asset's hostname.
     attr_accessor :hostname
 
     # The ID generated by ICS collector asset discovery mechanism
@@ -162,17 +245,26 @@ module Falcon
     # The unique ID of the asset.
     attr_accessor :id
 
-    # Whether the asset is exposed to the internet (Yes or Unknown)
+    # Whether the asset is exposed to the internet (Yes, No or Pending).
     attr_accessor :internet_exposure
 
-    # The iommu protection status of the host
-    attr_accessor :iommu_protection_status
+    # The description the user entered when manually assigning a internet exposure level
+    attr_accessor :internet_exposure_description
 
-    # The kernel dma protection status of the asset
-    attr_accessor :kernel_dma_protection_status
+    # The date and time the internet exposure level was manually assigned
+    attr_accessor :internet_exposure_timestamp
+
+    # The username of the account that manually assigned the internet exposure level
+    attr_accessor :internet_exposure_username
 
     # For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
     attr_accessor :kernel_version
+
+    # The agent ID of the Falcon sensor installed on the source that most recently discovered the asset.
+    attr_accessor :last_discoverer_aid
+
+    # The hostname of the last source that discovered the asset.
+    attr_accessor :last_discoverer_hostname
 
     # The agent ID of the Falcon sensor installed on the source host that most recently discovered the asset via ICS Asset discovery mechanism
     attr_accessor :last_discoverer_ics_collector_id
@@ -180,25 +272,34 @@ module Falcon
     # The most recent time the asset was seen in your environment.
     attr_accessor :last_seen_timestamp
 
-    # The IoT asset's IP address list
+    # Historical local IPv4 addresses associated with the asset.
     attr_accessor :local_ip_addresses
 
     # The number of historical local IPv4 addresses the asset has had.
     attr_accessor :local_ips_count
 
-    # The Number of Logical Cores on the asset
+    # The location of the asset.
+    attr_accessor :location
+
+    # The number of logical cores available on the system
     attr_accessor :logical_core_count
 
-    # The IoT asset's MAC address list
+    # Historical MAC addresses associated with the asset.
     attr_accessor :mac_addresses
 
-    # The domain name the asset is currently joined to (applies only to Windows hosts).
+    # The domain name the asset is currently joined to.
     attr_accessor :machine_domain
 
-    # The max memory usage in the last 15 minutes on the asset
+    # The first and last name of the person who manages this asset.
+    attr_accessor :managed_by
+
+    # The max memory usage in the last 15 minutes on the host
     attr_accessor :max_memory_usage
 
-    # The max processor usage in the last 15 minutes on the asset
+    # The max memory usage percent in the last 15 minutes on the host
+    attr_accessor :max_memory_usage_pct
+
+    # The max processor usage in the last 15 minutes on the host
     attr_accessor :max_processor_usage
 
     # The Total memory.
@@ -210,14 +311,25 @@ module Falcon
     # The network ID to which device is connected.
     attr_accessor :network_id
 
-    # The asset's network interfaces.
+    # The asset's network interfaces (Cannot be used for filtering, sorting, or querying).
     attr_accessor :network_interfaces
 
-    # The number of active physical drives available on the system
+    # The number of active physical drives available on the system.
     attr_accessor :number_of_disk_drives
 
-    # Whether the asset is at end of support (Yes, No, or Unknown)
+    # The globally unique identifier (GUID) of the asset in Active Directory.
+    attr_accessor :object_guid
+
+    # The security identifier (SID) of the asset in Active Directory.
+    attr_accessor :object_sid
+
+    # Whether the asset is at end of support (Yes, No, or Unknown).
     attr_accessor :os_is_eol
+
+    attr_accessor :os_security
+
+    # The OS service pack on the asset.
+    attr_accessor :os_service_pack
 
     # The OS version of the asset.
     attr_accessor :os_version
@@ -225,19 +337,34 @@ module Falcon
     # A list of sources through which host is discovered
     attr_accessor :ot_information_sources
 
+    # A list of network ids to which host belongs
+    attr_accessor :ot_network_ids
+
     # A list of ot serial numbers that discovered with host
     attr_accessor :ot_serial_numbers
 
-    # The organizational unit of the asset (applies only to Windows hosts).
+    # The organizational unit of the asset.
     attr_accessor :ou
 
-    # The number of physical CPU cores available on the system
+    # Whether a user overrode automatically assigned asset roles to manually assign a role to the asset (true or false).
+    attr_accessor :override_asset_roles
+
+    # Whether a user overrode a criticality rule to manually assign a criticality level on the asset (true or false).
+    attr_accessor :override_criticality_rules
+
+    # Whether a user overrode the automatically assigned internet exposure (True or False).
+    attr_accessor :override_internet_exposure
+
+    # The first and last name of the person who owns this asset.
+    attr_accessor :owned_by
+
+    # The number of physical CPU cores available on the system.
     attr_accessor :physical_core_count
 
     # The platform name of the asset (Windows, Mac, Linux).
     attr_accessor :platform_name
 
-    # The number of physical processors available on the system
+    # The number of physical processors available on the system.
     attr_accessor :processor_package_count
 
     # The product type of the asset represented as a number (1 = Workstation, 2 = Domain Controller, 3 = Server).
@@ -252,26 +379,20 @@ module Falcon
     # The purdue level of IoT Asset
     attr_accessor :purdue_level
 
-    # Whether the asset is in reduced functionality mode (Yes or No)
+    # Whether the asset is in reduced functionality mode (Yes or No).
     attr_accessor :reduced_functionality_mode
 
-    # The secure boot enabled status of the asset
-    attr_accessor :secure_boot_enabled_status
-
-    # The secure boot requested status of the asset
-    attr_accessor :secure_boot_requested_status
-
-    # The secure memory overwrite requested status of the asset
-    attr_accessor :secure_memory_overwrite_requested_status
+    # The unique identifier of the asset from ServiceNow, if any.
+    attr_accessor :servicenow_id
 
     # The site name of the domain the asset is joined to (applies only to Windows hosts).
     attr_accessor :site_name
 
+    # The name of the U.S. state where the asset is located.
+    attr_accessor :state
+
     # The subnet to which device is connected.
     attr_accessor :subnet
-
-    # The system guard status of the asset
-    attr_accessor :system_guard_status
 
     # The asset's system manufacturer.
     attr_accessor :system_manufacturer
@@ -288,26 +409,37 @@ module Falcon
     # The count of bios files measured by the firmware image
     attr_accessor :total_bios_files
 
-    # The Total amount of disk space available on the asset in GB
+    # Total amount of disk space available on the system
     attr_accessor :total_disk_space
 
-    # The uefi memory protection status of the asset
-    attr_accessor :uefi_memory_protection_status
+    # The total memory of the asset
+    attr_accessor :total_memory
 
-    # The list of unencrypted drives on the asset
+    attr_accessor :triage
+
+    # The list of unencrypted drives on the host
     attr_accessor :unencrypted_drives
 
-    # The count of unencrypted drives on the asset
+    # The count of unencrypted drives on the host
     attr_accessor :unencrypted_drives_count
 
-    # The Current amount of used disk space on the asset in GB
+    # The used disk space in the last 15 minutes on the host
     attr_accessor :used_disk_space
+
+    # The used disk space percent in the last 15 minutes on the host
+    attr_accessor :used_disk_space_pct
+
+    # What the asset is used for, such as production, staging, or QA.
+    attr_accessor :used_for
+
+    # The asset role or roles manually assigned to the asset.
+    attr_accessor :user_asset_roles
+
+    # The internet exposure manually assigned to the asset
+    attr_accessor :user_internet_exposure
 
     # The Virtual Zone name in which device is installed.
     attr_accessor :virtual_zone
-
-    # The virtualization based security status of the asset
-    attr_accessor :virtualization_based_security_status
 
     # The VLAN IDs to which device is connected.
     attr_accessor :vlan
@@ -318,11 +450,18 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'account_enabled' => :'account_enabled',
+        :'ad_user_account_control' => :'ad_user_account_control',
         :'agent_version' => :'agent_version',
         :'aid' => :'aid',
+        :'asset_roles' => :'asset_roles',
+        :'assigned_to' => :'assigned_to',
         :'available_disk_space' => :'available_disk_space',
+        :'available_disk_space_pct' => :'available_disk_space_pct',
         :'average_memory_usage' => :'average_memory_usage',
+        :'average_memory_usage_pct' => :'average_memory_usage_pct',
         :'average_processor_usage' => :'average_processor_usage',
+        :'bios_hashes_data' => :'bios_hashes_data',
         :'bios_id' => :'bios_id',
         :'bios_manufacturer' => :'bios_manufacturer',
         :'bios_version' => :'bios_version',
@@ -330,60 +469,96 @@ module Falcon
         :'cid' => :'cid',
         :'city' => :'city',
         :'claroty_id' => :'claroty_id',
+        :'classification' => :'classification',
+        :'computed_asset_roles' => :'computed_asset_roles',
         :'computed_internet_exposure' => :'computed_internet_exposure',
         :'computed_internet_exposure_external_ip' => :'computed_internet_exposure_external_ip',
         :'computed_internet_exposure_last_seen' => :'computed_internet_exposure_last_seen',
         :'confidence' => :'confidence',
         :'country' => :'country',
+        :'cpu_manufacturer' => :'cpu_manufacturer',
         :'cpu_processor_name' => :'cpu_processor_name',
-        :'credential_guard_status' => :'credential_guard_status',
+        :'creation_timestamp' => :'creation_timestamp',
+        :'criticality' => :'criticality',
+        :'criticality_description' => :'criticality_description',
+        :'criticality_rule_id' => :'criticality_rule_id',
+        :'criticality_timestamp' => :'criticality_timestamp',
+        :'criticality_username' => :'criticality_username',
         :'current_local_ip' => :'current_local_ip',
+        :'current_network_prefix' => :'current_network_prefix',
         :'data_providers' => :'data_providers',
         :'data_providers_count' => :'data_providers_count',
+        :'department' => :'department',
+        :'descriptions' => :'descriptions',
         :'device_class' => :'device_class',
         :'device_family' => :'device_family',
-        :'device_guard_status' => :'device_guard_status',
+        :'device_mode' => :'device_mode',
         :'device_slots' => :'device_slots',
         :'device_type' => :'device_type',
+        :'discoverer_aids' => :'discoverer_aids',
         :'discoverer_count' => :'discoverer_count',
+        :'discoverer_criticalities' => :'discoverer_criticalities',
+        :'discoverer_hostnames' => :'discoverer_hostnames',
         :'discoverer_ics_collector_ids' => :'discoverer_ics_collector_ids',
+        :'discoverer_platform_names' => :'discoverer_platform_names',
         :'discoverer_product_type_descs' => :'discoverer_product_type_descs',
+        :'discoverer_tags' => :'discoverer_tags',
+        :'discovering_by' => :'discovering_by',
         :'disk_sizes' => :'disk_sizes',
         :'dragos_id' => :'dragos_id',
+        :'email' => :'email',
         :'encrypted_drives' => :'encrypted_drives',
         :'encrypted_drives_count' => :'encrypted_drives_count',
         :'encryption_status' => :'encryption_status',
         :'entity_type' => :'entity_type',
         :'external_ip' => :'external_ip',
         :'field_metadata' => :'field_metadata',
+        :'first_discoverer_aid' => :'first_discoverer_aid',
         :'first_seen_timestamp' => :'first_seen_timestamp',
+        :'form_factor' => :'form_factor',
+        :'fqdn' => :'fqdn',
         :'groups' => :'groups',
         :'hostname' => :'hostname',
         :'ics_id' => :'ics_id',
         :'id' => :'id',
         :'internet_exposure' => :'internet_exposure',
-        :'iommu_protection_status' => :'iommu_protection_status',
-        :'kernel_dma_protection_status' => :'kernel_dma_protection_status',
+        :'internet_exposure_description' => :'internet_exposure_description',
+        :'internet_exposure_timestamp' => :'internet_exposure_timestamp',
+        :'internet_exposure_username' => :'internet_exposure_username',
         :'kernel_version' => :'kernel_version',
+        :'last_discoverer_aid' => :'last_discoverer_aid',
+        :'last_discoverer_hostname' => :'last_discoverer_hostname',
         :'last_discoverer_ics_collector_id' => :'last_discoverer_ics_collector_id',
         :'last_seen_timestamp' => :'last_seen_timestamp',
         :'local_ip_addresses' => :'local_ip_addresses',
         :'local_ips_count' => :'local_ips_count',
+        :'location' => :'location',
         :'logical_core_count' => :'logical_core_count',
         :'mac_addresses' => :'mac_addresses',
         :'machine_domain' => :'machine_domain',
+        :'managed_by' => :'managed_by',
         :'max_memory_usage' => :'max_memory_usage',
+        :'max_memory_usage_pct' => :'max_memory_usage_pct',
         :'max_processor_usage' => :'max_processor_usage',
         :'memory_total' => :'memory_total',
         :'mount_storage_info' => :'mount_storage_info',
         :'network_id' => :'network_id',
         :'network_interfaces' => :'network_interfaces',
         :'number_of_disk_drives' => :'number_of_disk_drives',
+        :'object_guid' => :'object_guid',
+        :'object_sid' => :'object_sid',
         :'os_is_eol' => :'os_is_eol',
+        :'os_security' => :'os_security',
+        :'os_service_pack' => :'os_service_pack',
         :'os_version' => :'os_version',
         :'ot_information_sources' => :'ot_information_sources',
+        :'ot_network_ids' => :'ot_network_ids',
         :'ot_serial_numbers' => :'ot_serial_numbers',
         :'ou' => :'ou',
+        :'override_asset_roles' => :'override_asset_roles',
+        :'override_criticality_rules' => :'override_criticality_rules',
+        :'override_internet_exposure' => :'override_internet_exposure',
+        :'owned_by' => :'owned_by',
         :'physical_core_count' => :'physical_core_count',
         :'platform_name' => :'platform_name',
         :'processor_package_count' => :'processor_package_count',
@@ -392,24 +567,26 @@ module Falcon
         :'protocols' => :'protocols',
         :'purdue_level' => :'purdue_level',
         :'reduced_functionality_mode' => :'reduced_functionality_mode',
-        :'secure_boot_enabled_status' => :'secure_boot_enabled_status',
-        :'secure_boot_requested_status' => :'secure_boot_requested_status',
-        :'secure_memory_overwrite_requested_status' => :'secure_memory_overwrite_requested_status',
+        :'servicenow_id' => :'servicenow_id',
         :'site_name' => :'site_name',
+        :'state' => :'state',
         :'subnet' => :'subnet',
-        :'system_guard_status' => :'system_guard_status',
         :'system_manufacturer' => :'system_manufacturer',
         :'system_product_name' => :'system_product_name',
         :'system_serial_number' => :'system_serial_number',
         :'tags' => :'tags',
         :'total_bios_files' => :'total_bios_files',
         :'total_disk_space' => :'total_disk_space',
-        :'uefi_memory_protection_status' => :'uefi_memory_protection_status',
+        :'total_memory' => :'total_memory',
+        :'triage' => :'triage',
         :'unencrypted_drives' => :'unencrypted_drives',
         :'unencrypted_drives_count' => :'unencrypted_drives_count',
         :'used_disk_space' => :'used_disk_space',
+        :'used_disk_space_pct' => :'used_disk_space_pct',
+        :'used_for' => :'used_for',
+        :'user_asset_roles' => :'user_asset_roles',
+        :'user_internet_exposure' => :'user_internet_exposure',
         :'virtual_zone' => :'virtual_zone',
-        :'virtualization_based_security_status' => :'virtualization_based_security_status',
         :'vlan' => :'vlan',
         :'xdome_id' => :'xdome_id'
       }
@@ -423,11 +600,18 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'account_enabled' => :'String',
+        :'ad_user_account_control' => :'Integer',
         :'agent_version' => :'String',
         :'aid' => :'String',
+        :'asset_roles' => :'Array<String>',
+        :'assigned_to' => :'String',
         :'available_disk_space' => :'Integer',
+        :'available_disk_space_pct' => :'Integer',
         :'average_memory_usage' => :'Integer',
+        :'average_memory_usage_pct' => :'Integer',
         :'average_processor_usage' => :'Integer',
+        :'bios_hashes_data' => :'Array<DomainDiscoverAPIBiosHashesData>',
         :'bios_id' => :'String',
         :'bios_manufacturer' => :'String',
         :'bios_version' => :'String',
@@ -435,60 +619,96 @@ module Falcon
         :'cid' => :'String',
         :'city' => :'String',
         :'claroty_id' => :'String',
+        :'classification' => :'String',
+        :'computed_asset_roles' => :'Array<String>',
         :'computed_internet_exposure' => :'String',
         :'computed_internet_exposure_external_ip' => :'String',
         :'computed_internet_exposure_last_seen' => :'String',
         :'confidence' => :'Integer',
         :'country' => :'String',
+        :'cpu_manufacturer' => :'String',
         :'cpu_processor_name' => :'String',
-        :'credential_guard_status' => :'Boolean',
+        :'creation_timestamp' => :'String',
+        :'criticality' => :'String',
+        :'criticality_description' => :'String',
+        :'criticality_rule_id' => :'String',
+        :'criticality_timestamp' => :'String',
+        :'criticality_username' => :'String',
         :'current_local_ip' => :'String',
+        :'current_network_prefix' => :'String',
         :'data_providers' => :'Array<String>',
         :'data_providers_count' => :'Integer',
+        :'department' => :'String',
+        :'descriptions' => :'Array<String>',
         :'device_class' => :'String',
         :'device_family' => :'String',
-        :'device_guard_status' => :'Boolean',
+        :'device_mode' => :'String',
         :'device_slots' => :'Array<DomainDiscoverAPIDeviceSlot>',
         :'device_type' => :'String',
+        :'discoverer_aids' => :'Array<String>',
         :'discoverer_count' => :'Integer',
+        :'discoverer_criticalities' => :'Array<String>',
+        :'discoverer_hostnames' => :'Array<String>',
         :'discoverer_ics_collector_ids' => :'Array<String>',
+        :'discoverer_platform_names' => :'Array<String>',
         :'discoverer_product_type_descs' => :'Array<String>',
+        :'discoverer_tags' => :'Array<String>',
+        :'discovering_by' => :'Array<String>',
         :'disk_sizes' => :'Array<DomainDiscoverAPIDiskSize>',
         :'dragos_id' => :'String',
+        :'email' => :'String',
         :'encrypted_drives' => :'Array<String>',
         :'encrypted_drives_count' => :'Integer',
         :'encryption_status' => :'String',
         :'entity_type' => :'String',
         :'external_ip' => :'String',
         :'field_metadata' => :'Hash<String, DomainDiscoverAPIFieldMetadata>',
+        :'first_discoverer_aid' => :'String',
         :'first_seen_timestamp' => :'String',
+        :'form_factor' => :'String',
+        :'fqdn' => :'String',
         :'groups' => :'Array<String>',
         :'hostname' => :'String',
         :'ics_id' => :'String',
         :'id' => :'String',
         :'internet_exposure' => :'String',
-        :'iommu_protection_status' => :'String',
-        :'kernel_dma_protection_status' => :'Boolean',
+        :'internet_exposure_description' => :'String',
+        :'internet_exposure_timestamp' => :'String',
+        :'internet_exposure_username' => :'String',
         :'kernel_version' => :'String',
+        :'last_discoverer_aid' => :'String',
+        :'last_discoverer_hostname' => :'String',
         :'last_discoverer_ics_collector_id' => :'String',
         :'last_seen_timestamp' => :'String',
         :'local_ip_addresses' => :'Array<String>',
         :'local_ips_count' => :'Integer',
+        :'location' => :'String',
         :'logical_core_count' => :'Integer',
         :'mac_addresses' => :'Array<String>',
         :'machine_domain' => :'String',
+        :'managed_by' => :'String',
         :'max_memory_usage' => :'Integer',
+        :'max_memory_usage_pct' => :'Integer',
         :'max_processor_usage' => :'Integer',
         :'memory_total' => :'Integer',
         :'mount_storage_info' => :'Array<DomainDiscoverAPIMountStorageInfo>',
         :'network_id' => :'String',
         :'network_interfaces' => :'Array<DomainDiscoverAPINetworkInterface>',
         :'number_of_disk_drives' => :'Integer',
+        :'object_guid' => :'String',
+        :'object_sid' => :'String',
         :'os_is_eol' => :'String',
+        :'os_security' => :'DomainDiscoverAPIOsSecurity',
+        :'os_service_pack' => :'String',
         :'os_version' => :'String',
         :'ot_information_sources' => :'Array<String>',
+        :'ot_network_ids' => :'Array<String>',
         :'ot_serial_numbers' => :'Array<String>',
         :'ou' => :'String',
+        :'override_asset_roles' => :'Boolean',
+        :'override_criticality_rules' => :'Boolean',
+        :'override_internet_exposure' => :'Boolean',
+        :'owned_by' => :'String',
         :'physical_core_count' => :'Integer',
         :'platform_name' => :'String',
         :'processor_package_count' => :'Integer',
@@ -497,24 +717,26 @@ module Falcon
         :'protocols' => :'Array<String>',
         :'purdue_level' => :'String',
         :'reduced_functionality_mode' => :'String',
-        :'secure_boot_enabled_status' => :'Boolean',
-        :'secure_boot_requested_status' => :'Boolean',
-        :'secure_memory_overwrite_requested_status' => :'String',
+        :'servicenow_id' => :'String',
         :'site_name' => :'String',
+        :'state' => :'String',
         :'subnet' => :'String',
-        :'system_guard_status' => :'String',
         :'system_manufacturer' => :'String',
         :'system_product_name' => :'String',
         :'system_serial_number' => :'String',
         :'tags' => :'Array<String>',
         :'total_bios_files' => :'Integer',
         :'total_disk_space' => :'Integer',
-        :'uefi_memory_protection_status' => :'String',
+        :'total_memory' => :'Integer',
+        :'triage' => :'DomainDiscoverAPIIoTHostTriage',
         :'unencrypted_drives' => :'Array<String>',
         :'unencrypted_drives_count' => :'Integer',
         :'used_disk_space' => :'Integer',
+        :'used_disk_space_pct' => :'Integer',
+        :'used_for' => :'String',
+        :'user_asset_roles' => :'Array<String>',
+        :'user_internet_exposure' => :'String',
         :'virtual_zone' => :'String',
-        :'virtualization_based_security_status' => :'Boolean',
         :'vlan' => :'Array<String>',
         :'xdome_id' => :'String'
       }
@@ -541,6 +763,14 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'account_enabled')
+        self.account_enabled = attributes[:'account_enabled']
+      end
+
+      if attributes.key?(:'ad_user_account_control')
+        self.ad_user_account_control = attributes[:'ad_user_account_control']
+      end
+
       if attributes.key?(:'agent_version')
         self.agent_version = attributes[:'agent_version']
       end
@@ -549,16 +779,40 @@ module Falcon
         self.aid = attributes[:'aid']
       end
 
+      if attributes.key?(:'asset_roles')
+        if (value = attributes[:'asset_roles']).is_a?(Array)
+          self.asset_roles = value
+        end
+      end
+
+      if attributes.key?(:'assigned_to')
+        self.assigned_to = attributes[:'assigned_to']
+      end
+
       if attributes.key?(:'available_disk_space')
         self.available_disk_space = attributes[:'available_disk_space']
+      end
+
+      if attributes.key?(:'available_disk_space_pct')
+        self.available_disk_space_pct = attributes[:'available_disk_space_pct']
       end
 
       if attributes.key?(:'average_memory_usage')
         self.average_memory_usage = attributes[:'average_memory_usage']
       end
 
+      if attributes.key?(:'average_memory_usage_pct')
+        self.average_memory_usage_pct = attributes[:'average_memory_usage_pct']
+      end
+
       if attributes.key?(:'average_processor_usage')
         self.average_processor_usage = attributes[:'average_processor_usage']
+      end
+
+      if attributes.key?(:'bios_hashes_data')
+        if (value = attributes[:'bios_hashes_data']).is_a?(Array)
+          self.bios_hashes_data = value
+        end
       end
 
       if attributes.key?(:'bios_id')
@@ -589,6 +843,16 @@ module Falcon
         self.claroty_id = attributes[:'claroty_id']
       end
 
+      if attributes.key?(:'classification')
+        self.classification = attributes[:'classification']
+      end
+
+      if attributes.key?(:'computed_asset_roles')
+        if (value = attributes[:'computed_asset_roles']).is_a?(Array)
+          self.computed_asset_roles = value
+        end
+      end
+
       if attributes.key?(:'computed_internet_exposure')
         self.computed_internet_exposure = attributes[:'computed_internet_exposure']
       end
@@ -609,16 +873,44 @@ module Falcon
         self.country = attributes[:'country']
       end
 
+      if attributes.key?(:'cpu_manufacturer')
+        self.cpu_manufacturer = attributes[:'cpu_manufacturer']
+      end
+
       if attributes.key?(:'cpu_processor_name')
         self.cpu_processor_name = attributes[:'cpu_processor_name']
       end
 
-      if attributes.key?(:'credential_guard_status')
-        self.credential_guard_status = attributes[:'credential_guard_status']
+      if attributes.key?(:'creation_timestamp')
+        self.creation_timestamp = attributes[:'creation_timestamp']
+      end
+
+      if attributes.key?(:'criticality')
+        self.criticality = attributes[:'criticality']
+      end
+
+      if attributes.key?(:'criticality_description')
+        self.criticality_description = attributes[:'criticality_description']
+      end
+
+      if attributes.key?(:'criticality_rule_id')
+        self.criticality_rule_id = attributes[:'criticality_rule_id']
+      end
+
+      if attributes.key?(:'criticality_timestamp')
+        self.criticality_timestamp = attributes[:'criticality_timestamp']
+      end
+
+      if attributes.key?(:'criticality_username')
+        self.criticality_username = attributes[:'criticality_username']
       end
 
       if attributes.key?(:'current_local_ip')
         self.current_local_ip = attributes[:'current_local_ip']
+      end
+
+      if attributes.key?(:'current_network_prefix')
+        self.current_network_prefix = attributes[:'current_network_prefix']
       end
 
       if attributes.key?(:'data_providers')
@@ -631,6 +923,16 @@ module Falcon
         self.data_providers_count = attributes[:'data_providers_count']
       end
 
+      if attributes.key?(:'department')
+        self.department = attributes[:'department']
+      end
+
+      if attributes.key?(:'descriptions')
+        if (value = attributes[:'descriptions']).is_a?(Array)
+          self.descriptions = value
+        end
+      end
+
       if attributes.key?(:'device_class')
         self.device_class = attributes[:'device_class']
       end
@@ -639,8 +941,8 @@ module Falcon
         self.device_family = attributes[:'device_family']
       end
 
-      if attributes.key?(:'device_guard_status')
-        self.device_guard_status = attributes[:'device_guard_status']
+      if attributes.key?(:'device_mode')
+        self.device_mode = attributes[:'device_mode']
       end
 
       if attributes.key?(:'device_slots')
@@ -653,8 +955,26 @@ module Falcon
         self.device_type = attributes[:'device_type']
       end
 
+      if attributes.key?(:'discoverer_aids')
+        if (value = attributes[:'discoverer_aids']).is_a?(Array)
+          self.discoverer_aids = value
+        end
+      end
+
       if attributes.key?(:'discoverer_count')
         self.discoverer_count = attributes[:'discoverer_count']
+      end
+
+      if attributes.key?(:'discoverer_criticalities')
+        if (value = attributes[:'discoverer_criticalities']).is_a?(Array)
+          self.discoverer_criticalities = value
+        end
+      end
+
+      if attributes.key?(:'discoverer_hostnames')
+        if (value = attributes[:'discoverer_hostnames']).is_a?(Array)
+          self.discoverer_hostnames = value
+        end
       end
 
       if attributes.key?(:'discoverer_ics_collector_ids')
@@ -663,9 +983,27 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'discoverer_platform_names')
+        if (value = attributes[:'discoverer_platform_names']).is_a?(Array)
+          self.discoverer_platform_names = value
+        end
+      end
+
       if attributes.key?(:'discoverer_product_type_descs')
         if (value = attributes[:'discoverer_product_type_descs']).is_a?(Array)
           self.discoverer_product_type_descs = value
+        end
+      end
+
+      if attributes.key?(:'discoverer_tags')
+        if (value = attributes[:'discoverer_tags']).is_a?(Array)
+          self.discoverer_tags = value
+        end
+      end
+
+      if attributes.key?(:'discovering_by')
+        if (value = attributes[:'discovering_by']).is_a?(Array)
+          self.discovering_by = value
         end
       end
 
@@ -677,6 +1015,10 @@ module Falcon
 
       if attributes.key?(:'dragos_id')
         self.dragos_id = attributes[:'dragos_id']
+      end
+
+      if attributes.key?(:'email')
+        self.email = attributes[:'email']
       end
 
       if attributes.key?(:'encrypted_drives')
@@ -707,8 +1049,20 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'first_discoverer_aid')
+        self.first_discoverer_aid = attributes[:'first_discoverer_aid']
+      end
+
       if attributes.key?(:'first_seen_timestamp')
         self.first_seen_timestamp = attributes[:'first_seen_timestamp']
+      end
+
+      if attributes.key?(:'form_factor')
+        self.form_factor = attributes[:'form_factor']
+      end
+
+      if attributes.key?(:'fqdn')
+        self.fqdn = attributes[:'fqdn']
       end
 
       if attributes.key?(:'groups')
@@ -733,16 +1087,28 @@ module Falcon
         self.internet_exposure = attributes[:'internet_exposure']
       end
 
-      if attributes.key?(:'iommu_protection_status')
-        self.iommu_protection_status = attributes[:'iommu_protection_status']
+      if attributes.key?(:'internet_exposure_description')
+        self.internet_exposure_description = attributes[:'internet_exposure_description']
       end
 
-      if attributes.key?(:'kernel_dma_protection_status')
-        self.kernel_dma_protection_status = attributes[:'kernel_dma_protection_status']
+      if attributes.key?(:'internet_exposure_timestamp')
+        self.internet_exposure_timestamp = attributes[:'internet_exposure_timestamp']
+      end
+
+      if attributes.key?(:'internet_exposure_username')
+        self.internet_exposure_username = attributes[:'internet_exposure_username']
       end
 
       if attributes.key?(:'kernel_version')
         self.kernel_version = attributes[:'kernel_version']
+      end
+
+      if attributes.key?(:'last_discoverer_aid')
+        self.last_discoverer_aid = attributes[:'last_discoverer_aid']
+      end
+
+      if attributes.key?(:'last_discoverer_hostname')
+        self.last_discoverer_hostname = attributes[:'last_discoverer_hostname']
       end
 
       if attributes.key?(:'last_discoverer_ics_collector_id')
@@ -763,6 +1129,10 @@ module Falcon
         self.local_ips_count = attributes[:'local_ips_count']
       end
 
+      if attributes.key?(:'location')
+        self.location = attributes[:'location']
+      end
+
       if attributes.key?(:'logical_core_count')
         self.logical_core_count = attributes[:'logical_core_count']
       end
@@ -777,8 +1147,16 @@ module Falcon
         self.machine_domain = attributes[:'machine_domain']
       end
 
+      if attributes.key?(:'managed_by')
+        self.managed_by = attributes[:'managed_by']
+      end
+
       if attributes.key?(:'max_memory_usage')
         self.max_memory_usage = attributes[:'max_memory_usage']
+      end
+
+      if attributes.key?(:'max_memory_usage_pct')
+        self.max_memory_usage_pct = attributes[:'max_memory_usage_pct']
       end
 
       if attributes.key?(:'max_processor_usage')
@@ -809,8 +1187,24 @@ module Falcon
         self.number_of_disk_drives = attributes[:'number_of_disk_drives']
       end
 
+      if attributes.key?(:'object_guid')
+        self.object_guid = attributes[:'object_guid']
+      end
+
+      if attributes.key?(:'object_sid')
+        self.object_sid = attributes[:'object_sid']
+      end
+
       if attributes.key?(:'os_is_eol')
         self.os_is_eol = attributes[:'os_is_eol']
+      end
+
+      if attributes.key?(:'os_security')
+        self.os_security = attributes[:'os_security']
+      end
+
+      if attributes.key?(:'os_service_pack')
+        self.os_service_pack = attributes[:'os_service_pack']
       end
 
       if attributes.key?(:'os_version')
@@ -823,6 +1217,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'ot_network_ids')
+        if (value = attributes[:'ot_network_ids']).is_a?(Array)
+          self.ot_network_ids = value
+        end
+      end
+
       if attributes.key?(:'ot_serial_numbers')
         if (value = attributes[:'ot_serial_numbers']).is_a?(Array)
           self.ot_serial_numbers = value
@@ -831,6 +1231,22 @@ module Falcon
 
       if attributes.key?(:'ou')
         self.ou = attributes[:'ou']
+      end
+
+      if attributes.key?(:'override_asset_roles')
+        self.override_asset_roles = attributes[:'override_asset_roles']
+      end
+
+      if attributes.key?(:'override_criticality_rules')
+        self.override_criticality_rules = attributes[:'override_criticality_rules']
+      end
+
+      if attributes.key?(:'override_internet_exposure')
+        self.override_internet_exposure = attributes[:'override_internet_exposure']
+      end
+
+      if attributes.key?(:'owned_by')
+        self.owned_by = attributes[:'owned_by']
       end
 
       if attributes.key?(:'physical_core_count')
@@ -867,28 +1283,20 @@ module Falcon
         self.reduced_functionality_mode = attributes[:'reduced_functionality_mode']
       end
 
-      if attributes.key?(:'secure_boot_enabled_status')
-        self.secure_boot_enabled_status = attributes[:'secure_boot_enabled_status']
-      end
-
-      if attributes.key?(:'secure_boot_requested_status')
-        self.secure_boot_requested_status = attributes[:'secure_boot_requested_status']
-      end
-
-      if attributes.key?(:'secure_memory_overwrite_requested_status')
-        self.secure_memory_overwrite_requested_status = attributes[:'secure_memory_overwrite_requested_status']
+      if attributes.key?(:'servicenow_id')
+        self.servicenow_id = attributes[:'servicenow_id']
       end
 
       if attributes.key?(:'site_name')
         self.site_name = attributes[:'site_name']
       end
 
-      if attributes.key?(:'subnet')
-        self.subnet = attributes[:'subnet']
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'system_guard_status')
-        self.system_guard_status = attributes[:'system_guard_status']
+      if attributes.key?(:'subnet')
+        self.subnet = attributes[:'subnet']
       end
 
       if attributes.key?(:'system_manufacturer')
@@ -917,8 +1325,12 @@ module Falcon
         self.total_disk_space = attributes[:'total_disk_space']
       end
 
-      if attributes.key?(:'uefi_memory_protection_status')
-        self.uefi_memory_protection_status = attributes[:'uefi_memory_protection_status']
+      if attributes.key?(:'total_memory')
+        self.total_memory = attributes[:'total_memory']
+      end
+
+      if attributes.key?(:'triage')
+        self.triage = attributes[:'triage']
       end
 
       if attributes.key?(:'unencrypted_drives')
@@ -935,12 +1347,26 @@ module Falcon
         self.used_disk_space = attributes[:'used_disk_space']
       end
 
-      if attributes.key?(:'virtual_zone')
-        self.virtual_zone = attributes[:'virtual_zone']
+      if attributes.key?(:'used_disk_space_pct')
+        self.used_disk_space_pct = attributes[:'used_disk_space_pct']
       end
 
-      if attributes.key?(:'virtualization_based_security_status')
-        self.virtualization_based_security_status = attributes[:'virtualization_based_security_status']
+      if attributes.key?(:'used_for')
+        self.used_for = attributes[:'used_for']
+      end
+
+      if attributes.key?(:'user_asset_roles')
+        if (value = attributes[:'user_asset_roles']).is_a?(Array)
+          self.user_asset_roles = value
+        end
+      end
+
+      if attributes.key?(:'user_internet_exposure')
+        self.user_internet_exposure = attributes[:'user_internet_exposure']
+      end
+
+      if attributes.key?(:'virtual_zone')
+        self.virtual_zone = attributes[:'virtual_zone']
       end
 
       if attributes.key?(:'vlan')
@@ -966,14 +1392,6 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @ot_information_sources.nil?
-        invalid_properties.push('invalid value for "ot_information_sources", ot_information_sources cannot be nil.')
-      end
-
-      if @ot_serial_numbers.nil?
-        invalid_properties.push('invalid value for "ot_serial_numbers", ot_serial_numbers cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -982,8 +1400,6 @@ module Falcon
     def valid?
       return false if @cid.nil?
       return false if @id.nil?
-      return false if @ot_information_sources.nil?
-      return false if @ot_serial_numbers.nil?
       true
     end
 
@@ -992,11 +1408,18 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          account_enabled == o.account_enabled &&
+          ad_user_account_control == o.ad_user_account_control &&
           agent_version == o.agent_version &&
           aid == o.aid &&
+          asset_roles == o.asset_roles &&
+          assigned_to == o.assigned_to &&
           available_disk_space == o.available_disk_space &&
+          available_disk_space_pct == o.available_disk_space_pct &&
           average_memory_usage == o.average_memory_usage &&
+          average_memory_usage_pct == o.average_memory_usage_pct &&
           average_processor_usage == o.average_processor_usage &&
+          bios_hashes_data == o.bios_hashes_data &&
           bios_id == o.bios_id &&
           bios_manufacturer == o.bios_manufacturer &&
           bios_version == o.bios_version &&
@@ -1004,60 +1427,96 @@ module Falcon
           cid == o.cid &&
           city == o.city &&
           claroty_id == o.claroty_id &&
+          classification == o.classification &&
+          computed_asset_roles == o.computed_asset_roles &&
           computed_internet_exposure == o.computed_internet_exposure &&
           computed_internet_exposure_external_ip == o.computed_internet_exposure_external_ip &&
           computed_internet_exposure_last_seen == o.computed_internet_exposure_last_seen &&
           confidence == o.confidence &&
           country == o.country &&
+          cpu_manufacturer == o.cpu_manufacturer &&
           cpu_processor_name == o.cpu_processor_name &&
-          credential_guard_status == o.credential_guard_status &&
+          creation_timestamp == o.creation_timestamp &&
+          criticality == o.criticality &&
+          criticality_description == o.criticality_description &&
+          criticality_rule_id == o.criticality_rule_id &&
+          criticality_timestamp == o.criticality_timestamp &&
+          criticality_username == o.criticality_username &&
           current_local_ip == o.current_local_ip &&
+          current_network_prefix == o.current_network_prefix &&
           data_providers == o.data_providers &&
           data_providers_count == o.data_providers_count &&
+          department == o.department &&
+          descriptions == o.descriptions &&
           device_class == o.device_class &&
           device_family == o.device_family &&
-          device_guard_status == o.device_guard_status &&
+          device_mode == o.device_mode &&
           device_slots == o.device_slots &&
           device_type == o.device_type &&
+          discoverer_aids == o.discoverer_aids &&
           discoverer_count == o.discoverer_count &&
+          discoverer_criticalities == o.discoverer_criticalities &&
+          discoverer_hostnames == o.discoverer_hostnames &&
           discoverer_ics_collector_ids == o.discoverer_ics_collector_ids &&
+          discoverer_platform_names == o.discoverer_platform_names &&
           discoverer_product_type_descs == o.discoverer_product_type_descs &&
+          discoverer_tags == o.discoverer_tags &&
+          discovering_by == o.discovering_by &&
           disk_sizes == o.disk_sizes &&
           dragos_id == o.dragos_id &&
+          email == o.email &&
           encrypted_drives == o.encrypted_drives &&
           encrypted_drives_count == o.encrypted_drives_count &&
           encryption_status == o.encryption_status &&
           entity_type == o.entity_type &&
           external_ip == o.external_ip &&
           field_metadata == o.field_metadata &&
+          first_discoverer_aid == o.first_discoverer_aid &&
           first_seen_timestamp == o.first_seen_timestamp &&
+          form_factor == o.form_factor &&
+          fqdn == o.fqdn &&
           groups == o.groups &&
           hostname == o.hostname &&
           ics_id == o.ics_id &&
           id == o.id &&
           internet_exposure == o.internet_exposure &&
-          iommu_protection_status == o.iommu_protection_status &&
-          kernel_dma_protection_status == o.kernel_dma_protection_status &&
+          internet_exposure_description == o.internet_exposure_description &&
+          internet_exposure_timestamp == o.internet_exposure_timestamp &&
+          internet_exposure_username == o.internet_exposure_username &&
           kernel_version == o.kernel_version &&
+          last_discoverer_aid == o.last_discoverer_aid &&
+          last_discoverer_hostname == o.last_discoverer_hostname &&
           last_discoverer_ics_collector_id == o.last_discoverer_ics_collector_id &&
           last_seen_timestamp == o.last_seen_timestamp &&
           local_ip_addresses == o.local_ip_addresses &&
           local_ips_count == o.local_ips_count &&
+          location == o.location &&
           logical_core_count == o.logical_core_count &&
           mac_addresses == o.mac_addresses &&
           machine_domain == o.machine_domain &&
+          managed_by == o.managed_by &&
           max_memory_usage == o.max_memory_usage &&
+          max_memory_usage_pct == o.max_memory_usage_pct &&
           max_processor_usage == o.max_processor_usage &&
           memory_total == o.memory_total &&
           mount_storage_info == o.mount_storage_info &&
           network_id == o.network_id &&
           network_interfaces == o.network_interfaces &&
           number_of_disk_drives == o.number_of_disk_drives &&
+          object_guid == o.object_guid &&
+          object_sid == o.object_sid &&
           os_is_eol == o.os_is_eol &&
+          os_security == o.os_security &&
+          os_service_pack == o.os_service_pack &&
           os_version == o.os_version &&
           ot_information_sources == o.ot_information_sources &&
+          ot_network_ids == o.ot_network_ids &&
           ot_serial_numbers == o.ot_serial_numbers &&
           ou == o.ou &&
+          override_asset_roles == o.override_asset_roles &&
+          override_criticality_rules == o.override_criticality_rules &&
+          override_internet_exposure == o.override_internet_exposure &&
+          owned_by == o.owned_by &&
           physical_core_count == o.physical_core_count &&
           platform_name == o.platform_name &&
           processor_package_count == o.processor_package_count &&
@@ -1066,24 +1525,26 @@ module Falcon
           protocols == o.protocols &&
           purdue_level == o.purdue_level &&
           reduced_functionality_mode == o.reduced_functionality_mode &&
-          secure_boot_enabled_status == o.secure_boot_enabled_status &&
-          secure_boot_requested_status == o.secure_boot_requested_status &&
-          secure_memory_overwrite_requested_status == o.secure_memory_overwrite_requested_status &&
+          servicenow_id == o.servicenow_id &&
           site_name == o.site_name &&
+          state == o.state &&
           subnet == o.subnet &&
-          system_guard_status == o.system_guard_status &&
           system_manufacturer == o.system_manufacturer &&
           system_product_name == o.system_product_name &&
           system_serial_number == o.system_serial_number &&
           tags == o.tags &&
           total_bios_files == o.total_bios_files &&
           total_disk_space == o.total_disk_space &&
-          uefi_memory_protection_status == o.uefi_memory_protection_status &&
+          total_memory == o.total_memory &&
+          triage == o.triage &&
           unencrypted_drives == o.unencrypted_drives &&
           unencrypted_drives_count == o.unencrypted_drives_count &&
           used_disk_space == o.used_disk_space &&
+          used_disk_space_pct == o.used_disk_space_pct &&
+          used_for == o.used_for &&
+          user_asset_roles == o.user_asset_roles &&
+          user_internet_exposure == o.user_internet_exposure &&
           virtual_zone == o.virtual_zone &&
-          virtualization_based_security_status == o.virtualization_based_security_status &&
           vlan == o.vlan &&
           xdome_id == o.xdome_id
     end
@@ -1097,7 +1558,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, aid, available_disk_space, average_memory_usage, average_processor_usage, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_processor_name, credential_guard_status, current_local_ip, data_providers, data_providers_count, device_class, device_family, device_guard_status, device_slots, device_type, discoverer_count, discoverer_ics_collector_ids, discoverer_product_type_descs, disk_sizes, dragos_id, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_seen_timestamp, groups, hostname, ics_id, id, internet_exposure, iommu_protection_status, kernel_dma_protection_status, kernel_version, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, logical_core_count, mac_addresses, machine_domain, max_memory_usage, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, number_of_disk_drives, os_is_eol, os_version, ot_information_sources, ot_serial_numbers, ou, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, reduced_functionality_mode, secure_boot_enabled_status, secure_boot_requested_status, secure_memory_overwrite_requested_status, site_name, subnet, system_guard_status, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, uefi_memory_protection_status, unencrypted_drives, unencrypted_drives_count, used_disk_space, virtual_zone, virtualization_based_security_status, vlan, xdome_id].hash
+      [account_enabled, ad_user_account_control, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, reduced_functionality_mode, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, xdome_id].hash
     end
 
     # Builds the object from hash

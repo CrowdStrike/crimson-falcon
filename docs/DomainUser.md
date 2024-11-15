@@ -5,9 +5,13 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** |  | [optional] |
-| **email** | **String** |  | [optional] |
+| **created_at** | **Time** |  | [optional] |
 | **first_name** | **String** |  | [optional] |
+| **last_login_at** | **Time** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
+| **status** | **String** |  | [optional] |
+| **uid** | **String** |  | [optional] |
+| **updated_at** | **Time** |  | [optional] |
 | **uuid** | **String** |  | [optional] |
 
 ## Example
@@ -17,9 +21,13 @@ require 'crimson-falcon'
 
 instance = Falcon::DomainUser.new(
   cid: null,
-  email: null,
+  created_at: null,
   first_name: null,
+  last_login_at: null,
   last_name: null,
+  status: null,
+  uid: null,
+  updated_at: null,
   uuid: null
 )
 ```

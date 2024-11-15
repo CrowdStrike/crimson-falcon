@@ -71,12 +71,12 @@ describe 'D4cRegistrationApi' do
     end
   end
 
-  # unit tests for create_d4_cgcp_account
+  # unit tests for create_d4_c_gcp_account
   # Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [RegistrationGCPAccountResponseV1]
-  describe 'create_d4_cgcp_account test' do
+  describe 'create_d4_c_gcp_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -150,25 +150,14 @@ describe 'D4cRegistrationApi' do
   # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :region Region
-  # @return [RegistrationAWSAccountConsoleURL]
+  # @return [RegistrationAWSConsoleURLResponseV2]
   describe 'get_d4_c_aws_console_setup_urls test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  # unit tests for get_d4_caws_account_scripts_attachment
-  # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :ids AWS account IDs
-  # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
-  describe 'get_d4_caws_account_scripts_attachment test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for get_d4_ccgp_account
+  # unit tests for get_d4_c_gcp_account
   # Returns information about the current status of an GCP account.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
@@ -179,7 +168,40 @@ describe 'D4cRegistrationApi' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [String] :sort Order fields in ascending or descending order. Ex: parent_type|asc.
   # @return [RegistrationGCPAccountResponseV1]
-  describe 'get_d4_ccgp_account test' do
+  describe 'get_d4_c_gcp_account test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_d4_c_gcp_user_scripts
+  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
+  # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
+  describe 'get_d4_c_gcp_user_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_d4_caws_account_scripts_attachment
+  # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :ids AWS account IDs
+  # @option opts [String] :template Template to be rendered
+  # @option opts [Array<String>] :accounts The list of accounts to register
+  # @option opts [String] :behavior_assessment_enabled
+  # @option opts [String] :sensor_management_enabled
+  # @option opts [String] :dspm_enabled
+  # @option opts [Array<String>] :dspm_regions
+  # @option opts [String] :dspm_role
+  # @option opts [String] :use_existing_cloudtrail
+  # @option opts [String] :organization_id The AWS organization ID to be registered
+  # @option opts [String] :aws_profile The AWS profile to be used during registration
+  # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+  # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
+  describe 'get_d4_caws_account_scripts_attachment test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -191,17 +213,6 @@ describe 'D4cRegistrationApi' do
   # @option opts [String] :id Service Account ID
   # @return [RegistrationGCPServiceAccountResponseExtV1]
   describe 'get_d4_cgcp_service_accounts_ext test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for get_d4_cgcp_user_scripts
-  # Return a script for customer to run in their cloud environment to grant us access to their GCP environment
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :parent_type GCP Hierarchy Parent Type, organization/folder/project
-  # @return [RegistrationGCPProvisionGetUserScriptResponseV1]
-  describe 'get_d4_cgcp_user_scripts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -279,6 +290,17 @@ describe 'D4cRegistrationApi' do
   # @option opts [String] :account_type Account type (e.g.: commercial,gov) Only applicable when registering AWS commercial account in a Gov environment
   # @return [RegistrationStaticScriptsResponse]
   describe 'get_horizon_d4_c_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for update_d4_cgcp_service_accounts_ext
+  # Patches the service account key for external clients.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RegistrationGCPServiceAccountResponseExtV1]
+  describe 'update_d4_cgcp_service_accounts_ext test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -66,6 +66,12 @@ describe Falcon::SadomainTyposquattingComponent do
     end
   end
 
+  describe 'test attribute "subdomain"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "submit_for_blocking_info"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

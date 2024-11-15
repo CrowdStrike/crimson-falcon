@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **base_image_id** | **String** |  | [optional] |
 | **base_os** | **String** |  |  |
 | **base_os_version** | **String** |  |  |
 | **cid** | **String** |  |  |
@@ -16,11 +17,15 @@
 | **image_id** | **String** |  |  |
 | **image_scanning_active** | **Boolean** |  |  |
 | **image_size** | **Integer** |  |  |
+| **is_base_image** | **Boolean** |  |  |
 | **registry** | **String** |  |  |
 | **repository** | **String** |  |  |
+| **source** | **String** |  |  |
+| **source_base_image** | [**ModelsImageDetails**](ModelsImageDetails.md) |  |  |
 | **tag** | **String** |  |  |
 | **updated_at** | **String** |  |  |
 | **uuid** | **String** |  |  |
+| **warning** | **Integer** |  |  |
 
 ## Example
 
@@ -28,6 +33,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsAPICustomerAndImage.new(
+  base_image_id: null,
   base_os: null,
   base_os_version: null,
   cid: null,
@@ -40,11 +46,15 @@ instance = Falcon::ModelsAPICustomerAndImage.new(
   image_id: null,
   image_scanning_active: null,
   image_size: null,
+  is_base_image: null,
   registry: null,
   repository: null,
+  source: null,
+  source_base_image: null,
   tag: null,
   updated_at: null,
-  uuid: null
+  uuid: null,
+  warning: null
 )
 ```
 

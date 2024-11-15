@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/CrowdStrike/crimson-falcon"
   s.summary     = "CrowdStrike Falcon"
   s.description = "Use CrowdStrike Falcon APIs to interact with Falcon platform."
-  s.license     = "MIT License"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.7"
   s.metadata = {
     "documentation_uri" => "https://github.com/CrowdStrike/crimson-falcon/blob/main/README.md#crimson-falcon-api-docs"

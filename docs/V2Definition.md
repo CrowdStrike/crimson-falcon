@@ -12,11 +12,16 @@
 | **multi_instance** | **Boolean** |  | [optional] |
 | **name** | **String** |  |  |
 | **node_registry** | **Hash&lt;String, String&gt;** |  |  |
+| **output_fields** | **Array&lt;String&gt;** |  | [optional] |
 | **parameters** | [**V2Parameters**](V2Parameters.md) |  | [optional] |
+| **parent** | [**V2Model**](V2Model.md) |  |  |
 | **provision_on_install** | **Boolean** |  | [optional] |
+| **summary** | **String** |  | [optional] |
 | **trigger** | [**V2Trigger**](V2Trigger.md) |  |  |
 | **type** | **String** |  | [optional] |
 | **uniq_node_seen** | **Hash&lt;String, Boolean&gt;** |  |  |
+| **use_cases** | **Array&lt;String&gt;** |  | [optional] |
+| **vendors** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -32,11 +37,16 @@ instance = Falcon::V2Definition.new(
   multi_instance: null,
   name: null,
   node_registry: null,
+  output_fields: null,
   parameters: null,
+  parent: null,
   provision_on_install: null,
+  summary: null,
   trigger: null,
   type: null,
-  uniq_node_seen: null
+  uniq_node_seen: null,
+  use_cases: null,
+  vendors: null
 )
 ```
 

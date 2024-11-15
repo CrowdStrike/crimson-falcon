@@ -865,7 +865,7 @@ module Falcon
       end
 
       # resource path
-      local_var_path = '/policy/queries/sensor-update-kernels/{distinct-field}/v1'.sub('{' + 'distinct-field' + '}', CGI.escape(distinct_field.to_s))
+      local_var_path = '/policy/queries/sensor-update-kernels/{distinct_field}/v1'.sub('{' + 'distinct_field' + '}', CGI.escape(distinct_field.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

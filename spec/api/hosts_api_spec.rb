@@ -147,8 +147,8 @@ describe 'HostsApi' do
   # unit tests for query_devices_by_filter_scroll
   # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :offset The offset to page from, for the next result set
-  # @option opts [Integer] :limit The maximum records to return. [1-5000]
+  # @option opts [String] :offset The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+  # @option opts [Integer] :limit The maximum records to return. [1-10000]
   # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc)
   # @option opts [String] :filter The filter expression that should be used to limit the results
   # @return [DeviceapiDeviceResponse]

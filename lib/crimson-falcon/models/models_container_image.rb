@@ -34,6 +34,8 @@ module Falcon
   class ModelsContainerImage
     attr_accessor :cid
 
+    attr_accessor :cluster_info
+
     attr_accessor :container_count
 
     attr_accessor :containers_running_status
@@ -68,6 +70,7 @@ module Falcon
     def self.attribute_map
       {
         :'cid' => :'cid',
+        :'cluster_info' => :'cluster_info',
         :'container_count' => :'container_count',
         :'containers_running_status' => :'containers_running_status',
         :'hosts' => :'hosts',
@@ -95,6 +98,7 @@ module Falcon
     def self.openapi_types
       {
         :'cid' => :'String',
+        :'cluster_info' => :'Array<ModelsClusterInfo>',
         :'container_count' => :'Integer',
         :'containers_running_status' => :'Hash<String, Boolean>',
         :'hosts' => :'Array<String>',
@@ -136,6 +140,12 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cluster_info')
+        if (value = attributes[:'cluster_info']).is_a?(Array)
+          self.cluster_info = value
+        end
       end
 
       if attributes.key?(:'container_count')
@@ -211,6 +221,10 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
+      if @cluster_info.nil?
+        invalid_properties.push('invalid value for "cluster_info", cluster_info cannot be nil.')
+      end
+
       if @container_count.nil?
         invalid_properties.push('invalid value for "container_count", container_count cannot be nil.')
       end
@@ -278,6 +292,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @cid.nil?
+      return false if @cluster_info.nil?
       return false if @container_count.nil?
       return false if @containers_running_status.nil?
       return false if @hosts.nil?
@@ -302,6 +317,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           cid == o.cid &&
+          cluster_info == o.cluster_info &&
           container_count == o.container_count &&
           containers_running_status == o.containers_running_status &&
           hosts == o.hosts &&
@@ -328,7 +344,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, container_count, containers_running_status, hosts, id, image_detection_count, image_digest, image_has_been_assessed, image_id, image_name, image_registry, image_repository, image_tag, image_vulnerability_count, last_seen, running_container_count].hash
+      [cid, cluster_info, container_count, containers_running_status, hosts, id, image_detection_count, image_digest, image_has_been_assessed, image_id, image_name, image_registry, image_repository, image_tag, image_vulnerability_count, last_seen, running_container_count].hash
     end
 
     # Builds the object from hash

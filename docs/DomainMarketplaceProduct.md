@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **card** | [**DomainCard**](DomainCard.md) |  | [optional] |
 | **country_code** | **String** |  | [optional] |
-| **credentials** | [**DomainCredentials**](DomainCredentials.md) |  | [optional] |
+| **credentials** | [**DomainMarketplaceCredentials**](DomainMarketplaceCredentials.md) |  | [optional] |
 | **host** | [**DomainHost**](DomainHost.md) |  | [optional] |
 | **location** | **String** |  | [optional] |
 | **price** | **String** |  | [optional] |

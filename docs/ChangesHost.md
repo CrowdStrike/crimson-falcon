@@ -11,6 +11,7 @@
 | **local_ip** | **String** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **os_version** | **String** |  | [optional] |
+| **tags** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = Falcon::ChangesHost.new(
   groups: null,
   local_ip: null,
   name: null,
-  os_version: null
+  os_version: null,
+  tags: null
 )
 ```
 

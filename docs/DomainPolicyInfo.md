@@ -24,10 +24,14 @@
 | **cloud_platform_type** | **String** |  | [optional] |
 | **cloud_service** | **Integer** |  | [optional] |
 | **cloud_service_friendly** | **String** |  | [optional] |
+| **cloud_service_id** | **Integer** |  | [optional] |
 | **cloud_service_subtype** | **String** |  | [optional] |
 | **cloud_service_type** | **String** |  | [optional] |
+| **compliance** | [**DomainCompliance**](DomainCompliance.md) |  | [optional] |
 | **confidence** | **String** |  | [optional] |
+| **controls** | [**Array&lt;DomainControl&gt;**](DomainControl.md) |  | [optional] |
 | **default_severity** | **String** |  | [optional] |
+| **deprecated** | **Boolean** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **event_type** | **String** |  | [optional] |
 | **fql_policy** | **String** |  | [optional] |
@@ -50,6 +54,8 @@
 | **policy_statement** | **String** |  | [optional] |
 | **policy_type** | **String** |  | [optional] |
 | **remediation_summary** | **String** |  | [optional] |
+| **resource_type_friendly_name** | **String** |  | [optional] |
+| **resource_type_id** | **String** |  | [optional] |
 | **soc2_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
 | **tactic** | **String** |  | [optional] |
 | **tactic_id** | **String** |  | [optional] |
@@ -84,10 +90,14 @@ instance = Falcon::DomainPolicyInfo.new(
   cloud_platform_type: null,
   cloud_service: null,
   cloud_service_friendly: null,
+  cloud_service_id: null,
   cloud_service_subtype: null,
   cloud_service_type: null,
+  compliance: null,
   confidence: null,
+  controls: null,
   default_severity: null,
+  deprecated: null,
   description: null,
   event_type: null,
   fql_policy: null,
@@ -110,6 +120,8 @@ instance = Falcon::DomainPolicyInfo.new(
   policy_statement: null,
   policy_type: null,
   remediation_summary: null,
+  resource_type_friendly_name: null,
+  resource_type_id: null,
   soc2_benchmark_ids: null,
   tactic: null,
   tactic_id: null,

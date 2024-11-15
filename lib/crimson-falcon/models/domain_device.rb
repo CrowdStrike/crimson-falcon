@@ -32,7 +32,7 @@ require 'time'
 
 module Falcon
   class DomainDevice
-    attr_accessor :platform_id_numeric
+    attr_accessor :_
 
     attr_accessor :agent_version
 
@@ -105,7 +105,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'platform_id_numeric' => :'PlatformIDNumeric',
+        :'_' => :'_',
         :'agent_version' => :'agent_version',
         :'config_id_base' => :'config_id_base',
         :'config_id_build' => :'config_id_build',
@@ -151,7 +151,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'platform_id_numeric' => :'Integer',
+        :'_' => :'Integer',
         :'agent_version' => :'String',
         :'config_id_base' => :'String',
         :'config_id_build' => :'String',
@@ -210,8 +210,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'platform_id_numeric')
-        self.platform_id_numeric = attributes[:'platform_id_numeric']
+      if attributes.key?(:'_')
+        self._ = attributes[:'_']
       end
 
       if attributes.key?(:'agent_version')
@@ -361,8 +361,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @platform_id_numeric.nil?
-        invalid_properties.push('invalid value for "platform_id_numeric", platform_id_numeric cannot be nil.')
+      if @_.nil?
+        invalid_properties.push('invalid value for "_", _ cannot be nil.')
       end
 
       if @device_id.nil?
@@ -375,7 +375,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @platform_id_numeric.nil?
+      return false if @_.nil?
       return false if @device_id.nil?
       true
     end
@@ -385,7 +385,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          platform_id_numeric == o.platform_id_numeric &&
+          _ == o._ &&
           agent_version == o.agent_version &&
           config_id_base == o.config_id_base &&
           config_id_build == o.config_id_build &&
@@ -431,7 +431,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [platform_id_numeric, agent_version, config_id_base, config_id_build, config_id_platform, device_id, device_policies, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
+      [_, agent_version, config_id_base, config_id_build, config_id_platform, device_id, device_policies, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
     end
 
     # Builds the object from hash

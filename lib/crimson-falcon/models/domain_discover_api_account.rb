@@ -57,7 +57,7 @@ module Falcon
     # The date and time of the account's most recent failed login.
     attr_accessor :last_failed_login_timestamp
 
-    # The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    # The type of the account's most recent failed login. <ul><li>Interactive</li><li>Network</li><li>Batch</li><li>Service</li><li>Unlock</li><li>Network cleartext</li><li>New credentials</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
     attr_accessor :last_failed_login_type
 
     # The name of the city where the asset is located on which the account last successfully logged in.
@@ -75,7 +75,7 @@ module Falcon
     # The date and time of the account's most recent successful login.
     attr_accessor :last_successful_login_timestamp
 
-    # The type of the account's most recent successful login. <ul><li>Interactive</li><li>Service</li><li>Terminal server</li><li>Cached credentials</li><li>Auditing</li></ul>
+    # The type of the account's most recent successful login. <ul><li>Interactive</li><li>Network</li><li>Service</li><li>Remote interactive</li><li>Cached credentials</li><li>Auditing</li></ul>
     attr_accessor :last_successful_login_type
 
     # Whether the account has local administrator privileges (Yes, No).

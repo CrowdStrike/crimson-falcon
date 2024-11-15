@@ -58,6 +58,12 @@ module Falcon
 
     attr_accessor :last_modified_time
 
+    attr_accessor :malware_submission_id
+
+    attr_accessor :malware_submission_url
+
+    attr_accessor :recon_rule_type
+
     attr_accessor :status
 
     attr_accessor :title
@@ -80,6 +86,9 @@ module Falcon
         :'ip_addresses' => :'ip_addresses',
         :'key' => :'key',
         :'last_modified_time' => :'last_modified_time',
+        :'malware_submission_id' => :'malware_submission_id',
+        :'malware_submission_url' => :'malware_submission_url',
+        :'recon_rule_type' => :'recon_rule_type',
         :'status' => :'status',
         :'title' => :'title',
         :'type' => :'type'
@@ -107,6 +116,9 @@ module Falcon
         :'ip_addresses' => :'Array<String>',
         :'key' => :'String',
         :'last_modified_time' => :'String',
+        :'malware_submission_id' => :'String',
+        :'malware_submission_url' => :'String',
+        :'recon_rule_type' => :'String',
         :'status' => :'String',
         :'title' => :'String',
         :'type' => :'String'
@@ -198,6 +210,18 @@ module Falcon
         self.last_modified_time = attributes[:'last_modified_time']
       end
 
+      if attributes.key?(:'malware_submission_id')
+        self.malware_submission_id = attributes[:'malware_submission_id']
+      end
+
+      if attributes.key?(:'malware_submission_url')
+        self.malware_submission_url = attributes[:'malware_submission_url']
+      end
+
+      if attributes.key?(:'recon_rule_type')
+        self.recon_rule_type = attributes[:'recon_rule_type']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -267,6 +291,18 @@ module Falcon
         invalid_properties.push('invalid value for "last_modified_time", last_modified_time cannot be nil.')
       end
 
+      if @malware_submission_id.nil?
+        invalid_properties.push('invalid value for "malware_submission_id", malware_submission_id cannot be nil.')
+      end
+
+      if @malware_submission_url.nil?
+        invalid_properties.push('invalid value for "malware_submission_url", malware_submission_url cannot be nil.')
+      end
+
+      if @recon_rule_type.nil?
+        invalid_properties.push('invalid value for "recon_rule_type", recon_rule_type cannot be nil.')
+      end
+
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -298,6 +334,9 @@ module Falcon
       return false if @ip_addresses.nil?
       return false if @key.nil?
       return false if @last_modified_time.nil?
+      return false if @malware_submission_id.nil?
+      return false if @malware_submission_url.nil?
+      return false if @recon_rule_type.nil?
       return false if @status.nil?
       return false if @title.nil?
       return false if @type.nil?
@@ -322,6 +361,9 @@ module Falcon
           ip_addresses == o.ip_addresses &&
           key == o.key &&
           last_modified_time == o.last_modified_time &&
+          malware_submission_id == o.malware_submission_id &&
+          malware_submission_url == o.malware_submission_url &&
+          recon_rule_type == o.recon_rule_type &&
           status == o.status &&
           title == o.title &&
           type == o.type
@@ -336,7 +378,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aids, assigner, attachments, body, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, status, title, type].hash
+      [aids, assigner, attachments, body, cid, created_time, detections, hosts, id, incidents, ip_addresses, key, last_modified_time, malware_submission_id, malware_submission_url, recon_rule_type, status, title, type].hash
     end
 
     # Builds the object from hash

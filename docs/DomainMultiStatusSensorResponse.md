@@ -7,7 +7,7 @@
 | **aid** | **String** |  |  |
 | **base_command** | **String** |  | [optional] |
 | **complete** | **Boolean** |  |  |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
 | **offline_queued** | **Boolean** |  |  |
 | **query_time** | **Float** |  |  |
 | **sequence_id** | **Integer** |  | [optional] |

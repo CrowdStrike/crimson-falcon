@@ -38,11 +38,7 @@ module Falcon
 
     attr_accessor :query_time
 
-    attr_accessor :quota
-
     attr_accessor :trace_id
-
-    attr_accessor :writes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -50,9 +46,7 @@ module Falcon
         :'pagination' => :'pagination',
         :'powered_by' => :'powered_by',
         :'query_time' => :'query_time',
-        :'quota' => :'quota',
-        :'trace_id' => :'trace_id',
-        :'writes' => :'writes'
+        :'trace_id' => :'trace_id'
       }
     end
 
@@ -64,12 +58,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pagination' => :'MsaspecPaging',
+        :'pagination' => :'DomainAssessmentPaging',
         :'powered_by' => :'String',
         :'query_time' => :'Float',
-        :'quota' => :'DomainQuota',
-        :'trace_id' => :'String',
-        :'writes' => :'MsaspecWrites'
+        :'trace_id' => :'String'
       }
     end
 
@@ -106,16 +98,8 @@ module Falcon
         self.query_time = attributes[:'query_time']
       end
 
-      if attributes.key?(:'quota')
-        self.quota = attributes[:'quota']
-      end
-
       if attributes.key?(:'trace_id')
         self.trace_id = attributes[:'trace_id']
-      end
-
-      if attributes.key?(:'writes')
-        self.writes = attributes[:'writes']
       end
     end
 
@@ -150,9 +134,7 @@ module Falcon
           pagination == o.pagination &&
           powered_by == o.powered_by &&
           query_time == o.query_time &&
-          quota == o.quota &&
-          trace_id == o.trace_id &&
-          writes == o.writes
+          trace_id == o.trace_id
     end
 
     # @see the `==` method
@@ -164,7 +146,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pagination, powered_by, query_time, quota, trace_id, writes].hash
+      [pagination, powered_by, query_time, trace_id].hash
     end
 
     # Builds the object from hash

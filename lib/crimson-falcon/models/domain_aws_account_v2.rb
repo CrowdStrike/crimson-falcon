@@ -78,6 +78,10 @@ module Falcon
 
     attr_accessor :d4c_migrated
 
+    attr_accessor :dspm_enabled
+
+    attr_accessor :dspm_role_arn
+
     attr_accessor :environment
 
     attr_accessor :eventbus_name
@@ -90,6 +94,8 @@ module Falcon
 
     attr_accessor :intermediate_role_arn
 
+    attr_accessor :inventory_filter
+
     # Is CSPM Lite enabled.
     attr_accessor :is_cspm_lite
 
@@ -99,6 +105,8 @@ module Falcon
 
     # Up to 34 character AWS provided unique identifier for the organization.
     attr_accessor :organization_id
+
+    attr_accessor :products
 
     attr_accessor :remediation_cloudformation_url
 
@@ -119,6 +127,8 @@ module Falcon
 
     # Account registration status.
     attr_accessor :status
+
+    attr_accessor :target_ous
 
     attr_accessor :use_existing_cloudtrail
 
@@ -147,15 +157,19 @@ module Falcon
         :'cspm_enabled' => :'cspm_enabled',
         :'d4c' => :'d4c',
         :'d4c_migrated' => :'d4c_migrated',
+        :'dspm_enabled' => :'dspm_enabled',
+        :'dspm_role_arn' => :'dspm_role_arn',
         :'environment' => :'environment',
         :'eventbus_name' => :'eventbus_name',
         :'external_id' => :'external_id',
         :'iam_role_arn' => :'iam_role_arn',
         :'intermediate_role_arn' => :'intermediate_role_arn',
+        :'inventory_filter' => :'inventory_filter',
         :'is_cspm_lite' => :'is_cspm_lite',
         :'is_custom_rolename' => :'is_custom_rolename',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
+        :'products' => :'products',
         :'remediation_cloudformation_url' => :'remediation_cloudformation_url',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
@@ -165,6 +179,7 @@ module Falcon
         :'sensor_management_enabled' => :'sensor_management_enabled',
         :'settings' => :'settings',
         :'status' => :'status',
+        :'target_ous' => :'target_ous',
         :'use_existing_cloudtrail' => :'use_existing_cloudtrail',
         :'valid' => :'valid'
       }
@@ -198,15 +213,19 @@ module Falcon
         :'cspm_enabled' => :'Boolean',
         :'d4c' => :'DomainAWSD4CAccountV1',
         :'d4c_migrated' => :'Boolean',
+        :'dspm_enabled' => :'Boolean',
+        :'dspm_role_arn' => :'String',
         :'environment' => :'String',
         :'eventbus_name' => :'String',
         :'external_id' => :'String',
         :'iam_role_arn' => :'String',
         :'intermediate_role_arn' => :'String',
+        :'inventory_filter' => :'Array<DomainAWSInventoryFilterSetting>',
         :'is_cspm_lite' => :'Boolean',
         :'is_custom_rolename' => :'Boolean',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
+        :'products' => :'Array<String>',
         :'remediation_cloudformation_url' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
@@ -216,6 +235,7 @@ module Falcon
         :'sensor_management_enabled' => :'Boolean',
         :'settings' => :'Object',
         :'status' => :'String',
+        :'target_ous' => :'Array<String>',
         :'use_existing_cloudtrail' => :'Boolean',
         :'valid' => :'Boolean'
       }
@@ -330,6 +350,14 @@ module Falcon
         self.d4c_migrated = attributes[:'d4c_migrated']
       end
 
+      if attributes.key?(:'dspm_enabled')
+        self.dspm_enabled = attributes[:'dspm_enabled']
+      end
+
+      if attributes.key?(:'dspm_role_arn')
+        self.dspm_role_arn = attributes[:'dspm_role_arn']
+      end
+
       if attributes.key?(:'environment')
         self.environment = attributes[:'environment']
       end
@@ -350,6 +378,12 @@ module Falcon
         self.intermediate_role_arn = attributes[:'intermediate_role_arn']
       end
 
+      if attributes.key?(:'inventory_filter')
+        if (value = attributes[:'inventory_filter']).is_a?(Array)
+          self.inventory_filter = value
+        end
+      end
+
       if attributes.key?(:'is_cspm_lite')
         self.is_cspm_lite = attributes[:'is_cspm_lite']
       end
@@ -364,6 +398,12 @@ module Falcon
 
       if attributes.key?(:'organization_id')
         self.organization_id = attributes[:'organization_id']
+      end
+
+      if attributes.key?(:'products')
+        if (value = attributes[:'products']).is_a?(Array)
+          self.products = value
+        end
       end
 
       if attributes.key?(:'remediation_cloudformation_url')
@@ -402,6 +442,12 @@ module Falcon
         self.status = attributes[:'status']
       end
 
+      if attributes.key?(:'target_ous')
+        if (value = attributes[:'target_ous']).is_a?(Array)
+          self.target_ous = value
+        end
+      end
+
       if attributes.key?(:'use_existing_cloudtrail')
         self.use_existing_cloudtrail = attributes[:'use_existing_cloudtrail']
       end
@@ -435,6 +481,10 @@ module Falcon
         invalid_properties.push('invalid value for "aws_permissions_status", aws_permissions_status cannot be nil.')
       end
 
+      if @inventory_filter.nil?
+        invalid_properties.push('invalid value for "inventory_filter", inventory_filter cannot be nil.')
+      end
+
       if @is_custom_rolename.nil?
         invalid_properties.push('invalid value for "is_custom_rolename", is_custom_rolename cannot be nil.')
       end
@@ -454,6 +504,7 @@ module Falcon
       return false if @id.nil?
       return false if @updated_at.nil?
       return false if @aws_permissions_status.nil?
+      return false if @inventory_filter.nil?
       return false if @is_custom_rolename.nil?
       return false if @sensor_management_enabled.nil?
       true
@@ -484,15 +535,19 @@ module Falcon
           cspm_enabled == o.cspm_enabled &&
           d4c == o.d4c &&
           d4c_migrated == o.d4c_migrated &&
+          dspm_enabled == o.dspm_enabled &&
+          dspm_role_arn == o.dspm_role_arn &&
           environment == o.environment &&
           eventbus_name == o.eventbus_name &&
           external_id == o.external_id &&
           iam_role_arn == o.iam_role_arn &&
           intermediate_role_arn == o.intermediate_role_arn &&
+          inventory_filter == o.inventory_filter &&
           is_cspm_lite == o.is_cspm_lite &&
           is_custom_rolename == o.is_custom_rolename &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
+          products == o.products &&
           remediation_cloudformation_url == o.remediation_cloudformation_url &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
@@ -502,6 +557,7 @@ module Falcon
           sensor_management_enabled == o.sensor_management_enabled &&
           settings == o.settings &&
           status == o.status &&
+          target_ous == o.target_ous &&
           use_existing_cloudtrail == o.use_existing_cloudtrail &&
           valid == o.valid
     end
@@ -515,7 +571,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, is_cspm_lite, is_custom_rolename, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, use_existing_cloudtrail, valid].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, dspm_enabled, dspm_role_arn, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, inventory_filter, is_cspm_lite, is_custom_rolename, is_master, organization_id, products, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, target_ous, use_existing_cloudtrail, valid].hash
     end
 
     # Builds the object from hash

@@ -48,6 +48,8 @@ module Falcon
 
     attr_accessor :cloud_region
 
+    attr_accessor :cloud_service
+
     attr_accessor :cluster_id
 
     attr_accessor :cluster_name
@@ -57,6 +59,8 @@ module Falcon
     attr_accessor :containers
 
     attr_accessor :created_at
+
+    attr_accessor :deleted_at
 
     attr_accessor :first_seen
 
@@ -71,6 +75,8 @@ module Falcon
     attr_accessor :ipv4
 
     attr_accessor :ipv6
+
+    attr_accessor :kac_agent_id
 
     attr_accessor :labels
 
@@ -102,6 +108,8 @@ module Falcon
 
     attr_accessor :privileged
 
+    attr_accessor :resource_status
+
     attr_accessor :root_write_access
 
     attr_accessor :run_as_root_group
@@ -127,11 +135,13 @@ module Falcon
         :'cloud_account_id' => :'cloud_account_id',
         :'cloud_name' => :'cloud_name',
         :'cloud_region' => :'cloud_region',
+        :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
         :'container_count' => :'container_count',
         :'containers' => :'containers',
         :'created_at' => :'created_at',
+        :'deleted_at' => :'deleted_at',
         :'first_seen' => :'first_seen',
         :'host_ipc' => :'host_ipc',
         :'host_network' => :'host_network',
@@ -139,6 +149,7 @@ module Falcon
         :'image_pull_secrets' => :'image_pull_secrets',
         :'ipv4' => :'ipv4',
         :'ipv6' => :'ipv6',
+        :'kac_agent_id' => :'kac_agent_id',
         :'labels' => :'labels',
         :'labels_list' => :'labels_list',
         :'last_seen' => :'last_seen',
@@ -154,6 +165,7 @@ module Falcon
         :'pod_name' => :'pod_name',
         :'ports' => :'ports',
         :'privileged' => :'privileged',
+        :'resource_status' => :'resource_status',
         :'root_write_access' => :'root_write_access',
         :'run_as_root_group' => :'run_as_root_group',
         :'run_as_root_user' => :'run_as_root_user',
@@ -180,11 +192,13 @@ module Falcon
         :'cloud_account_id' => :'String',
         :'cloud_name' => :'String',
         :'cloud_region' => :'String',
+        :'cloud_service' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
         :'container_count' => :'Integer',
         :'containers' => :'Array<Hash>',
         :'created_at' => :'String',
+        :'deleted_at' => :'String',
         :'first_seen' => :'String',
         :'host_ipc' => :'Boolean',
         :'host_network' => :'Boolean',
@@ -192,6 +206,7 @@ module Falcon
         :'image_pull_secrets' => :'Array<String>',
         :'ipv4' => :'String',
         :'ipv6' => :'String',
+        :'kac_agent_id' => :'String',
         :'labels' => :'Hash<String, String>',
         :'labels_list' => :'Array<String>',
         :'last_seen' => :'String',
@@ -207,6 +222,7 @@ module Falcon
         :'pod_name' => :'String',
         :'ports' => :'Array<Hash>',
         :'privileged' => :'Boolean',
+        :'resource_status' => :'String',
         :'root_write_access' => :'Boolean',
         :'run_as_root_group' => :'Boolean',
         :'run_as_root_user' => :'Boolean',
@@ -274,6 +290,10 @@ module Falcon
         self.cloud_region = attributes[:'cloud_region']
       end
 
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
+      end
+
       if attributes.key?(:'cluster_id')
         self.cluster_id = attributes[:'cluster_id']
       end
@@ -294,6 +314,10 @@ module Falcon
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
       end
 
       if attributes.key?(:'first_seen')
@@ -324,6 +348,10 @@ module Falcon
 
       if attributes.key?(:'ipv6')
         self.ipv6 = attributes[:'ipv6']
+      end
+
+      if attributes.key?(:'kac_agent_id')
+        self.kac_agent_id = attributes[:'kac_agent_id']
       end
 
       if attributes.key?(:'labels')
@@ -392,6 +420,10 @@ module Falcon
         self.privileged = attributes[:'privileged']
       end
 
+      if attributes.key?(:'resource_status')
+        self.resource_status = attributes[:'resource_status']
+      end
+
       if attributes.key?(:'root_write_access')
         self.root_write_access = attributes[:'root_write_access']
       end
@@ -457,6 +489,10 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_region", cloud_region cannot be nil.')
       end
 
+      if @cloud_service.nil?
+        invalid_properties.push('invalid value for "cloud_service", cloud_service cannot be nil.')
+      end
+
       if @cluster_id.nil?
         invalid_properties.push('invalid value for "cluster_id", cluster_id cannot be nil.')
       end
@@ -503,6 +539,10 @@ module Falcon
 
       if @ipv6.nil?
         invalid_properties.push('invalid value for "ipv6", ipv6 cannot be nil.')
+      end
+
+      if @kac_agent_id.nil?
+        invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
       end
 
       if @labels.nil?
@@ -565,6 +605,10 @@ module Falcon
         invalid_properties.push('invalid value for "privileged", privileged cannot be nil.')
       end
 
+      if @resource_status.nil?
+        invalid_properties.push('invalid value for "resource_status", resource_status cannot be nil.')
+      end
+
       if @root_write_access.nil?
         invalid_properties.push('invalid value for "root_write_access", root_write_access cannot be nil.')
       end
@@ -607,6 +651,7 @@ module Falcon
       return false if @cloud_account_id.nil?
       return false if @cloud_name.nil?
       return false if @cloud_region.nil?
+      return false if @cloud_service.nil?
       return false if @cluster_id.nil?
       return false if @cluster_name.nil?
       return false if @container_count.nil?
@@ -619,6 +664,7 @@ module Falcon
       return false if @image_pull_secrets.nil?
       return false if @ipv4.nil?
       return false if @ipv6.nil?
+      return false if @kac_agent_id.nil?
       return false if @labels.nil?
       return false if @labels_list.nil?
       return false if @last_seen.nil?
@@ -634,6 +680,7 @@ module Falcon
       return false if @pod_name.nil?
       return false if @ports.nil?
       return false if @privileged.nil?
+      return false if @resource_status.nil?
       return false if @root_write_access.nil?
       return false if @run_as_root_group.nil?
       return false if @run_as_root_user.nil?
@@ -657,11 +704,13 @@ module Falcon
           cloud_account_id == o.cloud_account_id &&
           cloud_name == o.cloud_name &&
           cloud_region == o.cloud_region &&
+          cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
           container_count == o.container_count &&
           containers == o.containers &&
           created_at == o.created_at &&
+          deleted_at == o.deleted_at &&
           first_seen == o.first_seen &&
           host_ipc == o.host_ipc &&
           host_network == o.host_network &&
@@ -669,6 +718,7 @@ module Falcon
           image_pull_secrets == o.image_pull_secrets &&
           ipv4 == o.ipv4 &&
           ipv6 == o.ipv6 &&
+          kac_agent_id == o.kac_agent_id &&
           labels == o.labels &&
           labels_list == o.labels_list &&
           last_seen == o.last_seen &&
@@ -684,6 +734,7 @@ module Falcon
           pod_name == o.pod_name &&
           ports == o.ports &&
           privileged == o.privileged &&
+          resource_status == o.resource_status &&
           root_write_access == o.root_write_access &&
           run_as_root_group == o.run_as_root_group &&
           run_as_root_user == o.run_as_root_user &&
@@ -702,7 +753,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agents, allow_privilege_escalation, annotations_list, automount_service_token, cid, cloud_account_id, cloud_name, cloud_region, cluster_id, cluster_name, container_count, containers, created_at, first_seen, host_ipc, host_network, host_pid, image_pull_secrets, ipv4, ipv6, labels, labels_list, last_seen, namespace, node_ipv4, node_name, node_selector, node_uid, owner_id, owner_type, pod_external_id, pod_id, pod_name, ports, privileged, root_write_access, run_as_root_group, run_as_root_user, scheduler_name, service_account_name, share_process_namespace, volume_mounts].hash
+      [agents, allow_privilege_escalation, annotations_list, automount_service_token, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, container_count, containers, created_at, deleted_at, first_seen, host_ipc, host_network, host_pid, image_pull_secrets, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_ipv4, node_name, node_selector, node_uid, owner_id, owner_type, pod_external_id, pod_id, pod_name, ports, privileged, resource_status, root_write_access, run_as_root_group, run_as_root_user, scheduler_name, service_account_name, share_process_namespace, volume_mounts].hash
     end
 
     # Builds the object from hash

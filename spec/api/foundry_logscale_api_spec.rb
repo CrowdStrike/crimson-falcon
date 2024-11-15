@@ -56,8 +56,11 @@ describe 'FoundryLogscaleApi' do
   # @option opts [String] :app_id Application ID.
   # @option opts [Boolean] :include_schema_generation Include generated schemas in the response
   # @option opts [Boolean] :include_test_data Include test data when executing searches
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
   # @option opts [String] :mode Mode to execute the query under.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'create_saved_searches_dynamic_execute_alt_v1 test' do
     it 'should work' do
@@ -72,8 +75,11 @@ describe 'FoundryLogscaleApi' do
   # @option opts [String] :app_id Application ID.
   # @option opts [Boolean] :include_schema_generation Include generated schemas in the response
   # @option opts [Boolean] :include_test_data Include test data when executing searches
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
   # @option opts [String] :mode Mode to execute the query under.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'create_saved_searches_dynamic_execute_v1 test' do
     it 'should work' do
@@ -88,7 +94,10 @@ describe 'FoundryLogscaleApi' do
   # @option opts [String] :app_id Application ID.
   # @option opts [Boolean] :detailed Whether to include search field details
   # @option opts [Boolean] :include_test_data Include test data when executing searches
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'create_saved_searches_execute_alt_v1 test' do
     it 'should work' do
@@ -103,7 +112,10 @@ describe 'FoundryLogscaleApi' do
   # @option opts [String] :app_id Application ID.
   # @option opts [Boolean] :detailed Whether to include search field details
   # @option opts [Boolean] :include_test_data Include test data when executing searches
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'create_saved_searches_execute_v1 test' do
     it 'should work' do
@@ -138,9 +150,13 @@ describe 'FoundryLogscaleApi' do
   # @param job_id Job ID for a previously executed async query
   # @param [Hash] opts the optional parameters
   # @option opts [String] :app_id Application ID.
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned
   # @option opts [String] :limit Maximum number of records to return.
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
   # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'get_saved_searches_execute_alt_v1 test' do
     it 'should work' do
@@ -153,9 +169,13 @@ describe 'FoundryLogscaleApi' do
   # @param job_id Job ID for a previously executed async query
   # @param [Hash] opts the optional parameters
   # @option opts [String] :app_id Application ID.
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
+  # @option opts [Boolean] :job_status_only If set to true, result rows are dropped from the response and only the job status is returned
   # @option opts [String] :limit Maximum number of records to return.
+  # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema
   # @option opts [Boolean] :metadata Whether to include metadata in the response
   # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @return [ApidomainQueryResponseWrapperV1]
   describe 'get_saved_searches_execute_v1 test' do
     it 'should work' do
@@ -167,6 +187,7 @@ describe 'FoundryLogscaleApi' do
   # Get the results of a saved search as a file
   # @param job_id Job ID for a previously executed async query
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
   # @option opts [String] :result_format Result Format
   # @return [File]
   describe 'get_saved_searches_job_results_download_alt_v1 test' do
@@ -179,6 +200,7 @@ describe 'FoundryLogscaleApi' do
   # Get the results of a saved search as a file
   # @param job_id Job ID for a previously executed async query
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string
   # @option opts [String] :result_format Result Format
   # @return [File]
   describe 'get_saved_searches_job_results_download_v1 test' do
@@ -187,10 +209,27 @@ describe 'FoundryLogscaleApi' do
     end
   end
 
-  # unit tests for ingest_data_v1
-  # Ingest data into the application repository
-  # @param data_file Data file to ingest
+  # unit tests for ingest_data_async_v1
+  # Asynchronously ingest data into the application repository
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :data_content JSON data to ingest
+  # @option opts [File] :data_file Data file to ingest
+  # @option opts [String] :repo Repository name if not part of a foundry app
+  # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
+  # @option opts [String] :tag_source Tag the data with the specified source
+  # @option opts [Boolean] :test_data Tag the data with test-ingest
+  # @return [ClientDataIngestResponseWrapperV1]
+  describe 'ingest_data_async_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ingest_data_v1
+  # Synchronously ingest data into the application repository
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :data_content JSON data to ingest
+  # @option opts [File] :data_file Data file to ingest
   # @option opts [Array<String>] :tag Custom tag for ingested data in the form tag:value
   # @option opts [String] :tag_source Tag the data with the specified source
   # @option opts [Boolean] :test_data Tag the data with test-ingest

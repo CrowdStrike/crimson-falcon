@@ -55,7 +55,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<MsaspecError>',
+        :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'RegistrationMSAMetaInfoExtension',
         :'resources' => :'RegistrationIOMResources'
       }

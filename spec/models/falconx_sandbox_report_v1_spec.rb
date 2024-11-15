@@ -42,6 +42,12 @@ describe Falcon::FalconxSandboxReportV1 do
       expect(instance).to be_instance_of(Falcon::FalconxSandboxReportV1)
     end
   end
+  describe 'test attribute "all_extracted_strings_artifact_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "architecture"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

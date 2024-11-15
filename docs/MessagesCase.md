@@ -17,6 +17,9 @@
 | **ip_addresses** | **Array&lt;String&gt;** |  |  |
 | **key** | **String** |  |  |
 | **last_modified_time** | **String** |  |  |
+| **malware_submission_id** | **String** |  |  |
+| **malware_submission_url** | **String** |  |  |
+| **recon_rule_type** | **String** |  |  |
 | **status** | **String** |  |  |
 | **title** | **String** |  |  |
 | **type** | **String** |  |  |
@@ -40,6 +43,9 @@ instance = Falcon::MessagesCase.new(
   ip_addresses: null,
   key: null,
   last_modified_time: null,
+  malware_submission_id: null,
+  malware_submission_url: null,
+  recon_rule_type: null,
   status: null,
   title: null,
   type: null

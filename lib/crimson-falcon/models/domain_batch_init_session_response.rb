@@ -59,8 +59,8 @@ module Falcon
     def self.openapi_types
       {
         :'batch_id' => :'String',
-        :'errors' => :'Array<MsaspecError>',
-        :'meta' => :'MsaspecMetaInfo',
+        :'errors' => :'Array<MsaAPIError>',
+        :'meta' => :'MsaMetaInfo',
         :'resources' => :'Hash<String, DomainMultiStatusSensorResponse>'
       }
     end

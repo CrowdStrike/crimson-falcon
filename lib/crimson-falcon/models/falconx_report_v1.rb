@@ -32,9 +32,13 @@ require 'time'
 
 module Falcon
   class FalconxReportV1
+    attr_accessor :aid
+
     attr_accessor :cid
 
     attr_accessor :created_timestamp
+
+    attr_accessor :has_recording
 
     attr_accessor :id
 
@@ -83,8 +87,10 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aid' => :'aid',
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
+        :'has_recording' => :'has_recording',
         :'id' => :'id',
         :'index_timestamp' => :'index_timestamp',
         :'intel' => :'intel',
@@ -118,8 +124,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aid' => :'String',
         :'cid' => :'String',
         :'created_timestamp' => :'String',
+        :'has_recording' => :'Boolean',
         :'id' => :'String',
         :'index_timestamp' => :'String',
         :'intel' => :'Array<FalconxIntelReportV1>',
@@ -166,12 +174,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aid')
+        self.aid = attributes[:'aid']
+      end
+
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
       end
 
       if attributes.key?(:'created_timestamp')
         self.created_timestamp = attributes[:'created_timestamp']
+      end
+
+      if attributes.key?(:'has_recording')
+        self.has_recording = attributes[:'has_recording']
       end
 
       if attributes.key?(:'id')
@@ -291,8 +307,10 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aid == o.aid &&
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
+          has_recording == o.has_recording &&
           id == o.id &&
           index_timestamp == o.index_timestamp &&
           intel == o.intel &&
@@ -326,7 +344,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_timestamp, id, index_timestamp, intel, intelx, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, malquery, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict].hash
+      [aid, cid, created_timestamp, has_recording, id, index_timestamp, intel, intelx, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, malquery, origin, sandbox, tags, threat_graph, user_id, user_name, user_tags, user_uuid, verdict].hash
     end
 
     # Builds the object from hash

@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :fields
 
+    attr_accessor :filtered_event_count
+
     attr_accessor :job_status
 
     attr_accessor :meta_data
@@ -50,6 +52,7 @@ module Falcon
         :'event_count' => :'event_count',
         :'events' => :'events',
         :'fields' => :'fields',
+        :'filtered_event_count' => :'filtered_event_count',
         :'job_status' => :'job_status',
         :'meta_data' => :'meta_data',
         :'schemas' => :'schemas'
@@ -67,6 +70,7 @@ module Falcon
         :'event_count' => :'Integer',
         :'events' => :'Array<Object>',
         :'fields' => :'Array<ClientField>',
+        :'filtered_event_count' => :'Integer',
         :'job_status' => :'ClientJobStatus',
         :'meta_data' => :'ClientQueryResultMetadata',
         :'schemas' => :'ClientQueryResponseSchemasV1'
@@ -110,6 +114,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'filtered_event_count')
+        self.filtered_event_count = attributes[:'filtered_event_count']
+      end
+
       if attributes.key?(:'job_status')
         self.job_status = attributes[:'job_status']
       end
@@ -135,6 +143,10 @@ module Falcon
         invalid_properties.push('invalid value for "events", events cannot be nil.')
       end
 
+      if @filtered_event_count.nil?
+        invalid_properties.push('invalid value for "filtered_event_count", filtered_event_count cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -143,6 +155,7 @@ module Falcon
     def valid?
       return false if @event_count.nil?
       return false if @events.nil?
+      return false if @filtered_event_count.nil?
       true
     end
 
@@ -154,6 +167,7 @@ module Falcon
           event_count == o.event_count &&
           events == o.events &&
           fields == o.fields &&
+          filtered_event_count == o.filtered_event_count &&
           job_status == o.job_status &&
           meta_data == o.meta_data &&
           schemas == o.schemas
@@ -168,7 +182,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event_count, events, fields, job_status, meta_data, schemas].hash
+      [event_count, events, fields, filtered_event_count, job_status, meta_data, schemas].hash
     end
 
     # Builds the object from hash

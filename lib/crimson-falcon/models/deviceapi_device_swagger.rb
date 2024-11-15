@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :agent_version
 
+    attr_accessor :base_image_version
+
     attr_accessor :bios_manufacturer
 
     attr_accessor :bios_version
@@ -77,6 +79,8 @@ module Falcon
     attr_accessor :email
 
     attr_accessor :external_ip
+
+    attr_accessor :filesystem_containment_status
 
     attr_accessor :first_login_timestamp
 
@@ -129,6 +133,8 @@ module Falcon
     attr_accessor :managed_apps
 
     attr_accessor :meta
+
+    attr_accessor :migration_completed_time
 
     attr_accessor :minor_version
 
@@ -184,6 +190,8 @@ module Falcon
 
     attr_accessor :release_group
 
+    attr_accessor :rtr_state
+
     attr_accessor :serial_number
 
     attr_accessor :service_pack_major
@@ -212,6 +220,7 @@ module Falcon
         :'agent_load_flags' => :'agent_load_flags',
         :'agent_local_time' => :'agent_local_time',
         :'agent_version' => :'agent_version',
+        :'base_image_version' => :'base_image_version',
         :'bios_manufacturer' => :'bios_manufacturer',
         :'bios_version' => :'bios_version',
         :'build_number' => :'build_number',
@@ -232,6 +241,7 @@ module Falcon
         :'device_policies' => :'device_policies',
         :'email' => :'email',
         :'external_ip' => :'external_ip',
+        :'filesystem_containment_status' => :'filesystem_containment_status',
         :'first_login_timestamp' => :'first_login_timestamp',
         :'first_seen' => :'first_seen',
         :'group_hash' => :'group_hash',
@@ -258,6 +268,7 @@ module Falcon
         :'major_version' => :'major_version',
         :'managed_apps' => :'managed_apps',
         :'meta' => :'meta',
+        :'migration_completed_time' => :'migration_completed_time',
         :'minor_version' => :'minor_version',
         :'modified_timestamp' => :'modified_timestamp',
         :'notes' => :'notes',
@@ -285,6 +296,7 @@ module Falcon
         :'provision_status' => :'provision_status',
         :'reduced_functionality_mode' => :'reduced_functionality_mode',
         :'release_group' => :'release_group',
+        :'rtr_state' => :'rtr_state',
         :'serial_number' => :'serial_number',
         :'service_pack_major' => :'service_pack_major',
         :'service_pack_minor' => :'service_pack_minor',
@@ -310,6 +322,7 @@ module Falcon
         :'agent_load_flags' => :'String',
         :'agent_local_time' => :'String',
         :'agent_version' => :'String',
+        :'base_image_version' => :'String',
         :'bios_manufacturer' => :'String',
         :'bios_version' => :'String',
         :'build_number' => :'String',
@@ -330,6 +343,7 @@ module Falcon
         :'device_policies' => :'DeviceMappedDevicePolicies',
         :'email' => :'String',
         :'external_ip' => :'String',
+        :'filesystem_containment_status' => :'String',
         :'first_login_timestamp' => :'String',
         :'first_seen' => :'String',
         :'group_hash' => :'String',
@@ -356,6 +370,7 @@ module Falcon
         :'major_version' => :'String',
         :'managed_apps' => :'DeviceManagedApps',
         :'meta' => :'DeviceDeviceMeta',
+        :'migration_completed_time' => :'String',
         :'minor_version' => :'String',
         :'modified_timestamp' => :'String',
         :'notes' => :'Array<String>',
@@ -383,6 +398,7 @@ module Falcon
         :'provision_status' => :'String',
         :'reduced_functionality_mode' => :'String',
         :'release_group' => :'String',
+        :'rtr_state' => :'String',
         :'serial_number' => :'String',
         :'service_pack_major' => :'String',
         :'service_pack_minor' => :'String',
@@ -428,6 +444,10 @@ module Falcon
 
       if attributes.key?(:'agent_version')
         self.agent_version = attributes[:'agent_version']
+      end
+
+      if attributes.key?(:'base_image_version')
+        self.base_image_version = attributes[:'base_image_version']
       end
 
       if attributes.key?(:'bios_manufacturer')
@@ -508,6 +528,10 @@ module Falcon
 
       if attributes.key?(:'external_ip')
         self.external_ip = attributes[:'external_ip']
+      end
+
+      if attributes.key?(:'filesystem_containment_status')
+        self.filesystem_containment_status = attributes[:'filesystem_containment_status']
       end
 
       if attributes.key?(:'first_login_timestamp')
@@ -614,6 +638,10 @@ module Falcon
 
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
+      end
+
+      if attributes.key?(:'migration_completed_time')
+        self.migration_completed_time = attributes[:'migration_completed_time']
       end
 
       if attributes.key?(:'minor_version')
@@ -734,6 +762,10 @@ module Falcon
         self.release_group = attributes[:'release_group']
       end
 
+      if attributes.key?(:'rtr_state')
+        self.rtr_state = attributes[:'rtr_state']
+      end
+
       if attributes.key?(:'serial_number')
         self.serial_number = attributes[:'serial_number']
       end
@@ -812,6 +844,7 @@ module Falcon
           agent_load_flags == o.agent_load_flags &&
           agent_local_time == o.agent_local_time &&
           agent_version == o.agent_version &&
+          base_image_version == o.base_image_version &&
           bios_manufacturer == o.bios_manufacturer &&
           bios_version == o.bios_version &&
           build_number == o.build_number &&
@@ -832,6 +865,7 @@ module Falcon
           device_policies == o.device_policies &&
           email == o.email &&
           external_ip == o.external_ip &&
+          filesystem_containment_status == o.filesystem_containment_status &&
           first_login_timestamp == o.first_login_timestamp &&
           first_seen == o.first_seen &&
           group_hash == o.group_hash &&
@@ -858,6 +892,7 @@ module Falcon
           major_version == o.major_version &&
           managed_apps == o.managed_apps &&
           meta == o.meta &&
+          migration_completed_time == o.migration_completed_time &&
           minor_version == o.minor_version &&
           modified_timestamp == o.modified_timestamp &&
           notes == o.notes &&
@@ -885,6 +920,7 @@ module Falcon
           provision_status == o.provision_status &&
           reduced_functionality_mode == o.reduced_functionality_mode &&
           release_group == o.release_group &&
+          rtr_state == o.rtr_state &&
           serial_number == o.serial_number &&
           service_pack_major == o.service_pack_major &&
           service_pack_minor == o.service_pack_minor &&
@@ -907,7 +943,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_load_flags, agent_local_time, agent_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, first_login_timestamp, first_seen, group_hash, groups, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, status, system_manufacturer, system_product_name, tags, zone_group].hash
+      [agent_load_flags, agent_local_time, agent_version, base_image_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, filesystem_containment_status, first_login_timestamp, first_seen, group_hash, groups, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, migration_completed_time, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, rtr_state, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, status, system_manufacturer, system_product_name, tags, zone_group].hash
     end
 
     # Builds the object from hash

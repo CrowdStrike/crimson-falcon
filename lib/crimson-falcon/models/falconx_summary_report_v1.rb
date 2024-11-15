@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :created_timestamp
 
+    attr_accessor :has_recording
+
     attr_accessor :id
 
     attr_accessor :intel
@@ -75,6 +77,7 @@ module Falcon
       {
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
+        :'has_recording' => :'has_recording',
         :'id' => :'id',
         :'intel' => :'intel',
         :'ioc_report_broad_csv_artifact_id' => :'ioc_report_broad_csv_artifact_id',
@@ -105,6 +108,7 @@ module Falcon
       {
         :'cid' => :'String',
         :'created_timestamp' => :'String',
+        :'has_recording' => :'Boolean',
         :'id' => :'String',
         :'intel' => :'Array<FalconxIntelSummaryReportV1>',
         :'ioc_report_broad_csv_artifact_id' => :'String',
@@ -152,6 +156,10 @@ module Falcon
 
       if attributes.key?(:'created_timestamp')
         self.created_timestamp = attributes[:'created_timestamp']
+      end
+
+      if attributes.key?(:'has_recording')
+        self.has_recording = attributes[:'has_recording']
       end
 
       if attributes.key?(:'id')
@@ -251,6 +259,7 @@ module Falcon
       self.class == o.class &&
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
+          has_recording == o.has_recording &&
           id == o.id &&
           intel == o.intel &&
           ioc_report_broad_csv_artifact_id == o.ioc_report_broad_csv_artifact_id &&
@@ -279,7 +288,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_timestamp, id, intel, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, origin, sandbox, tags, user_id, user_name, user_tags, verdict].hash
+      [cid, created_timestamp, has_recording, id, intel, ioc_report_broad_csv_artifact_id, ioc_report_broad_json_artifact_id, ioc_report_broad_maec_artifact_id, ioc_report_broad_stix_artifact_id, ioc_report_strict_csv_artifact_id, ioc_report_strict_json_artifact_id, ioc_report_strict_maec_artifact_id, ioc_report_strict_stix_artifact_id, origin, sandbox, tags, user_id, user_name, user_tags, verdict].hash
     end
 
     # Builds the object from hash

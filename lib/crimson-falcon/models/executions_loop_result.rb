@@ -55,6 +55,9 @@ module Falcon
     # Unique id of the node as specified in the definition.
     attr_accessor :node_id
 
+    # Outputs from all the iterations of the sub model
+    attr_accessor :outputs
+
     # Timestamp of when the execution first started.
     attr_accessor :start_timestamp
 
@@ -72,6 +75,7 @@ module Falcon
         :'iterations' => :'iterations',
         :'mocked' => :'mocked',
         :'node_id' => :'node_id',
+        :'outputs' => :'outputs',
         :'start_timestamp' => :'start_timestamp',
         :'status' => :'status'
       }
@@ -93,6 +97,7 @@ module Falcon
         :'iterations' => :'ExecutionsIterations',
         :'mocked' => :'Boolean',
         :'node_id' => :'String',
+        :'outputs' => :'Array<Object>',
         :'start_timestamp' => :'Time',
         :'status' => :'String'
       }
@@ -151,6 +156,12 @@ module Falcon
 
       if attributes.key?(:'node_id')
         self.node_id = attributes[:'node_id']
+      end
+
+      if attributes.key?(:'outputs')
+        if (value = attributes[:'outputs']).is_a?(Array)
+          self.outputs = value
+        end
       end
 
       if attributes.key?(:'start_timestamp')
@@ -218,6 +229,7 @@ module Falcon
           iterations == o.iterations &&
           mocked == o.mocked &&
           node_id == o.node_id &&
+          outputs == o.outputs &&
           start_timestamp == o.start_timestamp &&
           status == o.status
     end
@@ -231,7 +243,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [child_executions, end_timestamp, error_code, error_message, input_field, iterations, mocked, node_id, start_timestamp, status].hash
+      [child_executions, end_timestamp, error_code, error_message, input_field, iterations, mocked, node_id, outputs, start_timestamp, status].hash
     end
 
     # Builds the object from hash

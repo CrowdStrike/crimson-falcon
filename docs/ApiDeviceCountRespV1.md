@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  | [optional] |
 | **resources** | [**Array&lt;ApiDeviceCountV1&gt;**](ApiDeviceCountV1.md) |  |  |
 
 ## Example

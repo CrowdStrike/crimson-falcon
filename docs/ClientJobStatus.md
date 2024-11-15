@@ -9,6 +9,7 @@
 | **digest_hex** | **String** |  | [optional] |
 | **event_count** | **Integer** |  | [optional] |
 | **file_link** | **String** |  | [optional] |
+| **filtered_event_count** | **Integer** |  | [optional] |
 | **job_id** | **String** |  |  |
 | **job_url** | **String** |  | [optional] |
 | **message** | **String** |  | [optional] |
@@ -28,6 +29,7 @@ instance = Falcon::ClientJobStatus.new(
   digest_hex: null,
   event_count: null,
   file_link: null,
+  filtered_event_count: null,
   job_id: null,
   job_url: null,
   message: null,

@@ -1,6 +1,6 @@
 # Falcon::FoundryLogscaleApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -14,7 +14,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_saved_searches_execute_v1**](FoundryLogscaleApi.md#get_saved_searches_execute_v1) | **GET** /loggingapi/entities/saved-searches/execute/v1 | Get the results of a saved search |
 | [**get_saved_searches_job_results_download_alt_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_alt_v1) | **GET** /loggingapi/entities/saved-searches-job-results-download/v1 | Get the results of a saved search as a file |
 | [**get_saved_searches_job_results_download_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_v1) | **GET** /loggingapi/entities/saved-searches/job-results-download/v1 | Get the results of a saved search as a file |
-| [**ingest_data_v1**](FoundryLogscaleApi.md#ingest_data_v1) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Ingest data into the application repository |
+| [**ingest_data_async_v1**](FoundryLogscaleApi.md#ingest_data_async_v1) | **POST** /loggingapi/entities/data-ingestion/ingest-async/v1 | Asynchronously ingest data into the application repository |
+| [**ingest_data_v1**](FoundryLogscaleApi.md#ingest_data_v1) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Synchronously ingest data into the application repository |
 | [**list_repos_v1**](FoundryLogscaleApi.md#list_repos_v1) | **GET** /loggingapi/combined/repos/v1 | Lists available repositories and views |
 | [**list_view_v1**](FoundryLogscaleApi.md#list_view_v1) | **GET** /loggingapi/entities/views/v1 | List views |
 
@@ -44,8 +45,11 @@ opts = {
   app_id: 'app_id_example', # String | Application ID.
   include_schema_generation: true, # Boolean | Include generated schemas in the response
   include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
-  mode: 'sync' # String | Mode to execute the query under.
+  mode: 'sync', # String | Mode to execute the query under.
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -83,8 +87,11 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **mode** | **String** | Mode to execute the query under. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -125,8 +132,11 @@ opts = {
   app_id: 'app_id_example', # String | Application ID.
   include_schema_generation: true, # Boolean | Include generated schemas in the response
   include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
-  mode: 'sync' # String | Mode to execute the query under.
+  mode: 'sync', # String | Mode to execute the query under.
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -164,8 +174,11 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **mode** | **String** | Mode to execute the query under. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -201,12 +214,15 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
   detailed: true, # Boolean | Whether to include search field details
   include_test_data: true, # Boolean | Include test data when executing searches
-  metadata: true # Boolean | Whether to include metadata in the response
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
+  metadata: true, # Boolean | Whether to include metadata in the response
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -244,7 +260,10 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -280,12 +299,15 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
   detailed: true, # Boolean | Whether to include search field details
   include_test_data: true, # Boolean | Include test data when executing searches
-  metadata: true # Boolean | Whether to include metadata in the response
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
+  metadata: true, # Boolean | Whether to include metadata in the response
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -323,7 +345,10 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -504,9 +529,13 @@ api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   app_id: 'app_id_example', # String | Application ID.
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  job_status_only: true, # Boolean | If set to true, result rows are dropped from the response and only the job status is returned
   limit: 'limit_example', # String | Maximum number of records to return.
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
-  offset: 'offset_example' # String | Starting pagination offset of records to return.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -542,9 +571,13 @@ end
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
 | **app_id** | **String** | Application ID. | [optional] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **job_status_only** | **Boolean** | If set to true, result rows are dropped from the response and only the job status is returned | [optional][default to false] |
 | **limit** | **String** | Maximum number of records to return. | [optional] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -583,9 +616,13 @@ api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   app_id: 'app_id_example', # String | Application ID.
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  job_status_only: true, # Boolean | If set to true, result rows are dropped from the response and only the job status is returned
   limit: 'limit_example', # String | Maximum number of records to return.
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
-  offset: 'offset_example' # String | Starting pagination offset of records to return.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  x_cs_useruuid: 'x_cs_useruuid_example' # String | Requester UUID.
 }
 
 begin
@@ -621,9 +658,13 @@ end
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
 | **app_id** | **String** | Application ID. | [optional] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **job_status_only** | **Boolean** | If set to true, result rows are dropped from the response and only the job status is returned | [optional][default to false] |
 | **limit** | **String** | Maximum number of records to return. | [optional] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 
 ### Return type
 
@@ -661,6 +702,7 @@ end
 api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
   result_format: 'json' # String | Result Format
 }
 
@@ -696,6 +738,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **result_format** | **String** | Result Format | [optional] |
 
 ### Return type
@@ -709,7 +752,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, text/csv, application/json
 
 
 ## get_saved_searches_job_results_download_v1
@@ -734,6 +777,7 @@ end
 api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
   result_format: 'json' # String | Result Format
 }
 
@@ -769,6 +813,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **result_format** | **String** | Result Format | [optional] |
 
 ### Return type
@@ -782,14 +827,14 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, text/csv, application/json
 
 
-## ingest_data_v1
+## ingest_data_async_v1
 
-> <ClientDataIngestResponseWrapperV1> ingest_data_v1(data_file, opts)
+> <ClientDataIngestResponseWrapperV1> ingest_data_async_v1(opts)
 
-Ingest data into the application repository
+Asynchronously ingest data into the application repository
 
 ### Examples
 
@@ -805,16 +850,98 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
-data_file = File.new('/path/to/some/file') # File | Data file to ingest
 opts = {
+  data_content: 'data_content_example', # String | JSON data to ingest
+  data_file: File.new('/path/to/some/file'), # File | Data file to ingest
+  repo: 'repo_example', # String | Repository name if not part of a foundry app
   tag: ['inner_example'], # Array<String> | Custom tag for ingested data in the form tag:value
   tag_source: 'tag_source_example', # String | Tag the data with the specified source
   test_data: true # Boolean | Tag the data with test-ingest
 }
 
 begin
-  # Ingest data into the application repository
-  result = api_instance.ingest_data_v1(data_file, opts)
+  # Asynchronously ingest data into the application repository
+  result = api_instance.ingest_data_async_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1: #{e}"
+end
+```
+
+#### Using the ingest_data_async_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_async_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Asynchronously ingest data into the application repository
+  data, status_code, headers = api_instance.ingest_data_async_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientDataIngestResponseWrapperV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data_content** | **String** | JSON data to ingest | [optional] |
+| **data_file** | **File** | Data file to ingest | [optional] |
+| **repo** | **String** | Repository name if not part of a foundry app | [optional] |
+| **tag** | [**Array&lt;String&gt;**](String.md) | Custom tag for ingested data in the form tag:value | [optional] |
+| **tag_source** | **String** | Tag the data with the specified source | [optional] |
+| **test_data** | **Boolean** | Tag the data with test-ingest | [optional][default to false] |
+
+### Return type
+
+[**ClientDataIngestResponseWrapperV1**](ClientDataIngestResponseWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+## ingest_data_v1
+
+> <ClientDataIngestResponseWrapperV1> ingest_data_v1(opts)
+
+Synchronously ingest data into the application repository
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FoundryLogscaleApi.new
+opts = {
+  data_content: 'data_content_example', # String | JSON data to ingest
+  data_file: File.new('/path/to/some/file'), # File | Data file to ingest
+  tag: ['inner_example'], # Array<String> | Custom tag for ingested data in the form tag:value
+  tag_source: 'tag_source_example', # String | Tag the data with the specified source
+  test_data: true # Boolean | Tag the data with test-ingest
+}
+
+begin
+  # Synchronously ingest data into the application repository
+  result = api_instance.ingest_data_v1(opts)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling FoundryLogscaleApi->ingest_data_v1: #{e}"
@@ -825,12 +952,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_v1_with_http_info(data_file, opts)
+> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_v1_with_http_info(opts)
 
 ```ruby
 begin
-  # Ingest data into the application repository
-  data, status_code, headers = api_instance.ingest_data_v1_with_http_info(data_file, opts)
+  # Synchronously ingest data into the application repository
+  data, status_code, headers = api_instance.ingest_data_v1_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
@@ -843,7 +970,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data_file** | **File** | Data file to ingest |  |
+| **data_content** | **String** | JSON data to ingest | [optional] |
+| **data_file** | **File** | Data file to ingest | [optional] |
 | **tag** | [**Array&lt;String&gt;**](String.md) | Custom tag for ingested data in the form tag:value | [optional] |
 | **tag_source** | **String** | Tag the data with the specified source | [optional] |
 | **test_data** | **Boolean** | Tag the data with test-ingest | [optional][default to false] |

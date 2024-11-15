@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :report_file_reference
 
+    attr_accessor :report_params
+
     attr_accessor :result_metadata
 
     attr_accessor :status
@@ -55,6 +57,7 @@ module Falcon
         :'id' => :'id',
         :'last_updated_on' => :'last_updated_on',
         :'report_file_reference' => :'report_file_reference',
+        :'report_params' => :'report_params',
         :'result_metadata' => :'result_metadata',
         :'status' => :'status',
         :'status_display' => :'status_display',
@@ -74,6 +77,7 @@ module Falcon
         :'id' => :'String',
         :'last_updated_on' => :'Time',
         :'report_file_reference' => :'String',
+        :'report_params' => :'DomainReportParams',
         :'result_metadata' => :'DomainResultMetadata',
         :'status' => :'String',
         :'status_display' => :'String',
@@ -118,6 +122,10 @@ module Falcon
         self.report_file_reference = attributes[:'report_file_reference']
       end
 
+      if attributes.key?(:'report_params')
+        self.report_params = attributes[:'report_params']
+      end
+
       if attributes.key?(:'result_metadata')
         self.result_metadata = attributes[:'result_metadata']
       end
@@ -151,6 +159,10 @@ module Falcon
         invalid_properties.push('invalid value for "last_updated_on", last_updated_on cannot be nil.')
       end
 
+      if @report_params.nil?
+        invalid_properties.push('invalid value for "report_params", report_params cannot be nil.')
+      end
+
       if @status.nil?
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
@@ -172,6 +184,7 @@ module Falcon
       return false if @execution_metadata.nil?
       return false if @id.nil?
       return false if @last_updated_on.nil?
+      return false if @report_params.nil?
       return false if @status.nil?
       return false if @status_display.nil?
       return false if @status_msg.nil?
@@ -187,6 +200,7 @@ module Falcon
           id == o.id &&
           last_updated_on == o.last_updated_on &&
           report_file_reference == o.report_file_reference &&
+          report_params == o.report_params &&
           result_metadata == o.result_metadata &&
           status == o.status &&
           status_display == o.status_display &&
@@ -202,7 +216,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [execution_metadata, id, last_updated_on, report_file_reference, result_metadata, status, status_display, status_msg].hash
+      [execution_metadata, id, last_updated_on, report_file_reference, report_params, result_metadata, status, status_display, status_msg].hash
     end
 
     # Builds the object from hash

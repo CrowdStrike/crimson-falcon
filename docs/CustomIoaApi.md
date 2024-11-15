@@ -1,13 +1,13 @@
 # Falcon::CustomIoaApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_rule**](CustomIoaApi.md#create_rule) | **POST** /ioarules/entities/rules/v1 | Create a rule within a rule group. Returns the rule. |
 | [**create_rule_group_mixin0**](CustomIoaApi.md#create_rule_group_mixin0) | **POST** /ioarules/entities/rule-groups/v1 | Create a rule group for a platform with a name and an optional description. Returns the rule group. |
 | [**delete_rule_groups_mixin0**](CustomIoaApi.md#delete_rule_groups_mixin0) | **DELETE** /ioarules/entities/rule-groups/v1 | Delete rule groups by ID. |
-| [**delete_rules**](CustomIoaApi.md#delete_rules) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
+| [**delete_rules_0**](CustomIoaApi.md#delete_rules_0) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
 | [**get_patterns**](CustomIoaApi.md#get_patterns) | **GET** /ioarules/entities/pattern-severities/v1 | Get pattern severities by ID. |
 | [**get_platforms_mixin0**](CustomIoaApi.md#get_platforms_mixin0) | **GET** /ioarules/entities/platforms/v1 | Get platforms by ID. |
 | [**get_rule_groups_mixin0**](CustomIoaApi.md#get_rule_groups_mixin0) | **GET** /ioarules/entities/rule-groups/v1 | Get rule groups by ID. |
@@ -21,7 +21,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_rule_types**](CustomIoaApi.md#query_rule_types) | **GET** /ioarules/queries/rule-types/v1 | Get all rule type IDs. |
 | [**query_rules_mixin0**](CustomIoaApi.md#query_rules_mixin0) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
 | [**update_rule_group_mixin0**](CustomIoaApi.md#update_rule_group_mixin0) | **PATCH** /ioarules/entities/rule-groups/v1 | Update a rule group. The following properties can be modified: name, description, enabled. |
-| [**update_rules**](CustomIoaApi.md#update_rules) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
+| [**update_rules_0**](CustomIoaApi.md#update_rules_0) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
+| [**update_rules_v2**](CustomIoaApi.md#update_rules_v2) | **PATCH** /ioarules/entities/rules/v2 | Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules. |
 | [**validate**](CustomIoaApi.md#validate) | **POST** /ioarules/entities/rules/validate/v1 | Validates field values and checks for matches if a test string is provided. |
 
 
@@ -236,9 +237,9 @@ end
 - **Accept**: application/json
 
 
-## delete_rules
+## delete_rules_0
 
-> <MsaReplyMetaOnly> delete_rules(rule_group_id, ids, opts)
+> <MsaReplyMetaOnly> delete_rules_0(rule_group_id, ids, opts)
 
 Delete rules from a rule group by ID.
 
@@ -264,28 +265,28 @@ opts = {
 
 begin
   # Delete rules from a rule group by ID.
-  result = api_instance.delete_rules(rule_group_id, ids, opts)
+  result = api_instance.delete_rules_0(rule_group_id, ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rules: #{e}"
+  puts "Error when calling CustomIoaApi->delete_rules_0: #{e}"
 end
 ```
 
-#### Using the delete_rules_with_http_info variant
+#### Using the delete_rules_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> delete_rules_with_http_info(rule_group_id, ids, opts)
+> <Array(<MsaReplyMetaOnly>, Integer, Hash)> delete_rules_0_with_http_info(rule_group_id, ids, opts)
 
 ```ruby
 begin
   # Delete rules from a rule group by ID.
-  data, status_code, headers = api_instance.delete_rules_with_http_info(rule_group_id, ids, opts)
+  data, status_code, headers = api_instance.delete_rules_0_with_http_info(rule_group_id, ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->delete_rules_with_http_info: #{e}"
+  puts "Error when calling CustomIoaApi->delete_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -873,7 +874,7 @@ end
 
 ## query_rule_groups_full
 
-> <MsaQueryResponse> query_rule_groups_full(opts)
+> <ApiRuleGroupsResponse> query_rule_groups_full(opts)
 
 Find all rule groups matching the query with optional filter.
 
@@ -892,7 +893,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'created_by', # String | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+  sort: 'created_by', # String | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -912,7 +913,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_rule_groups_full_with_http_info(opts)
+> <Array(<ApiRuleGroupsResponse>, Integer, Hash)> query_rule_groups_full_with_http_info(opts)
 
 ```ruby
 begin
@@ -920,7 +921,7 @@ begin
   data, status_code, headers = api_instance.query_rule_groups_full_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <ApiRuleGroupsResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling CustomIoaApi->query_rule_groups_full_with_http_info: #{e}"
 end
@@ -930,7 +931,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on} | [optional] |
+| **sort** | **String** | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |
@@ -938,7 +939,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**ApiRuleGroupsResponse**](ApiRuleGroupsResponse.md)
 
 ### Authorization
 
@@ -971,7 +972,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'created_by', # String | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+  sort: 'created_by', # String | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -1009,7 +1010,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on} | [optional] |
+| **sort** | **String** | Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |
@@ -1123,7 +1124,7 @@ end
 
 api_instance = Falcon::CustomIoaApi.new
 opts = {
-  sort: 'rules.created_by', # String | Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
+  sort: 'rules.created_by', # String | Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name}
   filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
   q: 'q_example', # String | Match query criteria, which includes all the filter string fields
   offset: 'offset_example', # String | Starting index of overall result set from which to return IDs
@@ -1161,7 +1162,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **sort** | **String** | Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled} | [optional] |
+| **sort** | **String** | Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name} | [optional] |
 | **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
 | **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return IDs | [optional] |
@@ -1250,9 +1251,9 @@ end
 - **Accept**: application/json
 
 
-## update_rules
+## update_rules_0
 
-> <ApiRulesResponse> update_rules(body)
+> <ApiRulesResponse> update_rules_0(body)
 
 Update rules within a rule group. Return the updated rules.
 
@@ -1274,28 +1275,28 @@ body = Falcon::ApiRuleUpdatesRequestV1.new({comment: 'comment_example', rule_upd
 
 begin
   # Update rules within a rule group. Return the updated rules.
-  result = api_instance.update_rules(body)
+  result = api_instance.update_rules_0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules: #{e}"
+  puts "Error when calling CustomIoaApi->update_rules_0: #{e}"
 end
 ```
 
-#### Using the update_rules_with_http_info variant
+#### Using the update_rules_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiRulesResponse>, Integer, Hash)> update_rules_with_http_info(body)
+> <Array(<ApiRulesResponse>, Integer, Hash)> update_rules_0_with_http_info(body)
 
 ```ruby
 begin
   # Update rules within a rule group. Return the updated rules.
-  data, status_code, headers = api_instance.update_rules_with_http_info(body)
+  data, status_code, headers = api_instance.update_rules_0_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoaApi->update_rules_with_http_info: #{e}"
+  puts "Error when calling CustomIoaApi->update_rules_0_with_http_info: #{e}"
 end
 ```
 
@@ -1304,6 +1305,75 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**ApiRuleUpdatesRequestV1**](ApiRuleUpdatesRequestV1.md) |  |  |
+
+### Return type
+
+[**ApiRulesResponse**](ApiRulesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_rules_v2
+
+> <ApiRulesResponse> update_rules_v2(body)
+
+Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CustomIoaApi.new
+body = Falcon::ApiRuleUpdatesRequestV2.new({comment: 'comment_example', rule_updates: [Falcon::ApiRuleUpdateV2.new({description: 'description_example', disposition_id: 37, enabled: false, field_values: [Falcon::DomainFieldValue.new({name: 'name_example', type: 'type_example', value: 'value_example', values: [Falcon::DomainValueItem.new({label: 'label_example', value: 'value_example'})]})], instance_id: 'instance_id_example', name: 'name_example', pattern_severity: 'pattern_severity_example', rulegroup_version: 3.56})], rulegroup_id: 'rulegroup_id_example', rulegroup_version: 3.56}) # ApiRuleUpdatesRequestV2 | 
+
+begin
+  # Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+  result = api_instance.update_rules_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CustomIoaApi->update_rules_v2: #{e}"
+end
+```
+
+#### Using the update_rules_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiRulesResponse>, Integer, Hash)> update_rules_v2_with_http_info(body)
+
+```ruby
+begin
+  # Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+  data, status_code, headers = api_instance.update_rules_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiRulesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling CustomIoaApi->update_rules_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiRuleUpdatesRequestV2**](ApiRuleUpdatesRequestV2.md) |  |  |
 
 ### Return type
 

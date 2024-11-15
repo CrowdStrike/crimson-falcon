@@ -70,8 +70,6 @@ module Falcon
 
     attr_accessor :max_duration
 
-    attr_accessor :max_file_size
-
     attr_accessor :metadata
 
     attr_accessor :missing_host_count
@@ -87,6 +85,8 @@ module Falcon
     attr_accessor :profile_id
 
     attr_accessor :quarantine
+
+    attr_accessor :rollup_version
 
     attr_accessor :scan_completed_on
 
@@ -132,7 +132,6 @@ module Falcon
         :'initiated_from' => :'initiated_from',
         :'last_updated' => :'last_updated',
         :'max_duration' => :'max_duration',
-        :'max_file_size' => :'max_file_size',
         :'metadata' => :'metadata',
         :'missing_host_count' => :'missing_host_count',
         :'not_started_host_count' => :'not_started_host_count',
@@ -141,6 +140,7 @@ module Falcon
         :'preemption_priority' => :'preemption_priority',
         :'profile_id' => :'profile_id',
         :'quarantine' => :'quarantine',
+        :'rollup_version' => :'rollup_version',
         :'scan_completed_on' => :'scan_completed_on',
         :'scan_exclusions' => :'scan_exclusions',
         :'scan_inclusions' => :'scan_inclusions',
@@ -182,7 +182,6 @@ module Falcon
         :'initiated_from' => :'String',
         :'last_updated' => :'Time',
         :'max_duration' => :'Integer',
-        :'max_file_size' => :'Integer',
         :'metadata' => :'Array<DomainScanMetadata>',
         :'missing_host_count' => :'Integer',
         :'not_started_host_count' => :'Integer',
@@ -191,6 +190,7 @@ module Falcon
         :'preemption_priority' => :'Integer',
         :'profile_id' => :'String',
         :'quarantine' => :'Boolean',
+        :'rollup_version' => :'Integer',
         :'scan_completed_on' => :'Time',
         :'scan_exclusions' => :'Array<String>',
         :'scan_inclusions' => :'Array<String>',
@@ -308,10 +308,6 @@ module Falcon
         self.max_duration = attributes[:'max_duration']
       end
 
-      if attributes.key?(:'max_file_size')
-        self.max_file_size = attributes[:'max_file_size']
-      end
-
       if attributes.key?(:'metadata')
         if (value = attributes[:'metadata']).is_a?(Array)
           self.metadata = value
@@ -346,6 +342,10 @@ module Falcon
 
       if attributes.key?(:'quarantine')
         self.quarantine = attributes[:'quarantine']
+      end
+
+      if attributes.key?(:'rollup_version')
+        self.rollup_version = attributes[:'rollup_version']
       end
 
       if attributes.key?(:'scan_completed_on')
@@ -439,7 +439,6 @@ module Falcon
           initiated_from == o.initiated_from &&
           last_updated == o.last_updated &&
           max_duration == o.max_duration &&
-          max_file_size == o.max_file_size &&
           metadata == o.metadata &&
           missing_host_count == o.missing_host_count &&
           not_started_host_count == o.not_started_host_count &&
@@ -448,6 +447,7 @@ module Falcon
           preemption_priority == o.preemption_priority &&
           profile_id == o.profile_id &&
           quarantine == o.quarantine &&
+          rollup_version == o.rollup_version &&
           scan_completed_on == o.scan_completed_on &&
           scan_exclusions == o.scan_exclusions &&
           scan_inclusions == o.scan_inclusions &&
@@ -470,7 +470,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, max_file_size, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, rollup_version, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
     end
 
     # Builds the object from hash

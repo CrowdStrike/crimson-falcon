@@ -48,6 +48,12 @@ describe Falcon::ApiObjectMetadata do
     end
   end
 
+  describe 'test attribute "collection_version"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "last_modified_time"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

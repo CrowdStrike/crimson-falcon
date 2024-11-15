@@ -42,19 +42,19 @@ describe Falcon::DomainAPIError do
       expect(instance).to be_instance_of(Falcon::DomainAPIError)
     end
   end
-  describe 'test attribute "errors"' do
+  describe 'test attribute "code"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "meta"' do
+  describe 'test attribute "message"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "resources"' do
+  describe 'test attribute "submission"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

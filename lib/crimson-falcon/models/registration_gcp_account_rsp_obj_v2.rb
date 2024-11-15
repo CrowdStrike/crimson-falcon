@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :project_id
 
+    attr_accessor :service_account_conditions
+
     attr_accessor :service_account_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -52,6 +54,7 @@ module Falcon
         :'parent_id' => :'parent_id',
         :'parent_type' => :'parent_type',
         :'project_id' => :'project_id',
+        :'service_account_conditions' => :'service_account_conditions',
         :'service_account_id' => :'service_account_id'
       }
     end
@@ -69,6 +72,7 @@ module Falcon
         :'parent_id' => :'String',
         :'parent_type' => :'String',
         :'project_id' => :'String',
+        :'service_account_conditions' => :'Array<DomainCondition>',
         :'service_account_id' => :'Integer'
       }
     end
@@ -114,6 +118,12 @@ module Falcon
         self.project_id = attributes[:'project_id']
       end
 
+      if attributes.key?(:'service_account_conditions')
+        if (value = attributes[:'service_account_conditions']).is_a?(Array)
+          self.service_account_conditions = value
+        end
+      end
+
       if attributes.key?(:'service_account_id')
         self.service_account_id = attributes[:'service_account_id']
       end
@@ -147,6 +157,7 @@ module Falcon
           parent_id == o.parent_id &&
           parent_type == o.parent_type &&
           project_id == o.project_id &&
+          service_account_conditions == o.service_account_conditions &&
           service_account_id == o.service_account_id
     end
 
@@ -159,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_email, client_id, parent_id, parent_type, project_id, service_account_id].hash
+      [client_email, client_id, parent_id, parent_type, project_id, service_account_conditions, service_account_id].hash
     end
 
     # Builds the object from hash

@@ -53,7 +53,7 @@ module Falcon
     def self.openapi_types
       {
         :'libraries' => :'Array<ModelsApplicationLibrary>',
-        :'type' => :'String'
+        :'type' => :'Integer'
       }
     end
 

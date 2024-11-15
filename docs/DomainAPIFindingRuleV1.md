@@ -7,6 +7,7 @@
 | **authority** | **String** |  | [optional] |
 | **benchmark_type** | **String** |  | [optional] |
 | **cce** | **String** |  | [optional] |
+| **compliance_mappings** | [**Array&lt;DomainAPIComplianceMappingV1&gt;**](DomainAPIComplianceMappingV1.md) |  | [optional] |
 | **edited** | **Boolean** |  |  |
 | **group_id** | **String** |  | [optional] |
 | **group_name** | **String** |  | [optional] |
@@ -29,6 +30,7 @@ instance = Falcon::DomainAPIFindingRuleV1.new(
   authority: null,
   benchmark_type: null,
   cce: null,
+  compliance_mappings: null,
   edited: null,
   group_id: null,
   group_name: null,

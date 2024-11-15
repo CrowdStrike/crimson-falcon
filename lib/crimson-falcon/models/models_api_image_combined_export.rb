@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsAPIImageCombinedExport
+    attr_accessor :architecture
+
     attr_accessor :base_os
 
     attr_accessor :cid
@@ -52,6 +54,8 @@ module Falcon
 
     attr_accessor :image_id
 
+    attr_accessor :is_base_image
+
     attr_accessor :last_seen
 
     attr_accessor :packages_impacted
@@ -59,6 +63,8 @@ module Falcon
     attr_accessor :registry
 
     attr_accessor :repository
+
+    attr_accessor :source
 
     attr_accessor :started_containers
 
@@ -75,6 +81,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'architecture' => :'architecture',
         :'base_os' => :'base_os',
         :'cid' => :'cid',
         :'cve_id' => :'cve_id',
@@ -85,10 +92,12 @@ module Falcon
         :'first_seen' => :'first_seen',
         :'image_digest' => :'image_digest',
         :'image_id' => :'image_id',
+        :'is_base_image' => :'is_base_image',
         :'last_seen' => :'last_seen',
         :'packages_impacted' => :'packages_impacted',
         :'registry' => :'registry',
         :'repository' => :'repository',
+        :'source' => :'source',
         :'started_containers' => :'started_containers',
         :'stopped_containers' => :'stopped_containers',
         :'tag' => :'tag',
@@ -106,6 +115,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'architecture' => :'String',
         :'base_os' => :'String',
         :'cid' => :'String',
         :'cve_id' => :'String',
@@ -116,10 +126,12 @@ module Falcon
         :'first_seen' => :'String',
         :'image_digest' => :'String',
         :'image_id' => :'String',
+        :'is_base_image' => :'Boolean',
         :'last_seen' => :'String',
         :'packages_impacted' => :'Integer',
         :'registry' => :'String',
         :'repository' => :'String',
+        :'source' => :'String',
         :'started_containers' => :'Integer',
         :'stopped_containers' => :'Integer',
         :'tag' => :'String',
@@ -149,6 +161,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'architecture')
+        self.architecture = attributes[:'architecture']
+      end
 
       if attributes.key?(:'base_os')
         self.base_os = attributes[:'base_os']
@@ -190,6 +206,10 @@ module Falcon
         self.image_id = attributes[:'image_id']
       end
 
+      if attributes.key?(:'is_base_image')
+        self.is_base_image = attributes[:'is_base_image']
+      end
+
       if attributes.key?(:'last_seen')
         self.last_seen = attributes[:'last_seen']
       end
@@ -204,6 +224,10 @@ module Falcon
 
       if attributes.key?(:'repository')
         self.repository = attributes[:'repository']
+      end
+
+      if attributes.key?(:'source')
+        self.source = attributes[:'source']
       end
 
       if attributes.key?(:'started_containers')
@@ -235,6 +259,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @architecture.nil?
+        invalid_properties.push('invalid value for "architecture", architecture cannot be nil.')
+      end
+
       if @base_os.nil?
         invalid_properties.push('invalid value for "base_os", base_os cannot be nil.')
       end
@@ -275,6 +303,10 @@ module Falcon
         invalid_properties.push('invalid value for "image_id", image_id cannot be nil.')
       end
 
+      if @is_base_image.nil?
+        invalid_properties.push('invalid value for "is_base_image", is_base_image cannot be nil.')
+      end
+
       if @last_seen.nil?
         invalid_properties.push('invalid value for "last_seen", last_seen cannot be nil.')
       end
@@ -289,6 +321,10 @@ module Falcon
 
       if @repository.nil?
         invalid_properties.push('invalid value for "repository", repository cannot be nil.')
+      end
+
+      if @source.nil?
+        invalid_properties.push('invalid value for "source", source cannot be nil.')
       end
 
       if @started_containers.nil?
@@ -321,6 +357,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @architecture.nil?
       return false if @base_os.nil?
       return false if @cid.nil?
       return false if @cve_id.nil?
@@ -331,10 +368,12 @@ module Falcon
       return false if @first_seen.nil?
       return false if @image_digest.nil?
       return false if @image_id.nil?
+      return false if @is_base_image.nil?
       return false if @last_seen.nil?
       return false if @packages_impacted.nil?
       return false if @registry.nil?
       return false if @repository.nil?
+      return false if @source.nil?
       return false if @started_containers.nil?
       return false if @stopped_containers.nil?
       return false if @tag.nil?
@@ -349,6 +388,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          architecture == o.architecture &&
           base_os == o.base_os &&
           cid == o.cid &&
           cve_id == o.cve_id &&
@@ -359,10 +399,12 @@ module Falcon
           first_seen == o.first_seen &&
           image_digest == o.image_digest &&
           image_id == o.image_id &&
+          is_base_image == o.is_base_image &&
           last_seen == o.last_seen &&
           packages_impacted == o.packages_impacted &&
           registry == o.registry &&
           repository == o.repository &&
+          source == o.source &&
           started_containers == o.started_containers &&
           stopped_containers == o.stopped_containers &&
           tag == o.tag &&
@@ -380,7 +422,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [base_os, cid, cve_id, cvss_score, detection_name, detection_severity, detection_type, first_seen, image_digest, image_id, last_seen, packages_impacted, registry, repository, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
+      [architecture, base_os, cid, cve_id, cvss_score, detection_name, detection_severity, detection_type, first_seen, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
     end
 
     # Builds the object from hash

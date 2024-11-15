@@ -66,6 +66,12 @@ describe Falcon::DomainReportExecutionSummaryV1 do
     end
   end
 
+  describe 'test attribute "report_params"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "result_metadata"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

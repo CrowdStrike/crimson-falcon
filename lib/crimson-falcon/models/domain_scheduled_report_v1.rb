@@ -54,6 +54,8 @@ module Falcon
 
     attr_accessor :notifications
 
+    attr_accessor :owned_by_cs
+
     attr_accessor :report_metadata
 
     attr_accessor :report_params
@@ -92,6 +94,7 @@ module Falcon
         :'name' => :'name',
         :'next_execution_on' => :'next_execution_on',
         :'notifications' => :'notifications',
+        :'owned_by_cs' => :'owned_by_cs',
         :'report_metadata' => :'report_metadata',
         :'report_params' => :'report_params',
         :'schedule' => :'schedule',
@@ -126,6 +129,7 @@ module Falcon
         :'name' => :'String',
         :'next_execution_on' => :'Time',
         :'notifications' => :'Array<DomainNotifications>',
+        :'owned_by_cs' => :'Boolean',
         :'report_metadata' => :'DomainReportMetadata',
         :'report_params' => :'DomainReportParams',
         :'schedule' => :'DomainSchedule',
@@ -206,6 +210,10 @@ module Falcon
         if (value = attributes[:'notifications']).is_a?(Array)
           self.notifications = value
         end
+      end
+
+      if attributes.key?(:'owned_by_cs')
+        self.owned_by_cs = attributes[:'owned_by_cs']
       end
 
       if attributes.key?(:'report_metadata')
@@ -358,6 +366,7 @@ module Falcon
           name == o.name &&
           next_execution_on == o.next_execution_on &&
           notifications == o.notifications &&
+          owned_by_cs == o.owned_by_cs &&
           report_metadata == o.report_metadata &&
           report_params == o.report_params &&
           schedule == o.schedule &&
@@ -381,7 +390,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

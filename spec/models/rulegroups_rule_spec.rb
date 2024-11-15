@@ -78,6 +78,12 @@ describe Falcon::RulegroupsRule do
     end
   end
 
+  describe 'test attribute "enable_hash_capture"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "exclude"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -217,6 +223,12 @@ describe Falcon::RulegroupsRule do
   end
 
   describe 'test attribute "watch_permissions_file_changes"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "watch_permissions_key_changes"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

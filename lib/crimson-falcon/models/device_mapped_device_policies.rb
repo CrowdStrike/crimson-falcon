@@ -38,9 +38,13 @@ module Falcon
 
     attr_accessor :aws_verified_access
 
+    attr_accessor :customer_entitlements
+
     attr_accessor :data_protection
 
     attr_accessor :device_control
+
+    attr_accessor :falcon_for_it
 
     attr_accessor :fim
 
@@ -56,6 +60,8 @@ module Falcon
 
     attr_accessor :kubernetes_admission_control
 
+    attr_accessor :legacy_os
+
     attr_accessor :mobile
 
     attr_accessor :netskope
@@ -70,6 +76,8 @@ module Falcon
 
     attr_accessor :system_tray
 
+    attr_accessor :vulnerability_management
+
     attr_accessor :ztl
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -78,8 +86,10 @@ module Falcon
         :'airlock' => :'airlock',
         :'automox' => :'automox',
         :'aws_verified_access' => :'aws-verified-access',
+        :'customer_entitlements' => :'customer-entitlements',
         :'data_protection' => :'data-protection',
         :'device_control' => :'device_control',
+        :'falcon_for_it' => :'falcon-for-it',
         :'fim' => :'fim',
         :'firewall' => :'firewall',
         :'global_config' => :'global_config',
@@ -87,6 +97,7 @@ module Falcon
         :'identity_protection' => :'identity-protection',
         :'jumpcloud' => :'jumpcloud',
         :'kubernetes_admission_control' => :'kubernetes-admission-control',
+        :'legacy_os' => :'legacy-os',
         :'mobile' => :'mobile',
         :'netskope' => :'netskope',
         :'prevention' => :'prevention',
@@ -94,6 +105,7 @@ module Falcon
         :'sca' => :'sca',
         :'sensor_update' => :'sensor_update',
         :'system_tray' => :'system-tray',
+        :'vulnerability_management' => :'vulnerability-management',
         :'ztl' => :'ztl'
       }
     end
@@ -109,8 +121,10 @@ module Falcon
         :'airlock' => :'DeviceDevicePolicy',
         :'automox' => :'DeviceDevicePolicy',
         :'aws_verified_access' => :'DeviceDevicePolicy',
+        :'customer_entitlements' => :'DeviceDevicePolicy',
         :'data_protection' => :'DeviceDevicePolicy',
         :'device_control' => :'DeviceDevicePolicy',
+        :'falcon_for_it' => :'DeviceDevicePolicy',
         :'fim' => :'DeviceDevicePolicy',
         :'firewall' => :'DeviceDevicePolicy',
         :'global_config' => :'DeviceDevicePolicy',
@@ -118,6 +132,7 @@ module Falcon
         :'identity_protection' => :'DeviceDevicePolicy',
         :'jumpcloud' => :'DeviceDevicePolicy',
         :'kubernetes_admission_control' => :'DeviceDevicePolicy',
+        :'legacy_os' => :'DeviceDevicePolicy',
         :'mobile' => :'DeviceDevicePolicy',
         :'netskope' => :'DeviceDevicePolicy',
         :'prevention' => :'DeviceDevicePolicy',
@@ -125,6 +140,7 @@ module Falcon
         :'sca' => :'DeviceDevicePolicy',
         :'sensor_update' => :'DeviceDevicePolicy',
         :'system_tray' => :'DeviceDevicePolicy',
+        :'vulnerability_management' => :'DeviceDevicePolicy',
         :'ztl' => :'DeviceDevicePolicy'
       }
     end
@@ -162,12 +178,20 @@ module Falcon
         self.aws_verified_access = attributes[:'aws_verified_access']
       end
 
+      if attributes.key?(:'customer_entitlements')
+        self.customer_entitlements = attributes[:'customer_entitlements']
+      end
+
       if attributes.key?(:'data_protection')
         self.data_protection = attributes[:'data_protection']
       end
 
       if attributes.key?(:'device_control')
         self.device_control = attributes[:'device_control']
+      end
+
+      if attributes.key?(:'falcon_for_it')
+        self.falcon_for_it = attributes[:'falcon_for_it']
       end
 
       if attributes.key?(:'fim')
@@ -198,6 +222,10 @@ module Falcon
         self.kubernetes_admission_control = attributes[:'kubernetes_admission_control']
       end
 
+      if attributes.key?(:'legacy_os')
+        self.legacy_os = attributes[:'legacy_os']
+      end
+
       if attributes.key?(:'mobile')
         self.mobile = attributes[:'mobile']
       end
@@ -226,6 +254,10 @@ module Falcon
         self.system_tray = attributes[:'system_tray']
       end
 
+      if attributes.key?(:'vulnerability_management')
+        self.vulnerability_management = attributes[:'vulnerability_management']
+      end
+
       if attributes.key?(:'ztl')
         self.ztl = attributes[:'ztl']
       end
@@ -252,8 +284,10 @@ module Falcon
           airlock == o.airlock &&
           automox == o.automox &&
           aws_verified_access == o.aws_verified_access &&
+          customer_entitlements == o.customer_entitlements &&
           data_protection == o.data_protection &&
           device_control == o.device_control &&
+          falcon_for_it == o.falcon_for_it &&
           fim == o.fim &&
           firewall == o.firewall &&
           global_config == o.global_config &&
@@ -261,6 +295,7 @@ module Falcon
           identity_protection == o.identity_protection &&
           jumpcloud == o.jumpcloud &&
           kubernetes_admission_control == o.kubernetes_admission_control &&
+          legacy_os == o.legacy_os &&
           mobile == o.mobile &&
           netskope == o.netskope &&
           prevention == o.prevention &&
@@ -268,6 +303,7 @@ module Falcon
           sca == o.sca &&
           sensor_update == o.sensor_update &&
           system_tray == o.system_tray &&
+          vulnerability_management == o.vulnerability_management &&
           ztl == o.ztl
     end
 
@@ -280,7 +316,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [airlock, automox, aws_verified_access, data_protection, device_control, fim, firewall, global_config, host_retention, identity_protection, jumpcloud, kubernetes_admission_control, mobile, netskope, prevention, remote_response, sca, sensor_update, system_tray, ztl].hash
+      [airlock, automox, aws_verified_access, customer_entitlements, data_protection, device_control, falcon_for_it, fim, firewall, global_config, host_retention, identity_protection, jumpcloud, kubernetes_admission_control, legacy_os, mobile, netskope, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
     end
 
     # Builds the object from hash

@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;ReconmsaAPIError&gt;**](ReconmsaAPIError.md) |  |  |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 | **resources** | [**Array&lt;DomainExportJobMetadataV1&gt;**](DomainExportJobMetadataV1.md) |  |  |
 
 ## Example

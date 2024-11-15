@@ -50,6 +50,7 @@
 | **x_cs_can_create** | **Boolean** |  | [optional] |
 | **x_cs_condition_group_fields** | [**JsonschemaConditionGroupFields**](JsonschemaConditionGroupFields.md) |  | [optional] |
 | **x_cs_do_not_hide** | **Boolean** |  | [optional] |
+| **x_cs_immutable** | **Boolean** |  | [optional] |
 | **x_cs_indexable** | **Boolean** |  | [optional] |
 | **x_cs_indexable_fields** | [**Array&lt;JsonschemaCollectionIndexField&gt;**](JsonschemaCollectionIndexField.md) |  | [optional] |
 | **x_cs_max_duration** | **Integer** |  | [optional] |
@@ -62,6 +63,7 @@
 | **x_cs_signals_operators** | **Array&lt;String&gt;** |  | [optional] |
 | **x_cs_signals_sub_category** | **String** |  | [optional] |
 | **x_cs_tags** | **Array&lt;String&gt;** |  | [optional] |
+| **x_cs_ui** | [**JsonschemaUIExtensions**](JsonschemaUIExtensions.md) |  | [optional] |
 | **x_cs_workflow** | [**JsonschemaWorkflowExtensions**](JsonschemaWorkflowExtensions.md) |  | [optional] |
 
 ## Example
@@ -116,6 +118,7 @@ instance = Falcon::JsonschemaSubSchema.new(
   x_cs_can_create: null,
   x_cs_condition_group_fields: null,
   x_cs_do_not_hide: null,
+  x_cs_immutable: null,
   x_cs_indexable: null,
   x_cs_indexable_fields: null,
   x_cs_max_duration: null,
@@ -128,6 +131,7 @@ instance = Falcon::JsonschemaSubSchema.new(
   x_cs_signals_operators: null,
   x_cs_signals_sub_category: null,
   x_cs_tags: null,
+  x_cs_ui: null,
   x_cs_workflow: null
 )
 ```

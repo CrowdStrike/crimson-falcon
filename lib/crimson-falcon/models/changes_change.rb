@@ -54,6 +54,8 @@ module Falcon
     # Possible values: UNKNOWN, FILE, DIR, REGKEY,  REGVAL.
     attr_accessor :entity_type
 
+    attr_accessor :file_size
+
     attr_accessor :grandparent_process_image_file_name
 
     attr_accessor :host
@@ -73,6 +75,8 @@ module Falcon
     attr_accessor :permissions
 
     attr_accessor :permissions_lin
+
+    attr_accessor :permissions_mac
 
     attr_accessor :platform_name
 
@@ -108,6 +112,7 @@ module Falcon
         :'entity_path' => :'entity_path',
         :'entity_path_new' => :'entity_path_new',
         :'entity_type' => :'entity_type',
+        :'file_size' => :'file_size',
         :'grandparent_process_image_file_name' => :'grandparent_process_image_file_name',
         :'host' => :'host',
         :'id' => :'id',
@@ -118,6 +123,7 @@ module Falcon
         :'parent_process_image_file_name' => :'parent_process_image_file_name',
         :'permissions' => :'permissions',
         :'permissions_lin' => :'permissions_lin',
+        :'permissions_mac' => :'permissions_mac',
         :'platform_name' => :'platform_name',
         :'policy' => :'policy',
         :'prevalence' => :'prevalence',
@@ -149,6 +155,7 @@ module Falcon
         :'entity_path' => :'String',
         :'entity_path_new' => :'String',
         :'entity_type' => :'String',
+        :'file_size' => :'Integer',
         :'grandparent_process_image_file_name' => :'String',
         :'host' => :'ChangesHost',
         :'id' => :'String',
@@ -159,6 +166,7 @@ module Falcon
         :'parent_process_image_file_name' => :'String',
         :'permissions' => :'ChangesPermissions',
         :'permissions_lin' => :'ChangesPermissionsLin',
+        :'permissions_mac' => :'ChangesPermissionsMac',
         :'platform_name' => :'String',
         :'policy' => :'ChangesPolicy',
         :'prevalence' => :'ChangesPrevalence',
@@ -235,6 +243,10 @@ module Falcon
         self.entity_type = attributes[:'entity_type']
       end
 
+      if attributes.key?(:'file_size')
+        self.file_size = attributes[:'file_size']
+      end
+
       if attributes.key?(:'grandparent_process_image_file_name')
         self.grandparent_process_image_file_name = attributes[:'grandparent_process_image_file_name']
       end
@@ -273,6 +285,10 @@ module Falcon
 
       if attributes.key?(:'permissions_lin')
         self.permissions_lin = attributes[:'permissions_lin']
+      end
+
+      if attributes.key?(:'permissions_mac')
+        self.permissions_mac = attributes[:'permissions_mac']
       end
 
       if attributes.key?(:'platform_name')
@@ -350,12 +366,20 @@ module Falcon
         invalid_properties.push('invalid value for "entity_type", entity_type cannot be nil.')
       end
 
+      if @file_size.nil?
+        invalid_properties.push('invalid value for "file_size", file_size cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
       if @ingestion_timestamp.nil?
         invalid_properties.push('invalid value for "ingestion_timestamp", ingestion_timestamp cannot be nil.')
+      end
+
+      if @is_from_different_mount_namespace.nil?
+        invalid_properties.push('invalid value for "is_from_different_mount_namespace", is_from_different_mount_namespace cannot be nil.')
       end
 
       if @is_suppressed.nil?
@@ -399,8 +423,10 @@ module Falcon
       return false if @command_line.nil?
       return false if @entity_path.nil?
       return false if @entity_type.nil?
+      return false if @file_size.nil?
       return false if @id.nil?
       return false if @ingestion_timestamp.nil?
+      return false if @is_from_different_mount_namespace.nil?
       return false if @is_suppressed.nil?
       return false if @platform_name.nil?
       return false if @process_id.nil?
@@ -426,6 +452,7 @@ module Falcon
           entity_path == o.entity_path &&
           entity_path_new == o.entity_path_new &&
           entity_type == o.entity_type &&
+          file_size == o.file_size &&
           grandparent_process_image_file_name == o.grandparent_process_image_file_name &&
           host == o.host &&
           id == o.id &&
@@ -436,6 +463,7 @@ module Falcon
           parent_process_image_file_name == o.parent_process_image_file_name &&
           permissions == o.permissions &&
           permissions_lin == o.permissions_lin &&
+          permissions_mac == o.permissions_mac &&
           platform_name == o.platform_name &&
           policy == o.policy &&
           prevalence == o.prevalence &&
@@ -457,7 +485,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action_timestamp, action_type, aid, attributes, cid, command_line, diff, entity_path, entity_path_new, entity_type, grandparent_process_image_file_name, host, id, ingestion_timestamp, is_from_different_mount_namespace, is_suppressed, oci_container_id, parent_process_image_file_name, permissions, permissions_lin, platform_name, policy, prevalence, process_id, process_image_file_name, real_user_id, severity, tags, user_id, user_name].hash
+      [action_timestamp, action_type, aid, attributes, cid, command_line, diff, entity_path, entity_path_new, entity_type, file_size, grandparent_process_image_file_name, host, id, ingestion_timestamp, is_from_different_mount_namespace, is_suppressed, oci_container_id, parent_process_image_file_name, permissions, permissions_lin, permissions_mac, platform_name, policy, prevalence, process_id, process_image_file_name, real_user_id, severity, tags, user_id, user_name].hash
     end
 
     # Builds the object from hash

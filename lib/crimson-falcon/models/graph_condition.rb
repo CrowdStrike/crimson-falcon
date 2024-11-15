@@ -32,6 +32,9 @@ require 'time'
 
 module Falcon
   class GraphCondition
+    # CEL expression for the condition, should evaluate to a boolean.
+    attr_accessor :cel_expression
+
     # User friendly description of the FQL expression. This would be supplied by the UI/caller and is not set by the API.
     attr_accessor :display
 
@@ -44,6 +47,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cel_expression' => :'cel_expression',
         :'display' => :'display',
         :'evaluated' => :'evaluated',
         :'expression' => :'expression'
@@ -58,6 +62,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cel_expression' => :'String',
         :'display' => :'Array<String>',
         :'evaluated' => :'Boolean',
         :'expression' => :'String'
@@ -84,6 +89,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cel_expression')
+        self.cel_expression = attributes[:'cel_expression']
+      end
 
       if attributes.key?(:'display')
         if (value = attributes[:'display']).is_a?(Array)
@@ -118,6 +127,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cel_expression == o.cel_expression &&
           display == o.display &&
           evaluated == o.evaluated &&
           expression == o.expression
@@ -132,7 +142,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display, evaluated, expression].hash
+      [cel_expression, display, evaluated, expression].hash
     end
 
     # Builds the object from hash

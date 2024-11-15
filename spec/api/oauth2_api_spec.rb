@@ -67,7 +67,7 @@ describe 'Oauth2Api' do
   # @param token The OAuth2 access token you want to revoke.  Include your API client ID and secret in basic auth format (&#x60;Authorization: basic &lt;encoded API client ID and secret&gt;&#x60;) in your request header.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :client_id The OAuth2 client ID you are revoking the token for.
-  # @return [MsaReplyMetaOnly]
+  # @return [MsaspecResponseFields]
   describe 'oauth2_revoke_token test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

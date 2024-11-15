@@ -36,6 +36,8 @@ module Falcon
     # Represents the application architectures (x86 / x64).
     attr_accessor :architectures
 
+    attr_accessor :browser_extension
+
     # The category of the application.
     attr_accessor :category
 
@@ -92,6 +94,9 @@ module Falcon
     # The combined field on which we will be able to group by app + version.
     attr_accessor :name_vendor_version
 
+    # The type of software of the application.
+    attr_accessor :software_type
+
     # The name the application's vendor.
     attr_accessor :vendor
 
@@ -105,6 +110,7 @@ module Falcon
     def self.attribute_map
       {
         :'architectures' => :'architectures',
+        :'browser_extension' => :'browser_extension',
         :'category' => :'category',
         :'cid' => :'cid',
         :'first_seen_timestamp' => :'first_seen_timestamp',
@@ -124,6 +130,7 @@ module Falcon
         :'name' => :'name',
         :'name_vendor' => :'name_vendor',
         :'name_vendor_version' => :'name_vendor_version',
+        :'software_type' => :'software_type',
         :'vendor' => :'vendor',
         :'version' => :'version',
         :'versioning_scheme' => :'versioning_scheme'
@@ -139,6 +146,7 @@ module Falcon
     def self.openapi_types
       {
         :'architectures' => :'Array<String>',
+        :'browser_extension' => :'DomainDiscoverAPIApplicationBrowserExtension',
         :'category' => :'String',
         :'cid' => :'String',
         :'first_seen_timestamp' => :'String',
@@ -158,6 +166,7 @@ module Falcon
         :'name' => :'String',
         :'name_vendor' => :'String',
         :'name_vendor_version' => :'String',
+        :'software_type' => :'String',
         :'vendor' => :'String',
         :'version' => :'String',
         :'versioning_scheme' => :'String'
@@ -189,6 +198,10 @@ module Falcon
         if (value = attributes[:'architectures']).is_a?(Array)
           self.architectures = value
         end
+      end
+
+      if attributes.key?(:'browser_extension')
+        self.browser_extension = attributes[:'browser_extension']
       end
 
       if attributes.key?(:'category')
@@ -271,6 +284,10 @@ module Falcon
         self.name_vendor_version = attributes[:'name_vendor_version']
       end
 
+      if attributes.key?(:'software_type')
+        self.software_type = attributes[:'software_type']
+      end
+
       if attributes.key?(:'vendor')
         self.vendor = attributes[:'vendor']
       end
@@ -313,6 +330,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           architectures == o.architectures &&
+          browser_extension == o.browser_extension &&
           category == o.category &&
           cid == o.cid &&
           first_seen_timestamp == o.first_seen_timestamp &&
@@ -332,6 +350,7 @@ module Falcon
           name == o.name &&
           name_vendor == o.name_vendor &&
           name_vendor_version == o.name_vendor_version &&
+          software_type == o.software_type &&
           vendor == o.vendor &&
           version == o.version &&
           versioning_scheme == o.versioning_scheme
@@ -346,7 +365,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architectures, category, cid, first_seen_timestamp, groups, host, id, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, name, name_vendor, name_vendor_version, vendor, version, versioning_scheme].hash
+      [architectures, browser_extension, category, cid, first_seen_timestamp, groups, host, id, installation_paths, installation_timestamp, is_normalized, is_suspicious, last_updated_timestamp, last_used_file_hash, last_used_file_name, last_used_timestamp, last_used_user_name, last_used_user_sid, name, name_vendor, name_vendor_version, software_type, vendor, version, versioning_scheme].hash
     end
 
     # Builds the object from hash

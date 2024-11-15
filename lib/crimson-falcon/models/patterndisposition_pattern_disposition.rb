@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :bootup_safeguard_enabled
 
+    attr_accessor :containment_file_system
+
     attr_accessor :critical_process_disabled
 
     attr_accessor :detect
@@ -56,9 +58,13 @@ module Falcon
 
     attr_accessor :kill_subprocess
 
+    attr_accessor :mfa_required
+
     attr_accessor :operation_blocked
 
     attr_accessor :policy_disabled
+
+    attr_accessor :prevention_provisioning_enabled
 
     attr_accessor :process_blocked
 
@@ -67,6 +73,12 @@ module Falcon
     attr_accessor :quarantine_machine
 
     attr_accessor :registry_operation_blocked
+
+    attr_accessor :response_action_already_applied
+
+    attr_accessor :response_action_failed
+
+    attr_accessor :response_action_triggered
 
     attr_accessor :rooting
 
@@ -81,6 +93,7 @@ module Falcon
       {
         :'blocking_unsupported_or_disabled' => :'blocking_unsupported_or_disabled',
         :'bootup_safeguard_enabled' => :'bootup_safeguard_enabled',
+        :'containment_file_system' => :'containment_file_system',
         :'critical_process_disabled' => :'critical_process_disabled',
         :'detect' => :'detect',
         :'fs_operation_blocked' => :'fs_operation_blocked',
@@ -91,12 +104,17 @@ module Falcon
         :'kill_parent' => :'kill_parent',
         :'kill_process' => :'kill_process',
         :'kill_subprocess' => :'kill_subprocess',
+        :'mfa_required' => :'mfa_required',
         :'operation_blocked' => :'operation_blocked',
         :'policy_disabled' => :'policy_disabled',
+        :'prevention_provisioning_enabled' => :'prevention_provisioning_enabled',
         :'process_blocked' => :'process_blocked',
         :'quarantine_file' => :'quarantine_file',
         :'quarantine_machine' => :'quarantine_machine',
         :'registry_operation_blocked' => :'registry_operation_blocked',
+        :'response_action_already_applied' => :'response_action_already_applied',
+        :'response_action_failed' => :'response_action_failed',
+        :'response_action_triggered' => :'response_action_triggered',
         :'rooting' => :'rooting',
         :'sensor_only' => :'sensor_only',
         :'suspend_parent' => :'suspend_parent',
@@ -114,6 +132,7 @@ module Falcon
       {
         :'blocking_unsupported_or_disabled' => :'Boolean',
         :'bootup_safeguard_enabled' => :'Boolean',
+        :'containment_file_system' => :'Boolean',
         :'critical_process_disabled' => :'Boolean',
         :'detect' => :'Boolean',
         :'fs_operation_blocked' => :'Boolean',
@@ -124,12 +143,17 @@ module Falcon
         :'kill_parent' => :'Boolean',
         :'kill_process' => :'Boolean',
         :'kill_subprocess' => :'Boolean',
+        :'mfa_required' => :'Boolean',
         :'operation_blocked' => :'Boolean',
         :'policy_disabled' => :'Boolean',
+        :'prevention_provisioning_enabled' => :'Boolean',
         :'process_blocked' => :'Boolean',
         :'quarantine_file' => :'Boolean',
         :'quarantine_machine' => :'Boolean',
         :'registry_operation_blocked' => :'Boolean',
+        :'response_action_already_applied' => :'Boolean',
+        :'response_action_failed' => :'Boolean',
+        :'response_action_triggered' => :'Boolean',
         :'rooting' => :'Boolean',
         :'sensor_only' => :'Boolean',
         :'suspend_parent' => :'Boolean',
@@ -164,6 +188,10 @@ module Falcon
 
       if attributes.key?(:'bootup_safeguard_enabled')
         self.bootup_safeguard_enabled = attributes[:'bootup_safeguard_enabled']
+      end
+
+      if attributes.key?(:'containment_file_system')
+        self.containment_file_system = attributes[:'containment_file_system']
       end
 
       if attributes.key?(:'critical_process_disabled')
@@ -206,12 +234,20 @@ module Falcon
         self.kill_subprocess = attributes[:'kill_subprocess']
       end
 
+      if attributes.key?(:'mfa_required')
+        self.mfa_required = attributes[:'mfa_required']
+      end
+
       if attributes.key?(:'operation_blocked')
         self.operation_blocked = attributes[:'operation_blocked']
       end
 
       if attributes.key?(:'policy_disabled')
         self.policy_disabled = attributes[:'policy_disabled']
+      end
+
+      if attributes.key?(:'prevention_provisioning_enabled')
+        self.prevention_provisioning_enabled = attributes[:'prevention_provisioning_enabled']
       end
 
       if attributes.key?(:'process_blocked')
@@ -228,6 +264,18 @@ module Falcon
 
       if attributes.key?(:'registry_operation_blocked')
         self.registry_operation_blocked = attributes[:'registry_operation_blocked']
+      end
+
+      if attributes.key?(:'response_action_already_applied')
+        self.response_action_already_applied = attributes[:'response_action_already_applied']
+      end
+
+      if attributes.key?(:'response_action_failed')
+        self.response_action_failed = attributes[:'response_action_failed']
+      end
+
+      if attributes.key?(:'response_action_triggered')
+        self.response_action_triggered = attributes[:'response_action_triggered']
       end
 
       if attributes.key?(:'rooting')
@@ -257,6 +305,10 @@ module Falcon
 
       if @bootup_safeguard_enabled.nil?
         invalid_properties.push('invalid value for "bootup_safeguard_enabled", bootup_safeguard_enabled cannot be nil.')
+      end
+
+      if @containment_file_system.nil?
+        invalid_properties.push('invalid value for "containment_file_system", containment_file_system cannot be nil.')
       end
 
       if @critical_process_disabled.nil?
@@ -299,12 +351,20 @@ module Falcon
         invalid_properties.push('invalid value for "kill_subprocess", kill_subprocess cannot be nil.')
       end
 
+      if @mfa_required.nil?
+        invalid_properties.push('invalid value for "mfa_required", mfa_required cannot be nil.')
+      end
+
       if @operation_blocked.nil?
         invalid_properties.push('invalid value for "operation_blocked", operation_blocked cannot be nil.')
       end
 
       if @policy_disabled.nil?
         invalid_properties.push('invalid value for "policy_disabled", policy_disabled cannot be nil.')
+      end
+
+      if @prevention_provisioning_enabled.nil?
+        invalid_properties.push('invalid value for "prevention_provisioning_enabled", prevention_provisioning_enabled cannot be nil.')
       end
 
       if @process_blocked.nil?
@@ -321,6 +381,18 @@ module Falcon
 
       if @registry_operation_blocked.nil?
         invalid_properties.push('invalid value for "registry_operation_blocked", registry_operation_blocked cannot be nil.')
+      end
+
+      if @response_action_already_applied.nil?
+        invalid_properties.push('invalid value for "response_action_already_applied", response_action_already_applied cannot be nil.')
+      end
+
+      if @response_action_failed.nil?
+        invalid_properties.push('invalid value for "response_action_failed", response_action_failed cannot be nil.')
+      end
+
+      if @response_action_triggered.nil?
+        invalid_properties.push('invalid value for "response_action_triggered", response_action_triggered cannot be nil.')
       end
 
       if @rooting.nil?
@@ -347,6 +419,7 @@ module Falcon
     def valid?
       return false if @blocking_unsupported_or_disabled.nil?
       return false if @bootup_safeguard_enabled.nil?
+      return false if @containment_file_system.nil?
       return false if @critical_process_disabled.nil?
       return false if @detect.nil?
       return false if @fs_operation_blocked.nil?
@@ -357,12 +430,17 @@ module Falcon
       return false if @kill_parent.nil?
       return false if @kill_process.nil?
       return false if @kill_subprocess.nil?
+      return false if @mfa_required.nil?
       return false if @operation_blocked.nil?
       return false if @policy_disabled.nil?
+      return false if @prevention_provisioning_enabled.nil?
       return false if @process_blocked.nil?
       return false if @quarantine_file.nil?
       return false if @quarantine_machine.nil?
       return false if @registry_operation_blocked.nil?
+      return false if @response_action_already_applied.nil?
+      return false if @response_action_failed.nil?
+      return false if @response_action_triggered.nil?
       return false if @rooting.nil?
       return false if @sensor_only.nil?
       return false if @suspend_parent.nil?
@@ -377,6 +455,7 @@ module Falcon
       self.class == o.class &&
           blocking_unsupported_or_disabled == o.blocking_unsupported_or_disabled &&
           bootup_safeguard_enabled == o.bootup_safeguard_enabled &&
+          containment_file_system == o.containment_file_system &&
           critical_process_disabled == o.critical_process_disabled &&
           detect == o.detect &&
           fs_operation_blocked == o.fs_operation_blocked &&
@@ -387,12 +466,17 @@ module Falcon
           kill_parent == o.kill_parent &&
           kill_process == o.kill_process &&
           kill_subprocess == o.kill_subprocess &&
+          mfa_required == o.mfa_required &&
           operation_blocked == o.operation_blocked &&
           policy_disabled == o.policy_disabled &&
+          prevention_provisioning_enabled == o.prevention_provisioning_enabled &&
           process_blocked == o.process_blocked &&
           quarantine_file == o.quarantine_file &&
           quarantine_machine == o.quarantine_machine &&
           registry_operation_blocked == o.registry_operation_blocked &&
+          response_action_already_applied == o.response_action_already_applied &&
+          response_action_failed == o.response_action_failed &&
+          response_action_triggered == o.response_action_triggered &&
           rooting == o.rooting &&
           sensor_only == o.sensor_only &&
           suspend_parent == o.suspend_parent &&
@@ -408,7 +492,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [blocking_unsupported_or_disabled, bootup_safeguard_enabled, critical_process_disabled, detect, fs_operation_blocked, handle_operation_downgraded, inddet_mask, indicator, kill_action_failed, kill_parent, kill_process, kill_subprocess, operation_blocked, policy_disabled, process_blocked, quarantine_file, quarantine_machine, registry_operation_blocked, rooting, sensor_only, suspend_parent, suspend_process].hash
+      [blocking_unsupported_or_disabled, bootup_safeguard_enabled, containment_file_system, critical_process_disabled, detect, fs_operation_blocked, handle_operation_downgraded, inddet_mask, indicator, kill_action_failed, kill_parent, kill_process, kill_subprocess, mfa_required, operation_blocked, policy_disabled, prevention_provisioning_enabled, process_blocked, quarantine_file, quarantine_machine, registry_operation_blocked, response_action_already_applied, response_action_failed, response_action_triggered, rooting, sensor_only, suspend_parent, suspend_process].hash
     end
 
     # Builds the object from hash

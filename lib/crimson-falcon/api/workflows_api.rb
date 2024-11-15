@@ -36,6 +36,78 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Search for activities by name. Returns all supported activities if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [Integer] :limit Maximum number of records to return.
+    # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @return [ActivitiesActivityExternalResponse]
+    def workflow_activities_combined(opts = {})
+      data, _status_code, _headers = workflow_activities_combined_with_http_info(opts)
+      data
+    end
+
+    # Search for activities by name. Returns all supported activities if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [Integer] :limit Maximum number of records to return.
+    # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @return [Array<(ActivitiesActivityExternalResponse, Integer, Hash)>] ActivitiesActivityExternalResponse data, response status code and response headers
+    def workflow_activities_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_activities_combined ...'
+      end
+      pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
+      if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling WorkflowsApi.workflow_activities_combined, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/workflows/combined/activities/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ActivitiesActivityExternalResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"WorkflowsApi.workflow_activities_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_activities_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search workflow definitions based on the provided filter
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying filter parameters.
@@ -77,7 +149,7 @@ module Falcon
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -108,78 +180,10 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Creates a workflow definition based on the provided model
-    # @param body [ModelsDefinitionCreateRequestV2]
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :validate_only When enabled, prevents saving workflow after validating (default to false)
-    # @return [ApiResourceIDsResponse]
-    def workflow_definitions_create(body, opts = {})
-      data, _status_code, _headers = workflow_definitions_create_with_http_info(body, opts)
-      data
-    end
-
-    # Creates a workflow definition based on the provided model
-    # @param body [ModelsDefinitionCreateRequestV2]
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :validate_only When enabled, prevents saving workflow after validating (default to false)
-    # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
-    def workflow_definitions_create_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_definitions_create ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_definitions_create"
-      end
-      # resource path
-      local_var_path = '/workflows/entities/definitions/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'validate_only'] = opts[:'validate_only'] if !opts[:'validate_only'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json', 'application/yaml'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ApiResourceIDsResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"WorkflowsApi.workflow_definitions_create",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_definitions_create\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Exports a workflow definition for the given definition ID
     # @param id [String] ID of workflow definitions to return details for
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported (default to true)
     # @return [Array<Integer>]
     def workflow_definitions_export(id, opts = {})
       data, _status_code, _headers = workflow_definitions_export_with_http_info(id, opts)
@@ -189,6 +193,7 @@ module Falcon
     # Exports a workflow definition for the given definition ID
     # @param id [String] ID of workflow definitions to return details for
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :sanitize whether or not to sanitize PII from workflow before it&#39;s exported (default to true)
     # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
     def workflow_definitions_export_with_http_info(id, opts = {})
       if @api_client.config.debugging
@@ -212,11 +217,12 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'id'] = id
+      query_params[:'sanitize'] = opts[:'sanitize'] if !opts[:'sanitize'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/yaml'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/yaml', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -469,6 +475,93 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowsApi#workflow_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+    # @param body [Object]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+    # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
+    # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
+    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+    # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
+    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+    # @return [ApiResourceIDsResponse]
+    def workflow_execute_internal(body, opts = {})
+      data, _status_code, _headers = workflow_execute_internal_with_http_info(body, opts)
+      data
+    end
+
+    # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+    # @param body [Object]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+    # @option opts [Array<String>] :definition_id Definition ID to execute, either a name or an ID can be specified.
+    # @option opts [String] :name Workflow name to execute, either a name or an ID can be specified.
+    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+    # @option opts [Integer] :batch_size Used to set the batchSize, if unset the default batchSize is used
+    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+    # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
+    def workflow_execute_internal_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_execute_internal ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_execute_internal"
+      end
+      # resource path
+      local_var_path = '/workflows/entities/execute/internal/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'execution_cid'] = @api_client.build_collection_param(opts[:'execution_cid'], :csv) if !opts[:'execution_cid'].nil?
+      query_params[:'definition_id'] = @api_client.build_collection_param(opts[:'definition_id'], :csv) if !opts[:'definition_id'].nil?
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'key'] = opts[:'key'] if !opts[:'key'].nil?
+      query_params[:'depth'] = opts[:'depth'] if !opts[:'depth'].nil?
+      query_params[:'batch_size'] = opts[:'batch_size'] if !opts[:'batch_size'].nil?
+      query_params[:'source_event_url'] = opts[:'source_event_url'] if !opts[:'source_event_url'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiResourceIDsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"WorkflowsApi.workflow_execute_internal",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_execute_internal\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -755,6 +848,93 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Executes a workflow definition with mocks
+    # @param body [ModelsMockExecutionCreateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+    # @option opts [String] :definition_id Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+    # @option opts [String] :name Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+    # @option opts [Boolean] :validate_only When enabled, prevents execution after validating mocks against definition (default to false)
+    # @return [ApiResourceIDsResponse]
+    def workflow_mock_execute(body, opts = {})
+      data, _status_code, _headers = workflow_mock_execute_with_http_info(body, opts)
+      data
+    end
+
+    # Executes a workflow definition with mocks
+    # @param body [ModelsMockExecutionCreateRequestV1]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+    # @option opts [String] :definition_id Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+    # @option opts [String] :name Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+    # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+    # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+    # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
+    # @option opts [Boolean] :validate_only When enabled, prevents execution after validating mocks against definition (default to false)
+    # @return [Array<(ApiResourceIDsResponse, Integer, Hash)>] ApiResourceIDsResponse data, response status code and response headers
+    def workflow_mock_execute_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_mock_execute ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling WorkflowsApi.workflow_mock_execute"
+      end
+      # resource path
+      local_var_path = '/workflows/entities/mock-executions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'execution_cid'] = @api_client.build_collection_param(opts[:'execution_cid'], :csv) if !opts[:'execution_cid'].nil?
+      query_params[:'definition_id'] = opts[:'definition_id'] if !opts[:'definition_id'].nil?
+      query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'key'] = opts[:'key'] if !opts[:'key'].nil?
+      query_params[:'depth'] = opts[:'depth'] if !opts[:'depth'].nil?
+      query_params[:'source_event_url'] = opts[:'source_event_url'] if !opts[:'source_event_url'].nil?
+      query_params[:'validate_only'] = opts[:'validate_only'] if !opts[:'validate_only'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiResourceIDsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"WorkflowsApi.workflow_mock_execute",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_mock_execute\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deprovisions a system definition that was previously provisioned on the target CID
     # @param body [ClientSystemDefinitionDeProvisionRequest]
     # @param [Hash] opts the optional parameters
@@ -949,6 +1129,64 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WorkflowsApi#workflow_system_definitions_provision\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @return [TriggersTriggerExternalResponse]
+    def workflow_triggers_combined(opts = {})
+      data, _status_code, _headers = workflow_triggers_combined_with_http_info(opts)
+      data
+    end
+
+    # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @return [Array<(TriggersTriggerExternalResponse, Integer, Hash)>] TriggersTriggerExternalResponse data, response status code and response headers
+    def workflow_triggers_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkflowsApi.workflow_triggers_combined ...'
+      end
+      # resource path
+      local_var_path = '/workflows/combined/triggers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TriggersTriggerExternalResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"WorkflowsApi.workflow_triggers_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkflowsApi#workflow_triggers_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

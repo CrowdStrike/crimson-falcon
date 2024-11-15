@@ -160,6 +160,17 @@ describe 'FalconCompleteDashboardApi' do
     end
   end
 
+  # unit tests for aggregate_support_issues
+  # Retrieve aggregate support issue ticket values based on the matched filter
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [MsaAggregatesResponse]
+  describe 'aggregate_support_issues test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for aggregate_total_device_counts
   # Retrieve aggregate total host/devices based on the matched filter
   # @param body
@@ -178,7 +189,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'get_device_count_collection_queries_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -192,7 +203,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_alert_ids_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -206,7 +217,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_allow_list_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -220,7 +231,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_block_list_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -234,7 +245,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_detection_ids_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -248,7 +259,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_escalations_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -262,7 +273,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_incident_ids_by_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -276,7 +287,7 @@ describe 'FalconCompleteDashboardApi' do
   # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
   # @option opts [String] :offset Starting index of overall result set from which to return ids.
-  # @return [MsaspecQueryResponse]
+  # @return [MsaQueryResponse]
   describe 'query_remediations_filter test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

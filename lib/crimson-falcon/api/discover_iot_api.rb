@@ -103,7 +103,7 @@ module Falcon
     # @option opts [Integer] :offset An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results.
     # @option opts [Integer] :limit The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
-    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!).
+    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).
     # @return [MsaspecQueryResponse]
     def query_iot_hosts(opts = {})
       data, _status_code, _headers = query_iot_hosts_with_http_info(opts)
@@ -115,7 +115,7 @@ module Falcon
     # @option opts [Integer] :offset An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results.
     # @option opts [Integer] :limit The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
     # @option opts [String] :sort Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
-    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!).
+    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_iot_hosts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -173,6 +173,81 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DiscoverIotApi#query_iot_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
+    # @option opts [Integer] :limit The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;after&#x60; parameter to manage pagination of results.
+    # @option opts [String] :sort Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!).
+    # @return [DomainDiscoverAPIResponse]
+    def query_iot_hosts_v2(opts = {})
+      data, _status_code, _headers = query_iot_hosts_v2_with_http_info(opts)
+      data
+    end
+
+    # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
+    # @option opts [Integer] :limit The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;after&#x60; parameter to manage pagination of results.
+    # @option opts [String] :sort Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
+    # @option opts [String] :filter Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!).
+    # @return [Array<(DomainDiscoverAPIResponse, Integer, Hash)>] DomainDiscoverAPIResponse data, response status code and response headers
+    def query_iot_hosts_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DiscoverIotApi.query_iot_hosts_v2 ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts_v2, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DiscoverIotApi.query_iot_hosts_v2, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/discover/queries/iot-hosts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'after'] = opts[:'after'] if !opts[:'after'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainDiscoverAPIResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DiscoverIotApi.query_iot_hosts_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DiscoverIotApi#query_iot_hosts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

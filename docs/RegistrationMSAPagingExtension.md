@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **paging** | [**MsaspecPaging**](MsaspecPaging.md) |  |  |
+| **paging** | [**MsaPaging**](MsaPaging.md) |  |  |
 | **next_token** | **String** |  | [optional] |
 
 ## Example

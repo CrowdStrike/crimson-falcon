@@ -7,7 +7,7 @@
 | **id** | **String** | Unique identifier for the selected trigger as provided by the triggers API | [optional] |
 | **mocked** | **Boolean** | Whether this node&#39;s result is mocked | [optional] |
 | **name** | **String** | Display name of the trigger |  |
-| **result** | **String** | Opaque blob for result of trigger. Structured according to the trigger&#39;s JSON schema&#39;. | [optional] |
+| **result** | **Object** | Opaque blob for result of trigger. Structured according to the trigger&#39;s JSON schema&#39;. | [optional] |
 
 ## Example
 

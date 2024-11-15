@@ -32,18 +32,18 @@ require 'time'
 
 module Falcon
   class DomainAPIError
-    attr_accessor :errors
+    attr_accessor :code
 
-    attr_accessor :meta
+    attr_accessor :message
 
-    attr_accessor :resources
+    attr_accessor :submission
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'errors' => :'errors',
-        :'meta' => :'meta',
-        :'resources' => :'resources'
+        :'code' => :'code',
+        :'message' => :'message',
+        :'submission' => :'submission'
       }
     end
 
@@ -55,9 +55,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'errors' => :'Array<MsaspecError>',
-        :'meta' => :'MsaspecMetaInfo',
-        :'resources' => :'Object'
+        :'code' => :'Integer',
+        :'message' => :'String',
+        :'submission' => :'DomainCreateSubmissionV1ErrorResponse'
       }
     end
 
@@ -82,18 +82,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'errors')
-        if (value = attributes[:'errors']).is_a?(Array)
-          self.errors = value
-        end
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
-      if attributes.key?(:'meta')
-        self.meta = attributes[:'meta']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'resources')
-        self.resources = attributes[:'resources']
+      if attributes.key?(:'submission')
+        self.submission = attributes[:'submission']
       end
     end
 
@@ -101,12 +99,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @errors.nil?
-        invalid_properties.push('invalid value for "errors", errors cannot be nil.')
+      if @code.nil?
+        invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
 
-      if @meta.nil?
-        invalid_properties.push('invalid value for "meta", meta cannot be nil.')
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
       end
 
       invalid_properties
@@ -115,8 +113,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @errors.nil?
-      return false if @meta.nil?
+      return false if @code.nil?
+      return false if @message.nil?
       true
     end
 
@@ -125,9 +123,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          errors == o.errors &&
-          meta == o.meta &&
-          resources == o.resources
+          code == o.code &&
+          message == o.message &&
+          submission == o.submission
     end
 
     # @see the `==` method
@@ -139,7 +137,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [errors, meta, resources].hash
+      [code, message, submission].hash
     end
 
     # Builds the object from hash

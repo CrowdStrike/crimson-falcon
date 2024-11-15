@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :conditions
 
+    attr_accessor :display
+
     attr_accessor :_for
 
     attr_accessor :_next
@@ -47,6 +49,7 @@ module Falcon
       {
         :'actions' => :'actions',
         :'conditions' => :'conditions',
+        :'display' => :'display',
         :'_for' => :'for',
         :'_next' => :'next',
         :'trigger' => :'trigger'
@@ -63,6 +66,7 @@ module Falcon
       {
         :'actions' => :'Hash<String, V2Activity>',
         :'conditions' => :'Hash<String, V2Condition>',
+        :'display' => :'String',
         :'_for' => :'V2ForLoop',
         :'_next' => :'Array<String>',
         :'trigger' => :'V2Trigger'
@@ -100,6 +104,10 @@ module Falcon
         if (value = attributes[:'conditions']).is_a?(Hash)
           self.conditions = value
         end
+      end
+
+      if attributes.key?(:'display')
+        self.display = attributes[:'display']
       end
 
       if attributes.key?(:'_for')
@@ -142,6 +150,7 @@ module Falcon
       self.class == o.class &&
           actions == o.actions &&
           conditions == o.conditions &&
+          display == o.display &&
           _for == o._for &&
           _next == o._next &&
           trigger == o.trigger
@@ -156,7 +165,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, _for, _next, trigger].hash
+      [actions, conditions, display, _for, _next, trigger].hash
     end
 
     # Builds the object from hash

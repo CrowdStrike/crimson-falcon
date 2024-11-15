@@ -37,6 +37,9 @@ module Falcon
 
     attr_accessor :default_value
 
+    # Optional text/description which can be used to provide differentiation for parameterized fields during app installation.
+    attr_accessor :helper_text
+
     # Whether the field can be specified multiple times as provisioning parameter. When true, all values or combined via an OR operator.
     attr_accessor :multiple
 
@@ -51,6 +54,7 @@ module Falcon
       {
         :'default_operator' => :'default_operator',
         :'default_value' => :'default_value',
+        :'helper_text' => :'helperText',
         :'multiple' => :'multiple',
         :'operator' => :'operator',
         :'required' => :'required'
@@ -67,6 +71,7 @@ module Falcon
       {
         :'default_operator' => :'String',
         :'default_value' => :'Object',
+        :'helper_text' => :'String',
         :'multiple' => :'Boolean',
         :'operator' => :'String',
         :'required' => :'Boolean'
@@ -100,6 +105,10 @@ module Falcon
 
       if attributes.key?(:'default_value')
         self.default_value = attributes[:'default_value']
+      end
+
+      if attributes.key?(:'helper_text')
+        self.helper_text = attributes[:'helper_text']
       end
 
       if attributes.key?(:'multiple')
@@ -145,6 +154,7 @@ module Falcon
       self.class == o.class &&
           default_operator == o.default_operator &&
           default_value == o.default_value &&
+          helper_text == o.helper_text &&
           multiple == o.multiple &&
           operator == o.operator &&
           required == o.required
@@ -159,7 +169,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [default_operator, default_value, multiple, operator, required].hash
+      [default_operator, default_value, helper_text, multiple, operator, required].hash
     end
 
     # Builds the object from hash

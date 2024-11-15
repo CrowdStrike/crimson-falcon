@@ -46,6 +46,8 @@ module Falcon
 
     attr_accessor :cloud_region
 
+    attr_accessor :cloud_service
+
     attr_accessor :cluster_id
 
     attr_accessor :cluster_name
@@ -57,6 +59,10 @@ module Falcon
     attr_accessor :container_count
 
     attr_accessor :first_seen
+
+    attr_accessor :iar_coverage
+
+    attr_accessor :kac_agent_id
 
     attr_accessor :kubernetes_version
 
@@ -86,12 +92,15 @@ module Falcon
         :'cloud_account_id' => :'cloud_account_id',
         :'cloud_name' => :'cloud_name',
         :'cloud_region' => :'cloud_region',
+        :'cloud_service' => :'cloud_service',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
         :'cluster_security_group' => :'cluster_security_group',
         :'cluster_status' => :'cluster_status',
         :'container_count' => :'container_count',
         :'first_seen' => :'first_seen',
+        :'iar_coverage' => :'iar_coverage',
+        :'kac_agent_id' => :'kac_agent_id',
         :'kubernetes_version' => :'kubernetes_version',
         :'labels_list' => :'labels_list',
         :'last_seen' => :'last_seen',
@@ -119,12 +128,15 @@ module Falcon
         :'cloud_account_id' => :'String',
         :'cloud_name' => :'String',
         :'cloud_region' => :'String',
+        :'cloud_service' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
         :'cluster_security_group' => :'String',
         :'cluster_status' => :'String',
         :'container_count' => :'Integer',
         :'first_seen' => :'String',
+        :'iar_coverage' => :'Boolean',
+        :'kac_agent_id' => :'String',
         :'kubernetes_version' => :'String',
         :'labels_list' => :'Array<String>',
         :'last_seen' => :'String',
@@ -188,6 +200,10 @@ module Falcon
         self.cloud_region = attributes[:'cloud_region']
       end
 
+      if attributes.key?(:'cloud_service')
+        self.cloud_service = attributes[:'cloud_service']
+      end
+
       if attributes.key?(:'cluster_id')
         self.cluster_id = attributes[:'cluster_id']
       end
@@ -210,6 +226,14 @@ module Falcon
 
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
+      end
+
+      if attributes.key?(:'iar_coverage')
+        self.iar_coverage = attributes[:'iar_coverage']
+      end
+
+      if attributes.key?(:'kac_agent_id')
+        self.kac_agent_id = attributes[:'kac_agent_id']
       end
 
       if attributes.key?(:'kubernetes_version')
@@ -285,6 +309,10 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_region", cloud_region cannot be nil.')
       end
 
+      if @cloud_service.nil?
+        invalid_properties.push('invalid value for "cloud_service", cloud_service cannot be nil.')
+      end
+
       if @cluster_id.nil?
         invalid_properties.push('invalid value for "cluster_id", cluster_id cannot be nil.')
       end
@@ -307,6 +335,14 @@ module Falcon
 
       if @first_seen.nil?
         invalid_properties.push('invalid value for "first_seen", first_seen cannot be nil.')
+      end
+
+      if @iar_coverage.nil?
+        invalid_properties.push('invalid value for "iar_coverage", iar_coverage cannot be nil.')
+      end
+
+      if @kac_agent_id.nil?
+        invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
       end
 
       if @kubernetes_version.nil?
@@ -358,12 +394,15 @@ module Falcon
       return false if @cloud_account_id.nil?
       return false if @cloud_name.nil?
       return false if @cloud_region.nil?
+      return false if @cloud_service.nil?
       return false if @cluster_id.nil?
       return false if @cluster_name.nil?
       return false if @cluster_security_group.nil?
       return false if @cluster_status.nil?
       return false if @container_count.nil?
       return false if @first_seen.nil?
+      return false if @iar_coverage.nil?
+      return false if @kac_agent_id.nil?
       return false if @kubernetes_version.nil?
       return false if @labels_list.nil?
       return false if @last_seen.nil?
@@ -388,12 +427,15 @@ module Falcon
           cloud_account_id == o.cloud_account_id &&
           cloud_name == o.cloud_name &&
           cloud_region == o.cloud_region &&
+          cloud_service == o.cloud_service &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
           cluster_security_group == o.cluster_security_group &&
           cluster_status == o.cluster_status &&
           container_count == o.container_count &&
           first_seen == o.first_seen &&
+          iar_coverage == o.iar_coverage &&
+          kac_agent_id == o.kac_agent_id &&
           kubernetes_version == o.kubernetes_version &&
           labels_list == o.labels_list &&
           last_seen == o.last_seen &&
@@ -414,7 +456,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access, agent_status, agents, cid, cloud_account_id, cloud_name, cloud_region, cluster_id, cluster_name, cluster_security_group, cluster_status, container_count, first_seen, kubernetes_version, labels_list, last_seen, management_status, node_count, pod_count, security_group, tags, virtual_network].hash
+      [access, agent_status, agents, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, cluster_security_group, cluster_status, container_count, first_seen, iar_coverage, kac_agent_id, kubernetes_version, labels_list, last_seen, management_status, node_count, pod_count, security_group, tags, virtual_network].hash
     end
 
     # Builds the object from hash

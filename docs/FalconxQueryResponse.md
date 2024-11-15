@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
 | **meta** | [**FalconxMetaInfo**](FalconxMetaInfo.md) |  |  |
 | **resources** | **Array&lt;String&gt;** |  |  |
 

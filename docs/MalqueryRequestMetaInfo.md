@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **options** | [**MalqueryExternalHuntOptions**](MalqueryExternalHuntOptions.md) |  | [optional] |
-| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
+| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
 | **patterns** | [**Array&lt;MalquerySearchParameter&gt;**](MalquerySearchParameter.md) | Patterns to search for | [optional] |
 | **powered_by** | **String** |  | [optional] |
 | **query_time** | **Float** | Elapsed time since the request started in seconds | [optional] |

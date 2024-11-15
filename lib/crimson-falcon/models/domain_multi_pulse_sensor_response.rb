@@ -56,7 +56,7 @@ module Falcon
     def self.openapi_types
       {
         :'aid' => :'String',
-        :'errors' => :'Array<MsaspecError>',
+        :'errors' => :'Array<MsaAPIError>',
         :'session_id' => :'String'
       }
     end

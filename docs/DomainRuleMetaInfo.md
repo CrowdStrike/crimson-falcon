@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**MsaspecPaging**](MsaspecPaging.md) |  | [optional] |
+| **pagination** | [**MsaPaging**](MsaPaging.md) |  | [optional] |
 | **powered_by** | **String** | The API that generated the response | [optional] |
 | **query_time** | **Float** | How much time the query took |  |
 | **quota** | [**DomainRuleQuota**](DomainRuleQuota.md) |  | [optional] |

@@ -236,17 +236,17 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The ID of the report you want to download as a PDF.
     # @option opts [String] :ids The ID of the report you want to download as a PDF. This parameter is used only if no id parameter given.
-    # @return [nil]
+    # @return [File]
     def get_intel_report_pdf(opts = {})
-      get_intel_report_pdf_with_http_info(opts)
-      nil
+      data, _status_code, _headers = get_intel_report_pdf_with_http_info(opts)
+      data
     end
 
     # Return a Report PDF attachment
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The ID of the report you want to download as a PDF.
     # @option opts [String] :ids The ID of the report you want to download as a PDF. This parameter is used only if no id parameter given.
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_intel_report_pdf_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_report_pdf ...'
@@ -271,7 +271,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -360,10 +360,10 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-    # @return [nil]
+    # @return [File]
     def get_intel_rule_file(id, opts = {})
-      get_intel_rule_file_with_http_info(id, opts)
-      nil
+      data, _status_code, _headers = get_intel_rule_file_with_http_info(id, opts)
+      data
     end
 
     # Download earlier rule sets.
@@ -371,7 +371,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_intel_rule_file_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IntelApi.get_intel_rule_file ...'
@@ -401,7 +401,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -424,26 +424,28 @@ module Falcon
     end
 
     # Download the latest rule set.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
     # @option opts [String] :if_modified_since Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted
     # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-    # @return [nil]
+    # @option opts [String] :if_modified_since2 Download Only if changed since
+    # @return [File]
     def get_latest_intel_rule_file(type, opts = {})
-      get_latest_intel_rule_file_with_http_info(type, opts)
-      nil
+      data, _status_code, _headers = get_latest_intel_rule_file_with_http_info(type, opts)
+      data
     end
 
     # Download the latest rule set.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
     # @param [Hash] opts the optional parameters
     # @option opts [String] :accept Choose the format you want the rule set in.
     # @option opts [String] :if_none_match Download the latest rule set only if it doesn&#39;t have an ETag matching the given ones.
     # @option opts [String] :if_modified_since Download the latest rule set only if the rule was modified after this date. http, ANSIC and RFC850 formats accepted
     # @option opts [String] :format Choose the format you want the rule set in. Valid formats are zip and gzip. Defaults to zip.
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    # @option opts [String] :if_modified_since2 Download Only if changed since
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def get_latest_intel_rule_file_with_http_info(type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IntelApi.get_latest_intel_rule_file ...'
@@ -467,6 +469,7 @@ module Falcon
       header_params[:'Accept'] = opts[:'accept'] if !opts[:'accept'].nil?
       header_params[:'If-None-Match'] = opts[:'if_none_match'] if !opts[:'if_none_match'].nil?
       header_params[:'If-Modified-Since'] = opts[:'if_modified_since'] if !opts[:'if_modified_since'].nil?
+      header_params[:'If-Modified-Since'] = opts[:'if_modified_since2'] if !opts[:'if_modified_since2'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -475,7 +478,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type]
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -493,6 +496,140 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IntelApi#get_latest_intel_rule_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get malware entities for specified ids.
+    # @param ids [Array<String>] Malware family name in lower case with spaces, dots and slashes replaced with dashes
+    # @param [Hash] opts the optional parameters
+    # @return [DomainMalwareResponse]
+    def get_malware_entities(ids, opts = {})
+      data, _status_code, _headers = get_malware_entities_with_http_info(ids, opts)
+      data
+    end
+
+    # Get malware entities for specified ids.
+    # @param ids [Array<String>] Malware family name in lower case with spaces, dots and slashes replaced with dashes
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainMalwareResponse, Integer, Hash)>] DomainMalwareResponse data, response status code and response headers
+    def get_malware_entities_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IntelApi.get_malware_entities ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.get_malware_entities"
+      end
+      # resource path
+      local_var_path = '/intel/entities/malware/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainMalwareResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IntelApi.get_malware_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IntelApi#get_malware_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Export Mitre ATT&CK information for a given malware family.
+    # @param id [String] Malware family name in lower case with spaces replaced with dashes
+    # @param format [String] Supported report formats: CSV, JSON or JSON_NAVIGATOR
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_useruuid User id
+    # @return [nil]
+    def get_malware_mitre_report(id, format, opts = {})
+      get_malware_mitre_report_with_http_info(id, format, opts)
+      nil
+    end
+
+    # Export Mitre ATT&amp;CK information for a given malware family.
+    # @param id [String] Malware family name in lower case with spaces replaced with dashes
+    # @param format [String] Supported report formats: CSV, JSON or JSON_NAVIGATOR
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_useruuid User id
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def get_malware_mitre_report_with_http_info(id, format, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IntelApi.get_malware_mitre_report ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling IntelApi.get_malware_mitre_report"
+      end
+      # verify the required parameter 'format' is set
+      if @api_client.config.client_side_validation && format.nil?
+        fail ArgumentError, "Missing the required parameter 'format' when calling IntelApi.get_malware_mitre_report"
+      end
+      # resource path
+      local_var_path = '/intel/entities/malware-mitre-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'format'] = format
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/csv'])
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IntelApi.get_malware_mitre_report",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IntelApi#get_malware_mitre_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1137,7 +1274,7 @@ module Falcon
     end
 
     # Search for rule IDs that match provided filter criteria.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.
@@ -1155,7 +1292,7 @@ module Falcon
     end
 
     # Search for rule IDs that match provided filter criteria.
-    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness
+    # @param type [String] The rule news report type. Accepted values:  snort-suricata-master  snort-suricata-update  snort-suricata-changelog  yara-master  yara-update  yara-changelog  common-event-format  netwitness  cql-master  cql-update  cql-changelog
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit The number of rule IDs to return. Defaults to 10.
@@ -1225,6 +1362,76 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get malware family names that match provided FQL filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+    # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+    # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+    # @option opts [String] :q Perform a generic substring search across all fields.
+    # @return [DomainQueryResponse]
+    def query_malware(opts = {})
+      data, _status_code, _headers = query_malware_with_http_info(opts)
+      data
+    end
+
+    # Get malware family names that match provided FQL filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+    # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+    # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+    # @option opts [String] :q Perform a generic substring search across all fields.
+    # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
+    def query_malware_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IntelApi.query_malware ...'
+      end
+      # resource path
+      local_var_path = '/intel/queries/malware/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IntelApi.query_malware",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IntelApi#query_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed
@@ -1282,6 +1489,68 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IntelApi#query_mitre_attacks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets MITRE tactics and techniques for the given malware
+    # @param ids [Array<String>] Malware family name in lower case with spaces replaced with dashes
+    # @param [Hash] opts the optional parameters
+    # @return [DomainQueryResponse]
+    def query_mitre_attacks_for_malware(ids, opts = {})
+      data, _status_code, _headers = query_mitre_attacks_for_malware_with_http_info(ids, opts)
+      data
+    end
+
+    # Gets MITRE tactics and techniques for the given malware
+    # @param ids [Array<String>] Malware family name in lower case with spaces replaced with dashes
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
+    def query_mitre_attacks_for_malware_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IntelApi.query_mitre_attacks_for_malware ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IntelApi.query_mitre_attacks_for_malware"
+      end
+      # resource path
+      local_var_path = '/intel/queries/mitre-malware/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IntelApi.query_mitre_attacks_for_malware",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IntelApi#query_mitre_attacks_for_malware\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

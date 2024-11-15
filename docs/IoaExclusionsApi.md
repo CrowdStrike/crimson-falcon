@@ -1,6 +1,6 @@
 # Falcon::IoaExclusionsApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -243,7 +243,9 @@ end
 
 api_instance = Falcon::IoaExclusionsApi.new
 opts = {
-  filter: 'filter_example', # String | The filter expression that should be used to limit the results.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the `ifn_regex` and `cl_regex` parameters.
+  ifn_regex: 'ifn_regex_example', # String | The `ifn_regex` expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  cl_regex: 'cl_regex_example', # String | The `cl_regex` expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'applied_globally.asc' # String | The sort expression that should be used to sort the results.
@@ -280,7 +282,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | The filter expression that should be used to limit the results. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters. | [optional] |
+| **ifn_regex** | **String** | The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter. | [optional] |
+| **cl_regex** | **String** | The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter. | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 | **sort** | **String** | The sort expression that should be used to sort the results. | [optional] |

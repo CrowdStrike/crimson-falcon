@@ -32,52 +32,55 @@ require 'time'
 
 module Falcon
   class DomainItemDetailsV1
-    # Threat actor associated with the raw intelligence item, if available
+    # The threat actor associated with a raw intelligence item, if available.
     attr_accessor :actor_slug
 
-    # Pointers to attachments items linked to this item
+    # Attachments items linked to the raw intelligence item
     attr_accessor :attachments
 
-    # The raw intelligence item author username
+    # The author’s username of a raw intelligence item
     attr_accessor :author
 
     # The raw intelligence item author identifier in our system
     attr_accessor :author_id
 
-    # Category of the source where the item was found
+    # The type of source where the raw intelligence item was found
     attr_accessor :category
 
-    # The date when the raw intelligence item was scraped from the original source
+    # The date and time the raw intelligence item was scraped from the original source
     attr_accessor :collection_date
 
-    # Highlighted content based on the rule that generated the notifications. Highlights are surrounded with a `<cs-highlight>` tag
+    # Highlighted content based on the monitoring rule that generated the notification. Highlights are surrounded with a `<cs-highlight>` tag
     attr_accessor :content
 
-    # The date when the raw intelligence item was created
+    # The date and time when the raw intelligence item was created
     attr_accessor :created_date
 
-    # Mime type of the file for file type items
+    # The file type of the raw intelligence item, if available
     attr_accessor :file_type
 
     attr_accessor :fragment_info
 
-    # IOC types available in the raw intelligence item. List of keys populated in the iocs field
+    # The URL to download the full raw text content of the raw intelligence item. It has a limited time to live
+    attr_accessor :full_content_url
+
+    # The types of IOCs found in the raw intelligence item. List of keys populated in the iocs field
     attr_accessor :ioc_types
 
     attr_accessor :iocs
 
-    # The raw intelligence item labels. These contain hints around what is actually included in the item (malware, IPs, emails, etc).
+    # Labels for the type of information included in a raw intelligence item
     attr_accessor :labels
 
-    # The raw intelligence item language
+    # The language of the raw intelligence item
     attr_accessor :language
 
     attr_accessor :marketplace_product
 
-    # Mime type of the file for file type items
+    # The mime type of the file
     attr_accessor :mime_type
 
-    # SHA256 of the file contents for file type items
+    # The SHA256 hash for the file
     attr_accessor :sha256
 
     # The site where the raw intelligence item was found
@@ -86,27 +89,27 @@ module Falcon
     # The ID of the site where the raw intelligence item was found
     attr_accessor :site_id
 
-    # Size of the item's content in bytes, if available
+    # The size of the item's content in bytes, if available
     attr_accessor :size
 
     attr_accessor :telegram_info
 
-    # Identifier that groups all raw intelligence items belonging to the same 'conversation stream', i.e. chatroom, forum thread, etc.
+    # Identifier that groups all raw intelligence items belonging to the same conversation thread
     attr_accessor :thread_id
 
-    # The raw intelligence item title
+    # The title of the raw intelligence item
     attr_accessor :title
 
     # The type of the raw intelligence item
     attr_accessor :type
 
-    # The date when the raw intelligence item was updated
+    # The date and time when the raw intelligence item was updated
     attr_accessor :updated_date
 
-    # The raw intelligence item URL
+    # The URL of the raw intelligence item
     attr_accessor :url
 
-    # The raw intelligence item author identifier in the original site
+    # The raw intelligence item author identifier in the original source
     attr_accessor :user_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -122,6 +125,7 @@ module Falcon
         :'created_date' => :'created_date',
         :'file_type' => :'file_type',
         :'fragment_info' => :'fragment_info',
+        :'full_content_url' => :'full_content_url',
         :'ioc_types' => :'ioc_types',
         :'iocs' => :'iocs',
         :'labels' => :'labels',
@@ -160,6 +164,7 @@ module Falcon
         :'created_date' => :'Time',
         :'file_type' => :'String',
         :'fragment_info' => :'DomainFragmentInfo',
+        :'full_content_url' => :'String',
         :'ioc_types' => :'Array<String>',
         :'iocs' => :'DomainIOC',
         :'labels' => :'Array<String>',
@@ -241,6 +246,10 @@ module Falcon
 
       if attributes.key?(:'fragment_info')
         self.fragment_info = attributes[:'fragment_info']
+      end
+
+      if attributes.key?(:'full_content_url')
+        self.full_content_url = attributes[:'full_content_url']
       end
 
       if attributes.key?(:'ioc_types')
@@ -374,6 +383,7 @@ module Falcon
           created_date == o.created_date &&
           file_type == o.file_type &&
           fragment_info == o.fragment_info &&
+          full_content_url == o.full_content_url &&
           ioc_types == o.ioc_types &&
           iocs == o.iocs &&
           labels == o.labels &&
@@ -402,7 +412,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actor_slug, attachments, author, author_id, category, collection_date, content, created_date, file_type, fragment_info, ioc_types, iocs, labels, language, marketplace_product, mime_type, sha256, site, site_id, size, telegram_info, thread_id, title, type, updated_date, url, user_id].hash
+      [actor_slug, attachments, author, author_id, category, collection_date, content, created_date, file_type, fragment_info, full_content_url, ioc_types, iocs, labels, language, marketplace_product, mime_type, sha256, site, site_id, size, telegram_info, thread_id, title, type, updated_date, url, user_id].hash
     end
 
     # Builds the object from hash

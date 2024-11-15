@@ -65,7 +65,7 @@ module Falcon
         :'id' => :'String',
         :'mocked' => :'Boolean',
         :'name' => :'String',
-        :'result' => :'String'
+        :'result' => :'Object'
       }
     end
 

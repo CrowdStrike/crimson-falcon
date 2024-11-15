@@ -42,6 +42,12 @@ describe Falcon::DomainReportParams do
       expect(instance).to be_instance_of(Falcon::DomainReportParams)
     end
   end
+  describe 'test attribute "columns"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "dashboard_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -85,6 +91,12 @@ describe Falcon::DomainReportParams do
   end
 
   describe 'test attribute "sort"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "spotlight_params"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

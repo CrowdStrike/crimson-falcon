@@ -5,8 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **enrichment_data** | [**Array&lt;K8sassetsClusterEnrichmentEntry&gt;**](K8sassetsClusterEnrichmentEntry.md) |  |  |
-| **errors** | [**Array&lt;MsaspecError&gt;**](MsaspecError.md) |  | [optional] |
-| **meta** | [**MsaspecMetaInfo**](MsaspecMetaInfo.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
 
 ## Example
 

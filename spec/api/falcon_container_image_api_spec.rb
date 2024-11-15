@@ -71,6 +71,50 @@ describe 'FalconContainerImageApi' do
     end
   end
 
+  # unit tests for download_export_file
+  # Download an export file
+  # @param id Export job ID.
+  # @param [Hash] opts the optional parameters
+  # @return [Array<Integer>]
+  describe 'download_export_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for launch_export_job
+  # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
+  # @param body Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+  # @param [Hash] opts the optional parameters
+  # @return [ExportsLaunchExportResponse]
+  describe 'launch_export_job test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for query_export_jobs
+  # Query export jobs entities
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string)
+  # @return [MsaspecQueryResponse]
+  describe 'query_export_jobs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_export_jobs
+  # Read export jobs entities
+  # @param ids Export Job IDs to read. Allowed up to 100 IDs per request.
+  # @param [Hash] opts the optional parameters
+  # @return [ExportsExportsResponse]
+  describe 'read_export_jobs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for read_registry_entities
   # Retrieve registry entities identified by the customer id
   # @param [Hash] opts the optional parameters
