@@ -25,8 +25,8 @@ Falcon.configure do |config|
   config.cloud = ENV["FALCON_CLOUD"] || options_parser.options[:cloud]
 end
 
-# Create an instance of the SensorDownloadApi class
-api_instance = Falcon::Oauth2Api.new
+# Create an instance of the SensorDownload class
+api_instance = Falcon::Oauth2.new
 opts = {}
 opts[:member_cid] = options_parser.options[:member_cid] if options_parser.options[:member_cid]
 
@@ -35,5 +35,5 @@ begin
   result = api_instance.oauth2_access_token(Falcon.configure.client_id, Falcon.configure.client_secret, opts)
   puts result.access_token
 rescue Falcon::ApiError => e
-  puts "Exception when calling Oauth2Api->oauth2_access_token: #{e}"
+  puts "Exception when calling Oauth2->oauth2_access_token: #{e}"
 end

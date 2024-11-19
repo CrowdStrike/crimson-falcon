@@ -95,90 +95,6 @@
   | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
       .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
 
-  # # Better operationId for workflows collection
-  # | .paths."/workflows/entities/execute/v1".post.operationId = "Execute"
-  # | .paths."/workflows/entities/execution-actions/v1".post.operationId = "ExecutionAction"
-  # | .paths."/workflows/entities/execution-results/v1".get.operationId = "ExecutionResults"
-  # | .paths."/workflows/system-definitions/deprovision/v1".post.operationId = "Deprovision"
-  # | .paths."/workflows/system-definitions/promote/v1".post.operationId = "Promote"
-  # | .paths."/workflows/system-definitions/provision/v1".post.operationId = "Provision"
-
-  # # Better operationId for foundry-logscale collection
-  # | .paths."/loggingapi/combined/repos/v1".get.operationId = "ListRepos"
-  # | .paths."/loggingapi/entities/data-ingestion/ingest/v1".post.operationId = "IngestData"
-  # | .paths."/loggingapi/entities/saved-searches/execute-dynamic/v1".post.operationId = "ExecuteDynamic"
-  # | .paths."/loggingapi/entities/saved-searches/execute/v1".get.operationId = "GetSearchResults"
-  # | .paths."/loggingapi/entities/saved-searches/execute/v1".post.operationId = "Execute"
-  # | .paths."/loggingapi/entities/saved-searches/ingest/v1".post.operationId = "Populate"
-  # | .paths."/loggingapi/entities/saved-searches/job-results-download/v1".get.operationId = "DownloadResults"
-  # | .paths."/loggingapi/entities/views/v1".get.operationId = "ListViews"
-
-  # # Better operationId for custom-storage collection
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects".get.operationId = "list"
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects".post.operationId = "search"
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".get.operationId = "get"
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".put.operationId = "upload"
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}".delete.operationId = "delete"
-  # | .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.operationId = "metadata"
-
-  # # Better operationId for unidentified-containers collection
-  # | .paths."/container-security/aggregates/unidentified-containers/count-by-date/v1".get.operationId = "CountByDateRange"
-  # | .paths."/container-security/aggregates/unidentified-containers/count/v1".get.operationId = "Count"
-  # | .paths."/container-security/combined/unidentified-containers/v1".get.operationId = "Search"
-
-  # # Better operationId for snapshots-registration collection
-  # | .paths."/snapshots/entities/accounts/v1".post.operationId = "Register"
-
-  # # Better operationId for scheduled-reports collection
-  # | .paths."/reports/entities/scheduled-reports/execution/v1".post.operationId = "Execute"
-  # | .paths."/reports/entities/scheduled-reports/v1".get.operationId = "QueryById"
-  # | .paths."/reports/queries/scheduled-reports/v1".get.operationId = "Query"
-
-  # # Better operationId for alerts collection
-  # | .paths."/alerts/queries/alerts/v2".get.operationId = "QueryV2"
-  # | .paths."/alerts/entities/alerts/v3".patch.operationId = "UpdateV3"
-  # | .paths."/alerts/aggregates/alerts/v2".post.operationId = "GetAggregateV2"
-  # | .paths."/alerts/entities/alerts/v2".post.operationId = "GetV2"
-
-  # # Better operationId for kubernetes-protection collection
-  # | .paths."/container-security/combined/clusters/v1".get.operationId = "ClusterCombined"
-  # | .paths."/container-security/aggregates/clusters/count/v1".get.operationId = "ClusterCount"
-  # | .paths."/container-security/aggregates/enrichment/clusters/entities/v1".get.operationId = "ClusterEnrichment"
-  # | .paths."/container-security/aggregates/clusters/count-by-date/v1".get.operationId = "ClustersByDateRangeCount"
-  # | .paths."/container-security/aggregates/clusters/count-by-kubernetes-version/v1".get.operationId = "ClustersByKubernetesVersionCount"
-  # | .paths."/container-security/aggregates/clusters/count-by-status/v1".get.operationId = "ClustersByStatusCount"
-  # | .paths."/container-security/combined/containers/v1".get.operationId = "ContainerCombined"
-  # | .paths."/container-security/aggregates/containers/count/v1".get.operationId = "ContainerCount"
-  # | .paths."/container-security/aggregates/containers/count-by-registry/v1".get.operationId = "ContainerCountByRegistry"
-  # | .paths."/container-security/aggregates/enrichment/containers/entities/v1".get.operationId = "ContainerEnrichment"
-  # | .paths."/container-security/aggregates/containers/image-detections-count-by-date/v1".get.operationId = "ContainerImageDetectionsCountByDate"
-  # | .paths."/container-security/aggregates/images/most-used/v1".get.operationId = "ContainerImagesByMostUsed"
-  # | .paths."/container-security/aggregates/containers/images-by-state/v1".get.operationId = "ContainerImagesByState"
-  # | .paths."/container-security/aggregates/containers/vulnerability-count-by-severity/v1".get.operationId = "ContainerVulnerabilitiesBySeverityCount"
-  # | .paths."/container-security/aggregates/containers/count-by-date/v1".get.operationId = "ContainersByDateRangeCount"
-  # | .paths."/container-security/aggregates/containers/sensor-coverage/v1".get.operationId = "ContainersSensorCoverage"
-  # | .paths."/container-security/combined/deployments/v1".get.operationId = "DeploymentCombined"
-  # | .paths."/container-security/aggregates/deployments/count/v1".get.operationId = "DeploymentCount"
-  # | .paths."/container-security/aggregates/enrichment/deployments/entities/v1".get.operationId = "DeploymentEnrichment"
-  # | .paths."/container-security/aggregates/deployments/count-by-date/v1".get.operationId = "DeploymentsByDateRangeCount"
-  # | .paths."/container-security/aggregates/images/count-by-distinct/v1".get.operationId = "DistinctContainerImageCount"
-  # | .paths."/container-security/aggregates/kubernetes-ioms/count-by-date/v1".get.operationId = "KubernetesIomByDateRange"
-  # | .paths."/container-security/aggregates/kubernetes-ioms/count/v1".get.operationId = "KubernetesIomCount"
-  # | .paths."/container-security/entities/kubernetes-ioms/v1".get.operationId = "KubernetesIomEntities"
-  # | .paths."/container-security/combined/nodes/v1".get.operationId = "NodeCombined"
-  # | .paths."/container-security/aggregates/enrichment/nodes/entities/v1".get.operationId = "NodeEnrichment"
-  # | .paths."/container-security/aggregates/nodes/count-by-cloud/v1".get.operationId = "NodesByCloudCount"
-  # | .paths."/container-security/aggregates/nodes/count-by-container-engine-version/v1".get.operationId = "NodesByContainerEngineVersionCount"
-  # | .paths."/container-security/aggregates/nodes/count-by-date/v1".get.operationId = "NodesByDateRangeCount"
-  # | .paths."/container-security/combined/pods/v1".get.operationId = "PodCombined"
-  # | .paths."/container-security/aggregates/pods/count/v1".get.operationId = "PodCount"
-  # | .paths."/container-security/aggregates/enrichment/pods/entities/v1".get.operationId = "PodEnrichment"
-  # | .paths."/container-security/aggregates/pods/count-by-date/v1".get.operationId = "PodsByDateRangeCount"
-  # | .paths."/container-security/combined/container-images/v1".get.operationId = "RunningContainerImages"
-  # | .paths."/container-security/aggregates/containers/count-vulnerable-images/v1".get.operationId = "VulnerableContainerImageCount"
-  # | .paths."/container-security/combined/kubernetes-ioms/v1".get.operationId = "KubernetesIomEntitiesCombined"
-  # | .paths."/container-security/queries/kubernetes-ioms/v1".get.operationId = "QueryKubernetesIoms"
-
   # Allow an empty string be passed to assignment_rule
   | .definitions."host_groups.UpdateGroupReqV1".properties.assignment_rule += {"x-nullable": true}
 
@@ -219,4 +135,27 @@
       "type": "object",
       "description": "The response can be either a JSON object or a string containing CSV data. When the response is JSON, it will be a structured object. When the response is CSV, it will be returned as a raw string."
     }
+
+  # Deal with reduntant use of api in tags
+  | .paths."/csdownloads/entities/files/download/v1".get.tags = ["downloads"]
+  | .paths."/billing-dashboards-usage/aggregates/weekly-average/v1".get.tags = ["sensor-usage"]
+  | .paths."/iac/entities/image-registry-credentials/v1".get.tags = ["cspg-iac"]
+
+  # Fix CGP -> GCP :facepalm:
+  | .paths."/cloud-connect-cspm-gcp/entities/account/v1".get.operationId = "GetCSPMGCPAccount"
+
+  # Might be a Ruby'ism or generator constraint - but this is inline also with azure and aws
+  | .paths |= with_entries(
+    if .key | startswith("/cloud-connect-cspm-gcp") then
+      .value |= walk(
+        if type == "string" then
+          gsub("CSPMGCP"; "CSPMGcp")
+        else
+          .
+        end
+      )
+    else
+      .
+    end
+  )
 
