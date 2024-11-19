@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.5.0...v1.0.0) (2024-11-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* removes API suffix from classes ([#41](https://github.com/CrowdStrike/crimson-falcon/issues/41))
+
+### Features
+
+* removes API suffix from classes ([#41](https://github.com/CrowdStrike/crimson-falcon/issues/41)) ([94a8175](https://github.com/CrowdStrike/crimson-falcon/commit/94a81755e69c9f9d28c1c0ca3adf587a55fabb02))
+
 ## [0.5.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.4.1...v0.5.0) (2024-11-15)
 
 
