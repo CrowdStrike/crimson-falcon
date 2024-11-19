@@ -38,7 +38,7 @@ class SensorVersionsByHostname
       config.cloud = ENV["FALCON_CLOUD"] || options_parser.options[:cloud]
     end
 
-    @api_instance = Falcon::HostsApi.new
+    @api_instance = Falcon::Hosts.new
     @options = options_parser.options
   end
 
@@ -63,7 +63,7 @@ class SensorVersionsByHostname
     begin
       result = @api_instance.query_devices_by_filter_scroll(opts)
     rescue Falcon::ApiError => e
-      puts "Exception when calling HostsApi->query_devices_by_filter_scroll: #{e}"
+      puts "Exception when calling Hosts->query_devices_by_filter_scroll: #{e}"
     end
 
     new_offset = result.meta.pagination.offset
@@ -82,7 +82,7 @@ class SensorVersionsByHostname
     begin
       result = @api_instance.post_device_details_v2(Falcon::MsaIdsRequest.new(ids: aids))
     rescue Falcon::ApiError => e
-      puts "Exception when calling HostsApi->post_device_details_v2: #{e}"
+      puts "Exception when calling Hosts->post_device_details_v2: #{e}"
     end
 
     device_details = []

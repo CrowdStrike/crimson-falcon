@@ -26,13 +26,13 @@ Falcon.configure do |config|
   config.cloud = ENV["FALCON_CLOUD"] || options_parser.options[:cloud]
 end
 
-# Create an instance of the SensorDownloadApi class
-api_instance = Falcon::SensorDownloadApi.new
+# Create an instance of the SensorDownload class
+api_instance = Falcon::SensorDownload.new
 
 begin
   # Get the CCID
   result = api_instance.get_sensor_installers_ccidby_query
   puts "Your CCID is #{result.resources.first}"
 rescue Falcon::ApiError => e
-  puts "Exception when calling SensorDownloadApi->get_sensor_installers_ccidby_query: #{e}"
+  puts "Exception when calling SensorDownload->get_sensor_installers_ccidby_query: #{e}"
 end
