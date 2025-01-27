@@ -16,6 +16,7 @@ Ready to bring some fun to your cybersecurity game with Ruby and Crimson Falcon?
 - [Getting Started](#getting-started)
 - [Contribute to Crimson Falcon](#contribute-to-crimson-falcon)
 - [Crimson Falcon API Docs](#crimson-falcon-api-docs)
+- [Support](#support)
 
 ## Installation
 
@@ -262,7 +263,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**service_now_get_deployments**](docs/ASPM.md#service_now_get_deployments)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/deployments
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -270,7 +271,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**service_now_get_services**](docs/ASPM.md#service_now_get_services)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/services
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -334,7 +335,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**patch_entities_alerts_v2**](docs/Alerts.md#patch_entities_alerts_v2)
 - **PATCH**: /alerts/entities/alerts/v2
-- **Description**: Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+- **Description**: Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
 ---
 
@@ -342,7 +343,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**patch_entities_alerts_v3**](docs/Alerts.md#patch_entities_alerts_v3)
 - **PATCH**: /alerts/entities/alerts/v3
-- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
 ---
 
@@ -1934,7 +1935,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_data_scanner_tasks**](docs/Datascanner.md#get_data_scanner_tasks)
 - **GET**: /data-security-dspm/entities/scanner-tasks/v1
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -1942,7 +1943,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_image_registry_credentials**](docs/Datascanner.md#get_image_registry_credentials)
 - **GET**: /data-security-dspm/entities/image-registry-credentials/v1
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -1950,7 +1951,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**update_data_scanner_tasks**](docs/Datascanner.md#update_data_scanner_tasks)
 - **PATCH**: /data-security-dspm/entities/scanner-tasks/v1
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -2838,7 +2839,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**delete_rule_groups**](docs/Filevantage.md#delete_rule_groups)
 - **DELETE**: /filevantage/entities/rule-groups/v1
-- **Description**: Deletes 1 or more rule groups 
+- **Description**: Deletes 1 or more rule groups
 
 ---
 
@@ -3502,7 +3503,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**handle**](docs/Handle.md#handle)
 - **POST**: /data-security-dspm/entities/kafka-rest-produce/v1
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -5198,7 +5199,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**add_role**](docs/Mssp.md#add_role)
 - **POST**: /mssp/entities/mssp-roles/v1
-- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
+- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
 
 ---
 
@@ -6238,7 +6239,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_notifications_detailed_translated_v1**](docs/Recon.md#get_notifications_detailed_translated_v1)
 - **GET**: /recon/entities/notifications-detailed-translated/v1
-- **Description**: Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
+- **Description**: Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
 
 ---
 
@@ -6246,7 +6247,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_notifications_detailed_v1**](docs/Recon.md#get_notifications_detailed_v1)
 - **GET**: /recon/entities/notifications-detailed/v1
-- **Description**: Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
+- **Description**: Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
 
 ---
 
@@ -7346,3 +7347,8 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+## Support
+
+Crimson Falcon is a community-driven, open source project designed to bring together the robust capabilities of CrowdStrike Falcon with the friendly charm of Ruby. While not a formal CrowdStrike product, Crimson Falcon is maintained by CrowdStrike and supported in partnership with the open source developer community.
+
+For additional support, please see the [SUPPORT.md](SUPPORT.md) file.
