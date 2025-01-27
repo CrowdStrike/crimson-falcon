@@ -53,10 +53,20 @@ describe 'CspmRegistration' do
   # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
   # @param tenant_id Azure Tenant ID
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :refresh Setting to true will invalidate the current certificate and generate a new certificate
-  # @option opts [String] :years_valid Years the certificate should be valid (only used when refresh&#x3D;true)
   # @return [RegistrationAzureDownloadCertificateResponseV1]
   describe 'azure_download_certificate test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for azure_refresh_certificate
+  # Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+  # @param tenant_id Azure Tenant ID
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :years_valid Years the certificate should be valid. Max 2
+  # @return [RegistrationAzureDownloadCertificateResponseV1]
+  describe 'azure_refresh_certificate test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -122,7 +132,7 @@ describe 'CspmRegistration' do
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS account IDs to remove
   # @option opts [Array<String>] :organization_ids AWS organization IDs to remove
-  # @return [MsaBaseEntitiesResponse]
+  # @return [MsaspecResponseFields]
   describe 'delete_cspm_aws_account test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

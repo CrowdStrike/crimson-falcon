@@ -568,6 +568,14 @@ module Falcon
     # @param node_type [String]
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :integration_type
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Array<String>] :executor_node_ids executor node ids
+    # @option opts [Array<String>] :executor_node_names executor node names
+    # @option opts [Array<Integer>] :executor_node_states executor node states
+    # @option opts [Array<String>] :executor_node_types executor node types
     # @return [TypesListExecutorNodesResponse]
     def get_executor_nodes(node_type, opts = {})
       data, _status_code, _headers = get_executor_nodes_with_http_info(node_type, opts)
@@ -578,6 +586,14 @@ module Falcon
     # @param node_type [String]
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :integration_type
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Array<String>] :executor_node_ids executor node ids
+    # @option opts [Array<String>] :executor_node_names executor node names
+    # @option opts [Array<Integer>] :executor_node_states executor node states
+    # @option opts [Array<String>] :executor_node_types executor node types
     # @return [Array<(TypesListExecutorNodesResponse, Integer, Hash)>] TypesListExecutorNodesResponse data, response status code and response headers
     def get_executor_nodes_with_http_info(node_type, opts = {})
       if @api_client.config.debugging
@@ -587,6 +603,14 @@ module Falcon
       if @api_client.config.client_side_validation && node_type.nil?
         fail ArgumentError, "Missing the required parameter 'node_type' when calling ASPM.get_executor_nodes"
       end
+      allowable_values = ["name", "id", "state", "type"]
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !allowable_values.include?(opts[:'order_by'])
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/executor_nodes'
 
@@ -594,6 +618,14 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'node_type'] = node_type
       query_params[:'integration_type'] = opts[:'integration_type'] if !opts[:'integration_type'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'order_by'] = opts[:'order_by'] if !opts[:'order_by'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
+      query_params[:'executor_node_ids'] = @api_client.build_collection_param(opts[:'executor_node_ids'], :csv) if !opts[:'executor_node_ids'].nil?
+      query_params[:'executor_node_names'] = @api_client.build_collection_param(opts[:'executor_node_names'], :csv) if !opts[:'executor_node_names'].nil?
+      query_params[:'executor_node_states'] = @api_client.build_collection_param(opts[:'executor_node_states'], :csv) if !opts[:'executor_node_states'].nil?
+      query_params[:'executor_node_types'] = @api_client.build_collection_param(opts[:'executor_node_types'], :csv) if !opts[:'executor_node_types'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -629,10 +661,84 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get metadata about all executor nodes
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :executor_node_ids executor node ids
+    # @option opts [Array<String>] :executor_node_names executor node names
+    # @option opts [Array<Integer>] :executor_node_states executor node states
+    # @option opts [Array<String>] :executor_node_types executor node types
+    # @return [TypesGetExecutorNodesMetadataResponse]
+    def get_executor_nodes_metadata(opts = {})
+      data, _status_code, _headers = get_executor_nodes_metadata_with_http_info(opts)
+      data
+    end
+
+    # Get metadata about all executor nodes
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :executor_node_ids executor node ids
+    # @option opts [Array<String>] :executor_node_names executor node names
+    # @option opts [Array<Integer>] :executor_node_states executor node states
+    # @option opts [Array<String>] :executor_node_types executor node types
+    # @return [Array<(TypesGetExecutorNodesMetadataResponse, Integer, Hash)>] TypesGetExecutorNodesMetadataResponse data, response status code and response headers
+    def get_executor_nodes_metadata_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_executor_nodes_metadata ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/executor_nodes/metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'executor_node_ids'] = @api_client.build_collection_param(opts[:'executor_node_ids'], :csv) if !opts[:'executor_node_ids'].nil?
+      query_params[:'executor_node_names'] = @api_client.build_collection_param(opts[:'executor_node_names'], :csv) if !opts[:'executor_node_names'].nil?
+      query_params[:'executor_node_states'] = @api_client.build_collection_param(opts[:'executor_node_states'], :csv) if !opts[:'executor_node_states'].nil?
+      query_params[:'executor_node_types'] = @api_client.build_collection_param(opts[:'executor_node_types'], :csv) if !opts[:'executor_node_types'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGetExecutorNodesMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_executor_nodes_metadata",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_executor_nodes_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get all the integration tasks
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :integration_task_type
     # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
     # @return [TypesListIntegrationTasksResponse]
     def get_integration_tasks(opts = {})
       data, _status_code, _headers = get_integration_tasks_with_http_info(opts)
@@ -643,10 +749,25 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :integration_task_type
     # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
     # @return [Array<(TypesListIntegrationTasksResponse, Integer, Hash)>] TypesListIntegrationTasksResponse data, response status code and response headers
     def get_integration_tasks_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ASPM.get_integration_tasks ...'
+      end
+      allowable_values = ["name", "id", "integrationTask"]
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !allowable_values.include?(opts[:'order_by'])
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/aspm-api-gateway/api/v1/integration_tasks'
@@ -655,6 +776,13 @@ module Falcon
       query_params = opts[:query_params] || {}
       query_params[:'integration_task_type'] = opts[:'integration_task_type'] if !opts[:'integration_task_type'].nil?
       query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'orderBy'] = opts[:'order_by'] if !opts[:'order_by'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
+      query_params[:'integration_task_types'] = opts[:'integration_task_types'] if !opts[:'integration_task_types'].nil?
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -686,6 +814,77 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#get_integration_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get metadata about all integration tasks
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [TypesGetIntegrationTasksMetadataResponse]
+    def get_integration_tasks_metadata(opts = {})
+      data, _status_code, _headers = get_integration_tasks_metadata_with_http_info(opts)
+      data
+    end
+
+    # Get metadata about all integration tasks
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [Array<(TypesGetIntegrationTasksMetadataResponse, Integer, Hash)>] TypesGetIntegrationTasksMetadataResponse data, response status code and response headers
+    def get_integration_tasks_metadata_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integration_tasks_metadata ...'
+      end
+      allowable_values = ["collecting", "exporting"]
+      if @api_client.config.client_side_validation && opts[:'category'] && !allowable_values.include?(opts[:'category'])
+        fail ArgumentError, "invalid value for \"category\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/metadata'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'integration_task_types'] = opts[:'integration_task_types'] if !opts[:'integration_task_types'].nil?
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGetIntegrationTasksMetadataResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_integration_tasks_metadata",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_integration_tasks_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

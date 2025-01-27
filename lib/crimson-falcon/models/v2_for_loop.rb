@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class V2ForLoop
+    attr_accessor :cel_condition
+
     attr_accessor :condition
 
     attr_accessor :condition_display
@@ -49,6 +51,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cel_condition' => :'cel_condition',
         :'condition' => :'condition',
         :'condition_display' => :'condition_display',
         :'continue_on_partial_execution' => :'continue_on_partial_execution',
@@ -67,6 +70,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cel_condition' => :'String',
         :'condition' => :'String',
         :'condition_display' => :'Array<String>',
         :'continue_on_partial_execution' => :'Boolean',
@@ -97,6 +101,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cel_condition')
+        self.cel_condition = attributes[:'cel_condition']
+      end
 
       if attributes.key?(:'condition')
         self.condition = attributes[:'condition']
@@ -157,6 +165,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cel_condition == o.cel_condition &&
           condition == o.condition &&
           condition_display == o.condition_display &&
           continue_on_partial_execution == o.continue_on_partial_execution &&
@@ -175,7 +184,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [condition, condition_display, continue_on_partial_execution, input, max_execution_seconds, max_iteration_count, sequential].hash
+      [cel_condition, condition, condition_display, continue_on_partial_execution, input, max_execution_seconds, max_iteration_count, sequential].hash
     end
 
     # Builds the object from hash

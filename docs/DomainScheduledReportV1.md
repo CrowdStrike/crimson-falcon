@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **api_client_id** | **String** |  |  |
 | **can_write** | **Boolean** |  | [optional] |
 | **created_on** | **Time** |  |  |
 | **customer_id** | **String** |  |  |
@@ -35,6 +36,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainScheduledReportV1.new(
+  api_client_id: null,
   can_write: null,
   created_on: null,
   customer_id: null,

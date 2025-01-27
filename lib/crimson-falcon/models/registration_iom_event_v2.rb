@@ -54,6 +54,8 @@ module Falcon
 
     attr_accessor :findings
 
+    attr_accessor :groups
+
     attr_accessor :id
 
     attr_accessor :is_managed
@@ -108,6 +110,7 @@ module Falcon
         :'custom_policy_id' => :'custom_policy_id',
         :'finding' => :'finding',
         :'findings' => :'findings',
+        :'groups' => :'groups',
         :'id' => :'id',
         :'is_managed' => :'is_managed',
         :'policy_id' => :'policy_id',
@@ -150,6 +153,7 @@ module Falcon
         :'custom_policy_id' => :'Integer',
         :'finding' => :'Object',
         :'findings' => :'Array<Object>',
+        :'groups' => :'Array<String>',
         :'id' => :'String',
         :'is_managed' => :'Boolean',
         :'policy_id' => :'Integer',
@@ -241,6 +245,12 @@ module Falcon
       if attributes.key?(:'findings')
         if (value = attributes[:'findings']).is_a?(Array)
           self.findings = value
+        end
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
         end
       end
 
@@ -461,6 +471,7 @@ module Falcon
           custom_policy_id == o.custom_policy_id &&
           finding == o.finding &&
           findings == o.findings &&
+          groups == o.groups &&
           id == o.id &&
           is_managed == o.is_managed &&
           policy_id == o.policy_id &&
@@ -492,7 +503,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, findings, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
+      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, findings, groups, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
     end
 
     # Builds the object from hash

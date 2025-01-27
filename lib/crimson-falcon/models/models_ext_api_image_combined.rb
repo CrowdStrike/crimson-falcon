@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsExtAPIImageCombined
+    attr_accessor :ai_related
+
     attr_accessor :architecture
 
     attr_accessor :base_os
@@ -75,6 +77,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_related' => :'ai_related',
         :'architecture' => :'architecture',
         :'base_os' => :'base_os',
         :'cid' => :'cid',
@@ -106,6 +109,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_related' => :'Boolean',
         :'architecture' => :'String',
         :'base_os' => :'String',
         :'cid' => :'String',
@@ -149,6 +153,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_related')
+        self.ai_related = attributes[:'ai_related']
+      end
 
       if attributes.key?(:'architecture')
         self.architecture = attributes[:'architecture']
@@ -235,6 +243,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ai_related.nil?
+        invalid_properties.push('invalid value for "ai_related", ai_related cannot be nil.')
+      end
+
       if @architecture.nil?
         invalid_properties.push('invalid value for "architecture", architecture cannot be nil.')
       end
@@ -321,6 +333,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @ai_related.nil?
       return false if @architecture.nil?
       return false if @base_os.nil?
       return false if @cid.nil?
@@ -349,6 +362,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_related == o.ai_related &&
           architecture == o.architecture &&
           base_os == o.base_os &&
           cid == o.cid &&
@@ -380,7 +394,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architecture, base_os, cid, containers, detections, first_seen, highest_detection_severity, highest_vulnerability_severity, image_digest, image_id, last_seen, layers_with_vulnerabilities, packages, registry, report_url_by_id_and_digest, report_url_by_repo_and_tag, repository, tag, vulnerabilities, warning].hash
+      [ai_related, architecture, base_os, cid, containers, detections, first_seen, highest_detection_severity, highest_vulnerability_severity, image_digest, image_id, last_seen, layers_with_vulnerabilities, packages, registry, report_url_by_id_and_digest, report_url_by_repo_and_tag, repository, tag, vulnerabilities, warning].hash
     end
 
     # Builds the object from hash

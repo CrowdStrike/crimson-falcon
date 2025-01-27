@@ -42,6 +42,18 @@ describe Falcon::DomainDiscoverAPIActiveDiscoveryHost do
       expect(instance).to be_instance_of(Falcon::DomainDiscoverAPIActiveDiscoveryHost)
     end
   end
+  describe 'test attribute "last_seen_network_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "last_seen_site_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "networks"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

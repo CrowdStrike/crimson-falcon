@@ -5,6 +5,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**azure_download_certificate**](CspmRegistration.md#azure_download_certificate) | **GET** /cloud-connect-cspm-azure/entities/download-certificate/v1 | Returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
+| [**azure_refresh_certificate**](CspmRegistration.md#azure_refresh_certificate) | **POST** /cloud-connect-cspm-azure/entities/refresh-certificate/v1 | Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
 | [**connect_cspm_gcp_account**](CspmRegistration.md#connect_cspm_gcp_account) | **POST** /cloud-connect-cspm-gcp/entities/account/v2 | Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id |
 | [**create_cspm_aws_account**](CspmRegistration.md#create_cspm_aws_account) | **POST** /cloud-connect-cspm-aws/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access. |
 | [**create_cspm_azure_account**](CspmRegistration.md#create_cspm_azure_account) | **POST** /cloud-connect-cspm-azure/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access. |
@@ -45,7 +46,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 ## azure_download_certificate
 
-> <RegistrationAzureDownloadCertificateResponseV1> azure_download_certificate(tenant_id, opts)
+> <RegistrationAzureDownloadCertificateResponseV1> azure_download_certificate(tenant_id)
 
 Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
 
@@ -64,14 +65,10 @@ end
 
 api_instance = Falcon::CspmRegistration.new
 tenant_id = ['inner_example'] # Array<String> | Azure Tenant ID
-opts = {
-  refresh: true, # Boolean | Setting to true will invalidate the current certificate and generate a new certificate
-  years_valid: 'years_valid_example' # String | Years the certificate should be valid (only used when refresh=true)
-}
 
 begin
   # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-  result = api_instance.azure_download_certificate(tenant_id, opts)
+  result = api_instance.azure_download_certificate(tenant_id)
   p result
 rescue Falcon::ApiError => e
   puts "Error when calling CspmRegistration->azure_download_certificate: #{e}"
@@ -82,12 +79,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RegistrationAzureDownloadCertificateResponseV1>, Integer, Hash)> azure_download_certificate_with_http_info(tenant_id, opts)
+> <Array(<RegistrationAzureDownloadCertificateResponseV1>, Integer, Hash)> azure_download_certificate_with_http_info(tenant_id)
 
 ```ruby
 begin
   # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-  data, status_code, headers = api_instance.azure_download_certificate_with_http_info(tenant_id, opts)
+  data, status_code, headers = api_instance.azure_download_certificate_with_http_info(tenant_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RegistrationAzureDownloadCertificateResponseV1>
@@ -101,8 +98,79 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **tenant_id** | [**Array&lt;String&gt;**](String.md) | Azure Tenant ID |  |
-| **refresh** | **Boolean** | Setting to true will invalidate the current certificate and generate a new certificate | [optional][default to false] |
-| **years_valid** | **String** | Years the certificate should be valid (only used when refresh&#x3D;true) | [optional] |
+
+### Return type
+
+[**RegistrationAzureDownloadCertificateResponseV1**](RegistrationAzureDownloadCertificateResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## azure_refresh_certificate
+
+> <RegistrationAzureDownloadCertificateResponseV1> azure_refresh_certificate(tenant_id, opts)
+
+Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+tenant_id = ['inner_example'] # Array<String> | Azure Tenant ID
+opts = {
+  years_valid: 'years_valid_example' # String | Years the certificate should be valid. Max 2
+}
+
+begin
+  # Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+  result = api_instance.azure_refresh_certificate(tenant_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->azure_refresh_certificate: #{e}"
+end
+```
+
+#### Using the azure_refresh_certificate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RegistrationAzureDownloadCertificateResponseV1>, Integer, Hash)> azure_refresh_certificate_with_http_info(tenant_id, opts)
+
+```ruby
+begin
+  # Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+  data, status_code, headers = api_instance.azure_refresh_certificate_with_http_info(tenant_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RegistrationAzureDownloadCertificateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->azure_refresh_certificate_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **tenant_id** | [**Array&lt;String&gt;**](String.md) | Azure Tenant ID |  |
+| **years_valid** | **String** | Years the certificate should be valid. Max 2 | [optional][default to &#39;1&#39;] |
 
 ### Return type
 
@@ -465,7 +533,7 @@ end
 
 ## delete_cspm_aws_account
 
-> <MsaBaseEntitiesResponse> delete_cspm_aws_account(opts)
+> <MsaspecResponseFields> delete_cspm_aws_account(opts)
 
 Deletes an existing AWS account or organization in our system.
 
@@ -501,7 +569,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaBaseEntitiesResponse>, Integer, Hash)> delete_cspm_aws_account_with_http_info(opts)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> delete_cspm_aws_account_with_http_info(opts)
 
 ```ruby
 begin
@@ -509,7 +577,7 @@ begin
   data, status_code, headers = api_instance.delete_cspm_aws_account_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaBaseEntitiesResponse>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling CspmRegistration->delete_cspm_aws_account_with_http_info: #{e}"
 end
@@ -524,7 +592,7 @@ end
 
 ### Return type
 
-[**MsaBaseEntitiesResponse**](MsaBaseEntitiesResponse.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 

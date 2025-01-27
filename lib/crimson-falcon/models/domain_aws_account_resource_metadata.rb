@@ -32,6 +32,14 @@ require 'time'
 
 module Falcon
   class DomainAWSAccountResourceMetadata
+    attr_accessor :created_at
+
+    attr_accessor :deleted_at
+
+    attr_accessor :id
+
+    attr_accessor :updated_at
+
     # AWS CloudTrail bucket name to store logs.
     attr_accessor :aws_cloudtrail_bucket_name
 
@@ -40,6 +48,8 @@ module Falcon
 
     # AWS Eventbus ARN.
     attr_accessor :aws_eventbus_arn
+
+    attr_accessor :cid
 
     attr_accessor :eventbus_name
 
@@ -54,9 +64,14 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'created_at' => :'CreatedAt',
+        :'deleted_at' => :'DeletedAt',
+        :'id' => :'ID',
+        :'updated_at' => :'UpdatedAt',
         :'aws_cloudtrail_bucket_name' => :'aws_cloudtrail_bucket_name',
         :'aws_cloudtrail_region' => :'aws_cloudtrail_region',
         :'aws_eventbus_arn' => :'aws_eventbus_arn',
+        :'cid' => :'cid',
         :'eventbus_name' => :'eventbus_name',
         :'external_id' => :'external_id',
         :'iam_role_arn' => :'iam_role_arn',
@@ -72,9 +87,14 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'created_at' => :'Time',
+        :'deleted_at' => :'Time',
+        :'id' => :'Integer',
+        :'updated_at' => :'Time',
         :'aws_cloudtrail_bucket_name' => :'String',
         :'aws_cloudtrail_region' => :'String',
         :'aws_eventbus_arn' => :'String',
+        :'cid' => :'String',
         :'eventbus_name' => :'String',
         :'external_id' => :'String',
         :'iam_role_arn' => :'String',
@@ -103,6 +123,22 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'deleted_at')
+        self.deleted_at = attributes[:'deleted_at']
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
       if attributes.key?(:'aws_cloudtrail_bucket_name')
         self.aws_cloudtrail_bucket_name = attributes[:'aws_cloudtrail_bucket_name']
       end
@@ -113,6 +149,10 @@ module Falcon
 
       if attributes.key?(:'aws_eventbus_arn')
         self.aws_eventbus_arn = attributes[:'aws_eventbus_arn']
+      end
+
+      if attributes.key?(:'cid')
+        self.cid = attributes[:'cid']
       end
 
       if attributes.key?(:'eventbus_name')
@@ -136,12 +176,32 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @deleted_at.nil?
+        invalid_properties.push('invalid value for "deleted_at", deleted_at cannot be nil.')
+      end
+
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @updated_at.nil?
+        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @created_at.nil?
+      return false if @deleted_at.nil?
+      return false if @id.nil?
+      return false if @updated_at.nil?
       true
     end
 
@@ -150,9 +210,14 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_at == o.created_at &&
+          deleted_at == o.deleted_at &&
+          id == o.id &&
+          updated_at == o.updated_at &&
           aws_cloudtrail_bucket_name == o.aws_cloudtrail_bucket_name &&
           aws_cloudtrail_region == o.aws_cloudtrail_region &&
           aws_eventbus_arn == o.aws_eventbus_arn &&
+          cid == o.cid &&
           eventbus_name == o.eventbus_name &&
           external_id == o.external_id &&
           iam_role_arn == o.iam_role_arn &&
@@ -168,7 +233,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, eventbus_name, external_id, iam_role_arn, intermediate_role_arn].hash
+      [created_at, deleted_at, id, updated_at, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, cid, eventbus_name, external_id, iam_role_arn, intermediate_role_arn].hash
     end
 
     # Builds the object from hash

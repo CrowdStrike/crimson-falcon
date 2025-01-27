@@ -13,7 +13,9 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**delete_tags**](ASPM.md#delete_tags) | **POST** /aspm-api-gateway/api/v1/tags | Remove existing tags |
 | [**execute_query**](ASPM.md#execute_query) | **POST** /aspm-api-gateway/api/v1/query | Execute a query. The syntax used is identical to that of the query page. |
 | [**get_executor_nodes**](ASPM.md#get_executor_nodes) | **GET** /aspm-api-gateway/api/v1/executor_nodes | Get all the relay nodes |
+| [**get_executor_nodes_metadata**](ASPM.md#get_executor_nodes_metadata) | **GET** /aspm-api-gateway/api/v1/executor_nodes/metadata | Get metadata about all executor nodes |
 | [**get_integration_tasks**](ASPM.md#get_integration_tasks) | **GET** /aspm-api-gateway/api/v1/integration_tasks | Get all the integration tasks |
+| [**get_integration_tasks_metadata**](ASPM.md#get_integration_tasks_metadata) | **GET** /aspm-api-gateway/api/v1/integration_tasks/metadata | Get metadata about all integration tasks |
 | [**get_integration_types**](ASPM.md#get_integration_types) | **GET** /aspm-api-gateway/api/v1/integration_types | Get all the integration types |
 | [**get_integrations**](ASPM.md#get_integrations) | **GET** /aspm-api-gateway/api/v1/integrations | Get a list of all the integrations |
 | [**get_service_violation_types**](ASPM.md#get_service_violation_types) | **GET** /aspm-api-gateway/api/v1/services/violations/types | Get the different types of violation |
@@ -599,7 +601,15 @@ end
 api_instance = Falcon::ASPM.new
 node_type = 'node_type_example' # String | 
 opts = {
-  integration_type: 56 # Integer | 
+  integration_type: 56, # Integer | 
+  offset: 56, # Integer | 
+  limit: 56, # Integer | 
+  order_by: 'name', # String | 
+  direction: 'asc', # String | 
+  executor_node_ids: ['inner_example'], # Array<String> | executor node ids
+  executor_node_names: ['inner_example'], # Array<String> | executor node names
+  executor_node_states: [37], # Array<Integer> | executor node states
+  executor_node_types: ['inner_example'] # Array<String> | executor node types
 }
 
 begin
@@ -635,10 +645,95 @@ end
 | ---- | ---- | ----------- | ----- |
 | **node_type** | **String** |  |  |
 | **integration_type** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **order_by** | **String** |  | [optional] |
+| **direction** | **String** |  | [optional] |
+| **executor_node_ids** | [**Array&lt;String&gt;**](String.md) | executor node ids | [optional] |
+| **executor_node_names** | [**Array&lt;String&gt;**](String.md) | executor node names | [optional] |
+| **executor_node_states** | [**Array&lt;Integer&gt;**](Integer.md) | executor node states | [optional] |
+| **executor_node_types** | [**Array&lt;String&gt;**](String.md) | executor node types | [optional] |
 
 ### Return type
 
 [**TypesListExecutorNodesResponse**](TypesListExecutorNodesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_executor_nodes_metadata
+
+> <TypesGetExecutorNodesMetadataResponse> get_executor_nodes_metadata(opts)
+
+Get metadata about all executor nodes
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  executor_node_ids: ['inner_example'], # Array<String> | executor node ids
+  executor_node_names: ['inner_example'], # Array<String> | executor node names
+  executor_node_states: [37], # Array<Integer> | executor node states
+  executor_node_types: ['inner_example'] # Array<String> | executor node types
+}
+
+begin
+  # Get metadata about all executor nodes
+  result = api_instance.get_executor_nodes_metadata(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_executor_nodes_metadata: #{e}"
+end
+```
+
+#### Using the get_executor_nodes_metadata_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGetExecutorNodesMetadataResponse>, Integer, Hash)> get_executor_nodes_metadata_with_http_info(opts)
+
+```ruby
+begin
+  # Get metadata about all executor nodes
+  data, status_code, headers = api_instance.get_executor_nodes_metadata_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGetExecutorNodesMetadataResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_executor_nodes_metadata_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **executor_node_ids** | [**Array&lt;String&gt;**](String.md) | executor node ids | [optional] |
+| **executor_node_names** | [**Array&lt;String&gt;**](String.md) | executor node names | [optional] |
+| **executor_node_states** | [**Array&lt;Integer&gt;**](Integer.md) | executor node states | [optional] |
+| **executor_node_types** | [**Array&lt;String&gt;**](String.md) | executor node types | [optional] |
+
+### Return type
+
+[**TypesGetExecutorNodesMetadataResponse**](TypesGetExecutorNodesMetadataResponse.md)
 
 ### Authorization
 
@@ -672,7 +767,14 @@ end
 api_instance = Falcon::ASPM.new
 opts = {
   integration_task_type: 56, # Integer | 
-  category: 'category_example' # String | 
+  category: 'category_example', # String | 
+  offset: 56, # Integer | 
+  limit: 56, # Integer | 
+  order_by: 'name', # String | 
+  direction: 'asc', # String | 
+  integration_task_types: 56, # Integer | 
+  ids: 56, # Integer | 
+  names: 'names_example' # String | 
 }
 
 begin
@@ -708,10 +810,94 @@ end
 | ---- | ---- | ----------- | ----- |
 | **integration_task_type** | **Integer** |  | [optional] |
 | **category** | **String** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **order_by** | **String** |  | [optional] |
+| **direction** | **String** |  | [optional] |
+| **integration_task_types** | **Integer** |  | [optional] |
+| **ids** | **Integer** |  | [optional] |
+| **names** | **String** |  | [optional] |
 
 ### Return type
 
 [**TypesListIntegrationTasksResponse**](TypesListIntegrationTasksResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_integration_tasks_metadata
+
+> <TypesGetIntegrationTasksMetadataResponse> get_integration_tasks_metadata(opts)
+
+Get metadata about all integration tasks
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  category: 'collecting', # String | 
+  integration_task_types: 56, # Integer | 
+  ids: 56, # Integer | 
+  names: 'names_example' # String | 
+}
+
+begin
+  # Get metadata about all integration tasks
+  result = api_instance.get_integration_tasks_metadata(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_metadata: #{e}"
+end
+```
+
+#### Using the get_integration_tasks_metadata_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGetIntegrationTasksMetadataResponse>, Integer, Hash)> get_integration_tasks_metadata_with_http_info(opts)
+
+```ruby
+begin
+  # Get metadata about all integration tasks
+  data, status_code, headers = api_instance.get_integration_tasks_metadata_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGetIntegrationTasksMetadataResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_metadata_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **category** | **String** |  | [optional] |
+| **integration_task_types** | **Integer** |  | [optional] |
+| **ids** | **Integer** |  | [optional] |
+| **names** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesGetIntegrationTasksMetadataResponse**](TypesGetIntegrationTasksMetadataResponse.md)
 
 ### Authorization
 

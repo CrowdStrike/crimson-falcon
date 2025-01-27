@@ -304,7 +304,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs to remove
     # @option opts [Array<String>] :organization_ids AWS organization IDs to remove
-    # @return [MsaBaseEntitiesResponse]
+    # @return [MsaspecResponseFields]
     def delete_d4_c_aws_account(opts = {})
       data, _status_code, _headers = delete_d4_c_aws_account_with_http_info(opts)
       data
@@ -314,7 +314,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :ids AWS account IDs to remove
     # @option opts [Array<String>] :organization_ids AWS organization IDs to remove
-    # @return [Array<(MsaBaseEntitiesResponse, Integer, Hash)>] MsaBaseEntitiesResponse data, response status code and response headers
+    # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def delete_d4_c_aws_account_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: D4cRegistration.delete_d4_c_aws_account ...'
@@ -339,7 +339,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaBaseEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecResponseFields'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -415,87 +415,6 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: D4cRegistration#delete_d4_cgcp_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-    # @param tenant_id [Array<String>] Azure Tenant ID
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :refresh Setting to true will invalidate the current certificate and generate a new certificate (default to false)
-    # @option opts [String] :years_valid Years the certificate should be valid (only used when refresh&#x3D;true)
-    # @return [RegistrationAzureDownloadCertificateResponseV1]
-    def discover_cloud_azure_download_certificate(tenant_id, opts = {})
-      data, _status_code, _headers = discover_cloud_azure_download_certificate_with_http_info(tenant_id, opts)
-      data
-    end
-
-    # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-    # @param tenant_id [Array<String>] Azure Tenant ID
-    # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :refresh Setting to true will invalidate the current certificate and generate a new certificate (default to false)
-    # @option opts [String] :years_valid Years the certificate should be valid (only used when refresh&#x3D;true)
-    # @return [Array<(RegistrationAzureDownloadCertificateResponseV1, Integer, Hash)>] RegistrationAzureDownloadCertificateResponseV1 data, response status code and response headers
-    def discover_cloud_azure_download_certificate_with_http_info(tenant_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: D4cRegistration.discover_cloud_azure_download_certificate ...'
-      end
-      # verify the required parameter 'tenant_id' is set
-      if @api_client.config.client_side_validation && tenant_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tenant_id' when calling D4cRegistration.discover_cloud_azure_download_certificate"
-      end
-      if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length > 2
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistration.discover_cloud_azure_download_certificate, the character length must be smaller than or equal to 2.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"years_valid"]" when calling D4cRegistration.discover_cloud_azure_download_certificate, the character length must be great than or equal to 1.'
-      end
-
-      pattern = Regexp.new(/^[0-9]{1,2}$/)
-      if @api_client.config.client_side_validation && !opts[:'years_valid'].nil? && opts[:'years_valid'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"years_valid\"]' when calling D4cRegistration.discover_cloud_azure_download_certificate, must conform to the pattern #{pattern}."
-      end
-
-      # resource path
-      local_var_path = '/cloud-connect-azure/entities/download-certificate/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'tenant_id'] = @api_client.build_collection_param(tenant_id, :multi)
-      query_params[:'refresh'] = opts[:'refresh'] if !opts[:'refresh'].nil?
-      query_params[:'years_valid'] = opts[:'years_valid'] if !opts[:'years_valid'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RegistrationAzureDownloadCertificateResponseV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"D4cRegistration.discover_cloud_azure_download_certificate",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: D4cRegistration#discover_cloud_azure_download_certificate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

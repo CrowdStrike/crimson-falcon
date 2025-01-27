@@ -92,6 +92,7 @@ describe 'ExposureManagement' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset Starting index of result set from which to return subsidiaries
   # @option opts [Integer] :limit The maximum number of subsidiaries to return in the response.
+  # @option opts [String] :filter Filter ecosystem subsidiaries
   # @option opts [String] :sort The field by which to sort the list of subsidiaries. Possible values:&lt;ul&gt;&lt;li&gt;name&lt;/li&gt;&lt;li&gt;primary_domain&lt;/li&gt;&lt;/ul&gt;&lt;/br&gt;Sort order can be specified by appending \&quot;asc\&quot; or \&quot;desc\&quot; to the field name (e.g. \&quot;name|asc\&quot; or \&quot;primary_domain|desc\&quot;).
   # @option opts [String] :version_id The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written.
   # @return [DomainFemEcosystemSubsidiariesEntitiesResponse]
@@ -152,6 +153,7 @@ describe 'ExposureManagement' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset Starting index of result set from which to return subsidiaries
   # @option opts [Integer] :limit The maximum number of IDs to return in the response.
+  # @option opts [String] :filter Filter ecosystem subsidiaries
   # @option opts [String] :sort The field by which to sort the list of IDs. Possible values:&lt;ul&gt;&lt;li&gt;name&lt;/li&gt;&lt;li&gt;primary_domain&lt;/li&gt;&lt;/ul&gt;&lt;/br&gt;Sort order can be specified by appending \&quot;asc\&quot; or \&quot;desc\&quot; to the field name (e.g. \&quot;name|asc\&quot; or \&quot;primary_domain|desc\&quot;).
   # @option opts [String] :version_id The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written.
   # @return [DomainFemEcosystemSubsidiariesQueryResponse]

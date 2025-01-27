@@ -6,7 +6,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**read_unidentified_containers_by_date_range_count**](UnidentifiedContainers.md#read_unidentified_containers_by_date_range_count) | **GET** /container-security/aggregates/unidentified-containers/count-by-date/v1 | Returns the count of Unidentified Containers over the last 7 days |
 | [**read_unidentified_containers_count**](UnidentifiedContainers.md#read_unidentified_containers_count) | **GET** /container-security/aggregates/unidentified-containers/count/v1 | Returns the total count of Unidentified Containers over a time period |
-| [**search_and_read_unidentified_containers**](UnidentifiedContainers.md#search_and_read_unidentified_containers) | **GET** /container-security/combined/unidentified-containers/v1 | Search Unidentified Containers by the provided search criteria |
+| [**search_and_read_unidentified_containers**](UnidentifiedContainers.md#search_and_read_unidentified_containers) | **GET** /container-security/combined/unidentified-containers/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## read_unidentified_containers_by_date_range_count
@@ -30,7 +30,7 @@ end
 
 api_instance = Falcon::UnidentifiedContainers.new
 opts = {
-  filter: 'filter_example' # String | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+  filter: 'filter_example' # String | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - `assessed_images_count` - `cid` - `cluster_name` - `containers_impacted_count` - `detections_count` - `image_assessment_detections_count` - `last_seen` - `namespace` - `node_name` - `severity` - `unassessed_images_count` - `visible_to_k8s`
 }
 
 begin
@@ -64,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s | [optional] |
+| **filter** | **String** | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60; | [optional] |
 
 ### Return type
 
@@ -101,7 +101,7 @@ end
 
 api_instance = Falcon::UnidentifiedContainers.new
 opts = {
-  filter: 'filter_example' # String | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+  filter: 'filter_example' # String | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - `assessed_images_count` - `cid` - `cluster_name` - `containers_impacted_count` - `detections_count` - `image_assessment_detections_count` - `last_seen` - `namespace` - `node_name` - `severity` - `unassessed_images_count` - `visible_to_k8s`
 }
 
 begin
@@ -135,7 +135,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s | [optional] |
+| **filter** | **String** | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60; | [optional] |
 
 ### Return type
 
@@ -155,7 +155,7 @@ end
 
 > <UnidentifiedcontainersUnidentifiedContainerAPIResponse> search_and_read_unidentified_containers(opts)
 
-Search Unidentified Containers by the provided search criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -172,14 +172,14 @@ end
 
 api_instance = Falcon::UnidentifiedContainers.new
 opts = {
-  filter: 'filter_example', # String | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+  filter: 'filter_example', # String | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - `assessed_images_count` - `cid` - `cluster_name` - `containers_impacted_count` - `detections_count` - `image_assessment_detections_count` - `last_seen` - `namespace` - `node_name` - `severity` - `unassessed_images_count` - `visible_to_k8s`
+  sort: 'sort_example', # String | The fields to sort the records on.
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Search Unidentified Containers by the provided search criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.search_and_read_unidentified_containers(opts)
   p result
 rescue Falcon::ApiError => e
@@ -195,7 +195,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Search Unidentified Containers by the provided search criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.search_and_read_unidentified_containers_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -209,10 +209,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **filter** | **String** | Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60; | [optional] |
 | **sort** | **String** | The fields to sort the records on. | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
 

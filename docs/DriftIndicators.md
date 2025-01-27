@@ -7,8 +7,8 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**get_drift_indicators_values_by_date**](DriftIndicators.md#get_drift_indicators_values_by_date) | **GET** /container-security/aggregates/drift-indicators/count-by-date/v1 | Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days. |
 | [**read_drift_indicator_entities**](DriftIndicators.md#read_drift_indicator_entities) | **GET** /container-security/entities/drift-indicators/v1 | Retrieve Drift Indicator entities identified by the provided IDs |
 | [**read_drift_indicators_count**](DriftIndicators.md#read_drift_indicators_count) | **GET** /container-security/aggregates/drift-indicators/count/v1 | Returns the total count of Drift indicators over a time period |
-| [**search_and_read_drift_indicator_entities**](DriftIndicators.md#search_and_read_drift_indicator_entities) | **GET** /container-security/combined/drift-indicators/v1 | Retrieve Drift Indicators by the provided search criteria |
-| [**search_drift_indicators**](DriftIndicators.md#search_drift_indicators) | **GET** /container-security/queries/drift-indicators/v1 | Retrieve all drift indicators that match the given query |
+| [**search_and_read_drift_indicator_entities**](DriftIndicators.md#search_and_read_drift_indicator_entities) | **GET** /container-security/combined/drift-indicators/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**search_drift_indicators**](DriftIndicators.md#search_drift_indicators) | **GET** /container-security/queries/drift-indicators/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## get_drift_indicators_values_by_date
@@ -32,7 +32,7 @@ end
 
 api_instance = Falcon::DriftIndicators.new
 opts = {
-  filter: 'filter_example', # String | Filter drift indicators using a query in Falcon Query Language (FQL). Supported filters: cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
+  filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cloud_name` - `command_line` - `container_id` - `file_name` - `file_sha256` - `host_id` - `indicator_process_id` - `namespace` - `occurred_at` - `parent_process_id` - `pod_name` - `prevented` - `scheduler_name` - `severity` - `worker_node_name`
   limit: 56 # Integer | The upper-bound on the number of records to retrieve.
 }
 
@@ -67,7 +67,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter drift indicators using a query in Falcon Query Language (FQL). Supported filters: cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name | [optional] |
+| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60; | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 
 ### Return type
@@ -176,7 +176,7 @@ end
 
 api_instance = Falcon::DriftIndicators.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
+  filter: 'filter_example' # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cloud_name` - `command_line` - `container_id` - `file_name` - `file_sha256` - `host_id` - `indicator_process_id` - `namespace` - `occurred_at` - `parent_process_id` - `pod_name` - `prevented` - `scheduler_name` - `severity` - `worker_node_name`
 }
 
 begin
@@ -210,7 +210,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name | [optional] |
+| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60; | [optional] |
 
 ### Return type
 
@@ -230,7 +230,7 @@ end
 
 > <DriftindicatorsDriftEntityResponse> search_and_read_drift_indicator_entities(opts)
 
-Retrieve Drift Indicators by the provided search criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -247,14 +247,14 @@ end
 
 api_instance = Falcon::DriftIndicators.new
 opts = {
-  filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
+  filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cloud_name` - `command_line` - `container_id` - `file_name` - `file_sha256` - `host_id` - `indicator_process_id` - `namespace` - `occurred_at` - `parent_process_id` - `pod_name` - `prevented` - `scheduler_name` - `severity` - `worker_node_name`
+  sort: 'sort_example', # String | The fields to sort the records on.
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve Drift Indicators by the provided search criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.search_and_read_drift_indicator_entities(opts)
   p result
 rescue Falcon::ApiError => e
@@ -270,7 +270,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve Drift Indicators by the provided search criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.search_and_read_drift_indicator_entities_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -284,10 +284,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60; | [optional] |
 | **sort** | **String** | The fields to sort the records on. | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
 
@@ -307,7 +307,7 @@ end
 
 > <MsaspecQueryResponse> search_drift_indicators(opts)
 
-Retrieve all drift indicators that match the given query
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -324,14 +324,14 @@ end
 
 api_instance = Falcon::DriftIndicators.new
 opts = {
-  filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
+  filter: 'filter_example', # String | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cloud_name` - `command_line` - `container_id` - `file_name` - `file_sha256` - `host_id` - `indicator_process_id` - `namespace` - `occurred_at` - `parent_process_id` - `pod_name` - `prevented` - `scheduler_name` - `severity` - `worker_node_name`
+  sort: 'sort_example', # String | The fields to sort the records on.
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve all drift indicators that match the given query
+  # Maximum offset = 10000 - limit
   result = api_instance.search_drift_indicators(opts)
   p result
 rescue Falcon::ApiError => e
@@ -347,7 +347,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve all drift indicators that match the given query
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.search_drift_indicators_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -361,10 +361,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **filter** | **String** | Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60; | [optional] |
 | **sort** | **String** | The fields to sort the records on. | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
 

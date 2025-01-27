@@ -6,8 +6,8 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**combined_query_vulnerabilities**](SpotlightVulnerabilities.md#combined_query_vulnerabilities) | **GET** /spotlight/combined/vulnerabilities/v1 | Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria |
 | [**get_remediations_v2**](SpotlightVulnerabilities.md#get_remediations_v2) | **GET** /spotlight/entities/remediations/v2 | Get details on remediation by providing one or more IDs |
-| [**get_vulnerabilities_0**](SpotlightVulnerabilities.md#get_vulnerabilities_0) | **GET** /spotlight/entities/vulnerabilities/v2 | Get details on vulnerabilities by providing one or more IDs |
-| [**query_vulnerabilities_0**](SpotlightVulnerabilities.md#query_vulnerabilities_0) | **GET** /spotlight/queries/vulnerabilities/v1 | Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria |
+| [**get_vulnerabilities**](SpotlightVulnerabilities.md#get_vulnerabilities) | **GET** /spotlight/entities/vulnerabilities/v2 | Get details on vulnerabilities by providing one or more IDs |
+| [**query_vulnerabilities**](SpotlightVulnerabilities.md#query_vulnerabilities) | **GET** /spotlight/queries/vulnerabilities/v1 | Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria |
 
 
 ## combined_query_vulnerabilities
@@ -158,9 +158,9 @@ end
 - **Accept**: application/json
 
 
-## get_vulnerabilities_0
+## get_vulnerabilities
 
-> <DomainSPAPIVulnerabilitiesEntitiesResponseV2> get_vulnerabilities_0(ids)
+> <DomainSPAPIVulnerabilitiesEntitiesResponseV2> get_vulnerabilities(ids)
 
 Get details on vulnerabilities by providing one or more IDs
 
@@ -182,28 +182,28 @@ ids = ['inner_example'] # Array<String> | One or more vulnerability IDs (max: 40
 
 begin
   # Get details on vulnerabilities by providing one or more IDs
-  result = api_instance.get_vulnerabilities_0(ids)
+  result = api_instance.get_vulnerabilities(ids)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightVulnerabilities->get_vulnerabilities_0: #{e}"
+  puts "Error when calling SpotlightVulnerabilities->get_vulnerabilities: #{e}"
 end
 ```
 
-#### Using the get_vulnerabilities_0_with_http_info variant
+#### Using the get_vulnerabilities_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainSPAPIVulnerabilitiesEntitiesResponseV2>, Integer, Hash)> get_vulnerabilities_0_with_http_info(ids)
+> <Array(<DomainSPAPIVulnerabilitiesEntitiesResponseV2>, Integer, Hash)> get_vulnerabilities_with_http_info(ids)
 
 ```ruby
 begin
   # Get details on vulnerabilities by providing one or more IDs
-  data, status_code, headers = api_instance.get_vulnerabilities_0_with_http_info(ids)
+  data, status_code, headers = api_instance.get_vulnerabilities_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DomainSPAPIVulnerabilitiesEntitiesResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightVulnerabilities->get_vulnerabilities_0_with_http_info: #{e}"
+  puts "Error when calling SpotlightVulnerabilities->get_vulnerabilities_with_http_info: #{e}"
 end
 ```
 
@@ -227,9 +227,9 @@ end
 - **Accept**: application/json
 
 
-## query_vulnerabilities_0
+## query_vulnerabilities
 
-> <DomainSPAPIQueryResponse> query_vulnerabilities_0(filter, opts)
+> <DomainSPAPIQueryResponse> query_vulnerabilities(filter, opts)
 
 Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
 
@@ -256,28 +256,28 @@ opts = {
 
 begin
   # Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
-  result = api_instance.query_vulnerabilities_0(filter, opts)
+  result = api_instance.query_vulnerabilities(filter, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightVulnerabilities->query_vulnerabilities_0: #{e}"
+  puts "Error when calling SpotlightVulnerabilities->query_vulnerabilities: #{e}"
 end
 ```
 
-#### Using the query_vulnerabilities_0_with_http_info variant
+#### Using the query_vulnerabilities_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainSPAPIQueryResponse>, Integer, Hash)> query_vulnerabilities_0_with_http_info(filter, opts)
+> <Array(<DomainSPAPIQueryResponse>, Integer, Hash)> query_vulnerabilities_with_http_info(filter, opts)
 
 ```ruby
 begin
   # Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
-  data, status_code, headers = api_instance.query_vulnerabilities_0_with_http_info(filter, opts)
+  data, status_code, headers = api_instance.query_vulnerabilities_with_http_info(filter, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DomainSPAPIQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling SpotlightVulnerabilities->query_vulnerabilities_0_with_http_info: #{e}"
+  puts "Error when calling SpotlightVulnerabilities->query_vulnerabilities_with_http_info: #{e}"
 end
 ```
 

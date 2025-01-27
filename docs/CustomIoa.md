@@ -7,7 +7,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**create_rule**](CustomIoa.md#create_rule) | **POST** /ioarules/entities/rules/v1 | Create a rule within a rule group. Returns the rule. |
 | [**create_rule_group_mixin0**](CustomIoa.md#create_rule_group_mixin0) | **POST** /ioarules/entities/rule-groups/v1 | Create a rule group for a platform with a name and an optional description. Returns the rule group. |
 | [**delete_rule_groups_mixin0**](CustomIoa.md#delete_rule_groups_mixin0) | **DELETE** /ioarules/entities/rule-groups/v1 | Delete rule groups by ID. |
-| [**delete_rules_0**](CustomIoa.md#delete_rules_0) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
+| [**delete_rules**](CustomIoa.md#delete_rules) | **DELETE** /ioarules/entities/rules/v1 | Delete rules from a rule group by ID. |
 | [**get_patterns**](CustomIoa.md#get_patterns) | **GET** /ioarules/entities/pattern-severities/v1 | Get pattern severities by ID. |
 | [**get_platforms_mixin0**](CustomIoa.md#get_platforms_mixin0) | **GET** /ioarules/entities/platforms/v1 | Get platforms by ID. |
 | [**get_rule_groups_mixin0**](CustomIoa.md#get_rule_groups_mixin0) | **GET** /ioarules/entities/rule-groups/v1 | Get rule groups by ID. |
@@ -21,7 +21,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**query_rule_types**](CustomIoa.md#query_rule_types) | **GET** /ioarules/queries/rule-types/v1 | Get all rule type IDs. |
 | [**query_rules_mixin0**](CustomIoa.md#query_rules_mixin0) | **GET** /ioarules/queries/rules/v1 | Finds all rule IDs matching the query with optional filter. |
 | [**update_rule_group_mixin0**](CustomIoa.md#update_rule_group_mixin0) | **PATCH** /ioarules/entities/rule-groups/v1 | Update a rule group. The following properties can be modified: name, description, enabled. |
-| [**update_rules_0**](CustomIoa.md#update_rules_0) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
+| [**update_rules**](CustomIoa.md#update_rules) | **PATCH** /ioarules/entities/rules/v1 | Update rules within a rule group. Return the updated rules. |
 | [**update_rules_v2**](CustomIoa.md#update_rules_v2) | **PATCH** /ioarules/entities/rules/v2 | Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules. |
 | [**validate**](CustomIoa.md#validate) | **POST** /ioarules/entities/rules/validate/v1 | Validates field values and checks for matches if a test string is provided. |
 
@@ -237,9 +237,9 @@ end
 - **Accept**: application/json
 
 
-## delete_rules_0
+## delete_rules
 
-> <MsaReplyMetaOnly> delete_rules_0(rule_group_id, ids, opts)
+> <MsaReplyMetaOnly> delete_rules(rule_group_id, ids, opts)
 
 Delete rules from a rule group by ID.
 
@@ -265,28 +265,28 @@ opts = {
 
 begin
   # Delete rules from a rule group by ID.
-  result = api_instance.delete_rules_0(rule_group_id, ids, opts)
+  result = api_instance.delete_rules(rule_group_id, ids, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoa->delete_rules_0: #{e}"
+  puts "Error when calling CustomIoa->delete_rules: #{e}"
 end
 ```
 
-#### Using the delete_rules_0_with_http_info variant
+#### Using the delete_rules_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaReplyMetaOnly>, Integer, Hash)> delete_rules_0_with_http_info(rule_group_id, ids, opts)
+> <Array(<MsaReplyMetaOnly>, Integer, Hash)> delete_rules_with_http_info(rule_group_id, ids, opts)
 
 ```ruby
 begin
   # Delete rules from a rule group by ID.
-  data, status_code, headers = api_instance.delete_rules_0_with_http_info(rule_group_id, ids, opts)
+  data, status_code, headers = api_instance.delete_rules_with_http_info(rule_group_id, ids, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaReplyMetaOnly>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoa->delete_rules_0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->delete_rules_with_http_info: #{e}"
 end
 ```
 
@@ -1251,9 +1251,9 @@ end
 - **Accept**: application/json
 
 
-## update_rules_0
+## update_rules
 
-> <ApiRulesResponse> update_rules_0(body)
+> <ApiRulesResponse> update_rules(body)
 
 Update rules within a rule group. Return the updated rules.
 
@@ -1275,28 +1275,28 @@ body = Falcon::ApiRuleUpdatesRequestV1.new({comment: 'comment_example', rule_upd
 
 begin
   # Update rules within a rule group. Return the updated rules.
-  result = api_instance.update_rules_0(body)
+  result = api_instance.update_rules(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoa->update_rules_0: #{e}"
+  puts "Error when calling CustomIoa->update_rules: #{e}"
 end
 ```
 
-#### Using the update_rules_0_with_http_info variant
+#### Using the update_rules_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiRulesResponse>, Integer, Hash)> update_rules_0_with_http_info(body)
+> <Array(<ApiRulesResponse>, Integer, Hash)> update_rules_with_http_info(body)
 
 ```ruby
 begin
   # Update rules within a rule group. Return the updated rules.
-  data, status_code, headers = api_instance.update_rules_0_with_http_info(body)
+  data, status_code, headers = api_instance.update_rules_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiRulesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CustomIoa->update_rules_0_with_http_info: #{e}"
+  puts "Error when calling CustomIoa->update_rules_with_http_info: #{e}"
 end
 ```
 

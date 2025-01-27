@@ -41,8 +41,8 @@ module Falcon
     # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesResponse]
-    def create_policies_0(body, opts = {})
-      data, _status_code, _headers = create_policies_0_with_http_info(body, opts)
+    def create_policies(body, opts = {})
+      data, _status_code, _headers = create_policies_with_http_info(body, opts)
       data
     end
 
@@ -51,13 +51,13 @@ module Falcon
     # @param body [PoliciesCreateRequest] Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
-    def create_policies_0_with_http_info(body, opts = {})
+    def create_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Filevantage.create_policies_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.create_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_policies_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.create_policies"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -88,7 +88,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"Filevantage.create_policies_0",
+        :operation => :"Filevantage.create_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -99,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Filevantage#create_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#create_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1633,8 +1633,8 @@ module Falcon
     # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesResponse]
-    def update_policies_0(body, opts = {})
-      data, _status_code, _headers = update_policies_0_with_http_info(body, opts)
+    def update_policies(body, opts = {})
+      data, _status_code, _headers = update_policies_with_http_info(body, opts)
       data
     end
 
@@ -1643,13 +1643,13 @@ module Falcon
     # @param body [PoliciesUpdateRequest] Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesResponse, Integer, Hash)>] PoliciesResponse data, response status code and response headers
-    def update_policies_0_with_http_info(body, opts = {})
+    def update_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Filevantage.update_policies_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policies ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_policies_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling Filevantage.update_policies"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies/v1'
@@ -1680,7 +1680,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"Filevantage.update_policies_0",
+        :operation => :"Filevantage.update_policies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1691,7 +1691,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Filevantage#update_policies_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1780,8 +1780,8 @@ module Falcon
     # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [PoliciesPrecedenceResponse]
-    def update_policy_precedence_0(ids, type, opts = {})
-      data, _status_code, _headers = update_policy_precedence_0_with_http_info(ids, type, opts)
+    def update_policy_precedence(ids, type, opts = {})
+      data, _status_code, _headers = update_policy_precedence_with_http_info(ids, type, opts)
       data
     end
 
@@ -1791,17 +1791,17 @@ module Falcon
     # @param type [String] The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PoliciesPrecedenceResponse, Integer, Hash)>] PoliciesPrecedenceResponse data, response status code and response headers
-    def update_policy_precedence_0_with_http_info(ids, type, opts = {})
+    def update_policy_precedence_with_http_info(ids, type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Filevantage.update_policy_precedence_0 ...'
+        @api_client.config.logger.debug 'Calling API: Filevantage.update_policy_precedence ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_policy_precedence_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Filevantage.update_policy_precedence"
       end
       # verify the required parameter 'type' is set
       if @api_client.config.client_side_validation && type.nil?
-        fail ArgumentError, "Missing the required parameter 'type' when calling Filevantage.update_policy_precedence_0"
+        fail ArgumentError, "Missing the required parameter 'type' when calling Filevantage.update_policy_precedence"
       end
       # resource path
       local_var_path = '/filevantage/entities/policies-precedence/v1'
@@ -1829,7 +1829,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"Filevantage.update_policy_precedence_0",
+        :operation => :"Filevantage.update_policy_precedence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1840,7 +1840,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Filevantage#update_policy_precedence_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: Filevantage#update_policy_precedence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

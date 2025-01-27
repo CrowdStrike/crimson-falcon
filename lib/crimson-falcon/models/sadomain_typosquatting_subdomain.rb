@@ -36,8 +36,6 @@ module Falcon
 
     attr_accessor :id
 
-    attr_accessor :is_registered
-
     attr_accessor :last_seen
 
     attr_accessor :punycode_format
@@ -49,7 +47,6 @@ module Falcon
       {
         :'first_seen' => :'first_seen',
         :'id' => :'id',
-        :'is_registered' => :'is_registered',
         :'last_seen' => :'last_seen',
         :'punycode_format' => :'punycode_format',
         :'unicode_format' => :'unicode_format'
@@ -66,7 +63,6 @@ module Falcon
       {
         :'first_seen' => :'Time',
         :'id' => :'String',
-        :'is_registered' => :'Boolean',
         :'last_seen' => :'Time',
         :'punycode_format' => :'String',
         :'unicode_format' => :'String'
@@ -102,10 +98,6 @@ module Falcon
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'is_registered')
-        self.is_registered = attributes[:'is_registered']
-      end
-
       if attributes.key?(:'last_seen')
         self.last_seen = attributes[:'last_seen']
       end
@@ -127,10 +119,6 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @is_registered.nil?
-        invalid_properties.push('invalid value for "is_registered", is_registered cannot be nil.')
-      end
-
       if @punycode_format.nil?
         invalid_properties.push('invalid value for "punycode_format", punycode_format cannot be nil.')
       end
@@ -146,7 +134,6 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @is_registered.nil?
       return false if @punycode_format.nil?
       return false if @unicode_format.nil?
       true
@@ -159,7 +146,6 @@ module Falcon
       self.class == o.class &&
           first_seen == o.first_seen &&
           id == o.id &&
-          is_registered == o.is_registered &&
           last_seen == o.last_seen &&
           punycode_format == o.punycode_format &&
           unicode_format == o.unicode_format
@@ -174,7 +160,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_seen, id, is_registered, last_seen, punycode_format, unicode_format].hash
+      [first_seen, id, last_seen, punycode_format, unicode_format].hash
     end
 
     # Builds the object from hash

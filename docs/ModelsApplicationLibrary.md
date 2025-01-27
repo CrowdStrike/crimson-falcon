@@ -11,6 +11,7 @@
 | **name** | **String** |  | [optional] |
 | **path** | **String** |  | [optional] |
 | **version** | **String** |  | [optional] |
+| **ai_related** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = Falcon::ModelsApplicationLibrary.new(
   license: null,
   name: null,
   path: null,
-  version: null
+  version: null,
+  ai_related: null
 )
 ```
 

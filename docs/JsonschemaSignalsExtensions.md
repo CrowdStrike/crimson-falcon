@@ -7,6 +7,8 @@
 | **enum_wrapper** | **Boolean** |  | [optional] |
 | **example_display_map** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **path_name** | **String** |  | [optional] |
+| **use_case** | **String** |  | [optional] |
+| **vendor** | **String** |  | [optional] |
 
 ## Example
 
@@ -16,7 +18,9 @@ require 'crimson-falcon'
 instance = Falcon::JsonschemaSignalsExtensions.new(
   enum_wrapper: null,
   example_display_map: null,
-  path_name: null
+  path_name: null,
+  use_case: null,
+  vendor: null
 )
 ```
 

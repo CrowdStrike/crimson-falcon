@@ -36,24 +36,24 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve image assessment detections identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;containers_impacted&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;detection_type&#x60; - &#x60;images_impacted&#x60; - &#x60;last_detected&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [containers_impacted detection_name detection_severity detection_type images_impacted last_detected]
     # @return [DetectionsApiCombinedDetections]
     def read_combined_detections(opts = {})
       data, _status_code, _headers = read_combined_detections_with_http_info(opts)
       data
     end
 
-    # Retrieve image assessment detections identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;containers_impacted&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;detection_type&#x60; - &#x60;images_impacted&#x60; - &#x60;last_detected&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The fields to sort the records on. Supported columns:  [containers_impacted detection_name detection_severity detection_type images_impacted last_detected]
     # @return [Array<(DetectionsApiCombinedDetections, Integer, Hash)>] DetectionsApiCombinedDetections data, response status code and response headers
     def read_combined_detections_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -65,9 +65,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -103,10 +103,10 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve image assessment detection entities identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [DetectionsApiAssessmentDetections]
     def read_detections(opts = {})
@@ -114,10 +114,10 @@ module Falcon
       data
     end
 
-    # Retrieve image assessment detection entities identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(DetectionsApiAssessmentDetections, Integer, Hash)>] DetectionsApiAssessmentDetections data, response status code and response headers
     def read_detections_with_http_info(opts = {})
@@ -169,7 +169,7 @@ module Falcon
 
     # Aggregate count of detections
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [DetectionsApiDetectionsCount]
     def read_detections_count(opts = {})
       data, _status_code, _headers = read_detections_count_with_http_info(opts)
@@ -178,7 +178,7 @@ module Falcon
 
     # Aggregate count of detections
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [Array<(DetectionsApiDetectionsCount, Integer, Hash)>] DetectionsApiDetectionsCount data, response status code and response headers
     def read_detections_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -227,7 +227,7 @@ module Falcon
 
     # Aggregate counts of detections by severity
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [DetectionsApiDetectionsBySeverity]
     def read_detections_count_by_severity(opts = {})
       data, _status_code, _headers = read_detections_count_by_severity_with_http_info(opts)
@@ -236,7 +236,7 @@ module Falcon
 
     # Aggregate counts of detections by severity
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [Array<(DetectionsApiDetectionsBySeverity, Integer, Hash)>] DetectionsApiDetectionsBySeverity data, response status code and response headers
     def read_detections_count_by_severity_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -285,7 +285,7 @@ module Falcon
 
     # Aggregate counts of detections by detection type
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [DetectionsApiDetectionsByType]
     def read_detections_count_by_type(opts = {})
       data, _status_code, _headers = read_detections_count_by_type_with_http_info(opts)
@@ -294,7 +294,7 @@ module Falcon
 
     # Aggregate counts of detections by detection type
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
     # @return [Array<(DetectionsApiDetectionsByType, Integer, Hash)>] DetectionsApiDetectionsByType data, response status code and response headers
     def read_detections_count_by_type_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -341,10 +341,10 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve image assessment detection entities identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [CommonGenericEntityResponseString]
     def search_detections(opts = {})
@@ -352,10 +352,10 @@ module Falcon
       data
     end
 
-    # Retrieve image assessment detection entities identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(CommonGenericEntityResponseString, Integer, Hash)>] CommonGenericEntityResponseString data, response status code and response headers
     def search_detections_with_http_info(opts = {})

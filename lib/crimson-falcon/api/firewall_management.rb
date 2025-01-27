@@ -592,8 +592,8 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [FwmgrApiQueryResponse]
-    def delete_rule_groups_0(ids, opts = {})
-      data, _status_code, _headers = delete_rule_groups_0_with_http_info(ids, opts)
+    def delete_rule_groups(ids, opts = {})
+      data, _status_code, _headers = delete_rule_groups_with_http_info(ids, opts)
       data
     end
 
@@ -602,13 +602,13 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Audit log comment for this action
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
-    def delete_rule_groups_0_with_http_info(ids, opts = {})
+    def delete_rule_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagement.delete_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.delete_rule_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.delete_rule_groups_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.delete_rule_groups"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -636,7 +636,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagement.delete_rule_groups_0",
+        :operation => :"FirewallManagement.delete_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -647,7 +647,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagement#delete_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#delete_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1032,8 +1032,8 @@ module Falcon
     # @param ids [Array<String>] The IDs of the rule groups to retrieve
     # @param [Hash] opts the optional parameters
     # @return [FwmgrApiRuleGroupsResponse]
-    def get_rule_groups_0(ids, opts = {})
-      data, _status_code, _headers = get_rule_groups_0_with_http_info(ids, opts)
+    def get_rule_groups(ids, opts = {})
+      data, _status_code, _headers = get_rule_groups_with_http_info(ids, opts)
       data
     end
 
@@ -1041,13 +1041,13 @@ module Falcon
     # @param ids [Array<String>] The IDs of the rule groups to retrieve
     # @param [Hash] opts the optional parameters
     # @return [Array<(FwmgrApiRuleGroupsResponse, Integer, Hash)>] FwmgrApiRuleGroupsResponse data, response status code and response headers
-    def get_rule_groups_0_with_http_info(ids, opts = {})
+    def get_rule_groups_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rule_groups ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rule_groups_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rule_groups"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rule-groups/v1'
@@ -1074,7 +1074,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagement.get_rule_groups_0",
+        :operation => :"FirewallManagement.get_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1085,7 +1085,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagement#get_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1094,8 +1094,8 @@ module Falcon
     # @param ids [Array<String>] The rules to retrieve, identified by ID
     # @param [Hash] opts the optional parameters
     # @return [FwmgrApiRulesResponse]
-    def get_rules_0(ids, opts = {})
-      data, _status_code, _headers = get_rules_0_with_http_info(ids, opts)
+    def get_rules(ids, opts = {})
+      data, _status_code, _headers = get_rules_with_http_info(ids, opts)
       data
     end
 
@@ -1103,13 +1103,13 @@ module Falcon
     # @param ids [Array<String>] The rules to retrieve, identified by ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(FwmgrApiRulesResponse, Integer, Hash)>] FwmgrApiRulesResponse data, response status code and response headers
-    def get_rules_0_with_http_info(ids, opts = {})
+    def get_rules_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.get_rules ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rules_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling FirewallManagement.get_rules"
       end
       # resource path
       local_var_path = '/fwmgr/entities/rules/v1'
@@ -1136,7 +1136,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagement.get_rules_0",
+        :operation => :"FirewallManagement.get_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1147,7 +1147,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagement#get_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#get_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1507,8 +1507,8 @@ module Falcon
     # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
     # @option opts [Integer] :limit Number of ids to return.
     # @return [FwmgrApiQueryResponse]
-    def query_rule_groups_0(opts = {})
-      data, _status_code, _headers = query_rule_groups_0_with_http_info(opts)
+    def query_rule_groups(opts = {})
+      data, _status_code, _headers = query_rule_groups_with_http_info(opts)
       data
     end
 
@@ -1521,9 +1521,9 @@ module Falcon
     # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
     # @option opts [Integer] :limit Number of ids to return.
     # @return [Array<(FwmgrApiQueryResponse, Integer, Hash)>] FwmgrApiQueryResponse data, response status code and response headers
-    def query_rule_groups_0_with_http_info(opts = {})
+    def query_rule_groups_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_rule_groups_0 ...'
+        @api_client.config.logger.debug 'Calling API: FirewallManagement.query_rule_groups ...'
       end
       # resource path
       local_var_path = '/fwmgr/queries/rule-groups/v1'
@@ -1555,7 +1555,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"FirewallManagement.query_rule_groups_0",
+        :operation => :"FirewallManagement.query_rule_groups",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1566,7 +1566,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FirewallManagement#query_rule_groups_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FirewallManagement#query_rule_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

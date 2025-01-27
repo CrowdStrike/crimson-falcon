@@ -256,6 +256,7 @@ api_instance = Falcon::ExposureManagement.new
 opts = {
   offset: 56, # Integer | Starting index of result set from which to return subsidiaries
   limit: 56, # Integer | The maximum number of subsidiaries to return in the response.
+  filter: 'filter_example', # String | Filter ecosystem subsidiaries
   sort: 'sort_example', # String | The field by which to sort the list of subsidiaries. Possible values:<ul><li>name</li><li>primary_domain</li></ul></br>Sort order can be specified by appending \"asc\" or \"desc\" to the field name (e.g. \"name|asc\" or \"primary_domain|desc\").
   version_id: 'version_id_example' # String | The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written.
 }
@@ -293,6 +294,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **offset** | **Integer** | Starting index of result set from which to return subsidiaries | [optional][default to 0] |
 | **limit** | **Integer** | The maximum number of subsidiaries to return in the response. | [optional][default to 100] |
+| **filter** | **String** | Filter ecosystem subsidiaries | [optional] |
 | **sort** | **String** | The field by which to sort the list of subsidiaries. Possible values:&lt;ul&gt;&lt;li&gt;name&lt;/li&gt;&lt;li&gt;primary_domain&lt;/li&gt;&lt;/ul&gt;&lt;/br&gt;Sort order can be specified by appending \&quot;asc\&quot; or \&quot;desc\&quot; to the field name (e.g. \&quot;name|asc\&quot; or \&quot;primary_domain|desc\&quot;). | [optional] |
 | **version_id** | **String** | The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written. | [optional] |
 
@@ -615,6 +617,7 @@ api_instance = Falcon::ExposureManagement.new
 opts = {
   offset: 56, # Integer | Starting index of result set from which to return subsidiaries
   limit: 56, # Integer | The maximum number of IDs to return in the response.
+  filter: 'filter_example', # String | Filter ecosystem subsidiaries
   sort: 'sort_example', # String | The field by which to sort the list of IDs. Possible values:<ul><li>name</li><li>primary_domain</li></ul></br>Sort order can be specified by appending \"asc\" or \"desc\" to the field name (e.g. \"name|asc\" or \"primary_domain|desc\").
   version_id: 'version_id_example' # String | The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written.
 }
@@ -652,6 +655,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **offset** | **Integer** | Starting index of result set from which to return subsidiaries | [optional][default to 0] |
 | **limit** | **Integer** | The maximum number of IDs to return in the response. | [optional][default to 100] |
+| **filter** | **String** | Filter ecosystem subsidiaries | [optional] |
 | **sort** | **String** | The field by which to sort the list of IDs. Possible values:&lt;ul&gt;&lt;li&gt;name&lt;/li&gt;&lt;li&gt;primary_domain&lt;/li&gt;&lt;/ul&gt;&lt;/br&gt;Sort order can be specified by appending \&quot;asc\&quot; or \&quot;desc\&quot; to the field name (e.g. \&quot;name|asc\&quot; or \&quot;primary_domain|desc\&quot;). | [optional] |
 | **version_id** | **String** | The version ID of the ecosystem subsidiaries data, represented as a hash string. This parameter is required to ensure data consistency and prevent stale data. If a new version of the ecosystem subsidiaries data is written, the version ID will be updated. By including this parameter in the request, the client can ensure that the response will be invalidated if a new version is written. | [optional] |
 

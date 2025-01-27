@@ -8,6 +8,7 @@
 | **allow_privilege_escalation** | **Boolean** |  |  |
 | **cid** | **String** |  |  |
 | **cloud_account_id** | **String** |  |  |
+| **cloud_instance_id** | **String** |  |  |
 | **cloud_name** | **String** |  |  |
 | **cloud_region** | **String** |  |  |
 | **cloud_service** | **String** |  |  |
@@ -63,6 +64,7 @@ instance = Falcon::ModelsContainer.new(
   allow_privilege_escalation: null,
   cid: null,
   cloud_account_id: null,
+  cloud_instance_id: null,
   cloud_name: null,
   cloud_region: null,
   cloud_service: null,

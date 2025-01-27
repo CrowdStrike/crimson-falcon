@@ -44,6 +44,9 @@ module Falcon
     # The rule ID to be updated
     attr_accessor :id
 
+    # Which result types to monitor for. Can be set to only monitor domains or subdomains, as well as both. Only available for the `Typosquatting` rule topic.
+    attr_accessor :match_on_tsq_result_types
+
     # The name of a given rule
     attr_accessor :name
 
@@ -63,6 +66,7 @@ module Falcon
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'filter' => :'filter',
         :'id' => :'id',
+        :'match_on_tsq_result_types' => :'match_on_tsq_result_types',
         :'name' => :'name',
         :'permissions' => :'permissions',
         :'priority' => :'priority',
@@ -82,6 +86,7 @@ module Falcon
         :'breach_monitoring_enabled' => :'Boolean',
         :'filter' => :'String',
         :'id' => :'String',
+        :'match_on_tsq_result_types' => :'Array<String>',
         :'name' => :'String',
         :'permissions' => :'String',
         :'priority' => :'String',
@@ -126,6 +131,12 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'match_on_tsq_result_types')
+        if (value = attributes[:'match_on_tsq_result_types']).is_a?(Array)
+          self.match_on_tsq_result_types = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -163,6 +174,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @match_on_tsq_result_types.nil?
+        invalid_properties.push('invalid value for "match_on_tsq_result_types", match_on_tsq_result_types cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -189,6 +204,7 @@ module Falcon
       return false if @breach_monitoring_enabled.nil?
       return false if @filter.nil?
       return false if @id.nil?
+      return false if @match_on_tsq_result_types.nil?
       return false if @name.nil?
       return false if @permissions.nil?
       return false if @priority.nil?
@@ -205,6 +221,7 @@ module Falcon
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           filter == o.filter &&
           id == o.id &&
+          match_on_tsq_result_types == o.match_on_tsq_result_types &&
           name == o.name &&
           permissions == o.permissions &&
           priority == o.priority &&
@@ -220,7 +237,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitor_only, breach_monitoring_enabled, filter, id, name, permissions, priority, substring_matching_enabled].hash
+      [breach_monitor_only, breach_monitoring_enabled, filter, id, match_on_tsq_result_types, name, permissions, priority, substring_matching_enabled].hash
     end
 
     # Builds the object from hash

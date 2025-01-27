@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainScheduledReportV1
+    attr_accessor :api_client_id
+
     attr_accessor :can_write
 
     attr_accessor :created_on
@@ -83,6 +85,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'api_client_id' => :'api_client_id',
         :'can_write' => :'can_write',
         :'created_on' => :'created_on',
         :'customer_id' => :'customer_id',
@@ -118,6 +121,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'api_client_id' => :'String',
         :'can_write' => :'Boolean',
         :'created_on' => :'Time',
         :'customer_id' => :'String',
@@ -165,6 +169,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'api_client_id')
+        self.api_client_id = attributes[:'api_client_id']
+      end
 
       if attributes.key?(:'can_write')
         self.can_write = attributes[:'can_write']
@@ -271,6 +279,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @api_client_id.nil?
+        invalid_properties.push('invalid value for "api_client_id", api_client_id cannot be nil.')
+      end
+
       if @created_on.nil?
         invalid_properties.push('invalid value for "created_on", created_on cannot be nil.')
       end
@@ -333,6 +345,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @api_client_id.nil?
       return false if @created_on.nil?
       return false if @customer_id.nil?
       return false if @description.nil?
@@ -355,6 +368,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          api_client_id == o.api_client_id &&
           can_write == o.can_write &&
           created_on == o.created_on &&
           customer_id == o.customer_id &&
@@ -390,7 +404,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

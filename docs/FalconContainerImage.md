@@ -10,8 +10,8 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**launch_export_job**](FalconContainerImage.md#launch_export_job) | **POST** /container-security/entities/exports/v1 | Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource |
 | [**query_export_jobs**](FalconContainerImage.md#query_export_jobs) | **GET** /container-security/queries/exports/v1 | Query export jobs entities |
 | [**read_export_jobs**](FalconContainerImage.md#read_export_jobs) | **GET** /container-security/entities/exports/v1 | Read export jobs entities |
-| [**read_registry_entities**](FalconContainerImage.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieve registry entities identified by the customer id |
-| [**read_registry_entities_by_uuid**](FalconContainerImage.md#read_registry_entities_by_uuid) | **GET** /container-security/entities/registries/v1 | Retrieve the registry entity identified by the entity UUID |
+| [**read_registry_entities**](FalconContainerImage.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000 |
+| [**read_registry_entities_by_uuid**](FalconContainerImage.md#read_registry_entities_by_uuid) | **GET** /container-security/entities/registries/v1 | Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100 |
 | [**update_registry_entities**](FalconContainerImage.md#update_registry_entities) | **PATCH** /container-security/entities/registries/v1 | Update the registry entity, as identified by the entity UUID, using the provided details |
 
 
@@ -242,7 +242,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FalconContainerImage.new
-body = Falcon::ExportsLaunchExportRequest.new({format: 'format_example', resource: 'resource_example', sort: 'sort_example'}) # ExportsLaunchExportRequest | Supported resources: - `assets.clusters` - `assets.containers` - `assets.deployments` - `assets.images` - `assets.namespaces` - `assets.nodes` - `assets.pods` - `images.images-assessment-expanded` - `images.images-assessment` - `images.images-detections` - `images.packages` - `images.vulnerabilities` - `investigate.container-alerts` - `investigate.drift-indicators` - `investigate.kubernetes-ioms` - `investigate.runtime-detections` - `investigate.unidentified-containers` - `network.events` - `policies.exclusions`
+body = Falcon::ExportsLaunchExportRequest.new({format: 'format_example', resource: 'resource_example', sort: 'sort_example'}) # ExportsLaunchExportRequest | Supported resources: - `assets.clusters` - `assets.containers` - `assets.deployments` - `assets.images` - `assets.namespaces` - `assets.nodes` - `assets.pods` - `images.images-assessment-detections-expanded` - `images.images-assessment-expanded` - `images.images-assessment-vulnerabilities-expanded` - `images.images-assessment` - `images.images-detections` - `images.packages` - `images.vulnerabilities` - `investigate.container-alerts` - `investigate.drift-indicators` - `investigate.kubernetes-ioms` - `investigate.runtime-detections` - `investigate.unidentified-containers` - `network.events` - `policies.exclusions`
 
 begin
   # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
@@ -275,7 +275,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**ExportsLaunchExportRequest**](ExportsLaunchExportRequest.md) | Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60; |  |
+| **body** | [**ExportsLaunchExportRequest**](ExportsLaunchExportRequest.md) | Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60; |  |
 
 ### Return type
 
@@ -312,7 +312,7 @@ end
 
 api_instance = Falcon::FalconContainerImage.new
 opts = {
-  filter: 'filter_example' # String | FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - `resource`: (string) - `status`: (string)
+  filter: 'filter_example' # String | Filter exports using a query in Falcon Query Language (FQL). Only the last 100 jobs are returned. Supported filter fields: - `resource` - `status`
 }
 
 begin
@@ -346,7 +346,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string) | [optional] |
+| **filter** | **String** | Filter exports using a query in Falcon Query Language (FQL). Only the last 100 jobs are returned. Supported filter fields: - &#x60;resource&#x60; - &#x60;status&#x60; | [optional] |
 
 ### Return type
 
@@ -435,7 +435,7 @@ end
 
 > <DomainExternalQueryResponse> read_registry_entities(opts)
 
-Retrieve registry entities identified by the customer id
+Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
 
 ### Examples
 
@@ -454,11 +454,11 @@ api_instance = Falcon::FalconContainerImage.new
 opts = {
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The field to sort on, e.g. id.desc or id.asc.
+  sort: 'sort_example' # String | The fields to sort the records on.
 }
 
 begin
-  # Retrieve registry entities identified by the customer id
+  # Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
   result = api_instance.read_registry_entities(opts)
   p result
 rescue Falcon::ApiError => e
@@ -474,7 +474,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve registry entities identified by the customer id
+  # Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
   data, status_code, headers = api_instance.read_registry_entities_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -490,7 +490,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The field to sort on, e.g. id.desc or id.asc. | [optional] |
+| **sort** | **String** | The fields to sort the records on. | [optional] |
 
 ### Return type
 
@@ -510,7 +510,7 @@ end
 
 > <DomainExternalRegistryListResponse> read_registry_entities_by_uuid(ids)
 
-Retrieve the registry entity identified by the entity UUID
+Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
 
 ### Examples
 
@@ -529,7 +529,7 @@ api_instance = Falcon::FalconContainerImage.new
 ids = 'ids_example' # String | Registry entity UUID
 
 begin
-  # Retrieve the registry entity identified by the entity UUID
+  # Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
   result = api_instance.read_registry_entities_by_uuid(ids)
   p result
 rescue Falcon::ApiError => e
@@ -545,7 +545,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve the registry entity identified by the entity UUID
+  # Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
   data, status_code, headers = api_instance.read_registry_entities_by_uuid_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }

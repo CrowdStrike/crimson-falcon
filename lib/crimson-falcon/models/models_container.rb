@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :cloud_account_id
 
+    attr_accessor :cloud_instance_id
+
     attr_accessor :cloud_name
 
     attr_accessor :cloud_region
@@ -135,6 +137,7 @@ module Falcon
         :'allow_privilege_escalation' => :'allow_privilege_escalation',
         :'cid' => :'cid',
         :'cloud_account_id' => :'cloud_account_id',
+        :'cloud_instance_id' => :'cloud_instance_id',
         :'cloud_name' => :'cloud_name',
         :'cloud_region' => :'cloud_region',
         :'cloud_service' => :'cloud_service',
@@ -194,6 +197,7 @@ module Falcon
         :'allow_privilege_escalation' => :'Boolean',
         :'cid' => :'String',
         :'cloud_account_id' => :'String',
+        :'cloud_instance_id' => :'String',
         :'cloud_name' => :'String',
         :'cloud_region' => :'String',
         :'cloud_service' => :'String',
@@ -278,6 +282,10 @@ module Falcon
 
       if attributes.key?(:'cloud_account_id')
         self.cloud_account_id = attributes[:'cloud_account_id']
+      end
+
+      if attributes.key?(:'cloud_instance_id')
+        self.cloud_instance_id = attributes[:'cloud_instance_id']
       end
 
       if attributes.key?(:'cloud_name')
@@ -483,6 +491,10 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_account_id", cloud_account_id cannot be nil.')
       end
 
+      if @cloud_instance_id.nil?
+        invalid_properties.push('invalid value for "cloud_instance_id", cloud_instance_id cannot be nil.')
+      end
+
       if @cloud_name.nil?
         invalid_properties.push('invalid value for "cloud_name", cloud_name cannot be nil.')
       end
@@ -669,6 +681,7 @@ module Falcon
       return false if @allow_privilege_escalation.nil?
       return false if @cid.nil?
       return false if @cloud_account_id.nil?
+      return false if @cloud_instance_id.nil?
       return false if @cloud_name.nil?
       return false if @cloud_region.nil?
       return false if @cloud_service.nil?
@@ -725,6 +738,7 @@ module Falcon
           allow_privilege_escalation == o.allow_privilege_escalation &&
           cid == o.cid &&
           cloud_account_id == o.cloud_account_id &&
+          cloud_instance_id == o.cloud_instance_id &&
           cloud_name == o.cloud_name &&
           cloud_region == o.cloud_region &&
           cloud_service == o.cloud_service &&
@@ -780,7 +794,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agents, allow_privilege_escalation, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, config_labels, container_id, container_name, created_at, first_seen, image_application_package_count, image_assessed_at, image_detection_count, image_digest, image_has_been_assessed, image_highest_severity_vulnerability, image_id, image_package_count, image_registry, image_repository, image_tag, image_vulnerability_count, insecure_mount_source, insecure_mount_type, insecure_propagation_mode, interactive_mode, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_name, node_uid, pod_id, pod_name, ports, privileged, root_write_access, run_as_root_group, run_as_root_user, running_status, volume_mounts].hash
+      [agents, allow_privilege_escalation, cid, cloud_account_id, cloud_instance_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, config_labels, container_id, container_name, created_at, first_seen, image_application_package_count, image_assessed_at, image_detection_count, image_digest, image_has_been_assessed, image_highest_severity_vulnerability, image_id, image_package_count, image_registry, image_repository, image_tag, image_vulnerability_count, insecure_mount_source, insecure_mount_type, insecure_propagation_mode, interactive_mode, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_name, node_uid, pod_id, pod_name, ports, privileged, root_write_access, run_as_root_group, run_as_root_user, running_status, volume_mounts].hash
     end
 
     # Builds the object from hash

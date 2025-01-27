@@ -39,7 +39,7 @@ module Falcon
     # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use this parameter together with the &#x60;offset&#x60; parameter to manage pagination of the results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all alert metadata for the provided string
@@ -52,7 +52,7 @@ module Falcon
     # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use this parameter together with the &#x60;offset&#x60; parameter to manage pagination of the results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all alert metadata for the provided string
@@ -118,7 +118,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use this parameter together with the &#x60;offset&#x60; parameter to manage pagination of the results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all alert metadata for the provided string
@@ -132,7 +132,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_hidden allows previously hidden alerts to be retrieved (default to true)
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.
-    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use with the &#x60;offset&#x60; parameter to manage pagination of results.
+    # @option opts [Integer] :limit The maximum number of detections to return in this response (default: 100; max: 10000). Use this parameter together with the &#x60;offset&#x60; parameter to manage pagination of the results.
     # @option opts [String] :sort Sort parameter takes the form &lt;field|direction&gt;. Direction can be either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending) order. For example: &#x60;status|asc&#x60; or &#x60;status|desc&#x60;.  The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields are status, cid, aggregate_id, timestamp, created_timestamp, updated_timestamp, assigned_to_name, assigned_to_uid, assigned_to_uuid, show_in_ui, tactic_id, tactic, technique, technique_id, pattern_id, product, comment, tags If the fields are missing from the Alerts, the service will fallback to its default ordering
     # @option opts [String] :filter Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).
     # @option opts [String] :q Search all alert metadata for the provided string
@@ -461,6 +461,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Alerts#post_aggregates_alerts_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieves all Alerts that match a particular FQL filter.
+    # @param body [DetectsapiPostCombinedAlertsV1RequestSwagger] &#x60;after&#x60; - Token used to access the next page. The &#x60;after&#x60; token will be populated only when the service expects more results expected on the next page.  Once you reach the last page (which usually has less than &#x60;limit&#x60; results), the &#x60;after&#x60; token will not be returned anymore.   The best way to retrieve all the results is to paginate them till you get to the last page where the &#x60;after&#x60; token blank.   This value is highly dependant on the &#x60;sort&#x60; parameter, so if you plan to change the sort order, you will have to re-start your search from the first page (without &#x60;after&#x60; parameter).  &#x60;filter&#x60; - Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).  &#x60;limit&#x60; - The maximum number of detections to return in this response (default: 100; max: 1000). Use this parameter together with the &#x60;after&#x60; parameter to manage pagination of the results.  &#x60;sort&#x60; - Sort parameter takes the form of &#x60;&lt;field|direction&gt;&#x60;.   The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields for sorting are: timestamp, created_timestamp, updated_timestamp, status, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, tactic_id, tactic, technique, technique_id, pattern_id or product.  By default all the results are sorted by the &#x60;created_timestamp&#x60; field in the descending order.  **Important:** The pagination is done on live data in the order defined by the &#x60;sort&#x60; field parameter (default: &#x60;created_timestamp|desc&#x60;), so if you want to avoid inconsistent results where the same record might appear on multiple pages (or none), sort only on the fields that do not change over time (e.g. created_timestamp, composite_id, ...).
+    # @param [Hash] opts the optional parameters
+    # @return [DetectsapiPostCombinedAlertsV1ResponseSwagger]
+    def post_combined_alerts_v1(body, opts = {})
+      data, _status_code, _headers = post_combined_alerts_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Retrieves all Alerts that match a particular FQL filter.
+    # @param body [DetectsapiPostCombinedAlertsV1RequestSwagger] &#x60;after&#x60; - Token used to access the next page. The &#x60;after&#x60; token will be populated only when the service expects more results expected on the next page.  Once you reach the last page (which usually has less than &#x60;limit&#x60; results), the &#x60;after&#x60; token will not be returned anymore.   The best way to retrieve all the results is to paginate them till you get to the last page where the &#x60;after&#x60; token blank.   This value is highly dependant on the &#x60;sort&#x60; parameter, so if you plan to change the sort order, you will have to re-start your search from the first page (without &#x60;after&#x60; parameter).  &#x60;filter&#x60; - Filter Alerts using a query in Falcon Query Language (FQL).Filter fields can be any keyword field that is part of #domain.Alert  An asterisk wildcard &#x60;*&#x60; includes all results.   Empty value means to not filter on anything. Most commonly used filter fields that supports exact match: cid, id, aggregate_id, product, type, pattern_id, platform ... Most commonly used filter fields that supports wildcard (*): assigned_to_name, assigned_to_uuid, tactic_id, technique ... Most commonly filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): severity, created_timestamp, timestamp, updated_timestamp... All filter fields and operations support negation (!).   The full list of valid filter options is extensive. Review it in our [documentation inside the Falcon console](https://falcon.crowdstrike.com/documentation/45/falcon-query-language-fql).  &#x60;limit&#x60; - The maximum number of detections to return in this response (default: 100; max: 1000). Use this parameter together with the &#x60;after&#x60; parameter to manage pagination of the results.  &#x60;sort&#x60; - Sort parameter takes the form of &#x60;&lt;field|direction&gt;&#x60;.   The sorting fields can be any keyword field that is part of #domain.Alert except for the text based fields. Most commonly used fields for sorting are: timestamp, created_timestamp, updated_timestamp, status, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, tactic_id, tactic, technique, technique_id, pattern_id or product.  By default all the results are sorted by the &#x60;created_timestamp&#x60; field in the descending order.  **Important:** The pagination is done on live data in the order defined by the &#x60;sort&#x60; field parameter (default: &#x60;created_timestamp|desc&#x60;), so if you want to avoid inconsistent results where the same record might appear on multiple pages (or none), sort only on the fields that do not change over time (e.g. created_timestamp, composite_id, ...).
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DetectsapiPostCombinedAlertsV1ResponseSwagger, Integer, Hash)>] DetectsapiPostCombinedAlertsV1ResponseSwagger data, response status code and response headers
+    def post_combined_alerts_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Alerts.post_combined_alerts_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Alerts.post_combined_alerts_v1"
+      end
+      # resource path
+      local_var_path = '/alerts/combined/alerts/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DetectsapiPostCombinedAlertsV1ResponseSwagger'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Alerts.post_combined_alerts_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Alerts#post_combined_alerts_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

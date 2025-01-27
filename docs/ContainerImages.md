@@ -8,15 +8,15 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**aggregate_image_count**](ContainerImages.md#aggregate_image_count) | **GET** /container-security/aggregates/images/count/v1 | Aggregate count of images |
 | [**aggregate_image_count_by_base_os**](ContainerImages.md#aggregate_image_count_by_base_os) | **GET** /container-security/aggregates/images/count-by-os-distribution/v1 | Aggregate count of images grouped by Base OS distribution |
 | [**aggregate_image_count_by_state**](ContainerImages.md#aggregate_image_count_by_state) | **GET** /container-security/aggregates/images/count-by-state/v1 | Aggregate count of images grouped by state |
-| [**combined_base_images**](ContainerImages.md#combined_base_images) | **GET** /container-security/combined/base-images/v1 | Retrieve base images for provided filter |
+| [**combined_base_images**](ContainerImages.md#combined_base_images) | **GET** /container-security/combined/base-images/v1 | Retrieves a list of base images for the provided filter. Maximum page size: 100 |
 | [**combined_image_by_vulnerability_count**](ContainerImages.md#combined_image_by_vulnerability_count) | **GET** /container-security/combined/images/by-vulnerability-count/v1 | Retrieve top x images with the most vulnerabilities |
-| [**combined_image_detail**](ContainerImages.md#combined_image_detail) | **GET** /container-security/combined/images/detail/v1 | Retrieve image entities identified by the provided filter criteria |
+| [**combined_image_detail**](ContainerImages.md#combined_image_detail) | **GET** /container-security/combined/images/detail/v1 | Maximum offset &#x3D; 10000 - limit |
 | [**combined_image_issues_summary**](ContainerImages.md#combined_image_issues_summary) | **GET** /container-security/combined/images/issues-summary/v1 | Retrieve image issues summary such as Image detections, Runtime detections, Policies, vulnerabilities |
 | [**combined_image_vulnerability_summary**](ContainerImages.md#combined_image_vulnerability_summary) | **GET** /container-security/combined/images/vulnerabilities-summary/v1 | aggregates information about vulnerabilities for an image |
 | [**create_base_images_entities**](ContainerImages.md#create_base_images_entities) | **POST** /container-security/entities/base-images/v1 | Creates base images using the provided details |
 | [**delete_base_images**](ContainerImages.md#delete_base_images) | **DELETE** /container-security/entities/base-images/v1 | Delete base images by base image uuid |
-| [**get_combined_images**](ContainerImages.md#get_combined_images) | **GET** /container-security/combined/image-assessment/images/v1 | Get image assessment results by providing an FQL filter and paging details |
-| [**read_combined_images_export**](ContainerImages.md#read_combined_images_export) | **GET** /container-security/combined/images/export/v1 | Retrieve images with an option to expand aggregated vulnerabilities/detections |
+| [**get_combined_images**](ContainerImages.md#get_combined_images) | **GET** /container-security/combined/image-assessment/images/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_images_export**](ContainerImages.md#read_combined_images_export) | **GET** /container-security/combined/images/export/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## aggregate_image_assessment_history
@@ -40,7 +40,7 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example' # String | Filter using a query in Falcon Query Language (FQL). Supported filters:  cid,registry,repository
+  filter: 'filter_example' # String | Filter using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `registry` - `repository`
 }
 
 begin
@@ -74,7 +74,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters:  cid,registry,repository | [optional] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; | [optional] |
 
 ### Return type
 
@@ -111,7 +111,7 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
+  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `arch` - `base_os` - `cid` - `container_id` - `container_running_status` - `cps_rating` - `crowdstrike_user` - `cve_id` - `detection_count` - `detection_name` - `detection_severity` - `first_seen` - `image_digest` - `image_id` - `include_base_image_vuln` - `layer_digest` - `package_name_version` - `registry` - `repository` - `source` - `tag` - `vulnerability_count` - `vulnerability_severity`
 }
 
 begin
@@ -145,7 +145,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60; | [optional] |
 
 ### Return type
 
@@ -182,7 +182,7 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag
+  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `registry` - `repository` - `tag`
 }
 
 begin
@@ -216,7 +216,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
 
 ### Return type
 
@@ -253,7 +253,7 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,last_seen,registry,repository
+  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `registry` - `repository` - `tag`
 }
 
 begin
@@ -287,7 +287,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,last_seen,registry,repository | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
 
 ### Return type
 
@@ -307,7 +307,7 @@ end
 
 > <CoreEntitiesResponse> combined_base_images(opts)
 
-Retrieve base images for provided filter
+Retrieves a list of base images for the provided filter. Maximum page size: 100
 
 ### Examples
 
@@ -324,11 +324,11 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example' # String | Search base images using a query in Falcon Query Language (FQL). Supported filters:  image_digest,image_id,registry,repository,tag
+  filter: 'filter_example' # String | Search base images using a query in Falcon Query Language (FQL). Supported filter fields: - `image_digest` - `image_id` - `registry` - `repository` - `tag`
 }
 
 begin
-  # Retrieve base images for provided filter
+  # Retrieves a list of base images for the provided filter. Maximum page size: 100
   result = api_instance.combined_base_images(opts)
   p result
 rescue Falcon::ApiError => e
@@ -344,7 +344,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve base images for provided filter
+  # Retrieves a list of base images for the provided filter. Maximum page size: 100
   data, status_code, headers = api_instance.combined_base_images_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -358,7 +358,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search base images using a query in Falcon Query Language (FQL). Supported filters:  image_digest,image_id,registry,repository,tag | [optional] |
+| **filter** | **String** | Search base images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
 
 ### Return type
 
@@ -395,9 +395,9 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag
+  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `registry` - `repository` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56 # Integer | This is not used in the backend but is added here for compatibility purposes as some clients expects this i.e UI widgets.
+  offset: 56 # Integer | The fields to sort the records on. **Not supported.**
 }
 
 begin
@@ -431,9 +431,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,registry,repository,tag | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | This is not used in the backend but is added here for compatibility purposes as some clients expects this i.e UI widgets. | [optional] |
+| **offset** | **Integer** | The fields to sort the records on. **Not supported.** | [optional] |
 
 ### Return type
 
@@ -453,7 +453,7 @@ end
 
 > <ImagesApiCustomerAndImage> combined_image_detail(opts)
 
-Retrieve image entities identified by the provided filter criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -470,15 +470,15 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  registry,repository,tag
+  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `registry` - `repository` - `tag`
   with_config: true, # Boolean | (true/false) include image config, default is false
+  sort: 'sort_example', # String | The fields to sort the records on.
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve image entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.combined_image_detail(opts)
   p result
 rescue Falcon::ApiError => e
@@ -494,7 +494,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve image entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.combined_image_detail_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -508,11 +508,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  registry,repository,tag | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
 | **with_config** | **Boolean** | (true/false) include image config, default is false | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
 | **sort** | **String** | The fields to sort the records on. | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
 
@@ -548,12 +548,12 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ContainerImages.new
-cid = 'cid_example' # String | CID
-registry = 'registry_example' # String | registry name
-repository = 'repository_example' # String | repository name
-tag = 'tag_example' # String | tag name
+cid = 'cid_example' # String | CS Customer ID
+registry = 'registry_example' # String | Registry
+repository = 'repository_example' # String | Repository name
+tag = 'tag_example' # String | Tag name
 opts = {
-  include_base_image_vuln: true # Boolean | include base image vulnerabilities
+  include_base_image_vuln: true # Boolean | Include base image vulnerabilities.
 }
 
 begin
@@ -587,11 +587,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cid** | **String** | CID |  |
-| **registry** | **String** | registry name |  |
-| **repository** | **String** | repository name |  |
-| **tag** | **String** | tag name |  |
-| **include_base_image_vuln** | **Boolean** | include base image vulnerabilities | [optional] |
+| **cid** | **String** | CS Customer ID |  |
+| **registry** | **String** | Registry |  |
+| **repository** | **String** | Repository name |  |
+| **tag** | **String** | Tag name |  |
+| **include_base_image_vuln** | **Boolean** | Include base image vulnerabilities. | [optional][default to false] |
 
 ### Return type
 
@@ -627,12 +627,12 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ContainerImages.new
-cid = 'cid_example' # String | CID
-registry = 'registry_example' # String | registry name
-repository = 'repository_example' # String | repository name
-tag = 'tag_example' # String | tag name
+cid = 'cid_example' # String | CS Customer ID
+registry = 'registry_example' # String | Registry
+repository = 'repository_example' # String | Repository name
+tag = 'tag_example' # String | Tag name
 opts = {
-  include_base_image_vuln: true # Boolean | include base image vulnerabilities
+  include_base_image_vuln: true # Boolean | Include base image vulnerabilities.
 }
 
 begin
@@ -666,11 +666,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cid** | **String** | CID |  |
-| **registry** | **String** | registry name |  |
-| **repository** | **String** | repository name |  |
-| **tag** | **String** | tag name |  |
-| **include_base_image_vuln** | **Boolean** | include base image vulnerabilities | [optional] |
+| **cid** | **String** | CS Customer ID |  |
+| **registry** | **String** | Registry |  |
+| **repository** | **String** | Repository name |  |
+| **tag** | **String** | Tag name |  |
+| **include_base_image_vuln** | **Boolean** | Include base image vulnerabilities. | [optional][default to false] |
 
 ### Return type
 
@@ -828,7 +828,7 @@ end
 
 > <ImagesExtCombinedImagesResponse> get_combined_images(opts)
 
-Get image assessment results by providing an FQL filter and paging details
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -845,14 +845,14 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_id, container_running_status, cve_id, detection_name, detection_severity, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve [1-100]
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository source tag]
+  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `container_id` - `container_running_status` - `cve_id` - `detection_name` - `detection_severity` - `first_seen` - `image_digest` - `image_id` - `registry` - `repository` - `tag` - `vulnerability_severity`
+  sort: 'sort_example', # String | The fields to sort the records on. Supported columns: - `first_seen` - `highest_detection_severity` - `highest_vulnerability_severity` - `image_digest` - `image_id` - `registry` - `repository` - `source` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Get image assessment results by providing an FQL filter and paging details
+  # Maximum offset = 10000 - limit
   result = api_instance.get_combined_images(opts)
   p result
 rescue Falcon::ApiError => e
@@ -868,7 +868,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get image assessment results by providing an FQL filter and paging details
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.get_combined_images_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -882,10 +882,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  container_id, container_running_status, cve_id, detection_name, detection_severity, first_seen, image_digest, image_id, registry, repository, tag, vulnerability_severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve [1-100] | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_severity&#x60; | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;first_seen&#x60; - &#x60;highest_detection_severity&#x60; - &#x60;highest_vulnerability_severity&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [first_seen highest_detection_severity highest_vulnerability_severity image_digest image_id registry repository source tag] | [optional] |
 
 ### Return type
 
@@ -905,7 +905,7 @@ end
 
 > <ImagesApiCombinedImageExport> read_combined_images_export(opts)
 
-Retrieve images with an option to expand aggregated vulnerabilities/detections
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -922,16 +922,16 @@ end
 
 api_instance = Falcon::ContainerImages.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity
-  expand_vulnerabilities: true, # Boolean | expand vulnerabilities
-  expand_detections: true, # Boolean | expand detections
+  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `arch` - `base_os` - `cid` - `container_id` - `container_running_status` - `cps_rating` - `crowdstrike_user` - `cve_id` - `detection_count` - `detection_name` - `detection_severity` - `first_seen` - `image_digest` - `image_id` - `include_base_image_vuln` - `layer_digest` - `package_name_version` - `registry` - `repository` - `source` - `tag` - `vulnerability_count` - `vulnerability_severity`
+  expand_vulnerabilities: true, # Boolean | Expand vulnerabilities details
+  expand_detections: true, # Boolean | Expand detections details
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository source tag vulnerabilities]
+  sort: 'sort_example' # String | The fields to sort the records on. Supported columns: - `base_os` - `cid` - `detections` - `firstScanned` - `first_seen` - `highest_cps_current_rating` - `highest_detection_severity` - `highest_vulnerability_severity` - `image_digest` - `image_id` - `last_seen` - `layers_with_vulnerabilities` - `packages` - `registry` - `repository` - `source` - `tag` - `vulnerabilities`
 }
 
 begin
-  # Retrieve images with an option to expand aggregated vulnerabilities/detections
+  # Maximum offset = 10000 - limit
   result = api_instance.read_combined_images_export(opts)
   p result
 rescue Falcon::ApiError => e
@@ -947,7 +947,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve images with an option to expand aggregated vulnerabilities/detections
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_combined_images_export_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -961,12 +961,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  arch,base_os,cid,container_id,container_running_status,cps_rating,crowdstrike_user,cve_id,detection_count,detection_name,detection_severity,first_seen,image_digest,image_id,include_base_image_vuln,layer_digest,package_name_version,registry,repository,source,tag,vulnerability_count,vulnerability_severity | [optional] |
-| **expand_vulnerabilities** | **Boolean** | expand vulnerabilities | [optional] |
-| **expand_detections** | **Boolean** | expand detections | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60; | [optional] |
+| **expand_vulnerabilities** | **Boolean** | Expand vulnerabilities details | [optional][default to false] |
+| **expand_detections** | **Boolean** | Expand detections details | [optional][default to false] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [base_os cid detections firstScanned first_seen highest_cps_current_rating highest_detection_severity highest_vulnerability_severity image_digest image_id last_seen layers_with_vulnerabilities packages registry repository source tag vulnerabilities] | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;detections&#x60; - &#x60;firstScanned&#x60; - &#x60;first_seen&#x60; - &#x60;highest_cps_current_rating&#x60; - &#x60;highest_detection_severity&#x60; - &#x60;highest_vulnerability_severity&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;last_seen&#x60; - &#x60;layers_with_vulnerabilities&#x60; - &#x60;packages&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerabilities&#x60; | [optional] |
 
 ### Return type
 

@@ -288,24 +288,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve containers by container_runtime_version
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The upper-bound on the number of container records to retrieve.
-    # @option opts [Integer] :offset It is used to get the offset
-    # @option opts [String] :sort Field to sort results by
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsContainerRuntimePivotResponse]
     def find_containers_by_container_run_time_version(opts = {})
       data, _status_code, _headers = find_containers_by_container_run_time_version_with_http_info(opts)
       data
     end
 
-    # Retrieve containers by container_runtime_version
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The upper-bound on the number of container records to retrieve.
-    # @option opts [Integer] :offset It is used to get the offset
-    # @option opts [String] :sort Field to sort results by
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
+    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsContainerRuntimePivotResponse, Integer, Hash)>] ModelsContainerRuntimePivotResponse data, response status code and response headers
     def find_containers_by_container_run_time_version_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1116,7 +1116,7 @@ module Falcon
 
     # Group the containers by Managed
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsContainerCoverageResponseEntity]
     def group_containers_by_managed(opts = {})
       data, _status_code, _headers = group_containers_by_managed_with_http_info(opts)
@@ -1125,7 +1125,7 @@ module Falcon
 
     # Group the containers by Managed
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsContainerCoverageResponseEntity, Integer, Hash)>] ModelsContainerCoverageResponseEntity data, response status code and response headers
     def group_containers_by_managed_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1370,24 +1370,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve kubernetes clusters identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsClusterEntityResponse]
     def read_cluster_combined(opts = {})
       data, _status_code, _headers = read_cluster_combined_with_http_info(opts)
       data
     end
 
-    # Retrieve kubernetes clusters identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsClusterEntityResponse, Integer, Hash)>] ModelsClusterEntityResponse data, response status code and response headers
     def read_cluster_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1399,9 +1399,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1439,7 +1439,7 @@ module Falcon
 
     # Retrieve cluster counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [CommonCountResponse]
     def read_cluster_count(opts = {})
       data, _status_code, _headers = read_cluster_count_with_http_info(opts)
@@ -1448,7 +1448,7 @@ module Falcon
 
     # Retrieve cluster counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_cluster_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1498,7 +1498,7 @@ module Falcon
     # Retrieve cluster enrichment data
     # @param cluster_id [Array<String>] One or more cluster ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [K8sassetsClusterEnrichmentResponse]
     def read_cluster_enrichment(cluster_id, opts = {})
       data, _status_code, _headers = read_cluster_enrichment_with_http_info(cluster_id, opts)
@@ -1508,7 +1508,7 @@ module Falcon
     # Retrieve cluster enrichment data
     # @param cluster_id [Array<String>] One or more cluster ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [Array<(K8sassetsClusterEnrichmentResponse, Integer, Hash)>] K8sassetsClusterEnrichmentResponse data, response status code and response headers
     def read_cluster_enrichment_with_http_info(cluster_id, opts = {})
       if @api_client.config.debugging
@@ -1617,7 +1617,7 @@ module Falcon
 
     # Bucket clusters by kubernetes version
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_clusters_by_kubernetes_version_count(opts = {})
       data, _status_code, _headers = read_clusters_by_kubernetes_version_count_with_http_info(opts)
@@ -1626,7 +1626,7 @@ module Falcon
 
     # Bucket clusters by kubernetes version
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_clusters_by_kubernetes_version_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1675,7 +1675,7 @@ module Falcon
 
     # Bucket clusters by status
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_clusters_by_status_count(opts = {})
       data, _status_code, _headers = read_clusters_by_status_count_with_http_info(opts)
@@ -1684,7 +1684,7 @@ module Falcon
 
     # Bucket clusters by status
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+    # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_clusters_by_status_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1731,24 +1731,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve containers identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsContainerEntityResponse]
     def read_container_combined(opts = {})
       data, _status_code, _headers = read_container_combined_with_http_info(opts)
       data
     end
 
-    # Retrieve containers identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsContainerEntityResponse, Integer, Hash)>] ModelsContainerEntityResponse data, response status code and response headers
     def read_container_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1760,9 +1760,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1800,7 +1800,7 @@ module Falcon
 
     # Retrieve container counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [CommonCountResponse]
     def read_container_count(opts = {})
       data, _status_code, _headers = read_container_count_with_http_info(opts)
@@ -1809,7 +1809,7 @@ module Falcon
 
     # Retrieve container counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_container_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1856,9 +1856,9 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve top container image registries
+    # Retrieves a list with the top container image registries. Maximum page size: 200
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not provided all registries are considered (default to false)
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @return [ModelsAPIFilterResponse]
     def read_container_count_by_registry(opts = {})
@@ -1866,9 +1866,9 @@ module Falcon
       data
     end
 
-    # Retrieve top container image registries
+    # Retrieves a list with the top container image registries. Maximum page size: 200
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+    # @option opts [Boolean] :under_assessment (true/false) whether to return registries under assessment or not under assessment. If not provided all registries are considered (default to false)
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_count_by_registry_with_http_info(opts = {})
@@ -1920,7 +1920,7 @@ module Falcon
     # Retrieve container enrichment data
     # @param container_id [Array<String>] One or more container ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [K8sassetsContainerEnrichmentResponse]
     def read_container_enrichment(container_id, opts = {})
       data, _status_code, _headers = read_container_enrichment_with_http_info(container_id, opts)
@@ -1930,7 +1930,7 @@ module Falcon
     # Retrieve container enrichment data
     # @param container_id [Array<String>] One or more container ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [Array<(K8sassetsContainerEnrichmentResponse, Integer, Hash)>] K8sassetsContainerEnrichmentResponse data, response status code and response headers
     def read_container_enrichment_with_http_info(container_id, opts = {})
       if @api_client.config.debugging
@@ -1984,7 +1984,7 @@ module Falcon
 
     # Retrieve count of image assessment detections on running containers over a period of time
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAPIFilterResponse]
     def read_container_image_detections_count_by_date(opts = {})
       data, _status_code, _headers = read_container_image_detections_count_by_date_with_http_info(opts)
@@ -1993,7 +1993,7 @@ module Falcon
 
     # Retrieve count of image assessment detections on running containers over a period of time
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_image_detections_count_by_date_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2042,7 +2042,7 @@ module Falcon
 
     # Bucket container by image-digest
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_container_images_by_most_used(opts = {})
       data, _status_code, _headers = read_container_images_by_most_used_with_http_info(opts)
@@ -2051,7 +2051,7 @@ module Falcon
 
     # Bucket container by image-digest
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_container_images_by_most_used_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2100,7 +2100,7 @@ module Falcon
 
     # Retrieve count of image states running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60;
     # @return [ModelsAPIFilterResponse]
     def read_container_images_by_state(opts = {})
       data, _status_code, _headers = read_container_images_by_state_with_http_info(opts)
@@ -2109,7 +2109,7 @@ module Falcon
 
     # Retrieve count of image states running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60;
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_container_images_by_state_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2158,7 +2158,7 @@ module Falcon
 
     # Retrieve container vulnerabilities by severity counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_container_vulnerabilities_by_severity_count(opts = {})
       data, _status_code, _headers = read_container_vulnerabilities_by_severity_count_with_http_info(opts)
@@ -2167,7 +2167,7 @@ module Falcon
 
     # Retrieve container vulnerabilities by severity counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_container_vulnerabilities_by_severity_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2216,7 +2216,7 @@ module Falcon
 
     # Retrieve containers by date range counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_containers_by_date_range_count(opts = {})
       data, _status_code, _headers = read_containers_by_date_range_count_with_http_info(opts)
@@ -2225,7 +2225,7 @@ module Falcon
 
     # Retrieve containers by date range counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Get container counts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_containers_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2274,7 +2274,7 @@ module Falcon
 
     # Bucket containers by agent type and calculate sensor coverage
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_containers_sensor_coverage(opts = {})
       data, _status_code, _headers = read_containers_sensor_coverage_with_http_info(opts)
@@ -2283,7 +2283,7 @@ module Falcon
 
     # Bucket containers by agent type and calculate sensor coverage
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_containers_sensor_coverage_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2330,24 +2330,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve kubernetes deployments identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;deployment_id&#x60; - &#x60;deployment_name&#x60; - &#x60;deployment_status&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsDeploymentEntityResponse]
     def read_deployment_combined(opts = {})
       data, _status_code, _headers = read_deployment_combined_with_http_info(opts)
       data
     end
 
-    # Retrieve kubernetes deployments identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;deployment_id&#x60; - &#x60;deployment_name&#x60; - &#x60;deployment_status&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsDeploymentEntityResponse, Integer, Hash)>] ModelsDeploymentEntityResponse data, response status code and response headers
     def read_deployment_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2359,9 +2359,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2399,7 +2399,7 @@ module Falcon
 
     # Retrieve deployment counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;deployment_id&#x60; - &#x60;deployment_name&#x60; - &#x60;deployment_status&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [CommonCountResponse]
     def read_deployment_count(opts = {})
       data, _status_code, _headers = read_deployment_count_with_http_info(opts)
@@ -2408,7 +2408,7 @@ module Falcon
 
     # Retrieve deployment counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;deployment_id&#x60; - &#x60;deployment_name&#x60; - &#x60;deployment_status&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_deployment_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2458,7 +2458,7 @@ module Falcon
     # Retrieve deployment enrichment data
     # @param deployment_id [Array<String>] One or more deployment ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [K8sassetsDeploymentEnrichmentResponse]
     def read_deployment_enrichment(deployment_id, opts = {})
       data, _status_code, _headers = read_deployment_enrichment_with_http_info(deployment_id, opts)
@@ -2468,7 +2468,7 @@ module Falcon
     # Retrieve deployment enrichment data
     # @param deployment_id [Array<String>] One or more deployment ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [Array<(K8sassetsDeploymentEnrichmentResponse, Integer, Hash)>] K8sassetsDeploymentEnrichmentResponse data, response status code and response headers
     def read_deployment_enrichment_with_http_info(deployment_id, opts = {})
       if @api_client.config.debugging
@@ -2577,7 +2577,7 @@ module Falcon
 
     # Retrieve count of distinct images running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAPIFilterResponse]
     def read_distinct_container_image_count(opts = {})
       data, _status_code, _headers = read_distinct_container_image_count_with_http_info(opts)
@@ -2586,7 +2586,7 @@ module Falcon
 
     # Retrieve count of distinct images running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_distinct_container_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2635,7 +2635,7 @@ module Falcon
 
     # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+    # @option opts [String] :filter Filter Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;created_timestamp&#x60; - &#x60;detect_timestamp&#x60; - &#x60;prevented&#x60; - &#x60;severity&#x60;
     # @return [K8siomsKubernetesIOMFieldValue]
     def read_kubernetes_iom_by_date_range(opts = {})
       data, _status_code, _headers = read_kubernetes_iom_by_date_range_with_http_info(opts)
@@ -2644,7 +2644,7 @@ module Falcon
 
     # Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+    # @option opts [String] :filter Filter Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;created_timestamp&#x60; - &#x60;detect_timestamp&#x60; - &#x60;prevented&#x60; - &#x60;severity&#x60;
     # @return [Array<(K8siomsKubernetesIOMFieldValue, Integer, Hash)>] K8siomsKubernetesIOMFieldValue data, response status code and response headers
     def read_kubernetes_iom_by_date_range_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2693,7 +2693,7 @@ module Falcon
 
     # Returns the total count of Kubernetes IOMs over the past seven days
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+    # @option opts [String] :filter Filter Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;created_timestamp&#x60; - &#x60;detect_timestamp&#x60; - &#x60;prevented&#x60; - &#x60;severity&#x60;
     # @return [K8siomsKubernetesIOMCountValue]
     def read_kubernetes_iom_count(opts = {})
       data, _status_code, _headers = read_kubernetes_iom_count_with_http_info(opts)
@@ -2702,7 +2702,7 @@ module Falcon
 
     # Returns the total count of Kubernetes IOMs over the past seven days
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+    # @option opts [String] :filter Filter Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;created_timestamp&#x60; - &#x60;detect_timestamp&#x60; - &#x60;prevented&#x60; - &#x60;severity&#x60;
     # @return [Array<(K8siomsKubernetesIOMCountValue, Integer, Hash)>] K8siomsKubernetesIOMCountValue data, response status code and response headers
     def read_kubernetes_iom_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2809,7 +2809,7 @@ module Falcon
 
     # Retrieve namespace counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace_id&#x60; - &#x60;namespace_name&#x60; - &#x60;resource_status&#x60;
     # @return [CommonCountResponse]
     def read_namespace_count(opts = {})
       data, _status_code, _headers = read_namespace_count_with_http_info(opts)
@@ -2818,7 +2818,7 @@ module Falcon
 
     # Retrieve namespace counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace_id&#x60; - &#x60;namespace_name&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_namespace_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2920,24 +2920,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve kubernetes nodes identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsNodeEntityResponse]
     def read_node_combined(opts = {})
       data, _status_code, _headers = read_node_combined_with_http_info(opts)
       data
     end
 
-    # Retrieve kubernetes nodes identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsNodeEntityResponse, Integer, Hash)>] ModelsNodeEntityResponse data, response status code and response headers
     def read_node_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -2949,9 +2949,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2989,7 +2989,7 @@ module Falcon
 
     # Retrieve node counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [CommonCountResponse]
     def read_node_count(opts = {})
       data, _status_code, _headers = read_node_count_with_http_info(opts)
@@ -2998,7 +2998,7 @@ module Falcon
 
     # Retrieve node counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_node_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3048,7 +3048,7 @@ module Falcon
     # Retrieve node enrichment data
     # @param node_name [Array<String>] One or more node names for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [K8sassetsNodeEnrichmentResponse]
     def read_node_enrichment(node_name, opts = {})
       data, _status_code, _headers = read_node_enrichment_with_http_info(node_name, opts)
@@ -3058,7 +3058,7 @@ module Falcon
     # Retrieve node enrichment data
     # @param node_name [Array<String>] One or more node names for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [Array<(K8sassetsNodeEnrichmentResponse, Integer, Hash)>] K8sassetsNodeEnrichmentResponse data, response status code and response headers
     def read_node_enrichment_with_http_info(node_name, opts = {})
       if @api_client.config.debugging
@@ -3112,7 +3112,7 @@ module Falcon
 
     # Bucket nodes by cloud providers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_nodes_by_cloud_count(opts = {})
       data, _status_code, _headers = read_nodes_by_cloud_count_with_http_info(opts)
@@ -3121,7 +3121,7 @@ module Falcon
 
     # Bucket nodes by cloud providers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_cloud_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3170,7 +3170,7 @@ module Falcon
 
     # Bucket nodes by their container engine version
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_nodes_by_container_engine_version_count(opts = {})
       data, _status_code, _headers = read_nodes_by_container_engine_version_count_with_http_info(opts)
@@ -3179,7 +3179,7 @@ module Falcon
 
     # Bucket nodes by their container engine version
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_container_engine_version_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3228,7 +3228,7 @@ module Falcon
 
     # Retrieve nodes by date range counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_nodes_by_date_range_count(opts = {})
       data, _status_code, _headers = read_nodes_by_date_range_count_with_http_info(opts)
@@ -3237,7 +3237,7 @@ module Falcon
 
     # Retrieve nodes by date range counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+    # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_nodes_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3284,24 +3284,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve kubernetes pods identified by the provided filter criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;first_seen&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;owner_id&#x60; - &#x60;owner_type&#x60; - &#x60;pod_external_id&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;resource_status&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsPodEntityResponse]
     def read_pod_combined(opts = {})
       data, _status_code, _headers = read_pod_combined_with_http_info(opts)
       data
     end
 
-    # Retrieve kubernetes pods identified by the provided filter criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;first_seen&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;owner_id&#x60; - &#x60;owner_type&#x60; - &#x60;pod_external_id&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;resource_status&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsPodEntityResponse, Integer, Hash)>] ModelsPodEntityResponse data, response status code and response headers
     def read_pod_combined_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3313,9 +3313,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -3353,7 +3353,7 @@ module Falcon
 
     # Retrieve pod counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
+    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;first_seen&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;owner_id&#x60; - &#x60;owner_type&#x60; - &#x60;pod_external_id&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;resource_status&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60;
     # @return [CommonCountResponse]
     def read_pod_count(opts = {})
       data, _status_code, _headers = read_pod_count_with_http_info(opts)
@@ -3362,7 +3362,7 @@ module Falcon
 
     # Retrieve pod counts
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
+    # @option opts [String] :filter Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;first_seen&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;owner_id&#x60; - &#x60;owner_type&#x60; - &#x60;pod_external_id&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;resource_status&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60;
     # @return [Array<(CommonCountResponse, Integer, Hash)>] CommonCountResponse data, response status code and response headers
     def read_pod_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3412,7 +3412,7 @@ module Falcon
     # Retrieve pod enrichment data
     # @param pod_id [Array<String>] One or more pod ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [K8sassetsPodEnrichmentResponse]
     def read_pod_enrichment(pod_id, opts = {})
       data, _status_code, _headers = read_pod_enrichment_with_http_info(pod_id, opts)
@@ -3422,7 +3422,7 @@ module Falcon
     # Retrieve pod enrichment data
     # @param pod_id [Array<String>] One or more pod ids for which to retrieve enrichment info
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Supported filters:  last_seen
+    # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
     # @return [Array<(K8sassetsPodEnrichmentResponse, Integer, Hash)>] K8sassetsPodEnrichmentResponse data, response status code and response headers
     def read_pod_enrichment_with_http_info(pod_id, opts = {})
       if @api_client.config.debugging
@@ -3529,24 +3529,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve images on running containers
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,cluster_id,cluster_name,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;hosts&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_name&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;last_seen&#x60; - &#x60;running_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [ModelsContainerImage]
     def read_running_container_images(opts = {})
       data, _status_code, _headers = read_running_container_images_with_http_info(opts)
       data
     end
 
-    # Retrieve images on running containers
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,cluster_id,cluster_name,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+    # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;hosts&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_name&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;last_seen&#x60; - &#x60;running_status&#x60;
+    # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 200)
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort Field to sort results by
     # @return [Array<(ModelsContainerImage, Integer, Hash)>] ModelsContainerImage data, response status code and response headers
     def read_running_container_images_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3558,9 +3558,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -3598,7 +3598,7 @@ module Falcon
 
     # Retrieve count of vulnerable images running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [ModelsAPIFilterResponse]
     def read_vulnerable_container_image_count(opts = {})
       data, _status_code, _headers = read_vulnerable_container_image_count_with_http_info(opts)
@@ -3607,7 +3607,7 @@ module Falcon
 
     # Retrieve count of vulnerable images running on containers
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+    # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
     # @return [Array<(ModelsAPIFilterResponse, Integer, Hash)>] ModelsAPIFilterResponse data, response status code and response headers
     def read_vulnerable_container_image_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3709,24 +3709,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search Kubernetes IOM by the provided search criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [K8siomsKubernetesIOMEntityResponse]
     def search_and_read_kubernetes_iom_entities(opts = {})
       data, _status_code, _headers = search_and_read_kubernetes_iom_entities_with_http_info(opts)
       data
     end
 
-    # Search Kubernetes IOM by the provided search criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(K8siomsKubernetesIOMEntityResponse, Integer, Hash)>] K8siomsKubernetesIOMEntityResponse data, response status code and response headers
     def search_and_read_kubernetes_iom_entities_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3738,9 +3738,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -3776,24 +3776,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [CommonGenericEntityResponseString]
     def search_kubernetes_ioms(opts = {})
       data, _status_code, _headers = search_kubernetes_ioms_with_http_info(opts)
       data
     end
 
-    # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(CommonGenericEntityResponseString, Integer, Hash)>] CommonGenericEntityResponseString data, response status code and response headers
     def search_kubernetes_ioms_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3805,9 +3805,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -142,8 +142,30 @@ describe 'ASPM' do
   # @param node_type
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :integration_type
+  # @option opts [Integer] :offset
+  # @option opts [Integer] :limit
+  # @option opts [String] :order_by
+  # @option opts [String] :direction
+  # @option opts [Array<String>] :executor_node_ids executor node ids
+  # @option opts [Array<String>] :executor_node_names executor node names
+  # @option opts [Array<Integer>] :executor_node_states executor node states
+  # @option opts [Array<String>] :executor_node_types executor node types
   # @return [TypesListExecutorNodesResponse]
   describe 'get_executor_nodes test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_executor_nodes_metadata
+  # Get metadata about all executor nodes
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :executor_node_ids executor node ids
+  # @option opts [Array<String>] :executor_node_names executor node names
+  # @option opts [Array<Integer>] :executor_node_states executor node states
+  # @option opts [Array<String>] :executor_node_types executor node types
+  # @return [TypesGetExecutorNodesMetadataResponse]
+  describe 'get_executor_nodes_metadata test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -154,8 +176,29 @@ describe 'ASPM' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :integration_task_type
   # @option opts [String] :category
+  # @option opts [Integer] :offset
+  # @option opts [Integer] :limit
+  # @option opts [String] :order_by
+  # @option opts [String] :direction
+  # @option opts [Integer] :integration_task_types
+  # @option opts [Integer] :ids
+  # @option opts [String] :names
   # @return [TypesListIntegrationTasksResponse]
   describe 'get_integration_tasks test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_integration_tasks_metadata
+  # Get metadata about all integration tasks
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :category
+  # @option opts [Integer] :integration_task_types
+  # @option opts [Integer] :ids
+  # @option opts [String] :names
+  # @return [TypesGetIntegrationTasksMetadataResponse]
+  describe 'get_integration_tasks_metadata test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

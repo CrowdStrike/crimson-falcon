@@ -1827,7 +1827,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::Recon.new
-body = [Falcon::DomainUpdateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', id: 'id_example', name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false})] # Array<DomainUpdateRuleRequestV1> | 
+body = [Falcon::DomainUpdateRuleRequestV1.new({breach_monitor_only: false, breach_monitoring_enabled: false, filter: 'filter_example', id: 'id_example', match_on_tsq_result_types: ['match_on_tsq_result_types_example'], name: 'name_example', permissions: 'permissions_example', priority: 'priority_example', substring_matching_enabled: false})] # Array<DomainUpdateRuleRequestV1> | 
 
 begin
   # Update monitoring rules.

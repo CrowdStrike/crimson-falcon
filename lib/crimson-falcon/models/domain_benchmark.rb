@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainBenchmark
+    attr_accessor :applicable_profiles
+
     attr_accessor :benchmark_short
 
     attr_accessor :id
@@ -41,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'applicable_profiles' => :'applicable_profiles',
         :'benchmark_short' => :'benchmark_short',
         :'id' => :'id',
         :'recommendation_number' => :'recommendation_number'
@@ -55,6 +58,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'applicable_profiles' => :'Array<String>',
         :'benchmark_short' => :'String',
         :'id' => :'Integer',
         :'recommendation_number' => :'String'
@@ -81,6 +85,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'applicable_profiles')
+        if (value = attributes[:'applicable_profiles']).is_a?(Array)
+          self.applicable_profiles = value
+        end
+      end
 
       if attributes.key?(:'benchmark_short')
         self.benchmark_short = attributes[:'benchmark_short']
@@ -128,6 +138,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          applicable_profiles == o.applicable_profiles &&
           benchmark_short == o.benchmark_short &&
           id == o.id &&
           recommendation_number == o.recommendation_number
@@ -142,7 +153,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [benchmark_short, id, recommendation_number].hash
+      [applicable_profiles, benchmark_short, id, recommendation_number].hash
     end
 
     # Builds the object from hash

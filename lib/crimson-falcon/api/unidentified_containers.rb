@@ -38,7 +38,7 @@ module Falcon
     end
     # Returns the count of Unidentified Containers over the last 7 days
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @return [ModelsAggregateValuesByFieldResponse]
     def read_unidentified_containers_by_date_range_count(opts = {})
       data, _status_code, _headers = read_unidentified_containers_by_date_range_count_with_http_info(opts)
@@ -47,7 +47,7 @@ module Falcon
 
     # Returns the count of Unidentified Containers over the last 7 days
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @return [Array<(ModelsAggregateValuesByFieldResponse, Integer, Hash)>] ModelsAggregateValuesByFieldResponse data, response status code and response headers
     def read_unidentified_containers_by_date_range_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -96,7 +96,7 @@ module Falcon
 
     # Returns the total count of Unidentified Containers over a time period
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @return [UnidentifiedcontainersUnidentifiedContainersCountValue]
     def read_unidentified_containers_count(opts = {})
       data, _status_code, _headers = read_unidentified_containers_count_with_http_info(opts)
@@ -105,7 +105,7 @@ module Falcon
 
     # Returns the total count of Unidentified Containers over a time period
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @return [Array<(UnidentifiedcontainersUnidentifiedContainersCountValue, Integer, Hash)>] UnidentifiedcontainersUnidentifiedContainersCountValue data, response status code and response headers
     def read_unidentified_containers_count_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -152,24 +152,24 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search Unidentified Containers by the provided search criteria
+    # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [UnidentifiedcontainersUnidentifiedContainerAPIResponse]
     def search_and_read_unidentified_containers(opts = {})
       data, _status_code, _headers = search_and_read_unidentified_containers_with_http_info(opts)
       data
     end
 
-    # Search Unidentified Containers by the provided search criteria
+    # Maximum offset &#x3D; 10000 - limit
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filters:  assessed_images_count,cid,cluster_name,containers_impacted_count,detections_count,image_assessment_detections_count,last_seen,namespace,node_name,severity,unassessed_images_count,visible_to_k8s
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [String] :filter Search Unidentified Containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;assessed_images_count&#x60; - &#x60;cid&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;detections_count&#x60; - &#x60;image_assessment_detections_count&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;severity&#x60; - &#x60;unassessed_images_count&#x60; - &#x60;visible_to_k8s&#x60;
     # @option opts [String] :sort The fields to sort the records on.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(UnidentifiedcontainersUnidentifiedContainerAPIResponse, Integer, Hash)>] UnidentifiedcontainersUnidentifiedContainerAPIResponse data, response status code and response headers
     def search_and_read_unidentified_containers_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -181,9 +181,9 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

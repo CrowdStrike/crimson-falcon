@@ -52,7 +52,7 @@ describe 'ContainerAlerts' do
   # unit tests for read_container_alerts_count
   # Search Container Alerts by the provided search criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen
+  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60;
   # @return [AlertsContainerAlertsCountValue]
   describe 'read_container_alerts_count test' do
     it 'should work' do
@@ -63,7 +63,7 @@ describe 'ContainerAlerts' do
   # unit tests for read_container_alerts_count_by_severity
   # Get Container Alerts counts by severity
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,last_seen
+  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60;
   # @return [AlertsContainerAlertsCountValue]
   describe 'read_container_alerts_count_by_severity test' do
     it 'should work' do
@@ -72,9 +72,9 @@ describe 'ContainerAlerts' do
   end
 
   # unit tests for search_and_read_container_alerts
-  # Search Container Alerts by the provided search criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen,name,severity
+  # @option opts [String] :filter Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60; - &#x60;name&#x60; - &#x60;severity&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @option opts [String] :sort The fields to sort the records on.

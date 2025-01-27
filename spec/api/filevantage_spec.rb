@@ -49,13 +49,13 @@ describe 'Filevantage' do
     end
   end
 
-  # unit tests for create_policies_0
+  # unit tests for create_policies
   # Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
   # After they are created, host and rule groups can be assigned, scheduled exclusions can be defined, and policy precedence can be set.
   # @param body Create a new policy.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60;, or &#x60;Mac&#x60;   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
   # @param [Hash] opts the optional parameters
   # @return [PoliciesResponse]
-  describe 'create_policies_0 test' do
+  describe 'create_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -345,13 +345,13 @@ describe 'Filevantage' do
     end
   end
 
-  # unit tests for update_policies_0
+  # unit tests for update_policies
   # Updates the general information of the provided policy.
   # Only name, description, and enabled status of the policy is allowed to be update. Rule and host group assignment is performed via their respective patch end points.
   # @param body Enables updates to the following fields for an existing policy.    * &#x60;id&#x60; of the policy to update.   * &#x60;name&#x60; must be between 1 and 100 characters.   * &#x60;description&#x60; can be between 0 and 500 characters.   * &#x60;platform&#x60; may not be modified after the policy is created.   * &#x60;enabled&#x60; must be one of &#x60;true&#x60; or &#x60;false&#x60;.   Rule and host group assignment and policy precedence setting is performed via their respective patch end-points.
   # @param [Hash] opts the optional parameters
   # @return [PoliciesResponse]
-  describe 'update_policies_0 test' do
+  describe 'update_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -371,14 +371,14 @@ describe 'Filevantage' do
     end
   end
 
-  # unit tests for update_policy_precedence_0
+  # unit tests for update_policy_precedence
   # Updates the policy precedence for all policies of a specific type.
   # Requests that do not represent all ids of the provided policy type will not be processed.
   # @param ids Precedence of the policies for the provided type in the form of &#x60;ids&#x3D;ID1&amp;ids&#x3D;ID2&#x60;
   # @param type The policy type for which to set the precedence order, must be one of &#x60;Windows&#x60;, &#x60;Linux&#x60; or &#x60;Mac&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [PoliciesPrecedenceResponse]
-  describe 'update_policy_precedence_0 test' do
+  describe 'update_policy_precedence test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

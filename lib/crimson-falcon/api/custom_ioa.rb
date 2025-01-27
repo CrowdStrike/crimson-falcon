@@ -239,8 +239,8 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why the entity is being deleted
     # @return [MsaReplyMetaOnly]
-    def delete_rules_0(rule_group_id, ids, opts = {})
-      data, _status_code, _headers = delete_rules_0_with_http_info(rule_group_id, ids, opts)
+    def delete_rules(rule_group_id, ids, opts = {})
+      data, _status_code, _headers = delete_rules_with_http_info(rule_group_id, ids, opts)
       data
     end
 
@@ -250,17 +250,17 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why the entity is being deleted
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
-    def delete_rules_0_with_http_info(rule_group_id, ids, opts = {})
+    def delete_rules_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoa.delete_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.delete_rules ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoa.delete_rules_0"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoa.delete_rules"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.delete_rules_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoa.delete_rules"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -289,7 +289,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoa.delete_rules_0",
+        :operation => :"CustomIoa.delete_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -300,7 +300,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoa#delete_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#delete_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1156,8 +1156,8 @@ module Falcon
     # @param body [ApiRuleUpdatesRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
-    def update_rules_0(body, opts = {})
-      data, _status_code, _headers = update_rules_0_with_http_info(body, opts)
+    def update_rules(body, opts = {})
+      data, _status_code, _headers = update_rules_with_http_info(body, opts)
       data
     end
 
@@ -1165,13 +1165,13 @@ module Falcon
     # @param body [ApiRuleUpdatesRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
-    def update_rules_0_with_http_info(body, opts = {})
+    def update_rules_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoa.update_rules_0 ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoa.update_rules ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.update_rules_0"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoa.update_rules"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -1202,7 +1202,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoa.update_rules_0",
+        :operation => :"CustomIoa.update_rules",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1213,7 +1213,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoa#update_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoa#update_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -18,6 +18,7 @@
 | **machine_domain** | **String** | The domain name the asset is currently joined to. | [optional] |
 | **os_version** | **String** | The OS version of the asset. | [optional] |
 | **ou** | **String** | The organizational unit of the asset. | [optional] |
+| **ous** | **Array&lt;String&gt;** | The organizational units of the asset. | [optional] |
 | **platform_name** | **String** | The platform name of the asset (Windows, Mac, Linux). | [optional] |
 | **product_type_desc** | **String** | The product type of the asset (Workstation, Domain Controller, Server). | [optional] |
 | **site_name** | **String** | The site name of the domain the asset is joined to (applies only to Windows hosts). | [optional] |
@@ -44,6 +45,7 @@ instance = Falcon::DomainDiscoverAPIApplicationHost.new(
   machine_domain: null,
   os_version: null,
   ou: null,
+  ous: null,
   platform_name: null,
   product_type_desc: null,
   site_name: null,

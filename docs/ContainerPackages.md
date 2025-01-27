@@ -4,10 +4,11 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_packages_by_fixable_vuln_count**](ContainerPackages.md#read_packages_by_fixable_vuln_count) | **GET** /container-security/combined/packages/app-by-fixable-vulnerability-count/v1 | Retrieve top x app packages with the most fixable vulnerabilities |
-| [**read_packages_by_vuln_count**](ContainerPackages.md#read_packages_by_vuln_count) | **GET** /container-security/combined/packages/by-vulnerability-count/v1 | Retrieve top x packages with the most vulnerabilities |
-| [**read_packages_combined**](ContainerPackages.md#read_packages_combined) | **GET** /container-security/combined/packages/v1 | Retrieve packages identified by the provided filter criteria |
-| [**read_packages_combined_export**](ContainerPackages.md#read_packages_combined_export) | **GET** /container-security/combined/packages/export/v1 | Retrieve packages identified by the provided filter criteria for the purpose of export |
+| [**read_packages_by_fixable_vuln_count**](ContainerPackages.md#read_packages_by_fixable_vuln_count) | **GET** /container-security/combined/packages/app-by-fixable-vulnerability-count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_packages_by_vuln_count**](ContainerPackages.md#read_packages_by_vuln_count) | **GET** /container-security/combined/packages/by-vulnerability-count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_packages_combined**](ContainerPackages.md#read_packages_combined) | **GET** /container-security/combined/packages/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_packages_combined_export**](ContainerPackages.md#read_packages_combined_export) | **GET** /container-security/combined/packages/export/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_packages_combined_v2**](ContainerPackages.md#read_packages_combined_v2) | **GET** /container-security/combined/packages/v2 | Maximum offset &#x3D; 10000 - limit |
 | [**read_packages_count_by_zero_day**](ContainerPackages.md#read_packages_count_by_zero_day) | **GET** /container-security/aggregates/packages/count-by-zero-day/v1 | Retrieve packages count affected by zero day vulnerabilities |
 
 
@@ -15,7 +16,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 > <PackagesApiPackagesByVulnCount> read_packages_by_fixable_vuln_count(opts)
 
-Retrieve top x app packages with the most fixable vulnerabilities
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -32,13 +33,13 @@ end
 
 api_instance = Falcon::ContainerPackages.new
 opts = {
-  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `cid` - `container_id` - `cveid` - `fix_status` - `image_digest` - `license` - `package_name_version` - `severity` - `type` - `vulnerability_count`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve top x app packages with the most fixable vulnerabilities
+  # Maximum offset = 10000 - limit
   result = api_instance.read_packages_by_fixable_vuln_count(opts)
   p result
 rescue Falcon::ApiError => e
@@ -54,7 +55,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve top x app packages with the most fixable vulnerabilities
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_packages_by_fixable_vuln_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -68,8 +69,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -90,7 +91,7 @@ end
 
 > <PackagesApiPackagesByVulnCount> read_packages_by_vuln_count(opts)
 
-Retrieve top x packages with the most vulnerabilities
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -107,13 +108,13 @@ end
 
 api_instance = Falcon::ContainerPackages.new
 opts = {
-  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `cid` - `container_id` - `cveid` - `fix_status` - `image_digest` - `license` - `package_name_version` - `severity` - `type` - `vulnerability_count`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve top x packages with the most vulnerabilities
+  # Maximum offset = 10000 - limit
   result = api_instance.read_packages_by_vuln_count(opts)
   p result
 rescue Falcon::ApiError => e
@@ -129,7 +130,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve top x packages with the most vulnerabilities
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_packages_by_vuln_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -143,8 +144,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -165,7 +166,7 @@ end
 
 > <PackagesApiCombinedPackage> read_packages_combined(opts)
 
-Retrieve packages identified by the provided filter criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -182,15 +183,15 @@ end
 
 api_instance = Falcon::ContainerPackages.new
 opts = {
-  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
-  only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages, default is false
+  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `cid` - `container_id` - `cveid` - `fix_status` - `image_digest` - `license` - `package_name_version` - `severity` - `type` - `vulnerability_count`
+  only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages
+  sort: 'sort_example', # String | The fields to sort the records on. Supported columns: - `license` - `package_name_version` - `type`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [license package_name_version type]
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve packages identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.read_packages_combined(opts)
   p result
 rescue Falcon::ApiError => e
@@ -206,7 +207,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve packages identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_packages_combined_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -220,11 +221,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count | [optional] |
-| **only_zero_day_affected** | **Boolean** | (true/false) load zero day affected packages, default is false | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60; | [optional] |
+| **only_zero_day_affected** | **Boolean** | (true/false) load zero day affected packages | [optional][default to false] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [license package_name_version type] | [optional] |
 
 ### Return type
 
@@ -244,7 +245,7 @@ end
 
 > <PackagesApiCombinedPackageExport> read_packages_combined_export(opts)
 
-Retrieve packages identified by the provided filter criteria for the purpose of export
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -261,15 +262,15 @@ end
 
 api_instance = Falcon::ContainerPackages.new
 opts = {
-  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
-  only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages, default is false
+  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `cid` - `container_id` - `cveid` - `fix_status` - `image_digest` - `license` - `package_name_version` - `severity` - `type` - `vulnerability_count`
+  only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages
+  sort: 'sort_example', # String | The fields to sort the records on. Supported columns: - `license` - `package_name_version` - `type`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [license package_name_version type]
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve packages identified by the provided filter criteria for the purpose of export
+  # Maximum offset = 10000 - limit
   result = api_instance.read_packages_combined_export(opts)
   p result
 rescue Falcon::ApiError => e
@@ -285,7 +286,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve packages identified by the provided filter criteria for the purpose of export
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_packages_combined_export_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -299,15 +300,94 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count | [optional] |
-| **only_zero_day_affected** | **Boolean** | (true/false) load zero day affected packages, default is false | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60; | [optional] |
+| **only_zero_day_affected** | **Boolean** | (true/false) load zero day affected packages | [optional][default to false] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [license package_name_version type] | [optional] |
 
 ### Return type
 
 [**PackagesApiCombinedPackageExport**](PackagesApiCombinedPackageExport.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_packages_combined_v2
+
+> <PackagesApiCombinedPackageV2> read_packages_combined_v2(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerPackages.new
+opts = {
+  filter: 'filter_example', # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `cid` - `container_id` - `cveid` - `fix_status` - `image_digest` - `license` - `package_name_version` - `severity` - `type` - `vulnerability_count`
+  only_zero_day_affected: true, # Boolean | (true/false) load zero day affected packages
+  sort: 'sort_example', # String | The fields to sort the records on. Supported columns: - `license` - `package_name_version` - `type`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_packages_combined_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerPackages->read_packages_combined_v2: #{e}"
+end
+```
+
+#### Using the read_packages_combined_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PackagesApiCombinedPackageV2>, Integer, Hash)> read_packages_combined_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_packages_combined_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PackagesApiCombinedPackageV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerPackages->read_packages_combined_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60; | [optional] |
+| **only_zero_day_affected** | **Boolean** | (true/false) load zero day affected packages | [optional][default to false] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**PackagesApiCombinedPackageV2**](PackagesApiCombinedPackageV2.md)
 
 ### Authorization
 
@@ -340,7 +420,7 @@ end
 
 api_instance = Falcon::ContainerPackages.new
 opts = {
-  filter: 'filter_example' # String | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid
+  filter: 'filter_example' # String | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - `cid`
 }
 
 begin
@@ -374,7 +454,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid | [optional] |
+| **filter** | **String** | Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; | [optional] |
 
 ### Return type
 

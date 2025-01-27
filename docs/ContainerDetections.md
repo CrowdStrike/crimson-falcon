@@ -4,19 +4,19 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_combined_detections**](ContainerDetections.md#read_combined_detections) | **GET** /container-security/combined/detections/v1 | Retrieve image assessment detections identified by the provided filter criteria |
-| [**read_detections**](ContainerDetections.md#read_detections) | **GET** /container-security/entities/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
+| [**read_combined_detections**](ContainerDetections.md#read_combined_detections) | **GET** /container-security/combined/detections/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_detections**](ContainerDetections.md#read_detections) | **GET** /container-security/entities/detections/v1 | Maximum offset &#x3D; 10000 - limit |
 | [**read_detections_count**](ContainerDetections.md#read_detections_count) | **GET** /container-security/aggregates/detections/count/v1 | Aggregate count of detections |
 | [**read_detections_count_by_severity**](ContainerDetections.md#read_detections_count_by_severity) | **GET** /container-security/aggregates/detections/count-by-severity/v1 | Aggregate counts of detections by severity |
 | [**read_detections_count_by_type**](ContainerDetections.md#read_detections_count_by_type) | **GET** /container-security/aggregates/detections/count-by-type/v1 | Aggregate counts of detections by detection type |
-| [**search_detections**](ContainerDetections.md#search_detections) | **GET** /container-security/queries/detections/v1 | Retrieve image assessment detection entities identified by the provided filter criteria |
+| [**search_detections**](ContainerDetections.md#search_detections) | **GET** /container-security/queries/detections/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## read_combined_detections
 
 > <DetectionsApiCombinedDetections> read_combined_detections(opts)
 
-Retrieve image assessment detections identified by the provided filter criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -33,14 +33,14 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  filter: 'filter_example', # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
+  sort: 'sort_example', # String | The fields to sort the records on. Supported columns: - `containers_impacted` - `detection_name` - `detection_severity` - `detection_type` - `images_impacted` - `last_detected`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [containers_impacted detection_name detection_severity detection_type images_impacted last_detected]
+  offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve image assessment detections identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.read_combined_detections(opts)
   p result
 rescue Falcon::ApiError => e
@@ -56,7 +56,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve image assessment detections identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_combined_detections_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -70,10 +70,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;containers_impacted&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;detection_type&#x60; - &#x60;images_impacted&#x60; - &#x60;last_detected&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [containers_impacted detection_name detection_severity detection_type images_impacted last_detected] | [optional] |
 
 ### Return type
 
@@ -93,7 +93,7 @@ end
 
 > <DetectionsApiAssessmentDetections> read_detections(opts)
 
-Retrieve image assessment detection entities identified by the provided filter criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -110,13 +110,13 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag
+  filter: 'filter_example', # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.read_detections(opts)
   p result
 rescue Falcon::ApiError => e
@@ -132,7 +132,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_detections_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -146,8 +146,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -185,7 +185,7 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  filter: 'filter_example' # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
 }
 
 begin
@@ -219,7 +219,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
 
 ### Return type
 
@@ -256,7 +256,7 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  filter: 'filter_example' # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
 }
 
 begin
@@ -290,7 +290,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
 
 ### Return type
 
@@ -327,7 +327,7 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  filter: 'filter_example' # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
 }
 
 begin
@@ -361,7 +361,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
 
 ### Return type
 
@@ -381,7 +381,7 @@ end
 
 > <CommonGenericEntityResponseString> search_detections(opts)
 
-Retrieve image assessment detection entities identified by the provided filter criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -398,13 +398,13 @@ end
 
 api_instance = Falcon::ContainerDetections.new
 opts = {
-  filter: 'filter_example', # String | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  filter: 'filter_example', # String | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `detection_type` - `image_registry` - `image_repository` - `image_tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.search_detections(opts)
   p result
 rescue Falcon::ApiError => e
@@ -420,7 +420,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.search_detections_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -434,8 +434,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type

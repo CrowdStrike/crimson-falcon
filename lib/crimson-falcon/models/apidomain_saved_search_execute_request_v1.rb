@@ -32,19 +32,7 @@ require 'time'
 
 module Falcon
   class ApidomainSavedSearchExecuteRequestV1
-    attr_accessor :extra_rename
-
-    attr_accessor :extra_search
-
-    attr_accessor :extra_sort
-
-    attr_accessor :extra_where
-
-    attr_accessor :parameters
-
     attr_accessor :_end
-
-    attr_accessor :fql_statements
 
     attr_accessor :id
 
@@ -67,13 +55,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'extra_rename' => :'ExtraRename',
-        :'extra_search' => :'ExtraSearch',
-        :'extra_sort' => :'ExtraSort',
-        :'extra_where' => :'ExtraWhere',
-        :'parameters' => :'Parameters',
         :'_end' => :'end',
-        :'fql_statements' => :'fql_statements',
         :'id' => :'id',
         :'mode' => :'mode',
         :'name' => :'name',
@@ -94,13 +76,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'extra_rename' => :'String',
-        :'extra_search' => :'String',
-        :'extra_sort' => :'String',
-        :'extra_where' => :'String',
-        :'parameters' => :'Hash<String, String>',
         :'_end' => :'String',
-        :'fql_statements' => :'Hash<String, ClientFQLStatement>',
         :'id' => :'String',
         :'mode' => :'String',
         :'name' => :'String',
@@ -134,36 +110,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'extra_rename')
-        self.extra_rename = attributes[:'extra_rename']
-      end
-
-      if attributes.key?(:'extra_search')
-        self.extra_search = attributes[:'extra_search']
-      end
-
-      if attributes.key?(:'extra_sort')
-        self.extra_sort = attributes[:'extra_sort']
-      end
-
-      if attributes.key?(:'extra_where')
-        self.extra_where = attributes[:'extra_where']
-      end
-
-      if attributes.key?(:'parameters')
-        if (value = attributes[:'parameters']).is_a?(Hash)
-          self.parameters = value
-        end
-      end
-
       if attributes.key?(:'_end')
         self._end = attributes[:'_end']
-      end
-
-      if attributes.key?(:'fql_statements')
-        if (value = attributes[:'fql_statements']).is_a?(Hash)
-          self.fql_statements = value
-        end
       end
 
       if attributes.key?(:'id')
@@ -209,42 +157,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @extra_rename.nil?
-        invalid_properties.push('invalid value for "extra_rename", extra_rename cannot be nil.')
-      end
-
-      if @extra_search.nil?
-        invalid_properties.push('invalid value for "extra_search", extra_search cannot be nil.')
-      end
-
-      if @extra_sort.nil?
-        invalid_properties.push('invalid value for "extra_sort", extra_sort cannot be nil.')
-      end
-
-      if @extra_where.nil?
-        invalid_properties.push('invalid value for "extra_where", extra_where cannot be nil.')
-      end
-
-      if @parameters.nil?
-        invalid_properties.push('invalid value for "parameters", parameters cannot be nil.')
-      end
-
-      if @fql_statements.nil?
-        invalid_properties.push('invalid value for "fql_statements", fql_statements cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @extra_rename.nil?
-      return false if @extra_search.nil?
-      return false if @extra_sort.nil?
-      return false if @extra_where.nil?
-      return false if @parameters.nil?
-      return false if @fql_statements.nil?
       true
     end
 
@@ -253,13 +171,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          extra_rename == o.extra_rename &&
-          extra_search == o.extra_search &&
-          extra_sort == o.extra_sort &&
-          extra_where == o.extra_where &&
-          parameters == o.parameters &&
           _end == o._end &&
-          fql_statements == o.fql_statements &&
           id == o.id &&
           mode == o.mode &&
           name == o.name &&
@@ -280,7 +192,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [extra_rename, extra_search, extra_sort, extra_where, parameters, _end, fql_statements, id, mode, name, start, version, with_in, with_limit, with_renames, with_sort].hash
+      [_end, id, mode, name, start, version, with_in, with_limit, with_renames, with_sort].hash
     end
 
     # Builds the object from hash

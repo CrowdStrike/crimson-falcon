@@ -50,12 +50,12 @@ describe 'ContainerDetections' do
   end
 
   # unit tests for read_combined_detections
-  # Retrieve image assessment detections identified by the provided filter criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
+  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;containers_impacted&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;detection_type&#x60; - &#x60;images_impacted&#x60; - &#x60;last_detected&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on. Supported columns:  [containers_impacted detection_name detection_severity detection_type images_impacted last_detected]
   # @return [DetectionsApiCombinedDetections]
   describe 'read_combined_detections test' do
     it 'should work' do
@@ -64,9 +64,9 @@ describe 'ContainerDetections' do
   end
 
   # unit tests for read_detections
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,detection_type,image_registry,image_repository,image_tag
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @return [DetectionsApiAssessmentDetections]
@@ -79,7 +79,7 @@ describe 'ContainerDetections' do
   # unit tests for read_detections_count
   # Aggregate count of detections
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
   # @return [DetectionsApiDetectionsCount]
   describe 'read_detections_count test' do
     it 'should work' do
@@ -90,7 +90,7 @@ describe 'ContainerDetections' do
   # unit tests for read_detections_count_by_severity
   # Aggregate counts of detections by severity
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
   # @return [DetectionsApiDetectionsBySeverity]
   describe 'read_detections_count_by_severity test' do
     it 'should work' do
@@ -101,7 +101,7 @@ describe 'ContainerDetections' do
   # unit tests for read_detections_count_by_type
   # Aggregate counts of detections by detection type
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
   # @return [DetectionsApiDetectionsByType]
   describe 'read_detections_count_by_type test' do
     it 'should work' do
@@ -110,9 +110,9 @@ describe 'ContainerDetections' do
   end
 
   # unit tests for search_detections
-  # Retrieve image assessment detection entities identified by the provided filter criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,detection_type,id,image_digest,image_id,image_registry,image_repository,image_tag,name,severity
+  # @option opts [String] :filter Filter images detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;detection_type&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @return [CommonGenericEntityResponseString]

@@ -73,7 +73,7 @@ module Falcon
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_dynamic_execute_alt_v1"
       end
-      allowable_values = ["sync", "async"]
+      allowable_values = ["sync", "async", "async_offload"]
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end
@@ -175,7 +175,7 @@ module Falcon
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling FoundryLogscale.create_saved_searches_dynamic_execute_v1"
       end
-      allowable_values = ["sync", "async"]
+      allowable_values = ["sync", "async", "async_offload"]
       if @api_client.config.client_side_validation && opts[:'mode'] && !allowable_values.include?(opts[:'mode'])
         fail ArgumentError, "invalid value for \"mode\", must be one of #{allowable_values}"
       end

@@ -66,6 +66,12 @@ describe Falcon::RegistrationAWSAccountExtV2 do
     end
   end
 
+  describe 'test attribute "deployment_method"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "dspm_enabled"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -91,6 +97,12 @@ describe Falcon::RegistrationAWSAccountExtV2 do
   end
 
   describe 'test attribute "organization_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "root_stack_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **action** | **String** | Policy action |  |
+| **action** | **String** | Policy action. Note: BLOCK_EXECUTE is only valid for MASS_STORAGE devices. |  |
 | **exceptions** | [**Array&lt;DeviceControlExceptionRespV1&gt;**](DeviceControlExceptionRespV1.md) | Exceptions to the rules of this policy setting |  |
 | **id** | **String** | USB Class id |  |
 

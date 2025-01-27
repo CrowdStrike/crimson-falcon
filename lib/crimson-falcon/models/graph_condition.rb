@@ -35,11 +35,8 @@ module Falcon
     # CEL expression for the condition, should evaluate to a boolean.
     attr_accessor :cel_expression
 
-    # User friendly description of the FQL expression. This would be supplied by the UI/caller and is not set by the API.
+    # User friendly description of the expression. This is generally supplied by the UI/caller.
     attr_accessor :display
-
-    # Indicates the boolean result of FQL expression when present. This field should be used only in the api response of a graph execution result
-    attr_accessor :evaluated
 
     # FQL expression for the condition on the sequence flow.
     attr_accessor :expression
@@ -49,7 +46,6 @@ module Falcon
       {
         :'cel_expression' => :'cel_expression',
         :'display' => :'display',
-        :'evaluated' => :'evaluated',
         :'expression' => :'expression'
       }
     end
@@ -64,7 +60,6 @@ module Falcon
       {
         :'cel_expression' => :'String',
         :'display' => :'Array<String>',
-        :'evaluated' => :'Boolean',
         :'expression' => :'String'
       }
     end
@@ -100,10 +95,6 @@ module Falcon
         end
       end
 
-      if attributes.key?(:'evaluated')
-        self.evaluated = attributes[:'evaluated']
-      end
-
       if attributes.key?(:'expression')
         self.expression = attributes[:'expression']
       end
@@ -129,7 +120,6 @@ module Falcon
       self.class == o.class &&
           cel_expression == o.cel_expression &&
           display == o.display &&
-          evaluated == o.evaluated &&
           expression == o.expression
     end
 
@@ -142,7 +132,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cel_expression, display, evaluated, expression].hash
+      [cel_expression, display, expression].hash
     end
 
     # Builds the object from hash

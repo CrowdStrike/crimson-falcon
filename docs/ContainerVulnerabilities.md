@@ -4,23 +4,23 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**read_combined_vulnerabilities**](ContainerVulnerabilities.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Retrieve vulnerability and aggregate data filtered by the provided FQL |
-| [**read_combined_vulnerabilities_details**](ContainerVulnerabilities.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Retrieve vulnerability details related to an image |
-| [**read_combined_vulnerabilities_info**](ContainerVulnerabilities.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Retrieve vulnerability and package related info for this customer |
-| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilities.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Retrieve top x vulnerabilities with the most impacted images |
-| [**read_vulnerabilities_publication_date**](ContainerVulnerabilities.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Retrieve top x vulnerabilities with the most recent publication date |
-| [**read_vulnerability_count**](ContainerVulnerabilities.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Aggregate count of vulnerabilities |
-| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Aggregate count of vulnerabilities grouped by actively exploited |
-| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Aggregate count of vulnerabilities grouped by csp_rating |
-| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Aggregate count of vulnerabilities grouped by cvss score |
-| [**read_vulnerability_count_by_severity**](ContainerVulnerabilities.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Aggregate count of vulnerabilities grouped by severity |
+| [**read_combined_vulnerabilities**](ContainerVulnerabilities.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_details**](ContainerVulnerabilities.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_info**](ContainerVulnerabilities.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilities.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_publication_date**](ContainerVulnerabilities.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count**](ContainerVulnerabilities.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_severity**](ContainerVulnerabilities.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## read_combined_vulnerabilities
 
 > <VulnerabilitiesApiCombinedVulnerability> read_combined_vulnerabilities(opts)
 
-Retrieve vulnerability and aggregate data filtered by the provided FQL
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -37,14 +37,14 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity]
+  sort: 'sort_example' # String | The fields to sort the records on. Supported columns: - `cps_current_rating` - `cve_id` - `cvss_score` - `description` - `images_impacted` - `packages_impacted` - `severity`
 }
 
 begin
-  # Retrieve vulnerability and aggregate data filtered by the provided FQL
+  # Maximum offset = 10000 - limit
   result = api_instance.read_combined_vulnerabilities(opts)
   p result
 rescue Falcon::ApiError => e
@@ -60,7 +60,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve vulnerability and aggregate data filtered by the provided FQL
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_combined_vulnerabilities_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -74,10 +74,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. Supported columns:  [cps_current_rating cve_id cvss_score description images_impacted packages_impacted severity] | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;cps_current_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;images_impacted&#x60; - &#x60;packages_impacted&#x60; - &#x60;severity&#x60; | [optional] |
 
 ### Return type
 
@@ -97,7 +97,7 @@ end
 
 > <VulnerabilitiesApiCombinedVulnerabilityDetails> read_combined_vulnerabilities_details(id, opts)
 
-Retrieve vulnerability details related to an image
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -115,13 +115,13 @@ end
 api_instance = Falcon::ContainerVulnerabilities.new
 id = 'id_example' # String | Image UUID
 opts = {
-  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity
+  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - `cid` - `cps_rating` - `cve_id` - `cvss_score` - `exploited_status_name` - `exploited_status` - `include_base_image_vuln` - `is_zero_day` - `remediation_available` - `severity`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve vulnerability details related to an image
+  # Maximum offset = 10000 - limit
   result = api_instance.read_combined_vulnerabilities_details(id, opts)
   p result
 rescue Falcon::ApiError => e
@@ -137,7 +137,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve vulnerability details related to an image
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_combined_vulnerabilities_details_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -152,8 +152,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | Image UUID |  |
-| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filters: cid,cps_rating,cve_id,cvss_score,exploited_status,exploited_status_name,include_base_image_vuln,is_zero_day,remediation_available,severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -174,7 +174,7 @@ end
 
 > <VulnerabilitiesApiCombinedVulnerabilityInfo> read_combined_vulnerabilities_info(cve_id, opts)
 
-Retrieve vulnerability and package related info for this customer
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -197,7 +197,7 @@ opts = {
 }
 
 begin
-  # Retrieve vulnerability and package related info for this customer
+  # Maximum offset = 10000 - limit
   result = api_instance.read_combined_vulnerabilities_info(cve_id, opts)
   p result
 rescue Falcon::ApiError => e
@@ -213,7 +213,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve vulnerability and package related info for this customer
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_combined_vulnerabilities_info_with_http_info(cve_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -228,7 +228,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cve_id** | **String** | Vulnerability CVE ID |  |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -249,7 +249,7 @@ end
 
 > <VulnerabilitiesApiVulnByImageCount> read_vulnerabilities_by_image_count(opts)
 
-Retrieve top x vulnerabilities with the most impacted images
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -266,13 +266,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve top x vulnerabilities with the most impacted images
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerabilities_by_image_count(opts)
   p result
 rescue Falcon::ApiError => e
@@ -288,7 +288,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve top x vulnerabilities with the most impacted images
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerabilities_by_image_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -302,8 +302,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -324,7 +324,7 @@ end
 
 > <VulnerabilitiesApiVulnByPublication> read_vulnerabilities_publication_date(opts)
 
-Retrieve top x vulnerabilities with the most recent publication date
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -341,13 +341,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Retrieve top x vulnerabilities with the most recent publication date
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerabilities_publication_date(opts)
   p result
 rescue Falcon::ApiError => e
@@ -363,7 +363,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve top x vulnerabilities with the most recent publication date
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerabilities_publication_date_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -377,8 +377,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: cid,cve_id,registry,repository,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -399,7 +399,7 @@ end
 
 > <VulnerabilitiesApiVulnCount> read_vulnerability_count(opts)
 
-Aggregate count of vulnerabilities
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -416,13 +416,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Aggregate count of vulnerabilities
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerability_count(opts)
   p result
 rescue Falcon::ApiError => e
@@ -438,7 +438,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Aggregate count of vulnerabilities
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerability_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -452,8 +452,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -474,7 +474,7 @@ end
 
 > <VulnerabilitiesApiVulnCountByActivelyExploited> read_vulnerability_count_by_actively_exploited(opts)
 
-Aggregate count of vulnerabilities grouped by actively exploited
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -491,13 +491,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Aggregate count of vulnerabilities grouped by actively exploited
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerability_count_by_actively_exploited(opts)
   p result
 rescue Falcon::ApiError => e
@@ -513,7 +513,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Aggregate count of vulnerabilities grouped by actively exploited
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerability_count_by_actively_exploited_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -527,8 +527,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -549,7 +549,7 @@ end
 
 > <VulnerabilitiesApiVulnCountByCSPRating> read_vulnerability_count_by_cps_rating(opts)
 
-Aggregate count of vulnerabilities grouped by csp_rating
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -566,13 +566,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Aggregate count of vulnerabilities grouped by csp_rating
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerability_count_by_cps_rating(opts)
   p result
 rescue Falcon::ApiError => e
@@ -588,7 +588,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Aggregate count of vulnerabilities grouped by csp_rating
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerability_count_by_cps_rating_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -602,8 +602,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -624,7 +624,7 @@ end
 
 > <VulnerabilitiesApiVulnCountByCVSSScore> read_vulnerability_count_by_cvss_score(opts)
 
-Aggregate count of vulnerabilities grouped by cvss score
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -641,13 +641,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Aggregate count of vulnerabilities grouped by cvss score
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerability_count_by_cvss_score(opts)
   p result
 rescue Falcon::ApiError => e
@@ -663,7 +663,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Aggregate count of vulnerabilities grouped by cvss score
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerability_count_by_cvss_score_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -677,8 +677,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
@@ -699,7 +699,7 @@ end
 
 > <VulnerabilitiesApiVulnCountBySeverity> read_vulnerability_count_by_severity(opts)
 
-Aggregate count of vulnerabilities grouped by severity
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -716,13 +716,13 @@ end
 
 api_instance = Falcon::ContainerVulnerabilities.new
 opts = {
-  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56 # Integer | The offset from where to begin.
 }
 
 begin
-  # Aggregate count of vulnerabilities grouped by severity
+  # Maximum offset = 10000 - limit
   result = api_instance.read_vulnerability_count_by_severity(opts)
   p result
 rescue Falcon::ApiError => e
@@ -738,7 +738,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Aggregate count of vulnerabilities grouped by severity
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.read_vulnerability_count_by_severity_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -752,8 +752,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filters: base_os,cid,container_id,container_running_status,containers_impacted_range,cps_rating,cve_id,cvss_score,description,exploited_status,exploited_status_name,fix_status,image_digest,image_id,images_impacted_range,include_base_image_vuln,package_name_version,registry,repository,severity,tag | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type
