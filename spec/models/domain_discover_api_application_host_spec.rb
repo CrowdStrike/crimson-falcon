@@ -126,6 +126,12 @@ describe Falcon::DomainDiscoverAPIApplicationHost do
     end
   end
 
+  describe 'test attribute "ous"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "platform_name"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

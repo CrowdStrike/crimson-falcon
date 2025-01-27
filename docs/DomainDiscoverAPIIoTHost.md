@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **account_enabled** | **String** | Whether the asset is account-enabled in Active Directory (Yes or No). | [optional] |
 | **ad_user_account_control** | **Integer** | The user account control properties in Active Directory. | [optional] |
+| **ad_virtual_server** | **String** | Whether the asset is a virtual server or not (Yes, No) | [optional] |
 | **agent_version** | **String** | The version of the Falcon sensor that&#39;s installed on the asset. | [optional] |
 | **aid** | **String** | The agent ID of the Falcon sensor installed on the asset. | [optional] |
 | **asset_roles** | **Array&lt;String&gt;** | The asset role or roles currently assigned to the asset either automatically or by a user (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server). | [optional] |
@@ -24,6 +25,7 @@
 | **city** | **String** | The name of the city where the asset is located. | [optional] |
 | **claroty_id** | **String** | The external ID of the IoT Device in 3rd Party System(Claroty). | [optional] |
 | **classification** | **String** | How the server is classified, such as production, development, disaster recovery, or user acceptance testing. | [optional] |
+| **composite_internet_exposure** | **String** | The composite internet exposure of the asset | [optional] |
 | **computed_asset_roles** | **Array&lt;String&gt;** | The asset role or roles assigned to the asset automatically (Jump host, Highly connected, Highly active, Server by behavior, DHCP server, DNS server, FTP server, SSH server, or Web server). | [optional] |
 | **computed_internet_exposure** | **String** | Whether the asset is exposed to the internet as determined automatically (Yes, No, or Pending). | [optional] |
 | **computed_internet_exposure_external_ip** | **String** | External IP exposed to the internet. | [optional] |
@@ -109,6 +111,7 @@
 | **ot_network_ids** | **Array&lt;String&gt;** | A list of network ids to which host belongs | [optional] |
 | **ot_serial_numbers** | **Array&lt;String&gt;** | A list of ot serial numbers that discovered with host | [optional] |
 | **ou** | **String** | The organizational unit of the asset. | [optional] |
+| **ous** | **Array&lt;String&gt;** | The organizational units of the asset. | [optional] |
 | **override_asset_roles** | **Boolean** | Whether a user overrode automatically assigned asset roles to manually assign a role to the asset (true or false). | [optional] |
 | **override_criticality_rules** | **Boolean** | Whether a user overrode a criticality rule to manually assign a criticality level on the asset (true or false). | [optional] |
 | **override_internet_exposure** | **Boolean** | Whether a user overrode the automatically assigned internet exposure (True or False). | [optional] |
@@ -152,6 +155,7 @@ require 'crimson-falcon'
 instance = Falcon::DomainDiscoverAPIIoTHost.new(
   account_enabled: null,
   ad_user_account_control: null,
+  ad_virtual_server: null,
   agent_version: null,
   aid: null,
   asset_roles: null,
@@ -170,6 +174,7 @@ instance = Falcon::DomainDiscoverAPIIoTHost.new(
   city: null,
   claroty_id: null,
   classification: null,
+  composite_internet_exposure: null,
   computed_asset_roles: null,
   computed_internet_exposure: null,
   computed_internet_exposure_external_ip: null,
@@ -255,6 +260,7 @@ instance = Falcon::DomainDiscoverAPIIoTHost.new(
   ot_network_ids: null,
   ot_serial_numbers: null,
   ou: null,
+  ous: null,
   override_asset_roles: null,
   override_criticality_rules: null,
   override_internet_exposure: null,

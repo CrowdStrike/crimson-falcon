@@ -10,7 +10,6 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**create_discover_cloud_azure_account**](D4cRegistration.md#create_discover_cloud_azure_account) | **POST** /cloud-connect-azure/entities/account/v1 | Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access. |
 | [**delete_d4_c_aws_account**](D4cRegistration.md#delete_d4_c_aws_account) | **DELETE** /cloud-connect-aws/entities/account/v2 | Deletes an existing AWS account or organization in our system. |
 | [**delete_d4_cgcp_account**](D4cRegistration.md#delete_d4_cgcp_account) | **DELETE** /cloud-connect-gcp/entities/account/v1 | Deletes a GCP account from the system. |
-| [**discover_cloud_azure_download_certificate**](D4cRegistration.md#discover_cloud_azure_download_certificate) | **GET** /cloud-connect-azure/entities/download-certificate/v1 | Returns JSON object(s) that contain the base64 encoded certificate for a service principal. |
 | [**get_d4_c_aws_account**](D4cRegistration.md#get_d4_c_aws_account) | **GET** /cloud-connect-aws/entities/account/v2 | Returns information about the current status of an AWS account. |
 | [**get_d4_c_aws_console_setup_urls**](D4cRegistration.md#get_d4_c_aws_console_setup_urls) | **GET** /cloud-connect-aws/entities/console-setup-urls/v1 | Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment. |
 | [**get_d4_c_gcp_account**](D4cRegistration.md#get_d4_c_gcp_account) | **GET** /cloud-connect-gcp/entities/account/v1 | Returns information about the current status of an GCP account. |
@@ -305,7 +304,7 @@ end
 
 ## delete_d4_c_aws_account
 
-> <MsaBaseEntitiesResponse> delete_d4_c_aws_account(opts)
+> <MsaspecResponseFields> delete_d4_c_aws_account(opts)
 
 Deletes an existing AWS account or organization in our system.
 
@@ -341,7 +340,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaBaseEntitiesResponse>, Integer, Hash)> delete_d4_c_aws_account_with_http_info(opts)
+> <Array(<MsaspecResponseFields>, Integer, Hash)> delete_d4_c_aws_account_with_http_info(opts)
 
 ```ruby
 begin
@@ -349,7 +348,7 @@ begin
   data, status_code, headers = api_instance.delete_d4_c_aws_account_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaBaseEntitiesResponse>
+  p data # => <MsaspecResponseFields>
 rescue Falcon::ApiError => e
   puts "Error when calling D4cRegistration->delete_d4_c_aws_account_with_http_info: #{e}"
 end
@@ -364,7 +363,7 @@ end
 
 ### Return type
 
-[**MsaBaseEntitiesResponse**](MsaBaseEntitiesResponse.md)
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
 
 ### Authorization
 
@@ -445,81 +444,6 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
-
-
-## discover_cloud_azure_download_certificate
-
-> <RegistrationAzureDownloadCertificateResponseV1> discover_cloud_azure_download_certificate(tenant_id, opts)
-
-Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::D4cRegistration.new
-tenant_id = ['inner_example'] # Array<String> | Azure Tenant ID
-opts = {
-  refresh: true, # Boolean | Setting to true will invalidate the current certificate and generate a new certificate
-  years_valid: 'years_valid_example' # String | Years the certificate should be valid (only used when refresh=true)
-}
-
-begin
-  # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-  result = api_instance.discover_cloud_azure_download_certificate(tenant_id, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistration->discover_cloud_azure_download_certificate: #{e}"
-end
-```
-
-#### Using the discover_cloud_azure_download_certificate_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationAzureDownloadCertificateResponseV1>, Integer, Hash)> discover_cloud_azure_download_certificate_with_http_info(tenant_id, opts)
-
-```ruby
-begin
-  # Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-  data, status_code, headers = api_instance.discover_cloud_azure_download_certificate_with_http_info(tenant_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationAzureDownloadCertificateResponseV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling D4cRegistration->discover_cloud_azure_download_certificate_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **tenant_id** | [**Array&lt;String&gt;**](String.md) | Azure Tenant ID |  |
-| **refresh** | **Boolean** | Setting to true will invalidate the current certificate and generate a new certificate | [optional][default to false] |
-| **years_valid** | **String** | Years the certificate should be valid (only used when refresh&#x3D;true) | [optional] |
-
-### Return type
-
-[**RegistrationAzureDownloadCertificateResponseV1**](RegistrationAzureDownloadCertificateResponseV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/octet-stream
 
 
 ## get_d4_c_aws_account

@@ -83,14 +83,14 @@ describe 'CustomIoa' do
     end
   end
 
-  # unit tests for delete_rules_0
+  # unit tests for delete_rules
   # Delete rules from a rule group by ID.
   # @param rule_group_id The parent rule group
   # @param ids The IDs of the entities
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Explains why the entity is being deleted
   # @return [MsaReplyMetaOnly]
-  describe 'delete_rules_0 test' do
+  describe 'delete_rules test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -254,12 +254,12 @@ describe 'CustomIoa' do
     end
   end
 
-  # unit tests for update_rules_0
+  # unit tests for update_rules
   # Update rules within a rule group. Return the updated rules.
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [ApiRulesResponse]
-  describe 'update_rules_0 test' do
+  describe 'update_rules test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

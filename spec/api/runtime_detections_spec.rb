@@ -50,12 +50,12 @@ describe 'RuntimeDetections' do
   end
 
   # unit tests for get_runtime_detections_combined_v2
-  # Retrieve container runtime detections by the provided search criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filters:  action_taken,aid,cid,cloud,cluster_name,command_line,computer_name,container_id,detect_timestamp,detection_description,detection_id,file_name,file_path,host_id,host_type,image_id,name,namespace,pod_name,severity,tactic
+  # @option opts [String] :filter Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_type&#x60; - &#x60;aid&#x60; - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud&#x60; - &#x60;cluster_name&#x60; - &#x60;computer_name&#x60; - &#x60;container_id&#x60; - &#x60;detect_timestamp&#x60; - &#x60;host_id&#x60; - &#x60;host_type&#x60; - &#x60;image_id&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;pod_name&#x60; - &#x60;severity&#x60;
+  # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The field to sort the records on.
   # @return [RuntimedetectionsDetectionsEntityResponse]
   describe 'get_runtime_detections_combined_v2 test' do
     it 'should work' do

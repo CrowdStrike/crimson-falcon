@@ -33,6 +33,12 @@ require 'time'
 module Falcon
   # Information obtained from active discovery.
   class DomainDiscoverAPIActiveDiscoveryHost
+    # The ID of the network where the host was last seen
+    attr_accessor :last_seen_network_id
+
+    # The ID of the site where the host was last seen
+    attr_accessor :last_seen_site_id
+
     # The open ports discovered on the asset.
     attr_accessor :networks
 
@@ -42,6 +48,8 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'last_seen_network_id' => :'last_seen_network_id',
+        :'last_seen_site_id' => :'last_seen_site_id',
         :'networks' => :'networks',
         :'open_ports' => :'open_ports'
       }
@@ -55,6 +63,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'last_seen_network_id' => :'String',
+        :'last_seen_site_id' => :'String',
         :'networks' => :'Array<DomainDiscoverAPIActiveDiscoveryNetwork>',
         :'open_ports' => :'Array<String>'
       }
@@ -80,6 +90,14 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'last_seen_network_id')
+        self.last_seen_network_id = attributes[:'last_seen_network_id']
+      end
+
+      if attributes.key?(:'last_seen_site_id')
+        self.last_seen_site_id = attributes[:'last_seen_site_id']
+      end
 
       if attributes.key?(:'networks')
         if (value = attributes[:'networks']).is_a?(Array)
@@ -112,6 +130,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          last_seen_network_id == o.last_seen_network_id &&
+          last_seen_site_id == o.last_seen_site_id &&
           networks == o.networks &&
           open_ports == o.open_ports
     end
@@ -125,7 +145,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [networks, open_ports].hash
+      [last_seen_network_id, last_seen_site_id, networks, open_ports].hash
     end
 
     # Builds the object from hash

@@ -4,7 +4,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_policies_0**](Filevantage.md#create_policies_0) | **POST** /filevantage/entities/policies/v1 | Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type. |
+| [**create_policies**](Filevantage.md#create_policies) | **POST** /filevantage/entities/policies/v1 | Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type. |
 | [**create_rule_groups**](Filevantage.md#create_rule_groups) | **POST** /filevantage/entities/rule-groups/v1 | Creates a new rule group of the specified type. |
 | [**create_rules**](Filevantage.md#create_rules) | **POST** /filevantage/entities/rule-groups-rules/v1 | Creates a new rule configuration within the specified rule group. |
 | [**create_scheduled_exclusions**](Filevantage.md#create_scheduled_exclusions) | **POST** /filevantage/entities/policy-scheduled-exclusions/v1 | Creates a new scheduled exclusion configuration for the provided policy id. |
@@ -27,9 +27,9 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**query_scheduled_exclusions**](Filevantage.md#query_scheduled_exclusions) | **GET** /filevantage/queries/policy-scheduled-exclusions/v1 | Retrieve the ids of all scheduled exclusions contained within the provided policy id. |
 | [**signal_changes_external**](Filevantage.md#signal_changes_external) | **POST** /filevantage/entities/workflow/v1 | Initiates workflows for the provided change ids |
 | [**start_actions**](Filevantage.md#start_actions) | **POST** /filevantage/entities/actions/v1 | Initiates the specified action on the provided change ids |
-| [**update_policies_0**](Filevantage.md#update_policies_0) | **PATCH** /filevantage/entities/policies/v1 | Updates the general information of the provided policy. |
+| [**update_policies**](Filevantage.md#update_policies) | **PATCH** /filevantage/entities/policies/v1 | Updates the general information of the provided policy. |
 | [**update_policy_host_groups**](Filevantage.md#update_policy_host_groups) | **PATCH** /filevantage/entities/policies-host-groups/v1 | Manage host groups assigned to a policy. |
-| [**update_policy_precedence_0**](Filevantage.md#update_policy_precedence_0) | **PATCH** /filevantage/entities/policies-precedence/v1 | Updates the policy precedence for all policies of a specific type. |
+| [**update_policy_precedence**](Filevantage.md#update_policy_precedence) | **PATCH** /filevantage/entities/policies-precedence/v1 | Updates the policy precedence for all policies of a specific type. |
 | [**update_policy_rule_groups**](Filevantage.md#update_policy_rule_groups) | **PATCH** /filevantage/entities/policies-rule-groups/v1 | Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy. |
 | [**update_rule_group_precedence**](Filevantage.md#update_rule_group_precedence) | **PATCH** /filevantage/entities/rule-groups-rule-precedence/v1 | Updates the rule precedence for all rules in the identified rule group. |
 | [**update_rule_groups**](Filevantage.md#update_rule_groups) | **PATCH** /filevantage/entities/rule-groups/v1 | Updates the provided rule group. |
@@ -37,9 +37,9 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**update_scheduled_exclusions**](Filevantage.md#update_scheduled_exclusions) | **PATCH** /filevantage/entities/policy-scheduled-exclusions/v1 | Updates the provided scheduled exclusion configuration within the provided policy. |
 
 
-## create_policies_0
+## create_policies
 
-> <PoliciesResponse> create_policies_0(body)
+> <PoliciesResponse> create_policies(body)
 
 Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
 
@@ -63,28 +63,28 @@ body = Falcon::PoliciesCreateRequest.new({name: 'name_example'}) # PoliciesCreat
 
 begin
   # Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
-  result = api_instance.create_policies_0(body)
+  result = api_instance.create_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->create_policies_0: #{e}"
+  puts "Error when calling Filevantage->create_policies: #{e}"
 end
 ```
 
-#### Using the create_policies_0_with_http_info variant
+#### Using the create_policies_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PoliciesResponse>, Integer, Hash)> create_policies_0_with_http_info(body)
+> <Array(<PoliciesResponse>, Integer, Hash)> create_policies_with_http_info(body)
 
 ```ruby
 begin
   # Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
-  data, status_code, headers = api_instance.create_policies_0_with_http_info(body)
+  data, status_code, headers = api_instance.create_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->create_policies_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->create_policies_with_http_info: #{e}"
 end
 ```
 
@@ -1722,9 +1722,9 @@ end
 - **Accept**: application/json
 
 
-## update_policies_0
+## update_policies
 
-> <PoliciesResponse> update_policies_0(body)
+> <PoliciesResponse> update_policies(body)
 
 Updates the general information of the provided policy.
 
@@ -1748,28 +1748,28 @@ body = Falcon::PoliciesUpdateRequest.new({id: 'id_example'}) # PoliciesUpdateReq
 
 begin
   # Updates the general information of the provided policy.
-  result = api_instance.update_policies_0(body)
+  result = api_instance.update_policies(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->update_policies_0: #{e}"
+  puts "Error when calling Filevantage->update_policies: #{e}"
 end
 ```
 
-#### Using the update_policies_0_with_http_info variant
+#### Using the update_policies_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PoliciesResponse>, Integer, Hash)> update_policies_0_with_http_info(body)
+> <Array(<PoliciesResponse>, Integer, Hash)> update_policies_with_http_info(body)
 
 ```ruby
 begin
   # Updates the general information of the provided policy.
-  data, status_code, headers = api_instance.update_policies_0_with_http_info(body)
+  data, status_code, headers = api_instance.update_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PoliciesResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->update_policies_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policies_with_http_info: #{e}"
 end
 ```
 
@@ -1868,9 +1868,9 @@ end
 - **Accept**: application/json
 
 
-## update_policy_precedence_0
+## update_policy_precedence
 
-> <PoliciesPrecedenceResponse> update_policy_precedence_0(ids, type)
+> <PoliciesPrecedenceResponse> update_policy_precedence(ids, type)
 
 Updates the policy precedence for all policies of a specific type.
 
@@ -1895,28 +1895,28 @@ type = 'type_example' # String | The policy type for which to set the precedence
 
 begin
   # Updates the policy precedence for all policies of a specific type.
-  result = api_instance.update_policy_precedence_0(ids, type)
+  result = api_instance.update_policy_precedence(ids, type)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->update_policy_precedence_0: #{e}"
+  puts "Error when calling Filevantage->update_policy_precedence: #{e}"
 end
 ```
 
-#### Using the update_policy_precedence_0_with_http_info variant
+#### Using the update_policy_precedence_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PoliciesPrecedenceResponse>, Integer, Hash)> update_policy_precedence_0_with_http_info(ids, type)
+> <Array(<PoliciesPrecedenceResponse>, Integer, Hash)> update_policy_precedence_with_http_info(ids, type)
 
 ```ruby
 begin
   # Updates the policy precedence for all policies of a specific type.
-  data, status_code, headers = api_instance.update_policy_precedence_0_with_http_info(ids, type)
+  data, status_code, headers = api_instance.update_policy_precedence_with_http_info(ids, type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PoliciesPrecedenceResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling Filevantage->update_policy_precedence_0_with_http_info: #{e}"
+  puts "Error when calling Filevantage->update_policy_precedence_with_http_info: #{e}"
 end
 ```
 

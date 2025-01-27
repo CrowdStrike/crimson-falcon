@@ -32,78 +32,69 @@ require 'time'
 
 module Falcon
   class ApiRuleV1
-    attr_accessor :action_label
+    attr_accessor :api_client_id
 
     attr_accessor :comment
-
-    attr_accessor :committed_on
-
-    attr_accessor :created_by
 
     attr_accessor :created_on
 
     attr_accessor :customer_id
 
-    attr_accessor :deleted
-
     attr_accessor :description
 
-    attr_accessor :disposition_id
+    attr_accessor :id
 
-    attr_accessor :enabled
-
-    attr_accessor :field_values
-
-    attr_accessor :instance_id
-
-    attr_accessor :instance_version
-
-    attr_accessor :magic_cookie
-
-    attr_accessor :modified_by
-
-    attr_accessor :modified_on
+    attr_accessor :last_updated_on
 
     attr_accessor :name
 
-    attr_accessor :pattern_id
+    attr_accessor :operation
 
-    attr_accessor :pattern_severity
+    attr_accessor :rule_id
 
-    attr_accessor :rulegroup_id
+    attr_accessor :search
 
-    attr_accessor :ruletype_id
+    attr_accessor :severity
 
-    attr_accessor :ruletype_name
+    attr_accessor :state
 
-    attr_accessor :version_ids
+    attr_accessor :status
+
+    attr_accessor :tactic
+
+    attr_accessor :technique
+
+    attr_accessor :template_id
+
+    attr_accessor :user_id
+
+    attr_accessor :user_uuid
+
+    attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'action_label' => :'action_label',
+        :'api_client_id' => :'api_client_id',
         :'comment' => :'comment',
-        :'committed_on' => :'committed_on',
-        :'created_by' => :'created_by',
         :'created_on' => :'created_on',
         :'customer_id' => :'customer_id',
-        :'deleted' => :'deleted',
         :'description' => :'description',
-        :'disposition_id' => :'disposition_id',
-        :'enabled' => :'enabled',
-        :'field_values' => :'field_values',
-        :'instance_id' => :'instance_id',
-        :'instance_version' => :'instance_version',
-        :'magic_cookie' => :'magic_cookie',
-        :'modified_by' => :'modified_by',
-        :'modified_on' => :'modified_on',
+        :'id' => :'id',
+        :'last_updated_on' => :'last_updated_on',
         :'name' => :'name',
-        :'pattern_id' => :'pattern_id',
-        :'pattern_severity' => :'pattern_severity',
-        :'rulegroup_id' => :'rulegroup_id',
-        :'ruletype_id' => :'ruletype_id',
-        :'ruletype_name' => :'ruletype_name',
-        :'version_ids' => :'version_ids'
+        :'operation' => :'operation',
+        :'rule_id' => :'rule_id',
+        :'search' => :'search',
+        :'severity' => :'severity',
+        :'state' => :'state',
+        :'status' => :'status',
+        :'tactic' => :'tactic',
+        :'technique' => :'technique',
+        :'template_id' => :'template_id',
+        :'user_id' => :'user_id',
+        :'user_uuid' => :'user_uuid',
+        :'version' => :'version'
       }
     end
 
@@ -115,29 +106,26 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'action_label' => :'String',
+        :'api_client_id' => :'String',
         :'comment' => :'String',
-        :'committed_on' => :'Time',
-        :'created_by' => :'String',
         :'created_on' => :'Time',
         :'customer_id' => :'String',
-        :'deleted' => :'Boolean',
         :'description' => :'String',
-        :'disposition_id' => :'Integer',
-        :'enabled' => :'Boolean',
-        :'field_values' => :'Array<DomainFieldValue>',
-        :'instance_id' => :'String',
-        :'instance_version' => :'Integer',
-        :'magic_cookie' => :'Integer',
-        :'modified_by' => :'String',
-        :'modified_on' => :'Time',
+        :'id' => :'String',
+        :'last_updated_on' => :'Time',
         :'name' => :'String',
-        :'pattern_id' => :'String',
-        :'pattern_severity' => :'String',
-        :'rulegroup_id' => :'String',
-        :'ruletype_id' => :'String',
-        :'ruletype_name' => :'String',
-        :'version_ids' => :'Array<String>'
+        :'operation' => :'ApiRuleOperationV1',
+        :'rule_id' => :'String',
+        :'search' => :'ApiRuleSearchV1',
+        :'severity' => :'Integer',
+        :'state' => :'String',
+        :'status' => :'String',
+        :'tactic' => :'String',
+        :'technique' => :'String',
+        :'template_id' => :'String',
+        :'user_id' => :'String',
+        :'user_uuid' => :'String',
+        :'version' => :'Integer'
       }
     end
 
@@ -162,20 +150,12 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'action_label')
-        self.action_label = attributes[:'action_label']
+      if attributes.key?(:'api_client_id')
+        self.api_client_id = attributes[:'api_client_id']
       end
 
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
-      end
-
-      if attributes.key?(:'committed_on')
-        self.committed_on = attributes[:'committed_on']
-      end
-
-      if attributes.key?(:'created_by')
-        self.created_by = attributes[:'created_by']
       end
 
       if attributes.key?(:'created_on')
@@ -186,76 +166,68 @@ module Falcon
         self.customer_id = attributes[:'customer_id']
       end
 
-      if attributes.key?(:'deleted')
-        self.deleted = attributes[:'deleted']
-      end
-
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'disposition_id')
-        self.disposition_id = attributes[:'disposition_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
-      end
-
-      if attributes.key?(:'field_values')
-        if (value = attributes[:'field_values']).is_a?(Array)
-          self.field_values = value
-        end
-      end
-
-      if attributes.key?(:'instance_id')
-        self.instance_id = attributes[:'instance_id']
-      end
-
-      if attributes.key?(:'instance_version')
-        self.instance_version = attributes[:'instance_version']
-      end
-
-      if attributes.key?(:'magic_cookie')
-        self.magic_cookie = attributes[:'magic_cookie']
-      end
-
-      if attributes.key?(:'modified_by')
-        self.modified_by = attributes[:'modified_by']
-      end
-
-      if attributes.key?(:'modified_on')
-        self.modified_on = attributes[:'modified_on']
+      if attributes.key?(:'last_updated_on')
+        self.last_updated_on = attributes[:'last_updated_on']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'pattern_id')
-        self.pattern_id = attributes[:'pattern_id']
+      if attributes.key?(:'operation')
+        self.operation = attributes[:'operation']
       end
 
-      if attributes.key?(:'pattern_severity')
-        self.pattern_severity = attributes[:'pattern_severity']
+      if attributes.key?(:'rule_id')
+        self.rule_id = attributes[:'rule_id']
       end
 
-      if attributes.key?(:'rulegroup_id')
-        self.rulegroup_id = attributes[:'rulegroup_id']
+      if attributes.key?(:'search')
+        self.search = attributes[:'search']
       end
 
-      if attributes.key?(:'ruletype_id')
-        self.ruletype_id = attributes[:'ruletype_id']
+      if attributes.key?(:'severity')
+        self.severity = attributes[:'severity']
       end
 
-      if attributes.key?(:'ruletype_name')
-        self.ruletype_name = attributes[:'ruletype_name']
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'version_ids')
-        if (value = attributes[:'version_ids']).is_a?(Array)
-          self.version_ids = value
-        end
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'tactic')
+        self.tactic = attributes[:'tactic']
+      end
+
+      if attributes.key?(:'technique')
+        self.technique = attributes[:'technique']
+      end
+
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
+      end
+
+      if attributes.key?(:'user_id')
+        self.user_id = attributes[:'user_id']
+      end
+
+      if attributes.key?(:'user_uuid')
+        self.user_uuid = attributes[:'user_uuid']
+      end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       end
     end
 
@@ -263,20 +235,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @action_label.nil?
-        invalid_properties.push('invalid value for "action_label", action_label cannot be nil.')
-      end
-
-      if @comment.nil?
-        invalid_properties.push('invalid value for "comment", comment cannot be nil.')
-      end
-
-      if @committed_on.nil?
-        invalid_properties.push('invalid value for "committed_on", committed_on cannot be nil.')
-      end
-
-      if @created_by.nil?
-        invalid_properties.push('invalid value for "created_by", created_by cannot be nil.')
+      if @api_client_id.nil?
+        invalid_properties.push('invalid value for "api_client_id", api_client_id cannot be nil.')
       end
 
       if @created_on.nil?
@@ -287,72 +247,52 @@ module Falcon
         invalid_properties.push('invalid value for "customer_id", customer_id cannot be nil.')
       end
 
-      if @deleted.nil?
-        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
-      end
-
-      if @disposition_id.nil?
-        invalid_properties.push('invalid value for "disposition_id", disposition_id cannot be nil.')
-      end
-
-      if @enabled.nil?
-        invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
-      end
-
-      if @field_values.nil?
-        invalid_properties.push('invalid value for "field_values", field_values cannot be nil.')
-      end
-
-      if @instance_id.nil?
-        invalid_properties.push('invalid value for "instance_id", instance_id cannot be nil.')
-      end
-
-      if @instance_version.nil?
-        invalid_properties.push('invalid value for "instance_version", instance_version cannot be nil.')
-      end
-
-      if @magic_cookie.nil?
-        invalid_properties.push('invalid value for "magic_cookie", magic_cookie cannot be nil.')
-      end
-
-      if @modified_by.nil?
-        invalid_properties.push('invalid value for "modified_by", modified_by cannot be nil.')
-      end
-
-      if @modified_on.nil?
-        invalid_properties.push('invalid value for "modified_on", modified_on cannot be nil.')
+      if @last_updated_on.nil?
+        invalid_properties.push('invalid value for "last_updated_on", last_updated_on cannot be nil.')
       end
 
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
-      if @pattern_id.nil?
-        invalid_properties.push('invalid value for "pattern_id", pattern_id cannot be nil.')
+      if @operation.nil?
+        invalid_properties.push('invalid value for "operation", operation cannot be nil.')
       end
 
-      if @pattern_severity.nil?
-        invalid_properties.push('invalid value for "pattern_severity", pattern_severity cannot be nil.')
+      if @search.nil?
+        invalid_properties.push('invalid value for "search", search cannot be nil.')
       end
 
-      if @rulegroup_id.nil?
-        invalid_properties.push('invalid value for "rulegroup_id", rulegroup_id cannot be nil.')
+      if @severity.nil?
+        invalid_properties.push('invalid value for "severity", severity cannot be nil.')
       end
 
-      if @ruletype_id.nil?
-        invalid_properties.push('invalid value for "ruletype_id", ruletype_id cannot be nil.')
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
-      if @ruletype_name.nil?
-        invalid_properties.push('invalid value for "ruletype_name", ruletype_name cannot be nil.')
+      if @tactic.nil?
+        invalid_properties.push('invalid value for "tactic", tactic cannot be nil.')
       end
 
-      if @version_ids.nil?
-        invalid_properties.push('invalid value for "version_ids", version_ids cannot be nil.')
+      if @technique.nil?
+        invalid_properties.push('invalid value for "technique", technique cannot be nil.')
+      end
+
+      if @template_id.nil?
+        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
+      end
+
+      if @user_id.nil?
+        invalid_properties.push('invalid value for "user_id", user_id cannot be nil.')
+      end
+
+      if @user_uuid.nil?
+        invalid_properties.push('invalid value for "user_uuid", user_uuid cannot be nil.')
       end
 
       invalid_properties
@@ -361,29 +301,21 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @action_label.nil?
-      return false if @comment.nil?
-      return false if @committed_on.nil?
-      return false if @created_by.nil?
+      return false if @api_client_id.nil?
       return false if @created_on.nil?
       return false if @customer_id.nil?
-      return false if @deleted.nil?
-      return false if @description.nil?
-      return false if @disposition_id.nil?
-      return false if @enabled.nil?
-      return false if @field_values.nil?
-      return false if @instance_id.nil?
-      return false if @instance_version.nil?
-      return false if @magic_cookie.nil?
-      return false if @modified_by.nil?
-      return false if @modified_on.nil?
+      return false if @id.nil?
+      return false if @last_updated_on.nil?
       return false if @name.nil?
-      return false if @pattern_id.nil?
-      return false if @pattern_severity.nil?
-      return false if @rulegroup_id.nil?
-      return false if @ruletype_id.nil?
-      return false if @ruletype_name.nil?
-      return false if @version_ids.nil?
+      return false if @operation.nil?
+      return false if @search.nil?
+      return false if @severity.nil?
+      return false if @status.nil?
+      return false if @tactic.nil?
+      return false if @technique.nil?
+      return false if @template_id.nil?
+      return false if @user_id.nil?
+      return false if @user_uuid.nil?
       true
     end
 
@@ -392,29 +324,26 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          action_label == o.action_label &&
+          api_client_id == o.api_client_id &&
           comment == o.comment &&
-          committed_on == o.committed_on &&
-          created_by == o.created_by &&
           created_on == o.created_on &&
           customer_id == o.customer_id &&
-          deleted == o.deleted &&
           description == o.description &&
-          disposition_id == o.disposition_id &&
-          enabled == o.enabled &&
-          field_values == o.field_values &&
-          instance_id == o.instance_id &&
-          instance_version == o.instance_version &&
-          magic_cookie == o.magic_cookie &&
-          modified_by == o.modified_by &&
-          modified_on == o.modified_on &&
+          id == o.id &&
+          last_updated_on == o.last_updated_on &&
           name == o.name &&
-          pattern_id == o.pattern_id &&
-          pattern_severity == o.pattern_severity &&
-          rulegroup_id == o.rulegroup_id &&
-          ruletype_id == o.ruletype_id &&
-          ruletype_name == o.ruletype_name &&
-          version_ids == o.version_ids
+          operation == o.operation &&
+          rule_id == o.rule_id &&
+          search == o.search &&
+          severity == o.severity &&
+          state == o.state &&
+          status == o.status &&
+          tactic == o.tactic &&
+          technique == o.technique &&
+          template_id == o.template_id &&
+          user_id == o.user_id &&
+          user_uuid == o.user_uuid &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -426,7 +355,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action_label, comment, committed_on, created_by, created_on, customer_id, deleted, description, disposition_id, enabled, field_values, instance_id, instance_version, magic_cookie, modified_by, modified_on, name, pattern_id, pattern_severity, rulegroup_id, ruletype_id, ruletype_name, version_ids].hash
+      [api_client_id, comment, created_on, customer_id, description, id, last_updated_on, name, operation, rule_id, search, severity, state, status, tactic, technique, template_id, user_id, user_uuid, version].hash
     end
 
     # Builds the object from hash

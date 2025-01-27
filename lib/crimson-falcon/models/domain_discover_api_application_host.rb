@@ -75,6 +75,9 @@ module Falcon
     # The organizational unit of the asset.
     attr_accessor :ou
 
+    # The organizational units of the asset.
+    attr_accessor :ous
+
     # The platform name of the asset (Windows, Mac, Linux).
     attr_accessor :platform_name
 
@@ -107,6 +110,7 @@ module Falcon
         :'machine_domain' => :'machine_domain',
         :'os_version' => :'os_version',
         :'ou' => :'ou',
+        :'ous' => :'ous',
         :'platform_name' => :'platform_name',
         :'product_type_desc' => :'product_type_desc',
         :'site_name' => :'site_name',
@@ -137,6 +141,7 @@ module Falcon
         :'machine_domain' => :'String',
         :'os_version' => :'String',
         :'ou' => :'String',
+        :'ous' => :'Array<String>',
         :'platform_name' => :'String',
         :'product_type_desc' => :'String',
         :'site_name' => :'String',
@@ -224,6 +229,12 @@ module Falcon
         self.ou = attributes[:'ou']
       end
 
+      if attributes.key?(:'ous')
+        if (value = attributes[:'ous']).is_a?(Array)
+          self.ous = value
+        end
+      end
+
       if attributes.key?(:'platform_name')
         self.platform_name = attributes[:'platform_name']
       end
@@ -284,6 +295,7 @@ module Falcon
           machine_domain == o.machine_domain &&
           os_version == o.os_version &&
           ou == o.ou &&
+          ous == o.ous &&
           platform_name == o.platform_name &&
           product_type_desc == o.product_type_desc &&
           site_name == o.site_name &&
@@ -300,7 +312,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, aid, country, current_mac_address, current_network_prefix, external_ip, groups, hostname, id, internet_exposure, kernel_version, machine_domain, os_version, ou, platform_name, product_type_desc, site_name, system_manufacturer, tags].hash
+      [agent_version, aid, country, current_mac_address, current_network_prefix, external_ip, groups, hostname, id, internet_exposure, kernel_version, machine_domain, os_version, ou, ous, platform_name, product_type_desc, site_name, system_manufacturer, tags].hash
     end
 
     # Builds the object from hash

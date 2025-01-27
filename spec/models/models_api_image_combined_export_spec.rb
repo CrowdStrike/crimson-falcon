@@ -42,6 +42,12 @@ describe Falcon::ModelsAPIImageCombinedExport do
       expect(instance).to be_instance_of(Falcon::ModelsAPIImageCombinedExport)
     end
   end
+  describe 'test attribute "ai_related"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "architecture"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -91,6 +97,12 @@ describe Falcon::ModelsAPIImageCombinedExport do
   end
 
   describe 'test attribute "first_seen"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "groups"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

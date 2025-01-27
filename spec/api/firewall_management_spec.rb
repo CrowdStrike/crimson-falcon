@@ -146,13 +146,13 @@ describe 'FirewallManagement' do
     end
   end
 
-  # unit tests for delete_rule_groups_0
+  # unit tests for delete_rule_groups
   # Delete rule group entities by ID
   # @param ids The IDs of the rule groups to be deleted
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Audit log comment for this action
   # @return [FwmgrApiQueryResponse]
-  describe 'delete_rule_groups_0 test' do
+  describe 'delete_rule_groups test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -226,23 +226,23 @@ describe 'FirewallManagement' do
     end
   end
 
-  # unit tests for get_rule_groups_0
+  # unit tests for get_rule_groups
   # Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
   # @param ids The IDs of the rule groups to retrieve
   # @param [Hash] opts the optional parameters
   # @return [FwmgrApiRuleGroupsResponse]
-  describe 'get_rule_groups_0 test' do
+  describe 'get_rule_groups test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  # unit tests for get_rules_0
+  # unit tests for get_rules
   # Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
   # @param ids The rules to retrieve, identified by ID
   # @param [Hash] opts the optional parameters
   # @return [FwmgrApiRulesResponse]
-  describe 'get_rules_0 test' do
+  describe 'get_rules test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -322,7 +322,7 @@ describe 'FirewallManagement' do
     end
   end
 
-  # unit tests for query_rule_groups_0
+  # unit tests for query_rule_groups
   # Find all rule group IDs matching the query with filter
   # @param [Hash] opts the optional parameters
   # @option opts [String] :sort Possible order by fields:
@@ -332,7 +332,7 @@ describe 'FirewallManagement' do
   # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
   # @option opts [Integer] :limit Number of ids to return.
   # @return [FwmgrApiQueryResponse]
-  describe 'query_rule_groups_0 test' do
+  describe 'query_rule_groups test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

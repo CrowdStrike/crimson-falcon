@@ -46,6 +46,15 @@ module Falcon
 
     attr_accessor :helper_text
 
+    # generate a hidden card during mobiledoc generation
+    attr_accessor :hide
+
+    # local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
+    attr_accessor :schema_reference
+
+    # skip generating a card during mobiledoc generation
+    attr_accessor :skip
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -54,7 +63,10 @@ module Falcon
         :'custom_group_name' => :'customGroupName',
         :'duration_options' => :'durationOptions',
         :'encoding' => :'encoding',
-        :'helper_text' => :'helperText'
+        :'helper_text' => :'helperText',
+        :'hide' => :'hide',
+        :'schema_reference' => :'schema_reference',
+        :'skip' => :'skip'
       }
     end
 
@@ -71,7 +83,10 @@ module Falcon
         :'custom_group_name' => :'String',
         :'duration_options' => :'Array<JsonschemaDurationOption>',
         :'encoding' => :'String',
-        :'helper_text' => :'String'
+        :'helper_text' => :'String',
+        :'hide' => :'Boolean',
+        :'schema_reference' => :'String',
+        :'skip' => :'Boolean'
       }
     end
 
@@ -123,6 +138,18 @@ module Falcon
       if attributes.key?(:'helper_text')
         self.helper_text = attributes[:'helper_text']
       end
+
+      if attributes.key?(:'hide')
+        self.hide = attributes[:'hide']
+      end
+
+      if attributes.key?(:'schema_reference')
+        self.schema_reference = attributes[:'schema_reference']
+      end
+
+      if attributes.key?(:'skip')
+        self.skip = attributes[:'skip']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -148,7 +175,10 @@ module Falcon
           custom_group_name == o.custom_group_name &&
           duration_options == o.duration_options &&
           encoding == o.encoding &&
-          helper_text == o.helper_text
+          helper_text == o.helper_text &&
+          hide == o.hide &&
+          schema_reference == o.schema_reference &&
+          skip == o.skip
     end
 
     # @see the `==` method
@@ -160,7 +190,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept, component, custom_group_name, duration_options, encoding, helper_text].hash
+      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, schema_reference, skip].hash
     end
 
     # Builds the object from hash

@@ -123,6 +123,17 @@ describe 'Discover' do
     end
   end
 
+  # unit tests for post_external_assets_inventory_v1
+  # Add external assets for external asset scanning.
+  # @param body Asset addition specification.
+  # @param [Hash] opts the optional parameters
+  # @return [InventoryapiUserExternalAssetCreateResponseV1]
+  describe 'post_external_assets_inventory_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for query_accounts
   # Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria.
   # @param [Hash] opts the optional parameters

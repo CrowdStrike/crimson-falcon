@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **cel_condition** | **String** |  | [optional] |
 | **condition** | **String** |  | [optional] |
 | **condition_display** | **Array&lt;String&gt;** |  | [optional] |
 | **continue_on_partial_execution** | **Boolean** |  |  |
@@ -18,6 +19,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::V2ForLoop.new(
+  cel_condition: null,
   condition: null,
   condition_display: null,
   continue_on_partial_execution: null,

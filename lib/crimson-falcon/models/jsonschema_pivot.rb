@@ -36,9 +36,13 @@ module Falcon
 
     attr_accessor :entity
 
+    attr_accessor :entity_on_load
+
     attr_accessor :entity_value
 
     attr_accessor :query_string
+
+    attr_accessor :query_string_on_load
 
     attr_accessor :searchable
 
@@ -55,8 +59,10 @@ module Falcon
       {
         :'case_sensitive' => :'caseSensitive',
         :'entity' => :'entity',
+        :'entity_on_load' => :'entityOnLoad',
         :'entity_value' => :'entityValue',
         :'query_string' => :'queryString',
+        :'query_string_on_load' => :'queryStringOnLoad',
         :'searchable' => :'searchable',
         :'sort_by_display' => :'sortByDisplay',
         :'sort_by_value' => :'sortByValue',
@@ -75,8 +81,10 @@ module Falcon
       {
         :'case_sensitive' => :'Boolean',
         :'entity' => :'String',
+        :'entity_on_load' => :'String',
         :'entity_value' => :'String',
         :'query_string' => :'String',
+        :'query_string_on_load' => :'String',
         :'searchable' => :'Boolean',
         :'sort_by_display' => :'Boolean',
         :'sort_by_value' => :'Boolean',
@@ -114,12 +122,20 @@ module Falcon
         self.entity = attributes[:'entity']
       end
 
+      if attributes.key?(:'entity_on_load')
+        self.entity_on_load = attributes[:'entity_on_load']
+      end
+
       if attributes.key?(:'entity_value')
         self.entity_value = attributes[:'entity_value']
       end
 
       if attributes.key?(:'query_string')
         self.query_string = attributes[:'query_string']
+      end
+
+      if attributes.key?(:'query_string_on_load')
+        self.query_string_on_load = attributes[:'query_string_on_load']
       end
 
       if attributes.key?(:'searchable')
@@ -163,8 +179,10 @@ module Falcon
       self.class == o.class &&
           case_sensitive == o.case_sensitive &&
           entity == o.entity &&
+          entity_on_load == o.entity_on_load &&
           entity_value == o.entity_value &&
           query_string == o.query_string &&
+          query_string_on_load == o.query_string_on_load &&
           searchable == o.searchable &&
           sort_by_display == o.sort_by_display &&
           sort_by_value == o.sort_by_value &&
@@ -181,7 +199,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [case_sensitive, entity, entity_value, query_string, searchable, sort_by_display, sort_by_value, sort_desc, strict].hash
+      [case_sensitive, entity, entity_on_load, entity_value, query_string, query_string_on_load, searchable, sort_by_display, sort_by_value, sort_desc, strict].hash
     end
 
     # Builds the object from hash

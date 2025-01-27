@@ -54,6 +54,12 @@ describe Falcon::QuickscanproQueryScanResultsResponse do
     end
   end
 
+  describe 'test attribute "quota"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "resources"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

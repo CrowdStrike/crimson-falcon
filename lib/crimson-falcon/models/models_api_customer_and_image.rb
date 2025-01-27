@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsAPICustomerAndImage
+    attr_accessor :ai_related
+
     attr_accessor :base_image_id
 
     attr_accessor :base_os
@@ -79,6 +81,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_related' => :'ai_related',
         :'base_image_id' => :'base_image_id',
         :'base_os' => :'base_os',
         :'base_os_version' => :'base_os_version',
@@ -112,6 +115,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_related' => :'Boolean',
         :'base_image_id' => :'String',
         :'base_os' => :'String',
         :'base_os_version' => :'String',
@@ -157,6 +161,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_related')
+        self.ai_related = attributes[:'ai_related']
+      end
 
       if attributes.key?(:'base_image_id')
         self.base_image_id = attributes[:'base_image_id']
@@ -251,6 +259,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ai_related.nil?
+        invalid_properties.push('invalid value for "ai_related", ai_related cannot be nil.')
+      end
+
       if @base_os.nil?
         invalid_properties.push('invalid value for "base_os", base_os cannot be nil.')
       end
@@ -337,6 +349,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @ai_related.nil?
       return false if @base_os.nil?
       return false if @base_os_version.nil?
       return false if @cid.nil?
@@ -365,6 +378,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_related == o.ai_related &&
           base_image_id == o.base_image_id &&
           base_os == o.base_os &&
           base_os_version == o.base_os_version &&
@@ -398,7 +412,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [base_image_id, base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, is_base_image, registry, repository, source, source_base_image, tag, updated_at, uuid, warning].hash
+      [ai_related, base_image_id, base_os, base_os_version, cid, config, created_at, crowdstrike_user, digest, eol_date, first_scanned, image_id, image_scanning_active, image_size, is_base_image, registry, repository, source, source_base_image, tag, updated_at, uuid, warning].hash
     end
 
     # Builds the object from hash

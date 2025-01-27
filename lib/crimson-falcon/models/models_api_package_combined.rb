@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsAPIPackageCombined
+    attr_accessor :ai_related
+
     attr_accessor :all_images
 
     attr_accessor :cid
@@ -51,6 +53,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_related' => :'ai_related',
         :'all_images' => :'all_images',
         :'cid' => :'cid',
         :'license' => :'license',
@@ -70,6 +73,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_related' => :'Boolean',
         :'all_images' => :'Integer',
         :'cid' => :'String',
         :'license' => :'String',
@@ -101,6 +105,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'ai_related')
+        self.ai_related = attributes[:'ai_related']
+      end
 
       if attributes.key?(:'all_images')
         self.all_images = attributes[:'all_images']
@@ -141,6 +149,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ai_related.nil?
+        invalid_properties.push('invalid value for "ai_related", ai_related cannot be nil.')
+      end
+
       if @all_images.nil?
         invalid_properties.push('invalid value for "all_images", all_images cannot be nil.')
       end
@@ -179,6 +191,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @ai_related.nil?
       return false if @all_images.nil?
       return false if @cid.nil?
       return false if @license.nil?
@@ -195,6 +208,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_related == o.ai_related &&
           all_images == o.all_images &&
           cid == o.cid &&
           license == o.license &&
@@ -214,7 +228,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [all_images, cid, license, package_name_version, running_images, type, vulnerabilities, vulnerability_count].hash
+      [ai_related, all_images, cid, license, package_name_version, running_images, type, vulnerabilities, vulnerability_count].hash
     end
 
     # Builds the object from hash

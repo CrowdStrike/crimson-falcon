@@ -227,7 +227,7 @@ module Falcon
     end
 
     # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
-    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
     # @param [Hash] opts the optional parameters
     # @return [ExportsLaunchExportResponse]
     def launch_export_job(body, opts = {})
@@ -236,7 +236,7 @@ module Falcon
     end
 
     # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
-    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExportsLaunchExportResponse, Integer, Hash)>] ExportsLaunchExportResponse data, response status code and response headers
     def launch_export_job_with_http_info(body, opts = {})
@@ -294,7 +294,7 @@ module Falcon
 
     # Query export jobs entities
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string)
+    # @option opts [String] :filter Filter exports using a query in Falcon Query Language (FQL). Only the last 100 jobs are returned. Supported filter fields: - &#x60;resource&#x60; - &#x60;status&#x60;
     # @return [MsaspecQueryResponse]
     def query_export_jobs(opts = {})
       data, _status_code, _headers = query_export_jobs_with_http_info(opts)
@@ -303,7 +303,7 @@ module Falcon
 
     # Query export jobs entities
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL query specifying the filter parameters. Only the last 100 jobs are returned. Supported filters: - &#x60;resource&#x60;: (string) - &#x60;status&#x60;: (string)
+    # @option opts [String] :filter Filter exports using a query in Falcon Query Language (FQL). Only the last 100 jobs are returned. Supported filter fields: - &#x60;resource&#x60; - &#x60;status&#x60;
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_export_jobs_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -412,22 +412,22 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve registry entities identified by the customer id
+    # Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The field to sort on, e.g. id.desc or id.asc.
+    # @option opts [String] :sort The fields to sort the records on.
     # @return [DomainExternalQueryResponse]
     def read_registry_entities(opts = {})
       data, _status_code, _headers = read_registry_entities_with_http_info(opts)
       data
     end
 
-    # Retrieve registry entities identified by the customer id
+    # Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
     # @option opts [Integer] :offset The offset from where to begin.
-    # @option opts [String] :sort The field to sort on, e.g. id.desc or id.asc.
+    # @option opts [String] :sort The fields to sort the records on.
     # @return [Array<(DomainExternalQueryResponse, Integer, Hash)>] DomainExternalQueryResponse data, response status code and response headers
     def read_registry_entities_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -476,7 +476,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve the registry entity identified by the entity UUID
+    # Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
     # @param ids [String] Registry entity UUID
     # @param [Hash] opts the optional parameters
     # @return [DomainExternalRegistryListResponse]
@@ -485,7 +485,7 @@ module Falcon
       data
     end
 
-    # Retrieve the registry entity identified by the entity UUID
+    # Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
     # @param ids [String] Registry entity UUID
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainExternalRegistryListResponse, Integer, Hash)>] DomainExternalRegistryListResponse data, response status code and response headers

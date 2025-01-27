@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ModelsAPIImageCombinedExport
+    attr_accessor :ai_related
+
     attr_accessor :architecture
 
     attr_accessor :base_os
@@ -49,6 +51,8 @@ module Falcon
     attr_accessor :detection_type
 
     attr_accessor :first_seen
+
+    attr_accessor :groups
 
     attr_accessor :image_digest
 
@@ -81,6 +85,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'ai_related' => :'ai_related',
         :'architecture' => :'architecture',
         :'base_os' => :'base_os',
         :'cid' => :'cid',
@@ -90,6 +95,7 @@ module Falcon
         :'detection_severity' => :'detection_severity',
         :'detection_type' => :'detection_type',
         :'first_seen' => :'first_seen',
+        :'groups' => :'groups',
         :'image_digest' => :'image_digest',
         :'image_id' => :'image_id',
         :'is_base_image' => :'is_base_image',
@@ -115,6 +121,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'ai_related' => :'Boolean',
         :'architecture' => :'String',
         :'base_os' => :'String',
         :'cid' => :'String',
@@ -124,6 +131,7 @@ module Falcon
         :'detection_severity' => :'String',
         :'detection_type' => :'String',
         :'first_seen' => :'String',
+        :'groups' => :'Array<String>',
         :'image_digest' => :'String',
         :'image_id' => :'String',
         :'is_base_image' => :'Boolean',
@@ -162,6 +170,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'ai_related')
+        self.ai_related = attributes[:'ai_related']
+      end
+
       if attributes.key?(:'architecture')
         self.architecture = attributes[:'architecture']
       end
@@ -196,6 +208,12 @@ module Falcon
 
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
       end
 
       if attributes.key?(:'image_digest')
@@ -259,6 +277,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @ai_related.nil?
+        invalid_properties.push('invalid value for "ai_related", ai_related cannot be nil.')
+      end
+
       if @architecture.nil?
         invalid_properties.push('invalid value for "architecture", architecture cannot be nil.')
       end
@@ -357,6 +379,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @ai_related.nil?
       return false if @architecture.nil?
       return false if @base_os.nil?
       return false if @cid.nil?
@@ -388,6 +411,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          ai_related == o.ai_related &&
           architecture == o.architecture &&
           base_os == o.base_os &&
           cid == o.cid &&
@@ -397,6 +421,7 @@ module Falcon
           detection_severity == o.detection_severity &&
           detection_type == o.detection_type &&
           first_seen == o.first_seen &&
+          groups == o.groups &&
           image_digest == o.image_digest &&
           image_id == o.image_id &&
           is_base_image == o.is_base_image &&
@@ -422,7 +447,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architecture, base_os, cid, cve_id, cvss_score, detection_name, detection_severity, detection_type, first_seen, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
+      [ai_related, architecture, base_os, cid, cve_id, cvss_score, detection_name, detection_severity, detection_type, first_seen, groups, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
     end
 
     # Builds the object from hash

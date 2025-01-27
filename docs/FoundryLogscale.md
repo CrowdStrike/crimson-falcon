@@ -214,7 +214,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscale.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
   detailed: true, # Boolean | Whether to include search field details
@@ -299,7 +299,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscale.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
   detailed: true, # Boolean | Whether to include search field details

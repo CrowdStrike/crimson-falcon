@@ -50,9 +50,9 @@ describe 'ContainerPackages' do
   end
 
   # unit tests for read_packages_by_fixable_vuln_count
-  # Retrieve top x app packages with the most fixable vulnerabilities
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @return [PackagesApiPackagesByVulnCount]
@@ -63,9 +63,9 @@ describe 'ContainerPackages' do
   end
 
   # unit tests for read_packages_by_vuln_count
-  # Retrieve top x packages with the most vulnerabilities
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
   # @return [PackagesApiPackagesByVulnCount]
@@ -76,13 +76,13 @@ describe 'ContainerPackages' do
   end
 
   # unit tests for read_packages_combined
-  # Retrieve packages identified by the provided filter criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
-  # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages, default is false
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
+  # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages
+  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on. Supported columns:  [license package_name_version type]
   # @return [PackagesApiCombinedPackage]
   describe 'read_packages_combined test' do
     it 'should work' do
@@ -91,15 +91,30 @@ describe 'ContainerPackages' do
   end
 
   # unit tests for read_packages_combined_export
-  # Retrieve packages identified by the provided filter criteria for the purpose of export
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,cveid,fix_status,image_digest,license,package_name_version,severity,type,vulnerability_count
-  # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages, default is false
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
+  # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages
+  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on. Supported columns:  [license package_name_version type]
   # @return [PackagesApiCombinedPackageExport]
   describe 'read_packages_combined_export test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_packages_combined_v2
+  # Maximum offset &#x3D; 10000 - limit
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
+  # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages
+  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
+  # @option opts [Integer] :offset The offset from where to begin.
+  # @return [PackagesApiCombinedPackageV2]
+  describe 'read_packages_combined_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -108,7 +123,7 @@ describe 'ContainerPackages' do
   # unit tests for read_packages_count_by_zero_day
   # Retrieve packages count affected by zero day vulnerabilities
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filters: cid
+  # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60;
   # @return [CommonCountResponse]
   describe 'read_packages_count_by_zero_day test' do
     it 'should work' do

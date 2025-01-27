@@ -52,7 +52,7 @@ describe 'DriftIndicators' do
   # unit tests for get_drift_indicators_values_by_date
   # Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter drift indicators using a query in Falcon Query Language (FQL). Supported filters: cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
+  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @return [DriftindicatorsDriftIndicatorsFieldValue]
   describe 'get_drift_indicators_values_by_date test' do
@@ -75,7 +75,7 @@ describe 'DriftIndicators' do
   # unit tests for read_drift_indicators_count
   # Returns the total count of Drift indicators over a time period
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filters:  cid,cloud_name,command_line,container_id,file_name,file_sha256,host_id,indicator_process_id,namespace,occurred_at,parent_process_id,pod_name,prevented,scheduler_name,severity,worker_node_name
+  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
   # @return [DriftindicatorsDriftIndicatorsCountValue]
   describe 'read_drift_indicators_count test' do
     it 'should work' do
@@ -84,12 +84,12 @@ describe 'DriftIndicators' do
   end
 
   # unit tests for search_and_read_drift_indicator_entities
-  # Retrieve Drift Indicators by the provided search criteria
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
+  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
+  # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on.
   # @return [DriftindicatorsDriftEntityResponse]
   describe 'search_and_read_drift_indicator_entities test' do
     it 'should work' do
@@ -98,12 +98,12 @@ describe 'DriftIndicators' do
   end
 
   # unit tests for search_drift_indicators
-  # Retrieve all drift indicators that match the given query
+  # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filters:  cid, cloud_name, command_line, container_id, file_name, file_sha256, host_id, indicator_process_id, namespace, occurred_at, parent_process_id, pod_name, prevented, scheduler_name, severity, worker_node_name
+  # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
+  # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on.
   # @return [MsaspecQueryResponse]
   describe 'search_drift_indicators test' do
     it 'should work' do

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**read_container_alerts_count**](ContainerAlerts.md#read_container_alerts_count) | **GET** /container-security/aggregates/container-alerts/count/v1 | Search Container Alerts by the provided search criteria |
 | [**read_container_alerts_count_by_severity**](ContainerAlerts.md#read_container_alerts_count_by_severity) | **GET** /container-security/aggregates/container-alerts/count-by-severity/v1 | Get Container Alerts counts by severity |
-| [**search_and_read_container_alerts**](ContainerAlerts.md#search_and_read_container_alerts) | **GET** /container-security/combined/container-alerts/v1 | Search Container Alerts by the provided search criteria |
+| [**search_and_read_container_alerts**](ContainerAlerts.md#search_and_read_container_alerts) | **GET** /container-security/combined/container-alerts/v1 | Maximum offset &#x3D; 10000 - limit |
 
 
 ## read_container_alerts_count
@@ -30,7 +30,7 @@ end
 
 api_instance = Falcon::ContainerAlerts.new
 opts = {
-  filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen
+  filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `container_id` - `last_seen`
 }
 
 begin
@@ -64,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen | [optional] |
+| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60; | [optional] |
 
 ### Return type
 
@@ -101,7 +101,7 @@ end
 
 api_instance = Falcon::ContainerAlerts.new
 opts = {
-  filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,last_seen
+  filter: 'filter_example' # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `container_id` - `last_seen`
 }
 
 begin
@@ -135,7 +135,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters: cid,container_id,last_seen | [optional] |
+| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60; | [optional] |
 
 ### Return type
 
@@ -155,7 +155,7 @@ end
 
 > <AlertsContainerAlertsEntityResponse> search_and_read_container_alerts(opts)
 
-Search Container Alerts by the provided search criteria
+Maximum offset = 10000 - limit
 
 ### Examples
 
@@ -172,14 +172,14 @@ end
 
 api_instance = Falcon::ContainerAlerts.new
 opts = {
-  filter: 'filter_example', # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen,name,severity
+  filter: 'filter_example', # String | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `container_id` - `last_seen` - `name` - `severity`
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
   sort: 'sort_example' # String | The fields to sort the records on.
 }
 
 begin
-  # Search Container Alerts by the provided search criteria
+  # Maximum offset = 10000 - limit
   result = api_instance.search_and_read_container_alerts(opts)
   p result
 rescue Falcon::ApiError => e
@@ -195,7 +195,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Search Container Alerts by the provided search criteria
+  # Maximum offset = 10000 - limit
   data, status_code, headers = api_instance.search_and_read_container_alerts_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -209,8 +209,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filters:  cid,container_id,last_seen,name,severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Search Container Alerts using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;last_seen&#x60; - &#x60;name&#x60; - &#x60;severity&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 | **sort** | **String** | The fields to sort the records on. | [optional] |
 

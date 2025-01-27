@@ -15,6 +15,7 @@
 | **custom_policy_id** | **Integer** |  | [optional] |
 | **finding** | **Object** |  |  |
 | **findings** | **Array&lt;Object&gt;** |  |  |
+| **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **id** | **String** |  |  |
 | **is_managed** | **Boolean** |  | [optional] |
 | **policy_id** | **Integer** |  | [optional] |
@@ -53,6 +54,7 @@ instance = Falcon::RegistrationIOMEventV2.new(
   custom_policy_id: null,
   finding: null,
   findings: null,
+  groups: null,
   id: null,
   is_managed: null,
   policy_id: null,

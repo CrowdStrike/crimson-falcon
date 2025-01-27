@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ai_related** | **Boolean** |  |  |
 | **architecture** | **String** |  |  |
 | **base_os** | **String** |  |  |
 | **cid** | **String** |  |  |
@@ -13,6 +14,7 @@
 | **detection_severity** | **String** |  |  |
 | **detection_type** | **String** |  |  |
 | **first_seen** | **String** |  |  |
+| **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **image_digest** | **String** |  |  |
 | **image_id** | **String** |  |  |
 | **is_base_image** | **Boolean** |  |  |
@@ -34,6 +36,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsAPIImageCombinedExport.new(
+  ai_related: null,
   architecture: null,
   base_os: null,
   cid: null,
@@ -43,6 +46,7 @@ instance = Falcon::ModelsAPIImageCombinedExport.new(
   detection_severity: null,
   detection_type: null,
   first_seen: null,
+  groups: null,
   image_digest: null,
   image_id: null,
   is_base_image: null,

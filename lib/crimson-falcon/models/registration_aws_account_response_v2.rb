@@ -103,10 +103,6 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @errors.nil?
-        invalid_properties.push('invalid value for "errors", errors cannot be nil.')
-      end
-
       if @meta.nil?
         invalid_properties.push('invalid value for "meta", meta cannot be nil.')
       end
@@ -121,7 +117,6 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @errors.nil?
       return false if @meta.nil?
       return false if @resources.nil?
       true

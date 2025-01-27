@@ -4,29 +4,26 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **action_label** | **String** |  |  |
-| **comment** | **String** |  |  |
-| **committed_on** | **Time** |  |  |
-| **created_by** | **String** |  |  |
+| **api_client_id** | **String** |  |  |
+| **comment** | **String** |  | [optional] |
 | **created_on** | **Time** |  |  |
 | **customer_id** | **String** |  |  |
-| **deleted** | **Boolean** |  |  |
-| **description** | **String** |  |  |
-| **disposition_id** | **Integer** |  |  |
-| **enabled** | **Boolean** |  |  |
-| **field_values** | [**Array&lt;DomainFieldValue&gt;**](DomainFieldValue.md) |  |  |
-| **instance_id** | **String** |  |  |
-| **instance_version** | **Integer** |  |  |
-| **magic_cookie** | **Integer** |  |  |
-| **modified_by** | **String** |  |  |
-| **modified_on** | **Time** |  |  |
+| **description** | **String** |  | [optional] |
+| **id** | **String** |  |  |
+| **last_updated_on** | **Time** |  |  |
 | **name** | **String** |  |  |
-| **pattern_id** | **String** |  |  |
-| **pattern_severity** | **String** |  |  |
-| **rulegroup_id** | **String** |  |  |
-| **ruletype_id** | **String** |  |  |
-| **ruletype_name** | **String** |  |  |
-| **version_ids** | **Array&lt;String&gt;** |  |  |
+| **operation** | [**ApiRuleOperationV1**](ApiRuleOperationV1.md) |  |  |
+| **rule_id** | **String** |  | [optional] |
+| **search** | [**ApiRuleSearchV1**](ApiRuleSearchV1.md) |  |  |
+| **severity** | **Integer** |  |  |
+| **state** | **String** |  | [optional] |
+| **status** | **String** |  |  |
+| **tactic** | **String** |  |  |
+| **technique** | **String** |  |  |
+| **template_id** | **String** |  |  |
+| **user_id** | **String** |  |  |
+| **user_uuid** | **String** |  |  |
+| **version** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -34,29 +31,26 @@
 require 'crimson-falcon'
 
 instance = Falcon::ApiRuleV1.new(
-  action_label: null,
+  api_client_id: null,
   comment: null,
-  committed_on: null,
-  created_by: null,
   created_on: null,
   customer_id: null,
-  deleted: null,
   description: null,
-  disposition_id: null,
-  enabled: null,
-  field_values: null,
-  instance_id: null,
-  instance_version: null,
-  magic_cookie: null,
-  modified_by: null,
-  modified_on: null,
+  id: null,
+  last_updated_on: null,
   name: null,
-  pattern_id: null,
-  pattern_severity: null,
-  rulegroup_id: null,
-  ruletype_id: null,
-  ruletype_name: null,
-  version_ids: null
+  operation: null,
+  rule_id: null,
+  search: null,
+  severity: null,
+  state: null,
+  status: null,
+  tactic: null,
+  technique: null,
+  template_id: null,
+  user_id: null,
+  user_uuid: null,
+  version: null
 )
 ```
 

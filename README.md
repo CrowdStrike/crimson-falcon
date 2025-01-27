@@ -188,9 +188,25 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**get_executor_nodes_metadata**](docs/ASPM.md#get_executor_nodes_metadata)
+- **GET**: /aspm-api-gateway/api/v1/executor_nodes/metadata
+- **Description**: Get metadata about all executor nodes
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**get_integration_tasks**](docs/ASPM.md#get_integration_tasks)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks
 - **Description**: Get all the integration tasks
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_integration_tasks_metadata**](docs/ASPM.md#get_integration_tasks_metadata)
+- **GET**: /aspm-api-gateway/api/v1/integration_tasks/metadata
+- **Description**: Get metadata about all integration tasks
 
 ---
 
@@ -348,6 +364,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
+- **Operation**: [**post_combined_alerts_v1**](docs/Alerts.md#post_combined_alerts_v1)
+- **POST**: /alerts/combined/alerts/v1
+- **Description**: Retrieves all Alerts that match a particular FQL filter.
+
+---
+
+**Class**: `Falcon::Alerts`
+
 - **Operation**: [**post_entities_alerts_v1**](docs/Alerts.md#post_entities_alerts_v1)
 - **POST**: /alerts/entities/alerts/v1
 - **Description**: Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids.
@@ -434,6 +458,62 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_create_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_create_account)
+- **POST**: /cloud-security-registration-aws/entities/account/v1
+- **Description**: Creates a new account in our system for a customer.
+
+---
+
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_delete_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_delete_account)
+- **DELETE**: /cloud-security-registration-aws/entities/account/v1
+- **Description**: Deletes an existing AWS account or organization in our system.
+
+---
+
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_get_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_get_accounts)
+- **GET**: /cloud-security-registration-aws/entities/account/v1
+- **Description**: Retrieve existing AWS accounts by account IDs
+
+---
+
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_query_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_query_accounts)
+- **GET**: /cloud-security-registration-aws/queries/account/v1
+- **Description**: Retrieve existing AWS accounts by account IDs
+
+---
+
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_update_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_update_account)
+- **PATCH**: /cloud-security-registration-aws/entities/account/v1
+- **Description**: Patches a existing account in our system for a customer.
+
+---
+
+**Class**: `Falcon::CloudAwsRegistration`
+
+- **Operation**: [**cloud_registration_aws_validate_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_validate_accounts)
+- **POST**: /cloud-security-registration-aws/entities/account/validate/v1
+- **Description**: Validates the AWS account in our system for a provided CID. For internal clients only.
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
+- **Operation**: [**cloud_registration_azure_download_script**](docs/CloudAzureRegistration.md#cloud_registration_azure_download_script)
+- **POST**: /cloud-security-registration-azure/entities/scripts/v1
+- **Description**: Retrieve script to create resources
+
+---
+
 **Class**: `Falcon::CloudConnectAws`
 
 - **Operation**: [**create_or_update_aws_settings**](docs/CloudConnectAws.md#create_or_update_aws_settings)
@@ -503,6 +583,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**verify_aws_account_access**](docs/CloudConnectAws.md#verify_aws_account_access)
 - **POST**: /cloud-connect-aws/entities/verify-account-access/v1
 - **Description**: Performs an Access Verification check on the specified AWS Account IDs
+
+---
+
+**Class**: `Falcon::CloudSecurityAssets`
+
+- **Operation**: [**cloud_security_assets_entities_get**](docs/CloudSecurityAssets.md#cloud_security_assets_entities_get)
+- **GET**: /cloud-security-assets/entities/resources/v1
+- **Description**: Gets raw resources based on the provided IDs param.  Maximum of 100 resources can be requested with this method.  Use POST method with same path if more are required.
+
+---
+
+**Class**: `Falcon::CloudSecurityAssets`
+
+- **Operation**: [**cloud_security_assets_queries**](docs/CloudSecurityAssets.md#cloud_security_assets_queries)
+- **GET**: /cloud-security-assets/queries/resources/v1
+- **Description**: Gets a list of resource IDs for the given parameters, filters and sort criteria
 
 ---
 
@@ -686,7 +782,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_and_read_container_alerts**](docs/ContainerAlerts.md#search_and_read_container_alerts)
 - **GET**: /container-security/combined/container-alerts/v1
-- **Description**: Search Container Alerts by the provided search criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -694,7 +790,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_combined_detections**](docs/ContainerDetections.md#read_combined_detections)
 - **GET**: /container-security/combined/detections/v1
-- **Description**: Retrieve image assessment detections identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -702,7 +798,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_detections**](docs/ContainerDetections.md#read_detections)
 - **GET**: /container-security/entities/detections/v1
-- **Description**: Retrieve image assessment detection entities identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -734,7 +830,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_detections**](docs/ContainerDetections.md#search_detections)
 - **GET**: /container-security/queries/detections/v1
-- **Description**: Retrieve image assessment detection entities identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -774,7 +870,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**combined_base_images**](docs/ContainerImages.md#combined_base_images)
 - **GET**: /container-security/combined/base-images/v1
-- **Description**: Retrieve base images for provided filter
+- **Description**: Retrieves a list of base images for the provided filter. Maximum page size: 100
 
 ---
 
@@ -790,7 +886,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**combined_image_detail**](docs/ContainerImages.md#combined_image_detail)
 - **GET**: /container-security/combined/images/detail/v1
-- **Description**: Retrieve image entities identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -830,7 +926,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_combined_images**](docs/ContainerImages.md#get_combined_images)
 - **GET**: /container-security/combined/image-assessment/images/v1
-- **Description**: Get image assessment results by providing an FQL filter and paging details
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -838,7 +934,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_combined_images_export**](docs/ContainerImages.md#read_combined_images_export)
 - **GET**: /container-security/combined/images/export/v1
-- **Description**: Retrieve images with an option to expand aggregated vulnerabilities/detections
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -846,7 +942,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_packages_by_fixable_vuln_count**](docs/ContainerPackages.md#read_packages_by_fixable_vuln_count)
 - **GET**: /container-security/combined/packages/app-by-fixable-vulnerability-count/v1
-- **Description**: Retrieve top x app packages with the most fixable vulnerabilities
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -854,7 +950,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_packages_by_vuln_count**](docs/ContainerPackages.md#read_packages_by_vuln_count)
 - **GET**: /container-security/combined/packages/by-vulnerability-count/v1
-- **Description**: Retrieve top x packages with the most vulnerabilities
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -862,7 +958,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_packages_combined**](docs/ContainerPackages.md#read_packages_combined)
 - **GET**: /container-security/combined/packages/v1
-- **Description**: Retrieve packages identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -870,7 +966,15 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_packages_combined_export**](docs/ContainerPackages.md#read_packages_combined_export)
 - **GET**: /container-security/combined/packages/export/v1
-- **Description**: Retrieve packages identified by the provided filter criteria for the purpose of export
+- **Description**: Maximum offset &#x3D; 10000 - limit
+
+---
+
+**Class**: `Falcon::ContainerPackages`
+
+- **Operation**: [**read_packages_combined_v2**](docs/ContainerPackages.md#read_packages_combined_v2)
+- **GET**: /container-security/combined/packages/v2
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -886,7 +990,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_combined_vulnerabilities**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities)
 - **GET**: /container-security/combined/vulnerabilities/v1
-- **Description**: Retrieve vulnerability and aggregate data filtered by the provided FQL
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -894,7 +998,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_combined_vulnerabilities_details**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities_details)
 - **GET**: /container-security/combined/vulnerabilities/details/v1
-- **Description**: Retrieve vulnerability details related to an image
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -902,7 +1006,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_combined_vulnerabilities_info**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities_info)
 - **GET**: /container-security/combined/vulnerabilities/info/v1
-- **Description**: Retrieve vulnerability and package related info for this customer
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -910,7 +1014,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerabilities_by_image_count**](docs/ContainerVulnerabilities.md#read_vulnerabilities_by_image_count)
 - **GET**: /container-security/combined/vulnerabilities/by-image-count/v1
-- **Description**: Retrieve top x vulnerabilities with the most impacted images
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -918,7 +1022,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerabilities_publication_date**](docs/ContainerVulnerabilities.md#read_vulnerabilities_publication_date)
 - **GET**: /container-security/combined/vulnerabilities/by-published-date/v1
-- **Description**: Retrieve top x vulnerabilities with the most recent publication date
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -926,7 +1030,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerability_count**](docs/ContainerVulnerabilities.md#read_vulnerability_count)
 - **GET**: /container-security/aggregates/vulnerabilities/count/v1
-- **Description**: Aggregate count of vulnerabilities
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -934,7 +1038,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerability_count_by_actively_exploited**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1
-- **Description**: Aggregate count of vulnerabilities grouped by actively exploited
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -942,7 +1046,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerability_count_by_cps_rating**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1
-- **Description**: Aggregate count of vulnerabilities grouped by csp_rating
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -950,7 +1054,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerability_count_by_cvss_score**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1
-- **Description**: Aggregate count of vulnerabilities grouped by cvss score
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -958,7 +1062,143 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_vulnerability_count_by_severity**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_severity)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-severity/v1
-- **Description**: Aggregate count of vulnerabilities grouped by severity
+- **Description**: Maximum offset &#x3D; 10000 - limit
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**create_content_update_policies**](docs/ContentUpdatePolicies.md#create_content_update_policies)
+- **POST**: /policy/entities/content-update/v1
+- **Description**: Create Content Update Policies by specifying details about the policy to create
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**delete_content_update_policies**](docs/ContentUpdatePolicies.md#delete_content_update_policies)
+- **DELETE**: /policy/entities/content-update/v1
+- **Description**: Delete a set of Content Update Policies by specifying their IDs
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**get_content_update_policies**](docs/ContentUpdatePolicies.md#get_content_update_policies)
+- **GET**: /policy/entities/content-update/v1
+- **Description**: Retrieve a set of Content Update Policies by specifying their IDs
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**perform_content_update_policies_action**](docs/ContentUpdatePolicies.md#perform_content_update_policies_action)
+- **POST**: /policy/entities/content-update-actions/v1
+- **Description**: Perform the specified action on the Content Update Policies specified in the request
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**query_combined_content_update_policies**](docs/ContentUpdatePolicies.md#query_combined_content_update_policies)
+- **GET**: /policy/combined/content-update/v1
+- **Description**: Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policies which match the filter criteria
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**query_combined_content_update_policy_members**](docs/ContentUpdatePolicies.md#query_combined_content_update_policy_members)
+- **GET**: /policy/combined/content-update-members/v1
+- **Description**: Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**query_content_update_policies**](docs/ContentUpdatePolicies.md#query_content_update_policies)
+- **GET**: /policy/queries/content-update/v1
+- **Description**: Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policy IDs which match the filter criteria
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**query_content_update_policy_members**](docs/ContentUpdatePolicies.md#query_content_update_policy_members)
+- **GET**: /policy/queries/content-update-members/v1
+- **Description**: Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**set_content_update_policies_precedence**](docs/ContentUpdatePolicies.md#set_content_update_policies_precedence)
+- **POST**: /policy/entities/content-update-precedence/v1
+- **Description**: Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
+- **Operation**: [**update_content_update_policies**](docs/ContentUpdatePolicies.md#update_content_update_policies)
+- **PATCH**: /policy/entities/content-update/v1
+- **Description**: Update Content Update Policies by specifying the ID of the policy and details to update
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**combined_rules_get_v1**](docs/CorrelationRules.md#combined_rules_get_v1)
+- **GET**: /correlation-rules/combined/rules/v1
+- **Description**: Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rule_versions_delete_v1**](docs/CorrelationRules.md#entities_rule_versions_delete_v1)
+- **DELETE**: /correlation-rules/entities/rule-versions/v1
+- **Description**: Delete versions by IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rules_delete_v1**](docs/CorrelationRules.md#entities_rules_delete_v1)
+- **DELETE**: /correlation-rules/entities/rules/v1
+- **Description**: Delete rules by IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rules_get_v1**](docs/CorrelationRules.md#entities_rules_get_v1)
+- **GET**: /correlation-rules/entities/rules/v1
+- **Description**: Retrieve rules by IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rules_patch_v1**](docs/CorrelationRules.md#entities_rules_patch_v1)
+- **PATCH**: /correlation-rules/entities/rules/v1
+- **Description**: Update rules
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rules_post_v1**](docs/CorrelationRules.md#entities_rules_post_v1)
+- **POST**: /correlation-rules/entities/rules/v1
+- **Description**: Create rule
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**queries_rules_get_v1**](docs/CorrelationRules.md#queries_rules_get_v1)
+- **GET**: /correlation-rules/queries/rules/v1
+- **Description**: Find all rule IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
 
 ---
 
@@ -975,6 +1215,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**azure_download_certificate**](docs/CspmRegistration.md#azure_download_certificate)
 - **GET**: /cloud-connect-cspm-azure/entities/download-certificate/v1
 - **Description**: Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
+
+---
+
+**Class**: `Falcon::CspmRegistration`
+
+- **Operation**: [**azure_refresh_certificate**](docs/CspmRegistration.md#azure_refresh_certificate)
+- **POST**: /cloud-connect-cspm-azure/entities/refresh-certificate/v1
+- **Description**: Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
 
 ---
 
@@ -1292,7 +1540,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**delete_rules_0**](docs/CustomIoa.md#delete_rules_0)
+- **Operation**: [**delete_rules**](docs/CustomIoa.md#delete_rules)
 - **DELETE**: /ioarules/entities/rules/v1
 - **Description**: Delete rules from a rule group by ID.
 
@@ -1404,7 +1652,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**update_rules_0**](docs/CustomIoa.md#update_rules_0)
+- **Operation**: [**update_rules**](docs/CustomIoa.md#update_rules)
 - **PATCH**: /ioarules/entities/rules/v1
 - **Description**: Update rules within a rule group. Return the updated rules.
 
@@ -1572,14 +1820,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**discover_cloud_azure_download_certificate**](docs/D4cRegistration.md#discover_cloud_azure_download_certificate)
-- **GET**: /cloud-connect-azure/entities/download-certificate/v1
-- **Description**: Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
-
----
-
-**Class**: `Falcon::D4cRegistration`
-
 - **Operation**: [**get_d4_c_aws_account**](docs/D4cRegistration.md#get_d4_c_aws_account)
 - **GET**: /cloud-connect-aws/entities/account/v2
 - **Description**: Returns information about the current status of an AWS account.
@@ -1714,54 +1954,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_create_account**](docs/Default.md#cloud_registration_aws_create_account)
-- **POST**: /cloud-security-registration-aws/entities/account/v1
-- **Description**: Creates a new account in our system for a customer.
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_delete_account**](docs/Default.md#cloud_registration_aws_delete_account)
-- **DELETE**: /cloud-security-registration-aws/entities/account/v1
-- **Description**: Deletes an existing AWS account or organization in our system.
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_get_accounts**](docs/Default.md#cloud_registration_aws_get_accounts)
-- **GET**: /cloud-security-registration-aws/entities/account/v1
-- **Description**: Retrieve existing AWS accounts by account IDs
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_query_accounts**](docs/Default.md#cloud_registration_aws_query_accounts)
-- **GET**: /cloud-security-registration-aws/queries/account/v1
-- **Description**: Retrieve existing AWS accounts by account IDs
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_update_account**](docs/Default.md#cloud_registration_aws_update_account)
-- **PATCH**: /cloud-security-registration-aws/entities/account/v1
-- **Description**: Patches a existing account in our system for a customer.
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**cloud_registration_aws_validate_accounts**](docs/Default.md#cloud_registration_aws_validate_accounts)
-- **POST**: /cloud-security-registration-aws/entities/account/validate/v1
-- **Description**: Validates the AWS account in our system for a provided CID. For internal clients only.
-
----
-
 **Class**: `Falcon::DeliverySettings`
 
 - **Operation**: [**get_delivery_settings**](docs/DeliverySettings.md#get_delivery_settings)
@@ -1775,6 +1967,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**post_delivery_settings**](docs/DeliverySettings.md#post_delivery_settings)
 - **POST**: /delivery-settings/entities/delivery-settings/v1
 - **Description**: Create Delivery Settings
+
+---
+
+**Class**: `Falcon::Deployments`
+
+- **Operation**: [**get_deployments_external_v1**](docs/Deployments.md#get_deployments_external_v1)
+- **GET**: /deployment-coordinator/entities/deployments/external/v1
+- **Description**: Get deployment resources by ids
 
 ---
 
@@ -1807,6 +2007,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**update_detects_by_ids_v2**](docs/Detects.md#update_detects_by_ids_v2)
 - **PATCH**: /detects/entities/detects/v2
 - **Description**: Modify the state, assignee, and visibility of detections
+
+---
+
+**Class**: `Falcon::DeviceContent`
+
+- **Operation**: [**entities_states_v1**](docs/DeviceContent.md#entities_states_v1)
+- **GET**: /device-content/entities/states/v1
+- **Description**: Retrieve the host content state for a number of ids between 1 and 100.
+
+---
+
+**Class**: `Falcon::DeviceContent`
+
+- **Operation**: [**queries_states_v1**](docs/DeviceContent.md#queries_states_v1)
+- **GET**: /device-content/queries/states/v1
+- **Description**: Query for the content state of the host.
 
 ---
 
@@ -1956,6 +2172,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
+- **Operation**: [**post_external_assets_inventory_v1**](docs/Discover.md#post_external_assets_inventory_v1)
+- **POST**: /fem/entities/external-asset-inventory/v1
+- **Description**: Add external assets for external asset scanning.
+
+---
+
+**Class**: `Falcon::Discover`
+
 - **Operation**: [**query_accounts**](docs/Discover.md#query_accounts)
 - **GET**: /discover/queries/accounts/v1
 - **Description**: Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria.
@@ -2054,7 +2278,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_and_read_drift_indicator_entities**](docs/DriftIndicators.md#search_and_read_drift_indicator_entities)
 - **GET**: /container-security/combined/drift-indicators/v1
-- **Description**: Retrieve Drift Indicators by the provided search criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -2062,7 +2286,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_drift_indicators**](docs/DriftIndicators.md#search_drift_indicators)
 - **GET**: /container-security/queries/drift-indicators/v1
-- **Description**: Retrieve all drift indicators that match the given query
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -2414,7 +2638,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_registry_entities**](docs/FalconContainerImage.md#read_registry_entities)
 - **GET**: /container-security/queries/registries/v1
-- **Description**: Retrieve registry entities identified by the customer id
+- **Description**: Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
 
 ---
 
@@ -2422,7 +2646,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_registry_entities_by_uuid**](docs/FalconContainerImage.md#read_registry_entities_by_uuid)
 - **GET**: /container-security/entities/registries/v1
-- **Description**: Retrieve the registry entity identified by the entity UUID
+- **Description**: Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
 
 ---
 
@@ -2572,7 +2796,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**create_policies_0**](docs/Filevantage.md#create_policies_0)
+- **Operation**: [**create_policies**](docs/Filevantage.md#create_policies)
 - **POST**: /filevantage/entities/policies/v1
 - **Description**: Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
 
@@ -2756,7 +2980,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policies_0**](docs/Filevantage.md#update_policies_0)
+- **Operation**: [**update_policies**](docs/Filevantage.md#update_policies)
 - **PATCH**: /filevantage/entities/policies/v1
 - **Description**: Updates the general information of the provided policy.
 
@@ -2772,7 +2996,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policy_precedence_0**](docs/Filevantage.md#update_policy_precedence_0)
+- **Operation**: [**update_policy_precedence**](docs/Filevantage.md#update_policy_precedence)
 - **PATCH**: /filevantage/entities/policies-precedence/v1
 - **Description**: Updates the policy precedence for all policies of a specific type.
 
@@ -2884,7 +3108,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**delete_rule_groups_0**](docs/FirewallManagement.md#delete_rule_groups_0)
+- **Operation**: [**delete_rule_groups**](docs/FirewallManagement.md#delete_rule_groups)
 - **DELETE**: /fwmgr/entities/rule-groups/v1
 - **Description**: Delete rule group entities by ID
 
@@ -2940,7 +3164,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_rule_groups_0**](docs/FirewallManagement.md#get_rule_groups_0)
+- **Operation**: [**get_rule_groups**](docs/FirewallManagement.md#get_rule_groups)
 - **GET**: /fwmgr/entities/rule-groups/v1
 - **Description**: Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
 
@@ -2948,7 +3172,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_rules_0**](docs/FirewallManagement.md#get_rules_0)
+- **Operation**: [**get_rules**](docs/FirewallManagement.md#get_rules)
 - **GET**: /fwmgr/entities/rules/v1
 - **Description**: Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
 
@@ -2996,7 +3220,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_rule_groups_0**](docs/FirewallManagement.md#query_rule_groups_0)
+- **Operation**: [**query_rule_groups**](docs/FirewallManagement.md#query_rule_groups)
 - **GET**: /fwmgr/queries/rule-groups/v1
 - **Description**: Find all rule group IDs matching the query with filter
 
@@ -4042,6 +4266,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::IntelligenceIndicatorGraph`
+
+- **Operation**: [**search_indicators**](docs/IntelligenceIndicatorGraph.md#search_indicators)
+- **POST**: /intelligence/combined/indicators/v1
+- **Description**: Search indicators based on FQL filter.
+
+---
+
 **Class**: `Falcon::IoaExclusions`
 
 - **Operation**: [**create_ioa_exclusions_v1**](docs/IoaExclusions.md#create_ioa_exclusions_v1)
@@ -4278,7 +4510,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**find_containers_by_container_run_time_version**](docs/KubernetesProtection.md#find_containers_by_container_run_time_version)
 - **GET**: /container-security/aggregates/containers/find-by-runtimeversion/v1
-- **Description**: Retrieve containers by container_runtime_version
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4390,7 +4622,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_cluster_combined**](docs/KubernetesProtection.md#read_cluster_combined)
 - **GET**: /container-security/combined/clusters/v1
-- **Description**: Retrieve kubernetes clusters identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4438,7 +4670,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_container_combined**](docs/KubernetesProtection.md#read_container_combined)
 - **GET**: /container-security/combined/containers/v1
-- **Description**: Retrieve containers identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4454,7 +4686,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_container_count_by_registry**](docs/KubernetesProtection.md#read_container_count_by_registry)
 - **GET**: /container-security/aggregates/containers/count-by-registry/v1
-- **Description**: Retrieve top container image registries
+- **Description**: Retrieves a list with the top container image registries. Maximum page size: 200
 
 ---
 
@@ -4518,7 +4750,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_deployment_combined**](docs/KubernetesProtection.md#read_deployment_combined)
 - **GET**: /container-security/combined/deployments/v1
-- **Description**: Retrieve kubernetes deployments identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4598,7 +4830,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_node_combined**](docs/KubernetesProtection.md#read_node_combined)
 - **GET**: /container-security/combined/nodes/v1
-- **Description**: Retrieve kubernetes nodes identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4646,7 +4878,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_pod_combined**](docs/KubernetesProtection.md#read_pod_combined)
 - **GET**: /container-security/combined/pods/v1
-- **Description**: Retrieve kubernetes pods identified by the provided filter criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4678,7 +4910,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_running_container_images**](docs/KubernetesProtection.md#read_running_container_images)
 - **GET**: /container-security/combined/container-images/v1
-- **Description**: Retrieve images on running containers
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4702,7 +4934,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_and_read_kubernetes_iom_entities**](docs/KubernetesProtection.md#search_and_read_kubernetes_iom_entities)
 - **GET**: /container-security/combined/kubernetes-ioms/v1
-- **Description**: Search Kubernetes IOM by the provided search criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4710,7 +4942,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_kubernetes_ioms**](docs/KubernetesProtection.md#search_kubernetes_ioms)
 - **GET**: /container-security/queries/kubernetes-ioms/v1
-- **Description**: Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -4727,6 +4959,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**update_aws_account**](docs/KubernetesProtection.md#update_aws_account)
 - **PATCH**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Updates the AWS account per the query parameters provided
+
+---
+
+**Class**: `Falcon::LookupFiles`
+
+- **Operation**: [**create_file_v1**](docs/LookupFiles.md#create_file_v1)
+- **POST**: /loggingapi/entities/lookup-files/v1
+- **Description**: Creates a lookup file
+
+---
+
+**Class**: `Falcon::LookupFiles`
+
+- **Operation**: [**update_file_v1**](docs/LookupFiles.md#update_file_v1)
+- **PATCH**: /loggingapi/entities/lookup-files/v1
+- **Description**: Updates a lookup file
 
 ---
 
@@ -6098,6 +6346,38 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::ReleaseNotes`
+
+- **Operation**: [**combined_release_notes_v1**](docs/ReleaseNotes.md#combined_release_notes_v1)
+- **GET**: /deployment-coordinator/combined/release-notes/v1
+- **Description**: Queries for release-notes resources and returns details
+
+---
+
+**Class**: `Falcon::ReleaseNotes`
+
+- **Operation**: [**get_entity_ids_by_query_post**](docs/ReleaseNotes.md#get_entity_ids_by_query_post)
+- **POST**: /deployment-coordinator/entities/release-notes/GET/v1
+- **Description**: returns the IDs of all entities in the database for the given page
+
+---
+
+**Class**: `Falcon::ReleaseNotes`
+
+- **Operation**: [**query_release_notes_v1**](docs/ReleaseNotes.md#query_release_notes_v1)
+- **GET**: /deployment-coordinator/queries/release-notes/v1
+- **Description**: Queries for release-notes resources and returns ids
+
+---
+
+**Class**: `Falcon::Releases`
+
+- **Operation**: [**combined_releases_v1_mixin0**](docs/Releases.md#combined_releases_v1_mixin0)
+- **GET**: /deployment-coordinator/combined/releases/v1
+- **Description**: Queries for releases resources and returns details
+
+---
+
 **Class**: `Falcon::ReportExecutions`
 
 - **Operation**: [**report_executions_download_get**](docs/ReportExecutions.md#report_executions_download_get)
@@ -6214,7 +6494,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_runtime_detections_combined_v2**](docs/RuntimeDetections.md#get_runtime_detections_combined_v2)
 - **GET**: /container-security/combined/runtime-detections/v2
-- **Description**: Retrieve container runtime detections by the provided search criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -6636,7 +6916,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**get_vulnerabilities_0**](docs/SpotlightVulnerabilities.md#get_vulnerabilities_0)
+- **Operation**: [**get_vulnerabilities**](docs/SpotlightVulnerabilities.md#get_vulnerabilities)
 - **GET**: /spotlight/entities/vulnerabilities/v2
 - **Description**: Get details on vulnerabilities by providing one or more IDs
 
@@ -6644,7 +6924,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**query_vulnerabilities_0**](docs/SpotlightVulnerabilities.md#query_vulnerabilities_0)
+- **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilities.md#query_vulnerabilities)
 - **GET**: /spotlight/queries/vulnerabilities/v1
 - **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
 
@@ -6718,7 +6998,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**search_and_read_unidentified_containers**](docs/UnidentifiedContainers.md#search_and_read_unidentified_containers)
 - **GET**: /container-security/combined/unidentified-containers/v1
-- **Description**: Search Unidentified Containers by the provided search criteria
+- **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
 
@@ -6895,6 +7175,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**user_roles_action_v1**](docs/UserManagement.md#user_roles_action_v1)
 - **POST**: /user-management/entities/user-role-actions/v1
 - **Description**: Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
+
+---
+
+**Class**: `Falcon::Vulnerabilities`
+
+- **Operation**: [**get_combined_vulnerabilities_sarif**](docs/Vulnerabilities.md#get_combined_vulnerabilities_sarif)
+- **GET**: /lambdas/combined/vulnerabilities/sarif/v1
+- **Description**: Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
 
 ---
 

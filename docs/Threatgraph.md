@@ -33,12 +33,12 @@ end
 
 api_instance = Falcon::Threatgraph.new
 ids = 'ids_example' # String | Vertex ID to get details for.  Only one value is supported
-edge_type = 'accessed_ad_computer' # String | The type of edges that you would like to retrieve
+edge_type = 'attributed_by_process' # String | The type of edges that you would like to retrieve
 opts = {
   limit: 56, # Integer | How many edges to return in a single request [1-100]
   offset: 'offset_example', # String | The offset to use to retrieve the next page of results
   direction: 'direction_example', # String | The direction of edges that you would like to retrieve.
-  scope: 'cspm', # String | Scope of the request
+  scope: 'device', # String | Scope of the request
   nano: true # Boolean | Return nano-precision entity timestamps
 }
 
@@ -192,10 +192,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::Threatgraph.new
-vertex_type = 'accessories' # String | Type of vertex to get properties for
+vertex_type = 'accessory' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
-  scope: 'cspm', # String | Scope of the request
+  scope: 'device', # String | Scope of the request
   nano: true # Boolean | Return nano-precision entity timestamps
 }
 
@@ -268,10 +268,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::Threatgraph.new
-vertex_type = 'accessories' # String | Type of vertex to get properties for
+vertex_type = 'accessory' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
-  scope: 'cspm', # String | Scope of the request
+  scope: 'device', # String | Scope of the request
   nano: true # Boolean | Return nano-precision entity timestamps
 }
 
@@ -345,10 +345,10 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::Threatgraph.new
-vertex_type = 'accessories' # String | Type of vertex to get properties for
+vertex_type = 'accessory' # String | Type of vertex to get properties for
 ids = ['inner_example'] # Array<String> | Vertex ID to get details for
 opts = {
-  scope: 'cspm', # String | Scope of the request
+  scope: 'device', # String | Scope of the request
   nano: true # Boolean | Return nano-precision entity timestamps
 }
 

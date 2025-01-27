@@ -42,6 +42,12 @@ describe Falcon::V2ForLoop do
       expect(instance).to be_instance_of(Falcon::V2ForLoop)
     end
   end
+  describe 'test attribute "cel_condition"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "condition"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

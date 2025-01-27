@@ -46,6 +46,8 @@ module Falcon
 
     attr_accessor :version
 
+    attr_accessor :ai_related
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -55,7 +57,8 @@ module Falcon
         :'license' => :'License',
         :'name' => :'Name',
         :'path' => :'Path',
-        :'version' => :'Version'
+        :'version' => :'Version',
+        :'ai_related' => :'ai_related'
       }
     end
 
@@ -73,7 +76,8 @@ module Falcon
         :'license' => :'String',
         :'name' => :'String',
         :'path' => :'String',
-        :'version' => :'String'
+        :'version' => :'String',
+        :'ai_related' => :'Boolean'
       }
     end
 
@@ -125,6 +129,10 @@ module Falcon
       if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
+
+      if attributes.key?(:'ai_related')
+        self.ai_related = attributes[:'ai_related']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -151,7 +159,8 @@ module Falcon
           license == o.license &&
           name == o.name &&
           path == o.path &&
-          version == o.version
+          version == o.version &&
+          ai_related == o.ai_related
     end
 
     # @see the `==` method
@@ -163,7 +172,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [hash, layer_hash, layer_index, license, name, path, version].hash
+      [hash, layer_hash, layer_index, license, name, path, version, ai_related].hash
     end
 
     # Builds the object from hash

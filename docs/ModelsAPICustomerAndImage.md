@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ai_related** | **Boolean** |  |  |
 | **base_image_id** | **String** |  | [optional] |
 | **base_os** | **String** |  |  |
 | **base_os_version** | **String** |  |  |
@@ -33,6 +34,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsAPICustomerAndImage.new(
+  ai_related: null,
   base_image_id: null,
   base_os: null,
   base_os_version: null,

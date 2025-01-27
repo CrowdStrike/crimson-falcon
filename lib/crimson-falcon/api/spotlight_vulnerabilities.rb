@@ -184,8 +184,8 @@ module Falcon
     # @param ids [Array<String>] One or more vulnerability IDs (max: 400). Find vulnerability IDs with GET /spotlight/queries/vulnerabilities/v1
     # @param [Hash] opts the optional parameters
     # @return [DomainSPAPIVulnerabilitiesEntitiesResponseV2]
-    def get_vulnerabilities_0(ids, opts = {})
-      data, _status_code, _headers = get_vulnerabilities_0_with_http_info(ids, opts)
+    def get_vulnerabilities(ids, opts = {})
+      data, _status_code, _headers = get_vulnerabilities_with_http_info(ids, opts)
       data
     end
 
@@ -193,13 +193,13 @@ module Falcon
     # @param ids [Array<String>] One or more vulnerability IDs (max: 400). Find vulnerability IDs with GET /spotlight/queries/vulnerabilities/v1
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainSPAPIVulnerabilitiesEntitiesResponseV2, Integer, Hash)>] DomainSPAPIVulnerabilitiesEntitiesResponseV2 data, response status code and response headers
-    def get_vulnerabilities_0_with_http_info(ids, opts = {})
+    def get_vulnerabilities_with_http_info(ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SpotlightVulnerabilities.get_vulnerabilities_0 ...'
+        @api_client.config.logger.debug 'Calling API: SpotlightVulnerabilities.get_vulnerabilities ...'
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling SpotlightVulnerabilities.get_vulnerabilities_0"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling SpotlightVulnerabilities.get_vulnerabilities"
       end
       # resource path
       local_var_path = '/spotlight/entities/vulnerabilities/v2'
@@ -226,7 +226,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SpotlightVulnerabilities.get_vulnerabilities_0",
+        :operation => :"SpotlightVulnerabilities.get_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -237,7 +237,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SpotlightVulnerabilities#get_vulnerabilities_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SpotlightVulnerabilities#get_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -249,8 +249,8 @@ module Falcon
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
     # @option opts [String] :sort Sort vulnerabilities by their properties. Available sort options:  &lt;ul&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;/ul&gt;. Can be used in a format &lt;field&gt;|asc for ascending order or &lt;field&gt;|desc for descending order.
     # @return [DomainSPAPIQueryResponse]
-    def query_vulnerabilities_0(filter, opts = {})
-      data, _status_code, _headers = query_vulnerabilities_0_with_http_info(filter, opts)
+    def query_vulnerabilities(filter, opts = {})
+      data, _status_code, _headers = query_vulnerabilities_with_http_info(filter, opts)
       data
     end
 
@@ -261,20 +261,20 @@ module Falcon
     # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.
     # @option opts [String] :sort Sort vulnerabilities by their properties. Available sort options:  &lt;ul&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;li&gt;closed_timestamp|asc&lt;/li&gt;&lt;li&gt;updated_timestamp|asc/desc&lt;/li&gt;&lt;/ul&gt;. Can be used in a format &lt;field&gt;|asc for ascending order or &lt;field&gt;|desc for descending order.
     # @return [Array<(DomainSPAPIQueryResponse, Integer, Hash)>] DomainSPAPIQueryResponse data, response status code and response headers
-    def query_vulnerabilities_0_with_http_info(filter, opts = {})
+    def query_vulnerabilities_with_http_info(filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: SpotlightVulnerabilities.query_vulnerabilities_0 ...'
+        @api_client.config.logger.debug 'Calling API: SpotlightVulnerabilities.query_vulnerabilities ...'
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightVulnerabilities.query_vulnerabilities_0"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling SpotlightVulnerabilities.query_vulnerabilities"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 400
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SpotlightVulnerabilities.query_vulnerabilities_0, must be smaller than or equal to 400.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SpotlightVulnerabilities.query_vulnerabilities, must be smaller than or equal to 400.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SpotlightVulnerabilities.query_vulnerabilities_0, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SpotlightVulnerabilities.query_vulnerabilities, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -305,7 +305,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"SpotlightVulnerabilities.query_vulnerabilities_0",
+        :operation => :"SpotlightVulnerabilities.query_vulnerabilities",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -316,7 +316,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: SpotlightVulnerabilities#query_vulnerabilities_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: SpotlightVulnerabilities#query_vulnerabilities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

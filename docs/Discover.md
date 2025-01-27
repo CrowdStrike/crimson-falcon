@@ -10,6 +10,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**get_applications**](Discover.md#get_applications) | **GET** /discover/entities/applications/v1 | Get details on applications by providing one or more IDs. |
 | [**get_hosts**](Discover.md#get_hosts) | **GET** /discover/entities/hosts/v1 | Get details on assets by providing one or more IDs. |
 | [**get_logins**](Discover.md#get_logins) | **GET** /discover/entities/logins/v1 | Get details on logins by providing one or more IDs. |
+| [**post_external_assets_inventory_v1**](Discover.md#post_external_assets_inventory_v1) | **POST** /fem/entities/external-asset-inventory/v1 | Add external assets for external asset scanning. |
 | [**query_accounts**](Discover.md#query_accounts) | **GET** /discover/queries/accounts/v1 | Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria. |
 | [**query_applications**](Discover.md#query_applications) | **GET** /discover/queries/applications/v1 | Search for applications in your environment by providing an FQL filter and paging details. returns a set of application IDs which match the filter criteria. |
 | [**query_hosts**](Discover.md#query_hosts) | **GET** /discover/queries/hosts/v1 | Search for assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
@@ -447,6 +448,75 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_external_assets_inventory_v1
+
+> <InventoryapiUserExternalAssetCreateResponseV1> post_external_assets_inventory_v1(body)
+
+Add external assets for external asset scanning.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Discover.new
+body = Falcon::InventoryapiUserExternalAssetCreateRequestV1.new({data: [Falcon::InventoryapiUserExternalAssetCreate.new({assets: [Falcon::InventoryapiUserExternalAsset.new({id: 'id_example', value: 'value_example'})], subsidiary_id: 'subsidiary_id_example'})]}) # InventoryapiUserExternalAssetCreateRequestV1 | Asset addition specification.
+
+begin
+  # Add external assets for external asset scanning.
+  result = api_instance.post_external_assets_inventory_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Discover->post_external_assets_inventory_v1: #{e}"
+end
+```
+
+#### Using the post_external_assets_inventory_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InventoryapiUserExternalAssetCreateResponseV1>, Integer, Hash)> post_external_assets_inventory_v1_with_http_info(body)
+
+```ruby
+begin
+  # Add external assets for external asset scanning.
+  data, status_code, headers = api_instance.post_external_assets_inventory_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InventoryapiUserExternalAssetCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Discover->post_external_assets_inventory_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**InventoryapiUserExternalAssetCreateRequestV1**](InventoryapiUserExternalAssetCreateRequestV1.md) | Asset addition specification. |  |
+
+### Return type
+
+[**InventoryapiUserExternalAssetCreateResponseV1**](InventoryapiUserExternalAssetCreateResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

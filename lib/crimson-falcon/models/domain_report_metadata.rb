@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :discover_params
 
+    attr_accessor :kestrel_params
+
     attr_accessor :last_scheduled_execution
 
     attr_accessor :last_unscheduled_execution
@@ -52,6 +54,7 @@ module Falcon
         :'created_by_user_id' => :'created_by_user_id',
         :'created_by_uuid' => :'created_by_uuid',
         :'discover_params' => :'discover_params',
+        :'kestrel_params' => :'kestrel_params',
         :'last_scheduled_execution' => :'last_scheduled_execution',
         :'last_unscheduled_execution' => :'last_unscheduled_execution',
         :'subtype' => :'subtype',
@@ -70,6 +73,7 @@ module Falcon
         :'created_by_user_id' => :'String',
         :'created_by_uuid' => :'String',
         :'discover_params' => :'DomainDiscoverParams',
+        :'kestrel_params' => :'DomainKestrelParams',
         :'last_scheduled_execution' => :'DomainLastScheduledExecution',
         :'last_unscheduled_execution' => :'DomainLastUnscheduledExecution',
         :'subtype' => :'String',
@@ -108,6 +112,10 @@ module Falcon
 
       if attributes.key?(:'discover_params')
         self.discover_params = attributes[:'discover_params']
+      end
+
+      if attributes.key?(:'kestrel_params')
+        self.kestrel_params = attributes[:'kestrel_params']
       end
 
       if attributes.key?(:'last_scheduled_execution')
@@ -168,6 +176,7 @@ module Falcon
           created_by_user_id == o.created_by_user_id &&
           created_by_uuid == o.created_by_uuid &&
           discover_params == o.discover_params &&
+          kestrel_params == o.kestrel_params &&
           last_scheduled_execution == o.last_scheduled_execution &&
           last_unscheduled_execution == o.last_unscheduled_execution &&
           subtype == o.subtype &&
@@ -183,7 +192,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by_user_id, created_by_uuid, discover_params, last_scheduled_execution, last_unscheduled_execution, subtype, xdr_params].hash
+      [created_by_user_id, created_by_uuid, discover_params, kestrel_params, last_scheduled_execution, last_unscheduled_execution, subtype, xdr_params].hash
     end
 
     # Builds the object from hash

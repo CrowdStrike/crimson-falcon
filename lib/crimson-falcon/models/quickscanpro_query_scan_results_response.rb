@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :meta
 
+    attr_accessor :quota
+
     # scan IDs
     attr_accessor :resources
 
@@ -44,6 +46,7 @@ module Falcon
       {
         :'errors' => :'errors',
         :'meta' => :'meta',
+        :'quota' => :'quota',
         :'resources' => :'resources'
       }
     end
@@ -58,6 +61,7 @@ module Falcon
       {
         :'errors' => :'Array<MsaAPIError>',
         :'meta' => :'MsaMetaInfo',
+        :'quota' => :'QuickscanproQuotaResource',
         :'resources' => :'Array<String>'
       }
     end
@@ -91,6 +95,10 @@ module Falcon
 
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
+      end
+
+      if attributes.key?(:'quota')
+        self.quota = attributes[:'quota']
       end
 
       if attributes.key?(:'resources')
@@ -130,6 +138,7 @@ module Falcon
       self.class == o.class &&
           errors == o.errors &&
           meta == o.meta &&
+          quota == o.quota &&
           resources == o.resources
     end
 
@@ -142,7 +151,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [errors, meta, resources].hash
+      [errors, meta, quota, resources].hash
     end
 
     # Builds the object from hash

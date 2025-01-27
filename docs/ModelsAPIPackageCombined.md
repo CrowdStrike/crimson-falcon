@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **ai_related** | **Boolean** |  |  |
 | **all_images** | **Integer** |  |  |
 | **cid** | **String** |  |  |
 | **license** | **String** |  |  |
@@ -19,6 +20,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::ModelsAPIPackageCombined.new(
+  ai_related: null,
   all_images: null,
   cid: null,
   license: null,

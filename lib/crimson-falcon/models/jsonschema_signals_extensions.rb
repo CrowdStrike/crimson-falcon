@@ -38,12 +38,18 @@ module Falcon
 
     attr_accessor :path_name
 
+    attr_accessor :use_case
+
+    attr_accessor :vendor
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'enum_wrapper' => :'enum_wrapper',
         :'example_display_map' => :'example_display_map',
-        :'path_name' => :'path_name'
+        :'path_name' => :'path_name',
+        :'use_case' => :'use_case',
+        :'vendor' => :'vendor'
       }
     end
 
@@ -57,7 +63,9 @@ module Falcon
       {
         :'enum_wrapper' => :'Boolean',
         :'example_display_map' => :'Hash<String, String>',
-        :'path_name' => :'String'
+        :'path_name' => :'String',
+        :'use_case' => :'String',
+        :'vendor' => :'String'
       }
     end
 
@@ -95,6 +103,14 @@ module Falcon
       if attributes.key?(:'path_name')
         self.path_name = attributes[:'path_name']
       end
+
+      if attributes.key?(:'use_case')
+        self.use_case = attributes[:'use_case']
+      end
+
+      if attributes.key?(:'vendor')
+        self.vendor = attributes[:'vendor']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,7 +133,9 @@ module Falcon
       self.class == o.class &&
           enum_wrapper == o.enum_wrapper &&
           example_display_map == o.example_display_map &&
-          path_name == o.path_name
+          path_name == o.path_name &&
+          use_case == o.use_case &&
+          vendor == o.vendor
     end
 
     # @see the `==` method
@@ -129,7 +147,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enum_wrapper, example_display_map, path_name].hash
+      [enum_wrapper, example_display_map, path_name, use_case, vendor].hash
     end
 
     # Builds the object from hash

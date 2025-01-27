@@ -448,6 +448,72 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Add external assets for external asset scanning.
+    # @param body [InventoryapiUserExternalAssetCreateRequestV1] Asset addition specification.
+    # @param [Hash] opts the optional parameters
+    # @return [InventoryapiUserExternalAssetCreateResponseV1]
+    def post_external_assets_inventory_v1(body, opts = {})
+      data, _status_code, _headers = post_external_assets_inventory_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Add external assets for external asset scanning.
+    # @param body [InventoryapiUserExternalAssetCreateRequestV1] Asset addition specification.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InventoryapiUserExternalAssetCreateResponseV1, Integer, Hash)>] InventoryapiUserExternalAssetCreateResponseV1 data, response status code and response headers
+    def post_external_assets_inventory_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Discover.post_external_assets_inventory_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Discover.post_external_assets_inventory_v1"
+      end
+      # resource path
+      local_var_path = '/fem/entities/external-asset-inventory/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InventoryapiUserExternalAssetCreateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Discover.post_external_assets_inventory_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Discover#post_external_assets_inventory_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results.

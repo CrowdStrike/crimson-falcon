@@ -42,6 +42,12 @@ describe Falcon::ModelsAPIPackageCombined do
       expect(instance).to be_instance_of(Falcon::ModelsAPIPackageCombined)
     end
   end
+  describe 'test attribute "ai_related"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "all_images"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
