@@ -29,5 +29,5 @@ CrowdStrike Swagger API Version: 2025-01-27T00:00:02Z
 =end
 
 module Falcon
-  VERSION = '0.5.0'.freeze
+  VERSION = '1.0.0'.freeze
 end
