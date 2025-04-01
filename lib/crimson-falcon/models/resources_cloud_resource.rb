@@ -479,7 +479,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_labels, cloud_provider, cluster_id, cluster_name, configuration, creation_time, first_seen, hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, status, subscription_id, supplementary_configuration, tags, tenant_id, updated_at, zone, zones].hash
+      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_labels, cloud_provider, cluster_id, cluster_name, configuration, creation_time, first_seen, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, status, subscription_id, supplementary_configuration, tags, tenant_id, updated_at, zone, zones].hash
     end
 
     # Builds the object from hash

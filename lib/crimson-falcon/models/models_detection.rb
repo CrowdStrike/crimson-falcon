@@ -240,7 +240,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, details, hash, id, name, path, remediation, severity, title, type].hash
+      [description, details, @hash, id, name, path, remediation, severity, title, type].hash
     end
 
     # Builds the object from hash

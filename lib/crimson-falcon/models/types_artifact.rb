@@ -136,7 +136,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [full_path, hash, id, name].hash
+      [full_path, @hash, id, name].hash
     end
 
     # Builds the object from hash

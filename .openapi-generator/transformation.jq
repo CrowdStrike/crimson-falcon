@@ -159,3 +159,12 @@
     end
   )
 
+  # Mark 'hash' property to avoid recursion in hash method
+  | walk(
+      if type == "object" and has("properties") and (.properties | has("hash")) then
+        .properties.hash["x-is-hash-attribute"] = true
+      else
+        .
+      end
+    )
+
