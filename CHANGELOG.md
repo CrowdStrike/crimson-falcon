@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/CrowdStrike/crimson-falcon/compare/v1.0.0...v1.0.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* prevent recursion by using instance variable of hash ([#48](https://github.com/CrowdStrike/crimson-falcon/issues/48)) ([ba27d93](https://github.com/CrowdStrike/crimson-falcon/commit/ba27d936181f1228b37ac393ff694bb21ae5eb2b))
+
 ## [1.0.0](https://github.com/CrowdStrike/crimson-falcon/compare/v0.5.0...v1.0.0) (2025-01-27)
 
 
