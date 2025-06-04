@@ -168,3 +168,12 @@
       end
     )
 
+  # Rename 'object_id' property to avoid conflicts with Ruby's core method
+  | walk(
+      if type == "object" and has("properties") and (.properties | has("object_id")) then
+        .properties.obj_id = .properties.object_id |
+        del(.properties.object_id)
+      else
+        .
+      end
+    )
