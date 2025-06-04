@@ -52,6 +52,8 @@ module Falcon
 
     attr_accessor :proxy_address
 
+    attr_accessor :status
+
     attr_accessor :type
 
     attr_accessor :use_jobs
@@ -71,6 +73,7 @@ module Falcon
         :'password' => :'password',
         :'pod_settings' => :'pod_settings',
         :'proxy_address' => :'proxy_address',
+        :'status' => :'status',
         :'type' => :'type',
         :'use_jobs' => :'useJobs',
         :'username' => :'username'
@@ -88,13 +91,14 @@ module Falcon
         :'additional_header' => :'String',
         :'current_aws_arn' => :'String',
         :'dashboard_url' => :'String',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'last_health_check' => :'Integer',
         :'name' => :'String',
         :'node_type' => :'String',
         :'password' => :'String',
         :'pod_settings' => :'TypesK8SPodSettings',
         :'proxy_address' => :'String',
+        :'status' => :'TypesExecutorNodeStatus',
         :'type' => :'String',
         :'use_jobs' => :'Boolean',
         :'username' => :'String'
@@ -162,6 +166,10 @@ module Falcon
         self.proxy_address = attributes[:'proxy_address']
       end
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
@@ -203,6 +211,7 @@ module Falcon
           password == o.password &&
           pod_settings == o.pod_settings &&
           proxy_address == o.proxy_address &&
+          status == o.status &&
           type == o.type &&
           use_jobs == o.use_jobs &&
           username == o.username
@@ -217,7 +226,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [additional_header, current_aws_arn, dashboard_url, id, last_health_check, name, node_type, password, pod_settings, proxy_address, type, use_jobs, username].hash
+      [additional_header, current_aws_arn, dashboard_url, id, last_health_check, name, node_type, password, pod_settings, proxy_address, status, type, use_jobs, username].hash
     end
 
     # Builds the object from hash

@@ -83,7 +83,7 @@ module Falcon
         :'filter_display' => :'String',
         :'filter_ui' => :'String',
         :'format' => :'String',
-        :'report_type_options' => :'Hash<String, String>',
+        :'report_type_options' => :'Object',
         :'sort' => :'String',
         :'spotlight_params' => :'DomainSpotlightParams'
       }
@@ -141,9 +141,7 @@ module Falcon
       end
 
       if attributes.key?(:'report_type_options')
-        if (value = attributes[:'report_type_options']).is_a?(Hash)
-          self.report_type_options = value
-        end
+        self.report_type_options = attributes[:'report_type_options']
       end
 
       if attributes.key?(:'sort')

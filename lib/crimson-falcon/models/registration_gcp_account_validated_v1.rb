@@ -68,10 +68,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'conditions' => :'Array<DomainCondition>',
+        :'conditions' => :'Array<StatemgmtCondition>',
         :'gcp_permissions_status' => :'Array<DomainPermission>',
         :'parent_id' => :'String',
-        :'service_account_conditions' => :'Array<DomainCondition>',
+        :'service_account_conditions' => :'Array<StatemgmtCondition>',
         :'service_account_id' => :'Integer',
         :'status' => :'String'
       }

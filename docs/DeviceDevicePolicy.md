@@ -8,6 +8,7 @@
 | **applied_date** | **Time** |  | [optional] |
 | **assigned_date** | **Time** |  | [optional] |
 | **exempt** | **Boolean** |  | [optional] |
+| **last_evaluation_date** | **Time** |  | [optional] |
 | **policy_id** | **String** |  |  |
 | **policy_type** | **String** |  |  |
 | **rule_groups** | **Array&lt;String&gt;** |  | [optional] |
@@ -25,6 +26,7 @@ instance = Falcon::DeviceDevicePolicy.new(
   applied_date: null,
   assigned_date: null,
   exempt: null,
+  last_evaluation_date: null,
   policy_id: null,
   policy_type: null,
   rule_groups: null,

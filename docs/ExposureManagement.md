@@ -1,6 +1,6 @@
 # Falcon::ExposureManagement
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -12,6 +12,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**get_ecosystem_subsidiaries**](ExposureManagement.md#get_ecosystem_subsidiaries) | **GET** /fem/entities/ecosystem-subsidiaries/v1 | Retrieves detailed information about ecosystem subsidiaries by ID. |
 | [**get_external_assets**](ExposureManagement.md#get_external_assets) | **GET** /fem/entities/external-assets/v1 | Get details on external assets by providing one or more IDs. |
 | [**patch_external_assets**](ExposureManagement.md#patch_external_assets) | **PATCH** /fem/entities/external-assets/v1 | Update the details of external assets. |
+| [**post_external_assets_inventory_v1**](ExposureManagement.md#post_external_assets_inventory_v1) | **POST** /fem/entities/external-asset-inventory/v1 | Add external assets for external asset scanning. |
 | [**query_ecosystem_subsidiaries**](ExposureManagement.md#query_ecosystem_subsidiaries) | **GET** /fem/queries/ecosystem-subsidiaries/v1 | Retrieves a list of IDs for ecosystem subsidiaries. Use these IDs with the /entities/ecosystem-subsidiaries/v1 endpoints. |
 | [**query_external_assets**](ExposureManagement.md#query_external_assets) | **GET** /fem/queries/external-assets/v1 | Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoints |
 
@@ -583,6 +584,75 @@ end
 ### Return type
 
 [**DomainExternalAssetsAPITypeV1**](DomainExternalAssetsAPITypeV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## post_external_assets_inventory_v1
+
+> <InventoryapiUserExternalAssetCreateResponseV1> post_external_assets_inventory_v1(body)
+
+Add external assets for external asset scanning.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ExposureManagement.new
+body = Falcon::InventoryapiUserExternalAssetCreateRequestV1.new({data: [Falcon::InventoryapiUserExternalAssetCreate.new({assets: [Falcon::InventoryapiUserExternalAsset.new({id: 'id_example', value: 'value_example'})], subsidiary_id: 'subsidiary_id_example'})]}) # InventoryapiUserExternalAssetCreateRequestV1 | Asset addition specification.
+
+begin
+  # Add external assets for external asset scanning.
+  result = api_instance.post_external_assets_inventory_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ExposureManagement->post_external_assets_inventory_v1: #{e}"
+end
+```
+
+#### Using the post_external_assets_inventory_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InventoryapiUserExternalAssetCreateResponseV1>, Integer, Hash)> post_external_assets_inventory_v1_with_http_info(body)
+
+```ruby
+begin
+  # Add external assets for external asset scanning.
+  data, status_code, headers = api_instance.post_external_assets_inventory_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InventoryapiUserExternalAssetCreateResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ExposureManagement->post_external_assets_inventory_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**InventoryapiUserExternalAssetCreateRequestV1**](InventoryapiUserExternalAssetCreateRequestV1.md) | Asset addition specification. |  |
+
+### Return type
+
+[**InventoryapiUserExternalAssetCreateResponseV1**](InventoryapiUserExternalAssetCreateResponseV1.md)
 
 ### Authorization
 

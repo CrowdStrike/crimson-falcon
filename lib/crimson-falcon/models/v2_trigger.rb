@@ -42,6 +42,10 @@ module Falcon
 
     attr_accessor :schedule
 
+    attr_accessor :type
+
+    attr_accessor :webhook_config
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -49,7 +53,9 @@ module Falcon
         :'name' => :'name',
         :'_next' => :'next',
         :'parameters' => :'parameters',
-        :'schedule' => :'schedule'
+        :'schedule' => :'schedule',
+        :'type' => :'type',
+        :'webhook_config' => :'webhook_config'
       }
     end
 
@@ -65,7 +71,9 @@ module Falcon
         :'name' => :'String',
         :'_next' => :'Array<String>',
         :'parameters' => :'JsonschemaSchema',
-        :'schedule' => :'GraphTimerEventDefinition'
+        :'schedule' => :'GraphTimerEventDefinition',
+        :'type' => :'String',
+        :'webhook_config' => :'WebhooktriggerAPIRequest'
       }
     end
 
@@ -111,6 +119,14 @@ module Falcon
       if attributes.key?(:'schedule')
         self.schedule = attributes[:'schedule']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'webhook_config')
+        self.webhook_config = attributes[:'webhook_config']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -140,7 +156,9 @@ module Falcon
           name == o.name &&
           _next == o._next &&
           parameters == o.parameters &&
-          schedule == o.schedule
+          schedule == o.schedule &&
+          type == o.type &&
+          webhook_config == o.webhook_config
     end
 
     # @see the `==` method
@@ -152,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, name, _next, parameters, schedule].hash
+      [event, name, _next, parameters, schedule, type, webhook_config].hash
     end
 
     # Builds the object from hash

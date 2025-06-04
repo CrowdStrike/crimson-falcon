@@ -16,6 +16,7 @@
 | **result_id** | **String** |  |  |
 | **search_window_end** | **Time** |  |  |
 | **search_window_start** | **Time** |  |  |
+| **use_ingest_time** | **Boolean** |  |  |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = Falcon::DomainResultMetadata.new(
   result_count: null,
   result_id: null,
   search_window_end: null,
-  search_window_start: null
+  search_window_start: null,
+  use_ingest_time: null
 )
 ```
 

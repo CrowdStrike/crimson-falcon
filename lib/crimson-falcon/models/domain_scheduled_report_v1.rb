@@ -72,6 +72,8 @@ module Falcon
 
     attr_accessor :stop_on
 
+    attr_accessor :stopped_by_cs
+
     attr_accessor :tracking
 
     attr_accessor :trigger_reference
@@ -105,6 +107,7 @@ module Falcon
         :'start_on' => :'start_on',
         :'status' => :'status',
         :'stop_on' => :'stop_on',
+        :'stopped_by_cs' => :'stopped_by_cs',
         :'tracking' => :'tracking',
         :'trigger_reference' => :'trigger_reference',
         :'type' => :'type',
@@ -141,6 +144,7 @@ module Falcon
         :'start_on' => :'Time',
         :'status' => :'String',
         :'stop_on' => :'Time',
+        :'stopped_by_cs' => :'Boolean',
         :'tracking' => :'String',
         :'trigger_reference' => :'String',
         :'type' => :'String',
@@ -252,6 +256,10 @@ module Falcon
 
       if attributes.key?(:'stop_on')
         self.stop_on = attributes[:'stop_on']
+      end
+
+      if attributes.key?(:'stopped_by_cs')
+        self.stopped_by_cs = attributes[:'stopped_by_cs']
       end
 
       if attributes.key?(:'tracking')
@@ -388,6 +396,7 @@ module Falcon
           start_on == o.start_on &&
           status == o.status &&
           stop_on == o.stop_on &&
+          stopped_by_cs == o.stopped_by_cs &&
           tracking == o.tracking &&
           trigger_reference == o.trigger_reference &&
           type == o.type &&
@@ -404,7 +413,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, stopped_by_cs, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

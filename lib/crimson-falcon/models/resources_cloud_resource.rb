@@ -56,11 +56,21 @@ module Falcon
 
     attr_accessor :cluster_name
 
+    attr_accessor :compartment_name
+
+    attr_accessor :compartment_ocid
+
+    attr_accessor :compartment_path
+
     attr_accessor :configuration
 
     attr_accessor :creation_time
 
     attr_accessor :first_seen
+
+    attr_accessor :gcrn
+
+    attr_accessor :groups
 
     attr_accessor :hash
 
@@ -98,6 +108,8 @@ module Falcon
 
     attr_accessor :service
 
+    attr_accessor :service_category
+
     attr_accessor :status
 
     attr_accessor :subscription_id
@@ -105,6 +117,12 @@ module Falcon
     attr_accessor :supplementary_configuration
 
     attr_accessor :tags
+
+    attr_accessor :tenancy_name
+
+    attr_accessor :tenancy_ocid
+
+    attr_accessor :tenancy_type
 
     attr_accessor :tenant_id
 
@@ -129,9 +147,14 @@ module Falcon
         :'cloud_provider' => :'cloud_provider',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
+        :'compartment_name' => :'compartment_name',
+        :'compartment_ocid' => :'compartment_ocid',
+        :'compartment_path' => :'compartment_path',
         :'configuration' => :'configuration',
         :'creation_time' => :'creation_time',
         :'first_seen' => :'first_seen',
+        :'gcrn' => :'gcrn',
+        :'groups' => :'groups',
         :'hash' => :'hash',
         :'id' => :'id',
         :'location' => :'location',
@@ -150,10 +173,14 @@ module Falcon
         :'resource_url' => :'resource_url',
         :'revision' => :'revision',
         :'service' => :'service',
+        :'service_category' => :'service_category',
         :'status' => :'status',
         :'subscription_id' => :'subscription_id',
         :'supplementary_configuration' => :'supplementary_configuration',
         :'tags' => :'tags',
+        :'tenancy_name' => :'tenancy_name',
+        :'tenancy_ocid' => :'tenancy_ocid',
+        :'tenancy_type' => :'tenancy_type',
         :'tenant_id' => :'tenant_id',
         :'updated_at' => :'updated_at',
         :'zone' => :'zone',
@@ -181,9 +208,14 @@ module Falcon
         :'cloud_provider' => :'String',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
+        :'compartment_name' => :'String',
+        :'compartment_ocid' => :'String',
+        :'compartment_path' => :'String',
         :'configuration' => :'Object',
         :'creation_time' => :'Time',
         :'first_seen' => :'Time',
+        :'gcrn' => :'String',
+        :'groups' => :'Array<String>',
         :'hash' => :'String',
         :'id' => :'String',
         :'location' => :'String',
@@ -202,10 +234,14 @@ module Falcon
         :'resource_url' => :'String',
         :'revision' => :'Integer',
         :'service' => :'String',
+        :'service_category' => :'String',
         :'status' => :'String',
         :'subscription_id' => :'String',
         :'supplementary_configuration' => :'Object',
         :'tags' => :'Hash<String, String>',
+        :'tenancy_name' => :'String',
+        :'tenancy_ocid' => :'String',
+        :'tenancy_type' => :'String',
         :'tenant_id' => :'String',
         :'updated_at' => :'Time',
         :'zone' => :'String',
@@ -286,6 +322,18 @@ module Falcon
         self.cluster_name = attributes[:'cluster_name']
       end
 
+      if attributes.key?(:'compartment_name')
+        self.compartment_name = attributes[:'compartment_name']
+      end
+
+      if attributes.key?(:'compartment_ocid')
+        self.compartment_ocid = attributes[:'compartment_ocid']
+      end
+
+      if attributes.key?(:'compartment_path')
+        self.compartment_path = attributes[:'compartment_path']
+      end
+
       if attributes.key?(:'configuration')
         self.configuration = attributes[:'configuration']
       end
@@ -296,6 +344,16 @@ module Falcon
 
       if attributes.key?(:'first_seen')
         self.first_seen = attributes[:'first_seen']
+      end
+
+      if attributes.key?(:'gcrn')
+        self.gcrn = attributes[:'gcrn']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
       end
 
       if attributes.key?(:'hash')
@@ -372,6 +430,10 @@ module Falcon
         self.service = attributes[:'service']
       end
 
+      if attributes.key?(:'service_category')
+        self.service_category = attributes[:'service_category']
+      end
+
       if attributes.key?(:'status')
         self.status = attributes[:'status']
       end
@@ -388,6 +450,18 @@ module Falcon
         if (value = attributes[:'tags']).is_a?(Hash)
           self.tags = value
         end
+      end
+
+      if attributes.key?(:'tenancy_name')
+        self.tenancy_name = attributes[:'tenancy_name']
+      end
+
+      if attributes.key?(:'tenancy_ocid')
+        self.tenancy_ocid = attributes[:'tenancy_ocid']
+      end
+
+      if attributes.key?(:'tenancy_type')
+        self.tenancy_type = attributes[:'tenancy_type']
       end
 
       if attributes.key?(:'tenant_id')
@@ -439,9 +513,14 @@ module Falcon
           cloud_provider == o.cloud_provider &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
+          compartment_name == o.compartment_name &&
+          compartment_ocid == o.compartment_ocid &&
+          compartment_path == o.compartment_path &&
           configuration == o.configuration &&
           creation_time == o.creation_time &&
           first_seen == o.first_seen &&
+          gcrn == o.gcrn &&
+          groups == o.groups &&
           hash == o.hash &&
           id == o.id &&
           location == o.location &&
@@ -460,10 +539,14 @@ module Falcon
           resource_url == o.resource_url &&
           revision == o.revision &&
           service == o.service &&
+          service_category == o.service_category &&
           status == o.status &&
           subscription_id == o.subscription_id &&
           supplementary_configuration == o.supplementary_configuration &&
           tags == o.tags &&
+          tenancy_name == o.tenancy_name &&
+          tenancy_ocid == o.tenancy_ocid &&
+          tenancy_type == o.tenancy_type &&
           tenant_id == o.tenant_id &&
           updated_at == o.updated_at &&
           zone == o.zone &&
@@ -479,7 +562,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_labels, cloud_provider, cluster_id, cluster_name, configuration, creation_time, first_seen, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, status, subscription_id, supplementary_configuration, tags, tenant_id, updated_at, zone, zones].hash
+      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_labels, cloud_provider, cluster_id, cluster_name, compartment_name, compartment_ocid, compartment_path, configuration, creation_time, first_seen, gcrn, groups, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, service_category, status, subscription_id, supplementary_configuration, tags, tenancy_name, tenancy_ocid, tenancy_type, tenant_id, updated_at, zone, zones].hash
     end
 
     # Builds the object from hash

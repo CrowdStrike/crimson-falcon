@@ -36,6 +36,154 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000] (default to 100)
+    # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+    # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+    # @return [DeviceapiDeviceCombinedResponseSwagger]
+    def combined_devices_by_filter(opts = {})
+      data, _status_code, _headers = combined_devices_by_filter_with_http_info(opts)
+      data
+    end
+
+    # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000] (default to 100)
+    # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+    # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+    # @return [Array<(DeviceapiDeviceCombinedResponseSwagger, Integer, Hash)>] DeviceapiDeviceCombinedResponseSwagger data, response status code and response headers
+    def combined_devices_by_filter_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Hosts.combined_devices_by_filter ...'
+      end
+      allowable_values = ["device_policies.jumpcloud.policy_id", "group_hash", "k8s_cluster_id", "linux_sensor_mode", "host_utc_offset", "first_seen", "platform_id", "pod_annotations", "internet_exposure", "filesystem_containment_status", "device_policies.browser-extension.policy_id", "agent_load_flags", "os_version", "device_policies.system-tray.applied", "device_policies.fim.policy_type", "device_policies.automox.applied", "device_policies.consumer-subscription.applied", "device_policies.sca.applied", "device_policies.firewall.applied", "bios_version", "migration_completed_time", "default_gateway_ip", "device_policies.fim.applied", "device_policies.vulnerability-management.policy_type", "device_policies.vulnerability-management.applied", "instance_id", "service_provider_account_id", "device_policies.firewall.policy_type", "connection_ip", "local_ip", "device_policies.consumer-subscription.policy_type", "device_policies.host-retention.policy_type", "device_policies.mobile.applied", "chassis_type", "device_policies.network-scan-content.policy_type", "groups", "last_seen", "device_policies.sensor_update.policy_id", "device_policies.sensor_update.uninstall_protection", "device_policies.kubernetes-admission-control.applied", "device_policies.system-tray.policy_type", "device_policies.content-update.applied", "device_policies.it-automation.policy_id", "managed_apps.jumpcloud.version", "device_policies.remote_response.applied", "device_policies.browser-extension.policy_type", "external_ip", "policies.policy_type", "device_policies.ztl.policy_type", "device_policies.aws-verified-access.policy_id", "kernel_version", "product_type", "device_policies.content-update.policy_id", "ou", "device_policies.prevention.policy_type", "service_provider", "cpu_vendor", "site_name", "device_policies.jumpcloud.policy_type", "local_ip.raw", "managed_apps.airlock.version", "pod_namespace", "cid", "device_policies.airlock.applied", "device_policies.kubernetes-admission-control.policy_type", "device_policies.vulnerability-management.policy_id", "device_policies.data-protection.policy_type", "device_policies.mobile.policy_type", "pod_host_ip4", "connection_mac_address", "device_id", "major_version", "device_policies.consumer-subscription.policy_id", "mac_address", "managed_apps.identity-protection.version", "device_policies.remote_response.policy_type", "pod_hostname", "first_login_timestamp", "device_policies.device_control.policy_type", "device_policies.identity-protection.applied", "managed_apps.aws-verified-access.version", "pod_id", "release_group", "device_policies.ztl.applied", "license_activation_state", "os_product_name", "first_login_user", "device_policies.identity-protection.policy_type", "device_policies.jumpcloud.applied", "device_policies.host-retention.applied", "last_login_timestamp", "policies.applied", "device_policies.sensor_update.policy_type", "device_policies.airlock.policy_type", "device_policies.kubernetes-admission-control.policy_id", "product_type_desc", "device_policies.device_control.applied", "device_policies.it-automation.applied", "device_policies.firewall.rule_set_id", "device_policies.mobile.policy_id", "serial_number", "detection_suppression_status", "last_login_uid", "last_login_user_sid", "modified_timestamp", "device_policies.data-protection.applied", "device_policies.automox.policy_id", "device_policies.netskope.applied", "device_policies.data-protection.policy_id", "machine_domain", "minor_version", "platform_name", "status", "device_policies.system-tray.policy_id", "device_policies.firewall.policy_id", "os_build", "device_policies.prevention.policy_id", "device_policies.netskope.policy_type", "pod_ip4", "device_policies.browser-extension.applied", "config_id_base", "last_login_user", "system_product_name", "policy_id", "policies.policy_id", "device_policies.remote_response.policy_id", "config_id_platform", "hostname", "device_policies.device_control.policy_id", "device_policies.fim.policy_id", "_all", "managed_apps.automox.version", "deployment_type", "chassis_type_desc", "device_policies.sca.policy_type", "device_policies.sca.policy_id", "device_policies.it-automation.policy_type", "email", "k8s_cluster_git_version", "last_reboot", "pod_ip6", "agent_version", "config_id_build", "device_policies.airlock.policy_id", "device_policies.netskope.policy_id", "reduced_functionality_mode", "rtr_state", "cpu_signature", "pod_service_account_name", "k8s_cluster_version", "device_policies.network-scan-content.applied", "device_policies.automox.policy_type", "device_policies.content-update.policy_type", "device_policies.aws-verified-access.policy_type", "zone_group", "pod_host_ip6", "pod_name", "device_policies.prevention.applied", "device_policies.sensor_update.applied", "device_policies.ztl.policy_id", "device_policies.aws-verified-access.applied", "pod_labels", "bios_manufacturer", "managed_apps.netskope.version", "tags", "device_policies.network-scan-content.policy_id", "system_manufacturer", "device_policies.identity-protection.policy_id", "device_policies.host-retention.policy_id"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/devices/combined/devices/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeviceapiDeviceCombinedResponseSwagger'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Hosts.combined_devices_by_filter",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Hosts#combined_devices_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000] (default to 100)
+    # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+    # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+    # @return [DeviceapiDeviceCombinedResponseSwagger]
+    def combined_hidden_devices_by_filter(opts = {})
+      data, _status_code, _headers = combined_hidden_devices_by_filter_with_http_info(opts)
+      data
+    end
+
+    # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000] (default to 100)
+    # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+    # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+    # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+    # @return [Array<(DeviceapiDeviceCombinedResponseSwagger, Integer, Hash)>] DeviceapiDeviceCombinedResponseSwagger data, response status code and response headers
+    def combined_hidden_devices_by_filter_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Hosts.combined_hidden_devices_by_filter ...'
+      end
+      allowable_values = ["device_policies.jumpcloud.policy_id", "group_hash", "k8s_cluster_id", "linux_sensor_mode", "host_utc_offset", "first_seen", "platform_id", "pod_annotations", "internet_exposure", "filesystem_containment_status", "device_policies.browser-extension.policy_id", "agent_load_flags", "os_version", "device_policies.system-tray.applied", "device_policies.fim.policy_type", "device_policies.automox.applied", "device_policies.consumer-subscription.applied", "device_policies.sca.applied", "device_policies.firewall.applied", "bios_version", "migration_completed_time", "default_gateway_ip", "device_policies.fim.applied", "device_policies.vulnerability-management.policy_type", "device_policies.vulnerability-management.applied", "instance_id", "service_provider_account_id", "device_policies.firewall.policy_type", "connection_ip", "local_ip", "device_policies.consumer-subscription.policy_type", "device_policies.host-retention.policy_type", "device_policies.mobile.applied", "chassis_type", "device_policies.network-scan-content.policy_type", "groups", "last_seen", "device_policies.sensor_update.policy_id", "device_policies.sensor_update.uninstall_protection", "device_policies.kubernetes-admission-control.applied", "device_policies.system-tray.policy_type", "device_policies.content-update.applied", "device_policies.it-automation.policy_id", "managed_apps.jumpcloud.version", "device_policies.remote_response.applied", "device_policies.browser-extension.policy_type", "external_ip", "policies.policy_type", "device_policies.ztl.policy_type", "device_policies.aws-verified-access.policy_id", "kernel_version", "product_type", "device_policies.content-update.policy_id", "ou", "device_policies.prevention.policy_type", "service_provider", "cpu_vendor", "site_name", "device_policies.jumpcloud.policy_type", "local_ip.raw", "managed_apps.airlock.version", "pod_namespace", "cid", "device_policies.airlock.applied", "device_policies.kubernetes-admission-control.policy_type", "device_policies.vulnerability-management.policy_id", "device_policies.data-protection.policy_type", "device_policies.mobile.policy_type", "pod_host_ip4", "connection_mac_address", "device_id", "major_version", "device_policies.consumer-subscription.policy_id", "mac_address", "managed_apps.identity-protection.version", "device_policies.remote_response.policy_type", "pod_hostname", "first_login_timestamp", "device_policies.device_control.policy_type", "device_policies.identity-protection.applied", "managed_apps.aws-verified-access.version", "pod_id", "release_group", "device_policies.ztl.applied", "license_activation_state", "os_product_name", "first_login_user", "device_policies.identity-protection.policy_type", "device_policies.jumpcloud.applied", "device_policies.host-retention.applied", "last_login_timestamp", "policies.applied", "device_policies.sensor_update.policy_type", "device_policies.airlock.policy_type", "device_policies.kubernetes-admission-control.policy_id", "product_type_desc", "device_policies.device_control.applied", "device_policies.it-automation.applied", "device_policies.firewall.rule_set_id", "device_policies.mobile.policy_id", "serial_number", "detection_suppression_status", "last_login_uid", "last_login_user_sid", "modified_timestamp", "device_policies.data-protection.applied", "device_policies.automox.policy_id", "device_policies.netskope.applied", "device_policies.data-protection.policy_id", "machine_domain", "minor_version", "platform_name", "status", "device_policies.system-tray.policy_id", "device_policies.firewall.policy_id", "os_build", "device_policies.prevention.policy_id", "device_policies.netskope.policy_type", "pod_ip4", "device_policies.browser-extension.applied", "config_id_base", "last_login_user", "system_product_name", "policy_id", "policies.policy_id", "device_policies.remote_response.policy_id", "config_id_platform", "hostname", "device_policies.device_control.policy_id", "device_policies.fim.policy_id", "_all", "managed_apps.automox.version", "deployment_type", "chassis_type_desc", "device_policies.sca.policy_type", "device_policies.sca.policy_id", "device_policies.it-automation.policy_type", "email", "k8s_cluster_git_version", "last_reboot", "pod_ip6", "agent_version", "config_id_build", "device_policies.airlock.policy_id", "device_policies.netskope.policy_id", "reduced_functionality_mode", "rtr_state", "cpu_signature", "pod_service_account_name", "k8s_cluster_version", "device_policies.network-scan-content.applied", "device_policies.automox.policy_type", "device_policies.content-update.policy_type", "device_policies.aws-verified-access.policy_type", "zone_group", "pod_host_ip6", "pod_name", "device_policies.prevention.applied", "device_policies.sensor_update.applied", "device_policies.ztl.policy_id", "device_policies.aws-verified-access.applied", "pod_labels", "bios_manufacturer", "managed_apps.netskope.version", "tags", "device_policies.network-scan-content.policy_id", "system_manufacturer", "device_policies.identity-protection.policy_id", "device_policies.host-retention.policy_id"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/devices/combined/devices-hidden/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeviceapiDeviceCombinedResponseSwagger'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Hosts.combined_hidden_devices_by_filter",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Hosts#combined_hidden_devices_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Performs the specified action on the provided group IDs.
     # @param ids [Array<String>] The group ids to act on
     # @param action_name [String] The action to perform.

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **last_seen_network_id** | **String** | The ID of the network where the host was last seen | [optional] |
 | **last_seen_site_id** | **String** | The ID of the site where the host was last seen | [optional] |
-| **networks** | [**Array&lt;DomainDiscoverAPIActiveDiscoveryNetwork&gt;**](DomainDiscoverAPIActiveDiscoveryNetwork.md) | The open ports discovered on the asset. | [optional] |
+| **networks** | [**Array&lt;DomainDiscoverAPIActiveDiscoveryNetwork&gt;**](DomainDiscoverAPIActiveDiscoveryNetwork.md) | The networks discovered on the asset. | [optional] |
 | **open_ports** | **Array&lt;String&gt;** | The open ports discovered on the asset. | [optional] |
 
 ## Example

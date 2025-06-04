@@ -36,7 +36,19 @@ module Falcon
 
     attr_accessor :account_type
 
+    attr_accessor :cloudformation_stack_arn
+
+    attr_accessor :cloudtrail_region
+
     attr_accessor :csp_events
+
+    attr_accessor :deployment_method
+
+    attr_accessor :dspm_role
+
+    attr_accessor :falcon_client_id
+
+    attr_accessor :iam_role_arn
 
     attr_accessor :is_master
 
@@ -44,15 +56,36 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :resource_name_prefix
+
+    attr_accessor :resource_name_suffix
+
+    attr_accessor :root_stack_id
+
+    attr_accessor :target_ous
+
+    attr_accessor :use_existing_cloudtrail
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'account_id' => :'account_id',
         :'account_type' => :'account_type',
+        :'cloudformation_stack_arn' => :'cloudformation_stack_arn',
+        :'cloudtrail_region' => :'cloudtrail_region',
         :'csp_events' => :'csp_events',
+        :'deployment_method' => :'deployment_method',
+        :'dspm_role' => :'dspm_role',
+        :'falcon_client_id' => :'falcon_client_id',
+        :'iam_role_arn' => :'iam_role_arn',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
-        :'products' => :'products'
+        :'products' => :'products',
+        :'resource_name_prefix' => :'resource_name_prefix',
+        :'resource_name_suffix' => :'resource_name_suffix',
+        :'root_stack_id' => :'root_stack_id',
+        :'target_ous' => :'target_ous',
+        :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
       }
     end
 
@@ -66,10 +99,21 @@ module Falcon
       {
         :'account_id' => :'String',
         :'account_type' => :'String',
+        :'cloudformation_stack_arn' => :'String',
+        :'cloudtrail_region' => :'String',
         :'csp_events' => :'Boolean',
+        :'deployment_method' => :'String',
+        :'dspm_role' => :'String',
+        :'falcon_client_id' => :'String',
+        :'iam_role_arn' => :'String',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
-        :'products' => :'Array<RestAccountProductUpsertRequestExtV1>'
+        :'products' => :'Array<RestAccountProductUpsertRequestExtV1>',
+        :'resource_name_prefix' => :'String',
+        :'resource_name_suffix' => :'String',
+        :'root_stack_id' => :'String',
+        :'target_ous' => :'Array<String>',
+        :'use_existing_cloudtrail' => :'Boolean'
       }
     end
 
@@ -102,8 +146,32 @@ module Falcon
         self.account_type = attributes[:'account_type']
       end
 
+      if attributes.key?(:'cloudformation_stack_arn')
+        self.cloudformation_stack_arn = attributes[:'cloudformation_stack_arn']
+      end
+
+      if attributes.key?(:'cloudtrail_region')
+        self.cloudtrail_region = attributes[:'cloudtrail_region']
+      end
+
       if attributes.key?(:'csp_events')
         self.csp_events = attributes[:'csp_events']
+      end
+
+      if attributes.key?(:'deployment_method')
+        self.deployment_method = attributes[:'deployment_method']
+      end
+
+      if attributes.key?(:'dspm_role')
+        self.dspm_role = attributes[:'dspm_role']
+      end
+
+      if attributes.key?(:'falcon_client_id')
+        self.falcon_client_id = attributes[:'falcon_client_id']
+      end
+
+      if attributes.key?(:'iam_role_arn')
+        self.iam_role_arn = attributes[:'iam_role_arn']
       end
 
       if attributes.key?(:'is_master')
@@ -119,14 +187,36 @@ module Falcon
           self.products = value
         end
       end
+
+      if attributes.key?(:'resource_name_prefix')
+        self.resource_name_prefix = attributes[:'resource_name_prefix']
+      end
+
+      if attributes.key?(:'resource_name_suffix')
+        self.resource_name_suffix = attributes[:'resource_name_suffix']
+      end
+
+      if attributes.key?(:'root_stack_id')
+        self.root_stack_id = attributes[:'root_stack_id']
+      end
+
+      if attributes.key?(:'target_ous')
+        if (value = attributes[:'target_ous']).is_a?(Array)
+          self.target_ous = value
+        end
+      end
+
+      if attributes.key?(:'use_existing_cloudtrail')
+        self.use_existing_cloudtrail = attributes[:'use_existing_cloudtrail']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @organization_id.nil?
-        invalid_properties.push('invalid value for "organization_id", organization_id cannot be nil.')
+      if @use_existing_cloudtrail.nil?
+        invalid_properties.push('invalid value for "use_existing_cloudtrail", use_existing_cloudtrail cannot be nil.')
       end
 
       invalid_properties
@@ -135,7 +225,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @organization_id.nil?
+      return false if @use_existing_cloudtrail.nil?
       true
     end
 
@@ -146,10 +236,21 @@ module Falcon
       self.class == o.class &&
           account_id == o.account_id &&
           account_type == o.account_type &&
+          cloudformation_stack_arn == o.cloudformation_stack_arn &&
+          cloudtrail_region == o.cloudtrail_region &&
           csp_events == o.csp_events &&
+          deployment_method == o.deployment_method &&
+          dspm_role == o.dspm_role &&
+          falcon_client_id == o.falcon_client_id &&
+          iam_role_arn == o.iam_role_arn &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
-          products == o.products
+          products == o.products &&
+          resource_name_prefix == o.resource_name_prefix &&
+          resource_name_suffix == o.resource_name_suffix &&
+          root_stack_id == o.root_stack_id &&
+          target_ous == o.target_ous &&
+          use_existing_cloudtrail == o.use_existing_cloudtrail
     end
 
     # @see the `==` method
@@ -161,7 +262,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, csp_events, is_master, organization_id, products].hash
+      [account_id, account_type, cloudformation_stack_arn, cloudtrail_region, csp_events, deployment_method, dspm_role, falcon_client_id, iam_role_arn, is_master, organization_id, products, resource_name_prefix, resource_name_suffix, root_stack_id, target_ous, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

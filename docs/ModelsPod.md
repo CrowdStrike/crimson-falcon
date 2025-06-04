@@ -7,6 +7,7 @@
 | **agents** | **Array&lt;Hash&gt;** |  |  |
 | **allow_privilege_escalation** | **Boolean** |  |  |
 | **annotations_list** | **Array&lt;String&gt;** |  |  |
+| **app_name** | **String** |  |  |
 | **automount_service_token** | **Boolean** |  |  |
 | **cid** | **String** |  |  |
 | **cloud_account_id** | **String** |  |  |
@@ -60,6 +61,7 @@ instance = Falcon::ModelsPod.new(
   agents: null,
   allow_privilege_escalation: null,
   annotations_list: null,
+  app_name: null,
   automount_service_token: null,
   cid: null,
   cloud_account_id: null,

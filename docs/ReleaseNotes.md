@@ -1,11 +1,11 @@
 # Falcon::ReleaseNotes
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**combined_release_notes_v1**](ReleaseNotes.md#combined_release_notes_v1) | **GET** /deployment-coordinator/combined/release-notes/v1 | Queries for release-notes resources and returns details |
-| [**get_entity_ids_by_query_post**](ReleaseNotes.md#get_entity_ids_by_query_post) | **POST** /deployment-coordinator/entities/release-notes/GET/v1 | returns the IDs of all entities in the database for the given page |
+| [**get_entity_ids_by_query_post**](ReleaseNotes.md#get_entity_ids_by_query_post) | **POST** /deployment-coordinator/entities/release-notes/GET/v1 | returns the release notes for the IDs in the request |
 | [**query_release_notes_v1**](ReleaseNotes.md#query_release_notes_v1) | **GET** /deployment-coordinator/queries/release-notes/v1 | Queries for release-notes resources and returns ids |
 
 
@@ -92,9 +92,9 @@ end
 
 ## get_entity_ids_by_query_post
 
-> <ReleasenotesEntitiesGetResponseWrapper> get_entity_ids_by_query_post(authorization, body, opts)
+> <ReleasenotesReleaseNoteWrapperV1> get_entity_ids_by_query_post(authorization, body, opts)
 
-returns the IDs of all entities in the database for the given page
+returns the release notes for the IDs in the request
 
 ### Examples
 
@@ -117,7 +117,7 @@ opts = {
 }
 
 begin
-  # returns the IDs of all entities in the database for the given page
+  # returns the release notes for the IDs in the request
   result = api_instance.get_entity_ids_by_query_post(authorization, body, opts)
   p result
 rescue Falcon::ApiError => e
@@ -129,15 +129,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ReleasenotesEntitiesGetResponseWrapper>, Integer, Hash)> get_entity_ids_by_query_post_with_http_info(authorization, body, opts)
+> <Array(<ReleasenotesReleaseNoteWrapperV1>, Integer, Hash)> get_entity_ids_by_query_post_with_http_info(authorization, body, opts)
 
 ```ruby
 begin
-  # returns the IDs of all entities in the database for the given page
+  # returns the release notes for the IDs in the request
   data, status_code, headers = api_instance.get_entity_ids_by_query_post_with_http_info(authorization, body, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ReleasenotesEntitiesGetResponseWrapper>
+  p data # => <ReleasenotesReleaseNoteWrapperV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ReleaseNotes->get_entity_ids_by_query_post_with_http_info: #{e}"
 end
@@ -153,7 +153,7 @@ end
 
 ### Return type
 
-[**ReleasenotesEntitiesGetResponseWrapper**](ReleasenotesEntitiesGetResponseWrapper.md)
+[**ReleasenotesReleaseNoteWrapperV1**](ReleasenotesReleaseNoteWrapperV1.md)
 
 ### Authorization
 

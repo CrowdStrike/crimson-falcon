@@ -16,9 +16,14 @@
 | **cloud_provider** | **String** |  | [optional] |
 | **cluster_id** | **String** |  | [optional] |
 | **cluster_name** | **String** |  | [optional] |
+| **compartment_name** | **String** |  | [optional] |
+| **compartment_ocid** | **String** |  | [optional] |
+| **compartment_path** | **String** |  | [optional] |
 | **configuration** | **Object** |  | [optional] |
 | **creation_time** | **Time** |  | [optional] |
 | **first_seen** | **Time** |  | [optional] |
+| **gcrn** | **String** |  | [optional] |
+| **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **hash** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **location** | **String** |  | [optional] |
@@ -37,10 +42,14 @@
 | **resource_url** | **String** |  | [optional] |
 | **revision** | **Integer** |  | [optional] |
 | **service** | **String** |  | [optional] |
+| **service_category** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
 | **subscription_id** | **String** |  | [optional] |
 | **supplementary_configuration** | **Object** |  | [optional] |
 | **tags** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **tenancy_name** | **String** |  | [optional] |
+| **tenancy_ocid** | **String** |  | [optional] |
+| **tenancy_type** | **String** |  | [optional] |
 | **tenant_id** | **String** |  | [optional] |
 | **updated_at** | **Time** |  | [optional] |
 | **zone** | **String** |  | [optional] |
@@ -64,9 +73,14 @@ instance = Falcon::ResourcesCloudResource.new(
   cloud_provider: null,
   cluster_id: null,
   cluster_name: null,
+  compartment_name: null,
+  compartment_ocid: null,
+  compartment_path: null,
   configuration: null,
   creation_time: null,
   first_seen: null,
+  gcrn: null,
+  groups: null,
   hash: null,
   id: null,
   location: null,
@@ -85,10 +99,14 @@ instance = Falcon::ResourcesCloudResource.new(
   resource_url: null,
   revision: null,
   service: null,
+  service_category: null,
   status: null,
   subscription_id: null,
   supplementary_configuration: null,
   tags: null,
+  tenancy_name: null,
+  tenancy_ocid: null,
+  tenancy_type: null,
   tenant_id: null,
   updated_at: null,
   zone: null,

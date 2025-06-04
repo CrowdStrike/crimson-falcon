@@ -49,6 +49,36 @@ describe 'Hosts' do
     end
   end
 
+  # unit tests for combined_devices_by_filter
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+  # @option opts [Integer] :limit The maximum records to return. [1-10000]
+  # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+  # @return [DeviceapiDeviceCombinedResponseSwagger]
+  describe 'combined_devices_by_filter test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for combined_hidden_devices_by_filter
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :offset The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset.
+  # @option opts [Integer] :limit The maximum records to return. [1-10000]
+  # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  # @option opts [String] :filter The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  # @option opts [String] :fields The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id
+  # @return [DeviceapiDeviceCombinedResponseSwagger]
+  describe 'combined_hidden_devices_by_filter test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_perform_action
   # Performs the specified action on the provided group IDs.
   # @param ids The group ids to act on

@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainExportJobMetadataV1
+    attr_accessor :created_date
+
     attr_accessor :entity
 
     attr_accessor :filename
@@ -43,6 +45,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'created_date' => :'created_date',
         :'entity' => :'entity',
         :'filename' => :'filename',
         :'id' => :'id',
@@ -58,6 +61,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'created_date' => :'String',
         :'entity' => :'String',
         :'filename' => :'String',
         :'id' => :'String',
@@ -85,6 +89,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'created_date')
+        self.created_date = attributes[:'created_date']
+      end
 
       if attributes.key?(:'entity')
         self.entity = attributes[:'entity']
@@ -141,6 +149,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_date == o.created_date &&
           entity == o.entity &&
           filename == o.filename &&
           id == o.id &&
@@ -156,7 +165,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [entity, filename, id, status].hash
+      [created_date, entity, filename, id, status].hash
     end
 
     # Builds the object from hash

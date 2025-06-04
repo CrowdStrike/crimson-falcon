@@ -9,7 +9,7 @@
 | **business_application** | **String** |  | [optional] |
 | **data** | **String** |  | [optional] |
 | **enabled** | **Boolean** |  | [optional] |
-| **id** | **Integer** |  | [optional] |
+| **id** | **String** |  | [optional] |
 | **integration** | [**TypesIntegration**](TypesIntegration.md) |  | [optional] |
 | **integration_task_type** | [**TypesIntegrationTaskType**](TypesIntegrationTaskType.md) |  | [optional] |
 | **latest_task_run** | [**TypesActionRun**](TypesActionRun.md) |  | [optional] |

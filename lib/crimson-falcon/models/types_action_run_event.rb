@@ -32,11 +32,11 @@ require 'time'
 
 module Falcon
   class TypesActionRunEvent
-    attr_accessor :flat_data
-
     attr_accessor :additional_data
 
     attr_accessor :data
+
+    attr_accessor :flat_data
 
     attr_accessor :flat_fields
 
@@ -55,15 +55,15 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'flat_data' => :'FlatData',
-        :'additional_data' => :'additional_data',
+        :'additional_data' => :'additionalData',
         :'data' => :'data',
-        :'flat_fields' => :'flat_fields',
+        :'flat_data' => :'flatData',
+        :'flat_fields' => :'flatFields',
         :'id' => :'id',
         :'message' => :'message',
         :'object' => :'object',
-        :'object_type' => :'object_type',
-        :'send_time' => :'send_time',
+        :'object_type' => :'objectType',
+        :'send_time' => :'sendTime',
         :'status' => :'status'
       }
     end
@@ -76,15 +76,15 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'flat_data' => :'Hash<String, String>',
         :'additional_data' => :'String',
         :'data' => :'TypesActionRunEventData',
+        :'flat_data' => :'Hash<String, String>',
         :'flat_fields' => :'Array<String>',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'message' => :'String',
         :'object' => :'String',
         :'object_type' => :'String',
-        :'send_time' => :'TypesTimestamp',
+        :'send_time' => :'String',
         :'status' => :'Integer'
       }
     end
@@ -110,18 +110,18 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'flat_data')
-        if (value = attributes[:'flat_data']).is_a?(Hash)
-          self.flat_data = value
-        end
-      end
-
       if attributes.key?(:'additional_data')
         self.additional_data = attributes[:'additional_data']
       end
 
       if attributes.key?(:'data')
         self.data = attributes[:'data']
+      end
+
+      if attributes.key?(:'flat_data')
+        if (value = attributes[:'flat_data']).is_a?(Hash)
+          self.flat_data = value
+        end
       end
 
       if attributes.key?(:'flat_fields')
@@ -159,17 +159,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @flat_data.nil?
-        invalid_properties.push('invalid value for "flat_data", flat_data cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @flat_data.nil?
       true
     end
 
@@ -178,9 +173,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          flat_data == o.flat_data &&
           additional_data == o.additional_data &&
           data == o.data &&
+          flat_data == o.flat_data &&
           flat_fields == o.flat_fields &&
           id == o.id &&
           message == o.message &&
@@ -199,7 +194,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [flat_data, additional_data, data, flat_fields, id, message, object, object_type, send_time, status].hash
+      [additional_data, data, flat_data, flat_fields, id, message, object, object_type, send_time, status].hash
     end
 
     # Builds the object from hash

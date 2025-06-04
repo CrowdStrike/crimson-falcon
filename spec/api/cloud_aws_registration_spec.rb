@@ -111,18 +111,4 @@ describe 'CloudAwsRegistration' do
     end
   end
 
-  # unit tests for cloud_registration_aws_validate_accounts
-  # Validates the AWS account in our system for a provided CID. For internal clients only.
-  # @param products Product registered for an account
-  # @param feature Features registered for an account
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :account_id AWS Account ID
-  # @option opts [String] :iam_role_arn IAM Role ARN
-  # @return [RestAWSAccountValidationResponse]
-  describe 'cloud_registration_aws_validate_accounts test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
 end

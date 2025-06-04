@@ -46,6 +46,8 @@ module Falcon
 
     attr_accessor :environment
 
+    attr_accessor :falcon_client_id
+
     attr_accessor :iam_role_arn
 
     attr_accessor :remediation_region
@@ -68,6 +70,7 @@ module Falcon
         :'dspm_enabled' => :'dspm_enabled',
         :'dspm_role' => :'dspm_role',
         :'environment' => :'environment',
+        :'falcon_client_id' => :'falcon_client_id',
         :'iam_role_arn' => :'iam_role_arn',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
@@ -92,6 +95,7 @@ module Falcon
         :'dspm_enabled' => :'Boolean',
         :'dspm_role' => :'String',
         :'environment' => :'String',
+        :'falcon_client_id' => :'String',
         :'iam_role_arn' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
@@ -150,6 +154,10 @@ module Falcon
         self.environment = attributes[:'environment']
       end
 
+      if attributes.key?(:'falcon_client_id')
+        self.falcon_client_id = attributes[:'falcon_client_id']
+      end
+
       if attributes.key?(:'iam_role_arn')
         self.iam_role_arn = attributes[:'iam_role_arn']
       end
@@ -185,8 +193,20 @@ module Falcon
         invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
       end
 
+      if @behavior_assessment_enabled.nil?
+        invalid_properties.push('invalid value for "behavior_assessment_enabled", behavior_assessment_enabled cannot be nil.')
+      end
+
+      if @dspm_enabled.nil?
+        invalid_properties.push('invalid value for "dspm_enabled", dspm_enabled cannot be nil.')
+      end
+
       if @iam_role_arn.nil?
         invalid_properties.push('invalid value for "iam_role_arn", iam_role_arn cannot be nil.')
+      end
+
+      if @sensor_management_enabled.nil?
+        invalid_properties.push('invalid value for "sensor_management_enabled", sensor_management_enabled cannot be nil.')
       end
 
       invalid_properties
@@ -196,7 +216,10 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @account_id.nil?
+      return false if @behavior_assessment_enabled.nil?
+      return false if @dspm_enabled.nil?
       return false if @iam_role_arn.nil?
+      return false if @sensor_management_enabled.nil?
       true
     end
 
@@ -212,6 +235,7 @@ module Falcon
           dspm_enabled == o.dspm_enabled &&
           dspm_role == o.dspm_role &&
           environment == o.environment &&
+          falcon_client_id == o.falcon_client_id &&
           iam_role_arn == o.iam_role_arn &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
@@ -229,7 +253,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, environment, iam_role_arn, remediation_region, remediation_tou_accepted, root_stack_id, sensor_management_enabled, target_ous].hash
+      [account_id, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, environment, falcon_client_id, iam_role_arn, remediation_region, remediation_tou_accepted, root_stack_id, sensor_management_enabled, target_ous].hash
     end
 
     # Builds the object from hash

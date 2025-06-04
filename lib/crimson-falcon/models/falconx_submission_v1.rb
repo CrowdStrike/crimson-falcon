@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class FalconxSubmissionV1
+    attr_accessor :auto_detect_environment
+
     attr_accessor :cid
 
     attr_accessor :created_timestamp
@@ -67,6 +69,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auto_detect_environment' => :'auto_detect_environment',
         :'cid' => :'cid',
         :'created_timestamp' => :'created_timestamp',
         :'error_message' => :'error_message',
@@ -94,6 +97,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'auto_detect_environment' => :'Boolean',
         :'cid' => :'String',
         :'created_timestamp' => :'String',
         :'error_message' => :'String',
@@ -133,6 +137,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'auto_detect_environment')
+        self.auto_detect_environment = attributes[:'auto_detect_environment']
+      else
+        self.auto_detect_environment = false
+      end
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
@@ -221,6 +231,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auto_detect_environment == o.auto_detect_environment &&
           cid == o.cid &&
           created_timestamp == o.created_timestamp &&
           error_message == o.error_message &&
@@ -248,7 +259,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_timestamp, error_message, error_origin, error_type, id, index_timestamp, interactive_phase, origin, sandbox, send_email_notification, state, user_id, user_name, user_tags, user_uuid].hash
+      [auto_detect_environment, cid, created_timestamp, error_message, error_origin, error_type, id, index_timestamp, interactive_phase, origin, sandbox, send_email_notification, state, user_id, user_name, user_tags, user_uuid].hash
     end
 
     # Builds the object from hash

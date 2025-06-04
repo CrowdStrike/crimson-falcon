@@ -137,7 +137,7 @@ module Falcon
     def valid?
       return false if @url.nil?
       return false if @verdict.nil?
-      verdict_validator = EnumAttributeValidator.new('String', ["clean", "suspicious", "malicious", "unknown"])
+      verdict_validator = EnumAttributeValidator.new('String', ["clean", "likely_benign", "suspicious", "malicious", "unknown"])
       return false unless verdict_validator.valid?(@verdict)
       true
     end
@@ -145,7 +145,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] verdict Object to be assigned
     def verdict=(verdict)
-      validator = EnumAttributeValidator.new('String', ["clean", "suspicious", "malicious", "unknown"])
+      validator = EnumAttributeValidator.new('String', ["clean", "likely_benign", "suspicious", "malicious", "unknown"])
       unless validator.valid?(verdict)
         fail ArgumentError, "invalid value for \"verdict\", must be one of #{validator.allowable_values}."
       end

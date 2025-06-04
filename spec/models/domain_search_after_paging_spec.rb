@@ -42,13 +42,19 @@ describe Falcon::DomainSearchAfterPaging do
       expect(instance).to be_instance_of(Falcon::DomainSearchAfterPaging)
     end
   end
-  describe 'test attribute "after"' do
+  describe 'test attribute "limit"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "limit"' do
+  describe 'test attribute "_next"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "offset"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

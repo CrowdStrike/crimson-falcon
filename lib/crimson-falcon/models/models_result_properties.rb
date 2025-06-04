@@ -50,6 +50,8 @@ module Falcon
 
     attr_accessor :is_supported
 
+    attr_accessor :last_analyzed_at
+
     attr_accessor :region
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -64,6 +66,7 @@ module Falcon
         :'cloud_provider' => :'cloudProvider',
         :'function_type' => :'functionType',
         :'is_supported' => :'isSupported',
+        :'last_analyzed_at' => :'last_analyzed_at',
         :'region' => :'region'
       }
     end
@@ -85,6 +88,7 @@ module Falcon
         :'cloud_provider' => :'String',
         :'function_type' => :'String',
         :'is_supported' => :'Boolean',
+        :'last_analyzed_at' => :'Integer',
         :'region' => :'String'
       }
     end
@@ -146,6 +150,10 @@ module Falcon
         self.is_supported = attributes[:'is_supported']
       end
 
+      if attributes.key?(:'last_analyzed_at')
+        self.last_analyzed_at = attributes[:'last_analyzed_at']
+      end
+
       if attributes.key?(:'region')
         self.region = attributes[:'region']
       end
@@ -191,6 +199,10 @@ module Falcon
         invalid_properties.push('invalid value for "is_supported", is_supported cannot be nil.')
       end
 
+      if @last_analyzed_at.nil?
+        invalid_properties.push('invalid value for "last_analyzed_at", last_analyzed_at cannot be nil.')
+      end
+
       if @region.nil?
         invalid_properties.push('invalid value for "region", region cannot be nil.')
       end
@@ -210,6 +222,7 @@ module Falcon
       return false if @cloud_provider.nil?
       return false if @function_type.nil?
       return false if @is_supported.nil?
+      return false if @last_analyzed_at.nil?
       return false if @region.nil?
       true
     end
@@ -228,6 +241,7 @@ module Falcon
           cloud_provider == o.cloud_provider &&
           function_type == o.function_type &&
           is_supported == o.is_supported &&
+          last_analyzed_at == o.last_analyzed_at &&
           region == o.region
     end
 
@@ -240,7 +254,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [asset_id, asset_name, asset_type, cid, cloud_account_id, cloud_account_name, cloud_provider, function_type, is_supported, region].hash
+      [asset_id, asset_name, asset_type, cid, cloud_account_id, cloud_account_name, cloud_provider, function_type, is_supported, last_analyzed_at, region].hash
     end
 
     # Builds the object from hash

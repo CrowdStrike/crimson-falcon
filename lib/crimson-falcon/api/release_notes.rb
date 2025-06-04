@@ -122,23 +122,23 @@ module Falcon
       return data, status_code, headers
     end
 
-    # returns the IDs of all entities in the database for the given page
+    # returns the release notes for the IDs in the request
     # @param authorization [String] authorization header
     # @param body [ReleasenotesEntitiesGetRequest]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_username user name
-    # @return [ReleasenotesEntitiesGetResponseWrapper]
+    # @return [ReleasenotesReleaseNoteWrapperV1]
     def get_entity_ids_by_query_post(authorization, body, opts = {})
       data, _status_code, _headers = get_entity_ids_by_query_post_with_http_info(authorization, body, opts)
       data
     end
 
-    # returns the IDs of all entities in the database for the given page
+    # returns the release notes for the IDs in the request
     # @param authorization [String] authorization header
     # @param body [ReleasenotesEntitiesGetRequest]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_cs_username user name
-    # @return [Array<(ReleasenotesEntitiesGetResponseWrapper, Integer, Hash)>] ReleasenotesEntitiesGetResponseWrapper data, response status code and response headers
+    # @return [Array<(ReleasenotesReleaseNoteWrapperV1, Integer, Hash)>] ReleasenotesReleaseNoteWrapperV1 data, response status code and response headers
     def get_entity_ids_by_query_post_with_http_info(authorization, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReleaseNotes.get_entity_ids_by_query_post ...'
@@ -176,7 +176,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ReleasenotesEntitiesGetResponseWrapper'
+      return_type = opts[:debug_return_type] || 'ReleasenotesReleaseNoteWrapperV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

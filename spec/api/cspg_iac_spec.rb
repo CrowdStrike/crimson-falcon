@@ -52,7 +52,7 @@ describe 'CspgIac' do
   # unit tests for get_credentials_mixin0
   # Gets the registry credentials (external endpoint)
   # @param [Hash] opts the optional parameters
-  # @return [CommonRegistryCredentialsResponse]
+  # @return [ModelsRegistryCredentialsResponse]
   describe 'get_credentials_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

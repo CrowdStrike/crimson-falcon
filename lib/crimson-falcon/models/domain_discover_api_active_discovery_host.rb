@@ -39,7 +39,7 @@ module Falcon
     # The ID of the site where the host was last seen
     attr_accessor :last_seen_site_id
 
-    # The open ports discovered on the asset.
+    # The networks discovered on the asset.
     attr_accessor :networks
 
     # The open ports discovered on the asset.

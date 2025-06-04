@@ -53,7 +53,7 @@ describe 'ContentUpdatePolicies' do
   # Create Content Update Policies by specifying details about the policy to create
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [DomainContentUpdatePolicyRespV1]
+  # @return [ContentUpdateRespV1]
   describe 'create_content_update_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -75,7 +75,7 @@ describe 'ContentUpdatePolicies' do
   # Retrieve a set of Content Update Policies by specifying their IDs
   # @param ids The IDs of the Content Update Policies to return
   # @param [Hash] opts the optional parameters
-  # @return [DomainContentUpdatePolicyRespV1]
+  # @return [ContentUpdateRespV1]
   describe 'get_content_update_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -87,7 +87,7 @@ describe 'ContentUpdatePolicies' do
   # @param action_name The action to perform
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [DomainContentUpdatePolicyRespV1]
+  # @return [ContentUpdateRespV1]
   describe 'perform_content_update_policies_action test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -101,7 +101,7 @@ describe 'ContentUpdatePolicies' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-5000]
   # @option opts [String] :sort The property to sort by
-  # @return [DomainContentUpdatePolicyRespV1]
+  # @return [ContentUpdateRespV1]
   describe 'query_combined_content_update_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -152,6 +152,18 @@ describe 'ContentUpdatePolicies' do
     end
   end
 
+  # unit tests for query_pinnable_content_versions
+  # Search for content versions available for pinning given the category.
+  # @param category Content category
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :sort value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc
+  # @return [MsaspecQueryResponse]
+  describe 'query_pinnable_content_versions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for set_content_update_policies_precedence
   # Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence
   # @param body
@@ -167,7 +179,7 @@ describe 'ContentUpdatePolicies' do
   # Update Content Update Policies by specifying the ID of the policy and details to update
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [DomainContentUpdatePolicyRespV1]
+  # @return [ContentUpdateRespV1]
   describe 'update_content_update_policies test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

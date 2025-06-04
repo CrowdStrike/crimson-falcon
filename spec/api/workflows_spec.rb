@@ -63,6 +63,20 @@ describe 'Workflows' do
     end
   end
 
+  # unit tests for workflow_activities_content_combined
+  # Search for activities by name. Returns all supported activities if no filter specified
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying filter parameters.
+  # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [Integer] :limit Maximum number of records to return.
+  # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+  # @return [ActivitiesActivityExternalResponse]
+  describe 'workflow_activities_content_combined test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for workflow_definitions_combined
   # Search workflow definitions based on the provided filter
   # @param [Hash] opts the optional parameters

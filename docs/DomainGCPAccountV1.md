@@ -10,7 +10,7 @@
 | **updated_at** | **Time** |  |  |
 | **cid** | **String** |  |  |
 | **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
-| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **cspm_enabled** | **Boolean** |  |  |
 | **display_name** | **String** | GCP Display Name | [optional] |
 | **environment** | **String** |  | [optional] |
@@ -24,7 +24,7 @@
 | **project_id** | **String** | GCP Project ID | [optional] |
 | **service_account_client_email** | **String** |  | [optional] |
 | **service_account_client_id** | **String** |  | [optional] |
-| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **service_account_conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** | GCP service account ID | [optional] |
 | **service_account_private_key_id** | **String** |  | [optional] |
 | **service_account_project_id** | **String** |  |  |

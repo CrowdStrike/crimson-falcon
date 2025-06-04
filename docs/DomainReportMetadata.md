@@ -10,6 +10,7 @@
 | **kestrel_params** | [**DomainKestrelParams**](DomainKestrelParams.md) |  | [optional] |
 | **last_scheduled_execution** | [**DomainLastScheduledExecution**](DomainLastScheduledExecution.md) |  | [optional] |
 | **last_unscheduled_execution** | [**DomainLastUnscheduledExecution**](DomainLastUnscheduledExecution.md) |  |  |
+| **runs_without_schedule** | **Boolean** |  |  |
 | **subtype** | **String** |  |  |
 | **xdr_params** | [**DomainXDRParams**](DomainXDRParams.md) |  | [optional] |
 
@@ -25,6 +26,7 @@ instance = Falcon::DomainReportMetadata.new(
   kestrel_params: null,
   last_scheduled_execution: null,
   last_unscheduled_execution: null,
+  runs_without_schedule: null,
   subtype: null,
   xdr_params: null
 )

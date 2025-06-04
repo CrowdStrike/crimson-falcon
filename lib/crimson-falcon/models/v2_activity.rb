@@ -36,6 +36,11 @@ module Falcon
 
     attr_accessor :id
 
+    attr_accessor :inline_configuration
+
+    # Optional user provided name for the activity, if not specified a default of the name for that activity will be used.
+    attr_accessor :name
+
     attr_accessor :_next
 
     attr_accessor :properties
@@ -45,6 +50,8 @@ module Falcon
       {
         :'_class' => :'class',
         :'id' => :'id',
+        :'inline_configuration' => :'inline_configuration',
+        :'name' => :'name',
         :'_next' => :'next',
         :'properties' => :'properties'
       }
@@ -60,6 +67,8 @@ module Falcon
       {
         :'_class' => :'String',
         :'id' => :'String',
+        :'inline_configuration' => :'V2InlineConfig',
+        :'name' => :'String',
         :'_next' => :'Array<String>',
         :'properties' => :'Object'
       }
@@ -92,6 +101,14 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'inline_configuration')
+        self.inline_configuration = attributes[:'inline_configuration']
+      end
+
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.key?(:'_next')
@@ -135,6 +152,8 @@ module Falcon
       self.class == o.class &&
           _class == o._class &&
           id == o.id &&
+          inline_configuration == o.inline_configuration &&
+          name == o.name &&
           _next == o._next &&
           properties == o.properties
     end
@@ -148,7 +167,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_class, id, _next, properties].hash
+      [_class, id, inline_configuration, name, _next, properties].hash
     end
 
     # Builds the object from hash

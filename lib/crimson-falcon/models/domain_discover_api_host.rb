@@ -420,6 +420,9 @@ module Falcon
     # Whether the asset is in reduced functionality mode (Yes or No).
     attr_accessor :reduced_functionality_mode
 
+    # Represents information about the scans that this host has been a part of'.
+    attr_accessor :scan_details
+
     # The unique identifier of the asset from ServiceNow, if any.
     attr_accessor :servicenow_id
 
@@ -484,6 +487,9 @@ module Falcon
 
     # The VLAN IDs to which device is connected.
     attr_accessor :vlan
+
+    # Represents the date when this host has been assessed for vulnerabilities
+    attr_accessor :vulnerability_assessment_date
 
     # The external ID of the IoT Device in 3rd Party System(Claroty Xdome)
     attr_accessor :xdome_id
@@ -621,6 +627,7 @@ module Falcon
         :'qualys_id' => :'qualys_id',
         :'qualys_network_id' => :'qualys_network_id',
         :'reduced_functionality_mode' => :'reduced_functionality_mode',
+        :'scan_details' => :'scan_details',
         :'servicenow_id' => :'servicenow_id',
         :'site_name' => :'site_name',
         :'state' => :'state',
@@ -643,6 +650,7 @@ module Falcon
         :'user_internet_exposure' => :'user_internet_exposure',
         :'virtual_zone' => :'virtual_zone',
         :'vlan' => :'vlan',
+        :'vulnerability_assessment_date' => :'vulnerability_assessment_date',
         :'xdome_id' => :'xdome_id'
       }
     end
@@ -785,6 +793,7 @@ module Falcon
         :'qualys_id' => :'String',
         :'qualys_network_id' => :'String',
         :'reduced_functionality_mode' => :'String',
+        :'scan_details' => :'Array<DomainDiscoverAPIScanDetailsHost>',
         :'servicenow_id' => :'String',
         :'site_name' => :'String',
         :'state' => :'String',
@@ -807,6 +816,7 @@ module Falcon
         :'user_internet_exposure' => :'String',
         :'virtual_zone' => :'String',
         :'vlan' => :'Array<String>',
+        :'vulnerability_assessment_date' => :'String',
         :'xdome_id' => :'String'
       }
     end
@@ -1408,6 +1418,12 @@ module Falcon
         self.reduced_functionality_mode = attributes[:'reduced_functionality_mode']
       end
 
+      if attributes.key?(:'scan_details')
+        if (value = attributes[:'scan_details']).is_a?(Array)
+          self.scan_details = value
+        end
+      end
+
       if attributes.key?(:'servicenow_id')
         self.servicenow_id = attributes[:'servicenow_id']
       end
@@ -1502,6 +1518,10 @@ module Falcon
         if (value = attributes[:'vlan']).is_a?(Array)
           self.vlan = value
         end
+      end
+
+      if attributes.key?(:'vulnerability_assessment_date')
+        self.vulnerability_assessment_date = attributes[:'vulnerability_assessment_date']
       end
 
       if attributes.key?(:'xdome_id')
@@ -1667,6 +1687,7 @@ module Falcon
           qualys_id == o.qualys_id &&
           qualys_network_id == o.qualys_network_id &&
           reduced_functionality_mode == o.reduced_functionality_mode &&
+          scan_details == o.scan_details &&
           servicenow_id == o.servicenow_id &&
           site_name == o.site_name &&
           state == o.state &&
@@ -1689,6 +1710,7 @@ module Falcon
           user_internet_exposure == o.user_internet_exposure &&
           virtual_zone == o.virtual_zone &&
           vlan == o.vlan &&
+          vulnerability_assessment_date == o.vulnerability_assessment_date &&
           xdome_id == o.xdome_id
     end
 
@@ -1701,7 +1723,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, network_scanned_ids, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, xdome_id].hash
+      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, network_scanned_ids, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id].hash
     end
 
     # Builds the object from hash

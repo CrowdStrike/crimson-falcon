@@ -96,4 +96,10 @@ describe Falcon::GraphValidationError do
     end
   end
 
+  describe 'test attribute "undefined_reference"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end

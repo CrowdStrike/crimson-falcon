@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **auto_detect_environment** | **Boolean** |  | [optional][default to false] |
 | **cid** | **String** |  | [optional] |
 | **created_timestamp** | **String** |  | [optional] |
 | **error_message** | **String** |  | [optional] |
@@ -27,6 +28,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::FalconxSubmissionV1.new(
+  auto_detect_environment: null,
   cid: null,
   created_timestamp: null,
   error_message: null,

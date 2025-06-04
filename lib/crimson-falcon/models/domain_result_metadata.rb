@@ -56,6 +56,8 @@ module Falcon
 
     attr_accessor :search_window_start
 
+    attr_accessor :use_ingest_time
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -70,7 +72,8 @@ module Falcon
         :'result_count' => :'result_count',
         :'result_id' => :'result_id',
         :'search_window_end' => :'search_window_end',
-        :'search_window_start' => :'search_window_start'
+        :'search_window_start' => :'search_window_start',
+        :'use_ingest_time' => :'use_ingest_time'
       }
     end
 
@@ -93,7 +96,8 @@ module Falcon
         :'result_count' => :'Integer',
         :'result_id' => :'String',
         :'search_window_end' => :'Time',
-        :'search_window_start' => :'Time'
+        :'search_window_start' => :'Time',
+        :'use_ingest_time' => :'Boolean'
       }
     end
 
@@ -165,6 +169,10 @@ module Falcon
       if attributes.key?(:'search_window_start')
         self.search_window_start = attributes[:'search_window_start']
       end
+
+      if attributes.key?(:'use_ingest_time')
+        self.use_ingest_time = attributes[:'use_ingest_time']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -219,6 +227,10 @@ module Falcon
         invalid_properties.push('invalid value for "search_window_start", search_window_start cannot be nil.')
       end
 
+      if @use_ingest_time.nil?
+        invalid_properties.push('invalid value for "use_ingest_time", use_ingest_time cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -237,6 +249,7 @@ module Falcon
       return false if @result_id.nil?
       return false if @search_window_end.nil?
       return false if @search_window_start.nil?
+      return false if @use_ingest_time.nil?
       true
     end
 
@@ -256,7 +269,8 @@ module Falcon
           result_count == o.result_count &&
           result_id == o.result_id &&
           search_window_end == o.search_window_end &&
-          search_window_start == o.search_window_start
+          search_window_start == o.search_window_start &&
+          use_ingest_time == o.use_ingest_time
     end
 
     # @see the `==` method
@@ -268,7 +282,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [execution_delay, execution_duration, execution_finish, execution_start, queue_duration, queue_start, report_file_name, report_finish, result_count, result_id, search_window_end, search_window_start].hash
+      [execution_delay, execution_duration, execution_finish, execution_start, queue_duration, queue_start, report_file_name, report_finish, result_count, result_id, search_window_end, search_window_start, use_ingest_time].hash
     end
 
     # Builds the object from hash

@@ -4,13 +4,16 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **aid** | **String** |  | [optional] |
-| **cid** | **String** |  | [optional] |
-| **complex_check_operator** | **String** |  | [optional] |
-| **created_timestamp** | **String** |  | [optional] |
-| **id** | **String** |  |  |
-| **logic** | [**Array&lt;DomainAPIEvaluationLogicItemV1&gt;**](DomainAPIEvaluationLogicItemV1.md) |  | [optional] |
-| **updated_timestamp** | **String** |  | [optional] |
+| **aid** | **String** | Refers to an asset identifier | [optional] |
+| **cid** | **String** | Refers to a customer identifier | [optional] |
+| **created_timestamp** | **String** | Refers to a point in time when evaluation logic data was created in the system | [optional] |
+| **data_provider** | **String** | Refers to a label given to the entity that provided this data | [optional] |
+| **host_info** | [**DomainAPIEvaluationLogicHostInfoV1**](DomainAPIEvaluationLogicHostInfoV1.md) |  | [optional] |
+| **id** | **String** | Contains a unique identifier for the evaluation logic |  |
+| **logic** | [**Array&lt;DomainAPIEvaluationLogicItemV1&gt;**](DomainAPIEvaluationLogicItemV1.md) | Refers to the actual evaluation logic data | [optional] |
+| **scanner_id** | **String** | Refers to the identifier of the scanner that generated the evaluation logic | [optional] |
+| **simplified_logic** | [**Array&lt;DomainAPISimplifiedEvaluationLogicItemV1&gt;**](DomainAPISimplifiedEvaluationLogicItemV1.md) | Refers to the simplified evaluation logic data | [optional] |
+| **updated_timestamp** | **String** | Refers to a point in time when evaluation logic data was updated in the system | [optional] |
 
 ## Example
 
@@ -20,10 +23,13 @@ require 'crimson-falcon'
 instance = Falcon::DomainAPIEvaluationLogicV1.new(
   aid: null,
   cid: null,
-  complex_check_operator: null,
   created_timestamp: null,
+  data_provider: null,
+  host_info: null,
   id: null,
   logic: null,
+  scanner_id: null,
+  simplified_logic: null,
   updated_timestamp: null
 )
 ```

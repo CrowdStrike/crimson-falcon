@@ -42,6 +42,12 @@ describe Falcon::DomainExportJobMetadataV1 do
       expect(instance).to be_instance_of(Falcon::DomainExportJobMetadataV1)
     end
   end
+  describe 'test attribute "created_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "entity"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

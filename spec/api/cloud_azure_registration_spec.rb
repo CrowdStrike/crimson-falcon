@@ -53,7 +53,7 @@ describe 'CloudAzureRegistration' do
   # Retrieve script to create resources
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [RestAzureProvisionGetAccountScriptResponseV1]
+  # @return [AzureAzureProvisionGetAccountScriptResponseV1]
   describe 'cloud_registration_azure_download_script test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

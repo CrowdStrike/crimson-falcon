@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **id** | **String** |  | [optional] |
 | **name** | **String** |  |  |
 | **version** | **String** |  |  |
 
@@ -13,6 +14,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::PolicyframeworkBenchmark.new(
+  id: null,
   name: null,
   version: null
 )

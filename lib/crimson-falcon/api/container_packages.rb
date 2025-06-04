@@ -100,6 +100,75 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieves the N most frequently used packages across images
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cveid&#x60; - &#x60;running_images&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
+    # @option opts [Integer] :limit Maximum number of package results to return (default to 5)
+    # @return [PackagesApiPackagesByImageCount]
+    def read_packages_by_image_count(opts = {})
+      data, _status_code, _headers = read_packages_by_image_count_with_http_info(opts)
+      data
+    end
+
+    # Retrieves the N most frequently used packages across images
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cveid&#x60; - &#x60;running_images&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
+    # @option opts [Integer] :limit Maximum number of package results to return (default to 5)
+    # @return [Array<(PackagesApiPackagesByImageCount, Integer, Hash)>] PackagesApiPackagesByImageCount data, response status code and response headers
+    def read_packages_by_image_count_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContainerPackages.read_packages_by_image_count ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContainerPackages.read_packages_by_image_count, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ContainerPackages.read_packages_by_image_count, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/container-security/aggregates/packages/by-image-count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PackagesApiPackagesByImageCount'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ContainerPackages.read_packages_by_image_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContainerPackages#read_packages_by_image_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Maximum offset = 10000 - limit
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
@@ -168,7 +237,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [PackagesApiCombinedPackage]
@@ -181,7 +250,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(PackagesApiCombinedPackage, Integer, Hash)>] PackagesApiCombinedPackage data, response status code and response headers
@@ -238,7 +307,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [PackagesApiCombinedPackageExport]
@@ -251,7 +320,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(PackagesApiCombinedPackageExport, Integer, Hash)>] PackagesApiCombinedPackageExport data, response status code and response headers
@@ -308,7 +377,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [PackagesApiCombinedPackageV2]
@@ -321,7 +390,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter packages using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;cveid&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;severity&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Boolean] :only_zero_day_affected (true/false) load zero day affected packages (default to false)
-    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60;
+    # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;license&#x60; - &#x60;package_name_version&#x60; - &#x60;type&#x60; - &#x60;vulnerability_count&#x60;
     # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(PackagesApiCombinedPackageV2, Integer, Hash)>] PackagesApiCombinedPackageV2 data, response status code and response headers

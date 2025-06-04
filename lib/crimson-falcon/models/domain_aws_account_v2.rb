@@ -68,6 +68,10 @@ module Falcon
 
     attr_accessor :cloud_scopes
 
+    attr_accessor :cloudformation_root_stack_arn
+
+    attr_accessor :cloudformation_update_url
+
     attr_accessor :cloudformation_url
 
     attr_accessor :conditions
@@ -89,6 +93,10 @@ module Falcon
     # ID assigned for use with cross account IAM role access.
     attr_accessor :external_id
 
+    attr_accessor :falcon_client_id
+
+    attr_accessor :features
+
     # The full arn of the IAM role created in this account to control access.
     attr_accessor :iam_role_arn
 
@@ -96,17 +104,19 @@ module Falcon
 
     attr_accessor :inventory_filter
 
+    attr_accessor :is_cloud_registration
+
     # Is CSPM Lite enabled.
     attr_accessor :is_cspm_lite
 
     attr_accessor :is_custom_rolename
 
+    attr_accessor :is_delegated_admin
+
     attr_accessor :is_master
 
     # Up to 34 character AWS provided unique identifier for the organization.
     attr_accessor :organization_id
-
-    attr_accessor :products
 
     attr_accessor :remediation_cloudformation_url
 
@@ -114,10 +124,16 @@ module Falcon
 
     attr_accessor :remediation_tou_accepted
 
+    attr_accessor :resource_name_prefix
+
+    attr_accessor :resource_name_suffix
+
     # 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to).
     attr_accessor :root_account_id
 
     attr_accessor :root_iam_role
+
+    attr_accessor :s3_url
 
     attr_accessor :secondary_role_arn
 
@@ -152,6 +168,8 @@ module Falcon
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cid' => :'cid',
         :'cloud_scopes' => :'cloud_scopes',
+        :'cloudformation_root_stack_arn' => :'cloudformation_root_stack_arn',
+        :'cloudformation_update_url' => :'cloudformation_update_url',
         :'cloudformation_url' => :'cloudformation_url',
         :'conditions' => :'conditions',
         :'cspm_enabled' => :'cspm_enabled',
@@ -162,19 +180,25 @@ module Falcon
         :'environment' => :'environment',
         :'eventbus_name' => :'eventbus_name',
         :'external_id' => :'external_id',
+        :'falcon_client_id' => :'falcon_client_id',
+        :'features' => :'features',
         :'iam_role_arn' => :'iam_role_arn',
         :'intermediate_role_arn' => :'intermediate_role_arn',
         :'inventory_filter' => :'inventory_filter',
+        :'is_cloud_registration' => :'is_cloud_registration',
         :'is_cspm_lite' => :'is_cspm_lite',
         :'is_custom_rolename' => :'is_custom_rolename',
+        :'is_delegated_admin' => :'is_delegated_admin',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
-        :'products' => :'products',
         :'remediation_cloudformation_url' => :'remediation_cloudformation_url',
         :'remediation_region' => :'remediation_region',
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
+        :'resource_name_prefix' => :'resource_name_prefix',
+        :'resource_name_suffix' => :'resource_name_suffix',
         :'root_account_id' => :'root_account_id',
         :'root_iam_role' => :'root_iam_role',
+        :'s3_url' => :'s3_url',
         :'secondary_role_arn' => :'secondary_role_arn',
         :'sensor_management_enabled' => :'sensor_management_enabled',
         :'settings' => :'settings',
@@ -208,8 +232,10 @@ module Falcon
         :'behavior_assessment_enabled' => :'Boolean',
         :'cid' => :'String',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
+        :'cloudformation_root_stack_arn' => :'String',
+        :'cloudformation_update_url' => :'String',
         :'cloudformation_url' => :'String',
-        :'conditions' => :'Array<DomainCondition>',
+        :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
         :'d4c' => :'DomainAWSD4CAccountV1',
         :'d4c_migrated' => :'Boolean',
@@ -218,19 +244,25 @@ module Falcon
         :'environment' => :'String',
         :'eventbus_name' => :'String',
         :'external_id' => :'String',
+        :'falcon_client_id' => :'String',
+        :'features' => :'Array<DomainProductFeatures>',
         :'iam_role_arn' => :'String',
         :'intermediate_role_arn' => :'String',
         :'inventory_filter' => :'Array<DomainAWSInventoryFilterSetting>',
+        :'is_cloud_registration' => :'Boolean',
         :'is_cspm_lite' => :'Boolean',
         :'is_custom_rolename' => :'Boolean',
+        :'is_delegated_admin' => :'Boolean',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
-        :'products' => :'Array<String>',
         :'remediation_cloudformation_url' => :'String',
         :'remediation_region' => :'String',
         :'remediation_tou_accepted' => :'Time',
+        :'resource_name_prefix' => :'String',
+        :'resource_name_suffix' => :'String',
         :'root_account_id' => :'String',
         :'root_iam_role' => :'Boolean',
+        :'s3_url' => :'String',
         :'secondary_role_arn' => :'String',
         :'sensor_management_enabled' => :'Boolean',
         :'settings' => :'Object',
@@ -328,6 +360,14 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'cloudformation_root_stack_arn')
+        self.cloudformation_root_stack_arn = attributes[:'cloudformation_root_stack_arn']
+      end
+
+      if attributes.key?(:'cloudformation_update_url')
+        self.cloudformation_update_url = attributes[:'cloudformation_update_url']
+      end
+
       if attributes.key?(:'cloudformation_url')
         self.cloudformation_url = attributes[:'cloudformation_url']
       end
@@ -370,6 +410,16 @@ module Falcon
         self.external_id = attributes[:'external_id']
       end
 
+      if attributes.key?(:'falcon_client_id')
+        self.falcon_client_id = attributes[:'falcon_client_id']
+      end
+
+      if attributes.key?(:'features')
+        if (value = attributes[:'features']).is_a?(Array)
+          self.features = value
+        end
+      end
+
       if attributes.key?(:'iam_role_arn')
         self.iam_role_arn = attributes[:'iam_role_arn']
       end
@@ -384,6 +434,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'is_cloud_registration')
+        self.is_cloud_registration = attributes[:'is_cloud_registration']
+      end
+
       if attributes.key?(:'is_cspm_lite')
         self.is_cspm_lite = attributes[:'is_cspm_lite']
       end
@@ -392,18 +446,16 @@ module Falcon
         self.is_custom_rolename = attributes[:'is_custom_rolename']
       end
 
+      if attributes.key?(:'is_delegated_admin')
+        self.is_delegated_admin = attributes[:'is_delegated_admin']
+      end
+
       if attributes.key?(:'is_master')
         self.is_master = attributes[:'is_master']
       end
 
       if attributes.key?(:'organization_id')
         self.organization_id = attributes[:'organization_id']
-      end
-
-      if attributes.key?(:'products')
-        if (value = attributes[:'products']).is_a?(Array)
-          self.products = value
-        end
       end
 
       if attributes.key?(:'remediation_cloudformation_url')
@@ -418,12 +470,24 @@ module Falcon
         self.remediation_tou_accepted = attributes[:'remediation_tou_accepted']
       end
 
+      if attributes.key?(:'resource_name_prefix')
+        self.resource_name_prefix = attributes[:'resource_name_prefix']
+      end
+
+      if attributes.key?(:'resource_name_suffix')
+        self.resource_name_suffix = attributes[:'resource_name_suffix']
+      end
+
       if attributes.key?(:'root_account_id')
         self.root_account_id = attributes[:'root_account_id']
       end
 
       if attributes.key?(:'root_iam_role')
         self.root_iam_role = attributes[:'root_iam_role']
+      end
+
+      if attributes.key?(:'s3_url')
+        self.s3_url = attributes[:'s3_url']
       end
 
       if attributes.key?(:'secondary_role_arn')
@@ -530,6 +594,8 @@ module Falcon
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cid == o.cid &&
           cloud_scopes == o.cloud_scopes &&
+          cloudformation_root_stack_arn == o.cloudformation_root_stack_arn &&
+          cloudformation_update_url == o.cloudformation_update_url &&
           cloudformation_url == o.cloudformation_url &&
           conditions == o.conditions &&
           cspm_enabled == o.cspm_enabled &&
@@ -540,19 +606,25 @@ module Falcon
           environment == o.environment &&
           eventbus_name == o.eventbus_name &&
           external_id == o.external_id &&
+          falcon_client_id == o.falcon_client_id &&
+          features == o.features &&
           iam_role_arn == o.iam_role_arn &&
           intermediate_role_arn == o.intermediate_role_arn &&
           inventory_filter == o.inventory_filter &&
+          is_cloud_registration == o.is_cloud_registration &&
           is_cspm_lite == o.is_cspm_lite &&
           is_custom_rolename == o.is_custom_rolename &&
+          is_delegated_admin == o.is_delegated_admin &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
-          products == o.products &&
           remediation_cloudformation_url == o.remediation_cloudformation_url &&
           remediation_region == o.remediation_region &&
           remediation_tou_accepted == o.remediation_tou_accepted &&
+          resource_name_prefix == o.resource_name_prefix &&
+          resource_name_suffix == o.resource_name_suffix &&
           root_account_id == o.root_account_id &&
           root_iam_role == o.root_iam_role &&
+          s3_url == o.s3_url &&
           secondary_role_arn == o.secondary_role_arn &&
           sensor_management_enabled == o.sensor_management_enabled &&
           settings == o.settings &&
@@ -571,7 +643,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, dspm_enabled, dspm_role_arn, environment, eventbus_name, external_id, iam_role_arn, intermediate_role_arn, inventory_filter, is_cspm_lite, is_custom_rolename, is_master, organization_id, products, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, root_account_id, root_iam_role, secondary_role_arn, sensor_management_enabled, settings, status, target_ous, use_existing_cloudtrail, valid].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_root_stack_arn, cloudformation_update_url, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, dspm_enabled, dspm_role_arn, environment, eventbus_name, external_id, falcon_client_id, features, iam_role_arn, intermediate_role_arn, inventory_filter, is_cloud_registration, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, secondary_role_arn, sensor_management_enabled, settings, status, target_ous, use_existing_cloudtrail, valid].hash
     end
 
     # Builds the object from hash

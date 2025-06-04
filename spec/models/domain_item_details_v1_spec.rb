@@ -144,6 +144,12 @@ describe Falcon::DomainItemDetailsV1 do
     end
   end
 
+  describe 'test attribute "screenshots"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "sha256"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

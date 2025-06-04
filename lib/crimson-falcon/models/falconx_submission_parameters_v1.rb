@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class FalconxSubmissionParametersV1
+    attr_accessor :auto_detect_environment
+
     attr_accessor :sandbox
 
     attr_accessor :send_email_notification
@@ -41,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auto_detect_environment' => :'auto_detect_environment',
         :'sandbox' => :'sandbox',
         :'send_email_notification' => :'send_email_notification',
         :'user_tags' => :'user_tags'
@@ -55,6 +58,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'auto_detect_environment' => :'Boolean',
         :'sandbox' => :'Array<FalconxSandboxParametersV1>',
         :'send_email_notification' => :'Boolean',
         :'user_tags' => :'Array<String>'
@@ -81,6 +85,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'auto_detect_environment')
+        self.auto_detect_environment = attributes[:'auto_detect_environment']
+      else
+        self.auto_detect_environment = false
+      end
 
       if attributes.key?(:'sandbox')
         if (value = attributes[:'sandbox']).is_a?(Array)
@@ -117,6 +127,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auto_detect_environment == o.auto_detect_environment &&
           sandbox == o.sandbox &&
           send_email_notification == o.send_email_notification &&
           user_tags == o.user_tags
@@ -131,7 +142,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sandbox, send_email_notification, user_tags].hash
+      [auto_detect_environment, sandbox, send_email_notification, user_tags].hash
     end
 
     # Builds the object from hash

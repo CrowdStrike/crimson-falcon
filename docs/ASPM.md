@@ -1,6 +1,6 @@
 # Falcon::ASPM
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -8,22 +8,49 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**create_integration**](ASPM.md#create_integration) | **POST** /aspm-api-gateway/api/v1/integrations | Create a new integration |
 | [**create_integration_task**](ASPM.md#create_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks | Create new integration task. |
 | [**delete_executor_node**](ASPM.md#delete_executor_node) | **DELETE** /aspm-api-gateway/api/v1/executor_nodes/{ID} | Delete a relay node |
+| [**delete_group_id_09**](ASPM.md#delete_group_id_09) | **DELETE** /aspm-api-gateway/api/v1/group/{ID} |  |
 | [**delete_integration**](ASPM.md#delete_integration) | **DELETE** /aspm-api-gateway/api/v1/integrations/{ID} | Delete an existing integration by its ID |
 | [**delete_integration_task**](ASPM.md#delete_integration_task) | **DELETE** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Delete an existing integration task by its ID |
 | [**delete_tags**](ASPM.md#delete_tags) | **POST** /aspm-api-gateway/api/v1/tags | Remove existing tags |
+| [**execute_function_data**](ASPM.md#execute_function_data) | **GET** /application-security/combined/function-data/v1 | A selected list of queryLanguage queries. request &amp; response are in MSA format |
+| [**execute_function_data_count**](ASPM.md#execute_function_data_count) | **POST** /application-security/aggregates/function-data/count/v1 | A selected list of queryLanguage count queries. request &amp; response are in MSA format |
+| [**execute_function_data_query**](ASPM.md#execute_function_data_query) | **GET** /application-security/combined/query-function-data/v1 | A selected list of queryLanguage queries. request &amp; response are in MSA format |
+| [**execute_function_data_query_count**](ASPM.md#execute_function_data_query_count) | **GET** /application-security/aggregates/query-function-data-count/v1 | A selected list of queryLanguage count queries. request &amp; response are in MSA format |
+| [**execute_functions**](ASPM.md#execute_functions) | **GET** /application-security/combined/functions/v1 | A selected list of queryLanguage services queries. request &amp; response are in MSA format |
+| [**execute_functions_count**](ASPM.md#execute_functions_count) | **POST** /application-security/aggregates/functions/count/v1 | A selected list of queryLanguage count queries. request &amp; response are in MSA format |
+| [**execute_functions_overtime**](ASPM.md#execute_functions_overtime) | **GET** /application-security/combined/functions-overtime/v1 | A selected list of queryLanguage overtime queries. request &amp; response are in MSA format |
+| [**execute_functions_query**](ASPM.md#execute_functions_query) | **GET** /application-security/combined/query-functions/v1 | A selected list of queryLanguage services queries. request &amp; response are in MSA format |
+| [**execute_functions_query_count**](ASPM.md#execute_functions_query_count) | **GET** /application-security/aggregates/query-functions-count/v1 | A selected list of queryLanguage count queries. request &amp; response are in MSA format |
+| [**execute_functions_query_overtime**](ASPM.md#execute_functions_query_overtime) | **GET** /application-security/combined/query-functions-overtime/v1 | A selected list of queryLanguage overtime queries. request &amp; response are in MSA format |
 | [**execute_query**](ASPM.md#execute_query) | **POST** /aspm-api-gateway/api/v1/query | Execute a query. The syntax used is identical to that of the query page. |
+| [**get_cloud_security_integration_state**](ASPM.md#get_cloud_security_integration_state) | **GET** /aspm-api-gateway/api/v1/cloud_security_config | Get Cloud Security integration state |
 | [**get_executor_nodes**](ASPM.md#get_executor_nodes) | **GET** /aspm-api-gateway/api/v1/executor_nodes | Get all the relay nodes |
+| [**get_executor_nodes_id_09_instances_csv**](ASPM.md#get_executor_nodes_id_09_instances_csv) | **GET** /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv | Retrieve the relay instances in CSV format |
 | [**get_executor_nodes_metadata**](ASPM.md#get_executor_nodes_metadata) | **GET** /aspm-api-gateway/api/v1/executor_nodes/metadata | Get metadata about all executor nodes |
+| [**get_group_id_09_v2**](ASPM.md#get_group_id_09_v2) | **GET** /aspm-api-gateway/api/v1/group/{ID}/v2 | Get group details |
+| [**get_groups_hier_v2**](ASPM.md#get_groups_hier_v2) | **GET** /aspm-api-gateway/api/v1/groups/hier/v2 | Get group hierarchy |
+| [**get_groups_list_v2**](ASPM.md#get_groups_list_v2) | **GET** /aspm-api-gateway/api/v1/groups/list/v2 |  |
 | [**get_integration_tasks**](ASPM.md#get_integration_tasks) | **GET** /aspm-api-gateway/api/v1/integration_tasks | Get all the integration tasks |
+| [**get_integration_tasks_admin**](ASPM.md#get_integration_tasks_admin) | **GET** /aspm-api-gateway/api/v1/integration_tasks/admin | Get all the integration tasks, requires admin scope |
 | [**get_integration_tasks_metadata**](ASPM.md#get_integration_tasks_metadata) | **GET** /aspm-api-gateway/api/v1/integration_tasks/metadata | Get metadata about all integration tasks |
+| [**get_integration_tasks_v2**](ASPM.md#get_integration_tasks_v2) | **GET** /aspm-api-gateway/api/v1/integration_tasks/v2 | Get all the integration tasks |
 | [**get_integration_types**](ASPM.md#get_integration_types) | **GET** /aspm-api-gateway/api/v1/integration_types | Get all the integration types |
 | [**get_integrations**](ASPM.md#get_integrations) | **GET** /aspm-api-gateway/api/v1/integrations | Get a list of all the integrations |
+| [**get_integrations_v2**](ASPM.md#get_integrations_v2) | **GET** /aspm-api-gateway/api/v1/integrations/v2 | Get a list of all the integrations |
+| [**get_service_artifacts**](ASPM.md#get_service_artifacts) | **GET** /aspm-api-gateway/api/v1/artifacts |  |
 | [**get_service_violation_types**](ASPM.md#get_service_violation_types) | **GET** /aspm-api-gateway/api/v1/services/violations/types | Get the different types of violation |
 | [**get_services_count**](ASPM.md#get_services_count) | **POST** /aspm-api-gateway/api/v1/services/count | Get the total amount of existing services |
 | [**get_tags**](ASPM.md#get_tags) | **GET** /aspm-api-gateway/api/v1/tags | Get all the tags |
+| [**get_users_v2**](ASPM.md#get_users_v2) | **GET** /aspm-api-gateway/api/v1/users/v2 | List users |
+| [**post_group_id_09_update_default**](ASPM.md#post_group_id_09_update_default) | **POST** /aspm-api-gateway/api/v1/group/{ID}/update_default | Update default group |
+| [**post_group_id_09_v2**](ASPM.md#post_group_id_09_v2) | **POST** /aspm-api-gateway/api/v1/group/{ID}/v2 | Update group |
+| [**post_group_v2**](ASPM.md#post_group_v2) | **POST** /aspm-api-gateway/api/v1/group/v2 | Create group |
 | [**run_integration_task**](ASPM.md#run_integration_task) | **POST** /aspm-api-gateway/api/v1/integration_tasks/{ID}/run | Run an integration task by its ID |
+| [**run_integration_task_admin**](ASPM.md#run_integration_task_admin) | **POST** /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin | Run an integration task by its ID - for admin scope |
+| [**run_integration_task_v2**](ASPM.md#run_integration_task_v2) | **POST** /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2 | Run an integration task by its ID |
 | [**service_now_get_deployments**](ASPM.md#service_now_get_deployments) | **GET** /aspm-api-gateway/api/v1/servicenow/deployments |  |
 | [**service_now_get_services**](ASPM.md#service_now_get_services) | **GET** /aspm-api-gateway/api/v1/servicenow/services |  |
+| [**set_cloud_security_integration_state**](ASPM.md#set_cloud_security_integration_state) | **POST** /aspm-api-gateway/api/v1/cloud_security_config | Set Cloud Security integration state |
 | [**update_executor_node**](ASPM.md#update_executor_node) | **PUT** /aspm-api-gateway/api/v1/executor_nodes | Update an existing relay node |
 | [**update_integration**](ASPM.md#update_integration) | **PUT** /aspm-api-gateway/api/v1/integrations/{ID} | Update an existing integration by its ID |
 | [**update_integration_task**](ASPM.md#update_integration_task) | **PUT** /aspm-api-gateway/api/v1/integration_tasks/{ID} | Update an existing integration task by its ID |
@@ -102,7 +129,7 @@ end
 
 ## create_integration
 
-> <TypesIntegrationResponse> create_integration(body)
+> <TypesCreateIntegrationResponse> create_integration(body)
 
 Create a new integration
 
@@ -135,7 +162,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TypesIntegrationResponse>, Integer, Hash)> create_integration_with_http_info(body)
+> <Array(<TypesCreateIntegrationResponse>, Integer, Hash)> create_integration_with_http_info(body)
 
 ```ruby
 begin
@@ -143,7 +170,7 @@ begin
   data, status_code, headers = api_instance.create_integration_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <TypesIntegrationResponse>
+  p data # => <TypesCreateIntegrationResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling ASPM->create_integration_with_http_info: #{e}"
 end
@@ -157,7 +184,7 @@ end
 
 ### Return type
 
-[**TypesIntegrationResponse**](TypesIntegrationResponse.md)
+[**TypesCreateIntegrationResponse**](TypesCreateIntegrationResponse.md)
 
 ### Authorization
 
@@ -291,6 +318,74 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **Integer** |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_group_id_09
+
+> delete_group_id_09(id)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | Group ID
+
+begin
+  
+  api_instance.delete_group_id_09(id)
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->delete_group_id_09: #{e}"
+end
+```
+
+#### Using the delete_group_id_09_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_group_id_09_with_http_info(id)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.delete_group_id_09_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->delete_group_id_09_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Group ID |  |
 
 ### Return type
 
@@ -510,6 +605,720 @@ nil (empty response body)
 - **Accept**: application/json
 
 
+## execute_function_data
+
+> <TypesGeneralQueryResponse> execute_function_data(field)
+
+A selected list of queryLanguage queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage queries. request & response are in MSA format
+  result = api_instance.execute_function_data(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data: #{e}"
+end
+```
+
+#### Using the execute_function_data_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> execute_function_data_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_function_data_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_function_data_count
+
+> <TypesCountResponse> execute_function_data_count(query_name, cloud_provider, opts)
+
+A selected list of queryLanguage count queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+query_name = 'sensitive_data' # String | 
+cloud_provider = 'aws' # String | 
+opts = {
+  aws_lambda_arn: 'aws_lambda_arn_example', # String | required for 'aws' cloud provider
+  gcp_cloud_function_url: 'gcp_cloud_function_url_example', # String | required for 'gcp' cloud provider
+  azure_site_subscription_id: 'azure_site_subscription_id_example', # String | required for 'azure' cloud provider
+  azure_site_resource_group: 'azure_site_resource_group_example', # String | required for 'azure' cloud provider
+  azure_function_app_name: 'azure_function_app_name_example' # String | required for 'azure' cloud provider
+}
+
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  result = api_instance.execute_function_data_count(query_name, cloud_provider, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_count: #{e}"
+end
+```
+
+#### Using the execute_function_data_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesCountResponse>, Integer, Hash)> execute_function_data_count_with_http_info(query_name, cloud_provider, opts)
+
+```ruby
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_function_data_count_with_http_info(query_name, cloud_provider, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query_name** | **String** |  |  |
+| **cloud_provider** | **String** |  |  |
+| **aws_lambda_arn** | **String** | required for &#39;aws&#39; cloud provider | [optional] |
+| **gcp_cloud_function_url** | **String** | required for &#39;gcp&#39; cloud provider | [optional] |
+| **azure_site_subscription_id** | **String** | required for &#39;azure&#39; cloud provider | [optional] |
+| **azure_site_resource_group** | **String** | required for &#39;azure&#39; cloud provider | [optional] |
+| **azure_function_app_name** | **String** | required for &#39;azure&#39; cloud provider | [optional] |
+
+### Return type
+
+[**TypesCountResponse**](TypesCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_function_data_query
+
+> <TypesGeneralQueryResponse> execute_function_data_query(field)
+
+A selected list of queryLanguage queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage queries. request & response are in MSA format
+  result = api_instance.execute_function_data_query(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_query: #{e}"
+end
+```
+
+#### Using the execute_function_data_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> execute_function_data_query_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_function_data_query_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_function_data_query_count
+
+> <TypesCountResponse> execute_function_data_query_count(field)
+
+A selected list of queryLanguage count queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  result = api_instance.execute_function_data_query_count(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_query_count: #{e}"
+end
+```
+
+#### Using the execute_function_data_query_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesCountResponse>, Integer, Hash)> execute_function_data_query_count_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_function_data_query_count_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_function_data_query_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesCountResponse**](TypesCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions
+
+> <TypesGeneralQueryResponse> execute_functions(field)
+
+A selected list of queryLanguage services queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage services queries. request & response are in MSA format
+  result = api_instance.execute_functions(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions: #{e}"
+end
+```
+
+#### Using the execute_functions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> execute_functions_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage services queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions_count
+
+> <TypesCountResponse> execute_functions_count(query_name, opts)
+
+A selected list of queryLanguage count queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+query_name = 'sensitive_data' # String | 
+opts = {
+  cloud_provider: ['inner_example'], # Array<String> | 
+  cloud_account_id: ['inner_example'], # Array<String> | required for 'aws' cloud provider
+  region: ['inner_example'], # Array<String> | required for 'gcp' cloud provider
+  cid: ['inner_example'] # Array<String> | required for 'azure' cloud provider
+}
+
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  result = api_instance.execute_functions_count(query_name, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_count: #{e}"
+end
+```
+
+#### Using the execute_functions_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesCountResponse>, Integer, Hash)> execute_functions_count_with_http_info(query_name, opts)
+
+```ruby
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_count_with_http_info(query_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query_name** | **String** |  |  |
+| **cloud_provider** | [**Array&lt;String&gt;**](String.md) |  | [optional] |
+| **cloud_account_id** | [**Array&lt;String&gt;**](String.md) | required for &#39;aws&#39; cloud provider | [optional] |
+| **region** | [**Array&lt;String&gt;**](String.md) | required for &#39;gcp&#39; cloud provider | [optional] |
+| **cid** | [**Array&lt;String&gt;**](String.md) | required for &#39;azure&#39; cloud provider | [optional] |
+
+### Return type
+
+[**TypesCountResponse**](TypesCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions_overtime
+
+> <TypesOvertimeResponse> execute_functions_overtime(field)
+
+A selected list of queryLanguage overtime queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage overtime queries. request & response are in MSA format
+  result = api_instance.execute_functions_overtime(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_overtime: #{e}"
+end
+```
+
+#### Using the execute_functions_overtime_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesOvertimeResponse>, Integer, Hash)> execute_functions_overtime_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage overtime queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_overtime_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesOvertimeResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_overtime_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesOvertimeResponse**](TypesOvertimeResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions_query
+
+> <TypesGeneralQueryResponse> execute_functions_query(field)
+
+A selected list of queryLanguage services queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage services queries. request & response are in MSA format
+  result = api_instance.execute_functions_query(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query: #{e}"
+end
+```
+
+#### Using the execute_functions_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> execute_functions_query_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage services queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_query_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions_query_count
+
+> <TypesCountResponse> execute_functions_query_count(field)
+
+A selected list of queryLanguage count queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  result = api_instance.execute_functions_query_count(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query_count: #{e}"
+end
+```
+
+#### Using the execute_functions_query_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesCountResponse>, Integer, Hash)> execute_functions_query_count_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage count queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_query_count_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesCountResponse**](TypesCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## execute_functions_query_overtime
+
+> <TypesOvertimeResponse> execute_functions_query_overtime(field)
+
+A selected list of queryLanguage overtime queries. request & response are in MSA format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+field = 'field_example' # String | 
+
+begin
+  # A selected list of queryLanguage overtime queries. request & response are in MSA format
+  result = api_instance.execute_functions_query_overtime(field)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query_overtime: #{e}"
+end
+```
+
+#### Using the execute_functions_query_overtime_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesOvertimeResponse>, Integer, Hash)> execute_functions_query_overtime_with_http_info(field)
+
+```ruby
+begin
+  # A selected list of queryLanguage overtime queries. request & response are in MSA format
+  data, status_code, headers = api_instance.execute_functions_query_overtime_with_http_info(field)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesOvertimeResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->execute_functions_query_overtime_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field** | **String** |  |  |
+
+### Return type
+
+[**TypesOvertimeResponse**](TypesOvertimeResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## execute_query
 
 > <TypesQueryResult> execute_query(body)
@@ -576,6 +1385,72 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_cloud_security_integration_state
+
+> <TypesGetCloudSecurityIntegrationStateResponse> get_cloud_security_integration_state
+
+Get Cloud Security integration state
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+
+begin
+  # Get Cloud Security integration state
+  result = api_instance.get_cloud_security_integration_state
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cloud_security_integration_state: #{e}"
+end
+```
+
+#### Using the get_cloud_security_integration_state_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGetCloudSecurityIntegrationStateResponse>, Integer, Hash)> get_cloud_security_integration_state_with_http_info
+
+```ruby
+begin
+  # Get Cloud Security integration state
+  data, status_code, headers = api_instance.get_cloud_security_integration_state_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGetCloudSecurityIntegrationStateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cloud_security_integration_state_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TypesGetCloudSecurityIntegrationStateResponse**](TypesGetCloudSecurityIntegrationStateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -668,6 +1543,77 @@ end
 - **Accept**: application/json
 
 
+## get_executor_nodes_id_09_instances_csv
+
+> String get_executor_nodes_id_09_instances_csv(id, body)
+
+Retrieve the relay instances in CSV format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | 
+body = Falcon::TypesExecutorNode.new # TypesExecutorNode | 
+
+begin
+  # Retrieve the relay instances in CSV format
+  result = api_instance.get_executor_nodes_id_09_instances_csv(id, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_executor_nodes_id_09_instances_csv: #{e}"
+end
+```
+
+#### Using the get_executor_nodes_id_09_instances_csv_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> get_executor_nodes_id_09_instances_csv_with_http_info(id, body)
+
+```ruby
+begin
+  # Retrieve the relay instances in CSV format
+  data, status_code, headers = api_instance.get_executor_nodes_id_09_instances_csv_with_http_info(id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_executor_nodes_id_09_instances_csv_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **body** | [**TypesExecutorNode**](TypesExecutorNode.md) |  |  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## get_executor_nodes_metadata
 
 > <TypesGetExecutorNodesMetadataResponse> get_executor_nodes_metadata(opts)
@@ -734,6 +1680,212 @@ end
 ### Return type
 
 [**TypesGetExecutorNodesMetadataResponse**](TypesGetExecutorNodesMetadataResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_group_id_09_v2
+
+> <TypesGroupDetails> get_group_id_09_v2(id)
+
+Get group details
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | Group ID
+
+begin
+  # Get group details
+  result = api_instance.get_group_id_09_v2(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_group_id_09_v2: #{e}"
+end
+```
+
+#### Using the get_group_id_09_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGroupDetails>, Integer, Hash)> get_group_id_09_v2_with_http_info(id)
+
+```ruby
+begin
+  # Get group details
+  data, status_code, headers = api_instance.get_group_id_09_v2_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGroupDetails>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_group_id_09_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Group ID |  |
+
+### Return type
+
+[**TypesGroupDetails**](TypesGroupDetails.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_groups_hier_v2
+
+> <TypesGroupHierarchyResponse> get_groups_hier_v2
+
+Get group hierarchy
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+
+begin
+  # Get group hierarchy
+  result = api_instance.get_groups_hier_v2
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_groups_hier_v2: #{e}"
+end
+```
+
+#### Using the get_groups_hier_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGroupHierarchyResponse>, Integer, Hash)> get_groups_hier_v2_with_http_info
+
+```ruby
+begin
+  # Get group hierarchy
+  data, status_code, headers = api_instance.get_groups_hier_v2_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGroupHierarchyResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_groups_hier_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TypesGroupHierarchyResponse**](TypesGroupHierarchyResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_groups_list_v2
+
+> <Array<TypesGroupListItem>> get_groups_list_v2(opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  type: 'type_example' # String | Group types to query - can either be empty (all), parents, children
+}
+
+begin
+  
+  result = api_instance.get_groups_list_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_groups_list_v2: #{e}"
+end
+```
+
+#### Using the get_groups_list_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<TypesGroupListItem>>, Integer, Hash)> get_groups_list_v2_with_http_info(opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_groups_list_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<TypesGroupListItem>>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_groups_list_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** | Group types to query - can either be empty (all), parents, children | [optional] |
+
+### Return type
+
+[**Array&lt;TypesGroupListItem&gt;**](TypesGroupListItem.md)
 
 ### Authorization
 
@@ -832,6 +1984,93 @@ end
 - **Accept**: application/json
 
 
+## get_integration_tasks_admin
+
+> <TypesListIntegrationTasksResponse> get_integration_tasks_admin(opts)
+
+Get all the integration tasks, requires admin scope
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  integration_task_type: 56, # Integer | 
+  category: 'category_example', # String | 
+  offset: 56, # Integer | 
+  limit: 56, # Integer | 
+  order_by: 'name', # String | 
+  direction: 'asc', # String | 
+  integration_task_types: 56, # Integer | 
+  ids: 56, # Integer | 
+  names: 'names_example' # String | 
+}
+
+begin
+  # Get all the integration tasks, requires admin scope
+  result = api_instance.get_integration_tasks_admin(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_admin: #{e}"
+end
+```
+
+#### Using the get_integration_tasks_admin_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesListIntegrationTasksResponse>, Integer, Hash)> get_integration_tasks_admin_with_http_info(opts)
+
+```ruby
+begin
+  # Get all the integration tasks, requires admin scope
+  data, status_code, headers = api_instance.get_integration_tasks_admin_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesListIntegrationTasksResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_admin_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **integration_task_type** | **Integer** |  | [optional] |
+| **category** | **String** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **order_by** | **String** |  | [optional] |
+| **direction** | **String** |  | [optional] |
+| **integration_task_types** | **Integer** |  | [optional] |
+| **ids** | **Integer** |  | [optional] |
+| **names** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesListIntegrationTasksResponse**](TypesListIntegrationTasksResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## get_integration_tasks_metadata
 
 > <TypesGetIntegrationTasksMetadataResponse> get_integration_tasks_metadata(opts)
@@ -898,6 +2137,93 @@ end
 ### Return type
 
 [**TypesGetIntegrationTasksMetadataResponse**](TypesGetIntegrationTasksMetadataResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_integration_tasks_v2
+
+> <TypesListIntegrationTasksResponse> get_integration_tasks_v2(opts)
+
+Get all the integration tasks
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  integration_task_type: 56, # Integer | 
+  category: 'category_example', # String | 
+  offset: 56, # Integer | 
+  limit: 56, # Integer | 
+  order_by: 'name', # String | 
+  direction: 'asc', # String | 
+  integration_task_types: 56, # Integer | 
+  ids: 56, # Integer | 
+  names: 'names_example' # String | 
+}
+
+begin
+  # Get all the integration tasks
+  result = api_instance.get_integration_tasks_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_v2: #{e}"
+end
+```
+
+#### Using the get_integration_tasks_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesListIntegrationTasksResponse>, Integer, Hash)> get_integration_tasks_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get all the integration tasks
+  data, status_code, headers = api_instance.get_integration_tasks_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesListIntegrationTasksResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integration_tasks_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **integration_task_type** | **Integer** |  | [optional] |
+| **category** | **String** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **order_by** | **String** |  | [optional] |
+| **direction** | **String** |  | [optional] |
+| **integration_task_types** | **Integer** |  | [optional] |
+| **ids** | **Integer** |  | [optional] |
+| **names** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesListIntegrationTasksResponse**](TypesListIntegrationTasksResponse.md)
 
 ### Authorization
 
@@ -1037,6 +2363,162 @@ end
 ### Return type
 
 [**TypesListIntegrationsResponse**](TypesListIntegrationsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_integrations_v2
+
+> <TypesListIntegrationsResponse> get_integrations_v2(opts)
+
+Get a list of all the integrations
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  integration_type: 56, # Integer | 
+  category: 'category_example' # String | 
+}
+
+begin
+  # Get a list of all the integrations
+  result = api_instance.get_integrations_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integrations_v2: #{e}"
+end
+```
+
+#### Using the get_integrations_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesListIntegrationsResponse>, Integer, Hash)> get_integrations_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get a list of all the integrations
+  data, status_code, headers = api_instance.get_integrations_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesListIntegrationsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_integrations_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **integration_type** | **Integer** |  | [optional] |
+| **category** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesListIntegrationsResponse**](TypesListIntegrationsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_service_artifacts
+
+> <TypesArtifacts> get_service_artifacts(persistent_signature, opts)
+
+
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+persistent_signature = 'persistent_signature_example' # String | 
+opts = {
+  optional_time: 56, # Integer | 
+  revision_id: 56, # Integer | 
+  limit: 56, # Integer | 
+  offset: 56, # Integer | 
+  order_by: ['inner_example'], # Array<String> | 
+  direction: 'asc' # String | 
+}
+
+begin
+  
+  result = api_instance.get_service_artifacts(persistent_signature, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_service_artifacts: #{e}"
+end
+```
+
+#### Using the get_service_artifacts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesArtifacts>, Integer, Hash)> get_service_artifacts_with_http_info(persistent_signature, opts)
+
+```ruby
+begin
+  
+  data, status_code, headers = api_instance.get_service_artifacts_with_http_info(persistent_signature, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesArtifacts>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_service_artifacts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **persistent_signature** | **String** |  |  |
+| **optional_time** | **Integer** |  | [optional] |
+| **revision_id** | **Integer** |  | [optional] |
+| **limit** | **Integer** |  | [optional] |
+| **offset** | **Integer** |  | [optional] |
+| **order_by** | [**Array&lt;String&gt;**](String.md) |  | [optional] |
+| **direction** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesArtifacts**](TypesArtifacts.md)
 
 ### Authorization
 
@@ -1264,6 +2746,283 @@ end
 - **Accept**: application/json
 
 
+## get_users_v2
+
+> <TypesUsersResponse> get_users_v2(opts)
+
+List users
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+opts = {
+  pagination: 'pagination_example' # String | URL encoded pagination JSON - limit, offset, direction, orderBy
+}
+
+begin
+  # List users
+  result = api_instance.get_users_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_users_v2: #{e}"
+end
+```
+
+#### Using the get_users_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesUsersResponse>, Integer, Hash)> get_users_v2_with_http_info(opts)
+
+```ruby
+begin
+  # List users
+  data, status_code, headers = api_instance.get_users_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesUsersResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_users_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **pagination** | **String** | URL encoded pagination JSON - limit, offset, direction, orderBy | [optional] |
+
+### Return type
+
+[**TypesUsersResponse**](TypesUsersResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_group_id_09_update_default
+
+> post_group_id_09_update_default(id)
+
+Update default group
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | Group ID
+
+begin
+  # Update default group
+  api_instance.post_group_id_09_update_default(id)
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_id_09_update_default: #{e}"
+end
+```
+
+#### Using the post_group_id_09_update_default_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_group_id_09_update_default_with_http_info(id)
+
+```ruby
+begin
+  # Update default group
+  data, status_code, headers = api_instance.post_group_id_09_update_default_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_id_09_update_default_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Group ID |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## post_group_id_09_v2
+
+> post_group_id_09_v2(id, body)
+
+Update group
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | Group ID
+body = Falcon::TypesUpdateGroupRequest.new # TypesUpdateGroupRequest | 
+
+begin
+  # Update group
+  api_instance.post_group_id_09_v2(id, body)
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_id_09_v2: #{e}"
+end
+```
+
+#### Using the post_group_id_09_v2_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_group_id_09_v2_with_http_info(id, body)
+
+```ruby
+begin
+  # Update group
+  data, status_code, headers = api_instance.post_group_id_09_v2_with_http_info(id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_id_09_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Group ID |  |
+| **body** | [**TypesUpdateGroupRequest**](TypesUpdateGroupRequest.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## post_group_v2
+
+> post_group_v2(body)
+
+Create group
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+body = Falcon::TypesCreateGroupRequest.new # TypesCreateGroupRequest | 
+
+begin
+  # Create group
+  api_instance.post_group_v2(body)
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_v2: #{e}"
+end
+```
+
+#### Using the post_group_v2_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_group_v2_with_http_info(body)
+
+```ruby
+begin
+  # Create group
+  data, status_code, headers = api_instance.post_group_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->post_group_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TypesCreateGroupRequest**](TypesCreateGroupRequest.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## run_integration_task
 
 > <TypesIntegrationTaskTestConnectionResponse> run_integration_task(id, body, opts)
@@ -1314,6 +3073,156 @@ begin
   p data # => <TypesIntegrationTaskTestConnectionResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling ASPM->run_integration_task_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **body** | [**TypesRunIntegrationTaskRequest**](TypesRunIntegrationTaskRequest.md) |  |  |
+| **category** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesIntegrationTaskTestConnectionResponse**](TypesIntegrationTaskTestConnectionResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## run_integration_task_admin
+
+> <TypesIntegrationTaskTestConnectionResponse> run_integration_task_admin(id, body, opts)
+
+Run an integration task by its ID - for admin scope
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | 
+body = Falcon::TypesRunIntegrationTaskRequest.new # TypesRunIntegrationTaskRequest | 
+opts = {
+  category: 'category_example' # String | 
+}
+
+begin
+  # Run an integration task by its ID - for admin scope
+  result = api_instance.run_integration_task_admin(id, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->run_integration_task_admin: #{e}"
+end
+```
+
+#### Using the run_integration_task_admin_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesIntegrationTaskTestConnectionResponse>, Integer, Hash)> run_integration_task_admin_with_http_info(id, body, opts)
+
+```ruby
+begin
+  # Run an integration task by its ID - for admin scope
+  data, status_code, headers = api_instance.run_integration_task_admin_with_http_info(id, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesIntegrationTaskTestConnectionResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->run_integration_task_admin_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **body** | [**TypesRunIntegrationTaskRequest**](TypesRunIntegrationTaskRequest.md) |  |  |
+| **category** | **String** |  | [optional] |
+
+### Return type
+
+[**TypesIntegrationTaskTestConnectionResponse**](TypesIntegrationTaskTestConnectionResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## run_integration_task_v2
+
+> <TypesIntegrationTaskTestConnectionResponse> run_integration_task_v2(id, body, opts)
+
+Run an integration task by its ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+id = 56 # Integer | 
+body = Falcon::TypesRunIntegrationTaskRequest.new # TypesRunIntegrationTaskRequest | 
+opts = {
+  category: 'category_example' # String | 
+}
+
+begin
+  # Run an integration task by its ID
+  result = api_instance.run_integration_task_v2(id, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->run_integration_task_v2: #{e}"
+end
+```
+
+#### Using the run_integration_task_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesIntegrationTaskTestConnectionResponse>, Integer, Hash)> run_integration_task_v2_with_http_info(id, body, opts)
+
+```ruby
+begin
+  # Run an integration task by its ID
+  data, status_code, headers = api_instance.run_integration_task_v2_with_http_info(id, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesIntegrationTaskTestConnectionResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->run_integration_task_v2_with_http_info: #{e}"
 end
 ```
 
@@ -1440,6 +3349,7 @@ end
 api_instance = Falcon::ASPM.new
 opts = {
   ql_filters: 'ql_filters_example', # String | 
+  exclude_artifacts: true, # Boolean | 
   limit: 56, # Integer | 
   offset: 56, # Integer | 
   order_by: 'order_by_example', # String | 
@@ -1478,6 +3388,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **ql_filters** | **String** |  | [optional] |
+| **exclude_artifacts** | **Boolean** |  | [optional] |
 | **limit** | **Integer** |  | [optional] |
 | **offset** | **Integer** |  | [optional] |
 | **order_by** | **String** |  | [optional] |
@@ -1494,6 +3405,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## set_cloud_security_integration_state
+
+> set_cloud_security_integration_state(body)
+
+Set Cloud Security integration state
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+body = Falcon::TypesSetCloudSecurityIntegrationStateRequest.new({is_enabled: false}) # TypesSetCloudSecurityIntegrationStateRequest | 
+
+begin
+  # Set Cloud Security integration state
+  api_instance.set_cloud_security_integration_state(body)
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->set_cloud_security_integration_state: #{e}"
+end
+```
+
+#### Using the set_cloud_security_integration_state_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> set_cloud_security_integration_state_with_http_info(body)
+
+```ruby
+begin
+  # Set Cloud Security integration state
+  data, status_code, headers = api_instance.set_cloud_security_integration_state_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->set_cloud_security_integration_state_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**TypesSetCloudSecurityIntegrationStateRequest**](TypesSetCloudSecurityIntegrationStateRequest.md) |  |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

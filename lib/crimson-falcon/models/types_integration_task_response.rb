@@ -39,8 +39,8 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'integration_task' => :'integration_task',
-        :'new_executor_node' => :'new_executor_node'
+        :'integration_task' => :'integrationTask',
+        :'new_executor_node' => :'newExecutorNode'
       }
     end
 

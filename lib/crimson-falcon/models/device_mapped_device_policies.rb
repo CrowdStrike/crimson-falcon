@@ -38,13 +38,17 @@ module Falcon
 
     attr_accessor :aws_verified_access
 
+    attr_accessor :browser_extension
+
+    attr_accessor :consumer_subscription
+
+    attr_accessor :content_update
+
     attr_accessor :customer_entitlements
 
     attr_accessor :data_protection
 
     attr_accessor :device_control
-
-    attr_accessor :falcon_for_it
 
     attr_accessor :fim
 
@@ -56,15 +60,17 @@ module Falcon
 
     attr_accessor :identity_protection
 
+    attr_accessor :it_automation
+
     attr_accessor :jumpcloud
 
     attr_accessor :kubernetes_admission_control
 
-    attr_accessor :legacy_os
-
     attr_accessor :mobile
 
     attr_accessor :netskope
+
+    attr_accessor :network_scan_content
 
     attr_accessor :prevention
 
@@ -86,20 +92,23 @@ module Falcon
         :'airlock' => :'airlock',
         :'automox' => :'automox',
         :'aws_verified_access' => :'aws-verified-access',
+        :'browser_extension' => :'browser-extension',
+        :'consumer_subscription' => :'consumer-subscription',
+        :'content_update' => :'content-update',
         :'customer_entitlements' => :'customer-entitlements',
         :'data_protection' => :'data-protection',
         :'device_control' => :'device_control',
-        :'falcon_for_it' => :'falcon-for-it',
         :'fim' => :'fim',
         :'firewall' => :'firewall',
         :'global_config' => :'global_config',
         :'host_retention' => :'host-retention',
         :'identity_protection' => :'identity-protection',
+        :'it_automation' => :'it-automation',
         :'jumpcloud' => :'jumpcloud',
         :'kubernetes_admission_control' => :'kubernetes-admission-control',
-        :'legacy_os' => :'legacy-os',
         :'mobile' => :'mobile',
         :'netskope' => :'netskope',
+        :'network_scan_content' => :'network-scan-content',
         :'prevention' => :'prevention',
         :'remote_response' => :'remote_response',
         :'sca' => :'sca',
@@ -121,20 +130,23 @@ module Falcon
         :'airlock' => :'DeviceDevicePolicy',
         :'automox' => :'DeviceDevicePolicy',
         :'aws_verified_access' => :'DeviceDevicePolicy',
+        :'browser_extension' => :'DeviceDevicePolicy',
+        :'consumer_subscription' => :'DeviceDevicePolicy',
+        :'content_update' => :'DeviceDevicePolicy',
         :'customer_entitlements' => :'DeviceDevicePolicy',
         :'data_protection' => :'DeviceDevicePolicy',
         :'device_control' => :'DeviceDevicePolicy',
-        :'falcon_for_it' => :'DeviceDevicePolicy',
         :'fim' => :'DeviceDevicePolicy',
         :'firewall' => :'DeviceDevicePolicy',
         :'global_config' => :'DeviceDevicePolicy',
         :'host_retention' => :'DeviceDevicePolicy',
         :'identity_protection' => :'DeviceDevicePolicy',
+        :'it_automation' => :'DeviceDevicePolicy',
         :'jumpcloud' => :'DeviceDevicePolicy',
         :'kubernetes_admission_control' => :'DeviceDevicePolicy',
-        :'legacy_os' => :'DeviceDevicePolicy',
         :'mobile' => :'DeviceDevicePolicy',
         :'netskope' => :'DeviceDevicePolicy',
+        :'network_scan_content' => :'DeviceDevicePolicy',
         :'prevention' => :'DeviceDevicePolicy',
         :'remote_response' => :'DeviceDevicePolicy',
         :'sca' => :'DeviceDevicePolicy',
@@ -178,6 +190,18 @@ module Falcon
         self.aws_verified_access = attributes[:'aws_verified_access']
       end
 
+      if attributes.key?(:'browser_extension')
+        self.browser_extension = attributes[:'browser_extension']
+      end
+
+      if attributes.key?(:'consumer_subscription')
+        self.consumer_subscription = attributes[:'consumer_subscription']
+      end
+
+      if attributes.key?(:'content_update')
+        self.content_update = attributes[:'content_update']
+      end
+
       if attributes.key?(:'customer_entitlements')
         self.customer_entitlements = attributes[:'customer_entitlements']
       end
@@ -188,10 +212,6 @@ module Falcon
 
       if attributes.key?(:'device_control')
         self.device_control = attributes[:'device_control']
-      end
-
-      if attributes.key?(:'falcon_for_it')
-        self.falcon_for_it = attributes[:'falcon_for_it']
       end
 
       if attributes.key?(:'fim')
@@ -214,6 +234,10 @@ module Falcon
         self.identity_protection = attributes[:'identity_protection']
       end
 
+      if attributes.key?(:'it_automation')
+        self.it_automation = attributes[:'it_automation']
+      end
+
       if attributes.key?(:'jumpcloud')
         self.jumpcloud = attributes[:'jumpcloud']
       end
@@ -222,16 +246,16 @@ module Falcon
         self.kubernetes_admission_control = attributes[:'kubernetes_admission_control']
       end
 
-      if attributes.key?(:'legacy_os')
-        self.legacy_os = attributes[:'legacy_os']
-      end
-
       if attributes.key?(:'mobile')
         self.mobile = attributes[:'mobile']
       end
 
       if attributes.key?(:'netskope')
         self.netskope = attributes[:'netskope']
+      end
+
+      if attributes.key?(:'network_scan_content')
+        self.network_scan_content = attributes[:'network_scan_content']
       end
 
       if attributes.key?(:'prevention')
@@ -284,20 +308,23 @@ module Falcon
           airlock == o.airlock &&
           automox == o.automox &&
           aws_verified_access == o.aws_verified_access &&
+          browser_extension == o.browser_extension &&
+          consumer_subscription == o.consumer_subscription &&
+          content_update == o.content_update &&
           customer_entitlements == o.customer_entitlements &&
           data_protection == o.data_protection &&
           device_control == o.device_control &&
-          falcon_for_it == o.falcon_for_it &&
           fim == o.fim &&
           firewall == o.firewall &&
           global_config == o.global_config &&
           host_retention == o.host_retention &&
           identity_protection == o.identity_protection &&
+          it_automation == o.it_automation &&
           jumpcloud == o.jumpcloud &&
           kubernetes_admission_control == o.kubernetes_admission_control &&
-          legacy_os == o.legacy_os &&
           mobile == o.mobile &&
           netskope == o.netskope &&
+          network_scan_content == o.network_scan_content &&
           prevention == o.prevention &&
           remote_response == o.remote_response &&
           sca == o.sca &&
@@ -316,7 +343,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [airlock, automox, aws_verified_access, customer_entitlements, data_protection, device_control, falcon_for_it, fim, firewall, global_config, host_retention, identity_protection, jumpcloud, kubernetes_admission_control, legacy_os, mobile, netskope, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
+      [airlock, automox, aws_verified_access, browser_extension, consumer_subscription, content_update, customer_entitlements, data_protection, device_control, fim, firewall, global_config, host_retention, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
     end
 
     # Builds the object from hash

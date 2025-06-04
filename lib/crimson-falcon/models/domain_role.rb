@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :is_global
 
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -49,7 +51,8 @@ module Falcon
         :'description' => :'description',
         :'display_name' => :'display_name',
         :'id' => :'id',
-        :'is_global' => :'is_global'
+        :'is_global' => :'is_global',
+        :'type' => :'type'
       }
     end
 
@@ -65,7 +68,8 @@ module Falcon
         :'description' => :'String',
         :'display_name' => :'String',
         :'id' => :'String',
-        :'is_global' => :'Boolean'
+        :'is_global' => :'Boolean',
+        :'type' => :'String'
       }
     end
 
@@ -108,6 +112,10 @@ module Falcon
 
       if attributes.key?(:'is_global')
         self.is_global = attributes[:'is_global']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
     end
 
@@ -153,7 +161,8 @@ module Falcon
           description == o.description &&
           display_name == o.display_name &&
           id == o.id &&
-          is_global == o.is_global
+          is_global == o.is_global &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -165,7 +174,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, description, display_name, id, is_global].hash
+      [cid, description, display_name, id, is_global, type].hash
     end
 
     # Builds the object from hash

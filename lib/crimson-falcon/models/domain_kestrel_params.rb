@@ -32,11 +32,14 @@ require 'time'
 
 module Falcon
   class DomainKestrelParams
+    attr_accessor :is_published
+
     attr_accessor :view_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'is_published' => :'is_published',
         :'view_id' => :'view_id'
       }
     end
@@ -49,6 +52,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'is_published' => :'Boolean',
         :'view_id' => :'String'
       }
     end
@@ -74,6 +78,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'is_published')
+        self.is_published = attributes[:'is_published']
+      end
+
       if attributes.key?(:'view_id')
         self.view_id = attributes[:'view_id']
       end
@@ -83,6 +91,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @is_published.nil?
+        invalid_properties.push('invalid value for "is_published", is_published cannot be nil.')
+      end
+
       if @view_id.nil?
         invalid_properties.push('invalid value for "view_id", view_id cannot be nil.')
       end
@@ -93,6 +105,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @is_published.nil?
       return false if @view_id.nil?
       true
     end
@@ -102,6 +115,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          is_published == o.is_published &&
           view_id == o.view_id
     end
 
@@ -114,7 +128,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [view_id].hash
+      [is_published, view_id].hash
     end
 
     # Builds the object from hash

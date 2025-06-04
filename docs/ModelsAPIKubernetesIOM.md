@@ -12,6 +12,7 @@
 | **cis_id** | **Array&lt;String&gt;** |  |  |
 | **cluster_id** | **String** |  |  |
 | **cluster_name** | **String** |  |  |
+| **containers_impacted_ai_related** | **Boolean** |  | [optional] |
 | **containers_impacted_count** | **String** |  |  |
 | **containers_impacted_ids** | **Array&lt;String&gt;** |  |  |
 | **description** | **String** |  |  |
@@ -68,6 +69,7 @@ instance = Falcon::ModelsAPIKubernetesIOM.new(
   cis_id: null,
   cluster_id: null,
   cluster_name: null,
+  containers_impacted_ai_related: null,
   containers_impacted_count: null,
   containers_impacted_ids: null,
   description: null,

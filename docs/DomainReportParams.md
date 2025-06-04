@@ -11,7 +11,7 @@
 | **filter_display** | **String** |  |  |
 | **filter_ui** | **String** |  |  |
 | **format** | **String** |  |  |
-| **report_type_options** | **Hash&lt;String, String&gt;** |  | [optional] |
+| **report_type_options** | **Object** |  | [optional] |
 | **sort** | **String** |  |  |
 | **spotlight_params** | [**DomainSpotlightParams**](DomainSpotlightParams.md) |  | [optional] |
 

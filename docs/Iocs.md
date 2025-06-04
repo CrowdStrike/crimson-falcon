@@ -1,6 +1,6 @@
 # Falcon::Iocs
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |

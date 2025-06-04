@@ -102,6 +102,12 @@ describe Falcon::DomainCIDPolicyAssignments do
     end
   end
 
+  describe 'test attribute "cloud_service_id"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "cloud_service_subtype"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -133,6 +139,12 @@ describe Falcon::DomainCIDPolicyAssignments do
   end
 
   describe 'test attribute "hitrust_benchmark"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "is_global"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

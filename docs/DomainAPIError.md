@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **code** | **Integer** |  |  |
-| **message** | **String** |  |  |
-| **submission** | [**DomainCreateSubmissionV1ErrorResponse**](DomainCreateSubmissionV1ErrorResponse.md) |  | [optional] |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **resources** | **Object** |  | [optional] |
 
 ## Example
 
@@ -14,9 +14,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainAPIError.new(
-  code: null,
-  message: null,
-  submission: null
+  errors: null,
+  meta: null,
+  resources: null
 )
 ```
 

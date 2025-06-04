@@ -1,6 +1,6 @@
 # Falcon::ApiIntegrations
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -29,7 +29,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ApiIntegrations.new
-resources = [Falcon::DomainExecuteCommandV1.new({config_auth_type: 'config_auth_type_example', config_id: 'config_id_example', definition_id: 'definition_id_example', id: 'id_example', operation_id: 'operation_id_example', request: Falcon::DomainRequest.new({description: 'description_example'}), version: 37})] # Array<DomainExecuteCommandV1> | List of commands to execute
+resources = [Falcon::DomainExecuteCommandV1.new({config_auth_type: 'config_auth_type_example', config_id: 'config_id_example', definition_id: 'definition_id_example', id: 'id_example', operation_id: 'operation_id_example', request: Falcon::DomainRequest.new, version: 37})] # Array<DomainExecuteCommandV1> | List of commands to execute
 
 begin
   # Execute a command.
@@ -98,7 +98,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::ApiIntegrations.new
-body = Falcon::DomainExecuteCommandRequestV1.new({resources: [Falcon::DomainExecuteCommandV1.new({config_auth_type: 'config_auth_type_example', config_id: 'config_id_example', definition_id: 'definition_id_example', id: 'id_example', operation_id: 'operation_id_example', request: Falcon::DomainRequest.new({description: 'description_example'}), version: 37})]}) # DomainExecuteCommandRequestV1 | 
+body = Falcon::DomainExecuteCommandRequestV1.new({resources: [Falcon::DomainExecuteCommandV1.new({config_auth_type: 'config_auth_type_example', config_id: 'config_id_example', definition_id: 'definition_id_example', id: 'id_example', operation_id: 'operation_id_example', request: Falcon::DomainRequest.new, version: 37})]}) # DomainExecuteCommandRequestV1 | 
 
 begin
   # Execute a command and proxy the response directly.
@@ -144,7 +144,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: */*, application/json
 
 
 ## get_combined_plugin_configs

@@ -237,7 +237,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: hostname, username, date_updated, date_created, paths.path, state, paths.state. Ex: &#39;date_created|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. Filter term criteria: status, adversary_id, device.device_id, device.country, device.hostname, behaviors.behavior_id, behaviors.ioc_type, behaviors.ioc_value, behaviors.username, behaviors.tree_root_hash. Filter range criteria:, max_severity, max_confidence, first_behavior, last_behavior.
     # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields), sha256, state, paths.path, paths.state, hostname, username, date_updated, date_created.
-    # @return [MsaQueryResponse]
+    # @return [MsaspecQueryResponse]
     def query_quarantine_files(opts = {})
       data, _status_code, _headers = query_quarantine_files_with_http_info(opts)
       data
@@ -250,7 +250,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: hostname, username, date_updated, date_created, paths.path, state, paths.state. Ex: &#39;date_created|asc&#39;.
     # @option opts [String] :filter FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. Filter term criteria: status, adversary_id, device.device_id, device.country, device.hostname, behaviors.behavior_id, behaviors.ioc_type, behaviors.ioc_value, behaviors.username, behaviors.tree_root_hash. Filter range criteria:, max_severity, max_confidence, first_behavior, last_behavior.
     # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields), sha256, state, paths.path, paths.state, hostname, username, date_updated, date_created.
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_quarantine_files_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Quarantine.query_quarantine_files ...'
@@ -278,7 +278,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

@@ -1,6 +1,6 @@
 # Falcon::QuickScanPro
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**get_scan_result**](QuickScanPro.md#get_scan_result) | **GET** /quickscanpro/entities/scans/v1 | Gets the result of an QuickScan Pro scan. |
 | [**launch_scan**](QuickScanPro.md#launch_scan) | **POST** /quickscanpro/entities/scans/v1 | Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;. |
 | [**query_scan_results**](QuickScanPro.md#query_scan_results) | **GET** /quickscanpro/queries/scans/v1 | FQL query specifying the filter parameters |
-| [**upload_file_quick_scan_pro**](QuickScanPro.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days. |
+| [**upload_file_quick_scan_pro**](QuickScanPro.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set. |
 
 
 ## delete_file
@@ -369,7 +369,7 @@ end
 
 > <QuickscanproFileUploadResponse> upload_file_quick_scan_pro(file, opts)
 
-Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
 
 ### Examples
 
@@ -391,7 +391,7 @@ opts = {
 }
 
 begin
-  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
   result = api_instance.upload_file_quick_scan_pro(file, opts)
   p result
 rescue Falcon::ApiError => e
@@ -407,7 +407,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
   data, status_code, headers = api_instance.upload_file_quick_scan_pro_with_http_info(file, opts)
   p status_code # => 2xx
   p headers # => { ... }

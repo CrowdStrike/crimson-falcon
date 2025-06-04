@@ -107,7 +107,7 @@ module Falcon
     # @param id [String] Image UUID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 5000)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [VulnerabilitiesApiCombinedVulnerabilityDetails]
     def read_combined_vulnerabilities_details(id, opts = {})
@@ -119,7 +119,7 @@ module Falcon
     # @param id [String] Image UUID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60;
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 5000)
     # @option opts [Integer] :offset The offset from where to begin.
     # @return [Array<(VulnerabilitiesApiCombinedVulnerabilityDetails, Integer, Hash)>] VulnerabilitiesApiCombinedVulnerabilityDetails data, response status code and response headers
     def read_combined_vulnerabilities_details_with_http_info(id, opts = {})

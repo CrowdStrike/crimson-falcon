@@ -52,12 +52,20 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :cloudformation_stack_arn
+
+    attr_accessor :cloudformation_update_url
+
+    attr_accessor :cloudformation_url
+
     attr_accessor :conditions
 
     # csp live events are enabled
     attr_accessor :csp_events
 
     attr_accessor :environment
+
+    attr_accessor :falcon_client_id
 
     # Permissions status for each product returned via API.
     attr_accessor :iam_service_permissions_status
@@ -66,6 +74,8 @@ module Falcon
 
     attr_accessor :is_custom_rolename
 
+    attr_accessor :is_delegated_admin
+
     attr_accessor :is_master
 
     # Up to 34 character AWS provided unique identifier for the organization.
@@ -73,12 +83,20 @@ module Falcon
 
     attr_accessor :products
 
+    attr_accessor :registration_status
+
     attr_accessor :resource_metadata
+
+    attr_accessor :resource_name_prefix
+
+    attr_accessor :resource_name_suffix
 
     # 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to).
     attr_accessor :root_account_id
 
     attr_accessor :root_iam_role
+
+    attr_accessor :s3_url
 
     # Account registration status for each product and feature
     attr_accessor :status
@@ -99,18 +117,27 @@ module Falcon
         :'account_type' => :'account_type',
         :'active_regions' => :'active_regions',
         :'cid' => :'cid',
+        :'cloudformation_stack_arn' => :'cloudformation_stack_arn',
+        :'cloudformation_update_url' => :'cloudformation_update_url',
+        :'cloudformation_url' => :'cloudformation_url',
         :'conditions' => :'conditions',
         :'csp_events' => :'csp_events',
         :'environment' => :'environment',
+        :'falcon_client_id' => :'falcon_client_id',
         :'iam_service_permissions_status' => :'iam_service_permissions_status',
         :'inventory_filter' => :'inventory_filter',
         :'is_custom_rolename' => :'is_custom_rolename',
+        :'is_delegated_admin' => :'is_delegated_admin',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
         :'products' => :'products',
+        :'registration_status' => :'registration_status',
         :'resource_metadata' => :'resource_metadata',
+        :'resource_name_prefix' => :'resource_name_prefix',
+        :'resource_name_suffix' => :'resource_name_suffix',
         :'root_account_id' => :'root_account_id',
         :'root_iam_role' => :'root_iam_role',
+        :'s3_url' => :'s3_url',
         :'status' => :'status',
         :'target_ous' => :'target_ous',
         :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
@@ -134,18 +161,27 @@ module Falcon
         :'account_type' => :'String',
         :'active_regions' => :'Array<String>',
         :'cid' => :'String',
+        :'cloudformation_stack_arn' => :'String',
+        :'cloudformation_update_url' => :'String',
+        :'cloudformation_url' => :'String',
         :'conditions' => :'Array<DomainCloudCondition>',
         :'csp_events' => :'Boolean',
         :'environment' => :'String',
+        :'falcon_client_id' => :'String',
         :'iam_service_permissions_status' => :'Array<DomainProductPermission>',
         :'inventory_filter' => :'Array<DomainAWSInventoryFilterSetting>',
         :'is_custom_rolename' => :'Boolean',
+        :'is_delegated_admin' => :'Boolean',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
         :'products' => :'Array<DomainProductFeatures>',
+        :'registration_status' => :'String',
         :'resource_metadata' => :'DomainAWSAccountResourceMetadata',
+        :'resource_name_prefix' => :'String',
+        :'resource_name_suffix' => :'String',
         :'root_account_id' => :'String',
         :'root_iam_role' => :'Boolean',
+        :'s3_url' => :'String',
         :'status' => :'Array<DomainProductFeaturesStatus>',
         :'target_ous' => :'Array<String>',
         :'use_existing_cloudtrail' => :'Boolean'
@@ -211,6 +247,18 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'cloudformation_stack_arn')
+        self.cloudformation_stack_arn = attributes[:'cloudformation_stack_arn']
+      end
+
+      if attributes.key?(:'cloudformation_update_url')
+        self.cloudformation_update_url = attributes[:'cloudformation_update_url']
+      end
+
+      if attributes.key?(:'cloudformation_url')
+        self.cloudformation_url = attributes[:'cloudformation_url']
+      end
+
       if attributes.key?(:'conditions')
         if (value = attributes[:'conditions']).is_a?(Array)
           self.conditions = value
@@ -223,6 +271,10 @@ module Falcon
 
       if attributes.key?(:'environment')
         self.environment = attributes[:'environment']
+      end
+
+      if attributes.key?(:'falcon_client_id')
+        self.falcon_client_id = attributes[:'falcon_client_id']
       end
 
       if attributes.key?(:'iam_service_permissions_status')
@@ -241,6 +293,10 @@ module Falcon
         self.is_custom_rolename = attributes[:'is_custom_rolename']
       end
 
+      if attributes.key?(:'is_delegated_admin')
+        self.is_delegated_admin = attributes[:'is_delegated_admin']
+      end
+
       if attributes.key?(:'is_master')
         self.is_master = attributes[:'is_master']
       end
@@ -255,8 +311,20 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'registration_status')
+        self.registration_status = attributes[:'registration_status']
+      end
+
       if attributes.key?(:'resource_metadata')
         self.resource_metadata = attributes[:'resource_metadata']
+      end
+
+      if attributes.key?(:'resource_name_prefix')
+        self.resource_name_prefix = attributes[:'resource_name_prefix']
+      end
+
+      if attributes.key?(:'resource_name_suffix')
+        self.resource_name_suffix = attributes[:'resource_name_suffix']
       end
 
       if attributes.key?(:'root_account_id')
@@ -265,6 +333,10 @@ module Falcon
 
       if attributes.key?(:'root_iam_role')
         self.root_iam_role = attributes[:'root_iam_role']
+      end
+
+      if attributes.key?(:'s3_url')
+        self.s3_url = attributes[:'s3_url']
       end
 
       if attributes.key?(:'status')
@@ -356,18 +428,27 @@ module Falcon
           account_type == o.account_type &&
           active_regions == o.active_regions &&
           cid == o.cid &&
+          cloudformation_stack_arn == o.cloudformation_stack_arn &&
+          cloudformation_update_url == o.cloudformation_update_url &&
+          cloudformation_url == o.cloudformation_url &&
           conditions == o.conditions &&
           csp_events == o.csp_events &&
           environment == o.environment &&
+          falcon_client_id == o.falcon_client_id &&
           iam_service_permissions_status == o.iam_service_permissions_status &&
           inventory_filter == o.inventory_filter &&
           is_custom_rolename == o.is_custom_rolename &&
+          is_delegated_admin == o.is_delegated_admin &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
           products == o.products &&
+          registration_status == o.registration_status &&
           resource_metadata == o.resource_metadata &&
+          resource_name_prefix == o.resource_name_prefix &&
+          resource_name_suffix == o.resource_name_suffix &&
           root_account_id == o.root_account_id &&
           root_iam_role == o.root_iam_role &&
+          s3_url == o.s3_url &&
           status == o.status &&
           target_ous == o.target_ous &&
           use_existing_cloudtrail == o.use_existing_cloudtrail
@@ -382,7 +463,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, conditions, csp_events, environment, iam_service_permissions_status, inventory_filter, is_custom_rolename, is_master, organization_id, products, resource_metadata, root_account_id, root_iam_role, status, target_ous, use_existing_cloudtrail].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, cloudformation_stack_arn, cloudformation_update_url, cloudformation_url, conditions, csp_events, environment, falcon_client_id, iam_service_permissions_status, inventory_filter, is_custom_rolename, is_delegated_admin, is_master, organization_id, products, registration_status, resource_metadata, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, status, target_ous, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

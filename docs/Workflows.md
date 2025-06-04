@@ -1,10 +1,11 @@
 # Falcon::Workflows
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**workflow_activities_combined**](Workflows.md#workflow_activities_combined) | **GET** /workflows/combined/activities/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_activities_content_combined**](Workflows.md#workflow_activities_content_combined) | **GET** /workflows/combined/activity-content/v1 | Search for activities by name. Returns all supported activities if no filter specified |
 | [**workflow_definitions_combined**](Workflows.md#workflow_definitions_combined) | **GET** /workflows/combined/definitions/v1 | Search workflow definitions based on the provided filter |
 | [**workflow_definitions_export**](Workflows.md#workflow_definitions_export) | **GET** /workflows/entities/definitions/export/v1 | Exports a workflow definition for the given definition ID |
 | [**workflow_definitions_import**](Workflows.md#workflow_definitions_import) | **POST** /workflows/entities/definitions/import/v1 | Imports a workflow definition based on the provided model |
@@ -74,6 +75,83 @@ begin
   p data # => <ActivitiesActivityExternalResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling Workflows->workflow_activities_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ActivitiesActivityExternalResponse**](ActivitiesActivityExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_activities_content_combined
+
+> <ActivitiesActivityExternalResponse> workflow_activities_content_combined(opts)
+
+Search for activities by name. Returns all supported activities if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_content_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined: #{e}"
+end
+```
+
+#### Using the workflow_activities_content_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ActivitiesActivityExternalResponse>, Integer, Hash)> workflow_activities_content_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  data, status_code, headers = api_instance.workflow_activities_content_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ActivitiesActivityExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined_with_http_info: #{e}"
 end
 ```
 

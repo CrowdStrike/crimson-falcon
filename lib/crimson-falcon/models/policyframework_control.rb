@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class PolicyframeworkControl
+    attr_accessor :applicable_profiles
+
     attr_accessor :benchmarks
 
     attr_accessor :description
@@ -49,6 +51,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'applicable_profiles' => :'applicableProfiles',
         :'benchmarks' => :'benchmarks',
         :'description' => :'description',
         :'framework' => :'framework',
@@ -67,6 +70,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'applicable_profiles' => :'Array<String>',
         :'benchmarks' => :'Array<PolicyframeworkBenchmark>',
         :'description' => :'String',
         :'framework' => :'String',
@@ -97,6 +101,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'applicable_profiles')
+        if (value = attributes[:'applicable_profiles']).is_a?(Array)
+          self.applicable_profiles = value
+        end
+      end
 
       if attributes.key?(:'benchmarks')
         if (value = attributes[:'benchmarks']).is_a?(Array)
@@ -147,6 +157,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          applicable_profiles == o.applicable_profiles &&
           benchmarks == o.benchmarks &&
           description == o.description &&
           framework == o.framework &&
@@ -165,7 +176,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [benchmarks, description, framework, name, type, uuid, version].hash
+      [applicable_profiles, benchmarks, description, framework, name, type, uuid, version].hash
     end
 
     # Builds the object from hash

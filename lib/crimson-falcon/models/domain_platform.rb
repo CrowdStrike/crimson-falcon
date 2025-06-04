@@ -34,13 +34,13 @@ module Falcon
   class DomainPlatform
     attr_accessor :id
 
-    attr_accessor :name
+    attr_accessor :label
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'name' => :'name'
+        :'label' => :'label'
       }
     end
 
@@ -52,8 +52,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'name' => :'String'
+        :'id' => :'String',
+        :'label' => :'String'
       }
     end
 
@@ -82,8 +82,8 @@ module Falcon
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       end
     end
 
@@ -95,8 +95,8 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @label.nil?
+        invalid_properties.push('invalid value for "label", label cannot be nil.')
       end
 
       invalid_properties
@@ -106,7 +106,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @name.nil?
+      return false if @label.nil?
       true
     end
 
@@ -116,7 +116,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          name == o.name
+          label == o.label
     end
 
     # @see the `==` method
@@ -128,7 +128,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name].hash
+      [id, label].hash
     end
 
     # Builds the object from hash

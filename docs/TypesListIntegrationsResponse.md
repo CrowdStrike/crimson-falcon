@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **integrations** | [**Array&lt;TypesIntegration&gt;**](TypesIntegration.md) |  | [optional] |
+| **integrations** | [**Array&lt;TypesListIntegrationItem&gt;**](TypesListIntegrationItem.md) |  | [optional] |
 
 ## Example
 

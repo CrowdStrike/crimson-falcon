@@ -105,17 +105,17 @@ module Falcon
     # Gets the registry credentials
     # @param [Hash] opts the optional parameters
     # @return [ModelsRegistryCredentialsResponse]
-    def get_credentials_mixin0_mixin57(opts = {})
-      data, _status_code, _headers = get_credentials_mixin0_mixin57_with_http_info(opts)
+    def get_credentials_mixin0_mixin60(opts = {})
+      data, _status_code, _headers = get_credentials_mixin0_mixin60_with_http_info(opts)
       data
     end
 
     # Gets the registry credentials
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsRegistryCredentialsResponse, Integer, Hash)>] ModelsRegistryCredentialsResponse data, response status code and response headers
-    def get_credentials_mixin0_mixin57_with_http_info(opts = {})
+    def get_credentials_mixin0_mixin60_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CloudSnapshots.get_credentials_mixin0_mixin57 ...'
+        @api_client.config.logger.debug 'Calling API: CloudSnapshots.get_credentials_mixin0_mixin60 ...'
       end
       # resource path
       local_var_path = '/snapshots/entities/image-registry-credentials/v1'
@@ -141,7 +141,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CloudSnapshots.get_credentials_mixin0_mixin57",
+        :operation => :"CloudSnapshots.get_credentials_mixin0_mixin60",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -152,7 +152,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CloudSnapshots#get_credentials_mixin0_mixin57\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CloudSnapshots#get_credentials_mixin0_mixin60\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

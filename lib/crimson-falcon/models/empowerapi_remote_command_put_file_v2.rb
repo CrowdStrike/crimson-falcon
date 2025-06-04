@@ -273,6 +273,10 @@ module Falcon
         invalid_properties.push('invalid value for "share_with_workflow", share_with_workflow cannot be nil.')
       end
 
+      if @size.nil?
+        invalid_properties.push('invalid value for "size", size cannot be nil.')
+      end
+
       if @workflow_is_disruptive.nil?
         invalid_properties.push('invalid value for "workflow_is_disruptive", workflow_is_disruptive cannot be nil.')
       end
@@ -286,6 +290,7 @@ module Falcon
       return false if @run_attempt_count.nil?
       return false if @run_success_count.nil?
       return false if @share_with_workflow.nil?
+      return false if @size.nil?
       return false if @workflow_is_disruptive.nil?
       true
     end

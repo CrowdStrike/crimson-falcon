@@ -14,12 +14,14 @@
 | **cloud_provider** | **String** |  | [optional] |
 | **cloud_service** | **String** |  | [optional] |
 | **cloud_service_friendly** | **String** |  | [optional] |
+| **cloud_service_id** | **Integer** |  | [optional] |
 | **cloud_service_subtype** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 | **default_severity** | **String** |  | [optional] |
 | **fql_policy** | **String** |  | [optional] |
 | **hipaa_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **hitrust_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
+| **is_global** | **Boolean** |  |  |
 | **is_remediable** | **Boolean** |  |  |
 | **iso_benchmark** | [**Array&lt;DomainBenchmark&gt;**](DomainBenchmark.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
@@ -49,12 +51,14 @@ instance = Falcon::DomainCIDPolicyAssignments.new(
   cloud_provider: null,
   cloud_service: null,
   cloud_service_friendly: null,
+  cloud_service_id: null,
   cloud_service_subtype: null,
   created_at: null,
   default_severity: null,
   fql_policy: null,
   hipaa_benchmark: null,
   hitrust_benchmark: null,
+  is_global: null,
   is_remediable: null,
   iso_benchmark: null,
   name: null,

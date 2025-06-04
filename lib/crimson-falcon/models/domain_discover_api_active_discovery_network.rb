@@ -31,15 +31,19 @@ require 'date'
 require 'time'
 
 module Falcon
-  # Information about an active discovery network this asset is associated with.
+  # Information about an active discovery network this asset is associated with. Information about the corresponding Site ID .
   class DomainDiscoverAPIActiveDiscoveryNetwork
     # The id of the network
     attr_accessor :id
 
+    # The id of the site
+    attr_accessor :site_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'id' => :'id',
+        :'site_id' => :'site_id'
       }
     end
 
@@ -51,7 +55,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'id' => :'String',
+        :'site_id' => :'String'
       }
     end
 
@@ -79,6 +84,10 @@ module Falcon
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
+
+      if attributes.key?(:'site_id')
+        self.site_id = attributes[:'site_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -104,7 +113,8 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          id == o.id &&
+          site_id == o.site_id
     end
 
     # @see the `==` method
@@ -116,7 +126,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id].hash
+      [id, site_id].hash
     end
 
     # Builds the object from hash

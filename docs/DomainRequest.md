@@ -4,7 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **description** | **String** |  |  |
+| **data** | **String** |  | [optional] |
+| **json** | **Object** |  | [optional] |
+| **params** | [**DomainParams**](DomainParams.md) |  | [optional] |
+| **x_www_form_urlencoded** | **Object** |  | [optional] |
 
 ## Example
 
@@ -12,7 +15,10 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainRequest.new(
-  description: null
+  data: null,
+  json: null,
+  params: null,
+  x_www_form_urlencoded: null
 )
 ```
 

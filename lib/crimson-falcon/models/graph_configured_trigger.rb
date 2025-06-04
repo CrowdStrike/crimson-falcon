@@ -50,6 +50,11 @@ module Falcon
     # Denotes the type of trigger, signal based, scheduled, on demand, etc
     attr_accessor :trigger_type
 
+    # Semantic version constraint of the trigger, it can be an explicit version or a version constraint. If unspecified the evaluator will use the latest version <= 1.0.0
+    attr_accessor :version_constraint
+
+    attr_accessor :webhook_config
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -59,7 +64,9 @@ module Falcon
         :'outgoing_flow' => :'outgoing_flow',
         :'parameters' => :'parameters',
         :'timer_event_definition' => :'timer_event_definition',
-        :'trigger_type' => :'trigger_type'
+        :'trigger_type' => :'trigger_type',
+        :'version_constraint' => :'version_constraint',
+        :'webhook_config' => :'webhook_config'
       }
     end
 
@@ -77,7 +84,9 @@ module Falcon
         :'outgoing_flow' => :'String',
         :'parameters' => :'JsonschemaSchema',
         :'timer_event_definition' => :'GraphTimerEventDefinition',
-        :'trigger_type' => :'String'
+        :'trigger_type' => :'String',
+        :'version_constraint' => :'String',
+        :'webhook_config' => :'WebhooktriggerAPIRequest'
       }
     end
 
@@ -129,6 +138,14 @@ module Falcon
       if attributes.key?(:'trigger_type')
         self.trigger_type = attributes[:'trigger_type']
       end
+
+      if attributes.key?(:'version_constraint')
+        self.version_constraint = attributes[:'version_constraint']
+      end
+
+      if attributes.key?(:'webhook_config')
+        self.webhook_config = attributes[:'webhook_config']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -170,7 +187,9 @@ module Falcon
           outgoing_flow == o.outgoing_flow &&
           parameters == o.parameters &&
           timer_event_definition == o.timer_event_definition &&
-          trigger_type == o.trigger_type
+          trigger_type == o.trigger_type &&
+          version_constraint == o.version_constraint &&
+          webhook_config == o.webhook_config
     end
 
     # @see the `==` method
@@ -182,7 +201,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, node_id, outgoing_flow, parameters, timer_event_definition, trigger_type].hash
+      [id, name, node_id, outgoing_flow, parameters, timer_event_definition, trigger_type, version_constraint, webhook_config].hash
     end
 
     # Builds the object from hash

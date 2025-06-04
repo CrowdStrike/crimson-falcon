@@ -1,12 +1,12 @@
 # Falcon::QuickScan
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**get_scans**](QuickScan.md#get_scans) | **GET** /scanner/entities/scans/v1 | Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
 | [**get_scans_aggregates**](QuickScan.md#get_scans_aggregates) | **POST** /scanner/aggregates/scans/GET/v1 | Get scans aggregations as specified via json in request body. |
-| [**query_submissions**](QuickScan.md#query_submissions) | **GET** /scanner/queries/scans/v1 | Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria. |
+| [**query_submissions_mixin0**](QuickScan.md#query_submissions_mixin0) | **GET** /scanner/queries/scans/v1 | Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria. |
 | [**scan_samples**](QuickScan.md#scan_samples) | **POST** /scanner/entities/scans/v1 | Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute |
 
 
@@ -147,9 +147,9 @@ nil (empty response body)
 - **Accept**: application/json
 
 
-## query_submissions
+## query_submissions_mixin0
 
-> <MlscannerapiQueryResponse> query_submissions(opts)
+> <MlscannerapiQueryResponse> query_submissions_mixin0(opts)
 
 Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
 
@@ -176,28 +176,28 @@ opts = {
 
 begin
   # Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
-  result = api_instance.query_submissions(opts)
+  result = api_instance.query_submissions_mixin0(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScan->query_submissions: #{e}"
+  puts "Error when calling QuickScan->query_submissions_mixin0: #{e}"
 end
 ```
 
-#### Using the query_submissions_with_http_info variant
+#### Using the query_submissions_mixin0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MlscannerapiQueryResponse>, Integer, Hash)> query_submissions_with_http_info(opts)
+> <Array(<MlscannerapiQueryResponse>, Integer, Hash)> query_submissions_mixin0_with_http_info(opts)
 
 ```ruby
 begin
   # Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
-  data, status_code, headers = api_instance.query_submissions_with_http_info(opts)
+  data, status_code, headers = api_instance.query_submissions_mixin0_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MlscannerapiQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling QuickScan->query_submissions_with_http_info: #{e}"
+  puts "Error when calling QuickScan->query_submissions_mixin0_with_http_info: #{e}"
 end
 ```
 

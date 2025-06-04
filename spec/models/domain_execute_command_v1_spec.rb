@@ -42,6 +42,12 @@ describe Falcon::DomainExecuteCommandV1 do
       expect(instance).to be_instance_of(Falcon::DomainExecuteCommandV1)
     end
   end
+  describe 'test attribute "config"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "config_auth_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

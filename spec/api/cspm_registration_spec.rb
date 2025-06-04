@@ -264,35 +264,13 @@ describe 'CspmRegistration' do
     end
   end
 
-  # unit tests for get_cspm_aws_account_scripts_attachment
-  # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-  # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :ids AWS account IDs
-  # @option opts [String] :template Template to be rendered
-  # @option opts [String] :account_type Type of account, it can be commercial or gov
-  # @option opts [Array<String>] :accounts The list of accounts to register, values should be in the form: account,profile
-  # @option opts [String] :behavior_assessment_enabled
-  # @option opts [String] :sensor_management_enabled
-  # @option opts [String] :dspm_enabled
-  # @option opts [Array<String>] :dspm_regions
-  # @option opts [String] :dspm_role
-  # @option opts [String] :use_existing_cloudtrail
-  # @option opts [String] :organization_id The AWS organization ID to be registered
-  # @option opts [String] :aws_profile The AWS profile to be used during registration
-  # @option opts [String] :custom_role_name The custom IAM role to be used during registration
-  # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
-  describe 'get_cspm_aws_account_scripts_attachment test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for get_cspm_aws_console_setup_urls
   # Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS account IDs
   # @option opts [String] :use_existing_cloudtrail
   # @option opts [String] :region Region
+  # @option opts [String] :tags Base64 encoded JSON string to be used as AWS tags
   # @option opts [String] :template Template to be rendered
   # @return [RegistrationAWSConsoleURLResponseV2]
   describe 'get_cspm_aws_console_setup_urls test' do

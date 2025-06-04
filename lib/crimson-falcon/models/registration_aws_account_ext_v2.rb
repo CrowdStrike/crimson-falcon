@@ -46,6 +46,8 @@ module Falcon
 
     attr_accessor :dspm_role
 
+    attr_accessor :falcon_client_id
+
     attr_accessor :iam_role_arn
 
     attr_accessor :is_master
@@ -70,6 +72,7 @@ module Falcon
         :'deployment_method' => :'deployment_method',
         :'dspm_enabled' => :'dspm_enabled',
         :'dspm_role' => :'dspm_role',
+        :'falcon_client_id' => :'falcon_client_id',
         :'iam_role_arn' => :'iam_role_arn',
         :'is_master' => :'is_master',
         :'organization_id' => :'organization_id',
@@ -95,6 +98,7 @@ module Falcon
         :'deployment_method' => :'String',
         :'dspm_enabled' => :'Boolean',
         :'dspm_role' => :'String',
+        :'falcon_client_id' => :'String',
         :'iam_role_arn' => :'String',
         :'is_master' => :'Boolean',
         :'organization_id' => :'String',
@@ -152,6 +156,10 @@ module Falcon
 
       if attributes.key?(:'dspm_role')
         self.dspm_role = attributes[:'dspm_role']
+      end
+
+      if attributes.key?(:'falcon_client_id')
+        self.falcon_client_id = attributes[:'falcon_client_id']
       end
 
       if attributes.key?(:'iam_role_arn')
@@ -230,6 +238,7 @@ module Falcon
           deployment_method == o.deployment_method &&
           dspm_enabled == o.dspm_enabled &&
           dspm_role == o.dspm_role &&
+          falcon_client_id == o.falcon_client_id &&
           iam_role_arn == o.iam_role_arn &&
           is_master == o.is_master &&
           organization_id == o.organization_id &&
@@ -248,7 +257,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, iam_role_arn, is_master, organization_id, root_stack_id, sensor_management_enabled, target_ous, use_existing_cloudtrail].hash
+      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, falcon_client_id, iam_role_arn, is_master, organization_id, root_stack_id, sensor_management_enabled, target_ous, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :execution_offset
 
+    attr_accessor :mitre_attack
+
     attr_accessor :origin
 
     attr_accessor :severity
@@ -68,6 +70,7 @@ module Falcon
         :'author' => :'author',
         :'comment' => :'comment',
         :'execution_offset' => :'execution_offset',
+        :'mitre_attack' => :'mitre_attack',
         :'origin' => :'origin',
         :'severity' => :'severity',
         :'status' => :'status',
@@ -93,6 +96,7 @@ module Falcon
         :'author' => :'String',
         :'comment' => :'String',
         :'execution_offset' => :'String',
+        :'mitre_attack' => :'Array<DomainMitreAttackMapping>',
         :'origin' => :'String',
         :'severity' => :'Integer',
         :'status' => :'String',
@@ -144,6 +148,12 @@ module Falcon
 
       if attributes.key?(:'execution_offset')
         self.execution_offset = attributes[:'execution_offset']
+      end
+
+      if attributes.key?(:'mitre_attack')
+        if (value = attributes[:'mitre_attack']).is_a?(Array)
+          self.mitre_attack = value
+        end
       end
 
       if attributes.key?(:'origin')
@@ -278,6 +288,7 @@ module Falcon
           author == o.author &&
           comment == o.comment &&
           execution_offset == o.execution_offset &&
+          mitre_attack == o.mitre_attack &&
           origin == o.origin &&
           severity == o.severity &&
           status == o.status &&
@@ -298,7 +309,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assign_to, assign_to_uuid, author, comment, execution_offset, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
+      [assign_to, assign_to_uuid, author, comment, execution_offset, mitre_attack, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
     end
 
     # Builds the object from hash

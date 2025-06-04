@@ -44,7 +44,7 @@
 | **_then** | [**JsonschemaSubSchema**](JsonschemaSubSchema.md) |  | [optional] |
 | **title** | **String** |  | [optional] |
 | **type** | **String** |  | [optional] |
-| **uicomponent** | **String** |  | [optional] |
+| **ui_component** | **String** |  | [optional] |
 | **unique_items** | **Boolean** |  | [optional] |
 | **x_cs_authorization** | [**JsonschemaAuthorization**](JsonschemaAuthorization.md) |  | [optional] |
 | **x_cs_can_create** | **Boolean** |  | [optional] |
@@ -112,7 +112,7 @@ instance = Falcon::JsonschemaSubSchema.new(
   _then: null,
   title: null,
   type: null,
-  uicomponent: null,
+  ui_component: null,
   unique_items: null,
   x_cs_authorization: null,
   x_cs_can_create: null,

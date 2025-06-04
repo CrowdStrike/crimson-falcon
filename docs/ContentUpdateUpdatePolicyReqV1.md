@@ -7,7 +7,7 @@
 | **description** | **String** | The new description to assign to the policy | [optional] |
 | **id** | **String** | The id of the policy to update |  |
 | **name** | **String** | The new name to assign to the policy | [optional] |
-| **settings** | [**ContentUpdateSettingsV1**](ContentUpdateSettingsV1.md) |  | [optional] |
+| **settings** | [**ContentUpdateContentUpdateSettingsReqV1**](ContentUpdateContentUpdateSettingsReqV1.md) |  | [optional] |
 
 ## Example
 

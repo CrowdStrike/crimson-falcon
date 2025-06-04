@@ -123,17 +123,6 @@ describe 'Discover' do
     end
   end
 
-  # unit tests for post_external_assets_inventory_v1
-  # Add external assets for external asset scanning.
-  # @param body Asset addition specification.
-  # @param [Hash] opts the optional parameters
-  # @return [InventoryapiUserExternalAssetCreateResponseV1]
-  describe 'post_external_assets_inventory_v1 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for query_accounts
   # Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria.
   # @param [Hash] opts the optional parameters
@@ -178,6 +167,7 @@ describe 'Discover' do
 
   # unit tests for query_logins
   # Search for logins in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of login IDs which match the filter criteria.
+  # The API endpoint returns data only if the response set includes 10,000 or fewer items. This limit applies to the total API response size, regardless of your pagination sizes with the &#x60;limit&#x60; and &#x60;offset&#x60; parameters. If your response set includes more than 10,000 items, the CrowdStrike API returns an HTML 400 response instead. To avoid this issue, use the filter parameter to reduce the total number of items in the API response.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results.
   # @option opts [Integer] :limit The number of login IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;offset&#x60; parameter to manage pagination of results.

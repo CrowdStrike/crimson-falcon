@@ -64,7 +64,7 @@ describe 'ASPM' do
   # Create a new integration
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [TypesIntegrationResponse]
+  # @return [TypesCreateIntegrationResponse]
   describe 'create_integration test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -88,6 +88,16 @@ describe 'ASPM' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_executor_node test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for delete_group_id_09
+  # @param id Group ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_group_id_09 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -126,12 +136,142 @@ describe 'ASPM' do
     end
   end
 
+  # unit tests for execute_function_data
+  # A selected list of queryLanguage queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGeneralQueryResponse]
+  describe 'execute_function_data test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_function_data_count
+  # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+  # @param query_name
+  # @param cloud_provider
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :aws_lambda_arn required for &#39;aws&#39; cloud provider
+  # @option opts [String] :gcp_cloud_function_url required for &#39;gcp&#39; cloud provider
+  # @option opts [String] :azure_site_subscription_id required for &#39;azure&#39; cloud provider
+  # @option opts [String] :azure_site_resource_group required for &#39;azure&#39; cloud provider
+  # @option opts [String] :azure_function_app_name required for &#39;azure&#39; cloud provider
+  # @return [TypesCountResponse]
+  describe 'execute_function_data_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_function_data_query
+  # A selected list of queryLanguage queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGeneralQueryResponse]
+  describe 'execute_function_data_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_function_data_query_count
+  # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesCountResponse]
+  describe 'execute_function_data_query_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions
+  # A selected list of queryLanguage services queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGeneralQueryResponse]
+  describe 'execute_functions test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions_count
+  # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+  # @param query_name
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :cloud_provider
+  # @option opts [Array<String>] :cloud_account_id required for &#39;aws&#39; cloud provider
+  # @option opts [Array<String>] :region required for &#39;gcp&#39; cloud provider
+  # @option opts [Array<String>] :cid required for &#39;azure&#39; cloud provider
+  # @return [TypesCountResponse]
+  describe 'execute_functions_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions_overtime
+  # A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesOvertimeResponse]
+  describe 'execute_functions_overtime test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions_query
+  # A selected list of queryLanguage services queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGeneralQueryResponse]
+  describe 'execute_functions_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions_query_count
+  # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesCountResponse]
+  describe 'execute_functions_query_count test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for execute_functions_query_overtime
+  # A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+  # @param field
+  # @param [Hash] opts the optional parameters
+  # @return [TypesOvertimeResponse]
+  describe 'execute_functions_query_overtime test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for execute_query
   # Execute a query. The syntax used is identical to that of the query page.
   # @param body  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
   # @param [Hash] opts the optional parameters
   # @return [TypesQueryResult]
   describe 'execute_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cloud_security_integration_state
+  # Get Cloud Security integration state
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGetCloudSecurityIntegrationStateResponse]
+  describe 'get_cloud_security_integration_state test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -157,6 +297,18 @@ describe 'ASPM' do
     end
   end
 
+  # unit tests for get_executor_nodes_id_09_instances_csv
+  # Retrieve the relay instances in CSV format
+  # @param id
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'get_executor_nodes_id_09_instances_csv test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_executor_nodes_metadata
   # Get metadata about all executor nodes
   # @param [Hash] opts the optional parameters
@@ -166,6 +318,37 @@ describe 'ASPM' do
   # @option opts [Array<String>] :executor_node_types executor node types
   # @return [TypesGetExecutorNodesMetadataResponse]
   describe 'get_executor_nodes_metadata test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_group_id_09_v2
+  # Get group details
+  # @param id Group ID
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGroupDetails]
+  describe 'get_group_id_09_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_groups_hier_v2
+  # Get group hierarchy
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGroupHierarchyResponse]
+  describe 'get_groups_hier_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_groups_list_v2
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :type Group types to query - can either be empty (all), parents, children
+  # @return [Array<TypesGroupListItem>]
+  describe 'get_groups_list_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -190,6 +373,25 @@ describe 'ASPM' do
     end
   end
 
+  # unit tests for get_integration_tasks_admin
+  # Get all the integration tasks, requires admin scope
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :integration_task_type
+  # @option opts [String] :category
+  # @option opts [Integer] :offset
+  # @option opts [Integer] :limit
+  # @option opts [String] :order_by
+  # @option opts [String] :direction
+  # @option opts [Integer] :integration_task_types
+  # @option opts [Integer] :ids
+  # @option opts [String] :names
+  # @return [TypesListIntegrationTasksResponse]
+  describe 'get_integration_tasks_admin test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_integration_tasks_metadata
   # Get metadata about all integration tasks
   # @param [Hash] opts the optional parameters
@@ -199,6 +401,25 @@ describe 'ASPM' do
   # @option opts [String] :names
   # @return [TypesGetIntegrationTasksMetadataResponse]
   describe 'get_integration_tasks_metadata test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_integration_tasks_v2
+  # Get all the integration tasks
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :integration_task_type
+  # @option opts [String] :category
+  # @option opts [Integer] :offset
+  # @option opts [Integer] :limit
+  # @option opts [String] :order_by
+  # @option opts [String] :direction
+  # @option opts [Integer] :integration_task_types
+  # @option opts [Integer] :ids
+  # @option opts [String] :names
+  # @return [TypesListIntegrationTasksResponse]
+  describe 'get_integration_tasks_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -221,6 +442,34 @@ describe 'ASPM' do
   # @option opts [String] :category
   # @return [TypesListIntegrationsResponse]
   describe 'get_integrations test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_integrations_v2
+  # Get a list of all the integrations
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :integration_type
+  # @option opts [String] :category
+  # @return [TypesListIntegrationsResponse]
+  describe 'get_integrations_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_service_artifacts
+  # @param persistent_signature
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :optional_time
+  # @option opts [Integer] :revision_id
+  # @option opts [Integer] :limit
+  # @option opts [Integer] :offset
+  # @option opts [Array<String>] :order_by
+  # @option opts [String] :direction
+  # @return [TypesArtifacts]
+  describe 'get_service_artifacts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -263,6 +512,51 @@ describe 'ASPM' do
     end
   end
 
+  # unit tests for get_users_v2
+  # List users
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :pagination URL encoded pagination JSON - limit, offset, direction, orderBy
+  # @return [TypesUsersResponse]
+  describe 'get_users_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_group_id_09_update_default
+  # Update default group
+  # @param id Group ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_group_id_09_update_default test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_group_id_09_v2
+  # Update group
+  # @param id Group ID
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_group_id_09_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_group_v2
+  # Create group
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_group_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for run_integration_task
   # Run an integration task by its ID
   # @param id
@@ -271,6 +565,32 @@ describe 'ASPM' do
   # @option opts [String] :category
   # @return [TypesIntegrationTaskTestConnectionResponse]
   describe 'run_integration_task test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for run_integration_task_admin
+  # Run an integration task by its ID - for admin scope
+  # @param id
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :category
+  # @return [TypesIntegrationTaskTestConnectionResponse]
+  describe 'run_integration_task_admin test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for run_integration_task_v2
+  # Run an integration task by its ID
+  # @param id
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :category
+  # @return [TypesIntegrationTaskTestConnectionResponse]
+  describe 'run_integration_task_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -293,12 +613,24 @@ describe 'ASPM' do
   # unit tests for service_now_get_services
   # @param [Hash] opts the optional parameters
   # @option opts [String] :ql_filters
+  # @option opts [Boolean] :exclude_artifacts
   # @option opts [Integer] :limit
   # @option opts [Integer] :offset
   # @option opts [String] :order_by
   # @option opts [String] :direction
   # @return [TypesServiceNowServicesResponse]
   describe 'service_now_get_services test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for set_cloud_security_integration_state
+  # Set Cloud Security integration state
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'set_cloud_security_integration_state test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

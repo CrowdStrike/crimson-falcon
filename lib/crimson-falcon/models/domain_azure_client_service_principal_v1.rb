@@ -49,7 +49,7 @@ module Falcon
 
     attr_accessor :encrypted_private_key
 
-    attr_accessor :object_id
+    attr_accessor :is_shared_client
 
     attr_accessor :public_certificate
 
@@ -58,6 +58,8 @@ module Falcon
     attr_accessor :tenant_id
 
     attr_accessor :x5t
+
+    attr_accessor :obj_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -70,11 +72,12 @@ module Falcon
         :'cspm_enabled' => :'cspm_enabled',
         :'default_subscription_id' => :'default_subscription_id',
         :'encrypted_private_key' => :'encrypted_private_key',
-        :'object_id' => :'object_id',
+        :'is_shared_client' => :'is_shared_client',
         :'public_certificate' => :'public_certificate',
         :'resource_permissions' => :'resource_permissions',
         :'tenant_id' => :'tenant_id',
-        :'x5t' => :'x5t'
+        :'x5t' => :'x5t',
+        :'obj_id' => :'obj_id'
       }
     end
 
@@ -90,15 +93,16 @@ module Falcon
         :'behavior_assessment_override' => :'Boolean',
         :'cid' => :'String',
         :'client_id' => :'String',
-        :'conditions' => :'Array<DomainCondition>',
+        :'conditions' => :'Array<StatemgmtCondition>',
         :'cspm_enabled' => :'Boolean',
         :'default_subscription_id' => :'String',
         :'encrypted_private_key' => :'String',
-        :'object_id' => :'String',
+        :'is_shared_client' => :'Boolean',
         :'public_certificate' => :'String',
-        :'resource_permissions' => :'Array<DomainAzureResourcePermission>',
+        :'resource_permissions' => :'Array<AzureResourcePermission>',
         :'tenant_id' => :'String',
-        :'x5t' => :'String'
+        :'x5t' => :'String',
+        :'obj_id' => :'String'
       }
     end
 
@@ -157,8 +161,8 @@ module Falcon
         self.encrypted_private_key = attributes[:'encrypted_private_key']
       end
 
-      if attributes.key?(:'object_id')
-        self.object_id = attributes[:'object_id']
+      if attributes.key?(:'is_shared_client')
+        self.is_shared_client = attributes[:'is_shared_client']
       end
 
       if attributes.key?(:'public_certificate')
@@ -178,6 +182,10 @@ module Falcon
       if attributes.key?(:'x5t')
         self.x5t = attributes[:'x5t']
       end
+
+      if attributes.key?(:'obj_id')
+        self.obj_id = attributes[:'obj_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -192,6 +200,10 @@ module Falcon
         invalid_properties.push('invalid value for "cspm_enabled", cspm_enabled cannot be nil.')
       end
 
+      if @is_shared_client.nil?
+        invalid_properties.push('invalid value for "is_shared_client", is_shared_client cannot be nil.')
+      end
+
       if @tenant_id.nil?
         invalid_properties.push('invalid value for "tenant_id", tenant_id cannot be nil.')
       end
@@ -204,6 +216,7 @@ module Falcon
     def valid?
       return false if @cid.nil?
       return false if @cspm_enabled.nil?
+      return false if @is_shared_client.nil?
       return false if @tenant_id.nil?
       true
     end
@@ -221,11 +234,12 @@ module Falcon
           cspm_enabled == o.cspm_enabled &&
           default_subscription_id == o.default_subscription_id &&
           encrypted_private_key == o.encrypted_private_key &&
-          object_id == o.object_id &&
+          is_shared_client == o.is_shared_client &&
           public_certificate == o.public_certificate &&
           resource_permissions == o.resource_permissions &&
           tenant_id == o.tenant_id &&
-          x5t == o.x5t
+          x5t == o.x5t &&
+          obj_id == o.obj_id
     end
 
     # @see the `==` method
@@ -237,7 +251,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_type, behavior_assessment_override, cid, client_id, conditions, cspm_enabled, default_subscription_id, encrypted_private_key, object_id, public_certificate, resource_permissions, tenant_id, x5t].hash
+      [account_type, behavior_assessment_override, cid, client_id, conditions, cspm_enabled, default_subscription_id, encrypted_private_key, is_shared_client, public_certificate, resource_permissions, tenant_id, x5t, obj_id].hash
     end
 
     # Builds the object from hash

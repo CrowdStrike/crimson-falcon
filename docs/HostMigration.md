@@ -1,6 +1,6 @@
 # Falcon::HostMigration
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -113,8 +113,8 @@ id = 'id_example' # String | The migration job to query
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-10000]
-  sort: 'groups|asc', # String | The property to sort by.
-  filter: 'filter_example' # String | The filter expression that should be used to limit the results. Valid fields: groups, static_host_groups, status, target_cid, migration_id, created_time, host_migration_id, hostgroups, hostname, source_cid, id
+  sort: 'target_cid|asc', # String | The property to sort by.
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results. Valid fields: migration_id, id, created_time, hostgroups, static_host_groups, hostname, status, groups, target_cid, source_cid, host_migration_id
 }
 
 begin
@@ -152,7 +152,7 @@ end
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-10000] | [optional] |
 | **sort** | **String** | The property to sort by. | [optional] |
-| **filter** | **String** | The filter expression that should be used to limit the results. Valid fields: groups, static_host_groups, status, target_cid, migration_id, created_time, host_migration_id, hostgroups, hostname, source_cid, id | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. Valid fields: migration_id, id, created_time, hostgroups, static_host_groups, hostname, status, groups, target_cid, source_cid, host_migration_id | [optional] |
 
 ### Return type
 
@@ -333,8 +333,8 @@ api_instance = Falcon::HostMigration.new
 opts = {
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-10000]
-  sort: 'name|asc', # String | The property to sort by.
-  filter: 'filter_example' # String | The filter expression that should be used to limit the results. Valid fields: target_cid, status, migration_status, created_by, created_time, name, id, migration_id
+  sort: 'status|asc', # String | The property to sort by.
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status
 }
 
 begin
@@ -371,7 +371,7 @@ end
 | **offset** | **Integer** | The offset to start retrieving records from | [optional] |
 | **limit** | **Integer** | The maximum records to return. [1-10000] | [optional] |
 | **sort** | **String** | The property to sort by. | [optional] |
-| **filter** | **String** | The filter expression that should be used to limit the results. Valid fields: target_cid, status, migration_status, created_by, created_time, name, id, migration_id | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status | [optional] |
 
 ### Return type
 

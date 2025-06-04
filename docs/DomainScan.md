@@ -8,6 +8,8 @@
 | **cid** | **String** |  | [optional] |
 | **cloud_ml_level_detection** | **Integer** |  | [optional] |
 | **cloud_ml_level_prevention** | **Integer** |  | [optional] |
+| **cloud_pup_adware_level_detection** | **Integer** |  | [optional] |
+| **cloud_pup_adware_level_prevention** | **Integer** |  | [optional] |
 | **completed_host_count** | **Integer** |  | [optional] |
 | **cpu_priority** | **Integer** |  | [optional] |
 | **created_by** | **String** |  | [optional] |
@@ -54,6 +56,8 @@ instance = Falcon::DomainScan.new(
   cid: null,
   cloud_ml_level_detection: null,
   cloud_ml_level_prevention: null,
+  cloud_pup_adware_level_detection: null,
+  cloud_pup_adware_level_prevention: null,
   completed_host_count: null,
   cpu_priority: null,
   created_by: null,

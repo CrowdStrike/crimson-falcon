@@ -1,6 +1,6 @@
 # Falcon::InstallationTokensSettings
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 ## customer_settings_update
 
-> <MsaspecQueryResponse> customer_settings_update(body)
+> <ApiCustomerSettingsResponseV1> customer_settings_update(body)
 
 Update installation token settings.
 
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> customer_settings_update_with_http_info(body)
+> <Array(<ApiCustomerSettingsResponseV1>, Integer, Hash)> customer_settings_update_with_http_info(body)
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.customer_settings_update_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <ApiCustomerSettingsResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokensSettings->customer_settings_update_with_http_info: #{e}"
 end
@@ -64,7 +64,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**ApiCustomerSettingsResponseV1**](ApiCustomerSettingsResponseV1.md)
 
 ### Authorization
 

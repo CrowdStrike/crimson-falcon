@@ -13,6 +13,7 @@
 | **parent_node_id** | **String** | ID of the parent node in the graph that resulted in a child node being invalidated. | [optional] |
 | **property** | **String** | Used to specify an exact property that is invalid for fql evaluation | [optional] |
 | **resource_id** | **String** | Resource ID for property if it exists, e.g. trigger ID or activity ID | [optional] |
+| **undefined_reference** | **String** | Undefined Reference  for property which is now undefined | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = Falcon::GraphValidationError.new(
   node_id: null,
   parent_node_id: null,
   property: null,
-  resource_id: null
+  resource_id: null,
+  undefined_reference: null
 )
 ```
 

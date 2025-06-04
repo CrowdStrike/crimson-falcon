@@ -24,6 +24,7 @@
 | **start_on** | **Time** |  | [optional] |
 | **status** | **String** |  |  |
 | **stop_on** | **Time** |  | [optional] |
+| **stopped_by_cs** | **Boolean** |  | [optional] |
 | **tracking** | **String** |  | [optional] |
 | **trigger_reference** | **String** |  | [optional] |
 | **type** | **String** |  |  |
@@ -56,6 +57,7 @@ instance = Falcon::DomainScheduledReportV1.new(
   start_on: null,
   status: null,
   stop_on: null,
+  stopped_by_cs: null,
   tracking: null,
   trigger_reference: null,
   type: null,

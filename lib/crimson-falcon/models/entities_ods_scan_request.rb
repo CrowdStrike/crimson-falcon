@@ -36,6 +36,10 @@ module Falcon
 
     attr_accessor :cloud_ml_level_prevention
 
+    attr_accessor :cloud_pup_adware_level_detection
+
+    attr_accessor :cloud_pup_adware_level_prevention
+
     attr_accessor :cpu_priority
 
     attr_accessor :description
@@ -69,6 +73,8 @@ module Falcon
       {
         :'cloud_ml_level_detection' => :'cloud_ml_level_detection',
         :'cloud_ml_level_prevention' => :'cloud_ml_level_prevention',
+        :'cloud_pup_adware_level_detection' => :'cloud_pup_adware_level_detection',
+        :'cloud_pup_adware_level_prevention' => :'cloud_pup_adware_level_prevention',
         :'cpu_priority' => :'cpu_priority',
         :'description' => :'description',
         :'endpoint_notification' => :'endpoint_notification',
@@ -96,6 +102,8 @@ module Falcon
       {
         :'cloud_ml_level_detection' => :'Integer',
         :'cloud_ml_level_prevention' => :'Integer',
+        :'cloud_pup_adware_level_detection' => :'Integer',
+        :'cloud_pup_adware_level_prevention' => :'Integer',
         :'cpu_priority' => :'Integer',
         :'description' => :'String',
         :'endpoint_notification' => :'Boolean',
@@ -140,6 +148,14 @@ module Falcon
 
       if attributes.key?(:'cloud_ml_level_prevention')
         self.cloud_ml_level_prevention = attributes[:'cloud_ml_level_prevention']
+      end
+
+      if attributes.key?(:'cloud_pup_adware_level_detection')
+        self.cloud_pup_adware_level_detection = attributes[:'cloud_pup_adware_level_detection']
+      end
+
+      if attributes.key?(:'cloud_pup_adware_level_prevention')
+        self.cloud_pup_adware_level_prevention = attributes[:'cloud_pup_adware_level_prevention']
       end
 
       if attributes.key?(:'cpu_priority')
@@ -221,6 +237,14 @@ module Falcon
         invalid_properties.push('invalid value for "cloud_ml_level_prevention", cloud_ml_level_prevention cannot be nil.')
       end
 
+      if @cloud_pup_adware_level_detection.nil?
+        invalid_properties.push('invalid value for "cloud_pup_adware_level_detection", cloud_pup_adware_level_detection cannot be nil.')
+      end
+
+      if @cloud_pup_adware_level_prevention.nil?
+        invalid_properties.push('invalid value for "cloud_pup_adware_level_prevention", cloud_pup_adware_level_prevention cannot be nil.')
+      end
+
       if @cpu_priority.nil?
         invalid_properties.push('invalid value for "cpu_priority", cpu_priority cannot be nil.')
       end
@@ -285,6 +309,8 @@ module Falcon
     def valid?
       return false if @cloud_ml_level_detection.nil?
       return false if @cloud_ml_level_prevention.nil?
+      return false if @cloud_pup_adware_level_detection.nil?
+      return false if @cloud_pup_adware_level_prevention.nil?
       return false if @cpu_priority.nil?
       return false if @description.nil?
       return false if @endpoint_notification.nil?
@@ -309,6 +335,8 @@ module Falcon
       self.class == o.class &&
           cloud_ml_level_detection == o.cloud_ml_level_detection &&
           cloud_ml_level_prevention == o.cloud_ml_level_prevention &&
+          cloud_pup_adware_level_detection == o.cloud_pup_adware_level_detection &&
+          cloud_pup_adware_level_prevention == o.cloud_pup_adware_level_prevention &&
           cpu_priority == o.cpu_priority &&
           description == o.description &&
           endpoint_notification == o.endpoint_notification &&
@@ -334,7 +362,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cloud_ml_level_detection, cloud_ml_level_prevention, cpu_priority, description, endpoint_notification, file_paths, host_groups, hosts, initiated_from, max_duration, pause_duration, quarantine, scan_exclusions, scan_inclusions, sensor_ml_level_detection, sensor_ml_level_prevention].hash
+      [cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, cpu_priority, description, endpoint_notification, file_paths, host_groups, hosts, initiated_from, max_duration, pause_duration, quarantine, scan_exclusions, scan_inclusions, sensor_ml_level_detection, sensor_ml_level_prevention].hash
     end
 
     # Builds the object from hash

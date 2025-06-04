@@ -44,6 +44,8 @@ module Falcon
 
     attr_accessor :last_unscheduled_execution
 
+    attr_accessor :runs_without_schedule
+
     attr_accessor :subtype
 
     attr_accessor :xdr_params
@@ -57,6 +59,7 @@ module Falcon
         :'kestrel_params' => :'kestrel_params',
         :'last_scheduled_execution' => :'last_scheduled_execution',
         :'last_unscheduled_execution' => :'last_unscheduled_execution',
+        :'runs_without_schedule' => :'runs_without_schedule',
         :'subtype' => :'subtype',
         :'xdr_params' => :'xdr_params'
       }
@@ -76,6 +79,7 @@ module Falcon
         :'kestrel_params' => :'DomainKestrelParams',
         :'last_scheduled_execution' => :'DomainLastScheduledExecution',
         :'last_unscheduled_execution' => :'DomainLastUnscheduledExecution',
+        :'runs_without_schedule' => :'Boolean',
         :'subtype' => :'String',
         :'xdr_params' => :'DomainXDRParams'
       }
@@ -126,6 +130,10 @@ module Falcon
         self.last_unscheduled_execution = attributes[:'last_unscheduled_execution']
       end
 
+      if attributes.key?(:'runs_without_schedule')
+        self.runs_without_schedule = attributes[:'runs_without_schedule']
+      end
+
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
       end
@@ -151,6 +159,10 @@ module Falcon
         invalid_properties.push('invalid value for "last_unscheduled_execution", last_unscheduled_execution cannot be nil.')
       end
 
+      if @runs_without_schedule.nil?
+        invalid_properties.push('invalid value for "runs_without_schedule", runs_without_schedule cannot be nil.')
+      end
+
       if @subtype.nil?
         invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
@@ -164,6 +176,7 @@ module Falcon
       return false if @created_by_user_id.nil?
       return false if @created_by_uuid.nil?
       return false if @last_unscheduled_execution.nil?
+      return false if @runs_without_schedule.nil?
       return false if @subtype.nil?
       true
     end
@@ -179,6 +192,7 @@ module Falcon
           kestrel_params == o.kestrel_params &&
           last_scheduled_execution == o.last_scheduled_execution &&
           last_unscheduled_execution == o.last_unscheduled_execution &&
+          runs_without_schedule == o.runs_without_schedule &&
           subtype == o.subtype &&
           xdr_params == o.xdr_params
     end
@@ -192,7 +206,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by_user_id, created_by_uuid, discover_params, kestrel_params, last_scheduled_execution, last_unscheduled_execution, subtype, xdr_params].hash
+      [created_by_user_id, created_by_uuid, discover_params, kestrel_params, last_scheduled_execution, last_unscheduled_execution, runs_without_schedule, subtype, xdr_params].hash
     end
 
     # Builds the object from hash

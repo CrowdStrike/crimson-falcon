@@ -171,8 +171,8 @@ module Falcon
     # @option opts [Integer] :limit Maximum number of volume IDs to return. Max: 5000.
     # @option opts [String] :sort Sort order: &#x60;asc&#x60; or &#x60;desc&#x60;.
     # @return [MlscannerapiQueryResponse]
-    def query_submissions(opts = {})
-      data, _status_code, _headers = query_submissions_with_http_info(opts)
+    def query_submissions_mixin0(opts = {})
+      data, _status_code, _headers = query_submissions_mixin0_with_http_info(opts)
       data
     end
 
@@ -183,9 +183,9 @@ module Falcon
     # @option opts [Integer] :limit Maximum number of volume IDs to return. Max: 5000.
     # @option opts [String] :sort Sort order: &#x60;asc&#x60; or &#x60;desc&#x60;.
     # @return [Array<(MlscannerapiQueryResponse, Integer, Hash)>] MlscannerapiQueryResponse data, response status code and response headers
-    def query_submissions_with_http_info(opts = {})
+    def query_submissions_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: QuickScan.query_submissions ...'
+        @api_client.config.logger.debug 'Calling API: QuickScan.query_submissions_mixin0 ...'
       end
       # resource path
       local_var_path = '/scanner/queries/scans/v1'
@@ -215,7 +215,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"QuickScan.query_submissions",
+        :operation => :"QuickScan.query_submissions_mixin0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -226,7 +226,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: QuickScan#query_submissions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: QuickScan#query_submissions_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

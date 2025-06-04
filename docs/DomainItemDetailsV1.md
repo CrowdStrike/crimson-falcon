@@ -21,6 +21,7 @@
 | **language** | **String** | The language of the raw intelligence item | [optional] |
 | **marketplace_product** | [**DomainMarketplaceProduct**](DomainMarketplaceProduct.md) |  | [optional] |
 | **mime_type** | **String** | The mime type of the file | [optional] |
+| **screenshots** | [**Array&lt;DomainScreenshot&gt;**](DomainScreenshot.md) | Screenshots of the raw intelligence item | [optional] |
 | **sha256** | **String** | The SHA256 hash for the file | [optional] |
 | **site** | **String** | The site where the raw intelligence item was found | [optional] |
 | **site_id** | **String** | The ID of the site where the raw intelligence item was found |  |
@@ -56,6 +57,7 @@ instance = Falcon::DomainItemDetailsV1.new(
   language: null,
   marketplace_product: null,
   mime_type: null,
+  screenshots: null,
   sha256: null,
   site: null,
   site_id: null,

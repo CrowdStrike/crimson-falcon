@@ -13,6 +13,7 @@
 | **cloud_provider** | **String** |  |  |
 | **function_type** | **String** |  |  |
 | **is_supported** | **Boolean** |  |  |
+| **last_analyzed_at** | **Integer** |  |  |
 | **region** | **String** |  |  |
 
 ## Example
@@ -30,6 +31,7 @@ instance = Falcon::ModelsResultProperties.new(
   cloud_provider: null,
   function_type: null,
   is_supported: null,
+  last_analyzed_at: null,
   region: null
 )
 ```

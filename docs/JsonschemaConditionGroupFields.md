@@ -8,6 +8,7 @@
 | **control_name** | **String** |  | [optional] |
 | **controller** | **Boolean** |  | [optional] |
 | **dependent_control** | **String** |  | [optional] |
+| **ignore_meta** | **Boolean** |  | [optional] |
 | **requires_meta** | **String** |  | [optional] |
 | **reset_fields** | [**JsonschemaResetFields**](JsonschemaResetFields.md) |  | [optional] |
 
@@ -21,6 +22,7 @@ instance = Falcon::JsonschemaConditionGroupFields.new(
   control_name: null,
   controller: null,
   dependent_control: null,
+  ignore_meta: null,
   requires_meta: null,
   reset_fields: null
 )

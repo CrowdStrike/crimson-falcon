@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **description** | **String** | The description to use when creating the policy | [optional] |
 | **name** | **String** | The name to use when creating the policy |  |
-| **settings** | [**ContentUpdateSettingsV1**](ContentUpdateSettingsV1.md) |  | [optional] |
+| **settings** | [**ContentUpdateContentUpdateSettingsReqV1**](ContentUpdateContentUpdateSettingsReqV1.md) |  | [optional] |
 
 ## Example
 

@@ -38,7 +38,11 @@ module Falcon
 
     attr_accessor :ioa_counts
 
+    attr_accessor :ioa_counts_by_severity
+
     attr_accessor :iom_counts
+
+    attr_accessor :iom_counts_by_severity
 
     attr_accessor :non_compliant
 
@@ -50,7 +54,9 @@ module Falcon
         :'compliant' => :'compliant',
         :'highest_severity' => :'highest_severity',
         :'ioa_counts' => :'ioa_counts',
+        :'ioa_counts_by_severity' => :'ioa_counts_by_severity',
         :'iom_counts' => :'iom_counts',
+        :'iom_counts_by_severity' => :'iom_counts_by_severity',
         :'non_compliant' => :'non_compliant',
         :'severities' => :'severities'
       }
@@ -67,7 +73,9 @@ module Falcon
         :'compliant' => :'ResourcesCompliance',
         :'highest_severity' => :'String',
         :'ioa_counts' => :'Integer',
+        :'ioa_counts_by_severity' => :'ResourcesDetectionCount',
         :'iom_counts' => :'Integer',
+        :'iom_counts_by_severity' => :'ResourcesDetectionCount',
         :'non_compliant' => :'ResourcesCompliance',
         :'severities' => :'Array<String>'
       }
@@ -106,8 +114,16 @@ module Falcon
         self.ioa_counts = attributes[:'ioa_counts']
       end
 
+      if attributes.key?(:'ioa_counts_by_severity')
+        self.ioa_counts_by_severity = attributes[:'ioa_counts_by_severity']
+      end
+
       if attributes.key?(:'iom_counts')
         self.iom_counts = attributes[:'iom_counts']
+      end
+
+      if attributes.key?(:'iom_counts_by_severity')
+        self.iom_counts_by_severity = attributes[:'iom_counts_by_severity']
       end
 
       if attributes.key?(:'non_compliant')
@@ -152,7 +168,9 @@ module Falcon
           compliant == o.compliant &&
           highest_severity == o.highest_severity &&
           ioa_counts == o.ioa_counts &&
+          ioa_counts_by_severity == o.ioa_counts_by_severity &&
           iom_counts == o.iom_counts &&
+          iom_counts_by_severity == o.iom_counts_by_severity &&
           non_compliant == o.non_compliant &&
           severities == o.severities
     end
@@ -166,7 +184,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compliant, highest_severity, ioa_counts, iom_counts, non_compliant, severities].hash
+      [compliant, highest_severity, ioa_counts, ioa_counts_by_severity, iom_counts, iom_counts_by_severity, non_compliant, severities].hash
     end
 
     # Builds the object from hash

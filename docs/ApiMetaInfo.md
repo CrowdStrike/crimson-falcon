@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**ApiResponsePagination**](ApiResponsePagination.md) |  | [optional] |
-| **powered_by** | **String** | The alias of the service which handled the request | [optional] |
-| **query_time** | **Float** | The duration (in seconds) that the service took to handle the request |  |
-| **trace_id** | **String** | Identifier used to debug the request |  |
+| **pagination** | [**ApiPaging**](ApiPaging.md) |  | [optional] |
+| **powered_by** | **String** |  | [optional] |
+| **query_time** | **Float** |  |  |
+| **trace_id** | **String** |  |  |
 
 ## Example
 

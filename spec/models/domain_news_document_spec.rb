@@ -120,6 +120,12 @@ describe Falcon::DomainNewsDocument do
     end
   end
 
+  describe 'test attribute "read_time_in_minutes"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "rich_text_description"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

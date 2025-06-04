@@ -22,6 +22,7 @@
 | **ioc_type** | **String** |  | [optional] |
 | **ioc_value** | **String** |  | [optional] |
 | **objective** | **String** |  | [optional] |
+| **pattern_description** | **String** |  | [optional] |
 | **pattern_disposition** | **Integer** |  | [optional] |
 | **pattern_disposition_details** | [**PatterndispositionPatternDisposition**](PatterndispositionPatternDisposition.md) |  | [optional] |
 | **pattern_id** | **Integer** |  |  |
@@ -58,6 +59,7 @@ instance = Falcon::DomainBehavior.new(
   ioc_type: null,
   ioc_value: null,
   objective: null,
+  pattern_description: null,
   pattern_disposition: null,
   pattern_disposition_details: null,
   pattern_id: null,

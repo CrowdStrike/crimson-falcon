@@ -71,7 +71,7 @@ describe 'QuickScan' do
     end
   end
 
-  # unit tests for query_submissions
+  # unit tests for query_submissions_mixin0
   # Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
@@ -79,7 +79,7 @@ describe 'QuickScan' do
   # @option opts [Integer] :limit Maximum number of volume IDs to return. Max: 5000.
   # @option opts [String] :sort Sort order: &#x60;asc&#x60; or &#x60;desc&#x60;.
   # @return [MlscannerapiQueryResponse]
-  describe 'query_submissions test' do
+  describe 'query_submissions_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

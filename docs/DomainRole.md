@@ -9,6 +9,7 @@
 | **display_name** | **String** |  |  |
 | **id** | **String** |  |  |
 | **is_global** | **Boolean** |  |  |
+| **type** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = Falcon::DomainRole.new(
   description: null,
   display_name: null,
   id: null,
-  is_global: null
+  is_global: null,
+  type: null
 )
 ```
 

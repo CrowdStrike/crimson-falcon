@@ -7,13 +7,14 @@
 | **additional_header** | **String** |  | [optional] |
 | **current_aws_arn** | **String** |  | [optional] |
 | **dashboard_url** | **String** |  | [optional] |
-| **id** | **Integer** |  | [optional] |
+| **id** | **String** |  | [optional] |
 | **last_health_check** | **Integer** |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **node_type** | **String** |  | [optional] |
 | **password** | **String** |  | [optional] |
 | **pod_settings** | [**TypesK8SPodSettings**](TypesK8SPodSettings.md) |  | [optional] |
 | **proxy_address** | **String** |  | [optional] |
+| **status** | [**TypesExecutorNodeStatus**](TypesExecutorNodeStatus.md) |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **use_jobs** | **Boolean** |  | [optional] |
 | **username** | **String** |  | [optional] |
@@ -34,6 +35,7 @@ instance = Falcon::TypesExecutorNode.new(
   password: null,
   pod_settings: null,
   proxy_address: null,
+  status: null,
   type: null,
   use_jobs: null,
   username: null

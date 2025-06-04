@@ -19,8 +19,10 @@
 | **behavior_assessment_enabled** | **Boolean** |  | [optional] |
 | **cid** | **String** |  | [optional] |
 | **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
+| **cloudformation_root_stack_arn** | **String** |  | [optional] |
+| **cloudformation_update_url** | **String** |  | [optional] |
 | **cloudformation_url** | **String** |  | [optional] |
-| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **cspm_enabled** | **Boolean** |  | [optional] |
 | **d4c** | [**DomainAWSD4CAccountV1**](DomainAWSD4CAccountV1.md) |  | [optional] |
 | **d4c_migrated** | **Boolean** |  | [optional] |
@@ -29,19 +31,25 @@
 | **environment** | **String** |  | [optional] |
 | **eventbus_name** | **String** |  | [optional] |
 | **external_id** | **String** | ID assigned for use with cross account IAM role access. | [optional] |
+| **falcon_client_id** | **String** |  | [optional] |
+| **features** | [**Array&lt;DomainProductFeatures&gt;**](DomainProductFeatures.md) |  | [optional] |
 | **iam_role_arn** | **String** | The full arn of the IAM role created in this account to control access. | [optional] |
 | **intermediate_role_arn** | **String** |  | [optional] |
 | **inventory_filter** | [**Array&lt;DomainAWSInventoryFilterSetting&gt;**](DomainAWSInventoryFilterSetting.md) |  |  |
+| **is_cloud_registration** | **Boolean** |  | [optional] |
 | **is_cspm_lite** | **Boolean** | Is CSPM Lite enabled. | [optional] |
 | **is_custom_rolename** | **Boolean** |  |  |
+| **is_delegated_admin** | **Boolean** |  | [optional] |
 | **is_master** | **Boolean** |  | [optional] |
 | **organization_id** | **String** | Up to 34 character AWS provided unique identifier for the organization. | [optional] |
-| **products** | **Array&lt;String&gt;** |  | [optional] |
 | **remediation_cloudformation_url** | **String** |  | [optional] |
 | **remediation_region** | **String** |  | [optional] |
 | **remediation_tou_accepted** | **Time** |  | [optional] |
+| **resource_name_prefix** | **String** |  | [optional] |
+| **resource_name_suffix** | **String** |  | [optional] |
 | **root_account_id** | **String** | 12 digit AWS provided unique identifier for the root account (of the organization this account belongs to). | [optional] |
 | **root_iam_role** | **Boolean** |  | [optional] |
+| **s3_url** | **String** |  | [optional] |
 | **secondary_role_arn** | **String** |  | [optional] |
 | **sensor_management_enabled** | **Boolean** |  |  |
 | **settings** | **Object** |  | [optional] |
@@ -71,6 +79,8 @@ instance = Falcon::DomainAWSAccountV2.new(
   behavior_assessment_enabled: null,
   cid: null,
   cloud_scopes: null,
+  cloudformation_root_stack_arn: null,
+  cloudformation_update_url: null,
   cloudformation_url: null,
   conditions: null,
   cspm_enabled: null,
@@ -81,19 +91,25 @@ instance = Falcon::DomainAWSAccountV2.new(
   environment: null,
   eventbus_name: null,
   external_id: null,
+  falcon_client_id: null,
+  features: null,
   iam_role_arn: null,
   intermediate_role_arn: null,
   inventory_filter: null,
+  is_cloud_registration: null,
   is_cspm_lite: null,
   is_custom_rolename: null,
+  is_delegated_admin: null,
   is_master: null,
   organization_id: null,
-  products: null,
   remediation_cloudformation_url: null,
   remediation_region: null,
   remediation_tou_accepted: null,
+  resource_name_prefix: null,
+  resource_name_suffix: null,
   root_account_id: null,
   root_iam_role: null,
+  s3_url: null,
   secondary_role_arn: null,
   sensor_management_enabled: null,
   settings: null,

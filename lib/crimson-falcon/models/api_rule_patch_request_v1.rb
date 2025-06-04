@@ -32,17 +32,25 @@ require 'time'
 
 module Falcon
   class ApiRulePatchRequestV1
+    attr_accessor :comment
+
     attr_accessor :description
 
     attr_accessor :id
 
+    attr_accessor :mitre_attack
+
     attr_accessor :name
+
+    attr_accessor :notifications
 
     attr_accessor :operation
 
     attr_accessor :search
 
     attr_accessor :severity
+
+    attr_accessor :state
 
     attr_accessor :status
 
@@ -53,12 +61,16 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'comment' => :'comment',
         :'description' => :'description',
         :'id' => :'id',
+        :'mitre_attack' => :'mitre_attack',
         :'name' => :'name',
+        :'notifications' => :'notifications',
         :'operation' => :'operation',
         :'search' => :'search',
         :'severity' => :'severity',
+        :'state' => :'state',
         :'status' => :'status',
         :'tactic' => :'tactic',
         :'technique' => :'technique'
@@ -73,12 +85,16 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'comment' => :'String',
         :'description' => :'String',
         :'id' => :'String',
+        :'mitre_attack' => :'Array<ModelMitreAttackMapping>',
         :'name' => :'String',
+        :'notifications' => :'Array<ApiPatchRuleNotificationsV1>',
         :'operation' => :'ApiPatchRuleOperationV1',
         :'search' => :'ApiPatchRuleSearchV1',
         :'severity' => :'Integer',
+        :'state' => :'String',
         :'status' => :'String',
         :'tactic' => :'String',
         :'technique' => :'String'
@@ -106,6 +122,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'comment')
+        self.comment = attributes[:'comment']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
@@ -114,8 +134,20 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'mitre_attack')
+        if (value = attributes[:'mitre_attack']).is_a?(Array)
+          self.mitre_attack = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'notifications')
+        if (value = attributes[:'notifications']).is_a?(Array)
+          self.notifications = value
+        end
       end
 
       if attributes.key?(:'operation')
@@ -128,6 +160,10 @@ module Falcon
 
       if attributes.key?(:'severity')
         self.severity = attributes[:'severity']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
       if attributes.key?(:'status')
@@ -166,12 +202,16 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          comment == o.comment &&
           description == o.description &&
           id == o.id &&
+          mitre_attack == o.mitre_attack &&
           name == o.name &&
+          notifications == o.notifications &&
           operation == o.operation &&
           search == o.search &&
           severity == o.severity &&
+          state == o.state &&
           status == o.status &&
           tactic == o.tactic &&
           technique == o.technique
@@ -186,7 +226,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, id, name, operation, search, severity, status, tactic, technique].hash
+      [comment, description, id, mitre_attack, name, notifications, operation, search, severity, state, status, tactic, technique].hash
     end
 
     # Builds the object from hash

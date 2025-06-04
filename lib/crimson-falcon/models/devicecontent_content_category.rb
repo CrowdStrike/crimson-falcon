@@ -34,10 +34,16 @@ module Falcon
   class DevicecontentContentCategory
     attr_accessor :last_update
 
+    attr_accessor :override
+
+    attr_accessor :policy_setting
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'last_update' => :'last_update'
+        :'last_update' => :'last_update',
+        :'override' => :'override',
+        :'policy_setting' => :'policy_setting'
       }
     end
 
@@ -49,7 +55,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'last_update' => :'String'
+        :'last_update' => :'String',
+        :'override' => :'String',
+        :'policy_setting' => :'String'
       }
     end
 
@@ -77,6 +85,14 @@ module Falcon
       if attributes.key?(:'last_update')
         self.last_update = attributes[:'last_update']
       end
+
+      if attributes.key?(:'override')
+        self.override = attributes[:'override']
+      end
+
+      if attributes.key?(:'policy_setting')
+        self.policy_setting = attributes[:'policy_setting']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -97,7 +113,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          last_update == o.last_update
+          last_update == o.last_update &&
+          override == o.override &&
+          policy_setting == o.policy_setting
     end
 
     # @see the `==` method
@@ -109,7 +127,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [last_update].hash
+      [last_update, override, policy_setting].hash
     end
 
     # Builds the object from hash

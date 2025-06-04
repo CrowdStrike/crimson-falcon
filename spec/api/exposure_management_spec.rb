@@ -148,6 +148,17 @@ describe 'ExposureManagement' do
     end
   end
 
+  # unit tests for post_external_assets_inventory_v1
+  # Add external assets for external asset scanning.
+  # @param body Asset addition specification.
+  # @param [Hash] opts the optional parameters
+  # @return [InventoryapiUserExternalAssetCreateResponseV1]
+  describe 'post_external_assets_inventory_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for query_ecosystem_subsidiaries
   # Retrieves a list of IDs for ecosystem subsidiaries. Use these IDs with the /entities/ecosystem-subsidiaries/v1 endpoints.
   # @param [Hash] opts the optional parameters

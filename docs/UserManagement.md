@@ -1,10 +1,12 @@
 # Falcon::UserManagement
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**combined_user_roles_v1**](UserManagement.md#combined_user_roles_v1) | **GET** /user-management/combined/user-roles/v1 | Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer. |
+| [**aggregate_users_v1**](UserManagement.md#aggregate_users_v1) | **POST** /user-management/aggregates/users/v1 | Get host aggregates as specified via json in request body. |
+| [**combined_user_roles_v1**](UserManagement.md#combined_user_roles_v1) | **GET** /user-management/combined/user-roles/v1 | Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer. |
+| [**combined_user_roles_v2**](UserManagement.md#combined_user_roles_v2) | **GET** /user-management/combined/user-roles/v2 | Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer. |
 | [**create_user**](UserManagement.md#create_user) | **POST** /users/entities/users/v1 | Deprecated : Please use POST /user-management/entities/users/v1. Create a new user. After creating a user, assign one or more roles with POST /user-roles/entities/user-roles/v1 |
 | [**create_user_v1**](UserManagement.md#create_user_v1) | **POST** /user-management/entities/users/v1 | Create a new user. After creating a user, assign one or more roles with POST &#39;/user-management/entities/user-role-actions/v1&#39; |
 | [**delete_user**](UserManagement.md#delete_user) | **DELETE** /users/entities/users/v1 | Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user permanently |
@@ -28,9 +30,161 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**user_roles_action_v1**](UserManagement.md#user_roles_action_v1) | **POST** /user-management/entities/user-role-actions/v1 | Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke |
 
 
+## aggregate_users_v1
+
+> <FlightcontrolapiAggregatesResponse> aggregate_users_v1(body)
+
+Get host aggregates as specified via json in request body.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::UserManagement.new
+body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
+
+begin
+  # Get host aggregates as specified via json in request body.
+  result = api_instance.aggregate_users_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling UserManagement->aggregate_users_v1: #{e}"
+end
+```
+
+#### Using the aggregate_users_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FlightcontrolapiAggregatesResponse>, Integer, Hash)> aggregate_users_v1_with_http_info(body)
+
+```ruby
+begin
+  # Get host aggregates as specified via json in request body.
+  data, status_code, headers = api_instance.aggregate_users_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FlightcontrolapiAggregatesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling UserManagement->aggregate_users_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;MsaAggregateQueryRequest&gt;**](MsaAggregateQueryRequest.md) |  |  |
+
+### Return type
+
+[**FlightcontrolapiAggregatesResponse**](FlightcontrolapiAggregatesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## combined_user_roles_v1
 
-> <FlightcontrolapiUserGrantResponse> combined_user_roles_v1(user_uuid, opts)
+> <FlightcontrolapiCombinedUserRolesResponseV1> combined_user_roles_v1(user_uuid, opts)
+
+Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::UserManagement.new
+user_uuid = 'user_uuid_example' # String | User UUID to get available roles for.
+opts = {
+  cid: 'cid_example', # String | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
+  direct_only: true, # Boolean | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
+  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-500]
+  sort: 'cid|asc' # String | The property to sort by
+}
+
+begin
+  # Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
+  result = api_instance.combined_user_roles_v1(user_uuid, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling UserManagement->combined_user_roles_v1: #{e}"
+end
+```
+
+#### Using the combined_user_roles_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<FlightcontrolapiCombinedUserRolesResponseV1>, Integer, Hash)> combined_user_roles_v1_with_http_info(user_uuid, opts)
+
+```ruby
+begin
+  # Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
+  data, status_code, headers = api_instance.combined_user_roles_v1_with_http_info(user_uuid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <FlightcontrolapiCombinedUserRolesResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling UserManagement->combined_user_roles_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_uuid** | **String** | User UUID to get available roles for. |  |
+| **cid** | **String** | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view. | [optional] |
+| **direct_only** | **Boolean** | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params) | [optional][default to false] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional][default to 0] |
+| **limit** | **Integer** | The maximum records to return. [1-500] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by | [optional][default to &#39;role_name|asc&#39;] |
+
+### Return type
+
+[**FlightcontrolapiCombinedUserRolesResponseV1**](FlightcontrolapiCombinedUserRolesResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_user_roles_v2
+
+> <FlightcontrolapiCombinedUserRolesResponseV2> combined_user_roles_v2(user_uuid, opts)
 
 Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
@@ -52,7 +206,7 @@ user_uuid = 'user_uuid_example' # String | User UUID to get available roles for.
 opts = {
   cid: 'cid_example', # String | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
   direct_only: true, # Boolean | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
-  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name
+  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'cid|asc' # String | The property to sort by
@@ -60,28 +214,28 @@ opts = {
 
 begin
   # Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
-  result = api_instance.combined_user_roles_v1(user_uuid, opts)
+  result = api_instance.combined_user_roles_v2(user_uuid, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagement->combined_user_roles_v1: #{e}"
+  puts "Error when calling UserManagement->combined_user_roles_v2: #{e}"
 end
 ```
 
-#### Using the combined_user_roles_v1_with_http_info variant
+#### Using the combined_user_roles_v2_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FlightcontrolapiUserGrantResponse>, Integer, Hash)> combined_user_roles_v1_with_http_info(user_uuid, opts)
+> <Array(<FlightcontrolapiCombinedUserRolesResponseV2>, Integer, Hash)> combined_user_roles_v2_with_http_info(user_uuid, opts)
 
 ```ruby
 begin
   # Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
-  data, status_code, headers = api_instance.combined_user_roles_v1_with_http_info(user_uuid, opts)
+  data, status_code, headers = api_instance.combined_user_roles_v2_with_http_info(user_uuid, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <FlightcontrolapiUserGrantResponse>
+  p data # => <FlightcontrolapiCombinedUserRolesResponseV2>
 rescue Falcon::ApiError => e
-  puts "Error when calling UserManagement->combined_user_roles_v1_with_http_info: #{e}"
+  puts "Error when calling UserManagement->combined_user_roles_v2_with_http_info: #{e}"
 end
 ```
 
@@ -92,14 +246,14 @@ end
 | **user_uuid** | **String** | User UUID to get available roles for. |  |
 | **cid** | **String** | Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view. | [optional] |
 | **direct_only** | **Boolean** | Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params) | [optional][default to false] |
-| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name | [optional] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional][default to 0] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional][default to 100] |
 | **sort** | **String** | The property to sort by | [optional][default to &#39;role_name|asc&#39;] |
 
 ### Return type
 
-[**FlightcontrolapiUserGrantResponse**](FlightcontrolapiUserGrantResponse.md)
+[**FlightcontrolapiCombinedUserRolesResponseV2**](FlightcontrolapiCombinedUserRolesResponseV2.md)
 
 ### Authorization
 
@@ -835,7 +989,7 @@ end
 
 api_instance = Falcon::UserManagement.new
 opts = {
-  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
+  filter: 'filter_example', # String | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid
   offset: 56, # Integer | The offset to start retrieving records from
   limit: 56, # Integer | The maximum records to return. [1-500]
   sort: 'cid_name|asc' # String | The property to sort by
@@ -872,7 +1026,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid | [optional] |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid | [optional] |
 | **offset** | **Integer** | The offset to start retrieving records from | [optional][default to 0] |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional][default to 100] |
 | **sort** | **String** | The property to sort by | [optional][default to &#39;uid|asc&#39;] |
@@ -1532,7 +1686,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::UserManagement.new
-body = Falcon::DomainActionUserRolesRequest.new # DomainActionUserRolesRequest | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
+body = Falcon::FlightcontrolapiGrantInput.new # FlightcontrolapiGrantInput | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
 
 begin
   # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
@@ -1565,7 +1719,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**DomainActionUserRolesRequest**](DomainActionUserRolesRequest.md) | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;. |  |
+| **body** | [**FlightcontrolapiGrantInput**](FlightcontrolapiGrantInput.md) | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;. |  |
 
 ### Return type
 

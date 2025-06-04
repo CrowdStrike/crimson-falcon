@@ -69,7 +69,7 @@ describe Falcon::QuickscanproScanResult do
   describe 'test attribute "verdict"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["clean", "suspicious", "malicious", "unknown"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["clean", "likely_benign", "suspicious", "malicious", "unknown"])
       # validator.allowable_values.each do |value|
       #   expect { instance.verdict = value }.not_to raise_error
       # end

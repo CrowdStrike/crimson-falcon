@@ -40,13 +40,16 @@ module Falcon
 
     attr_accessor :status_display
 
+    attr_accessor :use_ingest_time
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
         :'search_window_end' => :'search_window_end',
         :'search_window_start' => :'search_window_start',
-        :'status_display' => :'status_display'
+        :'status_display' => :'status_display',
+        :'use_ingest_time' => :'use_ingest_time'
       }
     end
 
@@ -61,7 +64,8 @@ module Falcon
         :'id' => :'String',
         :'search_window_end' => :'Time',
         :'search_window_start' => :'Time',
-        :'status_display' => :'String'
+        :'status_display' => :'String',
+        :'use_ingest_time' => :'Boolean'
       }
     end
 
@@ -101,6 +105,10 @@ module Falcon
       if attributes.key?(:'status_display')
         self.status_display = attributes[:'status_display']
       end
+
+      if attributes.key?(:'use_ingest_time')
+        self.use_ingest_time = attributes[:'use_ingest_time']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -115,6 +123,10 @@ module Falcon
         invalid_properties.push('invalid value for "status_display", status_display cannot be nil.')
       end
 
+      if @use_ingest_time.nil?
+        invalid_properties.push('invalid value for "use_ingest_time", use_ingest_time cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -123,6 +135,7 @@ module Falcon
     def valid?
       return false if @id.nil?
       return false if @status_display.nil?
+      return false if @use_ingest_time.nil?
       true
     end
 
@@ -134,7 +147,8 @@ module Falcon
           id == o.id &&
           search_window_end == o.search_window_end &&
           search_window_start == o.search_window_start &&
-          status_display == o.status_display
+          status_display == o.status_display &&
+          use_ingest_time == o.use_ingest_time
     end
 
     # @see the `==` method
@@ -146,7 +160,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, search_window_end, search_window_start, status_display].hash
+      [id, search_window_end, search_window_start, status_display, use_ingest_time].hash
     end
 
     # Builds the object from hash

@@ -4,8 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **after** | **String** |  |  |
 | **limit** | **Integer** |  |  |
+| **_next** | **String** |  |  |
+| **offset** | **String** |  |  |
 | **total** | **Integer** |  |  |
 
 ## Example
@@ -14,8 +15,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainSearchAfterPaging.new(
-  after: null,
   limit: null,
+  _next: null,
+  offset: null,
   total: null
 )
 ```

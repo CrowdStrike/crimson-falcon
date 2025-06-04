@@ -80,6 +80,9 @@ module Falcon
     # Vertex key which triggers the formation of the Alert
     attr_accessor :id
 
+    # References to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
+    attr_accessor :mitre_attack
+
     # Pattern Name coming either from Taxonomy or directly from the ingested Alert
     attr_accessor :name
 
@@ -94,6 +97,9 @@ module Falcon
 
     # Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp
     attr_accessor :product
+
+    # Alert resolution. Could be one of the following values: true_positive, false_positive, ignored
+    attr_accessor :resolution
 
     # Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone
     attr_accessor :scenario
@@ -165,11 +171,13 @@ module Falcon
         :'email_sent' => :'email_sent',
         :'external' => :'external',
         :'id' => :'id',
+        :'mitre_attack' => :'mitre_attack',
         :'name' => :'name',
         :'objective' => :'objective',
         :'pattern_id' => :'pattern_id',
         :'platform' => :'platform',
         :'product' => :'product',
+        :'resolution' => :'resolution',
         :'scenario' => :'scenario',
         :'seconds_to_resolved' => :'seconds_to_resolved',
         :'seconds_to_triaged' => :'seconds_to_triaged',
@@ -214,11 +222,13 @@ module Falcon
         :'email_sent' => :'Boolean',
         :'external' => :'Boolean',
         :'id' => :'String',
+        :'mitre_attack' => :'Array<DetectsMitreAttackMapping>',
         :'name' => :'String',
         :'objective' => :'String',
         :'pattern_id' => :'Integer',
         :'platform' => :'String',
         :'product' => :'String',
+        :'resolution' => :'String',
         :'scenario' => :'String',
         :'seconds_to_resolved' => :'Integer',
         :'seconds_to_triaged' => :'Integer',
@@ -326,6 +336,12 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'mitre_attack')
+        if (value = attributes[:'mitre_attack']).is_a?(Array)
+          self.mitre_attack = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -344,6 +360,10 @@ module Falcon
 
       if attributes.key?(:'product')
         self.product = attributes[:'product']
+      end
+
+      if attributes.key?(:'resolution')
+        self.resolution = attributes[:'resolution']
       end
 
       if attributes.key?(:'scenario')
@@ -489,6 +509,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @mitre_attack.nil?
+        invalid_properties.push('invalid value for "mitre_attack", mitre_attack cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -507,6 +531,10 @@ module Falcon
 
       if @product.nil?
         invalid_properties.push('invalid value for "product", product cannot be nil.')
+      end
+
+      if @resolution.nil?
+        invalid_properties.push('invalid value for "resolution", resolution cannot be nil.')
       end
 
       if @scenario.nil?
@@ -599,11 +627,13 @@ module Falcon
       return false if @email_sent.nil?
       return false if @external.nil?
       return false if @id.nil?
+      return false if @mitre_attack.nil?
       return false if @name.nil?
       return false if @objective.nil?
       return false if @pattern_id.nil?
       return false if @platform.nil?
       return false if @product.nil?
+      return false if @resolution.nil?
       return false if @scenario.nil?
       return false if @seconds_to_resolved.nil?
       return false if @seconds_to_triaged.nil?
@@ -645,11 +675,13 @@ module Falcon
           email_sent == o.email_sent &&
           external == o.external &&
           id == o.id &&
+          mitre_attack == o.mitre_attack &&
           name == o.name &&
           objective == o.objective &&
           pattern_id == o.pattern_id &&
           platform == o.platform &&
           product == o.product &&
+          resolution == o.resolution &&
           scenario == o.scenario &&
           seconds_to_resolved == o.seconds_to_resolved &&
           seconds_to_triaged == o.seconds_to_triaged &&
@@ -678,7 +710,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, name, objective, pattern_id, platform, product, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, mitre_attack, name, objective, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

@@ -32,23 +32,40 @@ require 'time'
 
 module Falcon
   class SadomainTyposquattingSubdomain
+    # First time the subdomain was observed
     attr_accessor :first_seen
 
+    # Subdomain's leftmost domain label is one of www, mail, ns1, ns2
+    attr_accessor :has_noisy_domain_prefix
+
+    # The ID of the subdomain
     attr_accessor :id
 
+    # Last time the subdomain was observed
     attr_accessor :last_seen
 
+    # Subdomain's leftmost domain label, in punycode format
+    attr_accessor :punycode_domain_prefix
+
+    # The Punycode representation of the subdomain, i.e. starting with `xn--`
     attr_accessor :punycode_format
 
+    # Subdomain's leftmost domain label, in Unicode format
+    attr_accessor :unicode_domain_prefix
+
+    # The Unicode representation of the subdomain
     attr_accessor :unicode_format
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'first_seen' => :'first_seen',
+        :'has_noisy_domain_prefix' => :'has_noisy_domain_prefix',
         :'id' => :'id',
         :'last_seen' => :'last_seen',
+        :'punycode_domain_prefix' => :'punycode_domain_prefix',
         :'punycode_format' => :'punycode_format',
+        :'unicode_domain_prefix' => :'unicode_domain_prefix',
         :'unicode_format' => :'unicode_format'
       }
     end
@@ -62,9 +79,12 @@ module Falcon
     def self.openapi_types
       {
         :'first_seen' => :'Time',
+        :'has_noisy_domain_prefix' => :'Boolean',
         :'id' => :'String',
         :'last_seen' => :'Time',
+        :'punycode_domain_prefix' => :'String',
         :'punycode_format' => :'String',
+        :'unicode_domain_prefix' => :'String',
         :'unicode_format' => :'String'
       }
     end
@@ -94,6 +114,10 @@ module Falcon
         self.first_seen = attributes[:'first_seen']
       end
 
+      if attributes.key?(:'has_noisy_domain_prefix')
+        self.has_noisy_domain_prefix = attributes[:'has_noisy_domain_prefix']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
@@ -102,8 +126,16 @@ module Falcon
         self.last_seen = attributes[:'last_seen']
       end
 
+      if attributes.key?(:'punycode_domain_prefix')
+        self.punycode_domain_prefix = attributes[:'punycode_domain_prefix']
+      end
+
       if attributes.key?(:'punycode_format')
         self.punycode_format = attributes[:'punycode_format']
+      end
+
+      if attributes.key?(:'unicode_domain_prefix')
+        self.unicode_domain_prefix = attributes[:'unicode_domain_prefix']
       end
 
       if attributes.key?(:'unicode_format')
@@ -115,12 +147,24 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @has_noisy_domain_prefix.nil?
+        invalid_properties.push('invalid value for "has_noisy_domain_prefix", has_noisy_domain_prefix cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @punycode_domain_prefix.nil?
+        invalid_properties.push('invalid value for "punycode_domain_prefix", punycode_domain_prefix cannot be nil.')
+      end
+
       if @punycode_format.nil?
         invalid_properties.push('invalid value for "punycode_format", punycode_format cannot be nil.')
+      end
+
+      if @unicode_domain_prefix.nil?
+        invalid_properties.push('invalid value for "unicode_domain_prefix", unicode_domain_prefix cannot be nil.')
       end
 
       if @unicode_format.nil?
@@ -133,8 +177,11 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @has_noisy_domain_prefix.nil?
       return false if @id.nil?
+      return false if @punycode_domain_prefix.nil?
       return false if @punycode_format.nil?
+      return false if @unicode_domain_prefix.nil?
       return false if @unicode_format.nil?
       true
     end
@@ -145,9 +192,12 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           first_seen == o.first_seen &&
+          has_noisy_domain_prefix == o.has_noisy_domain_prefix &&
           id == o.id &&
           last_seen == o.last_seen &&
+          punycode_domain_prefix == o.punycode_domain_prefix &&
           punycode_format == o.punycode_format &&
+          unicode_domain_prefix == o.unicode_domain_prefix &&
           unicode_format == o.unicode_format
     end
 
@@ -160,7 +210,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_seen, id, last_seen, punycode_format, unicode_format].hash
+      [first_seen, has_noisy_domain_prefix, id, last_seen, punycode_domain_prefix, punycode_format, unicode_domain_prefix, unicode_format].hash
     end
 
     # Builds the object from hash

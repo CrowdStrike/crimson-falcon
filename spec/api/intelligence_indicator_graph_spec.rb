@@ -49,9 +49,19 @@ describe 'IntelligenceIndicatorGraph' do
     end
   end
 
+  # unit tests for get_indicator_aggregates
+  # Get aggregates for indicators based on requests
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [RestapiIndicatorsAggregatesResponse]
+  describe 'get_indicator_aggregates test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for search_indicators
   # Search indicators based on FQL filter.
-  # @param x_cs_useruuid User ID.
   # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit Limit

@@ -62,8 +62,6 @@ module Falcon
     # Default Azure Subscription ID to provision shared IOA infrastructure.
     attr_accessor :default_subscription_id
 
-    attr_accessor :object_id
-
     attr_accessor :public_certificate
 
     attr_accessor :public_certificate_raw
@@ -77,6 +75,8 @@ module Falcon
     attr_accessor :tenant_id
 
     attr_accessor :years_valid
+
+    attr_accessor :obj_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -94,13 +94,13 @@ module Falcon
         :'credentials_end_date' => :'credentials_end_date',
         :'credentials_type' => :'credentials_type',
         :'default_subscription_id' => :'default_subscription_id',
-        :'object_id' => :'object_id',
         :'public_certificate' => :'public_certificate',
         :'public_certificate_raw' => :'public_certificate_raw',
         :'role_assignments' => :'role_assignments',
         :'status' => :'status',
         :'tenant_id' => :'tenant_id',
-        :'years_valid' => :'years_valid'
+        :'years_valid' => :'years_valid',
+        :'obj_id' => :'obj_id'
       }
     end
 
@@ -121,17 +121,17 @@ module Falcon
         :'azure_permissions_status' => :'Array<DomainPermission>',
         :'cid' => :'String',
         :'client_id' => :'String',
-        :'conditions' => :'Array<DomainCondition>',
+        :'conditions' => :'Array<StatemgmtCondition>',
         :'credentials_end_date' => :'Time',
         :'credentials_type' => :'String',
         :'default_subscription_id' => :'String',
-        :'object_id' => :'String',
         :'public_certificate' => :'String',
         :'public_certificate_raw' => :'String',
-        :'role_assignments' => :'Array<DomainAzureManagementGroupRoleAssignment>',
+        :'role_assignments' => :'Array<AzureDBRoleAssignment>',
         :'status' => :'String',
         :'tenant_id' => :'String',
-        :'years_valid' => :'Integer'
+        :'years_valid' => :'Integer',
+        :'obj_id' => :'String'
       }
     end
 
@@ -212,10 +212,6 @@ module Falcon
         self.default_subscription_id = attributes[:'default_subscription_id']
       end
 
-      if attributes.key?(:'object_id')
-        self.object_id = attributes[:'object_id']
-      end
-
       if attributes.key?(:'public_certificate')
         self.public_certificate = attributes[:'public_certificate']
       end
@@ -240,6 +236,10 @@ module Falcon
 
       if attributes.key?(:'years_valid')
         self.years_valid = attributes[:'years_valid']
+      end
+
+      if attributes.key?(:'obj_id')
+        self.obj_id = attributes[:'obj_id']
       end
     end
 
@@ -309,13 +309,13 @@ module Falcon
           credentials_end_date == o.credentials_end_date &&
           credentials_type == o.credentials_type &&
           default_subscription_id == o.default_subscription_id &&
-          object_id == o.object_id &&
           public_certificate == o.public_certificate &&
           public_certificate_raw == o.public_certificate_raw &&
           role_assignments == o.role_assignments &&
           status == o.status &&
           tenant_id == o.tenant_id &&
-          years_valid == o.years_valid
+          years_valid == o.years_valid &&
+          obj_id == o.obj_id
     end
 
     # @see the `==` method
@@ -327,7 +327,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, azure_management_group_id, azure_management_group_name, azure_permissions_status, cid, client_id, conditions, credentials_end_date, credentials_type, default_subscription_id, object_id, public_certificate, public_certificate_raw, role_assignments, status, tenant_id, years_valid].hash
+      [created_at, deleted_at, id, updated_at, azure_management_group_id, azure_management_group_name, azure_permissions_status, cid, client_id, conditions, credentials_end_date, credentials_type, default_subscription_id, public_certificate, public_certificate_raw, role_assignments, status, tenant_id, years_valid, obj_id].hash
     end
 
     # Builds the object from hash

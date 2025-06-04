@@ -64,7 +64,7 @@ module Falcon
         :'description' => :'String',
         :'id' => :'String',
         :'name' => :'String',
-        :'settings' => :'ContentUpdateSettingsV1'
+        :'settings' => :'ContentUpdateContentUpdateSettingsReqV1'
       }
     end
 

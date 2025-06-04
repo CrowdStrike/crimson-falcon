@@ -49,18 +49,46 @@ describe 'UserManagement' do
     end
   end
 
+  # unit tests for aggregate_users_v1
+  # Get host aggregates as specified via json in request body.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [FlightcontrolapiAggregatesResponse]
+  describe 'aggregate_users_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for combined_user_roles_v1
+  # Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
+  # @param user_uuid User UUID to get available roles for.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :cid Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
+  # @option opts [Boolean] :direct_only Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @option opts [String] :sort The property to sort by
+  # @return [FlightcontrolapiCombinedUserRolesResponseV1]
+  describe 'combined_user_roles_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for combined_user_roles_v2
   # Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
   # @param user_uuid User UUID to get available roles for.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :cid Customer ID to get grants for. Empty CID would result in Role IDs for user against current CID in view.
   # @option opts [Boolean] :direct_only Specifies if to request direct Only role grants or all role grants between user and CID (specified in query params)
-  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: role_id, role_name
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: expires_at, role_id, role_name
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-500]
   # @option opts [String] :sort The property to sort by
-  # @return [FlightcontrolapiUserGrantResponse]
-  describe 'combined_user_roles_v1 test' do
+  # @return [FlightcontrolapiCombinedUserRolesResponseV2]
+  describe 'combined_user_roles_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -183,7 +211,7 @@ describe 'UserManagement' do
   # unit tests for query_user_v1
   # List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, first_name, last_name, name, uid
+  # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-500]
   # @option opts [String] :sort The property to sort by

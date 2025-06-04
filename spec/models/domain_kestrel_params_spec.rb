@@ -42,6 +42,12 @@ describe Falcon::DomainKestrelParams do
       expect(instance).to be_instance_of(Falcon::DomainKestrelParams)
     end
   end
+  describe 'test attribute "is_published"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "view_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

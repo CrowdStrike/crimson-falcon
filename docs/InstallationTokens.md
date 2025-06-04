@@ -1,6 +1,6 @@
 # Falcon::InstallationTokens
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -516,7 +516,7 @@ end
 
 ## tokens_update
 
-> <MsaspecQueryResponse> tokens_update(ids, body)
+> <ApiTokenDetailsResponseV1> tokens_update(ids, body)
 
 Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
 
@@ -550,7 +550,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecQueryResponse>, Integer, Hash)> tokens_update_with_http_info(ids, body)
+> <Array(<ApiTokenDetailsResponseV1>, Integer, Hash)> tokens_update_with_http_info(ids, body)
 
 ```ruby
 begin
@@ -558,7 +558,7 @@ begin
   data, status_code, headers = api_instance.tokens_update_with_http_info(ids, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecQueryResponse>
+  p data # => <ApiTokenDetailsResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling InstallationTokens->tokens_update_with_http_info: #{e}"
 end
@@ -573,7 +573,7 @@ end
 
 ### Return type
 
-[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+[**ApiTokenDetailsResponseV1**](ApiTokenDetailsResponseV1.md)
 
 ### Authorization
 

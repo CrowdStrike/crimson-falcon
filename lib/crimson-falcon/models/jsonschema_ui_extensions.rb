@@ -55,6 +55,9 @@ module Falcon
     # skip generating a card during mobiledoc generation
     attr_accessor :skip
 
+    # decimal step to increment float values
+    attr_accessor :step
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -66,7 +69,8 @@ module Falcon
         :'helper_text' => :'helperText',
         :'hide' => :'hide',
         :'schema_reference' => :'schema_reference',
-        :'skip' => :'skip'
+        :'skip' => :'skip',
+        :'step' => :'step'
       }
     end
 
@@ -86,7 +90,8 @@ module Falcon
         :'helper_text' => :'String',
         :'hide' => :'Boolean',
         :'schema_reference' => :'String',
-        :'skip' => :'Boolean'
+        :'skip' => :'Boolean',
+        :'step' => :'Float'
       }
     end
 
@@ -150,6 +155,10 @@ module Falcon
       if attributes.key?(:'skip')
         self.skip = attributes[:'skip']
       end
+
+      if attributes.key?(:'step')
+        self.step = attributes[:'step']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -178,7 +187,8 @@ module Falcon
           helper_text == o.helper_text &&
           hide == o.hide &&
           schema_reference == o.schema_reference &&
-          skip == o.skip
+          skip == o.skip &&
+          step == o.step
     end
 
     # @see the `==` method
@@ -190,7 +200,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, schema_reference, skip].hash
+      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, schema_reference, skip, step].hash
     end
 
     # Builds the object from hash

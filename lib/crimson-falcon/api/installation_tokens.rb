@@ -473,7 +473,7 @@ module Falcon
     # @param ids [Array<String>] The token ids to update.
     # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [MsaspecQueryResponse]
+    # @return [ApiTokenDetailsResponseV1]
     def tokens_update(ids, body, opts = {})
       data, _status_code, _headers = tokens_update_with_http_info(ids, body, opts)
       data
@@ -483,7 +483,7 @@ module Falcon
     # @param ids [Array<String>] The token ids to update.
     # @param body [ApiTokenPatchRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    # @return [Array<(ApiTokenDetailsResponseV1, Integer, Hash)>] ApiTokenDetailsResponseV1 data, response status code and response headers
     def tokens_update_with_http_info(ids, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InstallationTokens.tokens_update ...'
@@ -520,7 +520,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+      return_type = opts[:debug_return_type] || 'ApiTokenDetailsResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

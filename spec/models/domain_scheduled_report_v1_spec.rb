@@ -162,6 +162,12 @@ describe Falcon::DomainScheduledReportV1 do
     end
   end
 
+  describe 'test attribute "stopped_by_cs"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "tracking"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

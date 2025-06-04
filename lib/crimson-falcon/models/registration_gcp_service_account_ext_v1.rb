@@ -64,7 +64,7 @@ module Falcon
         :'client_email' => :'String',
         :'client_id' => :'String',
         :'project_id' => :'String',
-        :'service_account_conditions' => :'Array<DomainCondition>',
+        :'service_account_conditions' => :'Array<StatemgmtCondition>',
         :'service_account_id' => :'Integer'
       }
     end

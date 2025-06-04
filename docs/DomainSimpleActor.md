@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **entitlements** | **Array&lt;Object&gt;** |  | [optional] |
+| **animal_classifier** | **String** |  | [optional] |
+| **entitlements** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) |  | [optional] |
 | **id** | **Integer** |  |  |
 | **name** | **String** |  | [optional] |
 | **slug** | **String** |  | [optional] |
@@ -17,6 +18,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainSimpleActor.new(
+  animal_classifier: null,
   entitlements: null,
   id: null,
   name: null,

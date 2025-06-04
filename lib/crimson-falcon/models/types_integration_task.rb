@@ -67,20 +67,20 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'access_token' => :'access_token',
-        :'additional_header' => :'additional_header',
-        :'business_application' => :'business_application',
+        :'access_token' => :'accessToken',
+        :'additional_header' => :'additionalHeader',
+        :'business_application' => :'businessApplication',
         :'data' => :'data',
         :'enabled' => :'enabled',
         :'id' => :'id',
         :'integration' => :'integration',
-        :'integration_task_type' => :'integration_task_type',
-        :'latest_task_run' => :'latest_task_run',
+        :'integration_task_type' => :'integrationTaskType',
+        :'latest_task_run' => :'latestTaskRun',
         :'name' => :'name',
-        :'next_run' => :'next_run',
+        :'next_run' => :'nextRun',
         :'progress' => :'progress',
         :'schedule' => :'schedule',
-        :'schedule_every_unit_display_name' => :'schedule_every_unit_display_name',
+        :'schedule_every_unit_display_name' => :'scheduleEveryUnitDisplayName',
         :'trigger' => :'trigger',
         :'type' => :'type'
       }
@@ -99,7 +99,7 @@ module Falcon
         :'business_application' => :'String',
         :'data' => :'String',
         :'enabled' => :'Boolean',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'integration' => :'TypesIntegration',
         :'integration_task_type' => :'TypesIntegrationTaskType',
         :'latest_task_run' => :'TypesActionRun',

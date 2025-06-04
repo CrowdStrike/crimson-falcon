@@ -76,6 +76,28 @@ describe 'CustomStorage' do
     end
   end
 
+  # unit tests for describe_collection
+  # Fetch metadata about an existing collection
+  # @param collection_name The name of the collection
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType1942251022]
+  describe 'describe_collection test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for describe_collections
+  # Fetch metadata about one or more existing collections
+  # @param names A set of collection names
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType1942251022]
+  describe 'describe_collections test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_object
   # Get the bytes for the specified object
   # @param collection_name The name of the collection
@@ -95,6 +117,30 @@ describe 'CustomStorage' do
   # @param [Hash] opts the optional parameters
   # @return [CustomStorageResponse]
   describe 'get_object_metadata test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_schema
+  # Get the bytes of the specified schema of the requested collection
+  # @param collection_name The name of the collection
+  # @param schema_version The version of the collection schema or &#39;latest&#39; for the latest version
+  # @param [Hash] opts the optional parameters
+  # @return [File]
+  describe 'get_schema test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_schema_metadata
+  # Get the metadata for the specified schema of the requested collection
+  # @param collection_name The name of the collection
+  # @param schema_version The version of the collection schema or &#39;latest&#39; for the latest version
+  # @param [Hash] opts the optional parameters
+  # @return [CustomType4161059146]
+  describe 'get_schema_metadata test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -126,6 +172,19 @@ describe 'CustomStorage' do
     end
   end
 
+  # unit tests for list_collections
+  # List available collection names in alphabetical order
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :_end The end key to end listing to
+  # @option opts [Integer] :limit The limit of results to return
+  # @option opts [String] :start The start key to start listing from
+  # @return [CustomType1255839303]
+  describe 'list_collections test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_objects
   # List the object keys in the specified collection in alphabetical order
   # @param collection_name The name of the collection
@@ -150,6 +209,20 @@ describe 'CustomStorage' do
   # @option opts [String] :start The start key to start listing from
   # @return [CustomType1255839303]
   describe 'list_objects_by_version test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for list_schemas
+  # Get the list of schemas for the requested collection in reverse version order (latest first)
+  # @param collection_name The name of the collection
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :_end The end key to end listing to
+  # @option opts [Integer] :limit The limit of results to return
+  # @option opts [String] :start The start key to start listing from
+  # @return [CustomType1255839303]
+  describe 'list_schemas test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

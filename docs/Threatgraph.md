@@ -1,6 +1,6 @@
 # Falcon::Threatgraph
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -33,7 +33,7 @@ end
 
 api_instance = Falcon::Threatgraph.new
 ids = 'ids_example' # String | Vertex ID to get details for.  Only one value is supported
-edge_type = 'attributed_by_process' # String | The type of edges that you would like to retrieve
+edge_type = 'accessed_ad_computer' # String | The type of edges that you would like to retrieve
 opts = {
   limit: 56, # Integer | How many edges to return in a single request [1-100]
   offset: 'offset_example', # String | The offset to use to retrieve the next page of results

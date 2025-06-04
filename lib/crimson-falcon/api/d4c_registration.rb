@@ -742,8 +742,13 @@ module Falcon
     # @option opts [String] :dspm_role
     # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :organization_id The AWS organization ID to be registered
+    # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
     # @option opts [String] :aws_profile The AWS profile to be used during registration
-    # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+    # @option opts [String] :aws_region The AWS region to be used during registration
+    # @option opts [String] :iam_role_arn The custom IAM role to be used during registration
+    # @option opts [String] :falcon_client_id The Falcon client ID used during registration
+    # @option opts [String] :idp_enabled Set to true to enable Identity Protection feature
+    # @option opts [String] :tags Base64 encoded JSON string to be used as AWS tags
     # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
     def get_d4_caws_account_scripts_attachment(opts = {})
       data, _status_code, _headers = get_d4_caws_account_scripts_attachment_with_http_info(opts)
@@ -762,8 +767,13 @@ module Falcon
     # @option opts [String] :dspm_role
     # @option opts [String] :use_existing_cloudtrail
     # @option opts [String] :organization_id The AWS organization ID to be registered
+    # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
     # @option opts [String] :aws_profile The AWS profile to be used during registration
-    # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+    # @option opts [String] :aws_region The AWS region to be used during registration
+    # @option opts [String] :iam_role_arn The custom IAM role to be used during registration
+    # @option opts [String] :falcon_client_id The Falcon client ID used during registration
+    # @option opts [String] :idp_enabled Set to true to enable Identity Protection feature
+    # @option opts [String] :tags Base64 encoded JSON string to be used as AWS tags
     # @return [Array<(RegistrationAWSProvisionGetAccountScriptResponseV2, Integer, Hash)>] RegistrationAWSProvisionGetAccountScriptResponseV2 data, response status code and response headers
     def get_d4_caws_account_scripts_attachment_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -800,8 +810,28 @@ module Falcon
       end
 
       pattern = Regexp.new(/.*/)
-      if @api_client.config.client_side_validation && !opts[:'custom_role_name'].nil? && opts[:'custom_role_name'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"custom_role_name\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      if @api_client.config.client_side_validation && !opts[:'aws_region'].nil? && opts[:'aws_region'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"aws_region\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'iam_role_arn'].nil? && opts[:'iam_role_arn'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"iam_role_arn\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'falcon_client_id'].nil? && opts[:'falcon_client_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"falcon_client_id\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'idp_enabled'].nil? && opts[:'idp_enabled'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"idp_enabled\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/.*/)
+      if @api_client.config.client_side_validation && !opts[:'tags'].nil? && opts[:'tags'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"tags\"]' when calling D4cRegistration.get_d4_caws_account_scripts_attachment, must conform to the pattern #{pattern}."
       end
 
       # resource path
@@ -819,8 +849,13 @@ module Falcon
       query_params[:'dspm_role'] = opts[:'dspm_role'] if !opts[:'dspm_role'].nil?
       query_params[:'use_existing_cloudtrail'] = opts[:'use_existing_cloudtrail'] if !opts[:'use_existing_cloudtrail'].nil?
       query_params[:'organization_id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
+      query_params[:'organizational_unit_ids'] = @api_client.build_collection_param(opts[:'organizational_unit_ids'], :csv) if !opts[:'organizational_unit_ids'].nil?
       query_params[:'aws_profile'] = opts[:'aws_profile'] if !opts[:'aws_profile'].nil?
-      query_params[:'custom_role_name'] = opts[:'custom_role_name'] if !opts[:'custom_role_name'].nil?
+      query_params[:'aws_region'] = opts[:'aws_region'] if !opts[:'aws_region'].nil?
+      query_params[:'iam_role_arn'] = opts[:'iam_role_arn'] if !opts[:'iam_role_arn'].nil?
+      query_params[:'falcon_client_id'] = opts[:'falcon_client_id'] if !opts[:'falcon_client_id'].nil?
+      query_params[:'idp_enabled'] = opts[:'idp_enabled'] if !opts[:'idp_enabled'].nil?
+      query_params[:'tags'] = opts[:'tags'] if !opts[:'tags'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

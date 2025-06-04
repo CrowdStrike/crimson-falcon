@@ -52,6 +52,8 @@ module Falcon
 
     attr_accessor :cloud_service_friendly
 
+    attr_accessor :cloud_service_id
+
     attr_accessor :cloud_service_subtype
 
     attr_accessor :created_at
@@ -63,6 +65,8 @@ module Falcon
     attr_accessor :hipaa_benchmark
 
     attr_accessor :hitrust_benchmark
+
+    attr_accessor :is_global
 
     attr_accessor :is_remediable
 
@@ -101,12 +105,14 @@ module Falcon
         :'cloud_provider' => :'cloud_provider',
         :'cloud_service' => :'cloud_service',
         :'cloud_service_friendly' => :'cloud_service_friendly',
+        :'cloud_service_id' => :'cloud_service_id',
         :'cloud_service_subtype' => :'cloud_service_subtype',
         :'created_at' => :'created_at',
         :'default_severity' => :'default_severity',
         :'fql_policy' => :'fql_policy',
         :'hipaa_benchmark' => :'hipaa_benchmark',
         :'hitrust_benchmark' => :'hitrust_benchmark',
+        :'is_global' => :'is_global',
         :'is_remediable' => :'is_remediable',
         :'iso_benchmark' => :'iso_benchmark',
         :'name' => :'name',
@@ -140,12 +146,14 @@ module Falcon
         :'cloud_provider' => :'String',
         :'cloud_service' => :'String',
         :'cloud_service_friendly' => :'String',
+        :'cloud_service_id' => :'Integer',
         :'cloud_service_subtype' => :'String',
         :'created_at' => :'Time',
         :'default_severity' => :'String',
         :'fql_policy' => :'String',
         :'hipaa_benchmark' => :'Array<DomainBenchmark>',
         :'hitrust_benchmark' => :'Array<DomainBenchmark>',
+        :'is_global' => :'Boolean',
         :'is_remediable' => :'Boolean',
         :'iso_benchmark' => :'Array<DomainBenchmark>',
         :'name' => :'String',
@@ -228,6 +236,10 @@ module Falcon
         self.cloud_service_friendly = attributes[:'cloud_service_friendly']
       end
 
+      if attributes.key?(:'cloud_service_id')
+        self.cloud_service_id = attributes[:'cloud_service_id']
+      end
+
       if attributes.key?(:'cloud_service_subtype')
         self.cloud_service_subtype = attributes[:'cloud_service_subtype']
       end
@@ -254,6 +266,10 @@ module Falcon
         if (value = attributes[:'hitrust_benchmark']).is_a?(Array)
           self.hitrust_benchmark = value
         end
+      end
+
+      if attributes.key?(:'is_global')
+        self.is_global = attributes[:'is_global']
       end
 
       if attributes.key?(:'is_remediable')
@@ -319,6 +335,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @is_global.nil?
+        invalid_properties.push('invalid value for "is_global", is_global cannot be nil.')
+      end
+
       if @is_remediable.nil?
         invalid_properties.push('invalid value for "is_remediable", is_remediable cannot be nil.')
       end
@@ -329,6 +349,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @is_global.nil?
       return false if @is_remediable.nil?
       true
     end
@@ -348,12 +369,14 @@ module Falcon
           cloud_provider == o.cloud_provider &&
           cloud_service == o.cloud_service &&
           cloud_service_friendly == o.cloud_service_friendly &&
+          cloud_service_id == o.cloud_service_id &&
           cloud_service_subtype == o.cloud_service_subtype &&
           created_at == o.created_at &&
           default_severity == o.default_severity &&
           fql_policy == o.fql_policy &&
           hipaa_benchmark == o.hipaa_benchmark &&
           hitrust_benchmark == o.hitrust_benchmark &&
+          is_global == o.is_global &&
           is_remediable == o.is_remediable &&
           iso_benchmark == o.iso_benchmark &&
           name == o.name &&
@@ -377,7 +400,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_scope, attack_types, cid, cis_benchmark, cisa_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_subtype, created_at, default_severity, fql_policy, hipaa_benchmark, hitrust_benchmark, is_remediable, iso_benchmark, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
+      [account_scope, attack_types, cid, cis_benchmark, cisa_benchmark, cloud_asset_type, cloud_asset_type_id, cloud_provider, cloud_service, cloud_service_friendly, cloud_service_id, cloud_service_subtype, created_at, default_severity, fql_policy, hipaa_benchmark, hitrust_benchmark, is_global, is_remediable, iso_benchmark, name, nist_benchmark, pci_benchmark, policy_id, policy_settings, policy_timestamp, policy_type, remediation_summary, soc2_benchmark, updated_at].hash
     end
 
     # Builds the object from hash

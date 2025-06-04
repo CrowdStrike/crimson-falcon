@@ -13,6 +13,7 @@
 | **hide** | **Boolean** | generate a hidden card during mobiledoc generation | [optional] |
 | **schema_reference** | **String** | local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response | [optional] |
 | **skip** | **Boolean** | skip generating a card during mobiledoc generation | [optional] |
+| **step** | **Float** | decimal step to increment float values | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = Falcon::JsonschemaUIExtensions.new(
   helper_text: null,
   hide: null,
   schema_reference: null,
-  skip: null
+  skip: null,
+  step: null
 )
 ```
 

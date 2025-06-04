@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :created_at
 
+    attr_accessor :factors
+
     attr_accessor :first_name
 
     attr_accessor :last_login_at
@@ -55,6 +57,7 @@ module Falcon
       {
         :'cid' => :'cid',
         :'created_at' => :'created_at',
+        :'factors' => :'factors',
         :'first_name' => :'first_name',
         :'last_login_at' => :'last_login_at',
         :'last_name' => :'last_name',
@@ -75,6 +78,7 @@ module Falcon
       {
         :'cid' => :'String',
         :'created_at' => :'Time',
+        :'factors' => :'Array<String>',
         :'first_name' => :'String',
         :'last_login_at' => :'Time',
         :'last_name' => :'String',
@@ -112,6 +116,12 @@ module Falcon
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.key?(:'factors')
+        if (value = attributes[:'factors']).is_a?(Array)
+          self.factors = value
+        end
       end
 
       if attributes.key?(:'first_name')
@@ -163,6 +173,7 @@ module Falcon
       self.class == o.class &&
           cid == o.cid &&
           created_at == o.created_at &&
+          factors == o.factors &&
           first_name == o.first_name &&
           last_login_at == o.last_login_at &&
           last_name == o.last_name &&
@@ -181,7 +192,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, created_at, first_name, last_login_at, last_name, status, uid, updated_at, uuid].hash
+      [cid, created_at, factors, first_name, last_login_at, last_name, status, uid, updated_at, uuid].hash
     end
 
     # Builds the object from hash

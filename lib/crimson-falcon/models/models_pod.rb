@@ -38,6 +38,8 @@ module Falcon
 
     attr_accessor :annotations_list
 
+    attr_accessor :app_name
+
     attr_accessor :automount_service_token
 
     attr_accessor :cid
@@ -130,6 +132,7 @@ module Falcon
         :'agents' => :'agents',
         :'allow_privilege_escalation' => :'allow_privilege_escalation',
         :'annotations_list' => :'annotations_list',
+        :'app_name' => :'app_name',
         :'automount_service_token' => :'automount_service_token',
         :'cid' => :'cid',
         :'cloud_account_id' => :'cloud_account_id',
@@ -187,6 +190,7 @@ module Falcon
         :'agents' => :'Array<Hash>',
         :'allow_privilege_escalation' => :'Boolean',
         :'annotations_list' => :'Array<String>',
+        :'app_name' => :'String',
         :'automount_service_token' => :'Boolean',
         :'cid' => :'String',
         :'cloud_account_id' => :'String',
@@ -268,6 +272,10 @@ module Falcon
         if (value = attributes[:'annotations_list']).is_a?(Array)
           self.annotations_list = value
         end
+      end
+
+      if attributes.key?(:'app_name')
+        self.app_name = attributes[:'app_name']
       end
 
       if attributes.key?(:'automount_service_token')
@@ -469,6 +477,10 @@ module Falcon
         invalid_properties.push('invalid value for "annotations_list", annotations_list cannot be nil.')
       end
 
+      if @app_name.nil?
+        invalid_properties.push('invalid value for "app_name", app_name cannot be nil.')
+      end
+
       if @automount_service_token.nil?
         invalid_properties.push('invalid value for "automount_service_token", automount_service_token cannot be nil.')
       end
@@ -646,6 +658,7 @@ module Falcon
       return false if @agents.nil?
       return false if @allow_privilege_escalation.nil?
       return false if @annotations_list.nil?
+      return false if @app_name.nil?
       return false if @automount_service_token.nil?
       return false if @cid.nil?
       return false if @cloud_account_id.nil?
@@ -699,6 +712,7 @@ module Falcon
           agents == o.agents &&
           allow_privilege_escalation == o.allow_privilege_escalation &&
           annotations_list == o.annotations_list &&
+          app_name == o.app_name &&
           automount_service_token == o.automount_service_token &&
           cid == o.cid &&
           cloud_account_id == o.cloud_account_id &&
@@ -753,7 +767,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agents, allow_privilege_escalation, annotations_list, automount_service_token, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, container_count, containers, created_at, deleted_at, first_seen, host_ipc, host_network, host_pid, image_pull_secrets, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_ipv4, node_name, node_selector, node_uid, owner_id, owner_type, pod_external_id, pod_id, pod_name, ports, privileged, resource_status, root_write_access, run_as_root_group, run_as_root_user, scheduler_name, service_account_name, share_process_namespace, volume_mounts].hash
+      [agents, allow_privilege_escalation, annotations_list, app_name, automount_service_token, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, container_count, containers, created_at, deleted_at, first_seen, host_ipc, host_network, host_pid, image_pull_secrets, ipv4, ipv6, kac_agent_id, labels, labels_list, last_seen, namespace, node_ipv4, node_name, node_selector, node_uid, owner_id, owner_type, pod_external_id, pod_id, pod_name, ports, privileged, resource_status, root_write_access, run_as_root_group, run_as_root_user, scheduler_name, service_account_name, share_process_namespace, volume_mounts].hash
     end
 
     # Builds the object from hash

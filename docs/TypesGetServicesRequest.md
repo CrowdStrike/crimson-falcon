@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **cids** | **Array&lt;String&gt;** |  | [optional] |
 | **deployment_tuple_filters** | [**Array&lt;TypesDeploymentUnitsTupleFilters&gt;**](TypesDeploymentUnitsTupleFilters.md) |  | [optional] |
 | **nesting_level** | **Integer** |  | [optional] |
 | **only_count** | **Boolean** |  | [optional] |
@@ -21,6 +22,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::TypesGetServicesRequest.new(
+  cids: null,
   deployment_tuple_filters: null,
   nesting_level: null,
   only_count: null,

@@ -42,6 +42,12 @@ describe Falcon::TypesGetServicesRequest do
       expect(instance).to be_instance_of(Falcon::TypesGetServicesRequest)
     end
   end
+  describe 'test attribute "cids"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "deployment_tuple_filters"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

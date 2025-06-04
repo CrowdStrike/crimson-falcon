@@ -40,6 +40,10 @@ module Falcon
 
     attr_accessor :cloud_ml_level_prevention
 
+    attr_accessor :cloud_pup_adware_level_detection
+
+    attr_accessor :cloud_pup_adware_level_prevention
+
     attr_accessor :completed_host_count
 
     attr_accessor :cpu_priority
@@ -113,6 +117,8 @@ module Falcon
         :'cid' => :'cid',
         :'cloud_ml_level_detection' => :'cloud_ml_level_detection',
         :'cloud_ml_level_prevention' => :'cloud_ml_level_prevention',
+        :'cloud_pup_adware_level_detection' => :'cloud_pup_adware_level_detection',
+        :'cloud_pup_adware_level_prevention' => :'cloud_pup_adware_level_prevention',
         :'completed_host_count' => :'completed_host_count',
         :'cpu_priority' => :'cpu_priority',
         :'created_by' => :'created_by',
@@ -161,6 +167,8 @@ module Falcon
         :'cid' => :'String',
         :'cloud_ml_level_detection' => :'Integer',
         :'cloud_ml_level_prevention' => :'Integer',
+        :'cloud_pup_adware_level_detection' => :'Integer',
+        :'cloud_pup_adware_level_prevention' => :'Integer',
         :'completed_host_count' => :'Integer',
         :'cpu_priority' => :'Integer',
         :'created_by' => :'String',
@@ -232,6 +240,14 @@ module Falcon
 
       if attributes.key?(:'cloud_ml_level_prevention')
         self.cloud_ml_level_prevention = attributes[:'cloud_ml_level_prevention']
+      end
+
+      if attributes.key?(:'cloud_pup_adware_level_detection')
+        self.cloud_pup_adware_level_detection = attributes[:'cloud_pup_adware_level_detection']
+      end
+
+      if attributes.key?(:'cloud_pup_adware_level_prevention')
+        self.cloud_pup_adware_level_prevention = attributes[:'cloud_pup_adware_level_prevention']
       end
 
       if attributes.key?(:'completed_host_count')
@@ -443,6 +459,8 @@ module Falcon
           cid == o.cid &&
           cloud_ml_level_detection == o.cloud_ml_level_detection &&
           cloud_ml_level_prevention == o.cloud_ml_level_prevention &&
+          cloud_pup_adware_level_detection == o.cloud_pup_adware_level_detection &&
+          cloud_pup_adware_level_prevention == o.cloud_pup_adware_level_prevention &&
           completed_host_count == o.completed_host_count &&
           cpu_priority == o.cpu_priority &&
           created_by == o.created_by &&
@@ -487,7 +505,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
     end
 
     # Builds the object from hash

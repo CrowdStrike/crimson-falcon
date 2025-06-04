@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :allows_public_access
 
+    attr_accessor :application_security
+
     attr_accessor :asset_graph
 
     attr_accessor :cspm_license
@@ -49,6 +51,8 @@ module Falcon
     attr_accessor :has_tags
 
     attr_accessor :host
+
+    attr_accessor :insights
 
     attr_accessor :instance_id
 
@@ -71,6 +75,7 @@ module Falcon
       {
         :'account_name' => :'account_name',
         :'allows_public_access' => :'allows_public_access',
+        :'application_security' => :'application_security',
         :'asset_graph' => :'asset_graph',
         :'cspm_license' => :'cspm_license',
         :'data_classifications' => :'data_classifications',
@@ -78,6 +83,7 @@ module Falcon
         :'has_falcon_sensor' => :'has_falcon_sensor',
         :'has_tags' => :'has_tags',
         :'host' => :'host',
+        :'insights' => :'insights',
         :'instance_id' => :'instance_id',
         :'instance_state' => :'instance_state',
         :'legacy_resource_id' => :'legacy_resource_id',
@@ -99,6 +105,7 @@ module Falcon
       {
         :'account_name' => :'String',
         :'allows_public_access' => :'Boolean',
+        :'application_security' => :'AspmData',
         :'asset_graph' => :'ResourcesAssetGraph',
         :'cspm_license' => :'String',
         :'data_classifications' => :'DataclassificationsResponse',
@@ -106,6 +113,7 @@ module Falcon
         :'has_falcon_sensor' => :'Boolean',
         :'has_tags' => :'Boolean',
         :'host' => :'ResourcesHost',
+        :'insights' => :'InsightsInsight',
         :'instance_id' => :'String',
         :'instance_state' => :'String',
         :'legacy_resource_id' => :'String',
@@ -146,6 +154,10 @@ module Falcon
         self.allows_public_access = attributes[:'allows_public_access']
       end
 
+      if attributes.key?(:'application_security')
+        self.application_security = attributes[:'application_security']
+      end
+
       if attributes.key?(:'asset_graph')
         self.asset_graph = attributes[:'asset_graph']
       end
@@ -172,6 +184,10 @@ module Falcon
 
       if attributes.key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.key?(:'insights')
+        self.insights = attributes[:'insights']
       end
 
       if attributes.key?(:'instance_id')
@@ -227,6 +243,7 @@ module Falcon
       self.class == o.class &&
           account_name == o.account_name &&
           allows_public_access == o.allows_public_access &&
+          application_security == o.application_security &&
           asset_graph == o.asset_graph &&
           cspm_license == o.cspm_license &&
           data_classifications == o.data_classifications &&
@@ -234,6 +251,7 @@ module Falcon
           has_falcon_sensor == o.has_falcon_sensor &&
           has_tags == o.has_tags &&
           host == o.host &&
+          insights == o.insights &&
           instance_id == o.instance_id &&
           instance_state == o.instance_state &&
           legacy_resource_id == o.legacy_resource_id &&
@@ -253,7 +271,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_name, allows_public_access, asset_graph, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, publicly_exposed, scan_type].hash
+      [account_name, allows_public_access, application_security, asset_graph, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, insights, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, publicly_exposed, scan_type].hash
     end
 
     # Builds the object from hash

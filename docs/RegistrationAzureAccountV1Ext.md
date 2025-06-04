@@ -13,24 +13,28 @@
 | **cid** | **String** |  |  |
 | **client_id** | **String** |  | [optional] |
 | **cloud_scopes** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
-| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **credentials_end_date** | **Time** |  | [optional] |
 | **credentials_type** | **String** |  | [optional] |
 | **default_subscription_id** | **String** | Default Azure Subscription ID to provision shared IOA infrastructure. | [optional] |
 | **environment** | **String** |  | [optional] |
+| **failed_permissions_str** | **String** |  |  |
+| **ioa_status** | **String** |  |  |
+| **iom_status** | **String** |  |  |
 | **is_cspm_lite** | **Boolean** | Is CSPM Lite enabled. | [optional] |
-| **object_id** | **String** |  | [optional] |
 | **parent_management_group_id** | **String** |  | [optional] |
 | **parent_management_group_name** | **String** |  | [optional] |
+| **passed_permissions_str** | **String** |  |  |
 | **public_certificate** | **String** |  | [optional] |
 | **public_certificate_raw** | **String** |  | [optional] |
-| **role_assignments** | [**Array&lt;DomainAzureRoleAssignment&gt;**](DomainAzureRoleAssignment.md) |  | [optional] |
+| **role_assignments** | [**Array&lt;AzureDBRoleAssignment&gt;**](AzureDBRoleAssignment.md) |  | [optional] |
 | **show_modal** | **Boolean** | Whether to show modal on the UI instructing existing D4C Azure customer to reregister subscriptions for CSPM. |  |
 | **status** | **String** | Account registration status. | [optional] |
 | **subscription_id** | **String** | Azure Subscription ID. | [optional] |
 | **subscription_name** | **String** | Azure Subscription Name. | [optional] |
 | **tenant_id** | **String** | Azure Tenant ID to use. | [optional] |
 | **years_valid** | **Integer** |  | [optional] |
+| **obj_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -52,10 +56,13 @@ instance = Falcon::RegistrationAzureAccountV1Ext.new(
   credentials_type: null,
   default_subscription_id: null,
   environment: null,
+  failed_permissions_str: null,
+  ioa_status: null,
+  iom_status: null,
   is_cspm_lite: null,
-  object_id: null,
   parent_management_group_id: null,
   parent_management_group_name: null,
+  passed_permissions_str: null,
   public_certificate: null,
   public_certificate_raw: null,
   role_assignments: null,
@@ -64,7 +71,8 @@ instance = Falcon::RegistrationAzureAccountV1Ext.new(
   subscription_id: null,
   subscription_name: null,
   tenant_id: null,
-  years_valid: null
+  years_valid: null,
+  obj_id: null
 )
 ```
 

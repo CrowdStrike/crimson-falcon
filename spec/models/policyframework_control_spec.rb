@@ -42,6 +42,12 @@ describe Falcon::PolicyframeworkControl do
       expect(instance).to be_instance_of(Falcon::PolicyframeworkControl)
     end
   end
+  describe 'test attribute "applicable_profiles"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "benchmarks"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

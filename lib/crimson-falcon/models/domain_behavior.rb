@@ -68,6 +68,8 @@ module Falcon
 
     attr_accessor :objective
 
+    attr_accessor :pattern_description
+
     attr_accessor :pattern_disposition
 
     attr_accessor :pattern_disposition_details
@@ -111,6 +113,7 @@ module Falcon
         :'ioc_type' => :'ioc_type',
         :'ioc_value' => :'ioc_value',
         :'objective' => :'objective',
+        :'pattern_description' => :'pattern_description',
         :'pattern_disposition' => :'pattern_disposition',
         :'pattern_disposition_details' => :'pattern_disposition_details',
         :'pattern_id' => :'pattern_id',
@@ -151,6 +154,7 @@ module Falcon
         :'ioc_type' => :'String',
         :'ioc_value' => :'String',
         :'objective' => :'String',
+        :'pattern_description' => :'String',
         :'pattern_disposition' => :'Integer',
         :'pattern_disposition_details' => :'PatterndispositionPatternDisposition',
         :'pattern_id' => :'Integer',
@@ -266,6 +270,10 @@ module Falcon
         self.objective = attributes[:'objective']
       end
 
+      if attributes.key?(:'pattern_description')
+        self.pattern_description = attributes[:'pattern_description']
+      end
+
       if attributes.key?(:'pattern_disposition')
         self.pattern_disposition = attributes[:'pattern_disposition']
       end
@@ -362,6 +370,7 @@ module Falcon
           ioc_type == o.ioc_type &&
           ioc_value == o.ioc_value &&
           objective == o.objective &&
+          pattern_description == o.pattern_description &&
           pattern_disposition == o.pattern_disposition &&
           pattern_disposition_details == o.pattern_disposition_details &&
           pattern_id == o.pattern_id &&
@@ -384,7 +393,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, alert_ids, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, grouping_ids, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
+      [aid, alert_ids, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, grouping_ids, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_description, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
     end
 
     # Builds the object from hash

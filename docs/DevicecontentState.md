@@ -5,6 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **cid** | **String** |  |  |
+| **content_update_policy_applied_date** | **String** |  | [optional] |
+| **content_update_policy_id** | **String** |  | [optional] |
 | **device_id** | **String** |  |  |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **hidden_status** | **String** |  | [optional] |
@@ -24,6 +26,8 @@ require 'crimson-falcon'
 
 instance = Falcon::DevicecontentState.new(
   cid: null,
+  content_update_policy_applied_date: null,
+  content_update_policy_id: null,
   device_id: null,
   groups: null,
   hidden_status: null,

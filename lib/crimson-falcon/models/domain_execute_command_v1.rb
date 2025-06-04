@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainExecuteCommandV1
+    attr_accessor :config
+
     # Config auth type for plugin to execute. Only applicable for oneOf security scheme plugins. If not provided, it will use the default auth type on the config
     attr_accessor :config_auth_type
 
@@ -55,6 +57,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'config' => :'config',
         :'config_auth_type' => :'config_auth_type',
         :'config_id' => :'config_id',
         :'definition_id' => :'definition_id',
@@ -73,6 +76,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'config' => :'DomainConfigData',
         :'config_auth_type' => :'String',
         :'config_id' => :'String',
         :'definition_id' => :'String',
@@ -103,6 +107,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'config')
+        self.config = attributes[:'config']
+      end
 
       if attributes.key?(:'config_auth_type')
         self.config_auth_type = attributes[:'config_auth_type']
@@ -186,6 +194,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          config == o.config &&
           config_auth_type == o.config_auth_type &&
           config_id == o.config_id &&
           definition_id == o.definition_id &&
@@ -204,7 +213,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [config_auth_type, config_id, definition_id, id, operation_id, request, version].hash
+      [config, config_auth_type, config_id, definition_id, id, operation_id, request, version].hash
     end
 
     # Builds the object from hash

@@ -134,6 +134,7 @@
 | **qualys_id** | **String** | Represents the unique identifier of an asset reported by Qualys | [optional] |
 | **qualys_network_id** | **String** | Represents the network id of an asset reported by Qualys | [optional] |
 | **reduced_functionality_mode** | **String** | Whether the asset is in reduced functionality mode (Yes or No). | [optional] |
+| **scan_details** | [**Array&lt;DomainDiscoverAPIScanDetailsHost&gt;**](DomainDiscoverAPIScanDetailsHost.md) | Represents information about the scans that this host has been a part of&#39;. | [optional] |
 | **servicenow_id** | **String** | The unique identifier of the asset from ServiceNow, if any. | [optional] |
 | **site_name** | **String** | The site name of the domain the asset is joined to (applies only to Windows hosts). | [optional] |
 | **state** | **String** | The name of the U.S. state where the asset is located. | [optional] |
@@ -156,6 +157,7 @@
 | **user_internet_exposure** | **String** | The internet exposure manually assigned to the asset | [optional] |
 | **virtual_zone** | **String** | The Virtual Zone name in which device is installed. | [optional] |
 | **vlan** | **Array&lt;String&gt;** | The VLAN IDs to which device is connected. | [optional] |
+| **vulnerability_assessment_date** | **String** | Represents the date when this host has been assessed for vulnerabilities | [optional] |
 | **xdome_id** | **String** | The external ID of the IoT Device in 3rd Party System(Claroty Xdome) | [optional] |
 
 ## Example
@@ -294,6 +296,7 @@ instance = Falcon::DomainDiscoverAPIHost.new(
   qualys_id: null,
   qualys_network_id: null,
   reduced_functionality_mode: null,
+  scan_details: null,
   servicenow_id: null,
   site_name: null,
   state: null,
@@ -316,6 +319,7 @@ instance = Falcon::DomainDiscoverAPIHost.new(
   user_internet_exposure: null,
   virtual_zone: null,
   vlan: null,
+  vulnerability_assessment_date: null,
   xdome_id: null
 )
 ```

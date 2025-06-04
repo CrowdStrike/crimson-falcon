@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class TypesGetServicesRequest
+    attr_accessor :cids
+
     attr_accessor :deployment_tuple_filters
 
     attr_accessor :nesting_level
@@ -55,6 +57,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'cids' => :'cids',
         :'deployment_tuple_filters' => :'deploymentTupleFilters',
         :'nesting_level' => :'nestingLevel',
         :'only_count' => :'onlyCount',
@@ -76,6 +79,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'cids' => :'Array<String>',
         :'deployment_tuple_filters' => :'Array<TypesDeploymentUnitsTupleFilters>',
         :'nesting_level' => :'Integer',
         :'only_count' => :'Boolean',
@@ -109,6 +113,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'cids')
+        if (value = attributes[:'cids']).is_a?(Array)
+          self.cids = value
+        end
+      end
 
       if attributes.key?(:'deployment_tuple_filters')
         if (value = attributes[:'deployment_tuple_filters']).is_a?(Array)
@@ -175,6 +185,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          cids == o.cids &&
           deployment_tuple_filters == o.deployment_tuple_filters &&
           nesting_level == o.nesting_level &&
           only_count == o.only_count &&
@@ -196,7 +207,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [deployment_tuple_filters, nesting_level, only_count, optional_time, pagination, persistent_signatures, ql_filters, related_entities, revision_id, roles_signature].hash
+      [cids, deployment_tuple_filters, nesting_level, only_count, optional_time, pagination, persistent_signatures, ql_filters, related_entities, revision_id, roles_signature].hash
     end
 
     # Builds the object from hash

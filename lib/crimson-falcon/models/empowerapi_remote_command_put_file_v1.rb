@@ -237,6 +237,10 @@ module Falcon
         invalid_properties.push('invalid value for "run_success_count", run_success_count cannot be nil.')
       end
 
+      if @size.nil?
+        invalid_properties.push('invalid value for "size", size cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -245,6 +249,7 @@ module Falcon
     def valid?
       return false if @run_attempt_count.nil?
       return false if @run_success_count.nil?
+      return false if @size.nil?
       true
     end
 

@@ -50,6 +50,7 @@
 | **last_login_user_sid** | **String** |  | [optional] |
 | **last_reboot** | **String** |  | [optional] |
 | **last_seen** | **String** |  | [optional] |
+| **license_activation_state** | **String** |  | [optional] |
 | **linux_sensor_mode** | **String** |  | [optional] |
 | **local_ip** | **String** |  | [optional] |
 | **mac_address** | **String** |  | [optional] |
@@ -151,6 +152,7 @@ instance = Falcon::DeviceDevice.new(
   last_login_user_sid: null,
   last_reboot: null,
   last_seen: null,
+  license_activation_state: null,
   linux_sensor_mode: null,
   local_ip: null,
   mac_address: null,

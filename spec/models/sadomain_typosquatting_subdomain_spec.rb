@@ -48,6 +48,12 @@ describe Falcon::SadomainTyposquattingSubdomain do
     end
   end
 
+  describe 'test attribute "has_noisy_domain_prefix"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -60,7 +66,19 @@ describe Falcon::SadomainTyposquattingSubdomain do
     end
   end
 
+  describe 'test attribute "punycode_domain_prefix"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "punycode_format"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "unicode_domain_prefix"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

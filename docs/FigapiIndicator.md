@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **adversaries** | [**Array&lt;FigapiAdversary&gt;**](FigapiAdversary.md) |  | [optional] |
+| **affected_customers** | **String** | Total range of customers affected by this indicator | [optional] |
 | **certificates** | [**Array&lt;FigapiX509Certificate&gt;**](FigapiX509Certificate.md) |  | [optional] |
 | **countries** | [**Array&lt;FigapiCountry&gt;**](FigapiCountry.md) |  | [optional] |
 | **domain_details** | [**FigapiDomain**](FigapiDomain.md) |  | [optional] |
@@ -25,7 +26,6 @@
 | **threats** | [**Array&lt;FigapiThreat&gt;**](FigapiThreat.md) |  | [optional] |
 | **type** | **String** | Type of the indicator, this can be one of: &#x60;File&#x60;, &#x60;Domain&#x60;, &#x60;IPv4&#x60;, &#x60;IPv6&#x60;, &#x60;URL&#x60; | [optional] |
 | **url_details** | [**FigapiURL**](FigapiURL.md) |  | [optional] |
-| **victimology** | **String** | TBD | [optional] |
 | **vulnerabilities** | [**Array&lt;FigapiVulnerability&gt;**](FigapiVulnerability.md) |  | [optional] |
 
 ## Example
@@ -35,6 +35,7 @@ require 'crimson-falcon'
 
 instance = Falcon::FigapiIndicator.new(
   adversaries: null,
+  affected_customers: null,
   certificates: null,
   countries: null,
   domain_details: null,
@@ -55,7 +56,6 @@ instance = Falcon::FigapiIndicator.new(
   threats: null,
   type: null,
   url_details: null,
-  victimology: null,
   vulnerabilities: null
 )
 ```

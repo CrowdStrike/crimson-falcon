@@ -32,13 +32,15 @@ require 'time'
 
 module Falcon
   class GraphConfiguredActivity
-    # The class of activity. If undefined it is an ActivityClassExternal
+    # The class of activity. If undefined it is an ActivityClassDefault
     attr_accessor :_class
 
     attr_accessor :flows
 
     # The unique identifier of the selected activity that is being configured.
     attr_accessor :id
+
+    attr_accessor :inline_configuration
 
     # Maximum seconds to wait for an async process to finish. Overrides default async_max_seconds on Activity seed.
     attr_accessor :max_seconds
@@ -51,16 +53,21 @@ module Falcon
     # Dynamic payload providing values needed to configure the activity for execution. The structure of this data is dictated by the JSON Schema defined for the selected Activity.
     attr_accessor :properties
 
+    # Semantic version constraint of the activity, can be an explicit version or a version constraint. If unspecified the latest activity <= 1.0.0 is used.
+    attr_accessor :version_constraint
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'_class' => :'class',
         :'flows' => :'flows',
         :'id' => :'id',
+        :'inline_configuration' => :'inline_configuration',
         :'max_seconds' => :'max_seconds',
         :'name' => :'name',
         :'node_id' => :'nodeID',
-        :'properties' => :'properties'
+        :'properties' => :'properties',
+        :'version_constraint' => :'version_constraint'
       }
     end
 
@@ -75,10 +82,12 @@ module Falcon
         :'_class' => :'String',
         :'flows' => :'Flows',
         :'id' => :'String',
+        :'inline_configuration' => :'GraphInlineActivityConfig',
         :'max_seconds' => :'String',
         :'name' => :'String',
         :'node_id' => :'String',
-        :'properties' => :'Object'
+        :'properties' => :'Object',
+        :'version_constraint' => :'String'
       }
     end
 
@@ -115,6 +124,10 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'inline_configuration')
+        self.inline_configuration = attributes[:'inline_configuration']
+      end
+
       if attributes.key?(:'max_seconds')
         self.max_seconds = attributes[:'max_seconds']
       end
@@ -129,6 +142,10 @@ module Falcon
 
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
+      end
+
+      if attributes.key?(:'version_constraint')
+        self.version_constraint = attributes[:'version_constraint']
       end
     end
 
@@ -178,10 +195,12 @@ module Falcon
           _class == o._class &&
           flows == o.flows &&
           id == o.id &&
+          inline_configuration == o.inline_configuration &&
           max_seconds == o.max_seconds &&
           name == o.name &&
           node_id == o.node_id &&
-          properties == o.properties
+          properties == o.properties &&
+          version_constraint == o.version_constraint
     end
 
     # @see the `==` method
@@ -193,7 +212,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_class, flows, id, max_seconds, name, node_id, properties].hash
+      [_class, flows, id, inline_configuration, max_seconds, name, node_id, properties, version_constraint].hash
     end
 
     # Builds the object from hash

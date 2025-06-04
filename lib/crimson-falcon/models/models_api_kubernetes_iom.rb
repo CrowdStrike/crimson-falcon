@@ -48,6 +48,8 @@ module Falcon
 
     attr_accessor :cluster_name
 
+    attr_accessor :containers_impacted_ai_related
+
     attr_accessor :containers_impacted_count
 
     attr_accessor :containers_impacted_ids
@@ -141,6 +143,7 @@ module Falcon
         :'cis_id' => :'cis_id',
         :'cluster_id' => :'cluster_id',
         :'cluster_name' => :'cluster_name',
+        :'containers_impacted_ai_related' => :'containers_impacted_ai_related',
         :'containers_impacted_count' => :'containers_impacted_count',
         :'containers_impacted_ids' => :'containers_impacted_ids',
         :'description' => :'description',
@@ -201,6 +204,7 @@ module Falcon
         :'cis_id' => :'Array<String>',
         :'cluster_id' => :'String',
         :'cluster_name' => :'String',
+        :'containers_impacted_ai_related' => :'Boolean',
         :'containers_impacted_count' => :'String',
         :'containers_impacted_ids' => :'Array<String>',
         :'description' => :'String',
@@ -298,6 +302,10 @@ module Falcon
 
       if attributes.key?(:'cluster_name')
         self.cluster_name = attributes[:'cluster_name']
+      end
+
+      if attributes.key?(:'containers_impacted_ai_related')
+        self.containers_impacted_ai_related = attributes[:'containers_impacted_ai_related']
       end
 
       if attributes.key?(:'containers_impacted_count')
@@ -619,6 +627,7 @@ module Falcon
           cis_id == o.cis_id &&
           cluster_id == o.cluster_id &&
           cluster_name == o.cluster_name &&
+          containers_impacted_ai_related == o.containers_impacted_ai_related &&
           containers_impacted_count == o.containers_impacted_count &&
           containers_impacted_ids == o.containers_impacted_ids &&
           description == o.description &&
@@ -671,7 +680,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cluster_id, cluster_name, containers_impacted_count, containers_impacted_ids, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
+      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cluster_id, cluster_name, containers_impacted_ai_related, containers_impacted_count, containers_impacted_ids, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
     end
 
     # Builds the object from hash

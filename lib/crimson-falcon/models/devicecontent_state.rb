@@ -34,6 +34,10 @@ module Falcon
   class DevicecontentState
     attr_accessor :cid
 
+    attr_accessor :content_update_policy_applied_date
+
+    attr_accessor :content_update_policy_id
+
     attr_accessor :device_id
 
     attr_accessor :groups
@@ -60,6 +64,8 @@ module Falcon
     def self.attribute_map
       {
         :'cid' => :'cid',
+        :'content_update_policy_applied_date' => :'content_update_policy_applied_date',
+        :'content_update_policy_id' => :'content_update_policy_id',
         :'device_id' => :'device_id',
         :'groups' => :'groups',
         :'hidden_status' => :'hidden_status',
@@ -83,6 +89,8 @@ module Falcon
     def self.openapi_types
       {
         :'cid' => :'String',
+        :'content_update_policy_applied_date' => :'String',
+        :'content_update_policy_id' => :'String',
         :'device_id' => :'String',
         :'groups' => :'Array<String>',
         :'hidden_status' => :'String',
@@ -120,6 +128,14 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'content_update_policy_applied_date')
+        self.content_update_policy_applied_date = attributes[:'content_update_policy_applied_date']
+      end
+
+      if attributes.key?(:'content_update_policy_id')
+        self.content_update_policy_id = attributes[:'content_update_policy_id']
       end
 
       if attributes.key?(:'device_id')
@@ -198,6 +214,8 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           cid == o.cid &&
+          content_update_policy_applied_date == o.content_update_policy_applied_date &&
+          content_update_policy_id == o.content_update_policy_id &&
           device_id == o.device_id &&
           groups == o.groups &&
           hidden_status == o.hidden_status &&
@@ -220,7 +238,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, device_id, groups, hidden_status, hostname, last_seen, platform_name, rapid_response_content, reduced_functionality_mode, sensor_operations, system_critical, vulnerability_management].hash
+      [cid, content_update_policy_applied_date, content_update_policy_id, device_id, groups, hidden_status, hostname, last_seen, platform_name, rapid_response_content, reduced_functionality_mode, sensor_operations, system_critical, vulnerability_management].hash
     end
 
     # Builds the object from hash

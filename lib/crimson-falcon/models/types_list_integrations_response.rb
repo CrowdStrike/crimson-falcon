@@ -49,7 +49,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'integrations' => :'Array<TypesIntegration>'
+        :'integrations' => :'Array<TypesListIntegrationItem>'
       }
     end
 

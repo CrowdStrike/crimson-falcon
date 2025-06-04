@@ -1,6 +1,6 @@
 # Falcon::ContentUpdatePolicies
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -12,13 +12,14 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**query_combined_content_update_policy_members**](ContentUpdatePolicies.md#query_combined_content_update_policy_members) | **GET** /policy/combined/content-update-members/v1 | Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
 | [**query_content_update_policies**](ContentUpdatePolicies.md#query_content_update_policies) | **GET** /policy/queries/content-update/v1 | Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policy IDs which match the filter criteria |
 | [**query_content_update_policy_members**](ContentUpdatePolicies.md#query_content_update_policy_members) | **GET** /policy/queries/content-update-members/v1 | Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**query_pinnable_content_versions**](ContentUpdatePolicies.md#query_pinnable_content_versions) | **GET** /policy/queries/content-update-pin-versions/v1 | Search for content versions available for pinning given the category. |
 | [**set_content_update_policies_precedence**](ContentUpdatePolicies.md#set_content_update_policies_precedence) | **POST** /policy/entities/content-update-precedence/v1 | Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence |
 | [**update_content_update_policies**](ContentUpdatePolicies.md#update_content_update_policies) | **PATCH** /policy/entities/content-update/v1 | Update Content Update Policies by specifying the ID of the policy and details to update |
 
 
 ## create_content_update_policies
 
-> <DomainContentUpdatePolicyRespV1> create_content_update_policies(body)
+> <ContentUpdateRespV1> create_content_update_policies(body)
 
 Create Content Update Policies by specifying details about the policy to create
 
@@ -51,7 +52,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainContentUpdatePolicyRespV1>, Integer, Hash)> create_content_update_policies_with_http_info(body)
+> <Array(<ContentUpdateRespV1>, Integer, Hash)> create_content_update_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -59,7 +60,7 @@ begin
   data, status_code, headers = api_instance.create_content_update_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainContentUpdatePolicyRespV1>
+  p data # => <ContentUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ContentUpdatePolicies->create_content_update_policies_with_http_info: #{e}"
 end
@@ -73,7 +74,7 @@ end
 
 ### Return type
 
-[**DomainContentUpdatePolicyRespV1**](DomainContentUpdatePolicyRespV1.md)
+[**ContentUpdateRespV1**](ContentUpdateRespV1.md)
 
 ### Authorization
 
@@ -156,7 +157,7 @@ end
 
 ## get_content_update_policies
 
-> <DomainContentUpdatePolicyRespV1> get_content_update_policies(ids)
+> <ContentUpdateRespV1> get_content_update_policies(ids)
 
 Retrieve a set of Content Update Policies by specifying their IDs
 
@@ -189,7 +190,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainContentUpdatePolicyRespV1>, Integer, Hash)> get_content_update_policies_with_http_info(ids)
+> <Array(<ContentUpdateRespV1>, Integer, Hash)> get_content_update_policies_with_http_info(ids)
 
 ```ruby
 begin
@@ -197,7 +198,7 @@ begin
   data, status_code, headers = api_instance.get_content_update_policies_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainContentUpdatePolicyRespV1>
+  p data # => <ContentUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ContentUpdatePolicies->get_content_update_policies_with_http_info: #{e}"
 end
@@ -211,7 +212,7 @@ end
 
 ### Return type
 
-[**DomainContentUpdatePolicyRespV1**](DomainContentUpdatePolicyRespV1.md)
+[**ContentUpdateRespV1**](ContentUpdateRespV1.md)
 
 ### Authorization
 
@@ -225,7 +226,7 @@ end
 
 ## perform_content_update_policies_action
 
-> <DomainContentUpdatePolicyRespV1> perform_content_update_policies_action(action_name, body)
+> <ContentUpdateRespV1> perform_content_update_policies_action(action_name, body)
 
 Perform the specified action on the Content Update Policies specified in the request
 
@@ -259,7 +260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainContentUpdatePolicyRespV1>, Integer, Hash)> perform_content_update_policies_action_with_http_info(action_name, body)
+> <Array(<ContentUpdateRespV1>, Integer, Hash)> perform_content_update_policies_action_with_http_info(action_name, body)
 
 ```ruby
 begin
@@ -267,7 +268,7 @@ begin
   data, status_code, headers = api_instance.perform_content_update_policies_action_with_http_info(action_name, body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainContentUpdatePolicyRespV1>
+  p data # => <ContentUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ContentUpdatePolicies->perform_content_update_policies_action_with_http_info: #{e}"
 end
@@ -282,7 +283,7 @@ end
 
 ### Return type
 
-[**DomainContentUpdatePolicyRespV1**](DomainContentUpdatePolicyRespV1.md)
+[**ContentUpdateRespV1**](ContentUpdateRespV1.md)
 
 ### Authorization
 
@@ -296,7 +297,7 @@ end
 
 ## query_combined_content_update_policies
 
-> <DomainContentUpdatePolicyRespV1> query_combined_content_update_policies(opts)
+> <ContentUpdateRespV1> query_combined_content_update_policies(opts)
 
 Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policies which match the filter criteria
 
@@ -334,7 +335,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainContentUpdatePolicyRespV1>, Integer, Hash)> query_combined_content_update_policies_with_http_info(opts)
+> <Array(<ContentUpdateRespV1>, Integer, Hash)> query_combined_content_update_policies_with_http_info(opts)
 
 ```ruby
 begin
@@ -342,7 +343,7 @@ begin
   data, status_code, headers = api_instance.query_combined_content_update_policies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainContentUpdatePolicyRespV1>
+  p data # => <ContentUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ContentUpdatePolicies->query_combined_content_update_policies_with_http_info: #{e}"
 end
@@ -359,7 +360,7 @@ end
 
 ### Return type
 
-[**DomainContentUpdatePolicyRespV1**](DomainContentUpdatePolicyRespV1.md)
+[**ContentUpdateRespV1**](ContentUpdateRespV1.md)
 
 ### Authorization
 
@@ -606,6 +607,79 @@ end
 - **Accept**: application/json
 
 
+## query_pinnable_content_versions
+
+> <MsaspecQueryResponse> query_pinnable_content_versions(category, opts)
+
+Search for content versions available for pinning given the category.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContentUpdatePolicies.new
+category = 'rapid_response_al_bl_listing' # String | Content category
+opts = {
+  sort: 'deployed_timestamp.asc' # String | value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc
+}
+
+begin
+  # Search for content versions available for pinning given the category.
+  result = api_instance.query_pinnable_content_versions(category, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContentUpdatePolicies->query_pinnable_content_versions: #{e}"
+end
+```
+
+#### Using the query_pinnable_content_versions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_pinnable_content_versions_with_http_info(category, opts)
+
+```ruby
+begin
+  # Search for content versions available for pinning given the category.
+  data, status_code, headers = api_instance.query_pinnable_content_versions_with_http_info(category, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContentUpdatePolicies->query_pinnable_content_versions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **category** | **String** | Content category |  |
+| **sort** | **String** | value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc | [optional][default to &#39;deployed_timestamp.desc&#39;] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## set_content_update_policies_precedence
 
 > <MsaQueryResponse> set_content_update_policies_precedence(body)
@@ -677,7 +751,7 @@ end
 
 ## update_content_update_policies
 
-> <DomainContentUpdatePolicyRespV1> update_content_update_policies(body)
+> <ContentUpdateRespV1> update_content_update_policies(body)
 
 Update Content Update Policies by specifying the ID of the policy and details to update
 
@@ -710,7 +784,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainContentUpdatePolicyRespV1>, Integer, Hash)> update_content_update_policies_with_http_info(body)
+> <Array(<ContentUpdateRespV1>, Integer, Hash)> update_content_update_policies_with_http_info(body)
 
 ```ruby
 begin
@@ -718,7 +792,7 @@ begin
   data, status_code, headers = api_instance.update_content_update_policies_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <DomainContentUpdatePolicyRespV1>
+  p data # => <ContentUpdateRespV1>
 rescue Falcon::ApiError => e
   puts "Error when calling ContentUpdatePolicies->update_content_update_policies_with_http_info: #{e}"
 end
@@ -732,7 +806,7 @@ end
 
 ### Return type
 
-[**DomainContentUpdatePolicyRespV1**](DomainContentUpdatePolicyRespV1.md)
+[**ContentUpdateRespV1**](ContentUpdateRespV1.md)
 
 ### Authorization
 

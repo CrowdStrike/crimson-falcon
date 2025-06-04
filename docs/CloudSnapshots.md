@@ -1,11 +1,11 @@
 # Falcon::CloudSnapshots
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_deployment_entity**](CloudSnapshots.md#create_deployment_entity) | **POST** /snapshots/entities/deployments/v1 | Launch a snapshot scan for a given cloud asset |
-| [**get_credentials_mixin0_mixin57**](CloudSnapshots.md#get_credentials_mixin0_mixin57) | **GET** /snapshots/entities/image-registry-credentials/v1 | Gets the registry credentials |
+| [**get_credentials_mixin0_mixin60**](CloudSnapshots.md#get_credentials_mixin0_mixin60) | **GET** /snapshots/entities/image-registry-credentials/v1 | Gets the registry credentials |
 | [**get_scan_report**](CloudSnapshots.md#get_scan_report) | **GET** /snapshots/entities/scanreports/v1 | retrieve the scan report for an instance |
 | [**read_deployments_combined**](CloudSnapshots.md#read_deployments_combined) | **GET** /snapshots/combined/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
 | [**read_deployments_entities**](CloudSnapshots.md#read_deployments_entities) | **GET** /snapshots/entities/deployments/v1 | Retrieve snapshot jobs identified by the provided IDs |
@@ -81,9 +81,9 @@ end
 - **Accept**: application/json
 
 
-## get_credentials_mixin0_mixin57
+## get_credentials_mixin0_mixin60
 
-> <ModelsRegistryCredentialsResponse> get_credentials_mixin0_mixin57
+> <ModelsRegistryCredentialsResponse> get_credentials_mixin0_mixin60
 
 Gets the registry credentials
 
@@ -104,28 +104,28 @@ api_instance = Falcon::CloudSnapshots.new
 
 begin
   # Gets the registry credentials
-  result = api_instance.get_credentials_mixin0_mixin57
+  result = api_instance.get_credentials_mixin0_mixin60
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin57: #{e}"
+  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin60: #{e}"
 end
 ```
 
-#### Using the get_credentials_mixin0_mixin57_with_http_info variant
+#### Using the get_credentials_mixin0_mixin60_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ModelsRegistryCredentialsResponse>, Integer, Hash)> get_credentials_mixin0_mixin57_with_http_info
+> <Array(<ModelsRegistryCredentialsResponse>, Integer, Hash)> get_credentials_mixin0_mixin60_with_http_info
 
 ```ruby
 begin
   # Gets the registry credentials
-  data, status_code, headers = api_instance.get_credentials_mixin0_mixin57_with_http_info
+  data, status_code, headers = api_instance.get_credentials_mixin0_mixin60_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ModelsRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin57_with_http_info: #{e}"
+  puts "Error when calling CloudSnapshots->get_credentials_mixin0_mixin60_with_http_info: #{e}"
 end
 ```
 

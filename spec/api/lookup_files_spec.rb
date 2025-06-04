@@ -54,6 +54,8 @@ describe 'LookupFiles' do
   # @param file File to be uploaded
   # @param name Name used to identify the file
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_cs_username Requester Username.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @option opts [String] :description File description
   # @option opts [String] :id Unique identifier of the file being updated.
   # @option opts [String] :repo Name of repository or view to save the file
@@ -68,6 +70,8 @@ describe 'LookupFiles' do
   # Updates a lookup file
   # @param id Unique identifier of the file being updated.
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_cs_username Requester Username.
+  # @option opts [String] :x_cs_useruuid Requester UUID.
   # @option opts [String] :description File description
   # @option opts [File] :file File to be uploaded
   # @return [DomainLookupFileWrapper]

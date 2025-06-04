@@ -41,7 +41,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -58,7 +58,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -143,7 +143,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -160,7 +160,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :include_schema_generation Include generated schemas in the response (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -245,7 +245,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -261,7 +261,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -340,7 +340,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)
@@ -356,7 +356,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_id Application ID.
     # @option opts [Boolean] :detailed Whether to include search field details (default to false)
-    # @option opts [Boolean] :include_test_data Include test data when executing searches (default to false)
+    # @option opts [Boolean] :include_test_data Include test data when executing searches
     # @option opts [Boolean] :infer_json_types Whether to try to infer data types in json event response instead of returning map[string]string (default to false)
     # @option opts [Boolean] :match_response_schema Whether to validate search results against their schema (default to false)
     # @option opts [Boolean] :metadata Whether to include metadata in the response (default to false)

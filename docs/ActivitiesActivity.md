@@ -8,6 +8,7 @@
 | **app_id** | **String** | Optional ID if the activity is exposed through an app from Store | [optional] |
 | **cid** | **String** | The CID that owns this activity, if this is empty it is a global activity |  |
 | **_class** | **String** | Activity class to identify how it should be orchestrated. E.g. External, Break, CreateVariable and UpdateVariable | [optional] |
+| **dependencies** | [**Array&lt;ActivitiesDependency&gt;**](ActivitiesDependency.md) | List of dependencies (store apps or foundry app templates) of the activity | [optional] |
 | **description** | **String** | A detailed description of what this action does |  |
 | **disruptive** | **Boolean** | A flag indicating whether the activity is potentially disruptive/destructive |  |
 | **has_permission** | **Boolean** | Indicates whether an activity is available for the caller |  |
@@ -35,6 +36,7 @@ instance = Falcon::ActivitiesActivity.new(
   app_id: null,
   cid: null,
   _class: null,
+  dependencies: null,
   description: null,
   disruptive: null,
   has_permission: null,

@@ -70,6 +70,9 @@ module Falcon
     # internal field, not used
     attr_accessor :notify_users
 
+    # Time it takes an average user to read the news content
+    attr_accessor :read_time_in_minutes
+
     # Rich text description with markup
     attr_accessor :rich_text_description
 
@@ -118,6 +121,7 @@ module Falcon
         :'motivations' => :'motivations',
         :'name' => :'name',
         :'notify_users' => :'notify_users',
+        :'read_time_in_minutes' => :'read_time_in_minutes',
         :'rich_text_description' => :'rich_text_description',
         :'rich_text_short_description' => :'rich_text_short_description',
         :'short_description' => :'short_description',
@@ -146,25 +150,26 @@ module Falcon
         :'attachments' => :'Array<DomainFile>',
         :'created_date' => :'Integer',
         :'description' => :'String',
-        :'entitlements' => :'Array<Object>',
+        :'entitlements' => :'Array<DomainEntity>',
         :'id' => :'Integer',
         :'image' => :'DomainImage',
         :'last_modified_date' => :'Integer',
         :'malware' => :'Array<DomainReportMalware>',
-        :'motivations' => :'Array<Object>',
+        :'motivations' => :'Array<DomainEntity>',
         :'name' => :'String',
         :'notify_users' => :'Boolean',
+        :'read_time_in_minutes' => :'Integer',
         :'rich_text_description' => :'String',
         :'rich_text_short_description' => :'String',
         :'short_description' => :'String',
         :'slug' => :'String',
-        :'sub_type' => :'Object',
-        :'tags' => :'Array<Object>',
-        :'target_countries' => :'Array<Object>',
-        :'target_industries' => :'Array<Object>',
+        :'sub_type' => :'DomainEntity',
+        :'tags' => :'Array<DomainEntity>',
+        :'target_countries' => :'Array<DomainEntity>',
+        :'target_industries' => :'Array<DomainEntity>',
         :'thumbnail' => :'DomainImage',
-        :'topic' => :'Object',
-        :'type' => :'Object',
+        :'topic' => :'DomainEntity',
+        :'type' => :'DomainEntity',
         :'url' => :'String'
       }
     end
@@ -250,6 +255,10 @@ module Falcon
 
       if attributes.key?(:'notify_users')
         self.notify_users = attributes[:'notify_users']
+      end
+
+      if attributes.key?(:'read_time_in_minutes')
+        self.read_time_in_minutes = attributes[:'read_time_in_minutes']
       end
 
       if attributes.key?(:'rich_text_description')
@@ -393,6 +402,7 @@ module Falcon
           motivations == o.motivations &&
           name == o.name &&
           notify_users == o.notify_users &&
+          read_time_in_minutes == o.read_time_in_minutes &&
           rich_text_description == o.rich_text_description &&
           rich_text_short_description == o.rich_text_short_description &&
           short_description == o.short_description &&
@@ -416,7 +426,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, rich_text_description, rich_text_short_description, short_description, slug, sub_type, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
+      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, read_time_in_minutes, rich_text_description, rich_text_short_description, short_description, slug, sub_type, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
     end
 
     # Builds the object from hash

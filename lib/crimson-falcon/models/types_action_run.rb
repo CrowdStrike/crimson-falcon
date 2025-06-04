@@ -51,14 +51,14 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'create_time' => :'create_time',
+        :'create_time' => :'createTime',
         :'events' => :'events',
         :'id' => :'id',
-        :'latest_event' => :'latest_event',
+        :'latest_event' => :'latestEvent',
         :'metadata' => :'metadata',
         :'progress' => :'progress',
         :'scheduled' => :'scheduled',
-        :'trace_uuid' => :'trace_uuid'
+        :'trace_uuid' => :'traceUuid'
       }
     end
 
@@ -70,9 +70,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'create_time' => :'TypesTimestamp',
+        :'create_time' => :'String',
         :'events' => :'Array<TypesActionRunEvent>',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'latest_event' => :'TypesActionRunEvent',
         :'metadata' => :'TypesActionRunMetadata',
         :'progress' => :'Integer',

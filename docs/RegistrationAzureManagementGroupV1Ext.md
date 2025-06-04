@@ -13,17 +13,17 @@
 | **azure_permissions_status** | [**Array&lt;DomainPermission&gt;**](DomainPermission.md) | Permissions status returned via API. | [optional] |
 | **cid** | **String** |  |  |
 | **client_id** | **String** |  | [optional] |
-| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **credentials_end_date** | **Time** |  | [optional] |
 | **credentials_type** | **String** |  | [optional] |
 | **default_subscription_id** | **String** | Default Azure Subscription ID to provision shared IOA infrastructure. | [optional] |
-| **object_id** | **String** |  | [optional] |
 | **public_certificate** | **String** |  | [optional] |
 | **public_certificate_raw** | **String** |  | [optional] |
-| **role_assignments** | [**Array&lt;DomainAzureManagementGroupRoleAssignment&gt;**](DomainAzureManagementGroupRoleAssignment.md) |  | [optional] |
+| **role_assignments** | [**Array&lt;AzureDBRoleAssignment&gt;**](AzureDBRoleAssignment.md) |  | [optional] |
 | **status** | **String** | Account registration status. | [optional] |
 | **tenant_id** | **String** | Azure Tenant ID to use. |  |
 | **years_valid** | **Integer** |  | [optional] |
+| **obj_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -44,13 +44,13 @@ instance = Falcon::RegistrationAzureManagementGroupV1Ext.new(
   credentials_end_date: null,
   credentials_type: null,
   default_subscription_id: null,
-  object_id: null,
   public_certificate: null,
   public_certificate_raw: null,
   role_assignments: null,
   status: null,
   tenant_id: null,
-  years_valid: null
+  years_valid: null,
+  obj_id: null
 )
 ```
 

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **config** | [**DomainConfigData**](DomainConfigData.md) |  | [optional] |
 | **config_auth_type** | **String** | Config auth type for plugin to execute. Only applicable for oneOf security scheme plugins. If not provided, it will use the default auth type on the config |  |
 | **config_id** | **String** | ConfigID for plugin to execute. If omitted, the oldest config will be used as part of the execution. |  |
 | **definition_id** | **String** | ID of the definition containing the operation to execute.&#39; |  |
@@ -18,6 +19,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainExecuteCommandV1.new(
+  config: null,
   config_auth_type: null,
   config_id: null,
   definition_id: null,

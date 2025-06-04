@@ -21,7 +21,7 @@
 | **run_attempt_count** | **Integer** |  |  |
 | **run_success_count** | **Integer** |  |  |
 | **sha256** | **String** |  | [optional] |
-| **size** | **Integer** |  | [optional] |
+| **size** | **Integer** |  |  |
 | **write_access** | **Boolean** |  | [optional] |
 
 ## Example

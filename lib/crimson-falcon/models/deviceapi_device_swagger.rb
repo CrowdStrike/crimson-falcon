@@ -340,7 +340,7 @@ module Falcon
         :'deployment_type' => :'String',
         :'detection_suppression_status' => :'String',
         :'device_id' => :'String',
-        :'device_policies' => :'DeviceMappedDevicePolicies',
+        :'device_policies' => :'DeviceapiMappedDevicePoliciesSwagger',
         :'email' => :'String',
         :'external_ip' => :'String',
         :'filesystem_containment_status' => :'String',

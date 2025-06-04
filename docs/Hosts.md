@@ -1,9 +1,11 @@
 # Falcon::Hosts
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**combined_devices_by_filter**](Hosts.md#combined_devices_by_filter) | **GET** /devices/combined/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
+| [**combined_hidden_devices_by_filter**](Hosts.md#combined_hidden_devices_by_filter) | **GET** /devices/combined/devices-hidden/v1 | Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
 | [**entities_perform_action**](Hosts.md#entities_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided group IDs. |
 | [**get_device_details_v2**](Hosts.md#get_device_details_v2) | **GET** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs. |
 | [**get_online_state_v1**](Hosts.md#get_online_state_v1) | **GET** /devices/entities/online-state/v1 | Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a &#x60;state&#x60; of &#x60;online&#x60;, &#x60;offline&#x60;, or &#x60;unknown&#x60; for each host, identified by host &#x60;id&#x60;.  Make a &#x60;GET&#x60; request to &#x60;/devices/queries/devices/v1&#x60; to get a list of host IDs. |
@@ -16,6 +18,164 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**query_get_network_address_history_v1**](Hosts.md#query_get_network_address_history_v1) | **POST** /devices/combined/devices/network-address-history/v1 | Retrieve history of IP and MAC addresses of devices. |
 | [**query_hidden_devices**](Hosts.md#query_hidden_devices) | **GET** /devices/queries/devices-hidden/v1 | Retrieve hidden hosts that match the provided filter criteria. |
 | [**update_device_tags**](Hosts.md#update_device_tags) | **PATCH** /devices/entities/devices/tags/v1 | Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/ |
+
+
+## combined_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_devices_by_filter(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_hidden_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_hidden_devices_by_filter(opts)
+
+Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_hidden_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_hidden_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_hidden_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_hidden_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the \&quot;next\&quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## entities_perform_action

@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainSimpleActor
+    attr_accessor :animal_classifier
+
     attr_accessor :entitlements
 
     attr_accessor :id
@@ -47,6 +49,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'animal_classifier' => :'animal_classifier',
         :'entitlements' => :'entitlements',
         :'id' => :'id',
         :'name' => :'name',
@@ -64,7 +67,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'entitlements' => :'Array<Object>',
+        :'animal_classifier' => :'String',
+        :'entitlements' => :'Array<DomainEntity>',
         :'id' => :'Integer',
         :'name' => :'String',
         :'slug' => :'String',
@@ -93,6 +97,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'animal_classifier')
+        self.animal_classifier = attributes[:'animal_classifier']
+      end
 
       if attributes.key?(:'entitlements')
         if (value = attributes[:'entitlements']).is_a?(Array)
@@ -144,6 +152,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          animal_classifier == o.animal_classifier &&
           entitlements == o.entitlements &&
           id == o.id &&
           name == o.name &&
@@ -161,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [entitlements, id, name, slug, thumbnail, url].hash
+      [animal_classifier, entitlements, id, name, slug, thumbnail, url].hash
     end
 
     # Builds the object from hash

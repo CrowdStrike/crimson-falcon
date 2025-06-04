@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :dependent_control
 
+    attr_accessor :ignore_meta
+
     attr_accessor :requires_meta
 
     attr_accessor :reset_fields
@@ -51,6 +53,7 @@ module Falcon
         :'control_name' => :'control_name',
         :'controller' => :'controller',
         :'dependent_control' => :'dependent_control',
+        :'ignore_meta' => :'ignore_meta',
         :'requires_meta' => :'requires_meta',
         :'reset_fields' => :'reset_fields'
       }
@@ -68,6 +71,7 @@ module Falcon
         :'control_name' => :'String',
         :'controller' => :'Boolean',
         :'dependent_control' => :'String',
+        :'ignore_meta' => :'Boolean',
         :'requires_meta' => :'String',
         :'reset_fields' => :'JsonschemaResetFields'
       }
@@ -110,6 +114,10 @@ module Falcon
         self.dependent_control = attributes[:'dependent_control']
       end
 
+      if attributes.key?(:'ignore_meta')
+        self.ignore_meta = attributes[:'ignore_meta']
+      end
+
       if attributes.key?(:'requires_meta')
         self.requires_meta = attributes[:'requires_meta']
       end
@@ -141,6 +149,7 @@ module Falcon
           control_name == o.control_name &&
           controller == o.controller &&
           dependent_control == o.dependent_control &&
+          ignore_meta == o.ignore_meta &&
           requires_meta == o.requires_meta &&
           reset_fields == o.reset_fields
     end
@@ -154,7 +163,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [condition_control, control_name, controller, dependent_control, requires_meta, reset_fields].hash
+      [condition_control, control_name, controller, dependent_control, ignore_meta, requires_meta, reset_fields].hash
     end
 
     # Builds the object from hash

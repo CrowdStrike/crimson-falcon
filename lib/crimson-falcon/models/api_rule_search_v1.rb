@@ -40,13 +40,16 @@ module Falcon
 
     attr_accessor :trigger_mode
 
+    attr_accessor :use_ingest_time
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'filter' => :'filter',
         :'lookback' => :'lookback',
         :'outcome' => :'outcome',
-        :'trigger_mode' => :'trigger_mode'
+        :'trigger_mode' => :'trigger_mode',
+        :'use_ingest_time' => :'use_ingest_time'
       }
     end
 
@@ -61,7 +64,8 @@ module Falcon
         :'filter' => :'String',
         :'lookback' => :'String',
         :'outcome' => :'String',
-        :'trigger_mode' => :'String'
+        :'trigger_mode' => :'String',
+        :'use_ingest_time' => :'Boolean'
       }
     end
 
@@ -101,6 +105,10 @@ module Falcon
       if attributes.key?(:'trigger_mode')
         self.trigger_mode = attributes[:'trigger_mode']
       end
+
+      if attributes.key?(:'use_ingest_time')
+        self.use_ingest_time = attributes[:'use_ingest_time']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -139,7 +147,8 @@ module Falcon
           filter == o.filter &&
           lookback == o.lookback &&
           outcome == o.outcome &&
-          trigger_mode == o.trigger_mode
+          trigger_mode == o.trigger_mode &&
+          use_ingest_time == o.use_ingest_time
     end
 
     # @see the `==` method
@@ -151,7 +160,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [filter, lookback, outcome, trigger_mode].hash
+      [filter, lookback, outcome, trigger_mode, use_ingest_time].hash
     end
 
     # Builds the object from hash

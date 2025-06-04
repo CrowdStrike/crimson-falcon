@@ -1,6 +1,6 @@
 # Falcon::CspmRegistration
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -20,7 +20,6 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**get_configuration_detection_ids_v2**](CspmRegistration.md#get_configuration_detection_ids_v2) | **GET** /detects/queries/iom/v2 | Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections. |
 | [**get_configuration_detections**](CspmRegistration.md#get_configuration_detections) | **GET** /detects/entities/iom/v1 | Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead |
 | [**get_cspm_aws_account**](CspmRegistration.md#get_cspm_aws_account) | **GET** /cloud-connect-cspm-aws/entities/account/v1 | Returns information about the current status of an AWS account. |
-| [**get_cspm_aws_account_scripts_attachment**](CspmRegistration.md#get_cspm_aws_account_scripts_attachment) | **GET** /cloud-connect-cspm-aws/entities/user-scripts-download/v1 | Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment. |
 | [**get_cspm_aws_console_setup_urls**](CspmRegistration.md#get_cspm_aws_console_setup_urls) | **GET** /cloud-connect-cspm-aws/entities/console-setup-urls/v1 | Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment. |
 | [**get_cspm_azure_account**](CspmRegistration.md#get_cspm_azure_account) | **GET** /cloud-connect-cspm-azure/entities/account/v1 | Return information about Azure account registration |
 | [**get_cspm_azure_management_group**](CspmRegistration.md#get_cspm_azure_management_group) | **GET** /cloud-connect-cspm-azure/entities/management-group/v1 | Return information about Azure management group registration |
@@ -1244,101 +1243,6 @@ end
 - **Accept**: application/json
 
 
-## get_cspm_aws_account_scripts_attachment
-
-> <RegistrationAWSProvisionGetAccountScriptResponseV2> get_cspm_aws_account_scripts_attachment(opts)
-
-Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CspmRegistration.new
-opts = {
-  ids: ['inner_example'], # Array<String> | AWS account IDs
-  template: 'aws-bash', # String | Template to be rendered
-  account_type: 'commercial', # String | Type of account, it can be commercial or gov
-  accounts: ['inner_example'], # Array<String> | The list of accounts to register, values should be in the form: account,profile
-  behavior_assessment_enabled: 'true', # String | 
-  sensor_management_enabled: 'true', # String | 
-  dspm_enabled: 'true', # String | 
-  dspm_regions: ['inner_example'], # Array<String> | 
-  dspm_role: 'dspm_role_example', # String | 
-  use_existing_cloudtrail: 'true', # String | 
-  organization_id: 'organization_id_example', # String | The AWS organization ID to be registered
-  aws_profile: 'aws_profile_example', # String | The AWS profile to be used during registration
-  custom_role_name: 'custom_role_name_example' # String | The custom IAM role to be used during registration
-}
-
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-  result = api_instance.get_cspm_aws_account_scripts_attachment(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistration->get_cspm_aws_account_scripts_attachment: #{e}"
-end
-```
-
-#### Using the get_cspm_aws_account_scripts_attachment_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RegistrationAWSProvisionGetAccountScriptResponseV2>, Integer, Hash)> get_cspm_aws_account_scripts_attachment_with_http_info(opts)
-
-```ruby
-begin
-  # Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
-  data, status_code, headers = api_instance.get_cspm_aws_account_scripts_attachment_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RegistrationAWSProvisionGetAccountScriptResponseV2>
-rescue Falcon::ApiError => e
-  puts "Error when calling CspmRegistration->get_cspm_aws_account_scripts_attachment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs | [optional] |
-| **template** | **String** | Template to be rendered | [optional] |
-| **account_type** | **String** | Type of account, it can be commercial or gov | [optional] |
-| **accounts** | [**Array&lt;String&gt;**](String.md) | The list of accounts to register, values should be in the form: account,profile | [optional] |
-| **behavior_assessment_enabled** | **String** |  | [optional] |
-| **sensor_management_enabled** | **String** |  | [optional] |
-| **dspm_enabled** | **String** |  | [optional] |
-| **dspm_regions** | [**Array&lt;String&gt;**](String.md) |  | [optional] |
-| **dspm_role** | **String** |  | [optional] |
-| **use_existing_cloudtrail** | **String** |  | [optional] |
-| **organization_id** | **String** | The AWS organization ID to be registered | [optional] |
-| **aws_profile** | **String** | The AWS profile to be used during registration | [optional] |
-| **custom_role_name** | **String** | The custom IAM role to be used during registration | [optional] |
-
-### Return type
-
-[**RegistrationAWSProvisionGetAccountScriptResponseV2**](RegistrationAWSProvisionGetAccountScriptResponseV2.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/octet-stream
-
-
 ## get_cspm_aws_console_setup_urls
 
 > <RegistrationAWSConsoleURLResponseV2> get_cspm_aws_console_setup_urls(opts)
@@ -1363,6 +1267,7 @@ opts = {
   ids: ['inner_example'], # Array<String> | AWS account IDs
   use_existing_cloudtrail: 'true', # String | 
   region: 'region_example', # String | Region
+  tags: 'tags_example', # String | Base64 encoded JSON string to be used as AWS tags
   template: 'aws-url' # String | Template to be rendered
 }
 
@@ -1400,6 +1305,7 @@ end
 | **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs | [optional] |
 | **use_existing_cloudtrail** | **String** |  | [optional] |
 | **region** | **String** | Region | [optional] |
+| **tags** | **String** | Base64 encoded JSON string to be used as AWS tags | [optional] |
 | **template** | **String** | Template to be rendered | [optional] |
 
 ### Return type
@@ -2253,7 +2159,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::CspmRegistration.new
-body = Falcon::RegistrationAWSAccountPatchRequest.new({resources: [Falcon::RegistrationAWSAccountPatch.new({account_id: 'account_id_example', iam_role_arn: 'iam_role_arn_example'})]}) # RegistrationAWSAccountPatchRequest | 
+body = Falcon::RegistrationAWSAccountPatchRequest.new({resources: [Falcon::RegistrationAWSAccountPatch.new({account_id: 'account_id_example', behavior_assessment_enabled: false, dspm_enabled: false, iam_role_arn: 'iam_role_arn_example', sensor_management_enabled: false})]}) # RegistrationAWSAccountPatchRequest | 
 
 begin
   # Patches a existing account in our system for a customer.

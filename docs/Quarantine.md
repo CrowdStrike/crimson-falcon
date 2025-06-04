@@ -1,6 +1,6 @@
 # Falcon::Quarantine
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -221,7 +221,7 @@ end
 
 ## query_quarantine_files
 
-> <MsaQueryResponse> query_quarantine_files(opts)
+> <MsaspecQueryResponse> query_quarantine_files(opts)
 
 Get quarantine file ids that match the provided filter criteria.
 
@@ -260,7 +260,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> query_quarantine_files_with_http_info(opts)
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_quarantine_files_with_http_info(opts)
 
 ```ruby
 begin
@@ -268,7 +268,7 @@ begin
   data, status_code, headers = api_instance.query_quarantine_files_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaQueryResponse>
+  p data # => <MsaspecQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling Quarantine->query_quarantine_files_with_http_info: #{e}"
 end
@@ -286,7 +286,7 @@ end
 
 ### Return type
 
-[**MsaQueryResponse**](MsaQueryResponse.md)
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 

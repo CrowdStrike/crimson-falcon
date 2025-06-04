@@ -90,6 +90,12 @@ describe Falcon::ModelsAPIKubernetesIOM do
     end
   end
 
+  describe 'test attribute "containers_impacted_ai_related"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "containers_impacted_count"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

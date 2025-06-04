@@ -32,14 +32,23 @@ require 'time'
 
 module Falcon
   class ContentUpdateRingAssignmentSettingsV1
+    attr_accessor :delay_hours
+
     attr_accessor :id
+
+    attr_accessor :override
+
+    attr_accessor :pinned_content_version
 
     attr_accessor :ring_assignment
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'delay_hours' => :'delay_hours',
         :'id' => :'id',
+        :'override' => :'override',
+        :'pinned_content_version' => :'pinned_content_version',
         :'ring_assignment' => :'ring_assignment'
       }
     end
@@ -52,7 +61,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'delay_hours' => :'String',
         :'id' => :'String',
+        :'override' => :'ContentUpdateRingAssignmentOverrideSettingV1',
+        :'pinned_content_version' => :'String',
         :'ring_assignment' => :'String'
       }
     end
@@ -78,8 +90,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'delay_hours')
+        self.delay_hours = attributes[:'delay_hours']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'override')
+        self.override = attributes[:'override']
+      end
+
+      if attributes.key?(:'pinned_content_version')
+        self.pinned_content_version = attributes[:'pinned_content_version']
       end
 
       if attributes.key?(:'ring_assignment')
@@ -91,8 +115,20 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @delay_hours.nil?
+        invalid_properties.push('invalid value for "delay_hours", delay_hours cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @override.nil?
+        invalid_properties.push('invalid value for "override", override cannot be nil.')
+      end
+
+      if @pinned_content_version.nil?
+        invalid_properties.push('invalid value for "pinned_content_version", pinned_content_version cannot be nil.')
       end
 
       if @ring_assignment.nil?
@@ -105,7 +141,10 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @delay_hours.nil?
       return false if @id.nil?
+      return false if @override.nil?
+      return false if @pinned_content_version.nil?
       return false if @ring_assignment.nil?
       true
     end
@@ -115,7 +154,10 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          delay_hours == o.delay_hours &&
           id == o.id &&
+          override == o.override &&
+          pinned_content_version == o.pinned_content_version &&
           ring_assignment == o.ring_assignment
     end
 
@@ -128,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, ring_assignment].hash
+      [delay_hours, id, override, pinned_content_version, ring_assignment].hash
     end
 
     # Builds the object from hash

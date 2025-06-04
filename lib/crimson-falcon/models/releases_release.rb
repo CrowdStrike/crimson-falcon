@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class ReleasesRelease
+    attr_accessor :annotation
+
     attr_accessor :created_by
 
     attr_accessor :created_timestamp
@@ -48,11 +50,14 @@ module Falcon
 
     attr_accessor :release_contents
 
+    attr_accessor :release_notes_ticket
+
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'annotation' => :'annotation',
         :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
         :'deployed_timestamp' => :'deployed_timestamp',
@@ -61,6 +66,7 @@ module Falcon
         :'last_modified_by' => :'last_modified_by',
         :'last_modified_timestamp' => :'last_modified_timestamp',
         :'release_contents' => :'release_contents',
+        :'release_notes_ticket' => :'release_notes_ticket',
         :'status' => :'status'
       }
     end
@@ -73,6 +79,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'annotation' => :'String',
         :'created_by' => :'String',
         :'created_timestamp' => :'Time',
         :'deployed_timestamp' => :'Time',
@@ -81,6 +88,7 @@ module Falcon
         :'last_modified_by' => :'String',
         :'last_modified_timestamp' => :'Time',
         :'release_contents' => :'Array<ReleasecontentsReleaseContent>',
+        :'release_notes_ticket' => :'String',
         :'status' => :'String'
       }
     end
@@ -105,6 +113,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'annotation')
+        self.annotation = attributes[:'annotation']
+      end
 
       if attributes.key?(:'created_by')
         self.created_by = attributes[:'created_by']
@@ -138,6 +150,10 @@ module Falcon
         if (value = attributes[:'release_contents']).is_a?(Array)
           self.release_contents = value
         end
+      end
+
+      if attributes.key?(:'release_notes_ticket')
+        self.release_notes_ticket = attributes[:'release_notes_ticket']
       end
 
       if attributes.key?(:'status')
@@ -183,6 +199,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          annotation == o.annotation &&
           created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
           deployed_timestamp == o.deployed_timestamp &&
@@ -191,6 +208,7 @@ module Falcon
           last_modified_by == o.last_modified_by &&
           last_modified_timestamp == o.last_modified_timestamp &&
           release_contents == o.release_contents &&
+          release_notes_ticket == o.release_notes_ticket &&
           status == o.status
     end
 
@@ -203,7 +221,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by, created_timestamp, deployed_timestamp, deployment_start_timestamp, id, last_modified_by, last_modified_timestamp, release_contents, status].hash
+      [annotation, created_by, created_timestamp, deployed_timestamp, deployment_start_timestamp, id, last_modified_by, last_modified_timestamp, release_contents, release_notes_ticket, status].hash
     end
 
     # Builds the object from hash

@@ -39,6 +39,9 @@ module Falcon
     # Actor type, one of: targeted, ecrime
     attr_accessor :actor_type
 
+    # Actor's family.
+    attr_accessor :animal_classifier
+
     # actor's capabilities, some examples: RAT,Ransomware,Spearphishing,Downloader,Backdoor,InformationStealer,exploit,CredentialHarvesting,dropper,DenialOfService,Loader,Phishing
     attr_accessor :capabilities
 
@@ -182,6 +185,7 @@ module Falcon
       {
         :'active' => :'active',
         :'actor_type' => :'actor_type',
+        :'animal_classifier' => :'animal_classifier',
         :'capabilities' => :'capabilities',
         :'capability' => :'capability',
         :'created_date' => :'created_date',
@@ -252,17 +256,18 @@ module Falcon
       {
         :'active' => :'Boolean',
         :'actor_type' => :'String',
-        :'capabilities' => :'Array<Object>',
-        :'capability' => :'Object',
+        :'animal_classifier' => :'String',
+        :'capabilities' => :'Array<DomainEntity>',
+        :'capability' => :'DomainEntity',
         :'created_date' => :'Integer',
         :'description' => :'String',
         :'description_length' => :'Integer',
         :'develops_threats' => :'Array<DomainThreatEntity>',
         :'develops_threats_count' => :'Integer',
         :'ecrime_kill_chain' => :'DomainECrimeKillChain',
-        :'entitlements' => :'Array<Object>',
+        :'entitlements' => :'Array<DomainEntity>',
         :'first_activity_date' => :'Integer',
-        :'group' => :'Object',
+        :'group' => :'DomainEntity',
         :'has_subgroup' => :'Array<DomainActorEntity>',
         :'has_subgroup_actors_count' => :'Integer',
         :'has_successor' => :'Array<DomainActorEntity>',
@@ -281,13 +286,13 @@ module Falcon
         :'known_as' => :'String',
         :'last_activity_date' => :'Integer',
         :'last_modified_date' => :'Integer',
-        :'motivations' => :'Array<Object>',
+        :'motivations' => :'Array<DomainEntity>',
         :'name' => :'String',
         :'notify_users' => :'Boolean',
-        :'objectives' => :'Array<Object>',
-        :'origins' => :'Array<Object>',
+        :'objectives' => :'Array<DomainEntity>',
+        :'origins' => :'Array<DomainEntity>',
         :'recent_alerting' => :'Integer',
-        :'region' => :'Object',
+        :'region' => :'DomainEntity',
         :'rich_text_description' => :'String',
         :'sells_threats' => :'Array<DomainThreatEntity>',
         :'sells_threats_count' => :'Integer',
@@ -296,9 +301,9 @@ module Falcon
         :'status' => :'String',
         :'supports' => :'Array<DomainActorEntity>',
         :'supports_actors_count' => :'Integer',
-        :'target_countries' => :'Array<Object>',
-        :'target_industries' => :'Array<Object>',
-        :'target_regions' => :'Array<Object>',
+        :'target_countries' => :'Array<DomainEntity>',
+        :'target_industries' => :'Array<DomainEntity>',
+        :'target_regions' => :'Array<DomainEntity>',
         :'thumbnail' => :'DomainImage',
         :'url' => :'String',
         :'uses_indicators_count' => :'Integer',
@@ -339,6 +344,10 @@ module Falcon
 
       if attributes.key?(:'actor_type')
         self.actor_type = attributes[:'actor_type']
+      end
+
+      if attributes.key?(:'animal_classifier')
+        self.animal_classifier = attributes[:'animal_classifier']
       end
 
       if attributes.key?(:'capabilities')
@@ -713,6 +722,7 @@ module Falcon
       self.class == o.class &&
           active == o.active &&
           actor_type == o.actor_type &&
+          animal_classifier == o.animal_classifier &&
           capabilities == o.capabilities &&
           capability == o.capability &&
           created_date == o.created_date &&
@@ -781,7 +791,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actor_type, capabilities, capability, created_date, description, description_length, develops_threats, develops_threats_count, ecrime_kill_chain, entitlements, first_activity_date, group, has_subgroup, has_subgroup_actors_count, has_successor, has_successor_actors_count, id, image, in_reports, in_reports_count, is_subgroup_of, is_subgroup_of_actors_count, is_successor_of, is_successor_of_actors_count, is_supported_by, is_supported_by_actors_count, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, sells_threats, sells_threats_count, short_description, slug, status, supports, supports_actors_count, target_countries, target_industries, target_regions, thumbnail, url, uses_indicators_count, uses_mitre_attacks_count, uses_mitre_tactics_count, uses_mitre_techniques_count, uses_threats, uses_threats_count, uses_vulnerabilities, vulnerabilities_count].hash
+      [active, actor_type, animal_classifier, capabilities, capability, created_date, description, description_length, develops_threats, develops_threats_count, ecrime_kill_chain, entitlements, first_activity_date, group, has_subgroup, has_subgroup_actors_count, has_successor, has_successor_actors_count, id, image, in_reports, in_reports_count, is_subgroup_of, is_subgroup_of_actors_count, is_successor_of, is_successor_of_actors_count, is_supported_by, is_supported_by_actors_count, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, sells_threats, sells_threats_count, short_description, slug, status, supports, supports_actors_count, target_countries, target_industries, target_regions, thumbnail, url, uses_indicators_count, uses_mitre_attacks_count, uses_mitre_tactics_count, uses_mitre_techniques_count, uses_threats, uses_threats_count, uses_vulnerabilities, vulnerabilities_count].hash
     end
 
     # Builds the object from hash

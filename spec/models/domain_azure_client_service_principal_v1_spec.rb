@@ -90,7 +90,7 @@ describe Falcon::DomainAzureClientServicePrincipalV1 do
     end
   end
 
-  describe 'test attribute "object_id"' do
+  describe 'test attribute "is_shared_client"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -115,6 +115,12 @@ describe Falcon::DomainAzureClientServicePrincipalV1 do
   end
 
   describe 'test attribute "x5t"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "obj_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

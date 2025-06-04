@@ -1,6 +1,6 @@
 # Falcon::CloudAzureRegistration
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 ## cloud_registration_azure_download_script
 
-> <RestAzureProvisionGetAccountScriptResponseV1> cloud_registration_azure_download_script(body)
+> <AzureAzureProvisionGetAccountScriptResponseV1> cloud_registration_azure_download_script(body)
 
 Retrieve script to create resources
 
@@ -27,7 +27,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::CloudAzureRegistration.new
-body = Falcon::RestAzureDownloadScriptRequestV1.new({resources: [Falcon::RestAzureDownloadScriptRequestData.new({tenant_id: 'tenant_id_example'})]}) # RestAzureDownloadScriptRequestV1 | 
+body = Falcon::AzureAzureDownloadScriptRequestV1.new({resources: [Falcon::AzureAzureDownloadScriptRequestData.new({tenant_id: 'tenant_id_example'})]}) # AzureAzureDownloadScriptRequestV1 | 
 
 begin
   # Retrieve script to create resources
@@ -42,7 +42,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RestAzureProvisionGetAccountScriptResponseV1>, Integer, Hash)> cloud_registration_azure_download_script_with_http_info(body)
+> <Array(<AzureAzureProvisionGetAccountScriptResponseV1>, Integer, Hash)> cloud_registration_azure_download_script_with_http_info(body)
 
 ```ruby
 begin
@@ -50,7 +50,7 @@ begin
   data, status_code, headers = api_instance.cloud_registration_azure_download_script_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <RestAzureProvisionGetAccountScriptResponseV1>
+  p data # => <AzureAzureProvisionGetAccountScriptResponseV1>
 rescue Falcon::ApiError => e
   puts "Error when calling CloudAzureRegistration->cloud_registration_azure_download_script_with_http_info: #{e}"
 end
@@ -60,11 +60,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RestAzureDownloadScriptRequestV1**](RestAzureDownloadScriptRequestV1.md) |  |  |
+| **body** | [**AzureAzureDownloadScriptRequestV1**](AzureAzureDownloadScriptRequestV1.md) |  |  |
 
 ### Return type
 
-[**RestAzureProvisionGetAccountScriptResponseV1**](RestAzureProvisionGetAccountScriptResponseV1.md)
+[**AzureAzureProvisionGetAccountScriptResponseV1**](AzureAzureProvisionGetAccountScriptResponseV1.md)
 
 ### Authorization
 

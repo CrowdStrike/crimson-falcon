@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **count** | **Integer** |  |  |
+| **label** | **String** |  |  |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'crimson-falcon'
 
 instance = Falcon::CommonCountAsResource.new(
-  count: null
+  count: null,
+  label: null
 )
 ```
 

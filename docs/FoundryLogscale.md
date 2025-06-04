@@ -1,6 +1,6 @@
 # Falcon::FoundryLogscale
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -86,7 +86,7 @@ end
 | **body** | [**ApidomainDynamicExecuteSearchRequestV1**](ApidomainDynamicExecuteSearchRequestV1.md) |  |  |
 | **app_id** | **String** | Application ID. | [optional] |
 | **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional] |
 | **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
@@ -173,7 +173,7 @@ end
 | **body** | [**ApidomainDynamicExecuteSearchRequestV1**](ApidomainDynamicExecuteSearchRequestV1.md) |  |  |
 | **app_id** | **String** | Application ID. | [optional] |
 | **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional] |
 | **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
@@ -259,7 +259,7 @@ end
 | **body** | [**ApidomainSavedSearchExecuteRequestV1**](ApidomainSavedSearchExecuteRequestV1.md) |  |  |
 | **app_id** | **String** | Application ID. | [optional] |
 | **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional] |
 | **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
@@ -344,7 +344,7 @@ end
 | **body** | [**ApidomainSavedSearchExecuteRequestV1**](ApidomainSavedSearchExecuteRequestV1.md) |  |  |
 | **app_id** | **String** | Application ID. | [optional] |
 | **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional] |
 | **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |

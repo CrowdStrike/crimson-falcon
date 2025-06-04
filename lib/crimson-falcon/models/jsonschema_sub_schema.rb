@@ -112,7 +112,7 @@ module Falcon
 
     attr_accessor :type
 
-    attr_accessor :uicomponent
+    attr_accessor :ui_component
 
     attr_accessor :unique_items
 
@@ -197,7 +197,7 @@ module Falcon
         :'_then' => :'then',
         :'title' => :'title',
         :'type' => :'type',
-        :'uicomponent' => :'ui:component',
+        :'ui_component' => :'ui:component',
         :'unique_items' => :'uniqueItems',
         :'x_cs_authorization' => :'x-cs-authorization',
         :'x_cs_can_create' => :'x-cs-can-create',
@@ -269,7 +269,7 @@ module Falcon
         :'_then' => :'JsonschemaSubSchema',
         :'title' => :'String',
         :'type' => :'String',
-        :'uicomponent' => :'String',
+        :'ui_component' => :'String',
         :'unique_items' => :'Boolean',
         :'x_cs_authorization' => :'JsonschemaAuthorization',
         :'x_cs_can_create' => :'Boolean',
@@ -492,8 +492,8 @@ module Falcon
         self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'uicomponent')
-        self.uicomponent = attributes[:'uicomponent']
+      if attributes.key?(:'ui_component')
+        self.ui_component = attributes[:'ui_component']
       end
 
       if attributes.key?(:'unique_items')
@@ -643,7 +643,7 @@ module Falcon
           _then == o._then &&
           title == o.title &&
           type == o.type &&
-          uicomponent == o.uicomponent &&
+          ui_component == o.ui_component &&
           unique_items == o.unique_items &&
           x_cs_authorization == o.x_cs_authorization &&
           x_cs_can_create == o.x_cs_can_create &&
@@ -675,7 +675,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, uicomponent, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_do_not_hide, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_order, x_cs_pivot, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ui, x_cs_workflow].hash
+      [ref, schema, additional_items, additional_properties, all_of, any_of, binary_encoding, const, default, dependencies, deprecated, description, _else, enum, error_message, examples, exclusive_maximum, exclusive_minimum, format, _if, items, max_items, max_length, max_properties, maximum, media, min_items, min_length, min_properties, minimum, multiple_of, _not, one_of, pattern, pattern_properties, properties, required, _then, title, type, ui_component, unique_items, x_cs_authorization, x_cs_can_create, x_cs_condition_group_fields, x_cs_do_not_hide, x_cs_immutable, x_cs_indexable, x_cs_indexable_fields, x_cs_max_duration, x_cs_min_duration, x_cs_not_parameterizable, x_cs_order, x_cs_pivot, x_cs_signals, x_cs_signals_category, x_cs_signals_operators, x_cs_signals_sub_category, x_cs_tags, x_cs_ui, x_cs_workflow].hash
     end
 
     # Builds the object from hash

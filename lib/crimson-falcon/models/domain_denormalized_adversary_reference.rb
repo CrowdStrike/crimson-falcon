@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainDenormalizedAdversaryReference
+    attr_accessor :animal_classifier
+
     attr_accessor :id
 
     attr_accessor :name
@@ -41,6 +43,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'animal_classifier' => :'animal_classifier',
         :'id' => :'id',
         :'name' => :'name',
         :'type' => :'type'
@@ -55,6 +58,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'animal_classifier' => :'String',
         :'id' => :'String',
         :'name' => :'String',
         :'type' => :'String'
@@ -81,6 +85,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'animal_classifier')
+        self.animal_classifier = attributes[:'animal_classifier']
+      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -118,6 +126,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          animal_classifier == o.animal_classifier &&
           id == o.id &&
           name == o.name &&
           type == o.type
@@ -132,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, type].hash
+      [animal_classifier, id, name, type].hash
     end
 
     # Builds the object from hash

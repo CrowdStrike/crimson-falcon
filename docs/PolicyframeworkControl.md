@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **applicable_profiles** | **Array&lt;String&gt;** |  | [optional] |
 | **benchmarks** | [**Array&lt;PolicyframeworkBenchmark&gt;**](PolicyframeworkBenchmark.md) |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **framework** | **String** |  | [optional] |
@@ -18,6 +19,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::PolicyframeworkControl.new(
+  applicable_profiles: null,
   benchmarks: null,
   description: null,
   framework: null,

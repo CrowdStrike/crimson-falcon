@@ -11,6 +11,7 @@
 | **deployment_method** | **String** |  | [optional] |
 | **dspm_enabled** | **Boolean** |  | [optional] |
 | **dspm_role** | **String** |  | [optional] |
+| **falcon_client_id** | **String** |  | [optional] |
 | **iam_role_arn** | **String** |  |  |
 | **is_master** | **Boolean** |  | [optional] |
 | **organization_id** | **String** |  |  |
@@ -32,6 +33,7 @@ instance = Falcon::RegistrationAWSAccountExtV2.new(
   deployment_method: null,
   dspm_enabled: null,
   dspm_role: null,
+  falcon_client_id: null,
   iam_role_arn: null,
   is_master: null,
   organization_id: null,

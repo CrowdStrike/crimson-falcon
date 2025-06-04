@@ -822,6 +822,12 @@ describe Falcon::DomainDiscoverAPIHost do
     end
   end
 
+  describe 'test attribute "scan_details"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "servicenow_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -949,6 +955,12 @@ describe Falcon::DomainDiscoverAPIHost do
   end
 
   describe 'test attribute "vlan"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "vulnerability_assessment_date"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

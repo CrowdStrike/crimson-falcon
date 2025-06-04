@@ -72,7 +72,7 @@ module Falcon
       {
         :'data' => :'String',
         :'enabled' => :'Boolean',
-        :'id' => :'Integer',
+        :'id' => :'String',
         :'integration_type' => :'TypesIntegrationType',
         :'name' => :'String',
         :'node' => :'TypesExecutorNode',

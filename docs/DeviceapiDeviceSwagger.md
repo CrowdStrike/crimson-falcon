@@ -25,7 +25,7 @@
 | **deployment_type** | **String** |  | [optional] |
 | **detection_suppression_status** | **String** |  | [optional] |
 | **device_id** | **String** |  |  |
-| **device_policies** | [**DeviceMappedDevicePolicies**](DeviceMappedDevicePolicies.md) |  | [optional] |
+| **device_policies** | [**DeviceapiMappedDevicePoliciesSwagger**](DeviceapiMappedDevicePoliciesSwagger.md) |  | [optional] |
 | **email** | **String** |  | [optional] |
 | **external_ip** | **String** |  | [optional] |
 | **filesystem_containment_status** | **String** |  | [optional] |

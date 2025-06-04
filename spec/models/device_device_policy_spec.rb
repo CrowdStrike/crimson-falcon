@@ -66,6 +66,12 @@ describe Falcon::DeviceDevicePolicy do
     end
   end
 
+  describe 'test attribute "last_evaluation_date"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "policy_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

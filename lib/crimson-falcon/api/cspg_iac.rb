@@ -38,7 +38,7 @@ module Falcon
     end
     # Gets the registry credentials (external endpoint)
     # @param [Hash] opts the optional parameters
-    # @return [CommonRegistryCredentialsResponse]
+    # @return [ModelsRegistryCredentialsResponse]
     def get_credentials_mixin0(opts = {})
       data, _status_code, _headers = get_credentials_mixin0_with_http_info(opts)
       data
@@ -46,7 +46,7 @@ module Falcon
 
     # Gets the registry credentials (external endpoint)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CommonRegistryCredentialsResponse, Integer, Hash)>] CommonRegistryCredentialsResponse data, response status code and response headers
+    # @return [Array<(ModelsRegistryCredentialsResponse, Integer, Hash)>] ModelsRegistryCredentialsResponse data, response status code and response headers
     def get_credentials_mixin0_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CspgIac.get_credentials_mixin0 ...'
@@ -69,7 +69,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CommonRegistryCredentialsResponse'
+      return_type = opts[:debug_return_type] || 'ModelsRegistryCredentialsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

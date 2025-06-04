@@ -66,12 +66,12 @@ describe 'ReleaseNotes' do
   end
 
   # unit tests for get_entity_ids_by_query_post
-  # returns the IDs of all entities in the database for the given page
+  # returns the release notes for the IDs in the request
   # @param authorization authorization header
   # @param body
   # @param [Hash] opts the optional parameters
   # @option opts [String] :x_cs_username user name
-  # @return [ReleasenotesEntitiesGetResponseWrapper]
+  # @return [ReleasenotesReleaseNoteWrapperV1]
   describe 'get_entity_ids_by_query_post test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

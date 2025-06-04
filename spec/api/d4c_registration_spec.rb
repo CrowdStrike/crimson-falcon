@@ -185,8 +185,13 @@ describe 'D4cRegistration' do
   # @option opts [String] :dspm_role
   # @option opts [String] :use_existing_cloudtrail
   # @option opts [String] :organization_id The AWS organization ID to be registered
+  # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
   # @option opts [String] :aws_profile The AWS profile to be used during registration
-  # @option opts [String] :custom_role_name The custom IAM role to be used during registration
+  # @option opts [String] :aws_region The AWS region to be used during registration
+  # @option opts [String] :iam_role_arn The custom IAM role to be used during registration
+  # @option opts [String] :falcon_client_id The Falcon client ID used during registration
+  # @option opts [String] :idp_enabled Set to true to enable Identity Protection feature
+  # @option opts [String] :tags Base64 encoded JSON string to be used as AWS tags
   # @return [RegistrationAWSProvisionGetAccountScriptResponseV2]
   describe 'get_d4_caws_account_scripts_attachment test' do
     it 'should work' do

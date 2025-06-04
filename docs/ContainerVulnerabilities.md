@@ -1,6 +1,6 @@
 # Falcon::ContainerVulnerabilities
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -153,7 +153,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | Image UUID |  |
 | **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60; | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 5000] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 
 ### Return type

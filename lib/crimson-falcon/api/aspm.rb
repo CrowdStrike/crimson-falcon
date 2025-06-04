@@ -105,7 +105,7 @@ module Falcon
     # Create a new integration
     # @param body [TypesCreateIntegrationRequest]
     # @param [Hash] opts the optional parameters
-    # @return [TypesIntegrationResponse]
+    # @return [TypesCreateIntegrationResponse]
     def create_integration(body, opts = {})
       data, _status_code, _headers = create_integration_with_http_info(body, opts)
       data
@@ -114,7 +114,7 @@ module Falcon
     # Create a new integration
     # @param body [TypesCreateIntegrationRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TypesIntegrationResponse, Integer, Hash)>] TypesIntegrationResponse data, response status code and response headers
+    # @return [Array<(TypesCreateIntegrationResponse, Integer, Hash)>] TypesCreateIntegrationResponse data, response status code and response headers
     def create_integration_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ASPM.create_integration ...'
@@ -146,7 +146,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TypesIntegrationResponse'
+      return_type = opts[:debug_return_type] || 'TypesCreateIntegrationResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -296,6 +296,70 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#delete_executor_node\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_group_id_09(id, opts = {})
+      delete_group_id_09_with_http_info(id, opts)
+      nil
+    end
+
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_group_id_09_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.delete_group_id_09 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.delete_group_id_09"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.delete_group_id_09, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/group/{ID}'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.delete_group_id_09",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#delete_group_id_09\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -498,6 +562,679 @@ module Falcon
       return data, status_code, headers
     end
 
+    # A selected list of queryLanguage queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGeneralQueryResponse]
+    def execute_function_data(field, opts = {})
+      data, _status_code, _headers = execute_function_data_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def execute_function_data_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_function_data ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_function_data"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/function-data/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_function_data",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_function_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage count queries. request & response are in MSA format
+    # @param query_name [String]
+    # @param cloud_provider [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :aws_lambda_arn required for &#39;aws&#39; cloud provider
+    # @option opts [String] :gcp_cloud_function_url required for &#39;gcp&#39; cloud provider
+    # @option opts [String] :azure_site_subscription_id required for &#39;azure&#39; cloud provider
+    # @option opts [String] :azure_site_resource_group required for &#39;azure&#39; cloud provider
+    # @option opts [String] :azure_function_app_name required for &#39;azure&#39; cloud provider
+    # @return [TypesCountResponse]
+    def execute_function_data_count(query_name, cloud_provider, opts = {})
+      data, _status_code, _headers = execute_function_data_count_with_http_info(query_name, cloud_provider, opts)
+      data
+    end
+
+    # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+    # @param query_name [String]
+    # @param cloud_provider [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :aws_lambda_arn required for &#39;aws&#39; cloud provider
+    # @option opts [String] :gcp_cloud_function_url required for &#39;gcp&#39; cloud provider
+    # @option opts [String] :azure_site_subscription_id required for &#39;azure&#39; cloud provider
+    # @option opts [String] :azure_site_resource_group required for &#39;azure&#39; cloud provider
+    # @option opts [String] :azure_function_app_name required for &#39;azure&#39; cloud provider
+    # @return [Array<(TypesCountResponse, Integer, Hash)>] TypesCountResponse data, response status code and response headers
+    def execute_function_data_count_with_http_info(query_name, cloud_provider, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_function_data_count ...'
+      end
+      # verify the required parameter 'query_name' is set
+      if @api_client.config.client_side_validation && query_name.nil?
+        fail ArgumentError, "Missing the required parameter 'query_name' when calling ASPM.execute_function_data_count"
+      end
+      # verify enum value
+      allowable_values = ["sensitive_data", "reachable", "sensitive_datasources", "dependencies", "vulnerable_libraries", "risk_severity", "sensitive_data_tags"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(query_name)
+        fail ArgumentError, "invalid value for \"query_name\", must be one of #{allowable_values}"
+      end
+      # verify the required parameter 'cloud_provider' is set
+      if @api_client.config.client_side_validation && cloud_provider.nil?
+        fail ArgumentError, "Missing the required parameter 'cloud_provider' when calling ASPM.execute_function_data_count"
+      end
+      # verify enum value
+      allowable_values = ["aws", "azure", "gcp"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(cloud_provider)
+        fail ArgumentError, "invalid value for \"cloud_provider\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/application-security/aggregates/function-data/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query_name'] = query_name
+      query_params[:'cloud_provider'] = cloud_provider
+      query_params[:'aws_lambda_arn'] = opts[:'aws_lambda_arn'] if !opts[:'aws_lambda_arn'].nil?
+      query_params[:'gcp_cloud_function_url'] = opts[:'gcp_cloud_function_url'] if !opts[:'gcp_cloud_function_url'].nil?
+      query_params[:'azure_site_subscription_id'] = opts[:'azure_site_subscription_id'] if !opts[:'azure_site_subscription_id'].nil?
+      query_params[:'azure_site_resource_group'] = opts[:'azure_site_resource_group'] if !opts[:'azure_site_resource_group'].nil?
+      query_params[:'azure_function_app_name'] = opts[:'azure_function_app_name'] if !opts[:'azure_function_app_name'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_function_data_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_function_data_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGeneralQueryResponse]
+    def execute_function_data_query(field, opts = {})
+      data, _status_code, _headers = execute_function_data_query_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def execute_function_data_query_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_function_data_query ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_function_data_query"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/query-function-data/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_function_data_query",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_function_data_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage count queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesCountResponse]
+    def execute_function_data_query_count(field, opts = {})
+      data, _status_code, _headers = execute_function_data_query_count_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesCountResponse, Integer, Hash)>] TypesCountResponse data, response status code and response headers
+    def execute_function_data_query_count_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_function_data_query_count ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_function_data_query_count"
+      end
+      # resource path
+      local_var_path = '/application-security/aggregates/query-function-data-count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_function_data_query_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_function_data_query_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage services queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGeneralQueryResponse]
+    def execute_functions(field, opts = {})
+      data, _status_code, _headers = execute_functions_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage services queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def execute_functions_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_functions"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/functions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage count queries. request & response are in MSA format
+    # @param query_name [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :cloud_provider
+    # @option opts [Array<String>] :cloud_account_id required for &#39;aws&#39; cloud provider
+    # @option opts [Array<String>] :region required for &#39;gcp&#39; cloud provider
+    # @option opts [Array<String>] :cid required for &#39;azure&#39; cloud provider
+    # @return [TypesCountResponse]
+    def execute_functions_count(query_name, opts = {})
+      data, _status_code, _headers = execute_functions_count_with_http_info(query_name, opts)
+      data
+    end
+
+    # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+    # @param query_name [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :cloud_provider
+    # @option opts [Array<String>] :cloud_account_id required for &#39;aws&#39; cloud provider
+    # @option opts [Array<String>] :region required for &#39;gcp&#39; cloud provider
+    # @option opts [Array<String>] :cid required for &#39;azure&#39; cloud provider
+    # @return [Array<(TypesCountResponse, Integer, Hash)>] TypesCountResponse data, response status code and response headers
+    def execute_functions_count_with_http_info(query_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions_count ...'
+      end
+      # verify the required parameter 'query_name' is set
+      if @api_client.config.client_side_validation && query_name.nil?
+        fail ArgumentError, "Missing the required parameter 'query_name' when calling ASPM.execute_functions_count"
+      end
+      # verify enum value
+      allowable_values = ["sensitive_data", "reachable", "sensitive_datasources", "dependencies", "vulnerable_libraries"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(query_name)
+        fail ArgumentError, "invalid value for \"query_name\", must be one of #{allowable_values}"
+      end
+      allowable_values = []
+      if @api_client.config.client_side_validation && opts[:'cloud_provider'] && !opts[:'cloud_provider'].all? { |item| allowable_values.include?(item) }
+        fail ArgumentError, "invalid value for \"cloud_provider\", must include one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/application-security/aggregates/functions/count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'query_name'] = query_name
+      query_params[:'cloud_provider'] = @api_client.build_collection_param(opts[:'cloud_provider'], :csv) if !opts[:'cloud_provider'].nil?
+      query_params[:'cloud_account_id'] = @api_client.build_collection_param(opts[:'cloud_account_id'], :csv) if !opts[:'cloud_account_id'].nil?
+      query_params[:'region'] = @api_client.build_collection_param(opts[:'region'], :csv) if !opts[:'region'].nil?
+      query_params[:'cid'] = @api_client.build_collection_param(opts[:'cid'], :csv) if !opts[:'cid'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage overtime queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesOvertimeResponse]
+    def execute_functions_overtime(field, opts = {})
+      data, _status_code, _headers = execute_functions_overtime_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesOvertimeResponse, Integer, Hash)>] TypesOvertimeResponse data, response status code and response headers
+    def execute_functions_overtime_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions_overtime ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_functions_overtime"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/functions-overtime/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesOvertimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions_overtime",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions_overtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage services queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGeneralQueryResponse]
+    def execute_functions_query(field, opts = {})
+      data, _status_code, _headers = execute_functions_query_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage services queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def execute_functions_query_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions_query ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_functions_query"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/query-functions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions_query",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage count queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesCountResponse]
+    def execute_functions_query_count(field, opts = {})
+      data, _status_code, _headers = execute_functions_query_count_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage count queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesCountResponse, Integer, Hash)>] TypesCountResponse data, response status code and response headers
+    def execute_functions_query_count_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions_query_count ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_functions_query_count"
+      end
+      # resource path
+      local_var_path = '/application-security/aggregates/query-functions-count/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesCountResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions_query_count",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions_query_count\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # A selected list of queryLanguage overtime queries. request & response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [TypesOvertimeResponse]
+    def execute_functions_query_overtime(field, opts = {})
+      data, _status_code, _headers = execute_functions_query_overtime_with_http_info(field, opts)
+      data
+    end
+
+    # A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+    # @param field [String]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesOvertimeResponse, Integer, Hash)>] TypesOvertimeResponse data, response status code and response headers
+    def execute_functions_query_overtime_with_http_info(field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.execute_functions_query_overtime ...'
+      end
+      # verify the required parameter 'field' is set
+      if @api_client.config.client_side_validation && field.nil?
+        fail ArgumentError, "Missing the required parameter 'field' when calling ASPM.execute_functions_query_overtime"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/query-functions-overtime/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'field'] = field
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesOvertimeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.execute_functions_query_overtime",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#execute_functions_query_overtime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Execute a query. The syntax used is identical to that of the query page.
     # @param body [TypesQueryRequest]  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
     # @param [Hash] opts the optional parameters
@@ -560,6 +1297,61 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#execute_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Cloud Security integration state
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGetCloudSecurityIntegrationStateResponse]
+    def get_cloud_security_integration_state(opts = {})
+      data, _status_code, _headers = get_cloud_security_integration_state_with_http_info(opts)
+      data
+    end
+
+    # Get Cloud Security integration state
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGetCloudSecurityIntegrationStateResponse, Integer, Hash)>] TypesGetCloudSecurityIntegrationStateResponse data, response status code and response headers
+    def get_cloud_security_integration_state_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_cloud_security_integration_state ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/cloud_security_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGetCloudSecurityIntegrationStateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_cloud_security_integration_state",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_cloud_security_integration_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -661,6 +1453,83 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve the relay instances in CSV format
+    # @param id [Integer]
+    # @param body [TypesExecutorNode]
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def get_executor_nodes_id_09_instances_csv(id, body, opts = {})
+      data, _status_code, _headers = get_executor_nodes_id_09_instances_csv_with_http_info(id, body, opts)
+      data
+    end
+
+    # Retrieve the relay instances in CSV format
+    # @param id [Integer]
+    # @param body [TypesExecutorNode]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def get_executor_nodes_id_09_instances_csv_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_executor_nodes_id_09_instances_csv ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.get_executor_nodes_id_09_instances_csv"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.get_executor_nodes_id_09_instances_csv, must conform to the pattern #{pattern}."
+      end
+
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.get_executor_nodes_id_09_instances_csv"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_executor_nodes_id_09_instances_csv",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_executor_nodes_id_09_instances_csv\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get metadata about all executor nodes
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :executor_node_ids executor node ids
@@ -724,6 +1593,183 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#get_executor_nodes_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get group details
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGroupDetails]
+    def get_group_id_09_v2(id, opts = {})
+      data, _status_code, _headers = get_group_id_09_v2_with_http_info(id, opts)
+      data
+    end
+
+    # Get group details
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGroupDetails, Integer, Hash)>] TypesGroupDetails data, response status code and response headers
+    def get_group_id_09_v2_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_group_id_09_v2 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.get_group_id_09_v2"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.get_group_id_09_v2, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/group/{ID}/v2'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGroupDetails'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_group_id_09_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_group_id_09_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get group hierarchy
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGroupHierarchyResponse]
+    def get_groups_hier_v2(opts = {})
+      data, _status_code, _headers = get_groups_hier_v2_with_http_info(opts)
+      data
+    end
+
+    # Get group hierarchy
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGroupHierarchyResponse, Integer, Hash)>] TypesGroupHierarchyResponse data, response status code and response headers
+    def get_groups_hier_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_groups_hier_v2 ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/groups/hier/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGroupHierarchyResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_groups_hier_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_groups_hier_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :type Group types to query - can either be empty (all), parents, children
+    # @return [Array<TypesGroupListItem>]
+    def get_groups_list_v2(opts = {})
+      data, _status_code, _headers = get_groups_list_v2_with_http_info(opts)
+      data
+    end
+
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :type Group types to query - can either be empty (all), parents, children
+    # @return [Array<(Array<TypesGroupListItem>, Integer, Hash)>] Array<TypesGroupListItem> data, response status code and response headers
+    def get_groups_list_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_groups_list_v2 ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/groups/list/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<TypesGroupListItem>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_groups_list_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_groups_list_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -818,6 +1864,96 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get all the integration tasks, requires admin scope
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_task_type
+    # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [TypesListIntegrationTasksResponse]
+    def get_integration_tasks_admin(opts = {})
+      data, _status_code, _headers = get_integration_tasks_admin_with_http_info(opts)
+      data
+    end
+
+    # Get all the integration tasks, requires admin scope
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_task_type
+    # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [Array<(TypesListIntegrationTasksResponse, Integer, Hash)>] TypesListIntegrationTasksResponse data, response status code and response headers
+    def get_integration_tasks_admin_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integration_tasks_admin ...'
+      end
+      allowable_values = ["name", "id", "integrationTask"]
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !allowable_values.include?(opts[:'order_by'])
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/admin'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'integration_task_type'] = opts[:'integration_task_type'] if !opts[:'integration_task_type'].nil?
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'orderBy'] = opts[:'order_by'] if !opts[:'order_by'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
+      query_params[:'integration_task_types'] = opts[:'integration_task_types'] if !opts[:'integration_task_types'].nil?
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesListIntegrationTasksResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_integration_tasks_admin",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_integration_tasks_admin\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get metadata about all integration tasks
     # @param [Hash] opts the optional parameters
     # @option opts [String] :category
@@ -885,6 +2021,96 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#get_integration_tasks_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get all the integration tasks
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_task_type
+    # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [TypesListIntegrationTasksResponse]
+    def get_integration_tasks_v2(opts = {})
+      data, _status_code, _headers = get_integration_tasks_v2_with_http_info(opts)
+      data
+    end
+
+    # Get all the integration tasks
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_task_type
+    # @option opts [String] :category
+    # @option opts [Integer] :offset
+    # @option opts [Integer] :limit
+    # @option opts [String] :order_by
+    # @option opts [String] :direction
+    # @option opts [Integer] :integration_task_types
+    # @option opts [Integer] :ids
+    # @option opts [String] :names
+    # @return [Array<(TypesListIntegrationTasksResponse, Integer, Hash)>] TypesListIntegrationTasksResponse data, response status code and response headers
+    def get_integration_tasks_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integration_tasks_v2 ...'
+      end
+      allowable_values = ["name", "id", "integrationTask"]
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !allowable_values.include?(opts[:'order_by'])
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'integration_task_type'] = opts[:'integration_task_type'] if !opts[:'integration_task_type'].nil?
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'orderBy'] = opts[:'order_by'] if !opts[:'order_by'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
+      query_params[:'integration_task_types'] = opts[:'integration_task_types'] if !opts[:'integration_task_types'].nil?
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'names'] = opts[:'names'] if !opts[:'names'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesListIntegrationTasksResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_integration_tasks_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_integration_tasks_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1001,6 +2227,153 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#get_integrations\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a list of all the integrations
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_type
+    # @option opts [String] :category
+    # @return [TypesListIntegrationsResponse]
+    def get_integrations_v2(opts = {})
+      data, _status_code, _headers = get_integrations_v2_with_http_info(opts)
+      data
+    end
+
+    # Get a list of all the integrations
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :integration_type
+    # @option opts [String] :category
+    # @return [Array<(TypesListIntegrationsResponse, Integer, Hash)>] TypesListIntegrationsResponse data, response status code and response headers
+    def get_integrations_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_integrations_v2 ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integrations/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'integration_type'] = opts[:'integration_type'] if !opts[:'integration_type'].nil?
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesListIntegrationsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_integrations_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_integrations_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # @param persistent_signature [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :optional_time
+    # @option opts [Integer] :revision_id
+    # @option opts [Integer] :limit
+    # @option opts [Integer] :offset
+    # @option opts [Array<String>] :order_by
+    # @option opts [String] :direction
+    # @return [TypesArtifacts]
+    def get_service_artifacts(persistent_signature, opts = {})
+      data, _status_code, _headers = get_service_artifacts_with_http_info(persistent_signature, opts)
+      data
+    end
+
+    # @param persistent_signature [String]
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :optional_time
+    # @option opts [Integer] :revision_id
+    # @option opts [Integer] :limit
+    # @option opts [Integer] :offset
+    # @option opts [Array<String>] :order_by
+    # @option opts [String] :direction
+    # @return [Array<(TypesArtifacts, Integer, Hash)>] TypesArtifacts data, response status code and response headers
+    def get_service_artifacts_with_http_info(persistent_signature, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_service_artifacts ...'
+      end
+      # verify the required parameter 'persistent_signature' is set
+      if @api_client.config.client_side_validation && persistent_signature.nil?
+        fail ArgumentError, "Missing the required parameter 'persistent_signature' when calling ASPM.get_service_artifacts"
+      end
+      allowable_values = []
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !opts[:'order_by'].all? { |item| allowable_values.include?(item) }
+        fail ArgumentError, "invalid value for \"order_by\", must include one of #{allowable_values}"
+      end
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'direction'] && !allowable_values.include?(opts[:'direction'])
+        fail ArgumentError, "invalid value for \"direction\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/artifacts'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'persistentSignature'] = persistent_signature
+      query_params[:'optionalTime'] = opts[:'optional_time'] if !opts[:'optional_time'].nil?
+      query_params[:'revisionId'] = opts[:'revision_id'] if !opts[:'revision_id'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'orderBy'] = @api_client.build_collection_param(opts[:'order_by'], :csv) if !opts[:'order_by'].nil?
+      query_params[:'direction'] = opts[:'direction'] if !opts[:'direction'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesArtifacts'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_service_artifacts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_service_artifacts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1207,6 +2580,273 @@ module Falcon
       return data, status_code, headers
     end
 
+    # List users
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :pagination URL encoded pagination JSON - limit, offset, direction, orderBy
+    # @return [TypesUsersResponse]
+    def get_users_v2(opts = {})
+      data, _status_code, _headers = get_users_v2_with_http_info(opts)
+      data
+    end
+
+    # List users
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :pagination URL encoded pagination JSON - limit, offset, direction, orderBy
+    # @return [Array<(TypesUsersResponse, Integer, Hash)>] TypesUsersResponse data, response status code and response headers
+    def get_users_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_users_v2 ...'
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/users/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'pagination'] = opts[:'pagination'] if !opts[:'pagination'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesUsersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_users_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_users_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update default group
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def post_group_id_09_update_default(id, opts = {})
+      post_group_id_09_update_default_with_http_info(id, opts)
+      nil
+    end
+
+    # Update default group
+    # @param id [Integer] Group ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def post_group_id_09_update_default_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.post_group_id_09_update_default ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.post_group_id_09_update_default"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.post_group_id_09_update_default, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/group/{ID}/update_default'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.post_group_id_09_update_default",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#post_group_id_09_update_default\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update group
+    # @param id [Integer] Group ID
+    # @param body [TypesUpdateGroupRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def post_group_id_09_v2(id, body, opts = {})
+      post_group_id_09_v2_with_http_info(id, body, opts)
+      nil
+    end
+
+    # Update group
+    # @param id [Integer] Group ID
+    # @param body [TypesUpdateGroupRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def post_group_id_09_v2_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.post_group_id_09_v2 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.post_group_id_09_v2"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.post_group_id_09_v2, must conform to the pattern #{pattern}."
+      end
+
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.post_group_id_09_v2"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/group/{ID}/v2'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.post_group_id_09_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#post_group_id_09_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create group
+    # @param body [TypesCreateGroupRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def post_group_v2(body, opts = {})
+      post_group_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Create group
+    # @param body [TypesCreateGroupRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def post_group_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.post_group_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.post_group_v2"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/group/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.post_group_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#post_group_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Run an integration task by its ID
     # @param id [Integer]
     # @param body [TypesRunIntegrationTaskRequest]
@@ -1287,6 +2927,166 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Run an integration task by its ID - for admin scope
+    # @param id [Integer]
+    # @param body [TypesRunIntegrationTaskRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @return [TypesIntegrationTaskTestConnectionResponse]
+    def run_integration_task_admin(id, body, opts = {})
+      data, _status_code, _headers = run_integration_task_admin_with_http_info(id, body, opts)
+      data
+    end
+
+    # Run an integration task by its ID - for admin scope
+    # @param id [Integer]
+    # @param body [TypesRunIntegrationTaskRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @return [Array<(TypesIntegrationTaskTestConnectionResponse, Integer, Hash)>] TypesIntegrationTaskTestConnectionResponse data, response status code and response headers
+    def run_integration_task_admin_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.run_integration_task_admin ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.run_integration_task_admin"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.run_integration_task_admin, must conform to the pattern #{pattern}."
+      end
+
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.run_integration_task_admin"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesIntegrationTaskTestConnectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.run_integration_task_admin",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#run_integration_task_admin\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Run an integration task by its ID
+    # @param id [Integer]
+    # @param body [TypesRunIntegrationTaskRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @return [TypesIntegrationTaskTestConnectionResponse]
+    def run_integration_task_v2(id, body, opts = {})
+      data, _status_code, _headers = run_integration_task_v2_with_http_info(id, body, opts)
+      data
+    end
+
+    # Run an integration task by its ID
+    # @param id [Integer]
+    # @param body [TypesRunIntegrationTaskRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :category
+    # @return [Array<(TypesIntegrationTaskTestConnectionResponse, Integer, Hash)>] TypesIntegrationTaskTestConnectionResponse data, response status code and response headers
+    def run_integration_task_v2_with_http_info(id, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.run_integration_task_v2 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling ASPM.run_integration_task_v2"
+      end
+      pattern = Regexp.new(/[0-9]+/)
+      if @api_client.config.client_side_validation && id !~ pattern
+        fail ArgumentError, "invalid value for 'id' when calling ASPM.run_integration_task_v2, must conform to the pattern #{pattern}."
+      end
+
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.run_integration_task_v2"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2'.sub('{' + 'ID' + '}', CGI.escape(id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'category'] = opts[:'category'] if !opts[:'category'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesIntegrationTaskTestConnectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.run_integration_task_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#run_integration_task_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ql_filters
     # @option opts [Integer] :limit
@@ -1357,6 +3157,7 @@ module Falcon
 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ql_filters
+    # @option opts [Boolean] :exclude_artifacts
     # @option opts [Integer] :limit
     # @option opts [Integer] :offset
     # @option opts [String] :order_by
@@ -1369,6 +3170,7 @@ module Falcon
 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ql_filters
+    # @option opts [Boolean] :exclude_artifacts
     # @option opts [Integer] :limit
     # @option opts [Integer] :offset
     # @option opts [String] :order_by
@@ -1384,6 +3186,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'ql_filters'] = opts[:'ql_filters'] if !opts[:'ql_filters'].nil?
+      query_params[:'exclude_artifacts'] = opts[:'exclude_artifacts'] if !opts[:'exclude_artifacts'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'orderBy'] = opts[:'order_by'] if !opts[:'order_by'].nil?
@@ -1419,6 +3222,72 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#service_now_get_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Set Cloud Security integration state
+    # @param body [TypesSetCloudSecurityIntegrationStateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def set_cloud_security_integration_state(body, opts = {})
+      set_cloud_security_integration_state_with_http_info(body, opts)
+      nil
+    end
+
+    # Set Cloud Security integration state
+    # @param body [TypesSetCloudSecurityIntegrationStateRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def set_cloud_security_integration_state_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.set_cloud_security_integration_state ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ASPM.set_cloud_security_integration_state"
+      end
+      # resource path
+      local_var_path = '/aspm-api-gateway/api/v1/cloud_security_config'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.set_cloud_security_integration_state",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#set_cloud_security_integration_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

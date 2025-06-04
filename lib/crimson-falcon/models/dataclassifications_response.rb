@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DataclassificationsResponse
+    attr_accessor :findings
+
     attr_accessor :found
 
     attr_accessor :labels
@@ -45,6 +47,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'findings' => :'findings',
         :'found' => :'found',
         :'labels' => :'labels',
         :'last_updated' => :'last_updated',
@@ -61,6 +64,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'findings' => :'Array<DataclassificationsDataClassificationFinding>',
         :'found' => :'Boolean',
         :'labels' => :'Hash<String, String>',
         :'last_updated' => :'Time',
@@ -89,6 +93,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'findings')
+        if (value = attributes[:'findings']).is_a?(Array)
+          self.findings = value
+        end
+      end
 
       if attributes.key?(:'found')
         self.found = attributes[:'found']
@@ -143,6 +153,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          findings == o.findings &&
           found == o.found &&
           labels == o.labels &&
           last_updated == o.last_updated &&
@@ -159,7 +170,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [found, labels, last_updated, scanned, tags].hash
+      [findings, found, labels, last_updated, scanned, tags].hash
     end
 
     # Builds the object from hash

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **data** | **String** |  | [optional] |
 | **enabled** | **Boolean** |  | [optional] |
-| **id** | **Integer** |  | [optional] |
+| **id** | **String** |  | [optional] |
 | **integration_type** | [**TypesIntegrationType**](TypesIntegrationType.md) |  | [optional] |
 | **name** | **String** |  | [optional] |
 | **node** | [**TypesExecutorNode**](TypesExecutorNode.md) |  | [optional] |

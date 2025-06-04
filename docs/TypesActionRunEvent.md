@@ -4,15 +4,15 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **flat_data** | **Hash&lt;String, String&gt;** |  |  |
 | **additional_data** | **String** |  | [optional] |
 | **data** | [**TypesActionRunEventData**](TypesActionRunEventData.md) |  | [optional] |
+| **flat_data** | **Hash&lt;String, String&gt;** |  | [optional] |
 | **flat_fields** | **Array&lt;String&gt;** |  | [optional] |
-| **id** | **Integer** |  | [optional] |
+| **id** | **String** |  | [optional] |
 | **message** | **String** |  | [optional] |
 | **object** | **String** |  | [optional] |
 | **object_type** | **String** |  | [optional] |
-| **send_time** | [**TypesTimestamp**](TypesTimestamp.md) |  | [optional] |
+| **send_time** | **String** |  | [optional] |
 | **status** | **Integer** |  | [optional] |
 
 ## Example
@@ -21,9 +21,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::TypesActionRunEvent.new(
-  flat_data: null,
   additional_data: null,
   data: null,
+  flat_data: null,
   flat_fields: null,
   id: null,
   message: null,

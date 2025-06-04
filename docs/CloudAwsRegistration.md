@@ -1,6 +1,6 @@
 # Falcon::CloudAwsRegistration
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -9,7 +9,6 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 | [**cloud_registration_aws_get_accounts**](CloudAwsRegistration.md#cloud_registration_aws_get_accounts) | **GET** /cloud-security-registration-aws/entities/account/v1 | Retrieve existing AWS accounts by account IDs |
 | [**cloud_registration_aws_query_accounts**](CloudAwsRegistration.md#cloud_registration_aws_query_accounts) | **GET** /cloud-security-registration-aws/queries/account/v1 | Retrieve existing AWS accounts by account IDs |
 | [**cloud_registration_aws_update_account**](CloudAwsRegistration.md#cloud_registration_aws_update_account) | **PATCH** /cloud-security-registration-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
-| [**cloud_registration_aws_validate_accounts**](CloudAwsRegistration.md#cloud_registration_aws_validate_accounts) | **POST** /cloud-security-registration-aws/entities/account/validate/v1 | Validates the AWS account in our system for a provided CID. For internal clients only. |
 
 
 ## cloud_registration_aws_create_account
@@ -32,7 +31,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::CloudAwsRegistration.new
-body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({organization_id: 'organization_id_example'})]}) # RestAWSAccountCreateRequestExtv1 | 
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
 
 begin
   # Creates a new account in our system for a customer.
@@ -328,7 +327,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::CloudAwsRegistration.new
-body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({organization_id: 'organization_id_example'})]}) # RestAWSAccountCreateRequestExtv1 | 
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
 
 begin
   # Patches a existing account in our system for a customer.
@@ -374,82 +373,5 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## cloud_registration_aws_validate_accounts
-
-> <RestAWSAccountValidationResponse> cloud_registration_aws_validate_accounts(products, feature, opts)
-
-Validates the AWS account in our system for a provided CID. For internal clients only.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::CloudAwsRegistration.new
-products = 'products_example' # String | Product registered for an account
-feature = ['inner_example'] # Array<String> | Features registered for an account
-opts = {
-  account_id: 'account_id_example', # String | AWS Account ID
-  iam_role_arn: 'iam_role_arn_example' # String | IAM Role ARN
-}
-
-begin
-  # Validates the AWS account in our system for a provided CID. For internal clients only.
-  result = api_instance.cloud_registration_aws_validate_accounts(products, feature, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_validate_accounts: #{e}"
-end
-```
-
-#### Using the cloud_registration_aws_validate_accounts_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RestAWSAccountValidationResponse>, Integer, Hash)> cloud_registration_aws_validate_accounts_with_http_info(products, feature, opts)
-
-```ruby
-begin
-  # Validates the AWS account in our system for a provided CID. For internal clients only.
-  data, status_code, headers = api_instance.cloud_registration_aws_validate_accounts_with_http_info(products, feature, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RestAWSAccountValidationResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_validate_accounts_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **products** | **String** | Product registered for an account |  |
-| **feature** | [**Array&lt;String&gt;**](String.md) | Features registered for an account |  |
-| **account_id** | **String** | AWS Account ID | [optional] |
-| **iam_role_arn** | **String** | IAM Role ARN | [optional] |
-
-### Return type
-
-[**RestAWSAccountValidationResponse**](RestAWSAccountValidationResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 

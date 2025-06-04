@@ -22,7 +22,7 @@
 | **run_success_count** | **Integer** |  |  |
 | **sha256** | **String** |  | [optional] |
 | **share_with_workflow** | **Boolean** |  |  |
-| **size** | **Integer** |  | [optional] |
+| **size** | **Integer** |  |  |
 | **workflow_input_schema** | **String** |  | [optional] |
 | **workflow_is_disruptive** | **Boolean** |  |  |
 | **workflow_output_schema** | **String** |  | [optional] |

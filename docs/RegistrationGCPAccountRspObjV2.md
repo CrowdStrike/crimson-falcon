@@ -9,7 +9,7 @@
 | **parent_id** | **String** |  |  |
 | **parent_type** | **String** |  | [optional] |
 | **project_id** | **String** |  | [optional] |
-| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **service_account_conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** |  | [optional] |
 
 ## Example

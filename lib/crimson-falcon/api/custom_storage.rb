@@ -222,6 +222,137 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Fetch metadata about an existing collection
+    # @param collection_name [String] The name of the collection
+    # @param [Hash] opts the optional parameters
+    # @return [CustomType1942251022]
+    def describe_collection(collection_name, opts = {})
+      data, _status_code, _headers = describe_collection_with_http_info(collection_name, opts)
+      data
+    end
+
+    # Fetch metadata about an existing collection
+    # @param collection_name [String] The name of the collection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomType1942251022, Integer, Hash)>] CustomType1942251022 data, response status code and response headers
+    def describe_collection_with_http_info(collection_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.describe_collection ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.describe_collection"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.describe_collection, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.describe_collection, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType1942251022'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.describe_collection",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#describe_collection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetch metadata about one or more existing collections
+    # @param names [Array<String>] A set of collection names
+    # @param [Hash] opts the optional parameters
+    # @return [CustomType1942251022]
+    def describe_collections(names, opts = {})
+      data, _status_code, _headers = describe_collections_with_http_info(names, opts)
+      data
+    end
+
+    # Fetch metadata about one or more existing collections
+    # @param names [Array<String>] A set of collection names
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomType1942251022, Integer, Hash)>] CustomType1942251022 data, response status code and response headers
+    def describe_collections_with_http_info(names, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.describe_collections ...'
+      end
+      # verify the required parameter 'names' is set
+      if @api_client.config.client_side_validation && names.nil?
+        fail ArgumentError, "Missing the required parameter 'names' when calling CustomStorage.describe_collections"
+      end
+      # resource path
+      local_var_path = '/customobjects/v1/collections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'names'] = @api_client.build_collection_param(names, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType1942251022'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.describe_collections",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#describe_collections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get the bytes for the specified object
     # @param collection_name [String] The name of the collection
     # @param object_key [String] The object key
@@ -384,6 +515,164 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomStorage#get_object_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the bytes of the specified schema of the requested collection
+    # @param collection_name [String] The name of the collection
+    # @param schema_version [String] The version of the collection schema or &#39;latest&#39; for the latest version
+    # @param [Hash] opts the optional parameters
+    # @return [File]
+    def get_schema(collection_name, schema_version, opts = {})
+      data, _status_code, _headers = get_schema_with_http_info(collection_name, schema_version, opts)
+      data
+    end
+
+    # Get the bytes of the specified schema of the requested collection
+    # @param collection_name [String] The name of the collection
+    # @param schema_version [String] The version of the collection schema or &#39;latest&#39; for the latest version
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def get_schema_with_http_info(collection_name, schema_version, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.get_schema ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.get_schema"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.get_schema, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.get_schema, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'schema_version' is set
+      if @api_client.config.client_side_validation && schema_version.nil?
+        fail ArgumentError, "Missing the required parameter 'schema_version' when calling CustomStorage.get_schema"
+      end
+      if @api_client.config.client_side_validation && schema_version.to_s.length < 1
+        fail ArgumentError, 'invalid value for "schema_version" when calling CustomStorage.get_schema, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/schemas/{schema_version}'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'schema_version' + '}', CGI.escape(schema_version.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/schema+json', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.get_schema",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#get_schema\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the metadata for the specified schema of the requested collection
+    # @param collection_name [String] The name of the collection
+    # @param schema_version [String] The version of the collection schema or &#39;latest&#39; for the latest version
+    # @param [Hash] opts the optional parameters
+    # @return [CustomType4161059146]
+    def get_schema_metadata(collection_name, schema_version, opts = {})
+      data, _status_code, _headers = get_schema_metadata_with_http_info(collection_name, schema_version, opts)
+      data
+    end
+
+    # Get the metadata for the specified schema of the requested collection
+    # @param collection_name [String] The name of the collection
+    # @param schema_version [String] The version of the collection schema or &#39;latest&#39; for the latest version
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomType4161059146, Integer, Hash)>] CustomType4161059146 data, response status code and response headers
+    def get_schema_metadata_with_http_info(collection_name, schema_version, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.get_schema_metadata ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.get_schema_metadata"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.get_schema_metadata, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.get_schema_metadata, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'schema_version' is set
+      if @api_client.config.client_side_validation && schema_version.nil?
+        fail ArgumentError, "Missing the required parameter 'schema_version' when calling CustomStorage.get_schema_metadata"
+      end
+      if @api_client.config.client_side_validation && schema_version.to_s.length < 1
+        fail ArgumentError, 'invalid value for "schema_version" when calling CustomStorage.get_schema_metadata, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'schema_version' + '}', CGI.escape(schema_version.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType4161059146'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.get_schema_metadata",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#get_schema_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -578,6 +867,86 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomStorage#get_versioned_object_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List available collection names in alphabetical order
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :_end The end key to end listing to
+    # @option opts [Integer] :limit The limit of results to return
+    # @option opts [String] :start The start key to start listing from
+    # @return [CustomType1255839303]
+    def list_collections(opts = {})
+      data, _status_code, _headers = list_collections_with_http_info(opts)
+      data
+    end
+
+    # List available collection names in alphabetical order
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :_end The end key to end listing to
+    # @option opts [Integer] :limit The limit of results to return
+    # @option opts [String] :start The start key to start listing from
+    # @return [Array<(CustomType1255839303, Integer, Hash)>] CustomType1255839303 data, response status code and response headers
+    def list_collections_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.list_collections ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length > 1000
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorage.list_collections, the character length must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorage.list_collections, the character length must be great than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length > 1000
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorage.list_collections, the character length must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorage.list_collections, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'end'] = opts[:'_end'] if !opts[:'_end'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType1255839303'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.list_collections",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#list_collections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -780,6 +1149,100 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CustomStorage#list_objects_by_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the list of schemas for the requested collection in reverse version order (latest first)
+    # @param collection_name [String] The name of the collection
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :_end The end key to end listing to
+    # @option opts [Integer] :limit The limit of results to return
+    # @option opts [String] :start The start key to start listing from
+    # @return [CustomType1255839303]
+    def list_schemas(collection_name, opts = {})
+      data, _status_code, _headers = list_schemas_with_http_info(collection_name, opts)
+      data
+    end
+
+    # Get the list of schemas for the requested collection in reverse version order (latest first)
+    # @param collection_name [String] The name of the collection
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :_end The end key to end listing to
+    # @option opts [Integer] :limit The limit of results to return
+    # @option opts [String] :start The start key to start listing from
+    # @return [Array<(CustomType1255839303, Integer, Hash)>] CustomType1255839303 data, response status code and response headers
+    def list_schemas_with_http_info(collection_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorage.list_schemas ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorage.list_schemas"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.list_schemas, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorage.list_schemas, the character length must be great than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length > 1000
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorage.list_schemas, the character length must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorage.list_schemas, the character length must be great than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length > 1000
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorage.list_schemas, the character length must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorage.list_schemas, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/schemas'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'end'] = opts[:'_end'] if !opts[:'_end'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'start'] = opts[:'start'] if !opts[:'start'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomType1255839303'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorage.list_schemas",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorage#list_schemas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

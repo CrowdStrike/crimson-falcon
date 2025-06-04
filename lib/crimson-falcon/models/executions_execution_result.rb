@@ -50,6 +50,9 @@ module Falcon
     # Unique id generated for the execution.
     attr_accessor :execution_id
 
+    # Details for the result of each flow node.
+    attr_accessor :flows
+
     # Details for the results of each loop in the workflow definition.
     attr_accessor :loops
 
@@ -79,6 +82,7 @@ module Falcon
         :'definition_version' => :'definition_version',
         :'end_timestamp' => :'end_timestamp',
         :'execution_id' => :'execution_id',
+        :'flows' => :'flows',
         :'loops' => :'loops',
         :'output_data' => :'output_data',
         :'retryable' => :'retryable',
@@ -103,6 +107,7 @@ module Falcon
         :'definition_version' => :'Integer',
         :'end_timestamp' => :'Time',
         :'execution_id' => :'String',
+        :'flows' => :'Array<ExecutionsFlowExecutionResult>',
         :'loops' => :'Array<ExecutionsLoopResult>',
         :'output_data' => :'Object',
         :'retryable' => :'Boolean',
@@ -160,6 +165,12 @@ module Falcon
 
       if attributes.key?(:'execution_id')
         self.execution_id = attributes[:'execution_id']
+      end
+
+      if attributes.key?(:'flows')
+        if (value = attributes[:'flows']).is_a?(Array)
+          self.flows = value
+        end
       end
 
       if attributes.key?(:'loops')
@@ -267,6 +278,7 @@ module Falcon
           definition_version == o.definition_version &&
           end_timestamp == o.end_timestamp &&
           execution_id == o.execution_id &&
+          flows == o.flows &&
           loops == o.loops &&
           output_data == o.output_data &&
           retryable == o.retryable &&
@@ -285,7 +297,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, loops, output_data, retryable, start_timestamp, status, summary, trigger].hash
+      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, flows, loops, output_data, retryable, start_timestamp, status, summary, trigger].hash
     end
 
     # Builds the object from hash

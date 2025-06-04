@@ -80,6 +80,9 @@ module Falcon
     # The mime type of the file
     attr_accessor :mime_type
 
+    # Screenshots of the raw intelligence item
+    attr_accessor :screenshots
+
     # The SHA256 hash for the file
     attr_accessor :sha256
 
@@ -132,6 +135,7 @@ module Falcon
         :'language' => :'language',
         :'marketplace_product' => :'marketplace_product',
         :'mime_type' => :'mime_type',
+        :'screenshots' => :'screenshots',
         :'sha256' => :'sha256',
         :'site' => :'site',
         :'site_id' => :'site_id',
@@ -171,6 +175,7 @@ module Falcon
         :'language' => :'String',
         :'marketplace_product' => :'DomainMarketplaceProduct',
         :'mime_type' => :'String',
+        :'screenshots' => :'Array<DomainScreenshot>',
         :'sha256' => :'String',
         :'site' => :'String',
         :'site_id' => :'String',
@@ -278,6 +283,12 @@ module Falcon
 
       if attributes.key?(:'mime_type')
         self.mime_type = attributes[:'mime_type']
+      end
+
+      if attributes.key?(:'screenshots')
+        if (value = attributes[:'screenshots']).is_a?(Array)
+          self.screenshots = value
+        end
       end
 
       if attributes.key?(:'sha256')
@@ -390,6 +401,7 @@ module Falcon
           language == o.language &&
           marketplace_product == o.marketplace_product &&
           mime_type == o.mime_type &&
+          screenshots == o.screenshots &&
           sha256 == o.sha256 &&
           site == o.site &&
           site_id == o.site_id &&
@@ -412,7 +424,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actor_slug, attachments, author, author_id, category, collection_date, content, created_date, file_type, fragment_info, full_content_url, ioc_types, iocs, labels, language, marketplace_product, mime_type, sha256, site, site_id, size, telegram_info, thread_id, title, type, updated_date, url, user_id].hash
+      [actor_slug, attachments, author, author_id, category, collection_date, content, created_date, file_type, fragment_info, full_content_url, ioc_types, iocs, labels, language, marketplace_product, mime_type, screenshots, sha256, site, site_id, size, telegram_info, thread_id, title, type, updated_date, url, user_id].hash
     end
 
     # Builds the object from hash

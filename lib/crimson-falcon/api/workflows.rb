@@ -108,6 +108,78 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Search for activities by name. Returns all supported activities if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [Integer] :limit Maximum number of records to return.
+    # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @return [ActivitiesActivityExternalResponse]
+    def workflow_activities_content_combined(opts = {})
+      data, _status_code, _headers = workflow_activities_content_combined_with_http_info(opts)
+      data
+    end
+
+    # Search for activities by name. Returns all supported activities if no filter specified
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying filter parameters.
+    # @option opts [String] :offset Starting pagination offset of records to return.
+    # @option opts [Integer] :limit Maximum number of records to return.
+    # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+    # @return [Array<(ActivitiesActivityExternalResponse, Integer, Hash)>] ActivitiesActivityExternalResponse data, response status code and response headers
+    def workflow_activities_content_combined_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Workflows.workflow_activities_content_combined ...'
+      end
+      pattern = Regexp.new(/^\w+(\.asc|\.desc)?(,\w+(\.asc|\.desc)?)*$/)
+      if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"sort\"]' when calling Workflows.workflow_activities_content_combined, must conform to the pattern #{pattern}."
+      end
+
+      # resource path
+      local_var_path = '/workflows/combined/activity-content/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ActivitiesActivityExternalResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Workflows.workflow_activities_content_combined",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Workflows#workflow_activities_content_combined\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Search workflow definitions based on the provided filter
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying filter parameters.

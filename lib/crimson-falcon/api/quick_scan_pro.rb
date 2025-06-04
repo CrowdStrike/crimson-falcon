@@ -359,7 +359,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
     # @param file [File] Binary file to be uploaded. Max file size: 256 MB.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :scan If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; (default to false)
@@ -369,7 +369,7 @@ module Falcon
       data
     end
 
-    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
     # @param file [File] Binary file to be uploaded. Max file size: 256 MB.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :scan If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; (default to false)

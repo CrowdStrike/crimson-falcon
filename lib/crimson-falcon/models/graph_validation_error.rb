@@ -59,6 +59,9 @@ module Falcon
     # Resource ID for property if it exists, e.g. trigger ID or activity ID
     attr_accessor :resource_id
 
+    # Undefined Reference  for property which is now undefined
+    attr_accessor :undefined_reference
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -70,7 +73,8 @@ module Falcon
         :'node_id' => :'node_id',
         :'parent_node_id' => :'parent_node_id',
         :'property' => :'property',
-        :'resource_id' => :'resource_id'
+        :'resource_id' => :'resource_id',
+        :'undefined_reference' => :'undefined_reference'
       }
     end
 
@@ -90,7 +94,8 @@ module Falcon
         :'node_id' => :'String',
         :'parent_node_id' => :'String',
         :'property' => :'String',
-        :'resource_id' => :'String'
+        :'resource_id' => :'String',
+        :'undefined_reference' => :'String'
       }
     end
 
@@ -150,6 +155,10 @@ module Falcon
       if attributes.key?(:'resource_id')
         self.resource_id = attributes[:'resource_id']
       end
+
+      if attributes.key?(:'undefined_reference')
+        self.undefined_reference = attributes[:'undefined_reference']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -183,7 +192,8 @@ module Falcon
           node_id == o.node_id &&
           parent_node_id == o.parent_node_id &&
           property == o.property &&
-          resource_id == o.resource_id
+          resource_id == o.resource_id &&
+          undefined_reference == o.undefined_reference
     end
 
     # @see the `==` method
@@ -195,7 +205,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, code, display_name, level, message, node_id, parent_node_id, property, resource_id].hash
+      [cid, code, display_name, level, message, node_id, parent_node_id, property, resource_id, undefined_reference].hash
     end
 
     # Builds the object from hash

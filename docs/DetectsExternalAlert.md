@@ -20,11 +20,13 @@
 | **email_sent** | **Boolean** | Boolean to know if we sent email regarding this Alert |  |
 | **external** | **Boolean** | Boolean indicating if this Alert is internal or external |  |
 | **id** | **String** | Vertex key which triggers the formation of the Alert |  |
+| **mitre_attack** | [**Array&lt;DetectsMitreAttackMapping&gt;**](DetectsMitreAttackMapping.md) | References to MITRE ATT&amp;CK, which is a public framework for tracking and modeling adversary tools techniques and procedures |  |
 | **name** | **String** | Pattern Name coming either from Taxonomy or directly from the ingested Alert |  |
 | **objective** | **String** | End goal that an attack adversary intends to achieve according to MITRE |  |
 | **pattern_id** | **Integer** | Taxonomy patternID for this Alert |  |
 | **platform** | **String** | Platform that this Alert was triggered on e.g. Android, Windows, etc.. |  |
 | **product** | **String** | Product specifies the SKU that this Alert belongs to e.g. mobile, idp, epp |  |
+| **resolution** | **String** | Alert resolution. Could be one of the following values: true_positive, false_positive, ignored |  |
 | **scenario** | **String** | Scenario was used pre-Handrails to display additional killchain context for UI alerts. With handrails, this field is mostly  obsolete in favor of tactic/technique. Still, it can be useful for determining specific pattern types that are not straightforward to distinguish from other fields alone |  |
 | **seconds_to_resolved** | **Integer** | Seconds To Resolved represents the seconds elapsed since this alert has been resolved |  |
 | **seconds_to_triaged** | **Integer** | Seconds To Triage represents the seconds elapsed since this alert has been triaged |  |
@@ -65,11 +67,13 @@ instance = Falcon::DetectsExternalAlert.new(
   email_sent: null,
   external: null,
   id: null,
+  mitre_attack: null,
   name: null,
   objective: null,
   pattern_id: null,
   platform: null,
   product: null,
+  resolution: null,
   scenario: null,
   seconds_to_resolved: null,
   seconds_to_triaged: null,

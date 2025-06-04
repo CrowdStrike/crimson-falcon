@@ -40,6 +40,8 @@ module Falcon
     # @param file [File] File to be uploaded
     # @param name [String] Name used to identify the file
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username Requester Username.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @option opts [String] :description File description
     # @option opts [String] :id Unique identifier of the file being updated.
     # @option opts [String] :repo Name of repository or view to save the file
@@ -53,6 +55,8 @@ module Falcon
     # @param file [File] File to be uploaded
     # @param name [String] Name used to identify the file
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username Requester Username.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @option opts [String] :description File description
     # @option opts [String] :id Unique identifier of the file being updated.
     # @option opts [String] :repo Name of repository or view to save the file
@@ -75,6 +79,14 @@ module Falcon
 
       if @api_client.config.client_side_validation && name.to_s.length < 5
         fail ArgumentError, 'invalid value for "name" when calling LookupFiles.create_file_v1, the character length must be great than or equal to 5.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling LookupFiles.create_file_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling LookupFiles.create_file_v1, the character length must be great than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'description'].nil? && opts[:'description'].to_s.length > 255
@@ -116,6 +128,8 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERNAME'] = opts[:'x_cs_username'] if !opts[:'x_cs_username'].nil?
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -154,6 +168,8 @@ module Falcon
     # Updates a lookup file
     # @param id [String] Unique identifier of the file being updated.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username Requester Username.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @option opts [String] :description File description
     # @option opts [File] :file File to be uploaded
     # @return [DomainLookupFileWrapper]
@@ -165,6 +181,8 @@ module Falcon
     # Updates a lookup file
     # @param id [String] Unique identifier of the file being updated.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username Requester Username.
+    # @option opts [String] :x_cs_useruuid Requester UUID.
     # @option opts [String] :description File description
     # @option opts [File] :file File to be uploaded
     # @return [Array<(DomainLookupFileWrapper, Integer, Hash)>] DomainLookupFileWrapper data, response status code and response headers
@@ -178,6 +196,14 @@ module Falcon
       end
       if @api_client.config.client_side_validation && id.to_s.length < 32
         fail ArgumentError, 'invalid value for "id" when calling LookupFiles.update_file_v1, the character length must be great than or equal to 32.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length > 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling LookupFiles.update_file_v1, the character length must be smaller than or equal to 36.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'x_cs_useruuid'].nil? && opts[:'x_cs_useruuid'].to_s.length < 36
+        fail ArgumentError, 'invalid value for "opts[:"x_cs_useruuid"]" when calling LookupFiles.update_file_v1, the character length must be great than or equal to 36.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'description'].nil? && opts[:'description'].to_s.length > 255
@@ -203,6 +229,8 @@ module Falcon
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-CS-USERNAME'] = opts[:'x_cs_username'] if !opts[:'x_cs_username'].nil?
+      header_params[:'X-CS-USERUUID'] = opts[:'x_cs_useruuid'] if !opts[:'x_cs_useruuid'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

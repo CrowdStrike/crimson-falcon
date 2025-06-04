@@ -8,6 +8,7 @@
 | **lookback** | **String** |  | [optional] |
 | **outcome** | **String** |  | [optional] |
 | **trigger_mode** | **String** |  | [optional] |
+| **use_ingest_time** | **Boolean** |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = Falcon::ApiPatchRuleSearchV1.new(
   filter: null,
   lookback: null,
   outcome: null,
-  trigger_mode: null
+  trigger_mode: null,
+  use_ingest_time: null
 )
 ```
 

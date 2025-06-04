@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_time** | [**TypesTimestamp**](TypesTimestamp.md) |  | [optional] |
+| **create_time** | **String** |  | [optional] |
 | **events** | [**Array&lt;TypesActionRunEvent&gt;**](TypesActionRunEvent.md) |  | [optional] |
-| **id** | **Integer** |  | [optional] |
+| **id** | **String** |  | [optional] |
 | **latest_event** | [**TypesActionRunEvent**](TypesActionRunEvent.md) |  | [optional] |
 | **metadata** | [**TypesActionRunMetadata**](TypesActionRunMetadata.md) |  | [optional] |
 | **progress** | **Integer** |  | [optional] |

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  |  |
 | **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
-| **resources** | [**Array&lt;ModelsCredentials&gt;**](ModelsCredentials.md) |  |  |
+| **resources** | [**ModelsCredentials**](ModelsCredentials.md) |  |  |
 
 ## Example
 

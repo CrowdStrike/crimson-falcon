@@ -90,7 +90,7 @@ describe 'Quarantine' do
   # @option opts [String] :sort Possible order by fields: hostname, username, date_updated, date_created, paths.path, state, paths.state. Ex: &#39;date_created|asc&#39;.
   # @option opts [String] :filter FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. Filter term criteria: status, adversary_id, device.device_id, device.country, device.hostname, behaviors.behavior_id, behaviors.ioc_type, behaviors.ioc_value, behaviors.username, behaviors.tree_root_hash. Filter range criteria:, max_severity, max_confidence, first_behavior, last_behavior.
   # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields), sha256, state, paths.path, paths.state, hostname, username, date_updated, date_created.
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'query_quarantine_files test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

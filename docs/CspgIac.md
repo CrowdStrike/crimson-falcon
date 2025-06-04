@@ -1,6 +1,6 @@
 # Falcon::CspgIac
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 ## get_credentials_mixin0
 
-> <CommonRegistryCredentialsResponse> get_credentials_mixin0
+> <ModelsRegistryCredentialsResponse> get_credentials_mixin0
 
 Gets the registry credentials (external endpoint)
 
@@ -41,7 +41,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CommonRegistryCredentialsResponse>, Integer, Hash)> get_credentials_mixin0_with_http_info
+> <Array(<ModelsRegistryCredentialsResponse>, Integer, Hash)> get_credentials_mixin0_with_http_info
 
 ```ruby
 begin
@@ -49,7 +49,7 @@ begin
   data, status_code, headers = api_instance.get_credentials_mixin0_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CommonRegistryCredentialsResponse>
+  p data # => <ModelsRegistryCredentialsResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling CspgIac->get_credentials_mixin0_with_http_info: #{e}"
 end
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CommonRegistryCredentialsResponse**](CommonRegistryCredentialsResponse.md)
+[**ModelsRegistryCredentialsResponse**](ModelsRegistryCredentialsResponse.md)
 
 ### Authorization
 

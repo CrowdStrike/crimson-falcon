@@ -37,18 +37,18 @@ module Falcon
       @api_client = api_client
     end
     # Retrieve script to create resources
-    # @param body [RestAzureDownloadScriptRequestV1]
+    # @param body [AzureAzureDownloadScriptRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [RestAzureProvisionGetAccountScriptResponseV1]
+    # @return [AzureAzureProvisionGetAccountScriptResponseV1]
     def cloud_registration_azure_download_script(body, opts = {})
       data, _status_code, _headers = cloud_registration_azure_download_script_with_http_info(body, opts)
       data
     end
 
     # Retrieve script to create resources
-    # @param body [RestAzureDownloadScriptRequestV1]
+    # @param body [AzureAzureDownloadScriptRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RestAzureProvisionGetAccountScriptResponseV1, Integer, Hash)>] RestAzureProvisionGetAccountScriptResponseV1 data, response status code and response headers
+    # @return [Array<(AzureAzureProvisionGetAccountScriptResponseV1, Integer, Hash)>] AzureAzureProvisionGetAccountScriptResponseV1 data, response status code and response headers
     def cloud_registration_azure_download_script_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CloudAzureRegistration.cloud_registration_azure_download_script ...'
@@ -80,7 +80,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RestAzureProvisionGetAccountScriptResponseV1'
+      return_type = opts[:debug_return_type] || 'AzureAzureProvisionGetAccountScriptResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

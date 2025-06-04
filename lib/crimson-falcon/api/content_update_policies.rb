@@ -39,7 +39,7 @@ module Falcon
     # Create Content Update Policies by specifying details about the policy to create
     # @param body [ContentUpdateCreatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
-    # @return [DomainContentUpdatePolicyRespV1]
+    # @return [ContentUpdateRespV1]
     def create_content_update_policies(body, opts = {})
       data, _status_code, _headers = create_content_update_policies_with_http_info(body, opts)
       data
@@ -48,7 +48,7 @@ module Falcon
     # Create Content Update Policies by specifying details about the policy to create
     # @param body [ContentUpdateCreatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainContentUpdatePolicyRespV1, Integer, Hash)>] DomainContentUpdatePolicyRespV1 data, response status code and response headers
+    # @return [Array<(ContentUpdateRespV1, Integer, Hash)>] ContentUpdateRespV1 data, response status code and response headers
     def create_content_update_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.create_content_update_policies ...'
@@ -80,7 +80,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainContentUpdatePolicyRespV1'
+      return_type = opts[:debug_return_type] || 'ContentUpdateRespV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -167,7 +167,7 @@ module Falcon
     # Retrieve a set of Content Update Policies by specifying their IDs
     # @param ids [Array<String>] The IDs of the Content Update Policies to return
     # @param [Hash] opts the optional parameters
-    # @return [DomainContentUpdatePolicyRespV1]
+    # @return [ContentUpdateRespV1]
     def get_content_update_policies(ids, opts = {})
       data, _status_code, _headers = get_content_update_policies_with_http_info(ids, opts)
       data
@@ -176,7 +176,7 @@ module Falcon
     # Retrieve a set of Content Update Policies by specifying their IDs
     # @param ids [Array<String>] The IDs of the Content Update Policies to return
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainContentUpdatePolicyRespV1, Integer, Hash)>] DomainContentUpdatePolicyRespV1 data, response status code and response headers
+    # @return [Array<(ContentUpdateRespV1, Integer, Hash)>] ContentUpdateRespV1 data, response status code and response headers
     def get_content_update_policies_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.get_content_update_policies ...'
@@ -204,7 +204,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainContentUpdatePolicyRespV1'
+      return_type = opts[:debug_return_type] || 'ContentUpdateRespV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -230,7 +230,7 @@ module Falcon
     # @param action_name [String] The action to perform
     # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
-    # @return [DomainContentUpdatePolicyRespV1]
+    # @return [ContentUpdateRespV1]
     def perform_content_update_policies_action(action_name, body, opts = {})
       data, _status_code, _headers = perform_content_update_policies_action_with_http_info(action_name, body, opts)
       data
@@ -240,7 +240,7 @@ module Falcon
     # @param action_name [String] The action to perform
     # @param body [MsaEntityActionRequestV2]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainContentUpdatePolicyRespV1, Integer, Hash)>] DomainContentUpdatePolicyRespV1 data, response status code and response headers
+    # @return [Array<(ContentUpdateRespV1, Integer, Hash)>] ContentUpdateRespV1 data, response status code and response headers
     def perform_content_update_policies_action_with_http_info(action_name, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.perform_content_update_policies_action ...'
@@ -250,7 +250,7 @@ module Falcon
         fail ArgumentError, "Missing the required parameter 'action_name' when calling ContentUpdatePolicies.perform_content_update_policies_action"
       end
       # verify enum value
-      allowable_values = ["add-host-group", "disable", "enable", "remove-host-group"]
+      allowable_values = ["add-host-group", "disable", "enable", "override-allow", "override-pause", "override-revert", "remove-host-group", "remove-pinned-content-version", "set-pinned-content-version"]
       if @api_client.config.client_side_validation && !allowable_values.include?(action_name)
         fail ArgumentError, "invalid value for \"action_name\", must be one of #{allowable_values}"
       end
@@ -282,7 +282,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainContentUpdatePolicyRespV1'
+      return_type = opts[:debug_return_type] || 'ContentUpdateRespV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -310,7 +310,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-5000]
     # @option opts [String] :sort The property to sort by
-    # @return [DomainContentUpdatePolicyRespV1]
+    # @return [ContentUpdateRespV1]
     def query_combined_content_update_policies(opts = {})
       data, _status_code, _headers = query_combined_content_update_policies_with_http_info(opts)
       data
@@ -322,7 +322,7 @@ module Falcon
     # @option opts [Integer] :offset The offset to start retrieving records from
     # @option opts [Integer] :limit The maximum records to return. [1-5000]
     # @option opts [String] :sort The property to sort by
-    # @return [Array<(DomainContentUpdatePolicyRespV1, Integer, Hash)>] DomainContentUpdatePolicyRespV1 data, response status code and response headers
+    # @return [Array<(ContentUpdateRespV1, Integer, Hash)>] ContentUpdateRespV1 data, response status code and response headers
     def query_combined_content_update_policies_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.query_combined_content_update_policies ...'
@@ -365,7 +365,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainContentUpdatePolicyRespV1'
+      return_type = opts[:debug_return_type] || 'ContentUpdateRespV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -634,6 +634,80 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Search for content versions available for pinning given the category.
+    # @param category [String] Content category
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc (default to 'deployed_timestamp.desc')
+    # @return [MsaspecQueryResponse]
+    def query_pinnable_content_versions(category, opts = {})
+      data, _status_code, _headers = query_pinnable_content_versions_with_http_info(category, opts)
+      data
+    end
+
+    # Search for content versions available for pinning given the category.
+    # @param category [String] Content category
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort value to sort returned content versions by. Allowed sort values are deployed_timestamp.(asc|desc) defaulting to deployed_timestamp.desc (default to 'deployed_timestamp.desc')
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_pinnable_content_versions_with_http_info(category, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.query_pinnable_content_versions ...'
+      end
+      # verify the required parameter 'category' is set
+      if @api_client.config.client_side_validation && category.nil?
+        fail ArgumentError, "Missing the required parameter 'category' when calling ContentUpdatePolicies.query_pinnable_content_versions"
+      end
+      # verify enum value
+      allowable_values = ["rapid_response_al_bl_listing", "sensor_operations", "system_critical", "vulnerability_management"]
+      if @api_client.config.client_side_validation && !allowable_values.include?(category)
+        fail ArgumentError, "invalid value for \"category\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["deployed_timestamp.asc", "deployed_timestamp.desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/policy/queries/content-update-pin-versions/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'category'] = category
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ContentUpdatePolicies.query_pinnable_content_versions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ContentUpdatePolicies#query_pinnable_content_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence
     # @param body [BaseSetContentUpdatePolicyPrecedenceReqV1]
     # @param [Hash] opts the optional parameters
@@ -703,7 +777,7 @@ module Falcon
     # Update Content Update Policies by specifying the ID of the policy and details to update
     # @param body [ContentUpdateUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
-    # @return [DomainContentUpdatePolicyRespV1]
+    # @return [ContentUpdateRespV1]
     def update_content_update_policies(body, opts = {})
       data, _status_code, _headers = update_content_update_policies_with_http_info(body, opts)
       data
@@ -712,7 +786,7 @@ module Falcon
     # Update Content Update Policies by specifying the ID of the policy and details to update
     # @param body [ContentUpdateUpdatePoliciesReqV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainContentUpdatePolicyRespV1, Integer, Hash)>] DomainContentUpdatePolicyRespV1 data, response status code and response headers
+    # @return [Array<(ContentUpdateRespV1, Integer, Hash)>] ContentUpdateRespV1 data, response status code and response headers
     def update_content_update_policies_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContentUpdatePolicies.update_content_update_policies ...'
@@ -744,7 +818,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'DomainContentUpdatePolicyRespV1'
+      return_type = opts[:debug_return_type] || 'ContentUpdateRespV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']

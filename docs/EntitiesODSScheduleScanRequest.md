@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **cloud_ml_level_detection** | **Integer** |  |  |
 | **cloud_ml_level_prevention** | **Integer** |  |  |
+| **cloud_pup_adware_level_detection** | **Integer** |  |  |
+| **cloud_pup_adware_level_prevention** | **Integer** |  |  |
 | **cpu_priority** | **Integer** |  |  |
 | **description** | **String** |  |  |
 | **endpoint_notification** | **Boolean** |  |  |
@@ -30,6 +32,8 @@ require 'crimson-falcon'
 instance = Falcon::EntitiesODSScheduleScanRequest.new(
   cloud_ml_level_detection: null,
   cloud_ml_level_prevention: null,
+  cloud_pup_adware_level_detection: null,
+  cloud_pup_adware_level_prevention: null,
   cpu_priority: null,
   description: null,
   endpoint_notification: null,

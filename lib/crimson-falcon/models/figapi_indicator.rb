@@ -34,6 +34,9 @@ module Falcon
   class FigapiIndicator
     attr_accessor :adversaries
 
+    # Total range of customers affected by this indicator
+    attr_accessor :affected_customers
+
     attr_accessor :certificates
 
     attr_accessor :countries
@@ -81,15 +84,13 @@ module Falcon
 
     attr_accessor :url_details
 
-    # TBD
-    attr_accessor :victimology
-
     attr_accessor :vulnerabilities
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'adversaries' => :'Adversaries',
+        :'affected_customers' => :'AffectedCustomers',
         :'certificates' => :'Certificates',
         :'countries' => :'Countries',
         :'domain_details' => :'DomainDetails',
@@ -110,7 +111,6 @@ module Falcon
         :'threats' => :'Threats',
         :'type' => :'Type',
         :'url_details' => :'URLDetails',
-        :'victimology' => :'Victimology',
         :'vulnerabilities' => :'Vulnerabilities'
       }
     end
@@ -124,6 +124,7 @@ module Falcon
     def self.openapi_types
       {
         :'adversaries' => :'Array<FigapiAdversary>',
+        :'affected_customers' => :'String',
         :'certificates' => :'Array<FigapiX509Certificate>',
         :'countries' => :'Array<FigapiCountry>',
         :'domain_details' => :'FigapiDomain',
@@ -144,7 +145,6 @@ module Falcon
         :'threats' => :'Array<FigapiThreat>',
         :'type' => :'String',
         :'url_details' => :'FigapiURL',
-        :'victimology' => :'String',
         :'vulnerabilities' => :'Array<FigapiVulnerability>'
       }
     end
@@ -174,6 +174,10 @@ module Falcon
         if (value = attributes[:'adversaries']).is_a?(Array)
           self.adversaries = value
         end
+      end
+
+      if attributes.key?(:'affected_customers')
+        self.affected_customers = attributes[:'affected_customers']
       end
 
       if attributes.key?(:'certificates')
@@ -270,10 +274,6 @@ module Falcon
         self.url_details = attributes[:'url_details']
       end
 
-      if attributes.key?(:'victimology')
-        self.victimology = attributes[:'victimology']
-      end
-
       if attributes.key?(:'vulnerabilities')
         if (value = attributes[:'vulnerabilities']).is_a?(Array)
           self.vulnerabilities = value
@@ -300,6 +300,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           adversaries == o.adversaries &&
+          affected_customers == o.affected_customers &&
           certificates == o.certificates &&
           countries == o.countries &&
           domain_details == o.domain_details &&
@@ -320,7 +321,6 @@ module Falcon
           threats == o.threats &&
           type == o.type &&
           url_details == o.url_details &&
-          victimology == o.victimology &&
           vulnerabilities == o.vulnerabilities
     end
 
@@ -333,7 +333,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [adversaries, certificates, countries, domain_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, sectors, threat_types, threats, type, url_details, victimology, vulnerabilities].hash
+      [adversaries, affected_customers, certificates, countries, domain_details, file_details, first_seen, id, ipv4_details, ipv6_details, kill_chain, last_seen, last_updated, malicious_confidence, malicious_confidence_validated_time, publish_date, reports, sectors, threat_types, threats, type, url_details, vulnerabilities].hash
     end
 
     # Builds the object from hash

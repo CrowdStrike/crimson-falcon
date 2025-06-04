@@ -38,8 +38,6 @@ module Falcon
 
     attr_accessor :id
 
-    attr_accessor :object_id
-
     attr_accessor :properties
 
     attr_accessor :scope
@@ -48,17 +46,19 @@ module Falcon
 
     attr_accessor :vertex_type
 
+    attr_accessor :obj_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'customer_id' => :'customer_id',
         :'device_id' => :'device_id',
         :'id' => :'id',
-        :'object_id' => :'object_id',
         :'properties' => :'properties',
         :'scope' => :'scope',
         :'timestamp' => :'timestamp',
-        :'vertex_type' => :'vertex_type'
+        :'vertex_type' => :'vertex_type',
+        :'obj_id' => :'obj_id'
       }
     end
 
@@ -73,11 +73,11 @@ module Falcon
         :'customer_id' => :'String',
         :'device_id' => :'String',
         :'id' => :'String',
-        :'object_id' => :'String',
         :'properties' => :'Object',
         :'scope' => :'String',
         :'timestamp' => :'String',
-        :'vertex_type' => :'String'
+        :'vertex_type' => :'String',
+        :'obj_id' => :'String'
       }
     end
 
@@ -114,10 +114,6 @@ module Falcon
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'object_id')
-        self.object_id = attributes[:'object_id']
-      end
-
       if attributes.key?(:'properties')
         self.properties = attributes[:'properties']
       end
@@ -132,6 +128,10 @@ module Falcon
 
       if attributes.key?(:'vertex_type')
         self.vertex_type = attributes[:'vertex_type']
+      end
+
+      if attributes.key?(:'obj_id')
+        self.obj_id = attributes[:'obj_id']
       end
     end
 
@@ -186,11 +186,11 @@ module Falcon
           customer_id == o.customer_id &&
           device_id == o.device_id &&
           id == o.id &&
-          object_id == o.object_id &&
           properties == o.properties &&
           scope == o.scope &&
           timestamp == o.timestamp &&
-          vertex_type == o.vertex_type
+          vertex_type == o.vertex_type &&
+          obj_id == o.obj_id
     end
 
     # @see the `==` method
@@ -202,7 +202,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [customer_id, device_id, id, object_id, properties, scope, timestamp, vertex_type].hash
+      [customer_id, device_id, id, properties, scope, timestamp, vertex_type, obj_id].hash
     end
 
     # Builds the object from hash

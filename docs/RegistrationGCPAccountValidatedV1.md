@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) | Account conditions | [optional] |
+| **conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) | Account conditions | [optional] |
 | **gcp_permissions_status** | [**Array&lt;DomainPermission&gt;**](DomainPermission.md) | Permissions status |  |
 | **parent_id** | **String** |  |  |
-| **service_account_conditions** | [**Array&lt;DomainCondition&gt;**](DomainCondition.md) |  | [optional] |
+| **service_account_conditions** | [**Array&lt;StatemgmtCondition&gt;**](StatemgmtCondition.md) |  | [optional] |
 | **service_account_id** | **Integer** | Service account ID | [optional] |
 | **status** | **String** | Account registration status | [optional] |
 

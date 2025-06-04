@@ -149,6 +149,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**delete_group_id_09**](docs/ASPM.md#delete_group_id_09)
+- **DELETE**: /aspm-api-gateway/api/v1/group/{ID}
+- **Description**: 
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**delete_integration**](docs/ASPM.md#delete_integration)
 - **DELETE**: /aspm-api-gateway/api/v1/integrations/{ID}
 - **Description**: Delete an existing integration by its ID
@@ -173,9 +181,97 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**execute_function_data**](docs/ASPM.md#execute_function_data)
+- **GET**: /application-security/combined/function-data/v1
+- **Description**: A selected list of queryLanguage queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_function_data_count**](docs/ASPM.md#execute_function_data_count)
+- **POST**: /application-security/aggregates/function-data/count/v1
+- **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_function_data_query**](docs/ASPM.md#execute_function_data_query)
+- **GET**: /application-security/combined/query-function-data/v1
+- **Description**: A selected list of queryLanguage queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_function_data_query_count**](docs/ASPM.md#execute_function_data_query_count)
+- **GET**: /application-security/aggregates/query-function-data-count/v1
+- **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions**](docs/ASPM.md#execute_functions)
+- **GET**: /application-security/combined/functions/v1
+- **Description**: A selected list of queryLanguage services queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions_count**](docs/ASPM.md#execute_functions_count)
+- **POST**: /application-security/aggregates/functions/count/v1
+- **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions_overtime**](docs/ASPM.md#execute_functions_overtime)
+- **GET**: /application-security/combined/functions-overtime/v1
+- **Description**: A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions_query**](docs/ASPM.md#execute_functions_query)
+- **GET**: /application-security/combined/query-functions/v1
+- **Description**: A selected list of queryLanguage services queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions_query_count**](docs/ASPM.md#execute_functions_query_count)
+- **GET**: /application-security/aggregates/query-functions-count/v1
+- **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**execute_functions_query_overtime**](docs/ASPM.md#execute_functions_query_overtime)
+- **GET**: /application-security/combined/query-functions-overtime/v1
+- **Description**: A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**execute_query**](docs/ASPM.md#execute_query)
 - **POST**: /aspm-api-gateway/api/v1/query
 - **Description**: Execute a query. The syntax used is identical to that of the query page.
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_cloud_security_integration_state**](docs/ASPM.md#get_cloud_security_integration_state)
+- **GET**: /aspm-api-gateway/api/v1/cloud_security_config
+- **Description**: Get Cloud Security integration state
 
 ---
 
@@ -189,9 +285,41 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**get_executor_nodes_id_09_instances_csv**](docs/ASPM.md#get_executor_nodes_id_09_instances_csv)
+- **GET**: /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv
+- **Description**: Retrieve the relay instances in CSV format
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**get_executor_nodes_metadata**](docs/ASPM.md#get_executor_nodes_metadata)
 - **GET**: /aspm-api-gateway/api/v1/executor_nodes/metadata
 - **Description**: Get metadata about all executor nodes
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_group_id_09_v2**](docs/ASPM.md#get_group_id_09_v2)
+- **GET**: /aspm-api-gateway/api/v1/group/{ID}/v2
+- **Description**: Get group details
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_groups_hier_v2**](docs/ASPM.md#get_groups_hier_v2)
+- **GET**: /aspm-api-gateway/api/v1/groups/hier/v2
+- **Description**: Get group hierarchy
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_groups_list_v2**](docs/ASPM.md#get_groups_list_v2)
+- **GET**: /aspm-api-gateway/api/v1/groups/list/v2
+- **Description**: 
 
 ---
 
@@ -205,9 +333,25 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**get_integration_tasks_admin**](docs/ASPM.md#get_integration_tasks_admin)
+- **GET**: /aspm-api-gateway/api/v1/integration_tasks/admin
+- **Description**: Get all the integration tasks, requires admin scope
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**get_integration_tasks_metadata**](docs/ASPM.md#get_integration_tasks_metadata)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks/metadata
 - **Description**: Get metadata about all integration tasks
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_integration_tasks_v2**](docs/ASPM.md#get_integration_tasks_v2)
+- **GET**: /aspm-api-gateway/api/v1/integration_tasks/v2
+- **Description**: Get all the integration tasks
 
 ---
 
@@ -224,6 +368,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_integrations**](docs/ASPM.md#get_integrations)
 - **GET**: /aspm-api-gateway/api/v1/integrations
 - **Description**: Get a list of all the integrations
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_integrations_v2**](docs/ASPM.md#get_integrations_v2)
+- **GET**: /aspm-api-gateway/api/v1/integrations/v2
+- **Description**: Get a list of all the integrations
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_service_artifacts**](docs/ASPM.md#get_service_artifacts)
+- **GET**: /aspm-api-gateway/api/v1/artifacts
+- **Description**: 
 
 ---
 
@@ -253,8 +413,56 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**get_users_v2**](docs/ASPM.md#get_users_v2)
+- **GET**: /aspm-api-gateway/api/v1/users/v2
+- **Description**: List users
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**post_group_id_09_update_default**](docs/ASPM.md#post_group_id_09_update_default)
+- **POST**: /aspm-api-gateway/api/v1/group/{ID}/update_default
+- **Description**: Update default group
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**post_group_id_09_v2**](docs/ASPM.md#post_group_id_09_v2)
+- **POST**: /aspm-api-gateway/api/v1/group/{ID}/v2
+- **Description**: Update group
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**post_group_v2**](docs/ASPM.md#post_group_v2)
+- **POST**: /aspm-api-gateway/api/v1/group/v2
+- **Description**: Create group
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**run_integration_task**](docs/ASPM.md#run_integration_task)
 - **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run
+- **Description**: Run an integration task by its ID
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**run_integration_task_admin**](docs/ASPM.md#run_integration_task_admin)
+- **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin
+- **Description**: Run an integration task by its ID - for admin scope
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**run_integration_task_v2**](docs/ASPM.md#run_integration_task_v2)
+- **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2
 - **Description**: Run an integration task by its ID
 
 ---
@@ -272,6 +480,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**service_now_get_services**](docs/ASPM.md#service_now_get_services)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/services
 - **Description**: 
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**set_cloud_security_integration_state**](docs/ASPM.md#set_cloud_security_integration_state)
+- **POST**: /aspm-api-gateway/api/v1/cloud_security_config
+- **Description**: Set Cloud Security integration state
 
 ---
 
@@ -367,7 +583,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**post_combined_alerts_v1**](docs/Alerts.md#post_combined_alerts_v1)
 - **POST**: /alerts/combined/alerts/v1
-- **Description**: Retrieves all Alerts that match a particular FQL filter.
+- **Description**: Retrieves all Alerts that match a particular FQL filter. This API is intended for retrieval of large amounts of Alerts(&gt;10k) using a pagination based on a &#x60;after&#x60; token. If you need to use &#x60;offset&#x60; pagination, consider using GET /alerts/queries/alerts/* and POST /alerts/entities/alerts/* APIs.  
 
 ---
 
@@ -408,6 +624,38 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_combined_plugin_configs**](docs/ApiIntegrations.md#get_combined_plugin_configs)
 - **GET**: /plugins/combined/configs/v1
 - **Description**: Queries for config resources and returns details
+
+---
+
+**Class**: `Falcon::CaoHunting`
+
+- **Operation**: [**aggregate_intelligence_queries**](docs/CaoHunting.md#aggregate_intelligence_queries)
+- **POST**: /hunting/aggregates/intelligence-queries/v1
+- **Description**: Aggregate intelligence queries
+
+---
+
+**Class**: `Falcon::CaoHunting`
+
+- **Operation**: [**get_archive_export**](docs/CaoHunting.md#get_archive_export)
+- **GET**: /hunting/entities/archive-exports/v1
+- **Description**: Creates an Archive Export
+
+---
+
+**Class**: `Falcon::CaoHunting`
+
+- **Operation**: [**get_intelligence_queries**](docs/CaoHunting.md#get_intelligence_queries)
+- **GET**: /hunting/entities/intelligence-queries/v1
+- **Description**: Retrieves a list of Intelligence queries
+
+---
+
+**Class**: `Falcon::CaoHunting`
+
+- **Operation**: [**search_intelligence_queries**](docs/CaoHunting.md#search_intelligence_queries)
+- **GET**: /hunting/queries/intelligence-queries/v1
+- **Description**: Search intelligence queries that match the provided conditions
 
 ---
 
@@ -499,14 +747,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::CloudAwsRegistration`
-
-- **Operation**: [**cloud_registration_aws_validate_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_validate_accounts)
-- **POST**: /cloud-security-registration-aws/entities/account/validate/v1
-- **Description**: Validates the AWS account in our system for a provided CID. For internal clients only.
-
----
-
 **Class**: `Falcon::CloudAzureRegistration`
 
 - **Operation**: [**cloud_registration_azure_download_script**](docs/CloudAzureRegistration.md#cloud_registration_azure_download_script)
@@ -587,6 +827,70 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_create_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_create_account)
+- **POST**: /cloud-security-registration-oci/entities/accounts/v1
+- **Description**: Create OCI tenancy account in CSPM
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_delete_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_delete_account)
+- **DELETE**: /cloud-security-registration-oci/entities/accounts/v1
+- **Description**: Delete an existing OCI tenancy in CSPM.
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_download_script**](docs/CloudOciRegistration.md#cloud_security_registration_oci_download_script)
+- **POST**: /cloud-security-registration-oci/entities/scripts/v1
+- **Description**: Retrieve script to create resources in tenancy OCID
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_get_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_get_account)
+- **GET**: /cloud-security-registration-oci/combined/accounts/v1
+- **Description**: Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_rotate_key**](docs/CloudOciRegistration.md#cloud_security_registration_oci_rotate_key)
+- **POST**: /cloud-security-registration-oci/entities/account-rotate-keys/v1
+- **Description**: Refresh key for the OCI Tenancy
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_update_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_update_account)
+- **PATCH**: /cloud-security-registration-oci/entities/accounts/v1
+- **Description**: Patch an existing OCI account in our system for a customer.
+
+---
+
+**Class**: `Falcon::CloudOciRegistration`
+
+- **Operation**: [**cloud_security_registration_oci_validate_tenancy**](docs/CloudOciRegistration.md#cloud_security_registration_oci_validate_tenancy)
+- **POST**: /cloud-security-registration-oci/entities/account-validate/v1
+- **Description**: Validate the OCI account in CSPM for a provided CID. For internal clients only.
+
+---
+
+**Class**: `Falcon::CloudSecurityAssets`
+
+- **Operation**: [**cloud_security_assets_combined_compliance_by_account**](docs/CloudSecurityAssets.md#cloud_security_assets_combined_compliance_by_account)
+- **GET**: /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1
+- **Description**: Gets combined compliance data aggregated by account and region. Results can be filtered and sorted.
+
+---
+
 **Class**: `Falcon::CloudSecurityAssets`
 
 - **Operation**: [**cloud_security_assets_entities_get**](docs/CloudSecurityAssets.md#cloud_security_assets_entities_get)
@@ -613,7 +917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**get_credentials_mixin0_mixin57**](docs/CloudSnapshots.md#get_credentials_mixin0_mixin57)
+- **Operation**: [**get_credentials_mixin0_mixin60**](docs/CloudSnapshots.md#get_credentials_mixin0_mixin60)
 - **GET**: /snapshots/entities/image-registry-credentials/v1
 - **Description**: Gets the registry credentials
 
@@ -648,94 +952,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**register_cspm_snapshot_account**](docs/CloudSnapshots.md#register_cspm_snapshot_account)
 - **POST**: /snapshots/entities/accounts/v1
 - **Description**: Register customer cloud account for snapshot scanning
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_cluster_assessments**](docs/ComplianceAssessments.md#ext_aggregate_cluster_assessments)
-- **GET**: /container-compliance/aggregates/compliance-by-clusters/v2
-- **Description**: get the assessments for each cluster
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_containers_by_rules_path**](docs/ComplianceAssessments.md#ext_aggregate_failed_containers_by_rules_path)
-- **GET**: /container-compliance/aggregates/failed-containers-by-rules/v2
-- **Description**: get the containers grouped into rules on which they failed
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_containers_count_by_severity**](docs/ComplianceAssessments.md#ext_aggregate_failed_containers_count_by_severity)
-- **GET**: /container-compliance/aggregates/failed-containers-count-by-severity/v2
-- **Description**: get the failed containers count grouped into severity levels
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_images_by_rules_path**](docs/ComplianceAssessments.md#ext_aggregate_failed_images_by_rules_path)
-- **GET**: /container-compliance/aggregates/failed-images-by-rules/v2
-- **Description**: get the images grouped into rules on which they failed
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_images_count_by_severity**](docs/ComplianceAssessments.md#ext_aggregate_failed_images_count_by_severity)
-- **GET**: /container-compliance/aggregates/failed-images-count-by-severity/v2
-- **Description**: get the failed images count grouped into severity levels
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_rules_by_clusters**](docs/ComplianceAssessments.md#ext_aggregate_failed_rules_by_clusters)
-- **GET**: /container-compliance/aggregates/failed-rules-by-clusters/v2
-- **Description**: get the failed rules for each cluster grouped into severity levels
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_rules_by_images**](docs/ComplianceAssessments.md#ext_aggregate_failed_rules_by_images)
-- **GET**: /container-compliance/aggregates/failed-rules-by-images/v2
-- **Description**: get images with failed rules, rule count grouped by severity for each image
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_failed_rules_count_by_severity**](docs/ComplianceAssessments.md#ext_aggregate_failed_rules_count_by_severity)
-- **GET**: /container-compliance/aggregates/failed-rules-count-by-severity/v2
-- **Description**: get the failed rules count grouped into severity levels
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_image_assessments**](docs/ComplianceAssessments.md#ext_aggregate_image_assessments)
-- **GET**: /container-compliance/aggregates/compliance-by-images/v2
-- **Description**: get the assessments for each image
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_rules_assessments**](docs/ComplianceAssessments.md#ext_aggregate_rules_assessments)
-- **GET**: /container-compliance/aggregates/compliance-by-rules/v2
-- **Description**: get the assessments for each rule
-
----
-
-**Class**: `Falcon::ComplianceAssessments`
-
-- **Operation**: [**ext_aggregate_rules_by_status**](docs/ComplianceAssessments.md#ext_aggregate_rules_by_status)
-- **GET**: /container-compliance/aggregates/rules-by-status/v2
-- **Description**: get the rules grouped by their statuses
 
 ---
 
@@ -832,6 +1048,94 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**search_detections**](docs/ContainerDetections.md#search_detections)
 - **GET**: /container-security/queries/detections/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_cluster_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_cluster_assessments)
+- **GET**: /container-compliance/aggregates/compliance-by-clusters/v2
+- **Description**: get the assessments for each cluster
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_containers_by_rules_path**](docs/ContainerImageCompliance.md#ext_aggregate_failed_containers_by_rules_path)
+- **GET**: /container-compliance/aggregates/failed-containers-by-rules/v2
+- **Description**: get the containers grouped into rules on which they failed
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_containers_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_containers_count_by_severity)
+- **GET**: /container-compliance/aggregates/failed-containers-count-by-severity/v2
+- **Description**: get the failed containers count grouped into severity levels
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_images_by_rules_path**](docs/ContainerImageCompliance.md#ext_aggregate_failed_images_by_rules_path)
+- **GET**: /container-compliance/aggregates/failed-images-by-rules/v2
+- **Description**: get the images grouped into rules on which they failed
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_images_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_images_count_by_severity)
+- **GET**: /container-compliance/aggregates/failed-images-count-by-severity/v2
+- **Description**: get the failed images count grouped into severity levels
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_rules_by_clusters**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_by_clusters)
+- **GET**: /container-compliance/aggregates/failed-rules-by-clusters/v2
+- **Description**: get the failed rules for each cluster grouped into severity levels
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_rules_by_images**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_by_images)
+- **GET**: /container-compliance/aggregates/failed-rules-by-images/v2
+- **Description**: get images with failed rules, rule count grouped by severity for each image
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_failed_rules_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_count_by_severity)
+- **GET**: /container-compliance/aggregates/failed-rules-count-by-severity/v2
+- **Description**: get the failed rules count grouped into severity levels
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_image_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_image_assessments)
+- **GET**: /container-compliance/aggregates/compliance-by-images/v2
+- **Description**: get the assessments for each image
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_rules_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_rules_assessments)
+- **GET**: /container-compliance/aggregates/compliance-by-rules/v2
+- **Description**: get the assessments for each rule
+
+---
+
+**Class**: `Falcon::ContainerImageCompliance`
+
+- **Operation**: [**ext_aggregate_rules_by_status**](docs/ContainerImageCompliance.md#ext_aggregate_rules_by_status)
+- **GET**: /container-compliance/aggregates/rules-by-status/v2
+- **Description**: get the rules grouped by their statuses
 
 ---
 
@@ -944,6 +1248,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**read_packages_by_fixable_vuln_count**](docs/ContainerPackages.md#read_packages_by_fixable_vuln_count)
 - **GET**: /container-security/combined/packages/app-by-fixable-vulnerability-count/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
+
+---
+
+**Class**: `Falcon::ContainerPackages`
+
+- **Operation**: [**read_packages_by_image_count**](docs/ContainerPackages.md#read_packages_by_image_count)
+- **GET**: /container-security/aggregates/packages/by-image-count/v1
+- **Description**: Retrieves the N most frequently used packages across images
 
 ---
 
@@ -1133,6 +1445,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
+- **Operation**: [**query_pinnable_content_versions**](docs/ContentUpdatePolicies.md#query_pinnable_content_versions)
+- **GET**: /policy/queries/content-update-pin-versions/v1
+- **Description**: Search for content versions available for pinning given the category.
+
+---
+
+**Class**: `Falcon::ContentUpdatePolicies`
+
 - **Operation**: [**set_content_update_policies_precedence**](docs/ContentUpdatePolicies.md#set_content_update_policies_precedence)
 - **POST**: /policy/entities/content-update-precedence/v1
 - **Description**: Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence
@@ -1149,6 +1469,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
+- **Operation**: [**aggregates_rule_versions_post_v1**](docs/CorrelationRules.md#aggregates_rule_versions_post_v1)
+- **POST**: /correlation-rules/aggregates/rule-versions/v1
+- **Description**: Get rules aggregates as specified via json in the request body.
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
 - **Operation**: [**combined_rules_get_v1**](docs/CorrelationRules.md#combined_rules_get_v1)
 - **GET**: /correlation-rules/combined/rules/v1
 - **Description**: Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
@@ -1157,9 +1485,49 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
+- **Operation**: [**combined_rules_get_v2**](docs/CorrelationRules.md#combined_rules_get_v2)
+- **GET**: /correlation-rules/combined/rules/v2
+- **Description**: Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_latest_rules_get_v1**](docs/CorrelationRules.md#entities_latest_rules_get_v1)
+- **GET**: /correlation-rules/entities/latest-rules/v1
+- **Description**: Retrieve latest rule versions by rule IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
 - **Operation**: [**entities_rule_versions_delete_v1**](docs/CorrelationRules.md#entities_rule_versions_delete_v1)
 - **DELETE**: /correlation-rules/entities/rule-versions/v1
 - **Description**: Delete versions by IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rule_versions_export_post_v1**](docs/CorrelationRules.md#entities_rule_versions_export_post_v1)
+- **POST**: /correlation-rules/entities/rule-versions/export/v1
+- **Description**: Export rule versions
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rule_versions_import_post_v1**](docs/CorrelationRules.md#entities_rule_versions_import_post_v1)
+- **POST**: /correlation-rules/entities/rule-versions/import/v1
+- **Description**: Import rule versions
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rule_versions_publish_patch_v1**](docs/CorrelationRules.md#entities_rule_versions_publish_patch_v1)
+- **PATCH**: /correlation-rules/entities/rule-versions/publish/v1
+- **Description**: Publish existing rule version
 
 ---
 
@@ -1176,6 +1544,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**entities_rules_get_v1**](docs/CorrelationRules.md#entities_rules_get_v1)
 - **GET**: /correlation-rules/entities/rules/v1
 - **Description**: Retrieve rules by IDs
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**entities_rules_get_v2**](docs/CorrelationRules.md#entities_rules_get_v2)
+- **GET**: /correlation-rules/entities/rules/v2
+- **Description**: Retrieve rule versions by IDs
 
 ---
 
@@ -1200,6 +1576,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**queries_rules_get_v1**](docs/CorrelationRules.md#queries_rules_get_v1)
 - **GET**: /correlation-rules/queries/rules/v1
 - **Description**: Find all rule IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
+
+---
+
+**Class**: `Falcon::CorrelationRules`
+
+- **Operation**: [**queries_rules_get_v2**](docs/CorrelationRules.md#queries_rules_get_v2)
+- **GET**: /correlation-rules/queries/rules/v2
+- **Description**: Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id Supported range filters: created_on,last_updated_on
 
 ---
 
@@ -1336,14 +1720,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_cspm_aws_account**](docs/CspmRegistration.md#get_cspm_aws_account)
 - **GET**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Returns information about the current status of an AWS account.
-
----
-
-**Class**: `Falcon::CspmRegistration`
-
-- **Operation**: [**get_cspm_aws_account_scripts_attachment**](docs/CspmRegistration.md#get_cspm_aws_account_scripts_attachment)
-- **GET**: /cloud-connect-cspm-aws/entities/user-scripts-download/v1
-- **Description**: Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
 
 ---
 
@@ -1693,6 +2069,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
+- **Operation**: [**describe_collection**](docs/CustomStorage.md#describe_collection)
+- **GET**: /customobjects/v1/collections/{collection_name}
+- **Description**: Fetch metadata about an existing collection
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
+- **Operation**: [**describe_collections**](docs/CustomStorage.md#describe_collections)
+- **PUT**: /customobjects/v1/collections
+- **Description**: Fetch metadata about one or more existing collections
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
 - **Operation**: [**get_object**](docs/CustomStorage.md#get_object)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
 - **Description**: Get the bytes for the specified object
@@ -1704,6 +2096,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_object_metadata**](docs/CustomStorage.md#get_object_metadata)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata
 - **Description**: Get the metadata for the specified object
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
+- **Operation**: [**get_schema**](docs/CustomStorage.md#get_schema)
+- **GET**: /customobjects/v1/collections/{collection_name}/schemas/{schema_version}
+- **Description**: Get the bytes of the specified schema of the requested collection
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
+- **Operation**: [**get_schema_metadata**](docs/CustomStorage.md#get_schema_metadata)
+- **GET**: /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata
+- **Description**: Get the metadata for the specified schema of the requested collection
 
 ---
 
@@ -1725,6 +2133,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
+- **Operation**: [**list_collections**](docs/CustomStorage.md#list_collections)
+- **GET**: /customobjects/v1/collections
+- **Description**: List available collection names in alphabetical order
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
 - **Operation**: [**list_objects**](docs/CustomStorage.md#list_objects)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects
 - **Description**: List the object keys in the specified collection in alphabetical order
@@ -1736,6 +2152,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**list_objects_by_version**](docs/CustomStorage.md#list_objects_by_version)
 - **GET**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects
 - **Description**: List the object keys in the specified collection in alphabetical order
+
+---
+
+**Class**: `Falcon::CustomStorage`
+
+- **Operation**: [**list_schemas**](docs/CustomStorage.md#list_schemas)
+- **GET**: /customobjects/v1/collections/{collection_name}/schemas
+- **Description**: Get the list of schemas for the requested collection in reverse version order (latest first)
 
 ---
 
@@ -1955,6 +2379,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::Default`
+
+- **Operation**: [**get_rules_metadata_by_id**](docs/Default.md#get_rules_metadata_by_id)
+- **GET**: /container-compliance/combined/rule-details-by-rule-ids/v1
+- **Description**: Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
+
+---
+
+**Class**: `Falcon::Default`
+
+- **Operation**: [**post_graphql_query_mixin0**](docs/Default.md#post_graphql_query_mixin0)
+- **POST**: /cloud-data-protection/entities/schedules/graphql/v2
+- **Description**: 
+
+---
+
 **Class**: `Falcon::DeliverySettings`
 
 - **Operation**: [**get_delivery_settings**](docs/DeliverySettings.md#get_delivery_settings)
@@ -2123,6 +2563,54 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**get_default_device_control_settings**](docs/DeviceControlWithBluetooth.md#get_default_device_control_settings)
+- **GET**: /policy/entities/device-control-default-settings/v1
+- **Description**: Get default device control settings (USB and Bluetooth)
+
+---
+
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**get_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#get_device_control_policies_v2)
+- **GET**: /policy/entities/device-control/v2
+- **Description**: Get device control policies for the given filter criteria. (USB and Bluetooth)
+
+---
+
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**patch_device_control_policies_classes_v1**](docs/DeviceControlWithBluetooth.md#patch_device_control_policies_classes_v1)
+- **PATCH**: /policy/entities/device-control-classes/v1
+- **Description**: Update device control policy&#39;s classes (USB and Bluetooth)
+
+---
+
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**patch_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#patch_device_control_policies_v2)
+- **PATCH**: /policy/entities/device-control/v2
+- **Description**: Update device control policy base (USB and Bluetooth)
+
+---
+
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**post_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#post_device_control_policies_v2)
+- **POST**: /policy/entities/device-control/v2
+- **Description**: Create/clone a device control policy (USB and Bluetooth)
+
+---
+
+**Class**: `Falcon::DeviceControlWithBluetooth`
+
+- **Operation**: [**update_default_device_control_settings**](docs/DeviceControlWithBluetooth.md#update_default_device_control_settings)
+- **PATCH**: /policy/entities/device-control-default-settings/v1
+- **Description**: Update the configuration for Default Device Control Settings
+
+---
+
 **Class**: `Falcon::Discover`
 
 - **Operation**: [**combined_applications**](docs/Discover.md#combined_applications)
@@ -2168,14 +2656,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_logins**](docs/Discover.md#get_logins)
 - **GET**: /discover/entities/logins/v1
 - **Description**: Get details on logins by providing one or more IDs.
-
----
-
-**Class**: `Falcon::Discover`
-
-- **Operation**: [**post_external_assets_inventory_v1**](docs/Discover.md#post_external_assets_inventory_v1)
-- **POST**: /fem/entities/external-asset-inventory/v1
-- **Description**: Add external assets for external asset scanning.
 
 ---
 
@@ -2331,6 +2811,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::Execution`
+
+- **Operation**: [**read_request_body**](docs/Execution.md#read_request_body)
+- **GET**: /faas-gateway/entities/execution-request-body/v2
+- **Description**: retrieve a large request body, such as a file, that has spilled into object storage
+
+---
+
 **Class**: `Falcon::ExposureManagement`
 
 - **Operation**: [**aggregate_external_assets**](docs/ExposureManagement.md#aggregate_external_assets)
@@ -2392,6 +2880,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**patch_external_assets**](docs/ExposureManagement.md#patch_external_assets)
 - **PATCH**: /fem/entities/external-assets/v1
 - **Description**: Update the details of external assets.
+
+---
+
+**Class**: `Falcon::ExposureManagement`
+
+- **Operation**: [**post_external_assets_inventory_v1**](docs/ExposureManagement.md#post_external_assets_inventory_v1)
+- **POST**: /fem/entities/external-asset-inventory/v1
+- **Description**: Add external assets for external asset scanning.
 
 ---
 
@@ -2757,7 +3253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**query_submissions_mixin0**](docs/FalconxSandbox.md#query_submissions_mixin0)
+- **Operation**: [**query_submissions**](docs/FalconxSandbox.md#query_submissions)
 - **GET**: /falconx/queries/submissions/v1
 - **Description**: Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
 
@@ -3661,6 +4157,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
+- **Operation**: [**combined_devices_by_filter**](docs/Hosts.md#combined_devices_by_filter)
+- **GET**: /devices/combined/devices/v1
+- **Description**: Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+---
+
+**Class**: `Falcon::Hosts`
+
+- **Operation**: [**combined_hidden_devices_by_filter**](docs/Hosts.md#combined_hidden_devices_by_filter)
+- **GET**: /devices/combined/devices-hidden/v1
+- **Description**: Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+---
+
+**Class**: `Falcon::Hosts`
+
 - **Operation**: [**entities_perform_action**](docs/Hosts.md#entities_perform_action)
 - **POST**: /devices/entities/group-actions/v1
 - **Description**: Performs the specified action on the provided group IDs.
@@ -3752,62 +4264,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**update_device_tags**](docs/Hosts.md#update_device_tags)
 - **PATCH**: /devices/entities/devices/tags/v1
 - **Description**: Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**get_lookup_from_package_v1**](docs/HumioAuthProxy.md#get_lookup_from_package_v1)
-- **GET**: /humio/api/v1/repositories/{repository}/files/{package}/{filename}
-- **Description**: Download lookup file in package from NGSIEM
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**get_lookup_from_package_with_namespace_v1**](docs/HumioAuthProxy.md#get_lookup_from_package_with_namespace_v1)
-- **GET**: /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}
-- **Description**: Download lookup file in namespaced package from NGSIEM
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**get_lookup_v1**](docs/HumioAuthProxy.md#get_lookup_v1)
-- **GET**: /humio/api/v1/repositories/{repository}/files/{filename}
-- **Description**: Download lookup file from NGSIEM
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**get_search_status_v1**](docs/HumioAuthProxy.md#get_search_status_v1)
-- **GET**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
-- **Description**: Get status of search
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**start_search_v1**](docs/HumioAuthProxy.md#start_search_v1)
-- **POST**: /humio/api/v1/repositories/{repository}/queryjobs
-- **Description**: Initiate search
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**stop_search_v1**](docs/HumioAuthProxy.md#stop_search_v1)
-- **DELETE**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
-- **Description**: Stop search
-
----
-
-**Class**: `Falcon::HumioAuthProxy`
-
-- **Operation**: [**upload_lookup_v1**](docs/HumioAuthProxy.md#upload_lookup_v1)
-- **POST**: /humio/api/v1/repositories/{repository}/files
-- **Description**: Upload file to NGSIEM
 
 ---
 
@@ -4267,6 +4723,38 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::IntelligenceFeeds`
+
+- **Operation**: [**download_feed_archive**](docs/IntelligenceFeeds.md#download_feed_archive)
+- **GET**: /indicator-feed/entities/feed-download/v1
+- **Description**: Downloads the content as a zip archive for a given feed item ID
+
+---
+
+**Class**: `Falcon::IntelligenceFeeds`
+
+- **Operation**: [**list_feed_types**](docs/IntelligenceFeeds.md#list_feed_types)
+- **GET**: /indicator-feed/entities/feed/v1
+- **Description**: Lists the accessible feed types for a given customer
+
+---
+
+**Class**: `Falcon::IntelligenceFeeds`
+
+- **Operation**: [**query_feed_archives**](docs/IntelligenceFeeds.md#query_feed_archives)
+- **GET**: /indicator-feed/queries/feed/v1
+- **Description**: Queries the accessible feed types for a customer. Returns a list of feed item IDs which can be later downloaded
+
+---
+
+**Class**: `Falcon::IntelligenceIndicatorGraph`
+
+- **Operation**: [**get_indicator_aggregates**](docs/IntelligenceIndicatorGraph.md#get_indicator_aggregates)
+- **POST**: /intelligence/aggregates/indicators/v1
+- **Description**: Get aggregates for indicators based on requests
+
+---
+
 **Class**: `Falcon::IntelligenceIndicatorGraph`
 
 - **Operation**: [**search_indicators**](docs/IntelligenceIndicatorGraph.md#search_indicators)
@@ -4475,6 +4963,78 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_assessments_grouped_by_clusters_v2**](docs/KubernetesContainerCompliance.md#aggregate_assessments_grouped_by_clusters_v2)
+- **GET**: /container-compliance/aggregates/clusters/v2
+- **Description**: Returns cluster details along with aggregated assessment results organized by cluster, including pass/fail assessment counts for various asset types.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_assessments_grouped_by_rules_v2**](docs/KubernetesContainerCompliance.md#aggregate_assessments_grouped_by_rules_v2)
+- **GET**: /container-compliance/aggregates/rules/v2
+- **Description**: Returns rule details along with aggregated assessment results organized by compliance rule, including pass/fail assessment counts.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_compliance_by_asset_type**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_asset_type)
+- **GET**: /container-compliance/aggregates/compliance-by-asset-type/v2
+- **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by asset type.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_compliance_by_cluster_type**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_cluster_type)
+- **GET**: /container-compliance/aggregates/compliance-by-cluster-type/v2
+- **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by Kubernetes cluster type.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_compliance_by_framework**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_framework)
+- **GET**: /container-compliance/aggregates/compliance-by-framework/v2
+- **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by compliance framework.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_failed_rules_by_clusters_v3**](docs/KubernetesContainerCompliance.md#aggregate_failed_rules_by_clusters_v3)
+- **GET**: /container-compliance/aggregates/failed-rules-by-clusters/v3
+- **Description**: Retrieves the most non-compliant clusters, ranked in descending order based on the number of failed compliance rules across severity levels (critical, high, medium, and low).
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**aggregate_top_failed_images**](docs/KubernetesContainerCompliance.md#aggregate_top_failed_images)
+- **GET**: /container-compliance/aggregates/top-failed-images/v2
+- **Description**: Retrieves the most non-compliant container images, ranked in descending order based on the number of failed assessments across severity levels (critical, high, medium, and low).
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**combined_images_findings**](docs/KubernetesContainerCompliance.md#combined_images_findings)
+- **GET**: /container-compliance/combined/findings-by-images/v2
+- **Description**: Returns detailed compliance assessment results for container images, providing the information needed to identify compliance violations.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**combined_nodes_findings**](docs/KubernetesContainerCompliance.md#combined_nodes_findings)
+- **GET**: /container-compliance/combined/findings-by-nodes/v2
+- **Description**: Returns detailed compliance assessment results for kubernetes nodes, providing the information needed to identify compliance violations.
+
+---
+
 **Class**: `Falcon::KubernetesProtection`
 
 - **Operation**: [**create_aws_account**](docs/KubernetesProtection.md#create_aws_account)
@@ -4623,6 +5183,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**read_cluster_combined**](docs/KubernetesProtection.md#read_cluster_combined)
 - **GET**: /container-security/combined/clusters/v1
+- **Description**: Maximum offset &#x3D; 10000 - limit
+
+---
+
+**Class**: `Falcon::KubernetesProtection`
+
+- **Operation**: [**read_cluster_combined_v2**](docs/KubernetesProtection.md#read_cluster_combined_v2)
+- **GET**: /container-security/combined/clusters/v2
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
 ---
@@ -5427,6 +5995,62 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**get_lookup_from_package_v1**](docs/Ngsiem.md#get_lookup_from_package_v1)
+- **GET**: /humio/api/v1/repositories/{repository}/files/{package}/{filename}
+- **Description**: Download lookup file in package from NGSIEM
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**get_lookup_from_package_with_namespace_v1**](docs/Ngsiem.md#get_lookup_from_package_with_namespace_v1)
+- **GET**: /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}
+- **Description**: Download lookup file in namespaced package from NGSIEM
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**get_lookup_v1**](docs/Ngsiem.md#get_lookup_v1)
+- **GET**: /humio/api/v1/repositories/{repository}/files/{filename}
+- **Description**: Download lookup file from NGSIEM
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**get_search_status_v1**](docs/Ngsiem.md#get_search_status_v1)
+- **GET**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
+- **Description**: Get status of search
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**start_search_v1**](docs/Ngsiem.md#start_search_v1)
+- **POST**: /humio/api/v1/repositories/{repository}/queryjobs
+- **Description**: Initiate search
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**stop_search_v1**](docs/Ngsiem.md#stop_search_v1)
+- **DELETE**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
+- **Description**: Stop search
+
+---
+
+**Class**: `Falcon::Ngsiem`
+
+- **Operation**: [**upload_lookup_v1**](docs/Ngsiem.md#upload_lookup_v1)
+- **POST**: /humio/api/v1/repositories/{repository}/files
+- **Description**: Upload file to NGSIEM
+
+---
+
 **Class**: `Falcon::Oauth2`
 
 - **Operation**: [**oauth2_access_token**](docs/Oauth2.md#oauth2_access_token)
@@ -5757,7 +6381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScan`
 
-- **Operation**: [**query_submissions**](docs/QuickScan.md#query_submissions)
+- **Operation**: [**query_submissions_mixin0**](docs/QuickScan.md#query_submissions_mixin0)
 - **GET**: /scanner/queries/scans/v1
 - **Description**: Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
 
@@ -5815,7 +6439,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**upload_file_quick_scan_pro**](docs/QuickScanPro.md#upload_file_quick_scan_pro)
 - **POST**: /quickscanpro/entities/files/v1
-- **Description**: Uploads a file to be further analyzed with QuickScan Pro. The samples expire after 90 days.
+- **Description**: Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
 
 ---
 
@@ -6359,7 +6983,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_entity_ids_by_query_post**](docs/ReleaseNotes.md#get_entity_ids_by_query_post)
 - **POST**: /deployment-coordinator/entities/release-notes/GET/v1
-- **Description**: returns the IDs of all entities in the database for the given page
+- **Description**: returns the release notes for the IDs in the request
 
 ---
 
@@ -6875,6 +7499,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::ServerlessVulnerabilities`
+
+- **Operation**: [**get_combined_vulnerabilities_sarif**](docs/ServerlessVulnerabilities.md#get_combined_vulnerabilities_sarif)
+- **GET**: /lambdas/combined/vulnerabilities/sarif/v1
+- **Description**: Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
+
+---
+
 **Class**: `Falcon::SpotlightEvaluationLogic`
 
 - **Operation**: [**combined_query_evaluation_logic**](docs/SpotlightEvaluationLogic.md#combined_query_evaluation_logic)
@@ -6928,6 +7560,46 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilities.md#query_vulnerabilities)
 - **GET**: /spotlight/queries/vulnerabilities/v1
 - **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
+
+---
+
+**Class**: `Falcon::TailoredIntelligence`
+
+- **Operation**: [**get_events_body**](docs/TailoredIntelligence.md#get_events_body)
+- **GET**: /ti/events/entities/events-full-body/v2
+- **Description**: Get event body for the provided event ID
+
+---
+
+**Class**: `Falcon::TailoredIntelligence`
+
+- **Operation**: [**get_events_entities**](docs/TailoredIntelligence.md#get_events_entities)
+- **POST**: /ti/events/entities/events/GET/v2
+- **Description**: Get events entities for specified ids.
+
+---
+
+**Class**: `Falcon::TailoredIntelligence`
+
+- **Operation**: [**get_rules_entities**](docs/TailoredIntelligence.md#get_rules_entities)
+- **POST**: /ti/rules/entities/rules/GET/v2
+- **Description**: Get rules entities for specified ids.
+
+---
+
+**Class**: `Falcon::TailoredIntelligence`
+
+- **Operation**: [**query_events**](docs/TailoredIntelligence.md#query_events)
+- **GET**: /ti/events/queries/events/v2
+- **Description**: Get events ids that match the provided filter criteria.
+
+---
+
+**Class**: `Falcon::TailoredIntelligence`
+
+- **Operation**: [**query_rules**](docs/TailoredIntelligence.md#query_rules)
+- **GET**: /ti/rules/queries/rules/v2
+- **Description**: Get rules ids that match the provided filter criteria.
 
 ---
 
@@ -7005,8 +7677,24 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
+- **Operation**: [**aggregate_users_v1**](docs/UserManagement.md#aggregate_users_v1)
+- **POST**: /user-management/aggregates/users/v1
+- **Description**: Get host aggregates as specified via json in request body.
+
+---
+
+**Class**: `Falcon::UserManagement`
+
 - **Operation**: [**combined_user_roles_v1**](docs/UserManagement.md#combined_user_roles_v1)
 - **GET**: /user-management/combined/user-roles/v1
+- **Description**: Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
+
+---
+
+**Class**: `Falcon::UserManagement`
+
+- **Operation**: [**combined_user_roles_v2**](docs/UserManagement.md#combined_user_roles_v2)
+- **GET**: /user-management/combined/user-roles/v2
 - **Description**: Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
 ---
@@ -7179,18 +7867,18 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::Vulnerabilities`
+**Class**: `Falcon::Workflows`
 
-- **Operation**: [**get_combined_vulnerabilities_sarif**](docs/Vulnerabilities.md#get_combined_vulnerabilities_sarif)
-- **GET**: /lambdas/combined/vulnerabilities/sarif/v1
-- **Description**: Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
+- **Operation**: [**workflow_activities_combined**](docs/Workflows.md#workflow_activities_combined)
+- **GET**: /workflows/combined/activities/v1
+- **Description**: Search for activities by name. Returns all supported activities if no filter specified
 
 ---
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_activities_combined**](docs/Workflows.md#workflow_activities_combined)
-- **GET**: /workflows/combined/activities/v1
+- **Operation**: [**workflow_activities_content_combined**](docs/Workflows.md#workflow_activities_content_combined)
+- **GET**: /workflows/combined/activity-content/v1
 - **Description**: Search for activities by name. Returns all supported activities if no filter specified
 
 ---

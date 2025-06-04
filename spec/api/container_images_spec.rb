@@ -63,7 +63,7 @@ describe 'ContainerImages' do
   # unit tests for aggregate_image_count
   # Aggregate count of images
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;ai_vulnerability_count&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60;
   # @return [ImagesApiImageCount]
   describe 'aggregate_image_count test' do
     it 'should work' do
@@ -74,7 +74,7 @@ describe 'ContainerImages' do
   # unit tests for aggregate_image_count_by_base_os
   # Aggregate count of images grouped by Base OS distribution
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60;
   # @return [ImagesApiImageCountByBaseOS]
   describe 'aggregate_image_count_by_base_os test' do
     it 'should work' do
@@ -85,7 +85,7 @@ describe 'ContainerImages' do
   # unit tests for aggregate_image_count_by_state
   # Aggregate count of images grouped by state
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60;
   # @return [ImagesApiImageCountByState]
   describe 'aggregate_image_count_by_state test' do
     it 'should work' do
@@ -107,7 +107,7 @@ describe 'ContainerImages' do
   # unit tests for combined_image_by_vulnerability_count
   # Retrieve top x images with the most vulnerabilities
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60;
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The fields to sort the records on. **Not supported.**
   # @return [ImagesApiImageByVulnerabilityCount]
@@ -120,7 +120,7 @@ describe 'ContainerImages' do
   # unit tests for combined_image_detail
   # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60;
   # @option opts [Boolean] :with_config (true/false) include image config, default is false
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
@@ -139,6 +139,7 @@ describe 'ContainerImages' do
   # @param repository Repository name
   # @param tag Tag name
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :image_digest Digest ID
   # @option opts [Boolean] :include_base_image_vuln Include base image vulnerabilities.
   # @return [ImagesApiImageIssuesSummary]
   describe 'combined_image_issues_summary test' do
@@ -154,6 +155,7 @@ describe 'ContainerImages' do
   # @param repository Repository name
   # @param tag Tag name
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :image_digest Digest ID
   # @option opts [Boolean] :include_base_image_vuln Include base image vulnerabilities.
   # @return [ImagesApiImageVulnerabilitiesSummary]
   describe 'combined_image_vulnerability_summary test' do
@@ -201,12 +203,12 @@ describe 'ContainerImages' do
   # unit tests for read_combined_images_export
   # Maximum offset &#x3D; 10000 - limit
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60;
+  # @option opts [String] :filter Filter images using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;ai_vulnerability_count&#x60; - &#x60;arch&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;cps_rating&#x60; - &#x60;crowdstrike_user&#x60; - &#x60;cve_id&#x60; - &#x60;detection_count&#x60; - &#x60;detection_name&#x60; - &#x60;detection_severity&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;layer_digest&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerability_count&#x60; - &#x60;vulnerability_severity&#x60;
   # @option opts [Boolean] :expand_vulnerabilities Expand vulnerabilities details
   # @option opts [Boolean] :expand_detections Expand detections details
   # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
   # @option opts [Integer] :offset The offset from where to begin.
-  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;detections&#x60; - &#x60;firstScanned&#x60; - &#x60;first_seen&#x60; - &#x60;highest_cps_current_rating&#x60; - &#x60;highest_detection_severity&#x60; - &#x60;highest_vulnerability_severity&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;last_seen&#x60; - &#x60;layers_with_vulnerabilities&#x60; - &#x60;packages&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerabilities&#x60;
+  # @option opts [String] :sort The fields to sort the records on. Supported columns: - &#x60;ai_vulnerabilities&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;detections&#x60; - &#x60;firstScanned&#x60; - &#x60;first_seen&#x60; - &#x60;highest_cps_current_rating&#x60; - &#x60;highest_detection_severity&#x60; - &#x60;highest_vulnerability_severity&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;last_seen&#x60; - &#x60;layers_with_vulnerabilities&#x60; - &#x60;packages&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;source&#x60; - &#x60;tag&#x60; - &#x60;vulnerabilities&#x60;
   # @return [ImagesApiCombinedImageExport]
   describe 'read_combined_images_export test' do
     it 'should work' do

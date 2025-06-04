@@ -32,48 +32,36 @@ require 'time'
 
 module Falcon
   class DomainHost
-    attr_accessor :admin_available
+    attr_accessor :cloud_ioas
 
-    attr_accessor :bandwidth_mbps
+    attr_accessor :cloud_ioms
 
-    attr_accessor :behind_nat
+    attr_accessor :configuration_assessments
 
-    attr_accessor :ip
+    attr_accessor :entity_pk
 
-    attr_accessor :ip_parsed
+    attr_accessor :extra_info
 
-    attr_accessor :isp
+    attr_accessor :id
 
-    attr_accessor :os_banner
+    attr_accessor :sensitive_data
 
-    attr_accessor :ping_ms
+    attr_accessor :total_count
 
-    attr_accessor :processor_banner
-
-    attr_accessor :ram_gigs
-
-    attr_accessor :ssl_available
-
-    attr_accessor :tld
-
-    attr_accessor :uptime_hours
+    attr_accessor :vulnerabilities
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'admin_available' => :'admin_available',
-        :'bandwidth_mbps' => :'bandwidth_mbps',
-        :'behind_nat' => :'behind_nat',
-        :'ip' => :'ip',
-        :'ip_parsed' => :'ip_parsed',
-        :'isp' => :'isp',
-        :'os_banner' => :'os_banner',
-        :'ping_ms' => :'ping_ms',
-        :'processor_banner' => :'processor_banner',
-        :'ram_gigs' => :'ram_gigs',
-        :'ssl_available' => :'ssl_available',
-        :'tld' => :'tld',
-        :'uptime_hours' => :'uptime_hours'
+        :'cloud_ioas' => :'cloud_ioas',
+        :'cloud_ioms' => :'cloud_ioms',
+        :'configuration_assessments' => :'configuration_assessments',
+        :'entity_pk' => :'entityPK',
+        :'extra_info' => :'extra_info',
+        :'id' => :'id',
+        :'sensitive_data' => :'sensitive_data',
+        :'total_count' => :'total_count',
+        :'vulnerabilities' => :'vulnerabilities'
       }
     end
 
@@ -85,19 +73,15 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'admin_available' => :'Boolean',
-        :'bandwidth_mbps' => :'Float',
-        :'behind_nat' => :'Boolean',
-        :'ip' => :'String',
-        :'ip_parsed' => :'String',
-        :'isp' => :'String',
-        :'os_banner' => :'String',
-        :'ping_ms' => :'Integer',
-        :'processor_banner' => :'String',
-        :'ram_gigs' => :'Float',
-        :'ssl_available' => :'Boolean',
-        :'tld' => :'String',
-        :'uptime_hours' => :'Integer'
+        :'cloud_ioas' => :'DomainIOACounts',
+        :'cloud_ioms' => :'DomainIOMCounts',
+        :'configuration_assessments' => :'DomainSCAMisconfigsCounts',
+        :'entity_pk' => :'String',
+        :'extra_info' => :'DomainXLR8Info',
+        :'id' => :'String',
+        :'sensitive_data' => :'Boolean',
+        :'total_count' => :'Float',
+        :'vulnerabilities' => :'DomainVulnerabilitiesCount'
       }
     end
 
@@ -122,56 +106,40 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'admin_available')
-        self.admin_available = attributes[:'admin_available']
+      if attributes.key?(:'cloud_ioas')
+        self.cloud_ioas = attributes[:'cloud_ioas']
       end
 
-      if attributes.key?(:'bandwidth_mbps')
-        self.bandwidth_mbps = attributes[:'bandwidth_mbps']
+      if attributes.key?(:'cloud_ioms')
+        self.cloud_ioms = attributes[:'cloud_ioms']
       end
 
-      if attributes.key?(:'behind_nat')
-        self.behind_nat = attributes[:'behind_nat']
+      if attributes.key?(:'configuration_assessments')
+        self.configuration_assessments = attributes[:'configuration_assessments']
       end
 
-      if attributes.key?(:'ip')
-        self.ip = attributes[:'ip']
+      if attributes.key?(:'entity_pk')
+        self.entity_pk = attributes[:'entity_pk']
       end
 
-      if attributes.key?(:'ip_parsed')
-        self.ip_parsed = attributes[:'ip_parsed']
+      if attributes.key?(:'extra_info')
+        self.extra_info = attributes[:'extra_info']
       end
 
-      if attributes.key?(:'isp')
-        self.isp = attributes[:'isp']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'os_banner')
-        self.os_banner = attributes[:'os_banner']
+      if attributes.key?(:'sensitive_data')
+        self.sensitive_data = attributes[:'sensitive_data']
       end
 
-      if attributes.key?(:'ping_ms')
-        self.ping_ms = attributes[:'ping_ms']
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       end
 
-      if attributes.key?(:'processor_banner')
-        self.processor_banner = attributes[:'processor_banner']
-      end
-
-      if attributes.key?(:'ram_gigs')
-        self.ram_gigs = attributes[:'ram_gigs']
-      end
-
-      if attributes.key?(:'ssl_available')
-        self.ssl_available = attributes[:'ssl_available']
-      end
-
-      if attributes.key?(:'tld')
-        self.tld = attributes[:'tld']
-      end
-
-      if attributes.key?(:'uptime_hours')
-        self.uptime_hours = attributes[:'uptime_hours']
+      if attributes.key?(:'vulnerabilities')
+        self.vulnerabilities = attributes[:'vulnerabilities']
       end
     end
 
@@ -179,12 +147,27 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @sensitive_data.nil?
+        invalid_properties.push('invalid value for "sensitive_data", sensitive_data cannot be nil.')
+      end
+
+      if @total_count.nil?
+        invalid_properties.push('invalid value for "total_count", total_count cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
+      return false if @sensitive_data.nil?
+      return false if @total_count.nil?
       true
     end
 
@@ -193,19 +176,15 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          admin_available == o.admin_available &&
-          bandwidth_mbps == o.bandwidth_mbps &&
-          behind_nat == o.behind_nat &&
-          ip == o.ip &&
-          ip_parsed == o.ip_parsed &&
-          isp == o.isp &&
-          os_banner == o.os_banner &&
-          ping_ms == o.ping_ms &&
-          processor_banner == o.processor_banner &&
-          ram_gigs == o.ram_gigs &&
-          ssl_available == o.ssl_available &&
-          tld == o.tld &&
-          uptime_hours == o.uptime_hours
+          cloud_ioas == o.cloud_ioas &&
+          cloud_ioms == o.cloud_ioms &&
+          configuration_assessments == o.configuration_assessments &&
+          entity_pk == o.entity_pk &&
+          extra_info == o.extra_info &&
+          id == o.id &&
+          sensitive_data == o.sensitive_data &&
+          total_count == o.total_count &&
+          vulnerabilities == o.vulnerabilities
     end
 
     # @see the `==` method
@@ -217,7 +196,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admin_available, bandwidth_mbps, behind_nat, ip, ip_parsed, isp, os_banner, ping_ms, processor_banner, ram_gigs, ssl_available, tld, uptime_hours].hash
+      [cloud_ioas, cloud_ioms, configuration_assessments, entity_pk, extra_info, id, sensitive_data, total_count, vulnerabilities].hash
     end
 
     # Builds the object from hash

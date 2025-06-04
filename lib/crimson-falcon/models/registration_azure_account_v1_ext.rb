@@ -62,14 +62,20 @@ module Falcon
 
     attr_accessor :environment
 
+    attr_accessor :failed_permissions_str
+
+    attr_accessor :ioa_status
+
+    attr_accessor :iom_status
+
     # Is CSPM Lite enabled.
     attr_accessor :is_cspm_lite
-
-    attr_accessor :object_id
 
     attr_accessor :parent_management_group_id
 
     attr_accessor :parent_management_group_name
+
+    attr_accessor :passed_permissions_str
 
     attr_accessor :public_certificate
 
@@ -94,6 +100,8 @@ module Falcon
 
     attr_accessor :years_valid
 
+    attr_accessor :obj_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -111,10 +119,13 @@ module Falcon
         :'credentials_type' => :'credentials_type',
         :'default_subscription_id' => :'default_subscription_id',
         :'environment' => :'environment',
+        :'failed_permissions_str' => :'failed_permissions_str',
+        :'ioa_status' => :'ioa_status',
+        :'iom_status' => :'iom_status',
         :'is_cspm_lite' => :'is_cspm_lite',
-        :'object_id' => :'object_id',
         :'parent_management_group_id' => :'parent_management_group_id',
         :'parent_management_group_name' => :'parent_management_group_name',
+        :'passed_permissions_str' => :'passed_permissions_str',
         :'public_certificate' => :'public_certificate',
         :'public_certificate_raw' => :'public_certificate_raw',
         :'role_assignments' => :'role_assignments',
@@ -123,7 +134,8 @@ module Falcon
         :'subscription_id' => :'subscription_id',
         :'subscription_name' => :'subscription_name',
         :'tenant_id' => :'tenant_id',
-        :'years_valid' => :'years_valid'
+        :'years_valid' => :'years_valid',
+        :'obj_id' => :'obj_id'
       }
     end
 
@@ -144,24 +156,28 @@ module Falcon
         :'cid' => :'String',
         :'client_id' => :'String',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
-        :'conditions' => :'Array<DomainCondition>',
+        :'conditions' => :'Array<StatemgmtCondition>',
         :'credentials_end_date' => :'Time',
         :'credentials_type' => :'String',
         :'default_subscription_id' => :'String',
         :'environment' => :'String',
+        :'failed_permissions_str' => :'String',
+        :'ioa_status' => :'String',
+        :'iom_status' => :'String',
         :'is_cspm_lite' => :'Boolean',
-        :'object_id' => :'String',
         :'parent_management_group_id' => :'String',
         :'parent_management_group_name' => :'String',
+        :'passed_permissions_str' => :'String',
         :'public_certificate' => :'String',
         :'public_certificate_raw' => :'String',
-        :'role_assignments' => :'Array<DomainAzureRoleAssignment>',
+        :'role_assignments' => :'Array<AzureDBRoleAssignment>',
         :'show_modal' => :'Boolean',
         :'status' => :'String',
         :'subscription_id' => :'String',
         :'subscription_name' => :'String',
         :'tenant_id' => :'String',
-        :'years_valid' => :'Integer'
+        :'years_valid' => :'Integer',
+        :'obj_id' => :'String'
       }
     end
 
@@ -248,12 +264,20 @@ module Falcon
         self.environment = attributes[:'environment']
       end
 
-      if attributes.key?(:'is_cspm_lite')
-        self.is_cspm_lite = attributes[:'is_cspm_lite']
+      if attributes.key?(:'failed_permissions_str')
+        self.failed_permissions_str = attributes[:'failed_permissions_str']
       end
 
-      if attributes.key?(:'object_id')
-        self.object_id = attributes[:'object_id']
+      if attributes.key?(:'ioa_status')
+        self.ioa_status = attributes[:'ioa_status']
+      end
+
+      if attributes.key?(:'iom_status')
+        self.iom_status = attributes[:'iom_status']
+      end
+
+      if attributes.key?(:'is_cspm_lite')
+        self.is_cspm_lite = attributes[:'is_cspm_lite']
       end
 
       if attributes.key?(:'parent_management_group_id')
@@ -262,6 +286,10 @@ module Falcon
 
       if attributes.key?(:'parent_management_group_name')
         self.parent_management_group_name = attributes[:'parent_management_group_name']
+      end
+
+      if attributes.key?(:'passed_permissions_str')
+        self.passed_permissions_str = attributes[:'passed_permissions_str']
       end
 
       if attributes.key?(:'public_certificate')
@@ -301,6 +329,10 @@ module Falcon
       if attributes.key?(:'years_valid')
         self.years_valid = attributes[:'years_valid']
       end
+
+      if attributes.key?(:'obj_id')
+        self.obj_id = attributes[:'obj_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -331,6 +363,22 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
+      if @failed_permissions_str.nil?
+        invalid_properties.push('invalid value for "failed_permissions_str", failed_permissions_str cannot be nil.')
+      end
+
+      if @ioa_status.nil?
+        invalid_properties.push('invalid value for "ioa_status", ioa_status cannot be nil.')
+      end
+
+      if @iom_status.nil?
+        invalid_properties.push('invalid value for "iom_status", iom_status cannot be nil.')
+      end
+
+      if @passed_permissions_str.nil?
+        invalid_properties.push('invalid value for "passed_permissions_str", passed_permissions_str cannot be nil.')
+      end
+
       if @show_modal.nil?
         invalid_properties.push('invalid value for "show_modal", show_modal cannot be nil.')
       end
@@ -347,6 +395,10 @@ module Falcon
       return false if @updated_at.nil?
       return false if @azure_permissions_status.nil?
       return false if @cid.nil?
+      return false if @failed_permissions_str.nil?
+      return false if @ioa_status.nil?
+      return false if @iom_status.nil?
+      return false if @passed_permissions_str.nil?
       return false if @show_modal.nil?
       true
     end
@@ -370,10 +422,13 @@ module Falcon
           credentials_type == o.credentials_type &&
           default_subscription_id == o.default_subscription_id &&
           environment == o.environment &&
+          failed_permissions_str == o.failed_permissions_str &&
+          ioa_status == o.ioa_status &&
+          iom_status == o.iom_status &&
           is_cspm_lite == o.is_cspm_lite &&
-          object_id == o.object_id &&
           parent_management_group_id == o.parent_management_group_id &&
           parent_management_group_name == o.parent_management_group_name &&
+          passed_permissions_str == o.passed_permissions_str &&
           public_certificate == o.public_certificate &&
           public_certificate_raw == o.public_certificate_raw &&
           role_assignments == o.role_assignments &&
@@ -382,7 +437,8 @@ module Falcon
           subscription_id == o.subscription_id &&
           subscription_name == o.subscription_name &&
           tenant_id == o.tenant_id &&
-          years_valid == o.years_valid
+          years_valid == o.years_valid &&
+          obj_id == o.obj_id
     end
 
     # @see the `==` method
@@ -394,7 +450,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, is_cspm_lite, object_id, parent_management_group_id, parent_management_group_name, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid].hash
+      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, failed_permissions_str, ioa_status, iom_status, is_cspm_lite, parent_management_group_id, parent_management_group_name, passed_permissions_str, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid, obj_id].hash
     end
 
     # Builds the object from hash

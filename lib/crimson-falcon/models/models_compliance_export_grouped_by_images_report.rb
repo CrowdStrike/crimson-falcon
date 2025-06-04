@@ -36,6 +36,12 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :framework
+
+    attr_accessor :framework_name_version
+
+    attr_accessor :framework_version
+
     attr_accessor :image_digest
 
     attr_accessor :image_id
@@ -59,6 +65,9 @@ module Falcon
       {
         :'authority' => :'authority',
         :'cid' => :'cid',
+        :'framework' => :'framework',
+        :'framework_name_version' => :'framework_name_version',
+        :'framework_version' => :'framework_version',
         :'image_digest' => :'image_digest',
         :'image_id' => :'image_id',
         :'image_registry' => :'image_registry',
@@ -81,6 +90,9 @@ module Falcon
       {
         :'authority' => :'String',
         :'cid' => :'String',
+        :'framework' => :'String',
+        :'framework_name_version' => :'String',
+        :'framework_version' => :'String',
         :'image_digest' => :'String',
         :'image_id' => :'String',
         :'image_registry' => :'String',
@@ -120,6 +132,18 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'framework')
+        self.framework = attributes[:'framework']
+      end
+
+      if attributes.key?(:'framework_name_version')
+        self.framework_name_version = attributes[:'framework_name_version']
+      end
+
+      if attributes.key?(:'framework_version')
+        self.framework_version = attributes[:'framework_version']
       end
 
       if attributes.key?(:'image_digest')
@@ -234,6 +258,9 @@ module Falcon
       self.class == o.class &&
           authority == o.authority &&
           cid == o.cid &&
+          framework == o.framework &&
+          framework_name_version == o.framework_name_version &&
+          framework_version == o.framework_version &&
           image_digest == o.image_digest &&
           image_id == o.image_id &&
           image_registry == o.image_registry &&
@@ -254,7 +281,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [authority, cid, image_digest, image_id, image_registry, image_repository, image_tag, name, recommendation_id, severity, status].hash
+      [authority, cid, framework, framework_name_version, framework_version, image_digest, image_id, image_registry, image_repository, image_tag, name, recommendation_id, severity, status].hash
     end
 
     # Builds the object from hash

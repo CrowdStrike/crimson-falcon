@@ -65,12 +65,12 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'additional_info' => :'additional_info',
+        :'additional_info' => :'additionalInfo',
         :'aws' => :'aws',
         :'azure_site' => :'azureSite',
         :'azure_vm' => :'azureVm',
-        :'cloud_function' => :'cloud_function',
-        :'crowdstrike_cloud_security' => :'crowdstrike_cloud_security',
+        :'cloud_function' => :'cloudFunction',
+        :'crowdstrike_cloud_security' => :'crowdstrikeCloudSecurity',
         :'ec2' => :'ec2',
         :'ecs' => :'ecs',
         :'gcp' => :'gcp',

@@ -6,6 +6,9 @@
 | ---- | ---- | ----------- | ----- |
 | **authority** | **String** |  |  |
 | **cid** | **String** |  |  |
+| **framework** | **String** |  | [optional] |
+| **framework_name_version** | **String** |  | [optional] |
+| **framework_version** | **String** |  | [optional] |
 | **image_digest** | **String** |  |  |
 | **image_id** | **String** |  |  |
 | **image_registry** | **String** |  |  |
@@ -24,6 +27,9 @@ require 'crimson-falcon'
 instance = Falcon::ModelsComplianceExportGroupedByImagesReport.new(
   authority: null,
   cid: null,
+  framework: null,
+  framework_name_version: null,
+  framework_version: null,
   image_digest: null,
   image_id: null,
   image_registry: null,

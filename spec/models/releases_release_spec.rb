@@ -42,6 +42,12 @@ describe Falcon::ReleasesRelease do
       expect(instance).to be_instance_of(Falcon::ReleasesRelease)
     end
   end
+  describe 'test attribute "annotation"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "created_by"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -85,6 +91,12 @@ describe Falcon::ReleasesRelease do
   end
 
   describe 'test attribute "release_contents"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "release_notes_ticket"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

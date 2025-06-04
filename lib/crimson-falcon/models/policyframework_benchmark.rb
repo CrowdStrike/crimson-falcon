@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class PolicyframeworkBenchmark
+    attr_accessor :id
+
     attr_accessor :name
 
     attr_accessor :version
@@ -39,6 +41,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'name' => :'name',
         :'version' => :'version'
       }
@@ -52,6 +55,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'String',
         :'name' => :'String',
         :'version' => :'String'
       }
@@ -77,6 +81,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -115,6 +123,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           name == o.name &&
           version == o.version
     end
@@ -128,7 +137,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, version].hash
+      [id, name, version].hash
     end
 
     # Builds the object from hash

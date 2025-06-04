@@ -189,7 +189,7 @@ module Falcon
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['text/plain'])
+      header_params['Accept'] = @api_client.select_header_accept(['text/plain', 'application/json'])
       header_params[:'X-Scanner-Id'] = x_scanner_id
       header_params[:'X-Machine-Id'] = x_machine_id
 

@@ -49,6 +49,19 @@ describe 'CorrelationRules' do
     end
   end
 
+  # unit tests for aggregates_rule_versions_post_v1
+  # Get rules aggregates as specified via json in the request body.
+  # @param ids The IDs
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying the filter parameters
+  # @return [ApiAggregatesResponseV1]
+  describe 'aggregates_rule_versions_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for combined_rules_get_v1
   # Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
   # @param [Hash] opts the optional parameters
@@ -64,12 +77,70 @@ describe 'CorrelationRules' do
     end
   end
 
+  # unit tests for combined_rules_get_v2
+  # Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying the filter parameters
+  # @option opts [String] :q Match query criteria, which includes all the filter string fields
+  # @option opts [String] :sort Rule property to sort on
+  # @option opts [Integer] :offset Starting index of overall result set from which to return IDs
+  # @option opts [Integer] :limit Number of IDs to return
+  # @return [ApiGetEntitiesRulesResponseV1]
+  describe 'combined_rules_get_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_latest_rules_get_v1
+  # Retrieve latest rule versions by rule IDs
+  # @param rule_ids The rule IDs
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetEntitiesRulesResponseV1]
+  describe 'entities_latest_rules_get_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_rule_versions_delete_v1
   # Delete versions by IDs
   # @param ids The IDs
   # @param [Hash] opts the optional parameters
   # @return [MsaspecQueryResponse]
   describe 'entities_rule_versions_delete_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_rule_versions_export_post_v1
+  # Export rule versions
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiJobLinkResponseV1]
+  describe 'entities_rule_versions_export_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_rule_versions_import_post_v1
+  # Import rule versions
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetEntitiesRuleVersionsResponseV1]
+  describe 'entities_rule_versions_import_post_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for entities_rule_versions_publish_patch_v1
+  # Publish existing rule version
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetEntitiesRuleVersionsResponseV1]
+  describe 'entities_rule_versions_publish_patch_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -97,6 +168,17 @@ describe 'CorrelationRules' do
     end
   end
 
+  # unit tests for entities_rules_get_v2
+  # Retrieve rule versions by IDs
+  # @param ids The IDs
+  # @param [Hash] opts the optional parameters
+  # @return [ApiGetEntitiesRulesResponseV1]
+  describe 'entities_rules_get_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for entities_rules_patch_v1
   # Update rules
   # @param body
@@ -112,7 +194,7 @@ describe 'CorrelationRules' do
   # Create rule
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [MsaspecQueryResponse]
+  # @return [ApiGetEntitiesRulesResponseV1]
   describe 'entities_rules_post_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -129,6 +211,21 @@ describe 'CorrelationRules' do
   # @option opts [Integer] :limit Number of IDs to return
   # @return [MsaspecQueryResponse]
   describe 'queries_rules_get_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for queries_rules_get_v2
+  # Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id Supported range filters: created_on,last_updated_on
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying the filter parameters
+  # @option opts [String] :q Match query criteria, which includes all the filter string fields
+  # @option opts [String] :sort Rule property to sort on
+  # @option opts [Integer] :offset Starting index of overall result set from which to return IDs
+  # @option opts [Integer] :limit Number of IDs to return
+  # @return [MsaspecQueryResponse]
+  describe 'queries_rules_get_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

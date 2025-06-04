@@ -44,6 +44,9 @@ module Falcon
     # Activity class to identify how it should be orchestrated. E.g. External, Break, CreateVariable and UpdateVariable
     attr_accessor :_class
 
+    # List of dependencies (store apps or foundry app templates) of the activity
+    attr_accessor :dependencies
+
     # A detailed description of what this action does
     attr_accessor :description
 
@@ -96,6 +99,7 @@ module Falcon
         :'app_id' => :'app_id',
         :'cid' => :'cid',
         :'_class' => :'class',
+        :'dependencies' => :'dependencies',
         :'description' => :'description',
         :'disruptive' => :'disruptive',
         :'has_permission' => :'has_permission',
@@ -127,6 +131,7 @@ module Falcon
         :'app_id' => :'String',
         :'cid' => :'String',
         :'_class' => :'String',
+        :'dependencies' => :'Array<ActivitiesDependency>',
         :'description' => :'String',
         :'disruptive' => :'Boolean',
         :'has_permission' => :'Boolean',
@@ -181,6 +186,12 @@ module Falcon
 
       if attributes.key?(:'_class')
         self._class = attributes[:'_class']
+      end
+
+      if attributes.key?(:'dependencies')
+        if (value = attributes[:'dependencies']).is_a?(Array)
+          self.dependencies = value
+        end
       end
 
       if attributes.key?(:'description')
@@ -308,6 +319,7 @@ module Falcon
           app_id == o.app_id &&
           cid == o.cid &&
           _class == o._class &&
+          dependencies == o.dependencies &&
           description == o.description &&
           disruptive == o.disruptive &&
           has_permission == o.has_permission &&
@@ -335,7 +347,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_scope, app_id, cid, _class, description, disruptive, has_permission, id, input_fields, input_schema, mock_output, name, namespace, output_fields, output_schema, tag_ids, updated, use_cases, vendor, version].hash
+      [api_scope, app_id, cid, _class, dependencies, description, disruptive, has_permission, id, input_fields, input_schema, mock_output, name, namespace, output_fields, output_schema, tag_ids, updated, use_cases, vendor, version].hash
     end
 
     # Builds the object from hash

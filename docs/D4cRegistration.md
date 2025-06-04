@@ -1,6 +1,6 @@
 # Falcon::D4cRegistration
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -785,8 +785,13 @@ opts = {
   dspm_role: 'dspm_role_example', # String | 
   use_existing_cloudtrail: 'true', # String | 
   organization_id: 'organization_id_example', # String | The AWS organization ID to be registered
+  organizational_unit_ids: ['inner_example'], # Array<String> | The AWS Organizational Unit IDs to be registered
   aws_profile: 'aws_profile_example', # String | The AWS profile to be used during registration
-  custom_role_name: 'custom_role_name_example' # String | The custom IAM role to be used during registration
+  aws_region: 'aws_region_example', # String | The AWS region to be used during registration
+  iam_role_arn: 'iam_role_arn_example', # String | The custom IAM role to be used during registration
+  falcon_client_id: 'falcon_client_id_example', # String | The Falcon client ID used during registration
+  idp_enabled: 'idp_enabled_example', # String | Set to true to enable Identity Protection feature
+  tags: 'tags_example' # String | Base64 encoded JSON string to be used as AWS tags
 }
 
 begin
@@ -830,8 +835,13 @@ end
 | **dspm_role** | **String** |  | [optional] |
 | **use_existing_cloudtrail** | **String** |  | [optional] |
 | **organization_id** | **String** | The AWS organization ID to be registered | [optional] |
+| **organizational_unit_ids** | [**Array&lt;String&gt;**](String.md) | The AWS Organizational Unit IDs to be registered | [optional] |
 | **aws_profile** | **String** | The AWS profile to be used during registration | [optional] |
-| **custom_role_name** | **String** | The custom IAM role to be used during registration | [optional] |
+| **aws_region** | **String** | The AWS region to be used during registration | [optional] |
+| **iam_role_arn** | **String** | The custom IAM role to be used during registration | [optional] |
+| **falcon_client_id** | **String** | The Falcon client ID used during registration | [optional] |
+| **idp_enabled** | **String** | Set to true to enable Identity Protection feature | [optional] |
+| **tags** | **String** | Base64 encoded JSON string to be used as AWS tags | [optional] |
 
 ### Return type
 

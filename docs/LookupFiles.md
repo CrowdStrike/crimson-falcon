@@ -1,6 +1,6 @@
 # Falcon::LookupFiles
 
-All URIs are relative to *https://api.us-2.crowdstrike.com*
+All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -31,6 +31,8 @@ api_instance = Falcon::LookupFiles.new
 file = File.new('/path/to/some/file') # File | File to be uploaded
 name = 'name_example' # String | Name used to identify the file
 opts = {
+  x_cs_username: 'x_cs_username_example', # String | Requester Username.
+  x_cs_useruuid: 'x_cs_useruuid_example', # String | Requester UUID.
   description: 'description_example', # String | File description
   id: 'id_example', # String | Unique identifier of the file being updated.
   repo: 'repo_example' # String | Name of repository or view to save the file
@@ -69,6 +71,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **file** | **File** | File to be uploaded |  |
 | **name** | **String** | Name used to identify the file |  |
+| **x_cs_username** | **String** | Requester Username. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 | **description** | **String** | File description | [optional] |
 | **id** | **String** | Unique identifier of the file being updated. | [optional] |
 | **repo** | **String** | Name of repository or view to save the file | [optional] |
@@ -109,6 +113,8 @@ end
 api_instance = Falcon::LookupFiles.new
 id = 'id_example' # String | Unique identifier of the file being updated.
 opts = {
+  x_cs_username: 'x_cs_username_example', # String | Requester Username.
+  x_cs_useruuid: 'x_cs_useruuid_example', # String | Requester UUID.
   description: 'description_example', # String | File description
   file: File.new('/path/to/some/file') # File | File to be uploaded
 }
@@ -145,6 +151,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | Unique identifier of the file being updated. |  |
+| **x_cs_username** | **String** | Requester Username. | [optional] |
+| **x_cs_useruuid** | **String** | Requester UUID. | [optional] |
 | **description** | **String** | File description | [optional] |
 | **file** | **File** | File to be uploaded | [optional] |
 

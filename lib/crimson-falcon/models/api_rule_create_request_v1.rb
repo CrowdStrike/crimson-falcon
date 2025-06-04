@@ -38,7 +38,11 @@ module Falcon
 
     attr_accessor :description
 
+    attr_accessor :mitre_attack
+
     attr_accessor :name
+
+    attr_accessor :notifications
 
     attr_accessor :operation
 
@@ -52,6 +56,8 @@ module Falcon
 
     attr_accessor :technique
 
+    attr_accessor :template_id
+
     attr_accessor :trigger_on_create
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -60,13 +66,16 @@ module Falcon
         :'comment' => :'comment',
         :'customer_id' => :'customer_id',
         :'description' => :'description',
+        :'mitre_attack' => :'mitre_attack',
         :'name' => :'name',
+        :'notifications' => :'notifications',
         :'operation' => :'operation',
         :'search' => :'search',
         :'severity' => :'severity',
         :'status' => :'status',
         :'tactic' => :'tactic',
         :'technique' => :'technique',
+        :'template_id' => :'template_id',
         :'trigger_on_create' => :'trigger_on_create'
       }
     end
@@ -82,13 +91,16 @@ module Falcon
         :'comment' => :'String',
         :'customer_id' => :'String',
         :'description' => :'String',
+        :'mitre_attack' => :'Array<ModelMitreAttackMapping>',
         :'name' => :'String',
+        :'notifications' => :'Array<ApiCreateRuleNotifications>',
         :'operation' => :'ApiCreateRuleOperationV1',
         :'search' => :'ApiRuleSearchV1',
         :'severity' => :'Integer',
         :'status' => :'String',
         :'tactic' => :'String',
         :'technique' => :'String',
+        :'template_id' => :'String',
         :'trigger_on_create' => :'Boolean'
       }
     end
@@ -126,8 +138,20 @@ module Falcon
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'mitre_attack')
+        if (value = attributes[:'mitre_attack']).is_a?(Array)
+          self.mitre_attack = value
+        end
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'notifications')
+        if (value = attributes[:'notifications']).is_a?(Array)
+          self.notifications = value
+        end
       end
 
       if attributes.key?(:'operation')
@@ -152,6 +176,10 @@ module Falcon
 
       if attributes.key?(:'technique')
         self.technique = attributes[:'technique']
+      end
+
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
       end
 
       if attributes.key?(:'trigger_on_create')
@@ -187,6 +215,10 @@ module Falcon
         invalid_properties.push('invalid value for "status", status cannot be nil.')
       end
 
+      if @template_id.nil?
+        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -199,6 +231,7 @@ module Falcon
       return false if @search.nil?
       return false if @severity.nil?
       return false if @status.nil?
+      return false if @template_id.nil?
       true
     end
 
@@ -210,13 +243,16 @@ module Falcon
           comment == o.comment &&
           customer_id == o.customer_id &&
           description == o.description &&
+          mitre_attack == o.mitre_attack &&
           name == o.name &&
+          notifications == o.notifications &&
           operation == o.operation &&
           search == o.search &&
           severity == o.severity &&
           status == o.status &&
           tactic == o.tactic &&
           technique == o.technique &&
+          template_id == o.template_id &&
           trigger_on_create == o.trigger_on_create
     end
 
@@ -229,7 +265,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comment, customer_id, description, name, operation, search, severity, status, tactic, technique, trigger_on_create].hash
+      [comment, customer_id, description, mitre_attack, name, notifications, operation, search, severity, status, tactic, technique, template_id, trigger_on_create].hash
     end
 
     # Builds the object from hash
