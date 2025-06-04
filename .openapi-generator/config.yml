@@ -5,6 +5,6 @@ additionalProperties:
   gemSummary: "CrowdStrike Falcon"
   gemLicense: "MIT"
   gemHomepage: "https://github.com/CrowdStrike/crimson-falcon"
-  gemVersion: "1.0.1" # x-release-please-version
+  gemVersion: "1.1.0" # x-release-please-version
   gemName: "crimson-falcon"
   moduleName: "Falcon"
