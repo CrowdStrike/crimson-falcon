@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.0.1...v1.1.0) (2025-06-04)
+
+
+### Features
+
+* latest SDK based on 6-4-2025 API spec ([718a002](https://github.com/CrowdStrike/crimson-falcon/commit/718a00277d4c57974297033152cdfce905ca4319))
+
+
+### Bug Fixes
+
+* rename object_id to avoid Ruby's method collision ([#51](https://github.com/CrowdStrike/crimson-falcon/issues/51)) ([7b5053e](https://github.com/CrowdStrike/crimson-falcon/commit/7b5053eaa0e9889cfeb9da57aba4fe141b638f28)), closes [#50](https://github.com/CrowdStrike/crimson-falcon/issues/50)
+
 ## [1.0.1](https://github.com/CrowdStrike/crimson-falcon/compare/v1.0.0...v1.0.1) (2025-04-02)
 
 
