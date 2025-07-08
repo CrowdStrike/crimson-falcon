@@ -64,6 +64,8 @@ module Falcon
 
     attr_accessor :hosts
 
+    attr_accessor :hosts_created
+
     attr_accessor :id
 
     attr_accessor :incomplete_host_count
@@ -133,6 +135,7 @@ module Falcon
         :'filecount' => :'filecount',
         :'host_groups' => :'host_groups',
         :'hosts' => :'hosts',
+        :'hosts_created' => :'hosts_created',
         :'id' => :'id',
         :'incomplete_host_count' => :'incomplete_host_count',
         :'initiated_from' => :'initiated_from',
@@ -185,6 +188,7 @@ module Falcon
         :'filecount' => :'DomainFileCount',
         :'host_groups' => :'Array<String>',
         :'hosts' => :'Array<String>',
+        :'hosts_created' => :'Boolean',
         :'id' => :'String',
         :'incomplete_host_count' => :'Integer',
         :'initiated_from' => :'String',
@@ -302,6 +306,10 @@ module Falcon
         if (value = attributes[:'hosts']).is_a?(Array)
           self.hosts = value
         end
+      end
+
+      if attributes.key?(:'hosts_created')
+        self.hosts_created = attributes[:'hosts_created']
       end
 
       if attributes.key?(:'id')
@@ -452,6 +460,7 @@ module Falcon
           filecount == o.filecount &&
           host_groups == o.host_groups &&
           hosts == o.hosts &&
+          hosts_created == o.hosts_created &&
           id == o.id &&
           incomplete_host_count == o.incomplete_host_count &&
           initiated_from == o.initiated_from &&
@@ -488,7 +497,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, rollup_version, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, hosts_created, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, rollup_version, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
     end
 
     # Builds the object from hash

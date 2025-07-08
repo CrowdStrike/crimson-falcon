@@ -7,12 +7,16 @@
 | **ai_related** | **Boolean** |  |  |
 | **architecture** | **String** |  |  |
 | **base_os** | **String** |  |  |
+| **business_impact** | **Array&lt;String&gt;** |  | [optional] |
+| **business_unit** | **Array&lt;String&gt;** |  | [optional] |
 | **cid** | **String** |  |  |
+| **cloud_groups_v2** | [**Array&lt;RbacCloudGroup&gt;**](RbacCloudGroup.md) |  | [optional] |
 | **cve_id** | **String** |  |  |
 | **cvss_score** | **String** |  |  |
 | **detection_name** | **String** |  |  |
 | **detection_severity** | **String** |  |  |
 | **detection_type** | **String** |  |  |
+| **environment** | **Array&lt;String&gt;** |  | [optional] |
 | **first_seen** | **String** |  |  |
 | **groups** | **Array&lt;String&gt;** |  | [optional] |
 | **image_digest** | **String** |  |  |
@@ -39,12 +43,16 @@ instance = Falcon::ModelsAPIImageCombinedExport.new(
   ai_related: null,
   architecture: null,
   base_os: null,
+  business_impact: null,
+  business_unit: null,
   cid: null,
+  cloud_groups_v2: null,
   cve_id: null,
   cvss_score: null,
   detection_name: null,
   detection_severity: null,
   detection_type: null,
+  environment: null,
   first_seen: null,
   groups: null,
   image_digest: null,

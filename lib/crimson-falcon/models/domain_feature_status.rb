@@ -32,14 +32,20 @@ require 'time'
 
 module Falcon
   class DomainFeatureStatus
-    attr_accessor :feature
+    attr_accessor :enabled
+
+    attr_accessor :failed_permissions
+
+    attr_accessor :passed_permissions
 
     attr_accessor :status
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'feature' => :'feature',
+        :'enabled' => :'enabled',
+        :'failed_permissions' => :'failedPermissions',
+        :'passed_permissions' => :'passedPermissions',
         :'status' => :'status'
       }
     end
@@ -52,7 +58,9 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'feature' => :'String',
+        :'enabled' => :'Boolean',
+        :'failed_permissions' => :'Array<String>',
+        :'passed_permissions' => :'Array<String>',
         :'status' => :'String'
       }
     end
@@ -78,8 +86,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'feature')
-        self.feature = attributes[:'feature']
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'failed_permissions')
+        if (value = attributes[:'failed_permissions']).is_a?(Array)
+          self.failed_permissions = value
+        end
+      end
+
+      if attributes.key?(:'passed_permissions')
+        if (value = attributes[:'passed_permissions']).is_a?(Array)
+          self.passed_permissions = value
+        end
       end
 
       if attributes.key?(:'status')
@@ -91,12 +111,8 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @feature.nil?
-        invalid_properties.push('invalid value for "feature", feature cannot be nil.')
-      end
-
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @enabled.nil?
+        invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
       end
 
       invalid_properties
@@ -105,8 +121,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @feature.nil?
-      return false if @status.nil?
+      return false if @enabled.nil?
       true
     end
 
@@ -115,7 +130,9 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          feature == o.feature &&
+          enabled == o.enabled &&
+          failed_permissions == o.failed_permissions &&
+          passed_permissions == o.passed_permissions &&
           status == o.status
     end
 
@@ -128,7 +145,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [feature, status].hash
+      [enabled, failed_permissions, passed_permissions, status].hash
     end
 
     # Builds the object from hash

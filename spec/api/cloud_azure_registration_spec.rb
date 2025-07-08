@@ -49,12 +49,67 @@ describe 'CloudAzureRegistration' do
     end
   end
 
+  # unit tests for cloud_registration_azure_create_registration
+  # Create an Azure registration for a tenant.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [AzureAzureRegistrationResponseExtV1]
+  describe 'cloud_registration_azure_create_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_delete_registration
+  # Deletes existing Azure registrations.
+  # @param tenant_ids Azure tenant IDs
+  # @param [Hash] opts the optional parameters
+  # @return [AzureDeleteRegistrationResponseExtV1]
+  describe 'cloud_registration_azure_delete_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for cloud_registration_azure_download_script
   # Retrieve script to create resources
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [AzureAzureProvisionGetAccountScriptResponseV1]
   describe 'cloud_registration_azure_download_script test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_get_registration
+  # Retrieve existing Azure registration for a tenant.
+  # @param tenant_id Tenant ID
+  # @param [Hash] opts the optional parameters
+  # @return [AzureAzureRegistrationResponseExtV1]
+  describe 'cloud_registration_azure_get_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for cloud_registration_azure_update_registration
+  # Update an existing Azure registration for a tenant.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [AzureAzureRegistrationResponseExtV1]
+  describe 'cloud_registration_azure_update_registration test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for download_azure_script
+  # Download Azure deployment script (Terraform or Bicep)
+  # @param tenant_id Azure tenant ID
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'download_azure_script test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

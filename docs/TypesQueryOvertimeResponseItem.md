@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **result** | **Object** |  |  |
-| **timestamp** | **Integer** |  |  |
+| **result** | **Object** |  | [optional] |
+| **timestamp** | **Integer** |  | [optional] |
 
 ## Example
 

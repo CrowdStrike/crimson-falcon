@@ -198,6 +198,18 @@ describe 'CspmRegistration' do
     end
   end
 
+  # unit tests for get_cloud_event_ids
+  # Get list of related cloud event LogScale IDs for a given IOA
+  # @param x_cs_useruuid Requester User UUID
+  # @param id IOA Aggregate Event ID
+  # @param [Hash] opts the optional parameters
+  # @return [CdrioamanagerGetCloudEventIDsResponse]
+  describe 'get_cloud_event_ids test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_configuration_detection_entities
   # Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections.
   # @param ids detection ids

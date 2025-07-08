@@ -163,6 +163,8 @@ module Falcon
     # URL at which actor profile can be accessed
     attr_accessor :url
 
+    attr_accessor :uses_distinct_indicators_count
+
     attr_accessor :uses_indicators_count
 
     attr_accessor :uses_mitre_attacks_count
@@ -235,6 +237,7 @@ module Falcon
         :'target_regions' => :'target_regions',
         :'thumbnail' => :'thumbnail',
         :'url' => :'url',
+        :'uses_distinct_indicators_count' => :'uses_distinct_indicators_count',
         :'uses_indicators_count' => :'uses_indicators_count',
         :'uses_mitre_attacks_count' => :'uses_mitre_attacks_count',
         :'uses_mitre_tactics_count' => :'uses_mitre_tactics_count',
@@ -306,6 +309,7 @@ module Falcon
         :'target_regions' => :'Array<DomainEntity>',
         :'thumbnail' => :'DomainImage',
         :'url' => :'String',
+        :'uses_distinct_indicators_count' => :'Integer',
         :'uses_indicators_count' => :'Integer',
         :'uses_mitre_attacks_count' => :'Integer',
         :'uses_mitre_tactics_count' => :'Integer',
@@ -580,6 +584,10 @@ module Falcon
         self.url = attributes[:'url']
       end
 
+      if attributes.key?(:'uses_distinct_indicators_count')
+        self.uses_distinct_indicators_count = attributes[:'uses_distinct_indicators_count']
+      end
+
       if attributes.key?(:'uses_indicators_count')
         self.uses_indicators_count = attributes[:'uses_indicators_count']
       end
@@ -772,6 +780,7 @@ module Falcon
           target_regions == o.target_regions &&
           thumbnail == o.thumbnail &&
           url == o.url &&
+          uses_distinct_indicators_count == o.uses_distinct_indicators_count &&
           uses_indicators_count == o.uses_indicators_count &&
           uses_mitre_attacks_count == o.uses_mitre_attacks_count &&
           uses_mitre_tactics_count == o.uses_mitre_tactics_count &&
@@ -791,7 +800,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actor_type, animal_classifier, capabilities, capability, created_date, description, description_length, develops_threats, develops_threats_count, ecrime_kill_chain, entitlements, first_activity_date, group, has_subgroup, has_subgroup_actors_count, has_successor, has_successor_actors_count, id, image, in_reports, in_reports_count, is_subgroup_of, is_subgroup_of_actors_count, is_successor_of, is_successor_of_actors_count, is_supported_by, is_supported_by_actors_count, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, sells_threats, sells_threats_count, short_description, slug, status, supports, supports_actors_count, target_countries, target_industries, target_regions, thumbnail, url, uses_indicators_count, uses_mitre_attacks_count, uses_mitre_tactics_count, uses_mitre_techniques_count, uses_threats, uses_threats_count, uses_vulnerabilities, vulnerabilities_count].hash
+      [active, actor_type, animal_classifier, capabilities, capability, created_date, description, description_length, develops_threats, develops_threats_count, ecrime_kill_chain, entitlements, first_activity_date, group, has_subgroup, has_subgroup_actors_count, has_successor, has_successor_actors_count, id, image, in_reports, in_reports_count, is_subgroup_of, is_subgroup_of_actors_count, is_successor_of, is_successor_of_actors_count, is_supported_by, is_supported_by_actors_count, kill_chain, known_as, last_activity_date, last_modified_date, motivations, name, notify_users, objectives, origins, recent_alerting, region, rich_text_description, sells_threats, sells_threats_count, short_description, slug, status, supports, supports_actors_count, target_countries, target_industries, target_regions, thumbnail, url, uses_distinct_indicators_count, uses_indicators_count, uses_mitre_attacks_count, uses_mitre_tactics_count, uses_mitre_techniques_count, uses_threats, uses_threats_count, uses_vulnerabilities, vulnerabilities_count].hash
     end
 
     # Builds the object from hash

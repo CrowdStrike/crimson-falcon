@@ -7,7 +7,9 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**create_registry_entities**](FalconContainerImage.md#create_registry_entities) | **POST** /container-security/entities/registries/v1 | Create a registry entity using the provided details |
 | [**delete_registry_entities**](FalconContainerImage.md#delete_registry_entities) | **DELETE** /container-security/entities/registries/v1 | Delete the registry entity identified by the entity UUID |
 | [**download_export_file**](FalconContainerImage.md#download_export_file) | **GET** /container-security/entities/exports/files/v1 | Download an export file |
+| [**head_image_scan_inventory**](FalconContainerImage.md#head_image_scan_inventory) | **HEAD** /image-assessment/entities/image-inventory/v1 | Get headers for POST request for image scan inventory |
 | [**launch_export_job**](FalconContainerImage.md#launch_export_job) | **POST** /container-security/entities/exports/v1 | Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource |
+| [**post_image_scan_inventory**](FalconContainerImage.md#post_image_scan_inventory) | **POST** /image-assessment/entities/image-inventory/v1 | Post image scan inventory |
 | [**query_export_jobs**](FalconContainerImage.md#query_export_jobs) | **GET** /container-security/queries/exports/v1 | Query export jobs entities |
 | [**read_export_jobs**](FalconContainerImage.md#read_export_jobs) | **GET** /container-security/entities/exports/v1 | Read export jobs entities |
 | [**read_registry_entities**](FalconContainerImage.md#read_registry_entities) | **GET** /container-security/queries/registries/v1 | Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000 |
@@ -222,6 +224,71 @@ end
 - **Accept**: application/json, application/octet-stream
 
 
+## head_image_scan_inventory
+
+> head_image_scan_inventory
+
+Get headers for POST request for image scan inventory
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FalconContainerImage.new
+
+begin
+  # Get headers for POST request for image scan inventory
+  api_instance.head_image_scan_inventory
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImage->head_image_scan_inventory: #{e}"
+end
+```
+
+#### Using the head_image_scan_inventory_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> head_image_scan_inventory_with_http_info
+
+```ruby
+begin
+  # Get headers for POST request for image scan inventory
+  data, status_code, headers = api_instance.head_image_scan_inventory_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImage->head_image_scan_inventory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## launch_export_job
 
 > <ExportsLaunchExportResponse> launch_export_job(body)
@@ -280,6 +347,74 @@ end
 ### Return type
 
 [**ExportsLaunchExportResponse**](ExportsLaunchExportResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## post_image_scan_inventory
+
+> post_image_scan_inventory(body)
+
+Post image scan inventory
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FalconContainerImage.new
+body = Falcon::ModelsInventoryScanRequestType.new({agent_uuid: 'agent_uuid_example', agent_version: 'agent_version_example', agent_version_hash: 'agent_version_hash_example', cluster_id: 'cluster_id_example', cluster_name: 'cluster_name_example', helm_version: 'helm_version_example', host_ip: 'host_ip_example', host_name: 'host_name_example', inventory: Falcon::ModelsInventoryType.new({config: Falcon::V1Image.new({architecture: 'architecture_example', os: 'os_example', rootfs: Falcon::V1RootFS.new({diff_ids: ['diff_ids_example'], type: 'type_example'})}), config_info: Falcon::ModelsConfigInfoType.new({cmd: ['cmd_example'], entrypoint: ['entrypoint_example'], env: ['env_example'], exposed_ports: { key: 3.56}, labels: { key: 'inner_example'}, stop_signal: 'stop_signal_example', user: 'user_example', volumes: { key: 3.56}, working_dir: 'working_dir_example'}), elf_binaries: [Falcon::ModelsELFBinaryInfoType.new({details: 3.56, hash: 'hash_example', malicious: false, path: 'path_example', permissions: 'permissions_example', size: 3.56})], image_info: Falcon::ModelsImageInfoType.new({architecture: 'architecture_example', digest: 'digest_example', id: 'id_example', size: 3.56}), inventory_engine_info: Falcon::ModelsInventoryEngineInfoType.new({cwpp_scanner_version: 'cwpp_scanner_version_example', engine_version: 'engine_version_example', malware_metadata: { key: 'inner_example'}}), layers: [Falcon::ModelsLayerInfoType.new({created_at: 'created_at_example', created_by: 'created_by_example', digest: 'digest_example', size: 3.56, type: 37})], manifest: Falcon::Schema2Manifest.new({config: Falcon::DistributionDescriptor.new, layers: [Falcon::DistributionDescriptor.new], schema_version: 37}), os_info: Falcon::ModelsOSInfoType.new({name: 'name_example', version: 'version_example'}), packages: [Falcon::ModelsPackageInfoType.new]}), original_image_name: 'original_image_name_example', runmode: 'runmode_example', scan_request: Falcon::ModelsScanRequestType.new({config: Falcon::V1Image.new({architecture: 'architecture_example', os: 'os_example', rootfs: Falcon::V1RootFS.new({diff_ids: ['diff_ids_example'], type: 'type_example'})}), config_info: Falcon::ModelsConfigInfoType.new({cmd: ['cmd_example'], entrypoint: ['entrypoint_example'], env: ['env_example'], exposed_ports: { key: 3.56}, labels: { key: 'inner_example'}, stop_signal: 'stop_signal_example', user: 'user_example', volumes: { key: 3.56}, working_dir: 'working_dir_example'}), image_metadata: Falcon::ModelsImageMetadataType.new, layers: [Falcon::ModelsLayerInfoType.new({created_at: 'created_at_example', created_by: 'created_by_example', digest: 'digest_example', size: 3.56, type: 37})], manifest: Falcon::Schema2Manifest.new({config: , layers: [], schema_version: 37}), high_entropy_strings_s3_key: 'high_entropy_strings_s3_key_example', image_inventory_s3_key: 'image_inventory_s3_key_example', layer_inventory_s3_key: 'layer_inventory_s3_key_example', scan_report_s3_key: 'scan_report_s3_key_example', scan_request_s3_key: 'scan_request_s3_key_example'})}) # ModelsInventoryScanRequestType | 
+
+begin
+  # Post image scan inventory
+  api_instance.post_image_scan_inventory(body)
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImage->post_image_scan_inventory: #{e}"
+end
+```
+
+#### Using the post_image_scan_inventory_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> post_image_scan_inventory_with_http_info(body)
+
+```ruby
+begin
+  # Post image scan inventory
+  data, status_code, headers = api_instance.post_image_scan_inventory_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconContainerImage->post_image_scan_inventory_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsInventoryScanRequestType**](ModelsInventoryScanRequestType.md) |  |  |
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

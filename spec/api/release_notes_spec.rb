@@ -78,6 +78,19 @@ describe 'ReleaseNotes' do
     end
   end
 
+  # unit tests for get_entity_ids_by_query_postv2
+  # returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+  # @param authorization authorization header
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_cs_username user name
+  # @return [ReleasenotesReleaseNoteWrapperV2]
+  describe 'get_entity_ids_by_query_postv2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for query_release_notes_v1
   # Queries for release-notes resources and returns ids
   # @param authorization authorization header

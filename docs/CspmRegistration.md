@@ -16,6 +16,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**delete_cspm_azure_management_group**](CspmRegistration.md#delete_cspm_azure_management_group) | **DELETE** /cloud-connect-cspm-azure/entities/management-group/v1 | Deletes Azure management groups from the system. |
 | [**delete_cspm_gcp_account**](CspmRegistration.md#delete_cspm_gcp_account) | **DELETE** /cloud-connect-cspm-gcp/entities/account/v1 | Deletes a GCP account from the system. |
 | [**get_behavior_detections**](CspmRegistration.md#get_behavior_detections) | **GET** /detects/entities/ioa/v1 | Get list of detected behaviors |
+| [**get_cloud_event_ids**](CspmRegistration.md#get_cloud_event_ids) | **GET** /detects/queries/cloud-events/v1 | Get list of related cloud event LogScale IDs for a given IOA |
 | [**get_configuration_detection_entities**](CspmRegistration.md#get_configuration_detection_entities) | **GET** /detects/entities/iom/v2 | Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections. |
 | [**get_configuration_detection_ids_v2**](CspmRegistration.md#get_configuration_detection_ids_v2) | **GET** /detects/queries/iom/v2 | Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections. |
 | [**get_configuration_detections**](CspmRegistration.md#get_configuration_detections) | **GET** /detects/entities/iom/v1 | Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead |
@@ -906,6 +907,77 @@ end
 ### Return type
 
 [**RegistrationExternalIOAEventResponse**](RegistrationExternalIOAEventResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_cloud_event_ids
+
+> <CdrioamanagerGetCloudEventIDsResponse> get_cloud_event_ids(x_cs_useruuid, id)
+
+Get list of related cloud event LogScale IDs for a given IOA
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CspmRegistration.new
+x_cs_useruuid = 'x_cs_useruuid_example' # String | Requester User UUID
+id = 'id_example' # String | IOA Aggregate Event ID
+
+begin
+  # Get list of related cloud event LogScale IDs for a given IOA
+  result = api_instance.get_cloud_event_ids(x_cs_useruuid, id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cloud_event_ids: #{e}"
+end
+```
+
+#### Using the get_cloud_event_ids_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CdrioamanagerGetCloudEventIDsResponse>, Integer, Hash)> get_cloud_event_ids_with_http_info(x_cs_useruuid, id)
+
+```ruby
+begin
+  # Get list of related cloud event LogScale IDs for a given IOA
+  data, status_code, headers = api_instance.get_cloud_event_ids_with_http_info(x_cs_useruuid, id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CdrioamanagerGetCloudEventIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling CspmRegistration->get_cloud_event_ids_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **x_cs_useruuid** | **String** | Requester User UUID |  |
+| **id** | **String** | IOA Aggregate Event ID |  |
+
+### Return type
+
+[**CdrioamanagerGetCloudEventIDsResponse**](CdrioamanagerGetCloudEventIDsResponse.md)
 
 ### Authorization
 

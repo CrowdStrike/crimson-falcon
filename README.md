@@ -151,7 +151,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**delete_group_id_09**](docs/ASPM.md#delete_group_id_09)
 - **DELETE**: /aspm-api-gateway/api/v1/group/{ID}
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -277,6 +277,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
+- **Operation**: [**get_cspm_inventory_ba_services**](docs/ASPM.md#get_cspm_inventory_ba_services)
+- **GET**: /application-security/combined/cspm-inventory-ba-services/v1
+- **Description**: Gets services ordered by risk score for given BA
+
+---
+
+**Class**: `Falcon::ASPM`
+
+- **Operation**: [**get_cspm_inventory_service_details**](docs/ASPM.md#get_cspm_inventory_service_details)
+- **GET**: /application-security/combined/cspm-inventory-service-data/v1
+- **Description**: Gets all service details for CSPM Inventory.
+
+---
+
+**Class**: `Falcon::ASPM`
+
 - **Operation**: [**get_executor_nodes**](docs/ASPM.md#get_executor_nodes)
 - **GET**: /aspm-api-gateway/api/v1/executor_nodes
 - **Description**: Get all the relay nodes
@@ -319,7 +335,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_groups_list_v2**](docs/ASPM.md#get_groups_list_v2)
 - **GET**: /aspm-api-gateway/api/v1/groups/list/v2
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -383,7 +399,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_service_artifacts**](docs/ASPM.md#get_service_artifacts)
 - **GET**: /aspm-api-gateway/api/v1/artifacts
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -471,7 +487,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**service_now_get_deployments**](docs/ASPM.md#service_now_get_deployments)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/deployments
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -479,7 +495,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**service_now_get_services**](docs/ASPM.md#service_now_get_services)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/services
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -531,6 +547,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::ActivityMonitor`
+
+- **Operation**: [**get_activity_monitor_v3**](docs/ActivityMonitor.md#get_activity_monitor_v3)
+- **GET**: /saas-security/entities/monitor/v3
+- **Description**: GET Activity Monitor
+
+---
+
+**Class**: `Falcon::Alerts`
+
+- **Operation**: [**get_alerts_v3**](docs/Alerts.md#get_alerts_v3)
+- **GET**: /saas-security/entities/alerts/v3
+- **Description**: GET Alert by ID or GET Alerts
+
+---
+
 **Class**: `Falcon::Alerts`
 
 - **Operation**: [**get_queries_alerts_v1**](docs/Alerts.md#get_queries_alerts_v1)
@@ -551,7 +583,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**patch_entities_alerts_v2**](docs/Alerts.md#patch_entities_alerts_v2)
 - **PATCH**: /alerts/entities/alerts/v2
-- **Description**: Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+- **Description**: Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
 ---
 
@@ -559,7 +591,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**patch_entities_alerts_v3**](docs/Alerts.md#patch_entities_alerts_v3)
 - **PATCH**: /alerts/entities/alerts/v3
-- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.  
+- **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
 ---
 
@@ -583,7 +615,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**post_combined_alerts_v1**](docs/Alerts.md#post_combined_alerts_v1)
 - **POST**: /alerts/combined/alerts/v1
-- **Description**: Retrieves all Alerts that match a particular FQL filter. This API is intended for retrieval of large amounts of Alerts(&gt;10k) using a pagination based on a &#x60;after&#x60; token. If you need to use &#x60;offset&#x60; pagination, consider using GET /alerts/queries/alerts/* and POST /alerts/entities/alerts/* APIs.  
+- **Description**: Retrieves all Alerts that match a particular FQL filter. This API is intended for retrieval of large amounts of Alerts(&gt;10k) using a pagination based on a &#x60;after&#x60; token. If you need to use &#x60;offset&#x60; pagination, consider using GET /alerts/queries/alerts/*and POST /alerts/entities/alerts/* APIs.
 
 ---
 
@@ -749,9 +781,49 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
+- **Operation**: [**cloud_registration_azure_create_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_create_registration)
+- **POST**: /cloud-security-registration-azure/entities/registrations/v1
+- **Description**: Create an Azure registration for a tenant.
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
+- **Operation**: [**cloud_registration_azure_delete_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_delete_registration)
+- **DELETE**: /cloud-security-registration-azure/entities/registrations/v1
+- **Description**: Deletes existing Azure registrations.
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
 - **Operation**: [**cloud_registration_azure_download_script**](docs/CloudAzureRegistration.md#cloud_registration_azure_download_script)
 - **POST**: /cloud-security-registration-azure/entities/scripts/v1
 - **Description**: Retrieve script to create resources
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
+- **Operation**: [**cloud_registration_azure_get_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_get_registration)
+- **GET**: /cloud-security-registration-azure/entities/registrations/v1
+- **Description**: Retrieve existing Azure registration for a tenant.
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
+- **Operation**: [**cloud_registration_azure_update_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_update_registration)
+- **PATCH**: /cloud-security-registration-azure/entities/registrations/v1
+- **Description**: Update an existing Azure registration for a tenant.
+
+---
+
+**Class**: `Falcon::CloudAzureRegistration`
+
+- **Operation**: [**download_azure_script**](docs/CloudAzureRegistration.md#download_azure_script)
+- **GET**: /cloud-security-registration-azure/entities/scripts/v1
+- **Description**: Download Azure deployment script (Terraform or Bicep)
 
 ---
 
@@ -1693,6 +1765,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
+- **Operation**: [**get_cloud_event_ids**](docs/CspmRegistration.md#get_cloud_event_ids)
+- **GET**: /detects/queries/cloud-events/v1
+- **Description**: Get list of related cloud event LogScale IDs for a given IOA
+
+---
+
+**Class**: `Falcon::CspmRegistration`
+
 - **Operation**: [**get_configuration_detection_entities**](docs/CspmRegistration.md#get_configuration_detection_entities)
 - **GET**: /detects/entities/iom/v2
 - **Description**: Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections.
@@ -2355,43 +2435,11 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::Datascanner`
-
-- **Operation**: [**get_data_scanner_tasks**](docs/Datascanner.md#get_data_scanner_tasks)
-- **GET**: /data-security-dspm/entities/scanner-tasks/v1
-- **Description**: 
-
----
-
-**Class**: `Falcon::Datascanner`
-
-- **Operation**: [**get_image_registry_credentials**](docs/Datascanner.md#get_image_registry_credentials)
-- **GET**: /data-security-dspm/entities/image-registry-credentials/v1
-- **Description**: 
-
----
-
-**Class**: `Falcon::Datascanner`
-
-- **Operation**: [**update_data_scanner_tasks**](docs/Datascanner.md#update_data_scanner_tasks)
-- **PATCH**: /data-security-dspm/entities/scanner-tasks/v1
-- **Description**: 
-
----
-
-**Class**: `Falcon::Default`
-
-- **Operation**: [**get_rules_metadata_by_id**](docs/Default.md#get_rules_metadata_by_id)
-- **GET**: /container-compliance/combined/rule-details-by-rule-ids/v1
-- **Description**: Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
-
----
-
 **Class**: `Falcon::Default`
 
 - **Operation**: [**post_graphql_query_mixin0**](docs/Default.md#post_graphql_query_mixin0)
 - **POST**: /cloud-data-protection/entities/schedules/graphql/v2
-- **Description**: 
+- **Description**:
 
 ---
 
@@ -2907,11 +2955,19 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::ExposureManagement`
+
+- **Operation**: [**query_external_assets_v2**](docs/ExposureManagement.md#query_external_assets_v2)
+- **GET**: /fem/queries/external-assets/v2
+- **Description**: Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoint
+
+---
+
 **Class**: `Falcon::FalconCompleteDashboard`
 
 - **Operation**: [**aggregate_alerts**](docs/FalconCompleteDashboard.md#aggregate_alerts)
 - **POST**: /falcon-complete-dashboards/aggregates/alerts/GET/v1
-- **Description**: Retrieve aggregate alerts values based on the matched filter
+- **Description**: Retrieve aggregate epp alerts values based on the matched filter
 
 ---
 
@@ -3015,7 +3071,15 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**query_alert_ids_by_filter**](docs/FalconCompleteDashboard.md#query_alert_ids_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/alerts/v1
-- **Description**: Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+- **Description**: Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
+
+---
+
+**Class**: `Falcon::FalconCompleteDashboard`
+
+- **Operation**: [**query_alert_ids_by_filter_v2**](docs/FalconCompleteDashboard.md#query_alert_ids_by_filter_v2)
+- **GET**: /falcon-complete-dashboards/queries/alerts/v2
+- **Description**: Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
 
 ---
 
@@ -3109,9 +3173,25 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
+- **Operation**: [**head_image_scan_inventory**](docs/FalconContainerImage.md#head_image_scan_inventory)
+- **HEAD**: /image-assessment/entities/image-inventory/v1
+- **Description**: Get headers for POST request for image scan inventory
+
+---
+
+**Class**: `Falcon::FalconContainerImage`
+
 - **Operation**: [**launch_export_job**](docs/FalconContainerImage.md#launch_export_job)
 - **POST**: /container-security/entities/exports/v1
 - **Description**: Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
+
+---
+
+**Class**: `Falcon::FalconContainerImage`
+
+- **Operation**: [**post_image_scan_inventory**](docs/FalconContainerImage.md#post_image_scan_inventory)
+- **POST**: /image-assessment/entities/image-inventory/v1
+- **Description**: Post image scan inventory
 
 ---
 
@@ -3335,7 +3415,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**delete_rule_groups**](docs/Filevantage.md#delete_rule_groups)
 - **DELETE**: /filevantage/entities/rule-groups/v1
-- **Description**: Deletes 1 or more rule groups 
+- **Description**: Deletes 1 or more rule groups
 
 ---
 
@@ -3995,14 +4075,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
-**Class**: `Falcon::Handle`
-
-- **Operation**: [**handle**](docs/Handle.md#handle)
-- **POST**: /data-security-dspm/entities/kafka-rest-produce/v1
-- **Description**: 
-
----
-
 **Class**: `Falcon::HostGroup`
 
 - **Operation**: [**create_host_groups**](docs/HostGroup.md#create_host_groups)
@@ -4539,6 +4611,38 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::IntegrationBuilder`
+
+- **Operation**: [**integration_builder_end_transaction_v3**](docs/IntegrationBuilder.md#integration_builder_end_transaction_v3)
+- **POST**: /saas-security/entities/custom-integration-close/v3
+- **Description**: POST Data Upload Transaction Completion
+
+---
+
+**Class**: `Falcon::IntegrationBuilder`
+
+- **Operation**: [**integration_builder_get_status_v3**](docs/IntegrationBuilder.md#integration_builder_get_status_v3)
+- **GET**: /saas-security/entities/custom-integration-status/v3
+- **Description**: GET Status
+
+---
+
+**Class**: `Falcon::IntegrationBuilder`
+
+- **Operation**: [**integration_builder_reset_v3**](docs/IntegrationBuilder.md#integration_builder_reset_v3)
+- **POST**: /saas-security/entities/custom-integration-reset/v3
+- **Description**: Reset
+
+---
+
+**Class**: `Falcon::IntegrationBuilder`
+
+- **Operation**: [**integration_builder_upload_v3**](docs/IntegrationBuilder.md#integration_builder_upload_v3)
+- **POST**: /saas-security/entities/custom-integration-upload/v3
+- **Description**: POST Upload
+
+---
+
 **Class**: `Falcon::Intel`
 
 - **Operation**: [**get_intel_actor_entities**](docs/Intel.md#get_intel_actor_entities)
@@ -4701,6 +4805,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
+- **Operation**: [**query_malware_entities**](docs/Intel.md#query_malware_entities)
+- **GET**: /intel/combined/malware/v1
+- **Description**: Get malware entities that match provided FQL filters.
+
+---
+
+**Class**: `Falcon::Intel`
+
 - **Operation**: [**query_mitre_attacks**](docs/Intel.md#query_mitre_attacks)
 - **GET**: /intel/queries/mitre/v1
 - **Description**: Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
@@ -4749,9 +4861,9 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceIndicatorGraph`
 
-- **Operation**: [**get_indicator_aggregates**](docs/IntelligenceIndicatorGraph.md#get_indicator_aggregates)
-- **POST**: /intelligence/aggregates/indicators/v1
-- **Description**: Get aggregates for indicators based on requests
+- **Operation**: [**lookup_indicators**](docs/IntelligenceIndicatorGraph.md#lookup_indicators)
+- **POST**: /intelligence/combined/lookup-indicators/v1
+- **Description**: Get indicators based on their value.
 
 ---
 
@@ -4760,6 +4872,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**search_indicators**](docs/IntelligenceIndicatorGraph.md#search_indicators)
 - **POST**: /intelligence/combined/indicators/v1
 - **Description**: Search indicators based on FQL filter.
+
+---
+
+**Class**: `Falcon::Inventories`
+
+- **Operation**: [**get_device_inventory_v3**](docs/Inventories.md#get_device_inventory_v3)
+- **GET**: /saas-security/entities/devices/v3
+- **Description**: GET Device Inventory
+
+---
+
+**Class**: `Falcon::Inventories`
+
+- **Operation**: [**get_user_inventory_v3**](docs/Inventories.md#get_user_inventory_v3)
+- **GET**: /saas-security/entities/users/v3
+- **Description**: GET User Inventory
 
 ---
 
@@ -5032,6 +5160,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**combined_nodes_findings**](docs/KubernetesContainerCompliance.md#combined_nodes_findings)
 - **GET**: /container-compliance/combined/findings-by-nodes/v2
 - **Description**: Returns detailed compliance assessment results for kubernetes nodes, providing the information needed to identify compliance violations.
+
+---
+
+**Class**: `Falcon::KubernetesContainerCompliance`
+
+- **Operation**: [**get_rules_metadata_by_id**](docs/KubernetesContainerCompliance.md#get_rules_metadata_by_id)
+- **GET**: /container-compliance/combined/rule-details-by-rule-ids/v1
+- **Description**: Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
 
 ---
 
@@ -5653,14 +5789,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**create_case**](docs/MessageCenter.md#create_case)
-- **POST**: /message-center/entities/case/v1
-- **Description**: create a new case
-
----
-
-**Class**: `Falcon::MessageCenter`
-
 - **Operation**: [**create_case_v2**](docs/MessageCenter.md#create_case_v2)
 - **POST**: /message-center/entities/case/v2
 - **Description**: create a new case
@@ -5767,7 +5895,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**add_role**](docs/Mssp.md#add_role)
 - **POST**: /mssp/entities/mssp-roles/v1
-- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request. 
+- **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
 
 ---
 
@@ -6693,6 +6821,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
+- **Operation**: [**r_tr_get_put_file_contents**](docs/RealTimeResponseAdmin.md#r_tr_get_put_file_contents)
+- **GET**: /real-time-response/entities/put-file-contents/v1
+- **Description**: Get RTR put file contents for a given file ID
+
+---
+
+**Class**: `Falcon::RealTimeResponseAdmin`
+
 - **Operation**: [**r_tr_get_put_files**](docs/RealTimeResponseAdmin.md#r_tr_get_put_files)
 - **GET**: /real-time-response/entities/put-files/v1
 - **Description**: Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
@@ -6863,7 +6999,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_notifications_detailed_translated_v1**](docs/Recon.md#get_notifications_detailed_translated_v1)
 - **GET**: /recon/entities/notifications-detailed-translated/v1
-- **Description**: Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
+- **Description**: Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
 
 ---
 
@@ -6871,7 +7007,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 - **Operation**: [**get_notifications_detailed_v1**](docs/Recon.md#get_notifications_detailed_v1)
 - **GET**: /recon/entities/notifications-detailed/v1
-- **Description**: Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
+- **Description**: Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
 
 ---
 
@@ -6984,6 +7120,14 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**get_entity_ids_by_query_post**](docs/ReleaseNotes.md#get_entity_ids_by_query_post)
 - **POST**: /deployment-coordinator/entities/release-notes/GET/v1
 - **Description**: returns the release notes for the IDs in the request
+
+---
+
+**Class**: `Falcon::ReleaseNotes`
+
+- **Operation**: [**get_entity_ids_by_query_postv2**](docs/ReleaseNotes.md#get_entity_ids_by_query_postv2)
+- **POST**: /deployment-coordinator/entities/release-notes/GET/v2
+- **Description**: returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
 
 ---
 
@@ -7123,6 +7267,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 ---
 
+**Class**: `Falcon::SaaS`
+
+- **Operation**: [**get_integrations_v3**](docs/SaaS.md#get_integrations_v3)
+- **GET**: /saas-security/entities/integrations/v3
+- **Description**: GET Integrations
+
+---
+
+**Class**: `Falcon::SaaS`
+
+- **Operation**: [**get_supported_saas_v3**](docs/SaaS.md#get_supported_saas_v3)
+- **GET**: /saas-security/entities/supported-saas/v3
+- **Description**: GET Supported SaaS
+
+---
+
 **Class**: `Falcon::SampleUploads`
 
 - **Operation**: [**archive_delete_v1**](docs/SampleUploads.md#archive_delete_v1)
@@ -7232,6 +7392,54 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**scheduled_reports_query**](docs/ScheduledReports.md#scheduled_reports_query)
 - **GET**: /reports/queries/scheduled-reports/v1
 - **Description**: Find all report IDs matching the query with filter
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**dismiss_affected_entity_v3**](docs/SecurityCheck.md#dismiss_affected_entity_v3)
+- **POST**: /saas-security/entities/check-dismiss-affected/v3
+- **Description**: POST Dismiss Affected Entity
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**dismiss_security_check_v3**](docs/SecurityCheck.md#dismiss_security_check_v3)
+- **POST**: /saas-security/entities/check-dismiss/v3
+- **Description**: POST Dismiss Security Check by ID
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**get_metrics_v3**](docs/SecurityCheck.md#get_metrics_v3)
+- **GET**: /saas-security/aggregates/check-metrics/v3
+- **Description**: GET Metrics
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**get_security_check_affected_v3**](docs/SecurityCheck.md#get_security_check_affected_v3)
+- **GET**: /saas-security/entities/check-affected/v3
+- **Description**: GET Security Check Affected
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**get_security_check_compliance_v3**](docs/SecurityCheck.md#get_security_check_compliance_v3)
+- **GET**: /saas-security/entities/compliance/v3
+- **Description**: GET Compliance
+
+---
+
+**Class**: `Falcon::SecurityCheck`
+
+- **Operation**: [**get_security_checks_v3**](docs/SecurityCheck.md#get_security_checks_v3)
+- **GET**: /saas-security/entities/checks/v3
+- **Description**: GET Security Check by ID or GET List Security Checks
 
 ---
 
@@ -7560,6 +7768,22 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilities.md#query_vulnerabilities)
 - **GET**: /spotlight/queries/vulnerabilities/v1
 - **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
+
+---
+
+**Class**: `Falcon::System`
+
+- **Operation**: [**get_system_logs_v3**](docs/System.md#get_system_logs_v3)
+- **GET**: /saas-security/entities/system-logs/v3
+- **Description**: GET System Logs
+
+---
+
+**Class**: `Falcon::System`
+
+- **Operation**: [**get_system_users_v3**](docs/System.md#get_system_users_v3)
+- **GET**: /saas-security/entities/system-users/v3
+- **Description**: GET System Users
 
 ---
 
@@ -8034,7 +8258,6 @@ We appreciate your interest in our project and look forward to collaborating wit
 - **Description**: Get the Zero Trust Assessment audit report for one customer ID (CID).
 
 ---
-
 
 ## Support
 

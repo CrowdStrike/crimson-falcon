@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **result_json** | **Array&lt;Object&gt;** |  |  |
-| **result_type** | **String** |  |  |
+| **result_json** | **Array&lt;Object&gt;** |  | [optional] |
+| **result_type** | **String** |  | [optional] |
 
 ## Example
 

@@ -64,6 +64,8 @@ module Falcon
 
     attr_accessor :schedule
 
+    attr_accessor :schedule_type
+
     attr_accessor :shared_with
 
     attr_accessor :start_on
@@ -103,6 +105,7 @@ module Falcon
         :'report_metadata' => :'report_metadata',
         :'report_params' => :'report_params',
         :'schedule' => :'schedule',
+        :'schedule_type' => :'schedule_type',
         :'shared_with' => :'shared_with',
         :'start_on' => :'start_on',
         :'status' => :'status',
@@ -140,6 +143,7 @@ module Falcon
         :'report_metadata' => :'DomainReportMetadata',
         :'report_params' => :'DomainReportParams',
         :'schedule' => :'DomainSchedule',
+        :'schedule_type' => :'String',
         :'shared_with' => :'Array<String>',
         :'start_on' => :'Time',
         :'status' => :'String',
@@ -240,6 +244,10 @@ module Falcon
         self.schedule = attributes[:'schedule']
       end
 
+      if attributes.key?(:'schedule_type')
+        self.schedule_type = attributes[:'schedule_type']
+      end
+
       if attributes.key?(:'shared_with')
         if (value = attributes[:'shared_with']).is_a?(Array)
           self.shared_with = value
@@ -327,6 +335,10 @@ module Falcon
         invalid_properties.push('invalid value for "schedule", schedule cannot be nil.')
       end
 
+      if @schedule_type.nil?
+        invalid_properties.push('invalid value for "schedule_type", schedule_type cannot be nil.')
+      end
+
       if @shared_with.nil?
         invalid_properties.push('invalid value for "shared_with", shared_with cannot be nil.')
       end
@@ -363,6 +375,7 @@ module Falcon
       return false if @notifications.nil?
       return false if @report_params.nil?
       return false if @schedule.nil?
+      return false if @schedule_type.nil?
       return false if @shared_with.nil?
       return false if @status.nil?
       return false if @type.nil?
@@ -392,6 +405,7 @@ module Falcon
           report_metadata == o.report_metadata &&
           report_params == o.report_params &&
           schedule == o.schedule &&
+          schedule_type == o.schedule_type &&
           shared_with == o.shared_with &&
           start_on == o.start_on &&
           status == o.status &&
@@ -413,7 +427,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, shared_with, start_on, status, stop_on, stopped_by_cs, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, schedule_type, shared_with, start_on, status, stop_on, stopped_by_cs, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

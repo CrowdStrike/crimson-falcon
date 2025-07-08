@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **diff_operations** | [**Array&lt;FwmgrApiJsonDiff&gt;**](FwmgrApiJsonDiff.md) |  |  |
+| **diff_operations** | [**Array&lt;FwmgrApiJSONDiff&gt;**](FwmgrApiJSONDiff.md) |  |  |
 | **diff_type** | **String** |  |  |
 | **id** | **String** |  |  |
 | **rule_ids** | **Array&lt;String&gt;** |  |  |

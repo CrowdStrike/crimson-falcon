@@ -56,6 +56,7 @@
 | **target_regions** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) | Target geographic regions of actor&#39;s activity and attacks. List of available values: North America, Western Europe, Southeast Asia, Middle East, Eastern Europe, South Asia, South America, Oceania, East Asia, Central Africa, Northern Europe, Southern Europe, North Africa, Southern Africa, Central America, Central Asia, East Africa, West Africa, Caribbean |  |
 | **thumbnail** | [**DomainImage**](DomainImage.md) |  | [optional] |
 | **url** | **String** | URL at which actor profile can be accessed | [optional] |
+| **uses_distinct_indicators_count** | **Integer** |  | [optional] |
 | **uses_indicators_count** | **Integer** |  | [optional] |
 | **uses_mitre_attacks_count** | **Integer** |  | [optional] |
 | **uses_mitre_tactics_count** | **Integer** |  | [optional] |
@@ -123,6 +124,7 @@ instance = Falcon::DomainActorDocument.new(
   target_regions: null,
   thumbnail: null,
   url: null,
+  uses_distinct_indicators_count: null,
   uses_indicators_count: null,
   uses_mitre_attacks_count: null,
   uses_mitre_tactics_count: null,

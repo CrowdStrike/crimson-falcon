@@ -62,10 +62,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'live_cost' => :'Integer',
-        :'live_cost_rate' => :'Integer',
-        :'static_cost' => :'Integer',
-        :'static_cost_rate' => :'Integer'
+        :'live_cost' => :'Float',
+        :'live_cost_rate' => :'Float',
+        :'static_cost' => :'Float',
+        :'static_cost_rate' => :'Float'
       }
     end
 

@@ -260,7 +260,7 @@ describe 'ASPM' do
   # Execute a query. The syntax used is identical to that of the query page.
   # @param body  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
   # @param [Hash] opts the optional parameters
-  # @return [TypesQueryResult]
+  # @return [TypesQueryResponse]
   describe 'execute_query test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -272,6 +272,30 @@ describe 'ASPM' do
   # @param [Hash] opts the optional parameters
   # @return [TypesGetCloudSecurityIntegrationStateResponse]
   describe 'get_cloud_security_integration_state test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cspm_inventory_ba_services
+  # Gets services ordered by risk score for given BA
+  # @param business_application_name Business application name
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset Pagination offset
+  # @option opts [Integer] :limit Pagination limit
+  # @return [TypesGeneralQueryResponse]
+  describe 'get_cspm_inventory_ba_services test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for get_cspm_inventory_service_details
+  # Gets all service details for CSPM Inventory.
+  # @param persistent_signature Service signature
+  # @param [Hash] opts the optional parameters
+  # @return [TypesGeneralQueryResponse]
+  describe 'get_cspm_inventory_service_details test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

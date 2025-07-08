@@ -42,7 +42,19 @@ describe Falcon::DomainFeatureStatus do
       expect(instance).to be_instance_of(Falcon::DomainFeatureStatus)
     end
   end
-  describe 'test attribute "feature"' do
+  describe 'test attribute "enabled"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "failed_permissions"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "passed_permissions"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

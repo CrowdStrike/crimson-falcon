@@ -49,12 +49,13 @@ describe 'IntelligenceIndicatorGraph' do
     end
   end
 
-  # unit tests for get_indicator_aggregates
-  # Get aggregates for indicators based on requests
+  # unit tests for lookup_indicators
+  # Get indicators based on their value.
+  # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [RestapiIndicatorsAggregatesResponse]
-  describe 'get_indicator_aggregates test' do
+  # @return [RestapiLookupIndicatorResponse]
+  describe 'lookup_indicators test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -64,6 +65,8 @@ describe 'IntelligenceIndicatorGraph' do
   # Search indicators based on FQL filter.
   # @param body
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :sort Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;.
+  # @option opts [String] :filter FQL query specifying the filter parameters.
   # @option opts [Integer] :limit Limit
   # @option opts [String] :offset Offset
   # @return [RestapiIndicatorResponse]

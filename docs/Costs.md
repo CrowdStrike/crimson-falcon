@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **live_cost** | **Integer** | The cost of execution of a live query |  |
-| **live_cost_rate** | **Integer** | The rate of the live cost query |  |
-| **static_cost** | **Integer** | The cost for executing as a static query |  |
-| **static_cost_rate** | **Integer** | The rate for executing static queries |  |
+| **live_cost** | **Float** | The cost of execution of a live query |  |
+| **live_cost_rate** | **Float** | The rate of the live cost query |  |
+| **static_cost** | **Float** | The cost for executing as a static query |  |
+| **static_cost_rate** | **Float** | The rate for executing static queries |  |
 
 ## Example
 

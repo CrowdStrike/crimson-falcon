@@ -132,6 +132,12 @@ describe Falcon::ModelsCluster do
     end
   end
 
+  describe 'test attribute "kac_agent_active"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "kac_agent_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

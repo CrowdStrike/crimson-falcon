@@ -38,13 +38,13 @@ module Falcon
 
     attr_accessor :discover_params
 
+    attr_accessor :kestrel_data_export_params
+
     attr_accessor :kestrel_params
 
     attr_accessor :last_scheduled_execution
 
     attr_accessor :last_unscheduled_execution
-
-    attr_accessor :runs_without_schedule
 
     attr_accessor :subtype
 
@@ -56,10 +56,10 @@ module Falcon
         :'created_by_user_id' => :'created_by_user_id',
         :'created_by_uuid' => :'created_by_uuid',
         :'discover_params' => :'discover_params',
+        :'kestrel_data_export_params' => :'kestrel_data_export_params',
         :'kestrel_params' => :'kestrel_params',
         :'last_scheduled_execution' => :'last_scheduled_execution',
         :'last_unscheduled_execution' => :'last_unscheduled_execution',
-        :'runs_without_schedule' => :'runs_without_schedule',
         :'subtype' => :'subtype',
         :'xdr_params' => :'xdr_params'
       }
@@ -76,10 +76,10 @@ module Falcon
         :'created_by_user_id' => :'String',
         :'created_by_uuid' => :'String',
         :'discover_params' => :'DomainDiscoverParams',
+        :'kestrel_data_export_params' => :'DomainKestrelDataExportParams',
         :'kestrel_params' => :'DomainKestrelParams',
         :'last_scheduled_execution' => :'DomainLastScheduledExecution',
         :'last_unscheduled_execution' => :'DomainLastUnscheduledExecution',
-        :'runs_without_schedule' => :'Boolean',
         :'subtype' => :'String',
         :'xdr_params' => :'DomainXDRParams'
       }
@@ -118,6 +118,10 @@ module Falcon
         self.discover_params = attributes[:'discover_params']
       end
 
+      if attributes.key?(:'kestrel_data_export_params')
+        self.kestrel_data_export_params = attributes[:'kestrel_data_export_params']
+      end
+
       if attributes.key?(:'kestrel_params')
         self.kestrel_params = attributes[:'kestrel_params']
       end
@@ -128,10 +132,6 @@ module Falcon
 
       if attributes.key?(:'last_unscheduled_execution')
         self.last_unscheduled_execution = attributes[:'last_unscheduled_execution']
-      end
-
-      if attributes.key?(:'runs_without_schedule')
-        self.runs_without_schedule = attributes[:'runs_without_schedule']
       end
 
       if attributes.key?(:'subtype')
@@ -159,10 +159,6 @@ module Falcon
         invalid_properties.push('invalid value for "last_unscheduled_execution", last_unscheduled_execution cannot be nil.')
       end
 
-      if @runs_without_schedule.nil?
-        invalid_properties.push('invalid value for "runs_without_schedule", runs_without_schedule cannot be nil.')
-      end
-
       if @subtype.nil?
         invalid_properties.push('invalid value for "subtype", subtype cannot be nil.')
       end
@@ -176,7 +172,6 @@ module Falcon
       return false if @created_by_user_id.nil?
       return false if @created_by_uuid.nil?
       return false if @last_unscheduled_execution.nil?
-      return false if @runs_without_schedule.nil?
       return false if @subtype.nil?
       true
     end
@@ -189,10 +184,10 @@ module Falcon
           created_by_user_id == o.created_by_user_id &&
           created_by_uuid == o.created_by_uuid &&
           discover_params == o.discover_params &&
+          kestrel_data_export_params == o.kestrel_data_export_params &&
           kestrel_params == o.kestrel_params &&
           last_scheduled_execution == o.last_scheduled_execution &&
           last_unscheduled_execution == o.last_unscheduled_execution &&
-          runs_without_schedule == o.runs_without_schedule &&
           subtype == o.subtype &&
           xdr_params == o.xdr_params
     end
@@ -206,7 +201,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_by_user_id, created_by_uuid, discover_params, kestrel_params, last_scheduled_execution, last_unscheduled_execution, runs_without_schedule, subtype, xdr_params].hash
+      [created_by_user_id, created_by_uuid, discover_params, kestrel_data_export_params, kestrel_params, last_scheduled_execution, last_unscheduled_execution, subtype, xdr_params].hash
     end
 
     # Builds the object from hash

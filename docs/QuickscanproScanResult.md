@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **beta_intelligence_context** | **Object** |  | [optional] |
 | **file_artifacts** | [**Array&lt;QuickscanproFileResult&gt;**](QuickscanproFileResult.md) |  |  |
-| **mitre_attacks** | [**Array&lt;QuickscanproMITREAttack&gt;**](QuickscanproMITREAttack.md) |  | [optional] |
+| **mitre_attacks** | [**Array&lt;DomainMITREAttack&gt;**](DomainMITREAttack.md) |  | [optional] |
 | **url_artifacts** | [**Array&lt;QuickscanproURLResult&gt;**](QuickscanproURLResult.md) |  | [optional] |
 | **verdict** | **String** |  |  |
 | **verdict_reason** | **String** |  |  |

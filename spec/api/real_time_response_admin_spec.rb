@@ -150,6 +150,17 @@ describe 'RealTimeResponseAdmin' do
     end
   end
 
+  # unit tests for r_tr_get_put_file_contents
+  # Get RTR put file contents for a given file ID
+  # @param id put file ID
+  # @param [Hash] opts the optional parameters
+  # @return [Array<Integer>]
+  describe 'r_tr_get_put_file_contents test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for r_tr_get_put_files
   # Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
   # @param ids File IDs

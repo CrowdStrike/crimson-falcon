@@ -36,68 +36,6 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
-    # @param ids [Array<String>] comma separated list of rule ids
-    # @param [Hash] opts the optional parameters
-    # @return [DomainRuleMetadataResponse]
-    def get_rules_metadata_by_id(ids, opts = {})
-      data, _status_code, _headers = get_rules_metadata_by_id_with_http_info(ids, opts)
-      data
-    end
-
-    # Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
-    # @param ids [Array<String>] comma separated list of rule ids
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainRuleMetadataResponse, Integer, Hash)>] DomainRuleMetadataResponse data, response status code and response headers
-    def get_rules_metadata_by_id_with_http_info(ids, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: Default.get_rules_metadata_by_id ...'
-      end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling Default.get_rules_metadata_by_id"
-      end
-      # resource path
-      local_var_path = '/container-compliance/combined/rule-details-by-rule-ids/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DomainRuleMetadataResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"Default.get_rules_metadata_by_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: Default#get_rules_metadata_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # - request graphql query
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]

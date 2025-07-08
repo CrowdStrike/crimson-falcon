@@ -12,6 +12,7 @@
 | **cid** | **String** |  | [optional] |
 | **cloud_context** | [**ResourcesCloudContext**](ResourcesCloudContext.md) |  | [optional] |
 | **cloud_groups** | [**Array&lt;DomainCloudScope&gt;**](DomainCloudScope.md) |  | [optional] |
+| **cloud_groups_v2** | [**Array&lt;DomainCloudGroup&gt;**](DomainCloudGroup.md) |  | [optional] |
 | **cloud_labels** | [**Array&lt;ClassificationLabel&gt;**](ClassificationLabel.md) |  | [optional] |
 | **cloud_provider** | **String** |  | [optional] |
 | **cluster_id** | **String** |  | [optional] |
@@ -69,6 +70,7 @@ instance = Falcon::ResourcesCloudResource.new(
   cid: null,
   cloud_context: null,
   cloud_groups: null,
+  cloud_groups_v2: null,
   cloud_labels: null,
   cloud_provider: null,
   cluster_id: null,

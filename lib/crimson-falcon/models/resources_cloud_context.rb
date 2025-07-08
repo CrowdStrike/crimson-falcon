@@ -105,7 +105,7 @@ module Falcon
       {
         :'account_name' => :'String',
         :'allows_public_access' => :'Boolean',
-        :'application_security' => :'AspmData',
+        :'application_security' => :'AspmInventoryData',
         :'asset_graph' => :'ResourcesAssetGraph',
         :'cspm_license' => :'String',
         :'data_classifications' => :'DataclassificationsResponse',

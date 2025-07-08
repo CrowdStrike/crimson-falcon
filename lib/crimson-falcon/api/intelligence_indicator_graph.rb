@@ -36,29 +36,31 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get aggregates for indicators based on requests
-    # @param body [RestapiIndicatorsAggregatesRequest]
+    # Get indicators based on their value.
+    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
+    # @param body [RestapiIndicatorsLookupRequest]
     # @param [Hash] opts the optional parameters
-    # @return [RestapiIndicatorsAggregatesResponse]
-    def get_indicator_aggregates(body, opts = {})
-      data, _status_code, _headers = get_indicator_aggregates_with_http_info(body, opts)
+    # @return [RestapiLookupIndicatorResponse]
+    def lookup_indicators(body, opts = {})
+      data, _status_code, _headers = lookup_indicators_with_http_info(body, opts)
       data
     end
 
-    # Get aggregates for indicators based on requests
-    # @param body [RestapiIndicatorsAggregatesRequest]
+    # Get indicators based on their value.
+    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
+    # @param body [RestapiIndicatorsLookupRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(RestapiIndicatorsAggregatesResponse, Integer, Hash)>] RestapiIndicatorsAggregatesResponse data, response status code and response headers
-    def get_indicator_aggregates_with_http_info(body, opts = {})
+    # @return [Array<(RestapiLookupIndicatorResponse, Integer, Hash)>] RestapiLookupIndicatorResponse data, response status code and response headers
+    def lookup_indicators_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: IntelligenceIndicatorGraph.get_indicator_aggregates ...'
+        @api_client.config.logger.debug 'Calling API: IntelligenceIndicatorGraph.lookup_indicators ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling IntelligenceIndicatorGraph.get_indicator_aggregates"
+        fail ArgumentError, "Missing the required parameter 'body' when calling IntelligenceIndicatorGraph.lookup_indicators"
       end
       # resource path
-      local_var_path = '/intelligence/aggregates/indicators/v1'
+      local_var_path = '/intelligence/combined/lookup-indicators/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -80,13 +82,13 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'RestapiIndicatorsAggregatesResponse'
+      return_type = opts[:debug_return_type] || 'RestapiLookupIndicatorResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"IntelligenceIndicatorGraph.get_indicator_aggregates",
+        :operation => :"IntelligenceIndicatorGraph.lookup_indicators",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -97,7 +99,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: IntelligenceIndicatorGraph#get_indicator_aggregates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: IntelligenceIndicatorGraph#lookup_indicators\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -105,6 +107,8 @@ module Falcon
     # Search indicators based on FQL filter.
     # @param body [RestapiIndicatorsQueryRequest]
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Integer] :limit Limit
     # @option opts [String] :offset Offset
     # @return [RestapiIndicatorResponse]
@@ -116,6 +120,8 @@ module Falcon
     # Search indicators based on FQL filter.
     # @param body [RestapiIndicatorsQueryRequest]
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;.
+    # @option opts [String] :filter FQL query specifying the filter parameters.
     # @option opts [Integer] :limit Limit
     # @option opts [String] :offset Offset
     # @return [Array<(RestapiIndicatorResponse, Integer, Hash)>] RestapiIndicatorResponse data, response status code and response headers
@@ -132,6 +138,8 @@ module Falcon
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
 

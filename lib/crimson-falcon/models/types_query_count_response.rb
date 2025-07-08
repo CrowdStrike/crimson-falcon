@@ -91,22 +91,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @count.nil?
-        invalid_properties.push('invalid value for "count", count cannot be nil.')
-      end
-
-      if @result_type.nil?
-        invalid_properties.push('invalid value for "result_type", result_type cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @count.nil?
-      return false if @result_type.nil?
       true
     end
 

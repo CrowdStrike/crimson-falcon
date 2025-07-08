@@ -4,8 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **feature** | **String** |  |  |
-| **status** | **String** |  |  |
+| **enabled** | **Boolean** |  |  |
+| **failed_permissions** | **Array&lt;String&gt;** |  | [optional] |
+| **passed_permissions** | **Array&lt;String&gt;** |  | [optional] |
+| **status** | **String** |  | [optional] |
 
 ## Example
 
@@ -13,7 +15,9 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainFeatureStatus.new(
-  feature: null,
+  enabled: null,
+  failed_permissions: null,
+  passed_permissions: null,
   status: null
 )
 ```

@@ -20,6 +20,7 @@
 | **email_sent** | **Boolean** | Boolean to know if we sent email regarding this Alert |  |
 | **external** | **Boolean** | Boolean indicating if this Alert is internal or external |  |
 | **id** | **String** | Vertex key which triggers the formation of the Alert |  |
+| **linked_case_ids** | **Array&lt;String&gt;** | Linked Case Ids are cases that are associated with this alert |  |
 | **mitre_attack** | [**Array&lt;DetectsMitreAttackMapping&gt;**](DetectsMitreAttackMapping.md) | References to MITRE ATT&amp;CK, which is a public framework for tracking and modeling adversary tools techniques and procedures |  |
 | **name** | **String** | Pattern Name coming either from Taxonomy or directly from the ingested Alert |  |
 | **objective** | **String** | End goal that an attack adversary intends to achieve according to MITRE |  |
@@ -67,6 +68,7 @@ instance = Falcon::DetectsExternalAlert.new(
   email_sent: null,
   external: null,
   id: null,
+  linked_case_ids: null,
   mitre_attack: null,
   name: null,
   objective: null,

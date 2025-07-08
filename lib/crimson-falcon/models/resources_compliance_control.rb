@@ -40,6 +40,8 @@ module Falcon
 
     attr_accessor :cloud_groups
 
+    attr_accessor :cloud_groups_v2
+
     attr_accessor :cloud_labels
 
     attr_accessor :cloud_provider
@@ -47,6 +49,8 @@ module Falcon
     attr_accessor :control
 
     attr_accessor :gcrn
+
+    attr_accessor :groups
 
     attr_accessor :last_evaluated
 
@@ -68,6 +72,8 @@ module Falcon
 
     attr_accessor :severities
 
+    attr_accessor :tags
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -75,10 +81,12 @@ module Falcon
         :'account_name' => :'account_name',
         :'assessment_id' => :'assessment_id',
         :'cloud_groups' => :'cloud_groups',
+        :'cloud_groups_v2' => :'cloud_groups_v2',
         :'cloud_labels' => :'cloud_labels',
         :'cloud_provider' => :'cloud_provider',
         :'control' => :'control',
         :'gcrn' => :'gcrn',
+        :'groups' => :'groups',
         :'last_evaluated' => :'last_evaluated',
         :'region' => :'region',
         :'resource_counts' => :'resource_counts',
@@ -88,7 +96,8 @@ module Falcon
         :'rules' => :'rules',
         :'service' => :'service',
         :'service_category' => :'service_category',
-        :'severities' => :'severities'
+        :'severities' => :'severities',
+        :'tags' => :'tags'
       }
     end
 
@@ -104,10 +113,12 @@ module Falcon
         :'account_name' => :'String',
         :'assessment_id' => :'String',
         :'cloud_groups' => :'Array<DomainCloudScope>',
+        :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',
         :'control' => :'ResourcesControlInfo',
         :'gcrn' => :'String',
+        :'groups' => :'Array<String>',
         :'last_evaluated' => :'Time',
         :'region' => :'String',
         :'resource_counts' => :'ResourceCounts',
@@ -117,7 +128,8 @@ module Falcon
         :'rules' => :'Array<ResourcesRule>',
         :'service' => :'String',
         :'service_category' => :'String',
-        :'severities' => :'Array<String>'
+        :'severities' => :'Array<String>',
+        :'tags' => :'Hash<String, String>'
       }
     end
 
@@ -160,6 +172,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'cloud_groups_v2')
+        if (value = attributes[:'cloud_groups_v2']).is_a?(Array)
+          self.cloud_groups_v2 = value
+        end
+      end
+
       if attributes.key?(:'cloud_labels')
         if (value = attributes[:'cloud_labels']).is_a?(Array)
           self.cloud_labels = value
@@ -176,6 +194,12 @@ module Falcon
 
       if attributes.key?(:'gcrn')
         self.gcrn = attributes[:'gcrn']
+      end
+
+      if attributes.key?(:'groups')
+        if (value = attributes[:'groups']).is_a?(Array)
+          self.groups = value
+        end
       end
 
       if attributes.key?(:'last_evaluated')
@@ -219,6 +243,12 @@ module Falcon
       if attributes.key?(:'severities')
         if (value = attributes[:'severities']).is_a?(Array)
           self.severities = value
+        end
+      end
+
+      if attributes.key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Hash)
+          self.tags = value
         end
       end
     end
@@ -320,10 +350,12 @@ module Falcon
           account_name == o.account_name &&
           assessment_id == o.assessment_id &&
           cloud_groups == o.cloud_groups &&
+          cloud_groups_v2 == o.cloud_groups_v2 &&
           cloud_labels == o.cloud_labels &&
           cloud_provider == o.cloud_provider &&
           control == o.control &&
           gcrn == o.gcrn &&
+          groups == o.groups &&
           last_evaluated == o.last_evaluated &&
           region == o.region &&
           resource_counts == o.resource_counts &&
@@ -333,7 +365,8 @@ module Falcon
           rules == o.rules &&
           service == o.service &&
           service_category == o.service_category &&
-          severities == o.severities
+          severities == o.severities &&
+          tags == o.tags
     end
 
     # @see the `==` method
@@ -345,7 +378,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, assessment_id, cloud_groups, cloud_labels, cloud_provider, control, gcrn, last_evaluated, region, resource_counts, resource_provider, resource_type, resource_type_name, rules, service, service_category, severities].hash
+      [account_id, account_name, assessment_id, cloud_groups, cloud_groups_v2, cloud_labels, cloud_provider, control, gcrn, groups, last_evaluated, region, resource_counts, resource_provider, resource_type, resource_type_name, rules, service, service_category, severities, tags].hash
     end
 
     # Builds the object from hash

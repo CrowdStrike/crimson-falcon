@@ -243,8 +243,8 @@ end
 
 api_instance = Falcon::CloudOciRegistration.new
 opts = {
-  filter: 'filter_example', # String | FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
-  sort: 'sort_example', # String | Field and direction for sorting results - allowed sort fields are Set{updated_at, tenancy_ocid, tenancy_name, home_region, key_age, overall_status, created_at}
+  filter: 'filter_example', # String | FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{key_age, overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region}
+  sort: 'sort_example', # String | Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
   next_token: 'next_token_example', # String | Token for cursor-based pagination. Currently unsupported.
   limit: 56, # Integer | Maximum number of records to return (default: 100, max: 10000)
   offset: 56 # Integer | Starting index of result
@@ -281,8 +281,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age} | [optional] |
-| **sort** | **String** | Field and direction for sorting results - allowed sort fields are Set{updated_at, tenancy_ocid, tenancy_name, home_region, key_age, overall_status, created_at} | [optional] |
+| **filter** | **String** | FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{key_age, overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region} | [optional] |
+| **sort** | **String** | Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age} | [optional] |
 | **next_token** | **String** | Token for cursor-based pagination. Currently unsupported. | [optional] |
 | **limit** | **Integer** | Maximum number of records to return (default: 100, max: 10000) | [optional][default to 100] |
 | **offset** | **Integer** | Starting index of result | [optional][default to 0] |

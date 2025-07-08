@@ -12,6 +12,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**r_tr_delete_scripts**](RealTimeResponseAdmin.md#r_tr_delete_scripts) | **DELETE** /real-time-response/entities/scripts/v1 | Delete a custom-script based on the ID given.  Can only delete one script at a time. |
 | [**r_tr_execute_admin_command**](RealTimeResponseAdmin.md#r_tr_execute_admin_command) | **POST** /real-time-response/entities/admin-command/v1 | Execute a RTR administrator command on a single host. |
 | [**r_tr_get_falcon_scripts**](RealTimeResponseAdmin.md#r_tr_get_falcon_scripts) | **GET** /real-time-response/entities/falcon-scripts/v1 | Get Falcon scripts with metadata and content of script |
+| [**r_tr_get_put_file_contents**](RealTimeResponseAdmin.md#r_tr_get_put_file_contents) | **GET** /real-time-response/entities/put-file-contents/v1 | Get RTR put file contents for a given file ID |
 | [**r_tr_get_put_files**](RealTimeResponseAdmin.md#r_tr_get_put_files) | **GET** /real-time-response/entities/put-files/v1 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
 | [**r_tr_get_put_files_v2**](RealTimeResponseAdmin.md#r_tr_get_put_files_v2) | **GET** /real-time-response/entities/put-files/v2 | Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command. |
 | [**r_tr_get_scripts**](RealTimeResponseAdmin.md#r_tr_get_scripts) | **GET** /real-time-response/entities/scripts/v1 | Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command. |
@@ -604,6 +605,75 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## r_tr_get_put_file_contents
+
+> Array&lt;Integer&gt; r_tr_get_put_file_contents(id)
+
+Get RTR put file contents for a given file ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::RealTimeResponseAdmin.new
+id = 'id_example' # String | put file ID
+
+begin
+  # Get RTR put file contents for a given file ID
+  result = api_instance.r_tr_get_put_file_contents(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_file_contents: #{e}"
+end
+```
+
+#### Using the r_tr_get_put_file_contents_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> r_tr_get_put_file_contents_with_http_info(id)
+
+```ruby
+begin
+  # Get RTR put file contents for a given file ID
+  data, status_code, headers = api_instance.r_tr_get_put_file_contents_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;Integer&gt;
+rescue Falcon::ApiError => e
+  puts "Error when calling RealTimeResponseAdmin->r_tr_get_put_file_contents_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | put file ID |  |
+
+### Return type
+
+**Array&lt;Integer&gt;**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream, application/json
 
 
 ## r_tr_get_put_files

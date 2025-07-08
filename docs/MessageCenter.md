@@ -8,7 +8,6 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**case_add_activity**](MessageCenter.md#case_add_activity) | **POST** /message-center/entities/case-activity/v1 | Add an activity to case. Only activities of type comment are allowed via API |
 | [**case_add_attachment**](MessageCenter.md#case_add_attachment) | **POST** /message-center/entities/case-attachment/v1 | Upload an attachment for the case. |
 | [**case_download_attachment**](MessageCenter.md#case_download_attachment) | **GET** /message-center/entities/case-attachment/v1 | retrieves an attachment for the case, given the attachment id |
-| [**create_case**](MessageCenter.md#create_case) | **POST** /message-center/entities/case/v1 | create a new case |
 | [**create_case_v2**](MessageCenter.md#create_case_v2) | **POST** /message-center/entities/case/v2 | create a new case |
 | [**get_case_activity_by_ids**](MessageCenter.md#get_case_activity_by_ids) | **POST** /message-center/entities/case-activities/GET/v1 | Retrieve activities for given id&#39;s |
 | [**get_case_entities_by_ids**](MessageCenter.md#get_case_entities_by_ids) | **POST** /message-center/entities/cases/GET/v1 | Retrieve message center cases |
@@ -298,75 +297,6 @@ end
 - **Accept**: application/json, image/png, image/bmp, image/jpeg, image/jpg, image/gif, application/zip, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.presentationml.presentation, text/plain
 
 
-## create_case
-
-> <MsaReplyAffectedEntities> create_case(body)
-
-create a new case
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::MessageCenter.new
-body = Falcon::DomainCaseCreationRequest.new({body: 'body_example', detections: [Falcon::MessagesDetection.new({id: 'id_example', url: 'url_example'})], incidents: [Falcon::MessagesIncident.new({id: 'id_example', url: 'url_example'})], title: 'title_example', type: 'type_example', user_uuid: 'user_uuid_example'}) # DomainCaseCreationRequest | 
-
-begin
-  # create a new case
-  result = api_instance.create_case(body)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenter->create_case: #{e}"
-end
-```
-
-#### Using the create_case_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<MsaReplyAffectedEntities>, Integer, Hash)> create_case_with_http_info(body)
-
-```ruby
-begin
-  # create a new case
-  data, status_code, headers = api_instance.create_case_with_http_info(body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <MsaReplyAffectedEntities>
-rescue Falcon::ApiError => e
-  puts "Error when calling MessageCenter->create_case_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**DomainCaseCreationRequest**](DomainCaseCreationRequest.md) |  |  |
-
-### Return type
-
-[**MsaReplyAffectedEntities**](MsaReplyAffectedEntities.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
 ## create_case_v2
 
 > <MsaReplyAffectedEntities> create_case_v2(body)
@@ -597,7 +527,7 @@ api_instance = Falcon::MessageCenter.new
 case_id = 'case_id_example' # String | Case ID
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'activity.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  sort: 'activity.type.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
   filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
@@ -675,8 +605,8 @@ end
 api_instance = Falcon::MessageCenter.new
 opts = {
   limit: 56, # Integer | The maximum records to return. [1-500]
-  sort: 'case.id.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
-  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
+  sort: 'case.created_time.asc', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type
   offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
 }
 
@@ -713,7 +643,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
 | **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
-| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type | [optional] |
+| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type | [optional] |
 | **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
 
 ### Return type

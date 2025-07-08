@@ -325,6 +325,22 @@ describe 'Intel' do
     end
   end
 
+  # unit tests for query_malware_entities
+  # Get malware entities that match provided FQL filters.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+  # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+  # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+  # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+  # @option opts [String] :q Perform a generic substring search across all fields.
+  # @option opts [Array<String>] :fields The fields to return
+  # @return [DomainMalwareResponse]
+  describe 'query_malware_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for query_mitre_attacks
   # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
   # @param [Hash] opts the optional parameters

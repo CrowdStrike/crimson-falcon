@@ -1238,7 +1238,7 @@ module Falcon
     # Execute a query. The syntax used is identical to that of the query page.
     # @param body [TypesQueryRequest]  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
     # @param [Hash] opts the optional parameters
-    # @return [TypesQueryResult]
+    # @return [TypesQueryResponse]
     def execute_query(body, opts = {})
       data, _status_code, _headers = execute_query_with_http_info(body, opts)
       data
@@ -1247,7 +1247,7 @@ module Falcon
     # Execute a query. The syntax used is identical to that of the query page.
     # @param body [TypesQueryRequest]  **params details:** - selectFields: - **fields** - For filtering relevant fields only. - **withoutServices** - Default is set to **true**, you will not receive information about the services. If you want to get the relevant service, set to **false**. - **serviceFields**-  For filtering relevant fields of the service (if you chose to get it)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(TypesQueryResult, Integer, Hash)>] TypesQueryResult data, response status code and response headers
+    # @return [Array<(TypesQueryResponse, Integer, Hash)>] TypesQueryResponse data, response status code and response headers
     def execute_query_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ASPM.execute_query ...'
@@ -1279,7 +1279,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'TypesQueryResult'
+      return_type = opts[:debug_return_type] || 'TypesQueryResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -1352,6 +1352,136 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ASPM#get_cloud_security_integration_state\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets services ordered by risk score for given BA
+    # @param business_application_name [String] Business application name
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Pagination offset
+    # @option opts [Integer] :limit Pagination limit
+    # @return [TypesGeneralQueryResponse]
+    def get_cspm_inventory_ba_services(business_application_name, opts = {})
+      data, _status_code, _headers = get_cspm_inventory_ba_services_with_http_info(business_application_name, opts)
+      data
+    end
+
+    # Gets services ordered by risk score for given BA
+    # @param business_application_name [String] Business application name
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Pagination offset
+    # @option opts [Integer] :limit Pagination limit
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def get_cspm_inventory_ba_services_with_http_info(business_application_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_cspm_inventory_ba_services ...'
+      end
+      # verify the required parameter 'business_application_name' is set
+      if @api_client.config.client_side_validation && business_application_name.nil?
+        fail ArgumentError, "Missing the required parameter 'business_application_name' when calling ASPM.get_cspm_inventory_ba_services"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/cspm-inventory-ba-services/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'business_application_name'] = business_application_name
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_cspm_inventory_ba_services",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_cspm_inventory_ba_services\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Gets all service details for CSPM Inventory.
+    # @param persistent_signature [String] Service signature
+    # @param [Hash] opts the optional parameters
+    # @return [TypesGeneralQueryResponse]
+    def get_cspm_inventory_service_details(persistent_signature, opts = {})
+      data, _status_code, _headers = get_cspm_inventory_service_details_with_http_info(persistent_signature, opts)
+      data
+    end
+
+    # Gets all service details for CSPM Inventory.
+    # @param persistent_signature [String] Service signature
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TypesGeneralQueryResponse, Integer, Hash)>] TypesGeneralQueryResponse data, response status code and response headers
+    def get_cspm_inventory_service_details_with_http_info(persistent_signature, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ASPM.get_cspm_inventory_service_details ...'
+      end
+      # verify the required parameter 'persistent_signature' is set
+      if @api_client.config.client_side_validation && persistent_signature.nil?
+        fail ArgumentError, "Missing the required parameter 'persistent_signature' when calling ASPM.get_cspm_inventory_service_details"
+      end
+      # resource path
+      local_var_path = '/application-security/combined/cspm-inventory-service-data/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'persistent_signature'] = persistent_signature
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TypesGeneralQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ASPM.get_cspm_inventory_service_details",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ASPM#get_cspm_inventory_service_details\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

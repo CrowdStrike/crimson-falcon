@@ -892,7 +892,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::CorrelationRules.new
-body = Falcon::ApiRuleCreateRequestV1.new({customer_id: 'customer_id_example', name: 'name_example', operation: Falcon::ApiCreateRuleOperationV1.new({schedule: Falcon::ApiRuleScheduleV1.new({definition: 'definition_example'})}), search: Falcon::ApiRuleSearchV1.new({filter: 'filter_example', lookback: 'lookback_example', outcome: 'outcome_example'}), severity: 37, status: 'status_example', template_id: 'template_id_example'}) # ApiRuleCreateRequestV1 | 
+body = Falcon::ApiRuleCreateRequestV1.new({customer_id: 'customer_id_example', name: 'name_example', operation: Falcon::ApiCreateRuleOperationV1.new({schedule: Falcon::ApiRuleScheduleV1.new({definition: 'definition_example'})}), search: Falcon::ApiRuleSearchV1.new({filter: 'filter_example', lookback: 'lookback_example', outcome: 'outcome_example', trigger_mode: 'trigger_mode_example'}), severity: 37, status: 'status_example', template_id: 'template_id_example'}) # ApiRuleCreateRequestV1 | 
 
 begin
   # Create rule

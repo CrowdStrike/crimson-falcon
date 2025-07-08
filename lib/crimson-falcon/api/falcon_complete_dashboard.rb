@@ -36,7 +36,7 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve aggregate alerts values based on the matched filter
+    # Retrieve aggregate epp alerts values based on the matched filter
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
@@ -45,7 +45,7 @@ module Falcon
       data
     end
 
-    # Retrieve aggregate alerts values based on the matched filter
+    # Retrieve aggregate epp alerts values based on the matched filter
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
@@ -897,7 +897,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+    # Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
@@ -909,7 +909,7 @@ module Falcon
       data
     end
 
-    # Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+    # Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
@@ -960,6 +960,73 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_alert_ids_by_filter\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @return [MsaspecQueryResponse]
+    def query_alert_ids_by_filter_v2(opts = {})
+      data, _status_code, _headers = query_alert_ids_by_filter_v2_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def query_alert_ids_by_filter_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconCompleteDashboard.query_alert_ids_by_filter_v2 ...'
+      end
+      # resource path
+      local_var_path = '/falcon-complete-dashboards/queries/alerts/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconCompleteDashboard.query_alert_ids_by_filter_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconCompleteDashboard#query_alert_ids_by_filter_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

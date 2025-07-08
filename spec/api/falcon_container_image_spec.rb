@@ -82,12 +82,33 @@ describe 'FalconContainerImage' do
     end
   end
 
+  # unit tests for head_image_scan_inventory
+  # Get headers for POST request for image scan inventory
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'head_image_scan_inventory test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for launch_export_job
   # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
   # @param body Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
   # @param [Hash] opts the optional parameters
   # @return [ExportsLaunchExportResponse]
   describe 'launch_export_job test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for post_image_scan_inventory
+  # Post image scan inventory
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'post_image_scan_inventory test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

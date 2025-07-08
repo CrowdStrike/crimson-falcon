@@ -36,6 +36,94 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # GET Alert by ID or GET Alerts
+    # Get a data on a specific alert or get a list of all alerts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Alert ID
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :last_id The last id of the alert you want to get
+    # @option opts [String] :type The type of alert you want to get
+    # @option opts [String] :integration_id Comma separated list of integration ID&#39;s of the alert you want to get
+    # @option opts [Time] :from_date The start date of the alert you want to get (in YYYY-MM-DD format)
+    # @option opts [Time] :to_date The end date of the alert you want to get (in YYYY-MM-DD format)
+    # @option opts [Boolean] :ascending
+    # @return [GetAlertsResponse]
+    def get_alerts_v3(opts = {})
+      data, _status_code, _headers = get_alerts_v3_with_http_info(opts)
+      data
+    end
+
+    # GET Alert by ID or GET Alerts
+    # Get a data on a specific alert or get a list of all alerts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :id Alert ID
+    # @option opts [Integer] :limit The maximum number of objects to return
+    # @option opts [Integer] :offset The starting index of the results
+    # @option opts [String] :last_id The last id of the alert you want to get
+    # @option opts [String] :type The type of alert you want to get
+    # @option opts [String] :integration_id Comma separated list of integration ID&#39;s of the alert you want to get
+    # @option opts [Time] :from_date The start date of the alert you want to get (in YYYY-MM-DD format)
+    # @option opts [Time] :to_date The end date of the alert you want to get (in YYYY-MM-DD format)
+    # @option opts [Boolean] :ascending
+    # @return [Array<(GetAlertsResponse, Integer, Hash)>] GetAlertsResponse data, response status code and response headers
+    def get_alerts_v3_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Alerts.get_alerts_v3 ...'
+      end
+      allowable_values = ["Unknown", "Configuration Drift", "Security Check Degraded", "Integration Failure", "Threat/IoC detected"]
+      if @api_client.config.client_side_validation && opts[:'type'] && !allowable_values.include?(opts[:'type'])
+        fail ArgumentError, "invalid value for \"type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/saas-security/entities/alerts/v3'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'last_id'] = opts[:'last_id'] if !opts[:'last_id'].nil?
+      query_params[:'type'] = opts[:'type'] if !opts[:'type'].nil?
+      query_params[:'integration_id'] = opts[:'integration_id'] if !opts[:'integration_id'].nil?
+      query_params[:'from_date'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'to_date'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+      query_params[:'ascending'] = opts[:'ascending'] if !opts[:'ascending'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetAlertsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Alerts.get_alerts_v3",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Alerts#get_alerts_v3\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The first detection to return, where &#x60;0&#x60; is the latest detection. Use with the &#x60;offset&#x60; parameter to manage pagination of results.

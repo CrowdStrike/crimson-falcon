@@ -80,6 +80,9 @@ module Falcon
     # Vertex key which triggers the formation of the Alert
     attr_accessor :id
 
+    # Linked Case Ids are cases that are associated with this alert
+    attr_accessor :linked_case_ids
+
     # References to MITRE ATT&CK, which is a public framework for tracking and modeling adversary tools techniques and procedures
     attr_accessor :mitre_attack
 
@@ -171,6 +174,7 @@ module Falcon
         :'email_sent' => :'email_sent',
         :'external' => :'external',
         :'id' => :'id',
+        :'linked_case_ids' => :'linked_case_ids',
         :'mitre_attack' => :'mitre_attack',
         :'name' => :'name',
         :'objective' => :'objective',
@@ -222,6 +226,7 @@ module Falcon
         :'email_sent' => :'Boolean',
         :'external' => :'Boolean',
         :'id' => :'String',
+        :'linked_case_ids' => :'Array<String>',
         :'mitre_attack' => :'Array<DetectsMitreAttackMapping>',
         :'name' => :'String',
         :'objective' => :'String',
@@ -334,6 +339,12 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'linked_case_ids')
+        if (value = attributes[:'linked_case_ids']).is_a?(Array)
+          self.linked_case_ids = value
+        end
       end
 
       if attributes.key?(:'mitre_attack')
@@ -509,6 +520,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @linked_case_ids.nil?
+        invalid_properties.push('invalid value for "linked_case_ids", linked_case_ids cannot be nil.')
+      end
+
       if @mitre_attack.nil?
         invalid_properties.push('invalid value for "mitre_attack", mitre_attack cannot be nil.')
       end
@@ -627,6 +642,7 @@ module Falcon
       return false if @email_sent.nil?
       return false if @external.nil?
       return false if @id.nil?
+      return false if @linked_case_ids.nil?
       return false if @mitre_attack.nil?
       return false if @name.nil?
       return false if @objective.nil?
@@ -675,6 +691,7 @@ module Falcon
           email_sent == o.email_sent &&
           external == o.external &&
           id == o.id &&
+          linked_case_ids == o.linked_case_ids &&
           mitre_attack == o.mitre_attack &&
           name == o.name &&
           objective == o.objective &&
@@ -710,7 +727,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, mitre_attack, name, objective, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
+      [agent_id, aggregate_id, assigned_to_name, assigned_to_uid, assigned_to_uuid, cid, composite_id, confidence, crawled_timestamp, created_timestamp, data_domains, description, display_name, email_sent, external, id, linked_case_ids, mitre_attack, name, objective, pattern_id, platform, product, resolution, scenario, seconds_to_resolved, seconds_to_triaged, severity, severity_name, show_in_ui, source_products, source_vendors, status, tactic, tactic_id, tags, technique, technique_id, timestamp, type, updated_timestamp].hash
     end
 
     # Builds the object from hash

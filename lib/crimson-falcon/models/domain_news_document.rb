@@ -41,7 +41,7 @@ module Falcon
     # News attachment, containing either pdf url or feeds zip and/or gzip archive
     attr_accessor :attachments
 
-    # Date of the news document creation, unix timestampt
+    # Date of the news document creation, Unix timestamp
     attr_accessor :created_date
 
     # Full report description, extracted from the document
@@ -55,7 +55,7 @@ module Falcon
 
     attr_accessor :image
 
-    # Date of the news document last modification, unix timestampt
+    # Date of the news document last modification, Unix timestamp
     attr_accessor :last_modified_date
 
     # Malware mentioned, related or referenced in the news/report

@@ -54,6 +54,12 @@ describe Falcon::FlightcontrolapiGrantInput do
     end
   end
 
+  describe 'test attribute "expires_at"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "role_ids"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

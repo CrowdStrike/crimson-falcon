@@ -4,6 +4,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**get_alerts_v3**](Alerts.md#get_alerts_v3) | **GET** /saas-security/entities/alerts/v3 | GET Alert by ID or GET Alerts |
 | [**get_queries_alerts_v1**](Alerts.md#get_queries_alerts_v1) | **GET** /alerts/queries/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query. |
 | [**get_queries_alerts_v2**](Alerts.md#get_queries_alerts_v2) | **GET** /alerts/queries/alerts/v2 | Retrieves all Alerts ids that match a given query. |
 | [**patch_entities_alerts_v2**](Alerts.md#patch_entities_alerts_v2) | **PATCH** /alerts/entities/alerts/v2 | Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.   |
@@ -13,6 +14,95 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**post_combined_alerts_v1**](Alerts.md#post_combined_alerts_v1) | **POST** /alerts/combined/alerts/v1 | Retrieves all Alerts that match a particular FQL filter. This API is intended for retrieval of large amounts of Alerts(&gt;10k) using a pagination based on a &#x60;after&#x60; token. If you need to use &#x60;offset&#x60; pagination, consider using GET /alerts/queries/alerts/* and POST /alerts/entities/alerts/* APIs.   |
 | [**post_entities_alerts_v1**](Alerts.md#post_entities_alerts_v1) | **POST** /alerts/entities/alerts/v1 | Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids. |
 | [**post_entities_alerts_v2**](Alerts.md#post_entities_alerts_v2) | **POST** /alerts/entities/alerts/v2 | Retrieves all Alerts given their composite ids. |
+
+
+## get_alerts_v3
+
+> <GetAlertsResponse> get_alerts_v3(opts)
+
+GET Alert by ID or GET Alerts
+
+Get a data on a specific alert or get a list of all alerts  
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Alerts.new
+opts = {
+  id: 'id_example', # String | Alert ID
+  limit: 56, # Integer | The maximum number of objects to return
+  offset: 56, # Integer | The starting index of the results
+  last_id: 'last_id_example', # String | The last id of the alert you want to get
+  type: 'Unknown', # String | The type of alert you want to get
+  integration_id: 'integration_id_example', # String | Comma separated list of integration ID's of the alert you want to get
+  from_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | The start date of the alert you want to get (in YYYY-MM-DD format)
+  to_date: Time.parse('2013-10-20T19:20:30+01:00'), # Time | The end date of the alert you want to get (in YYYY-MM-DD format)
+  ascending: true # Boolean | 
+}
+
+begin
+  # GET Alert by ID or GET Alerts
+  result = api_instance.get_alerts_v3(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Alerts->get_alerts_v3: #{e}"
+end
+```
+
+#### Using the get_alerts_v3_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetAlertsResponse>, Integer, Hash)> get_alerts_v3_with_http_info(opts)
+
+```ruby
+begin
+  # GET Alert by ID or GET Alerts
+  data, status_code, headers = api_instance.get_alerts_v3_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetAlertsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Alerts->get_alerts_v3_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Alert ID | [optional] |
+| **limit** | **Integer** | The maximum number of objects to return | [optional] |
+| **offset** | **Integer** | The starting index of the results | [optional] |
+| **last_id** | **String** | The last id of the alert you want to get | [optional] |
+| **type** | **String** | The type of alert you want to get | [optional] |
+| **integration_id** | **String** | Comma separated list of integration ID&#39;s of the alert you want to get | [optional] |
+| **from_date** | **Time** | The start date of the alert you want to get (in YYYY-MM-DD format) | [optional] |
+| **to_date** | **Time** | The end date of the alert you want to get (in YYYY-MM-DD format) | [optional] |
+| **ascending** | **Boolean** |  | [optional] |
+
+### Return type
+
+[**GetAlertsResponse**](GetAlertsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_queries_alerts_v1
