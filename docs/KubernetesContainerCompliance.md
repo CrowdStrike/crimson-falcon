@@ -13,6 +13,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**aggregate_top_failed_images**](KubernetesContainerCompliance.md#aggregate_top_failed_images) | **GET** /container-compliance/aggregates/top-failed-images/v2 | Retrieves the most non-compliant container images, ranked in descending order based on the number of failed assessments across severity levels (critical, high, medium, and low). |
 | [**combined_images_findings**](KubernetesContainerCompliance.md#combined_images_findings) | **GET** /container-compliance/combined/findings-by-images/v2 | Returns detailed compliance assessment results for container images, providing the information needed to identify compliance violations. |
 | [**combined_nodes_findings**](KubernetesContainerCompliance.md#combined_nodes_findings) | **GET** /container-compliance/combined/findings-by-nodes/v2 | Returns detailed compliance assessment results for kubernetes nodes, providing the information needed to identify compliance violations. |
+| [**get_rules_metadata_by_id**](KubernetesContainerCompliance.md#get_rules_metadata_by_id) | **GET** /container-compliance/combined/rule-details-by-rule-ids/v1 | Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers. |
 
 
 ## aggregate_assessments_grouped_by_clusters_v2
@@ -663,6 +664,75 @@ end
 ### Return type
 
 [**DomainAPIResponseNodesFindingsV1**](DomainAPIResponseNodesFindingsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_rules_metadata_by_id
+
+> <DomainRuleMetadataResponse> get_rules_metadata_by_id(ids)
+
+Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesContainerCompliance.new
+ids = ['inner_example'] # Array<String> | comma separated list of rule ids
+
+begin
+  # Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
+  result = api_instance.get_rules_metadata_by_id(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesContainerCompliance->get_rules_metadata_by_id: #{e}"
+end
+```
+
+#### Using the get_rules_metadata_by_id_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainRuleMetadataResponse>, Integer, Hash)> get_rules_metadata_by_id_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
+  data, status_code, headers = api_instance.get_rules_metadata_by_id_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainRuleMetadataResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesContainerCompliance->get_rules_metadata_by_id_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | comma separated list of rule ids |  |
+
+### Return type
+
+[**DomainRuleMetadataResponse**](DomainRuleMetadataResponse.md)
 
 ### Authorization
 

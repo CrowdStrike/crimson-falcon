@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **count** | **Integer** |  |  |
-| **result_type** | **String** |  |  |
+| **count** | **Integer** |  | [optional] |
+| **result_type** | **String** |  | [optional] |
 
 ## Example
 

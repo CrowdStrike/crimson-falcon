@@ -1686,7 +1686,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::UserManagement.new
-body = Falcon::FlightcontrolapiGrantInput.new # FlightcontrolapiGrantInput | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
+body = Falcon::FlightcontrolapiGrantInput.new # FlightcontrolapiGrantInput | CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include 'grant' and 'revoke'.
 
 begin
   # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
@@ -1719,7 +1719,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**FlightcontrolapiGrantInput**](FlightcontrolapiGrantInput.md) | All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;. |  |
+| **body** | [**FlightcontrolapiGrantInput**](FlightcontrolapiGrantInput.md) | CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;. |  |
 
 ### Return type
 

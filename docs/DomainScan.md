@@ -20,6 +20,7 @@
 | **filecount** | [**DomainFileCount**](DomainFileCount.md) |  | [optional] |
 | **host_groups** | **Array&lt;String&gt;** |  | [optional] |
 | **hosts** | **Array&lt;String&gt;** |  | [optional] |
+| **hosts_created** | **Boolean** |  | [optional] |
 | **id** | **String** |  |  |
 | **incomplete_host_count** | **Integer** |  | [optional] |
 | **initiated_from** | **String** |  | [optional] |
@@ -68,6 +69,7 @@ instance = Falcon::DomainScan.new(
   filecount: null,
   host_groups: null,
   hosts: null,
+  hosts_created: null,
   id: null,
   incomplete_host_count: null,
   initiated_from: null,

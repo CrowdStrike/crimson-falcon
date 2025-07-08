@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
-| **meta** | [**DomainMsaMetaInfo**](DomainMsaMetaInfo.md) |  |  |
-| **resources** | **Array&lt;String&gt;** |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) | Array of API Errors |  |
+| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **resources** | **Array&lt;String&gt;** | Array of string IDs that matches the query request |  |
 
 ## Example
 

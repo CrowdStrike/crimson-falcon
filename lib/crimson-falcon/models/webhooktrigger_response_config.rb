@@ -35,9 +35,6 @@ module Falcon
     # json content of webhook response body
     attr_accessor :body_content
 
-    # standard http content type of webhook response, only supported value is application/json
-    attr_accessor :content_type
-
     # http response code for webhook response
     attr_accessor :status_code
 
@@ -45,7 +42,6 @@ module Falcon
     def self.attribute_map
       {
         :'body_content' => :'body_content',
-        :'content_type' => :'content_type',
         :'status_code' => :'status_code'
       }
     end
@@ -59,7 +55,6 @@ module Falcon
     def self.openapi_types
       {
         :'body_content' => :'String',
-        :'content_type' => :'String',
         :'status_code' => :'Integer'
       }
     end
@@ -87,10 +82,6 @@ module Falcon
 
       if attributes.key?(:'body_content')
         self.body_content = attributes[:'body_content']
-      end
-
-      if attributes.key?(:'content_type')
-        self.content_type = attributes[:'content_type']
       end
 
       if attributes.key?(:'status_code')
@@ -122,7 +113,6 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           body_content == o.body_content &&
-          content_type == o.content_type &&
           status_code == o.status_code
     end
 
@@ -135,7 +125,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [body_content, content_type, status_code].hash
+      [body_content, status_code].hash
     end
 
     # Builds the object from hash

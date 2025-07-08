@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) |  | [optional] |
-| **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
+| **meta** | [**QuickscanproMetaInfo**](QuickscanproMetaInfo.md) |  |  |
 | **quota** | [**QuickscanproQuotaResource**](QuickscanproQuotaResource.md) |  | [optional] |
 | **resources** | [**Array&lt;QuickscanproLaunchScanResource&gt;**](QuickscanproLaunchScanResource.md) |  |  |
 

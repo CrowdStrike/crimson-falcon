@@ -49,17 +49,6 @@ describe 'Default' do
     end
   end
 
-  # unit tests for get_rules_metadata_by_id
-  # Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
-  # @param ids comma separated list of rule ids
-  # @param [Hash] opts the optional parameters
-  # @return [DomainRuleMetadataResponse]
-  describe 'get_rules_metadata_by_id test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for post_graphql_query_mixin0
   # - request graphql query
   # @param [Hash] opts the optional parameters

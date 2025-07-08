@@ -9,6 +9,7 @@
 | **author** | **String** |  |  |
 | **comment** | **String** |  |  |
 | **execution_offset** | **String** |  |  |
+| **guardrail_notifications** | [**Array&lt;DomainNotifications&gt;**](DomainNotifications.md) |  | [optional] |
 | **mitre_attack** | [**Array&lt;DomainMitreAttackMapping&gt;**](DomainMitreAttackMapping.md) |  | [optional] |
 | **origin** | **String** |  |  |
 | **severity** | **Integer** |  |  |
@@ -31,6 +32,7 @@ instance = Falcon::DomainXDRParams.new(
   author: null,
   comment: null,
   execution_offset: null,
+  guardrail_notifications: null,
   mitre_attack: null,
   origin: null,
   severity: null,

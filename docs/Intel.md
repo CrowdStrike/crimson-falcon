@@ -24,6 +24,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**query_intel_report_ids**](Intel.md#query_intel_report_ids) | **GET** /intel/queries/reports/v1 | Get report IDs that match provided FQL filters. |
 | [**query_intel_rule_ids**](Intel.md#query_intel_rule_ids) | **GET** /intel/queries/rules/v1 | Search for rule IDs that match provided filter criteria. |
 | [**query_malware**](Intel.md#query_malware) | **GET** /intel/queries/malware/v1 | Get malware family names that match provided FQL filters. |
+| [**query_malware_entities**](Intel.md#query_malware_entities) | **GET** /intel/combined/malware/v1 | Get malware entities that match provided FQL filters. |
 | [**query_mitre_attacks**](Intel.md#query_mitre_attacks) | **GET** /intel/queries/mitre/v1 | Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071 |
 | [**query_mitre_attacks_for_malware**](Intel.md#query_mitre_attacks_for_malware) | **GET** /intel/queries/mitre-malware/v1 | Gets MITRE tactics and techniques for the given malware |
 | [**query_vulnerabilities**](Intel.md#query_vulnerabilities) | **GET** /intel/queries/vulnerabilities/v1 | Get vulnerabilities IDs |
@@ -1535,6 +1536,87 @@ end
 ### Return type
 
 [**DomainQueryResponse**](DomainQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_malware_entities
+
+> <DomainMalwareResponse> query_malware_entities(opts)
+
+Get malware entities that match provided FQL filters.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Intel.new
+opts = {
+  offset: 56, # Integer | Set the starting row number to return malware IDs from. Defaults to 0.
+  limit: 56, # Integer | Set the number of malware IDs to return. The value must be between 1 and 5000.
+  sort: 'sort_example', # String | Order fields in ascending or descending order.  Ex: created_date|asc.
+  filter: 'filter_example', # String | Filter your query by specifying FQL filter parameters.
+  q: 'q_example', # String | Perform a generic substring search across all fields.
+  fields: ['inner_example'] # Array<String> | The fields to return
+}
+
+begin
+  # Get malware entities that match provided FQL filters.
+  result = api_instance.query_malware_entities(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Intel->query_malware_entities: #{e}"
+end
+```
+
+#### Using the query_malware_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainMalwareResponse>, Integer, Hash)> query_malware_entities_with_http_info(opts)
+
+```ruby
+begin
+  # Get malware entities that match provided FQL filters.
+  data, status_code, headers = api_instance.query_malware_entities_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainMalwareResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Intel->query_malware_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | Set the starting row number to return malware IDs from. Defaults to 0. | [optional] |
+| **limit** | **Integer** | Set the number of malware IDs to return. The value must be between 1 and 5000. | [optional] |
+| **sort** | **String** | Order fields in ascending or descending order.  Ex: created_date|asc. | [optional] |
+| **filter** | **String** | Filter your query by specifying FQL filter parameters. | [optional] |
+| **q** | **String** | Perform a generic substring search across all fields. | [optional] |
+| **fields** | [**Array&lt;String&gt;**](String.md) | The fields to return | [optional] |
+
+### Return type
+
+[**DomainMalwareResponse**](DomainMalwareResponse.md)
 
 ### Authorization
 

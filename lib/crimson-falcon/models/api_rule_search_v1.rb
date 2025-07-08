@@ -127,6 +127,10 @@ module Falcon
         invalid_properties.push('invalid value for "outcome", outcome cannot be nil.')
       end
 
+      if @trigger_mode.nil?
+        invalid_properties.push('invalid value for "trigger_mode", trigger_mode cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -136,6 +140,7 @@ module Falcon
       return false if @filter.nil?
       return false if @lookback.nil?
       return false if @outcome.nil?
+      return false if @trigger_mode.nil?
       true
     end
 

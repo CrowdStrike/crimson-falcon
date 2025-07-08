@@ -4,15 +4,17 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_indicator_aggregates**](IntelligenceIndicatorGraph.md#get_indicator_aggregates) | **POST** /intelligence/aggregates/indicators/v1 | Get aggregates for indicators based on requests |
+| [**lookup_indicators**](IntelligenceIndicatorGraph.md#lookup_indicators) | **POST** /intelligence/combined/lookup-indicators/v1 | Get indicators based on their value. |
 | [**search_indicators**](IntelligenceIndicatorGraph.md#search_indicators) | **POST** /intelligence/combined/indicators/v1 | Search indicators based on FQL filter. |
 
 
-## get_indicator_aggregates
+## lookup_indicators
 
-> <RestapiIndicatorsAggregatesResponse> get_indicator_aggregates(body)
+> <RestapiLookupIndicatorResponse> lookup_indicators(body)
 
-Get aggregates for indicators based on requests
+Get indicators based on their value.
+
+Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
 
 ### Examples
 
@@ -28,32 +30,32 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::IntelligenceIndicatorGraph.new
-body = Falcon::RestapiIndicatorsAggregatesRequest.new({requests: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})]}) # RestapiIndicatorsAggregatesRequest | 
+body = Falcon::RestapiIndicatorsLookupRequest.new({values: ['values_example']}) # RestapiIndicatorsLookupRequest | 
 
 begin
-  # Get aggregates for indicators based on requests
-  result = api_instance.get_indicator_aggregates(body)
+  # Get indicators based on their value.
+  result = api_instance.lookup_indicators(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelligenceIndicatorGraph->get_indicator_aggregates: #{e}"
+  puts "Error when calling IntelligenceIndicatorGraph->lookup_indicators: #{e}"
 end
 ```
 
-#### Using the get_indicator_aggregates_with_http_info variant
+#### Using the lookup_indicators_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RestapiIndicatorsAggregatesResponse>, Integer, Hash)> get_indicator_aggregates_with_http_info(body)
+> <Array(<RestapiLookupIndicatorResponse>, Integer, Hash)> lookup_indicators_with_http_info(body)
 
 ```ruby
 begin
-  # Get aggregates for indicators based on requests
-  data, status_code, headers = api_instance.get_indicator_aggregates_with_http_info(body)
+  # Get indicators based on their value.
+  data, status_code, headers = api_instance.lookup_indicators_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <RestapiIndicatorsAggregatesResponse>
+  p data # => <RestapiLookupIndicatorResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling IntelligenceIndicatorGraph->get_indicator_aggregates_with_http_info: #{e}"
+  puts "Error when calling IntelligenceIndicatorGraph->lookup_indicators_with_http_info: #{e}"
 end
 ```
 
@@ -61,11 +63,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **body** | [**RestapiIndicatorsAggregatesRequest**](RestapiIndicatorsAggregatesRequest.md) |  |  |
+| **body** | [**RestapiIndicatorsLookupRequest**](RestapiIndicatorsLookupRequest.md) |  |  |
 
 ### Return type
 
-[**RestapiIndicatorsAggregatesResponse**](RestapiIndicatorsAggregatesResponse.md)
+[**RestapiLookupIndicatorResponse**](RestapiLookupIndicatorResponse.md)
 
 ### Authorization
 
@@ -99,6 +101,8 @@ end
 api_instance = Falcon::IntelligenceIndicatorGraph.new
 body = Falcon::RestapiIndicatorsQueryRequest.new({filter: 'filter_example', sort: [Falcon::RestapiIndicatorsQuerySortRequest.new({field: 'field_example', missing: 3.56, order: 'order_example'})]}) # RestapiIndicatorsQueryRequest | 
 opts = {
+  sort: 'sort_example', # String | Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: 'PublishDate|asc'.
+  filter: 'filter_example', # String | FQL query specifying the filter parameters.
   limit: 56, # Integer | Limit
   offset: 'offset_example' # String | Offset
 }
@@ -135,6 +139,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **body** | [**RestapiIndicatorsQueryRequest**](RestapiIndicatorsQueryRequest.md) |  |  |
+| **sort** | **String** | Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;. | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. | [optional] |
 | **limit** | **Integer** | Limit | [optional] |
 | **offset** | **String** | Offset | [optional] |
 

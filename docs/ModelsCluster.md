@@ -19,6 +19,7 @@
 | **container_count** | **Integer** |  |  |
 | **first_seen** | **String** |  |  |
 | **iar_coverage** | **Boolean** |  |  |
+| **kac_agent_active** | **Boolean** |  |  |
 | **kac_agent_id** | **String** |  |  |
 | **kubernetes_version** | **String** |  |  |
 | **labels_list** | **Array&lt;String&gt;** |  |  |
@@ -51,6 +52,7 @@ instance = Falcon::ModelsCluster.new(
   container_count: null,
   first_seen: null,
   iar_coverage: null,
+  kac_agent_active: null,
   kac_agent_id: null,
   kubernetes_version: null,
   labels_list: null,

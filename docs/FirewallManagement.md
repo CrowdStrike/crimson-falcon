@@ -2176,7 +2176,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FirewallManagement.new
-body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJsonDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
+body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJSONDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
 }
@@ -2249,7 +2249,7 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FirewallManagement.new
-body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJsonDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
+body = Falcon::FwmgrApiRuleGroupModifyRequestV1.new({diff_operations: [Falcon::FwmgrApiJSONDiff.new({op: 'op_example', path: 'path_example', value: 3.56})], diff_type: 'diff_type_example', id: 'id_example', rule_ids: ['rule_ids_example'], rule_versions: [37], tracking: 'tracking_example'}) # FwmgrApiRuleGroupModifyRequestV1 | 
 opts = {
   comment: 'comment_example' # String | Audit log comment for this action
 }

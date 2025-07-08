@@ -64,7 +64,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'diff_operations' => :'Array<FwmgrApiJsonDiff>',
+        :'diff_operations' => :'Array<FwmgrApiJSONDiff>',
         :'diff_type' => :'String',
         :'id' => :'String',
         :'rule_ids' => :'Array<String>',

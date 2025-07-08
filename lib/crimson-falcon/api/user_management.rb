@@ -147,7 +147,7 @@ module Falcon
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v1, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc"]
+      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc", "user_uuid|asc", "user_uuid|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -243,7 +243,7 @@ module Falcon
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v2, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc"]
+      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc", "user_uuid|asc", "user_uuid|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -1599,7 +1599,7 @@ module Falcon
     end
 
     # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
-    # @param body [FlightcontrolapiGrantInput] All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
+    # @param body [FlightcontrolapiGrantInput] CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
     # @param [Hash] opts the optional parameters
     # @return [MsaspecResponseFields]
     def user_roles_action_v1(body, opts = {})
@@ -1608,7 +1608,7 @@ module Falcon
     end
 
     # Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
-    # @param body [FlightcontrolapiGrantInput] All fields including CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
+    # @param body [FlightcontrolapiGrantInput] CID, RoleID(s), User UUID and Action are required. Allowed values for Action param include &#39;grant&#39; and &#39;revoke&#39;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def user_roles_action_v1_with_http_info(body, opts = {})

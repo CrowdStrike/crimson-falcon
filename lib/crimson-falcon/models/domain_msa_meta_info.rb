@@ -34,13 +34,10 @@ module Falcon
   class DomainMsaMetaInfo
     attr_accessor :pagination
 
-    attr_accessor :query_time
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'pagination' => :'pagination',
-        :'query_time' => :'queryTime'
+        :'pagination' => :'pagination'
       }
     end
 
@@ -52,8 +49,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pagination' => :'MsaPaging',
-        :'query_time' => :'Float'
+        :'pagination' => :'MsaPaging'
       }
     end
 
@@ -81,27 +77,18 @@ module Falcon
       if attributes.key?(:'pagination')
         self.pagination = attributes[:'pagination']
       end
-
-      if attributes.key?(:'query_time')
-        self.query_time = attributes[:'query_time']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @query_time.nil?
-        invalid_properties.push('invalid value for "query_time", query_time cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @query_time.nil?
       true
     end
 
@@ -110,8 +97,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          pagination == o.pagination &&
-          query_time == o.query_time
+          pagination == o.pagination
     end
 
     # @see the `==` method
@@ -123,7 +109,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pagination, query_time].hash
+      [pagination].hash
     end
 
     # Builds the object from hash

@@ -2068,7 +2068,8 @@ end
 api_instance = Falcon::KubernetesProtection.new
 opts = {
   under_assessment: true, # Boolean | (true/false) whether to return registries under assessment or not under assessment. If not provided all registries are considered
-  limit: 56 # Integer | The upper-bound on the number of records to retrieve.
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  filter: 'filter_example' # String | Retrieve count of Kubernetes container image registries that match a query in Falcon Query Language (FQL). Supported filter fields: - `agent_id` - `agent_type` - `ai_related` - `allow_privilege_escalation` - `app_name` - `cid` - `cloud_account_id` - `cloud_instance_id` - `cloud_name` - `cloud_region` - `cloud_service` - `cluster_id` - `cluster_name` - `container_id` - `container_image_id` - `container_name` - `cve_id` - `detection_name` - `first_seen` - `image_detection_count` - `image_digest` - `image_has_been_assessed` - `image_id` - `image_registry` - `image_repository` - `image_tag` - `image_vulnerability_count` - `insecure_mount_source` - `insecure_mount_type` - `insecure_propagation_mode` - `interactive_mode` - `ipv4` - `ipv6` - `kac_agent_id` - `labels` - `last_seen` - `namespace` - `node_name` - `node_uid` - `package_name_version` - `pod_id` - `pod_name` - `port` - `privileged` - `root_write_access` - `run_as_root_group` - `run_as_root_user` - `running_status`
 }
 
 begin
@@ -2104,6 +2105,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **under_assessment** | **Boolean** | (true/false) whether to return registries under assessment or not under assessment. If not provided all registries are considered | [optional][default to false] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes container image registries that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;ai_related&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;app_name&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60; | [optional] |
 
 ### Return type
 

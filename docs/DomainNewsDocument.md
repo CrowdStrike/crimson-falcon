@@ -7,12 +7,12 @@
 | **active** | **Boolean** | legacy field, not used | [optional] |
 | **actors** | [**Array&lt;DomainSimpleActor&gt;**](DomainSimpleActor.md) | Actors mentioned, related or referenced in the news/report |  |
 | **attachments** | [**Array&lt;DomainFile&gt;**](DomainFile.md) | News attachment, containing either pdf url or feeds zip and/or gzip archive | [optional] |
-| **created_date** | **Integer** | Date of the news document creation, unix timestampt |  |
+| **created_date** | **Integer** | Date of the news document creation, Unix timestamp |  |
 | **description** | **String** | Full report description, extracted from the document | [optional] |
 | **entitlements** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) | internal property used for permissions check of access, not returned or explicitly filterable | [optional] |
 | **id** | **Integer** | Integer ID of the News document |  |
 | **image** | [**DomainImage**](DomainImage.md) |  | [optional] |
-| **last_modified_date** | **Integer** | Date of the news document last modification, unix timestampt |  |
+| **last_modified_date** | **Integer** | Date of the news document last modification, Unix timestamp |  |
 | **malware** | [**Array&lt;DomainReportMalware&gt;**](DomainReportMalware.md) | Malware mentioned, related or referenced in the news/report | [optional] |
 | **motivations** | [**Array&lt;DomainEntity&gt;**](DomainEntity.md) | News mentioned motivation or motivation of related actors and malware families |  |
 | **name** | **String** | News title |  |

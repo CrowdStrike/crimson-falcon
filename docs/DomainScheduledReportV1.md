@@ -20,6 +20,7 @@
 | **report_metadata** | [**DomainReportMetadata**](DomainReportMetadata.md) |  | [optional] |
 | **report_params** | [**DomainReportParams**](DomainReportParams.md) |  |  |
 | **schedule** | [**DomainSchedule**](DomainSchedule.md) |  |  |
+| **schedule_type** | **String** |  |  |
 | **shared_with** | **Array&lt;String&gt;** |  |  |
 | **start_on** | **Time** |  | [optional] |
 | **status** | **String** |  |  |
@@ -53,6 +54,7 @@ instance = Falcon::DomainScheduledReportV1.new(
   report_metadata: null,
   report_params: null,
   schedule: null,
+  schedule_type: null,
   shared_with: null,
   start_on: null,
   status: null,

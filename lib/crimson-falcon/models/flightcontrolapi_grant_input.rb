@@ -37,6 +37,9 @@ module Falcon
 
     attr_accessor :cid
 
+    # expiration date time of the role in RFC3339 format
+    attr_accessor :expires_at
+
     attr_accessor :role_ids
 
     attr_accessor :uuid
@@ -46,6 +49,7 @@ module Falcon
       {
         :'action' => :'action',
         :'cid' => :'cid',
+        :'expires_at' => :'expires_at',
         :'role_ids' => :'role_ids',
         :'uuid' => :'uuid'
       }
@@ -61,6 +65,7 @@ module Falcon
       {
         :'action' => :'String',
         :'cid' => :'String',
+        :'expires_at' => :'String',
         :'role_ids' => :'Array<String>',
         :'uuid' => :'String'
       }
@@ -95,6 +100,10 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
+      end
+
       if attributes.key?(:'role_ids')
         if (value = attributes[:'role_ids']).is_a?(Array)
           self.role_ids = value
@@ -126,6 +135,7 @@ module Falcon
       self.class == o.class &&
           action == o.action &&
           cid == o.cid &&
+          expires_at == o.expires_at &&
           role_ids == o.role_ids &&
           uuid == o.uuid
     end
@@ -139,7 +149,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [action, cid, role_ids, uuid].hash
+      [action, cid, expires_at, role_ids, uuid].hash
     end
 
     # Builds the object from hash

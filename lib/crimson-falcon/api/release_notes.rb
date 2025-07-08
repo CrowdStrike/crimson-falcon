@@ -198,6 +198,82 @@ module Falcon
       return data, status_code, headers
     end
 
+    # returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+    # @param authorization [String] authorization header
+    # @param body [ReleasenotesEntitiesGetRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username user name
+    # @return [ReleasenotesReleaseNoteWrapperV2]
+    def get_entity_ids_by_query_postv2(authorization, body, opts = {})
+      data, _status_code, _headers = get_entity_ids_by_query_postv2_with_http_info(authorization, body, opts)
+      data
+    end
+
+    # returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+    # @param authorization [String] authorization header
+    # @param body [ReleasenotesEntitiesGetRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_cs_username user name
+    # @return [Array<(ReleasenotesReleaseNoteWrapperV2, Integer, Hash)>] ReleasenotesReleaseNoteWrapperV2 data, response status code and response headers
+    def get_entity_ids_by_query_postv2_with_http_info(authorization, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReleaseNotes.get_entity_ids_by_query_postv2 ...'
+      end
+      # verify the required parameter 'authorization' is set
+      if @api_client.config.client_side_validation && authorization.nil?
+        fail ArgumentError, "Missing the required parameter 'authorization' when calling ReleaseNotes.get_entity_ids_by_query_postv2"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling ReleaseNotes.get_entity_ids_by_query_postv2"
+      end
+      # resource path
+      local_var_path = '/deployment-coordinator/entities/release-notes/GET/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+      header_params[:'Authorization'] = authorization
+      header_params[:'X-CS-USERNAME'] = opts[:'x_cs_username'] if !opts[:'x_cs_username'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ReleasenotesReleaseNoteWrapperV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ReleaseNotes.get_entity_ids_by_query_postv2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReleaseNotes#get_entity_ids_by_query_postv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Queries for release-notes resources and returns ids
     # @param authorization [String] authorization header
     # @param [Hash] opts the optional parameters

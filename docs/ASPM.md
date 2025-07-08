@@ -24,6 +24,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**execute_functions_query_overtime**](ASPM.md#execute_functions_query_overtime) | **GET** /application-security/combined/query-functions-overtime/v1 | A selected list of queryLanguage overtime queries. request &amp; response are in MSA format |
 | [**execute_query**](ASPM.md#execute_query) | **POST** /aspm-api-gateway/api/v1/query | Execute a query. The syntax used is identical to that of the query page. |
 | [**get_cloud_security_integration_state**](ASPM.md#get_cloud_security_integration_state) | **GET** /aspm-api-gateway/api/v1/cloud_security_config | Get Cloud Security integration state |
+| [**get_cspm_inventory_ba_services**](ASPM.md#get_cspm_inventory_ba_services) | **GET** /application-security/combined/cspm-inventory-ba-services/v1 | Gets services ordered by risk score for given BA |
+| [**get_cspm_inventory_service_details**](ASPM.md#get_cspm_inventory_service_details) | **GET** /application-security/combined/cspm-inventory-service-data/v1 | Gets all service details for CSPM Inventory. |
 | [**get_executor_nodes**](ASPM.md#get_executor_nodes) | **GET** /aspm-api-gateway/api/v1/executor_nodes | Get all the relay nodes |
 | [**get_executor_nodes_id_09_instances_csv**](ASPM.md#get_executor_nodes_id_09_instances_csv) | **GET** /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv | Retrieve the relay instances in CSV format |
 | [**get_executor_nodes_metadata**](ASPM.md#get_executor_nodes_metadata) | **GET** /aspm-api-gateway/api/v1/executor_nodes/metadata | Get metadata about all executor nodes |
@@ -1321,7 +1323,7 @@ end
 
 ## execute_query
 
-> <TypesQueryResult> execute_query(body)
+> <TypesQueryResponse> execute_query(body)
 
 Execute a query. The syntax used is identical to that of the query page.
 
@@ -1354,7 +1356,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TypesQueryResult>, Integer, Hash)> execute_query_with_http_info(body)
+> <Array(<TypesQueryResponse>, Integer, Hash)> execute_query_with_http_info(body)
 
 ```ruby
 begin
@@ -1362,7 +1364,7 @@ begin
   data, status_code, headers = api_instance.execute_query_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <TypesQueryResult>
+  p data # => <TypesQueryResponse>
 rescue Falcon::ApiError => e
   puts "Error when calling ASPM->execute_query_with_http_info: #{e}"
 end
@@ -1376,7 +1378,7 @@ end
 
 ### Return type
 
-[**TypesQueryResult**](TypesQueryResult.md)
+[**TypesQueryResponse**](TypesQueryResponse.md)
 
 ### Authorization
 
@@ -1443,6 +1445,150 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TypesGetCloudSecurityIntegrationStateResponse**](TypesGetCloudSecurityIntegrationStateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_cspm_inventory_ba_services
+
+> <TypesGeneralQueryResponse> get_cspm_inventory_ba_services(business_application_name, opts)
+
+Gets services ordered by risk score for given BA
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+business_application_name = 'business_application_name_example' # String | Business application name
+opts = {
+  offset: 56, # Integer | Pagination offset
+  limit: 56 # Integer | Pagination limit
+}
+
+begin
+  # Gets services ordered by risk score for given BA
+  result = api_instance.get_cspm_inventory_ba_services(business_application_name, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cspm_inventory_ba_services: #{e}"
+end
+```
+
+#### Using the get_cspm_inventory_ba_services_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> get_cspm_inventory_ba_services_with_http_info(business_application_name, opts)
+
+```ruby
+begin
+  # Gets services ordered by risk score for given BA
+  data, status_code, headers = api_instance.get_cspm_inventory_ba_services_with_http_info(business_application_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cspm_inventory_ba_services_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **business_application_name** | **String** | Business application name |  |
+| **offset** | **Integer** | Pagination offset | [optional] |
+| **limit** | **Integer** | Pagination limit | [optional] |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_cspm_inventory_service_details
+
+> <TypesGeneralQueryResponse> get_cspm_inventory_service_details(persistent_signature)
+
+Gets all service details for CSPM Inventory.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ASPM.new
+persistent_signature = 'persistent_signature_example' # String | Service signature
+
+begin
+  # Gets all service details for CSPM Inventory.
+  result = api_instance.get_cspm_inventory_service_details(persistent_signature)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cspm_inventory_service_details: #{e}"
+end
+```
+
+#### Using the get_cspm_inventory_service_details_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TypesGeneralQueryResponse>, Integer, Hash)> get_cspm_inventory_service_details_with_http_info(persistent_signature)
+
+```ruby
+begin
+  # Gets all service details for CSPM Inventory.
+  data, status_code, headers = api_instance.get_cspm_inventory_service_details_with_http_info(persistent_signature)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TypesGeneralQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ASPM->get_cspm_inventory_service_details_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **persistent_signature** | **String** | Service signature |  |
+
+### Return type
+
+[**TypesGeneralQueryResponse**](TypesGeneralQueryResponse.md)
 
 ### Authorization
 

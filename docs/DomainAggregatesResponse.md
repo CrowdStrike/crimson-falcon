@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;DomainReconAPIError&gt;**](DomainReconAPIError.md) |  |  |
+| **errors** | [**Array&lt;MsaAPIError&gt;**](MsaAPIError.md) | Array of API Errors |  |
 | **meta** | [**MsaMetaInfo**](MsaMetaInfo.md) |  |  |
-| **resources** | [**Array&lt;MsaAggregationResult&gt;**](MsaAggregationResult.md) |  |  |
+| **resources** | [**Array&lt;DomainAggregationResult&gt;**](DomainAggregationResult.md) | Array of aggregation results, 1 per AggregateQueryRequest |  |
 
 ## Example
 

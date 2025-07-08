@@ -62,6 +62,8 @@ module Falcon
 
     attr_accessor :iar_coverage
 
+    attr_accessor :kac_agent_active
+
     attr_accessor :kac_agent_id
 
     attr_accessor :kubernetes_version
@@ -100,6 +102,7 @@ module Falcon
         :'container_count' => :'container_count',
         :'first_seen' => :'first_seen',
         :'iar_coverage' => :'iar_coverage',
+        :'kac_agent_active' => :'kac_agent_active',
         :'kac_agent_id' => :'kac_agent_id',
         :'kubernetes_version' => :'kubernetes_version',
         :'labels_list' => :'labels_list',
@@ -136,6 +139,7 @@ module Falcon
         :'container_count' => :'Integer',
         :'first_seen' => :'String',
         :'iar_coverage' => :'Boolean',
+        :'kac_agent_active' => :'Boolean',
         :'kac_agent_id' => :'String',
         :'kubernetes_version' => :'String',
         :'labels_list' => :'Array<String>',
@@ -230,6 +234,10 @@ module Falcon
 
       if attributes.key?(:'iar_coverage')
         self.iar_coverage = attributes[:'iar_coverage']
+      end
+
+      if attributes.key?(:'kac_agent_active')
+        self.kac_agent_active = attributes[:'kac_agent_active']
       end
 
       if attributes.key?(:'kac_agent_id')
@@ -341,6 +349,10 @@ module Falcon
         invalid_properties.push('invalid value for "iar_coverage", iar_coverage cannot be nil.')
       end
 
+      if @kac_agent_active.nil?
+        invalid_properties.push('invalid value for "kac_agent_active", kac_agent_active cannot be nil.')
+      end
+
       if @kac_agent_id.nil?
         invalid_properties.push('invalid value for "kac_agent_id", kac_agent_id cannot be nil.')
       end
@@ -402,6 +414,7 @@ module Falcon
       return false if @container_count.nil?
       return false if @first_seen.nil?
       return false if @iar_coverage.nil?
+      return false if @kac_agent_active.nil?
       return false if @kac_agent_id.nil?
       return false if @kubernetes_version.nil?
       return false if @labels_list.nil?
@@ -435,6 +448,7 @@ module Falcon
           container_count == o.container_count &&
           first_seen == o.first_seen &&
           iar_coverage == o.iar_coverage &&
+          kac_agent_active == o.kac_agent_active &&
           kac_agent_id == o.kac_agent_id &&
           kubernetes_version == o.kubernetes_version &&
           labels_list == o.labels_list &&
@@ -456,7 +470,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [access, agent_status, agents, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, cluster_security_group, cluster_status, container_count, first_seen, iar_coverage, kac_agent_id, kubernetes_version, labels_list, last_seen, management_status, node_count, pod_count, security_group, tags, virtual_network].hash
+      [access, agent_status, agents, cid, cloud_account_id, cloud_name, cloud_region, cloud_service, cluster_id, cluster_name, cluster_security_group, cluster_status, container_count, first_seen, iar_coverage, kac_agent_active, kac_agent_id, kubernetes_version, labels_list, last_seen, management_status, node_count, pod_count, security_group, tags, virtual_network].hash
     end
 
     # Builds the object from hash

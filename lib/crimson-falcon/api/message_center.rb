@@ -314,72 +314,6 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequest]
-    # @param [Hash] opts the optional parameters
-    # @return [MsaReplyAffectedEntities]
-    def create_case(body, opts = {})
-      data, _status_code, _headers = create_case_with_http_info(body, opts)
-      data
-    end
-
-    # create a new case
-    # @param body [DomainCaseCreationRequest]
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
-    def create_case_with_http_info(body, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MessageCenter.create_case ...'
-      end
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling MessageCenter.create_case"
-      end
-      # resource path
-      local_var_path = '/message-center/entities/case/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'MsaReplyAffectedEntities'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"MessageCenter.create_case",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageCenter#create_case\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # create a new case
     # @param body [DomainCaseCreationRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyAffectedEntities]
@@ -606,7 +540,7 @@ module Falcon
       if @api_client.config.client_side_validation && case_id.nil?
         fail ArgumentError, "Missing the required parameter 'case_id' when calling MessageCenter.query_activity_by_case_id"
       end
-      allowable_values = ["activity.created_time.asc", "activity.created_time.desc"]
+      allowable_values = ["activity.type.asc", "activity.type.desc", "activity.created_time.asc", "activity.created_time.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -659,7 +593,7 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
     # @return [MsaspecQueryResponse]
     def query_cases_ids_by_filter(opts = {})
@@ -671,14 +605,14 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
-    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.title case.type
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_cases_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenter.query_cases_ids_by_filter ...'
       end
-      allowable_values = ["case.id.asc", "case.id.desc"]
+      allowable_values = ["case.created_time.asc", "case.created_time.desc", "case.last_modified_time.asc", "case.last_modified_time.desc", "case.status.asc", "case.status.desc", "case.type.asc", "case.type.desc", "case.id.asc", "case.id.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

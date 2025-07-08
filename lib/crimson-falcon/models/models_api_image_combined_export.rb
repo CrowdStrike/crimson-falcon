@@ -38,7 +38,13 @@ module Falcon
 
     attr_accessor :base_os
 
+    attr_accessor :business_impact
+
+    attr_accessor :business_unit
+
     attr_accessor :cid
+
+    attr_accessor :cloud_groups_v2
 
     attr_accessor :cve_id
 
@@ -49,6 +55,8 @@ module Falcon
     attr_accessor :detection_severity
 
     attr_accessor :detection_type
+
+    attr_accessor :environment
 
     attr_accessor :first_seen
 
@@ -88,12 +96,16 @@ module Falcon
         :'ai_related' => :'ai_related',
         :'architecture' => :'architecture',
         :'base_os' => :'base_os',
+        :'business_impact' => :'business_impact',
+        :'business_unit' => :'business_unit',
         :'cid' => :'cid',
+        :'cloud_groups_v2' => :'cloud_groups_v2',
         :'cve_id' => :'cve_id',
         :'cvss_score' => :'cvss_score',
         :'detection_name' => :'detection_name',
         :'detection_severity' => :'detection_severity',
         :'detection_type' => :'detection_type',
+        :'environment' => :'environment',
         :'first_seen' => :'first_seen',
         :'groups' => :'groups',
         :'image_digest' => :'image_digest',
@@ -124,12 +136,16 @@ module Falcon
         :'ai_related' => :'Boolean',
         :'architecture' => :'String',
         :'base_os' => :'String',
+        :'business_impact' => :'Array<String>',
+        :'business_unit' => :'Array<String>',
         :'cid' => :'String',
+        :'cloud_groups_v2' => :'Array<RbacCloudGroup>',
         :'cve_id' => :'String',
         :'cvss_score' => :'String',
         :'detection_name' => :'String',
         :'detection_severity' => :'String',
         :'detection_type' => :'String',
+        :'environment' => :'Array<String>',
         :'first_seen' => :'String',
         :'groups' => :'Array<String>',
         :'image_digest' => :'String',
@@ -182,8 +198,26 @@ module Falcon
         self.base_os = attributes[:'base_os']
       end
 
+      if attributes.key?(:'business_impact')
+        if (value = attributes[:'business_impact']).is_a?(Array)
+          self.business_impact = value
+        end
+      end
+
+      if attributes.key?(:'business_unit')
+        if (value = attributes[:'business_unit']).is_a?(Array)
+          self.business_unit = value
+        end
+      end
+
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cloud_groups_v2')
+        if (value = attributes[:'cloud_groups_v2']).is_a?(Array)
+          self.cloud_groups_v2 = value
+        end
       end
 
       if attributes.key?(:'cve_id')
@@ -204,6 +238,12 @@ module Falcon
 
       if attributes.key?(:'detection_type')
         self.detection_type = attributes[:'detection_type']
+      end
+
+      if attributes.key?(:'environment')
+        if (value = attributes[:'environment']).is_a?(Array)
+          self.environment = value
+        end
       end
 
       if attributes.key?(:'first_seen')
@@ -414,12 +454,16 @@ module Falcon
           ai_related == o.ai_related &&
           architecture == o.architecture &&
           base_os == o.base_os &&
+          business_impact == o.business_impact &&
+          business_unit == o.business_unit &&
           cid == o.cid &&
+          cloud_groups_v2 == o.cloud_groups_v2 &&
           cve_id == o.cve_id &&
           cvss_score == o.cvss_score &&
           detection_name == o.detection_name &&
           detection_severity == o.detection_severity &&
           detection_type == o.detection_type &&
+          environment == o.environment &&
           first_seen == o.first_seen &&
           groups == o.groups &&
           image_digest == o.image_digest &&
@@ -447,7 +491,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_related, architecture, base_os, cid, cve_id, cvss_score, detection_name, detection_severity, detection_type, first_seen, groups, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
+      [ai_related, architecture, base_os, business_impact, business_unit, cid, cloud_groups_v2, cve_id, cvss_score, detection_name, detection_severity, detection_type, environment, first_seen, groups, image_digest, image_id, is_base_image, last_seen, packages_impacted, registry, repository, source, started_containers, stopped_containers, tag, vulnerability_cps_rating, vulnerability_description, vulnerability_severity].hash
     end
 
     # Builds the object from hash

@@ -6,6 +6,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 | ------ | ------------ | ----------- |
 | [**combined_release_notes_v1**](ReleaseNotes.md#combined_release_notes_v1) | **GET** /deployment-coordinator/combined/release-notes/v1 | Queries for release-notes resources and returns details |
 | [**get_entity_ids_by_query_post**](ReleaseNotes.md#get_entity_ids_by_query_post) | **POST** /deployment-coordinator/entities/release-notes/GET/v1 | returns the release notes for the IDs in the request |
+| [**get_entity_ids_by_query_postv2**](ReleaseNotes.md#get_entity_ids_by_query_postv2) | **POST** /deployment-coordinator/entities/release-notes/GET/v2 | returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format |
 | [**query_release_notes_v1**](ReleaseNotes.md#query_release_notes_v1) | **GET** /deployment-coordinator/queries/release-notes/v1 | Queries for release-notes resources and returns ids |
 
 
@@ -154,6 +155,81 @@ end
 ### Return type
 
 [**ReleasenotesReleaseNoteWrapperV1**](ReleasenotesReleaseNoteWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_entity_ids_by_query_postv2
+
+> <ReleasenotesReleaseNoteWrapperV2> get_entity_ids_by_query_postv2(authorization, body, opts)
+
+returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ReleaseNotes.new
+authorization = 'authorization_example' # String | authorization header
+body = Falcon::ReleasenotesEntitiesGetRequest.new({ids: ['ids_example']}) # ReleasenotesEntitiesGetRequest | 
+opts = {
+  x_cs_username: 'x_cs_username_example' # String | user name
+}
+
+begin
+  # returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+  result = api_instance.get_entity_ids_by_query_postv2(authorization, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ReleaseNotes->get_entity_ids_by_query_postv2: #{e}"
+end
+```
+
+#### Using the get_entity_ids_by_query_postv2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ReleasenotesReleaseNoteWrapperV2>, Integer, Hash)> get_entity_ids_by_query_postv2_with_http_info(authorization, body, opts)
+
+```ruby
+begin
+  # returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
+  data, status_code, headers = api_instance.get_entity_ids_by_query_postv2_with_http_info(authorization, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ReleasenotesReleaseNoteWrapperV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling ReleaseNotes->get_entity_ids_by_query_postv2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **authorization** | **String** | authorization header |  |
+| **body** | [**ReleasenotesEntitiesGetRequest**](ReleasenotesEntitiesGetRequest.md) |  |  |
+| **x_cs_username** | **String** | user name | [optional] |
+
+### Return type
+
+[**ReleasenotesReleaseNoteWrapperV2**](ReleasenotesReleaseNoteWrapperV2.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@
 | **filter** | **String** |  | [optional] |
 | **lookback** | **String** |  | [optional] |
 | **outcome** | **String** |  | [optional] |
-| **trigger_mode** | **String** |  | [optional] |
+| **trigger_mode** | **String** |  |  |
 | **use_ingest_time** | **Boolean** |  | [optional] |
 
 ## Example

@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :execution_offset
 
+    attr_accessor :guardrail_notifications
+
     attr_accessor :mitre_attack
 
     attr_accessor :origin
@@ -70,6 +72,7 @@ module Falcon
         :'author' => :'author',
         :'comment' => :'comment',
         :'execution_offset' => :'execution_offset',
+        :'guardrail_notifications' => :'guardrail_notifications',
         :'mitre_attack' => :'mitre_attack',
         :'origin' => :'origin',
         :'severity' => :'severity',
@@ -96,6 +99,7 @@ module Falcon
         :'author' => :'String',
         :'comment' => :'String',
         :'execution_offset' => :'String',
+        :'guardrail_notifications' => :'Array<DomainNotifications>',
         :'mitre_attack' => :'Array<DomainMitreAttackMapping>',
         :'origin' => :'String',
         :'severity' => :'Integer',
@@ -148,6 +152,12 @@ module Falcon
 
       if attributes.key?(:'execution_offset')
         self.execution_offset = attributes[:'execution_offset']
+      end
+
+      if attributes.key?(:'guardrail_notifications')
+        if (value = attributes[:'guardrail_notifications']).is_a?(Array)
+          self.guardrail_notifications = value
+        end
       end
 
       if attributes.key?(:'mitre_attack')
@@ -288,6 +298,7 @@ module Falcon
           author == o.author &&
           comment == o.comment &&
           execution_offset == o.execution_offset &&
+          guardrail_notifications == o.guardrail_notifications &&
           mitre_attack == o.mitre_attack &&
           origin == o.origin &&
           severity == o.severity &&
@@ -309,7 +320,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assign_to, assign_to_uuid, author, comment, execution_offset, mitre_attack, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
+      [assign_to, assign_to_uuid, author, comment, execution_offset, guardrail_notifications, mitre_attack, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
     end
 
     # Builds the object from hash

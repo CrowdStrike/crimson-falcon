@@ -1432,6 +1432,79 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get malware entities that match provided FQL filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+    # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+    # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+    # @option opts [String] :q Perform a generic substring search across all fields.
+    # @option opts [Array<String>] :fields The fields to return
+    # @return [DomainMalwareResponse]
+    def query_malware_entities(opts = {})
+      data, _status_code, _headers = query_malware_entities_with_http_info(opts)
+      data
+    end
+
+    # Get malware entities that match provided FQL filters.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :offset Set the starting row number to return malware IDs from. Defaults to 0.
+    # @option opts [Integer] :limit Set the number of malware IDs to return. The value must be between 1 and 5000.
+    # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters.
+    # @option opts [String] :q Perform a generic substring search across all fields.
+    # @option opts [Array<String>] :fields The fields to return
+    # @return [Array<(DomainMalwareResponse, Integer, Hash)>] DomainMalwareResponse data, response status code and response headers
+    def query_malware_entities_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Intel.query_malware_entities ...'
+      end
+      # resource path
+      local_var_path = '/intel/combined/malware/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainMalwareResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Intel.query_malware_entities",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Intel#query_malware_entities\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
     # @param [Hash] opts the optional parameters
     # @option opts [String] :id The actor ID(derived from the actor&#39;s name) for which to retrieve a list of attacks, for example: fancy-bear. Only one value is allowed

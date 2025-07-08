@@ -42,6 +42,8 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :cloud_groups_v2
+
     attr_accessor :cloud_labels
 
     attr_accessor :cloud_provider
@@ -104,6 +106,7 @@ module Falcon
         :'agent_id' => :'agent_id',
         :'azure_tenant_id' => :'azure_tenant_id',
         :'cid' => :'cid',
+        :'cloud_groups_v2' => :'cloud_groups_v2',
         :'cloud_labels' => :'cloud_labels',
         :'cloud_provider' => :'cloud_provider',
         :'cloud_scopes' => :'cloud_scopes',
@@ -147,6 +150,7 @@ module Falcon
         :'agent_id' => :'String',
         :'azure_tenant_id' => :'String',
         :'cid' => :'String',
+        :'cloud_groups_v2' => :'Array<DomainCloudGroup>',
         :'cloud_labels' => :'Array<ClassificationLabel>',
         :'cloud_provider' => :'String',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
@@ -216,6 +220,12 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cloud_groups_v2')
+        if (value = attributes[:'cloud_groups_v2']).is_a?(Array)
+          self.cloud_groups_v2 = value
+        end
       end
 
       if attributes.key?(:'cloud_labels')
@@ -465,6 +475,7 @@ module Falcon
           agent_id == o.agent_id &&
           azure_tenant_id == o.azure_tenant_id &&
           cid == o.cid &&
+          cloud_groups_v2 == o.cloud_groups_v2 &&
           cloud_labels == o.cloud_labels &&
           cloud_provider == o.cloud_provider &&
           cloud_scopes == o.cloud_scopes &&
@@ -503,7 +514,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, findings, groups, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
+      [account_id, account_name, agent_id, azure_tenant_id, cid, cloud_groups_v2, cloud_labels, cloud_provider, cloud_scopes, custom_policy_id, finding, findings, groups, id, is_managed, policy_id, policy_statement, policy_type, region, report_date_time, resource_attributes, resource_create_time, resource_id, resource_id_type, resource_url, resource_uuid, scan_id, scan_time, service, severity, status, tags, vm_id].hash
     end
 
     # Builds the object from hash

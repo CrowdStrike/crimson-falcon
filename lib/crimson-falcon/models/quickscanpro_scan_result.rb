@@ -91,7 +91,7 @@ module Falcon
       {
         :'beta_intelligence_context' => :'Object',
         :'file_artifacts' => :'Array<QuickscanproFileResult>',
-        :'mitre_attacks' => :'Array<QuickscanproMITREAttack>',
+        :'mitre_attacks' => :'Array<DomainMITREAttack>',
         :'url_artifacts' => :'Array<QuickscanproURLResult>',
         :'verdict' => :'String',
         :'verdict_reason' => :'String',

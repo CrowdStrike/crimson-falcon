@@ -883,6 +883,75 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get list of related cloud event LogScale IDs for a given IOA
+    # @param x_cs_useruuid [String] Requester User UUID
+    # @param id [String] IOA Aggregate Event ID
+    # @param [Hash] opts the optional parameters
+    # @return [CdrioamanagerGetCloudEventIDsResponse]
+    def get_cloud_event_ids(x_cs_useruuid, id, opts = {})
+      data, _status_code, _headers = get_cloud_event_ids_with_http_info(x_cs_useruuid, id, opts)
+      data
+    end
+
+    # Get list of related cloud event LogScale IDs for a given IOA
+    # @param x_cs_useruuid [String] Requester User UUID
+    # @param id [String] IOA Aggregate Event ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CdrioamanagerGetCloudEventIDsResponse, Integer, Hash)>] CdrioamanagerGetCloudEventIDsResponse data, response status code and response headers
+    def get_cloud_event_ids_with_http_info(x_cs_useruuid, id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CspmRegistration.get_cloud_event_ids ...'
+      end
+      # verify the required parameter 'x_cs_useruuid' is set
+      if @api_client.config.client_side_validation && x_cs_useruuid.nil?
+        fail ArgumentError, "Missing the required parameter 'x_cs_useruuid' when calling CspmRegistration.get_cloud_event_ids"
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling CspmRegistration.get_cloud_event_ids"
+      end
+      # resource path
+      local_var_path = '/detects/queries/cloud-events/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'X-CS-USERUUID'] = x_cs_useruuid
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CdrioamanagerGetCloudEventIDsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CspmRegistration.get_cloud_event_ids",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CspmRegistration#get_cloud_event_ids\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections.
     # @param ids [Array<String>] detection ids
     # @param [Hash] opts the optional parameters

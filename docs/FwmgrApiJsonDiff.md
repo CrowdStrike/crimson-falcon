@@ -1,4 +1,4 @@
-# Falcon::FwmgrApiJsonDiff
+# Falcon::FwmgrApiJSONDiff
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'crimson-falcon'
 
-instance = Falcon::FwmgrApiJsonDiff.new(
+instance = Falcon::FwmgrApiJSONDiff.new(
   from: null,
   op: null,
   path: null,

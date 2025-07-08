@@ -60,7 +60,7 @@ module Falcon
     def self.openapi_types
       {
         :'errors' => :'Array<MsaAPIError>',
-        :'meta' => :'MsaMetaInfo',
+        :'meta' => :'QuickscanproMetaInfo',
         :'quota' => :'QuickscanproQuotaResource',
         :'resources' => :'Array<String>'
       }

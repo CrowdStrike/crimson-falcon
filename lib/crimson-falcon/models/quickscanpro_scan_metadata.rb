@@ -34,6 +34,8 @@ module Falcon
   class QuickscanproScanMetadata
     attr_accessor :created_timestamp
 
+    attr_accessor :errors
+
     attr_accessor :sha256
 
     attr_accessor :status
@@ -44,6 +46,7 @@ module Falcon
     def self.attribute_map
       {
         :'created_timestamp' => :'created_timestamp',
+        :'errors' => :'errors',
         :'sha256' => :'sha256',
         :'status' => :'status',
         :'updated_timestamp' => :'updated_timestamp'
@@ -59,6 +62,7 @@ module Falcon
     def self.openapi_types
       {
         :'created_timestamp' => :'Time',
+        :'errors' => :'Array<QuickscanproError>',
         :'sha256' => :'String',
         :'status' => :'String',
         :'updated_timestamp' => :'Time'
@@ -88,6 +92,12 @@ module Falcon
 
       if attributes.key?(:'created_timestamp')
         self.created_timestamp = attributes[:'created_timestamp']
+      end
+
+      if attributes.key?(:'errors')
+        if (value = attributes[:'errors']).is_a?(Array)
+          self.errors = value
+        end
       end
 
       if attributes.key?(:'sha256')
@@ -142,6 +152,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           created_timestamp == o.created_timestamp &&
+          errors == o.errors &&
           sha256 == o.sha256 &&
           status == o.status &&
           updated_timestamp == o.updated_timestamp
@@ -156,7 +167,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_timestamp, sha256, status, updated_timestamp].hash
+      [created_timestamp, errors, sha256, status, updated_timestamp].hash
     end
 
     # Builds the object from hash

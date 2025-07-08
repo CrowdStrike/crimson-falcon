@@ -36,6 +36,8 @@ module Falcon
 
     attr_accessor :query
 
+    attr_accessor :revision_id
+
     attr_accessor :select_fields
 
     attr_accessor :timestamp
@@ -45,6 +47,7 @@ module Falcon
       {
         :'paginate' => :'paginate',
         :'query' => :'query',
+        :'revision_id' => :'revisionId',
         :'select_fields' => :'selectFields',
         :'timestamp' => :'timestamp'
       }
@@ -60,6 +63,7 @@ module Falcon
       {
         :'paginate' => :'TypesPaginate',
         :'query' => :'String',
+        :'revision_id' => :'Integer',
         :'select_fields' => :'TypesQueryRequestSelectFields',
         :'timestamp' => :'Integer'
       }
@@ -92,6 +96,10 @@ module Falcon
 
       if attributes.key?(:'query')
         self.query = attributes[:'query']
+      end
+
+      if attributes.key?(:'revision_id')
+        self.revision_id = attributes[:'revision_id']
       end
 
       if attributes.key?(:'select_fields')
@@ -128,6 +136,7 @@ module Falcon
       self.class == o.class &&
           paginate == o.paginate &&
           query == o.query &&
+          revision_id == o.revision_id &&
           select_fields == o.select_fields &&
           timestamp == o.timestamp
     end
@@ -141,7 +150,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [paginate, query, select_fields, timestamp].hash
+      [paginate, query, revision_id, select_fields, timestamp].hash
     end
 
     # Builds the object from hash

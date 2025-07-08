@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **account_name** | **String** |  | [optional] |
 | **allows_public_access** | **Boolean** |  | [optional] |
-| **application_security** | [**AspmData**](AspmData.md) |  | [optional] |
+| **application_security** | [**AspmInventoryData**](AspmInventoryData.md) |  | [optional] |
 | **asset_graph** | [**ResourcesAssetGraph**](ResourcesAssetGraph.md) |  | [optional] |
 | **cspm_license** | **String** |  | [optional] |
 | **data_classifications** | [**DataclassificationsResponse**](DataclassificationsResponse.md) |  | [optional] |

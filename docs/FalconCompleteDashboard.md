@@ -4,7 +4,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**aggregate_alerts**](FalconCompleteDashboard.md#aggregate_alerts) | **POST** /falcon-complete-dashboards/aggregates/alerts/GET/v1 | Retrieve aggregate alerts values based on the matched filter |
+| [**aggregate_alerts**](FalconCompleteDashboard.md#aggregate_alerts) | **POST** /falcon-complete-dashboards/aggregates/alerts/GET/v1 | Retrieve aggregate epp alerts values based on the matched filter |
 | [**aggregate_allow_list**](FalconCompleteDashboard.md#aggregate_allow_list) | **POST** /falcon-complete-dashboards/aggregates/allowlist/GET/v1 | Retrieve aggregate allowlist ticket values based on the matched filter |
 | [**aggregate_block_list**](FalconCompleteDashboard.md#aggregate_block_list) | **POST** /falcon-complete-dashboards/aggregates/blocklist/GET/v1 | Retrieve aggregate blocklist ticket values based on the matched filter |
 | [**aggregate_detections**](FalconCompleteDashboard.md#aggregate_detections) | **POST** /falcon-complete-dashboards/aggregates/detects/GET/v1 | Retrieve aggregate detection values based on the matched filter |
@@ -17,7 +17,8 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**aggregate_support_issues**](FalconCompleteDashboard.md#aggregate_support_issues) | **POST** /falcon-complete-dashboards/aggregates/support-issues/v1 | Retrieve aggregate support issue ticket values based on the matched filter |
 | [**aggregate_total_device_counts**](FalconCompleteDashboard.md#aggregate_total_device_counts) | **POST** /falcon-complete-dashboards/aggregates/total-device-counts/v1 | Retrieve aggregate total host/devices based on the matched filter |
 | [**get_device_count_collection_queries_by_filter**](FalconCompleteDashboard.md#get_device_count_collection_queries_by_filter) | **GET** /falcon-complete-dashboards/queries/devicecount-collections/v1 | Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled |
-| [**query_alert_ids_by_filter**](FalconCompleteDashboard.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled |
+| [**query_alert_ids_by_filter**](FalconCompleteDashboard.md#query_alert_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/alerts/v1 | Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled |
+| [**query_alert_ids_by_filter_v2**](FalconCompleteDashboard.md#query_alert_ids_by_filter_v2) | **GET** /falcon-complete-dashboards/queries/alerts/v2 | Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled |
 | [**query_allow_list_filter**](FalconCompleteDashboard.md#query_allow_list_filter) | **GET** /falcon-complete-dashboards/queries/allowlist/v1 | Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled |
 | [**query_block_list_filter**](FalconCompleteDashboard.md#query_block_list_filter) | **GET** /falcon-complete-dashboards/queries/blocklist/v1 | Retrieve block listtickets that match the provided filter criteria with scrolling enabled |
 | [**query_detection_ids_by_filter**](FalconCompleteDashboard.md#query_detection_ids_by_filter) | **GET** /falcon-complete-dashboards/queries/detects/v1 | Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled |
@@ -30,7 +31,7 @@ All URIs are relative to *https://api.crowdstrike.com*
 
 > <MsaAggregatesResponse> aggregate_alerts(body)
 
-Retrieve aggregate alerts values based on the matched filter
+Retrieve aggregate epp alerts values based on the matched filter
 
 ### Examples
 
@@ -49,7 +50,7 @@ api_instance = Falcon::FalconCompleteDashboard.new
 body = [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'})] # Array<MsaAggregateQueryRequest> | 
 
 begin
-  # Retrieve aggregate alerts values based on the matched filter
+  # Retrieve aggregate epp alerts values based on the matched filter
   result = api_instance.aggregate_alerts(body)
   p result
 rescue Falcon::ApiError => e
@@ -65,7 +66,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve aggregate alerts values based on the matched filter
+  # Retrieve aggregate epp alerts values based on the matched filter
   data, status_code, headers = api_instance.aggregate_alerts_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
@@ -937,7 +938,7 @@ end
 
 > <MsaQueryResponse> query_alert_ids_by_filter(opts)
 
-Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
 
 ### Examples
 
@@ -961,7 +962,7 @@ opts = {
 }
 
 begin
-  # Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+  # Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
   result = api_instance.query_alert_ids_by_filter(opts)
   p result
 rescue Falcon::ApiError => e
@@ -977,7 +978,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Retrieve Alerts Ids that match the provided FQL filter criteria with scrolling enabled
+  # Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
   data, status_code, headers = api_instance.query_alert_ids_by_filter_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -999,6 +1000,83 @@ end
 ### Return type
 
 [**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_alert_ids_by_filter_v2
+
+> <MsaspecQueryResponse> query_alert_ids_by_filter_v2(opts)
+
+Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FalconCompleteDashboard.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-500]
+  sort: 'sort_example', # String | The property to sort on, followed by a dot (.), followed by the sort direction, either \"asc\" or \"desc\".
+  filter: 'filter_example', # String | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
+  offset: 'offset_example' # String | Starting index of overall result set from which to return ids.
+}
+
+begin
+  # Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
+  result = api_instance.query_alert_ids_by_filter_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconCompleteDashboard->query_alert_ids_by_filter_v2: #{e}"
+end
+```
+
+#### Using the query_alert_ids_by_filter_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_alert_ids_by_filter_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
+  data, status_code, headers = api_instance.query_alert_ids_by_filter_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling FalconCompleteDashboard->query_alert_ids_by_filter_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | The maximum records to return. [1-500] | [optional] |
+| **sort** | **String** | The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. | [optional] |
+| **filter** | **String** | Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide). | [optional] |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
 
 ### Authorization
 
