@@ -31,7 +31,7 @@ gem install crimson-falcon
 Add this to the Gemfile:
 <!-- x-release-please-start-version -->
 ```ruby
-    gem 'crimson-falcon', '~> 1.1.0'
+    gem 'crimson-falcon', '~> 1.2.0'
 ```
 <!-- x-release-please-end -->
 ### From Source to Gem: Building the Ruby Code
@@ -45,13 +45,13 @@ gem build crimson-falcon.gemspec
 Then install the gem locally:
 <!-- x-release-please-start-version -->
 ```shell
-gem install ./crimson-falcon-1.1.0.gem
+gem install ./crimson-falcon-1.2.0.gem
 ```
 <!-- x-release-please-end -->
 Finally, add this to the Gemfile:
 <!-- x-release-please-start-version -->
 ```ruby
-    gem 'crimson-falcon', '~> 1.1.0'
+    gem 'crimson-falcon', '~> 1.2.0'
 ```
 <!-- x-release-please-end -->
 ### Install from Git
