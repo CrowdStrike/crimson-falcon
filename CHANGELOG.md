@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.1.0...v1.2.0) (2025-07-08)
+
+
+### Features
+
+* latest SDK based on 7-8-20205 ([#53](https://github.com/CrowdStrike/crimson-falcon/issues/53)) ([437dc39](https://github.com/CrowdStrike/crimson-falcon/commit/437dc3979ab2071ba9ce6c14b2ba15ab68d922c9))
+
 ## [1.1.0](https://github.com/CrowdStrike/crimson-falcon/compare/v1.0.1...v1.1.0) (2025-06-04)
 
 
