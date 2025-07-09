@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DomainDiscoverAPIApplication
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **architectures** | **Array&lt;String&gt;** | Represents the application architectures (x86 / x64). | [optional] |
+| **browser_extension** | [**DomainDiscoverAPIApplicationBrowserExtension**](DomainDiscoverAPIApplicationBrowserExtension.md) |  | [optional] |
+| **category** | **String** | The category of the application. | [optional] |
+| **cid** | **String** | The customer ID of this application. |  |
+| **first_seen_timestamp** | **String** | Timestamp when this application was first seen by the cloud. | [optional] |
+| **groups** | **Array&lt;String&gt;** | The user defined groups this application is part of. | [optional] |
+| **host** | [**DomainDiscoverAPIApplicationHost**](DomainDiscoverAPIApplicationHost.md) |  | [optional] |
+| **id** | **String** | The unique ID for the application. |  |
+| **installation_paths** | **Array&lt;String&gt;** | The file paths where the application is installed on the host. Or the locations of the executables. | [optional] |
+| **installation_timestamp** | **String** | Timestamp when the application was installed on the host. We might not have this data. | [optional] |
+| **is_normalized** | **Boolean** | Whether or not the application is normalized | [optional] |
+| **is_suspicious** | **Boolean** | Whether or not the application is suspicious | [optional] |
+| **last_updated_timestamp** | **String** | Timestamp when this application was last updated (something changed in the application or in the host data). | [optional] |
+| **last_used_file_hash** | **String** | The file hash that was last used for this application. | [optional] |
+| **last_used_file_name** | **String** | The file name that was last used for this application. | [optional] |
+| **last_used_timestamp** | **String** | Timestamp when this application was last used. | [optional] |
+| **last_used_user_name** | **String** | The username of the user that last used this application. | [optional] |
+| **last_used_user_sid** | **String** | The user SID of the last user that used this application. | [optional] |
+| **name** | **String** | The name of the application. | [optional] |
+| **name_vendor** | **String** | The combined field on which we will be able to group by app. | [optional] |
+| **name_vendor_version** | **String** | The combined field on which we will be able to group by app + version. | [optional] |
+| **software_type** | **String** | The type of software of the application. | [optional] |
+| **vendor** | **String** | The name the application&#39;s vendor. | [optional] |
+| **version** | **String** | The version of the application. | [optional] |
+| **versioning_scheme** | **String** | The version scheme of the application. | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainDiscoverAPIApplication.new(
+  architectures: null,
+  browser_extension: null,
+  category: null,
+  cid: null,
+  first_seen_timestamp: null,
+  groups: null,
+  host: null,
+  id: null,
+  installation_paths: null,
+  installation_timestamp: null,
+  is_normalized: null,
+  is_suspicious: null,
+  last_updated_timestamp: null,
+  last_used_file_hash: null,
+  last_used_file_name: null,
+  last_used_timestamp: null,
+  last_used_user_name: null,
+  last_used_user_sid: null,
+  name: null,
+  name_vendor: null,
+  name_vendor_version: null,
+  software_type: null,
+  vendor: null,
+  version: null,
+  versioning_scheme: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DomainDiscoverAPIApplication
+        </nav>
+        <h1>Falcon::DomainDiscoverAPIApplication
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **architectures** | **Array&lt;String&gt;** | Represents the application architectures (x86 / x64). | [optional] |
+| **browser_extension** | [**DomainDiscoverAPIApplicationBrowserExtension**](DomainDiscoverAPIApplicationBrowserExtension.md) |  | [optional] |
+| **category** | **String** | The category of the application. | [optional] |
+| **cid** | **String** | The customer ID of this application. |  |
+| **first_seen_timestamp** | **String** | Timestamp when this application was first seen by the cloud. | [optional] |
+| **groups** | **Array&lt;String&gt;** | The user defined groups this application is part of. | [optional] |
+| **host** | [**DomainDiscoverAPIApplicationHost**](DomainDiscoverAPIApplicationHost.md) |  | [optional] |
+| **id** | **String** | The unique ID for the application. |  |
+| **installation_paths** | **Array&lt;String&gt;** | The file paths where the application is installed on the host. Or the locations of the executables. | [optional] |
+| **installation_timestamp** | **String** | Timestamp when the application was installed on the host. We might not have this data. | [optional] |
+| **is_normalized** | **Boolean** | Whether or not the application is normalized | [optional] |
+| **is_suspicious** | **Boolean** | Whether or not the application is suspicious | [optional] |
+| **last_updated_timestamp** | **String** | Timestamp when this application was last updated (something changed in the application or in the host data). | [optional] |
+| **last_used_file_hash** | **String** | The file hash that was last used for this application. | [optional] |
+| **last_used_file_name** | **String** | The file name that was last used for this application. | [optional] |
+| **last_used_timestamp** | **String** | Timestamp when this application was last used. | [optional] |
+| **last_used_user_name** | **String** | The username of the user that last used this application. | [optional] |
+| **last_used_user_sid** | **String** | The user SID of the last user that used this application. | [optional] |
+| **name** | **String** | The name of the application. | [optional] |
+| **name_vendor** | **String** | The combined field on which we will be able to group by app. | [optional] |
+| **name_vendor_version** | **String** | The combined field on which we will be able to group by app + version. | [optional] |
+| **software_type** | **String** | The type of software of the application. | [optional] |
+| **vendor** | **String** | The name the application&#39;s vendor. | [optional] |
+| **version** | **String** | The version of the application. | [optional] |
+| **versioning_scheme** | **String** | The version scheme of the application. | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainDiscoverAPIApplication.new(
+  architectures: null,
+  browser_extension: null,
+  category: null,
+  cid: null,
+  first_seen_timestamp: null,
+  groups: null,
+  host: null,
+  id: null,
+  installation_paths: null,
+  installation_timestamp: null,
+  is_normalized: null,
+  is_suspicious: null,
+  last_updated_timestamp: null,
+  last_used_file_hash: null,
+  last_used_file_name: null,
+  last_used_timestamp: null,
+  last_used_user_name: null,
+  last_used_user_sid: null,
+  name: null,
+  name_vendor: null,
+  name_vendor_version: null,
+  software_type: null,
+  vendor: null,
+  version: null,
+  versioning_scheme: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondomaindiscoverapiapplication">Falcon::DomainDiscoverAPIApplication</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>architectures</strong></td>
+      <td><strong>Array&lt;String&gt;</strong></td>
+      <td>Represents the application architectures (x86 / x64).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>browser_extension</strong></td>
+      <td><a href="DomainDiscoverAPIApplicationBrowserExtension.md"><strong>DomainDiscoverAPIApplicationBrowserExtension</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>category</strong></td>
+      <td><strong>String</strong></td>
+      <td>The category of the application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cid</strong></td>
+      <td><strong>String</strong></td>
+      <td>The customer ID of this application.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>first_seen_timestamp</strong></td>
+      <td><strong>String</strong></td>
+      <td>Timestamp when this application was first seen by the cloud.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>groups</strong></td>
+      <td><strong>Array&lt;String&gt;</strong></td>
+      <td>The user defined groups this application is part of.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>host</strong></td>
+      <td><a href="DomainDiscoverAPIApplicationHost.md"><strong>DomainDiscoverAPIApplicationHost</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The unique ID for the application.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>installation_paths</strong></td>
+      <td><strong>Array&lt;String&gt;</strong></td>
+      <td>The file paths where the application is installed on the host. Or the locations of the executables.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>installation_timestamp</strong></td>
+      <td><strong>String</strong></td>
+      <td>Timestamp when the application was installed on the host. We might not have this data.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>is_normalized</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Whether or not the application is normalized</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>is_suspicious</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Whether or not the application is suspicious</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_updated_timestamp</strong></td>
+      <td><strong>String</strong></td>
+      <td>Timestamp when this application was last updated (something changed in the application or in the host data).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_used_file_hash</strong></td>
+      <td><strong>String</strong></td>
+      <td>The file hash that was last used for this application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_used_file_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The file name that was last used for this application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_used_timestamp</strong></td>
+      <td><strong>String</strong></td>
+      <td>Timestamp when this application was last used.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_used_user_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The username of the user that last used this application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>last_used_user_sid</strong></td>
+      <td><strong>String</strong></td>
+      <td>The user SID of the last user that used this application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The name of the application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name_vendor</strong></td>
+      <td><strong>String</strong></td>
+      <td>The combined field on which we will be able to group by app.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name_vendor_version</strong></td>
+      <td><strong>String</strong></td>
+      <td>The combined field on which we will be able to group by app + version.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>software_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of software of the application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>vendor</strong></td>
+      <td><strong>String</strong></td>
+      <td>The name the application's vendor.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>version</strong></td>
+      <td><strong>String</strong></td>
+      <td>The version of the application.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>versioning_scheme</strong></td>
+      <td><strong>String</strong></td>
+      <td>The version scheme of the application.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::DomainDiscoverAPIApplication.new(
+  architectures: null,
+  browser_extension: null,
+  category: null,
+  cid: null,
+  first_seen_timestamp: null,
+  groups: null,
+  host: null,
+  id: null,
+  installation_paths: null,
+  installation_timestamp: null,
+  is_normalized: null,
+  is_suspicious: null,
+  last_updated_timestamp: null,
+  last_used_file_hash: null,
+  last_used_file_name: null,
+  last_used_timestamp: null,
+  last_used_user_name: null,
+  last_used_user_sid: null,
+  name: null,
+  name_vendor: null,
+  name_vendor_version: null,
+  software_type: null,
+  vendor: null,
+  version: null,
+  versioning_scheme: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

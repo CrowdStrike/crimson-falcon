@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DomainEvent
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **String** | The raw body of the event |  |
+| **body_is_truncated** | **Boolean** | By default, event bodies are truncated to 64kb and bodyIsTruncated is set to True. For event bodies larger than 64kb, call the /events-full-body endpoint with the respective eventId |  |
+| **body_link** | **String** | Link to the event, can be missing | [optional] |
+| **botnet_config_source** | [**DomainBotnetConfigSource**](DomainBotnetConfigSource.md) |  | [optional] |
+| **created_date** | **String** | The date the event was created (in UTC format) |  |
+| **ddos_attack_source** | [**DomainDDOSAttackSource**](DomainDDOSAttackSource.md) |  | [optional] |
+| **event_type** | **String** | The type of event. One of &#x60;TweetEvent&#x60;, &#x60;CodePasteEvent&#x60;, &#x60;BotnetConfigEvent&#x60;, &#x60;DdosAttackEvent&#x60; |  |
+| **fingerprint** | **String** | The event&#39;s fingerprint |  |
+| **id** | **String** | The unique event ID |  |
+| **matched_rules** | [**Array&lt;DomainMatchedRule&gt;**](DomainMatchedRule.md) | List of objects with rules that matched the event | [optional] |
+| **pastebin_text_source** | [**DomainPastebinTextSource**](DomainPastebinTextSource.md) |  | [optional] |
+| **tags** | **Array&lt;String&gt;** | A list of tags summarizing event content | [optional] |
+| **tweet_source** | [**DomainTweetSource**](DomainTweetSource.md) |  | [optional] |
+| **updated_date** | **String** | The date the event was last updated (in UTC format) |  |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainEvent.new(
+  body: null,
+  body_is_truncated: null,
+  body_link: null,
+  botnet_config_source: null,
+  created_date: null,
+  ddos_attack_source: null,
+  event_type: null,
+  fingerprint: null,
+  id: null,
+  matched_rules: null,
+  pastebin_text_source: null,
+  tags: null,
+  tweet_source: null,
+  updated_date: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DomainEvent
+        </nav>
+        <h1>Falcon::DomainEvent
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **String** | The raw body of the event |  |
+| **body_is_truncated** | **Boolean** | By default, event bodies are truncated to 64kb and bodyIsTruncated is set to True. For event bodies larger than 64kb, call the /events-full-body endpoint with the respective eventId |  |
+| **body_link** | **String** | Link to the event, can be missing | [optional] |
+| **botnet_config_source** | [**DomainBotnetConfigSource**](DomainBotnetConfigSource.md) |  | [optional] |
+| **created_date** | **String** | The date the event was created (in UTC format) |  |
+| **ddos_attack_source** | [**DomainDDOSAttackSource**](DomainDDOSAttackSource.md) |  | [optional] |
+| **event_type** | **String** | The type of event. One of &#x60;TweetEvent&#x60;, &#x60;CodePasteEvent&#x60;, &#x60;BotnetConfigEvent&#x60;, &#x60;DdosAttackEvent&#x60; |  |
+| **fingerprint** | **String** | The event&#39;s fingerprint |  |
+| **id** | **String** | The unique event ID |  |
+| **matched_rules** | [**Array&lt;DomainMatchedRule&gt;**](DomainMatchedRule.md) | List of objects with rules that matched the event | [optional] |
+| **pastebin_text_source** | [**DomainPastebinTextSource**](DomainPastebinTextSource.md) |  | [optional] |
+| **tags** | **Array&lt;String&gt;** | A list of tags summarizing event content | [optional] |
+| **tweet_source** | [**DomainTweetSource**](DomainTweetSource.md) |  | [optional] |
+| **updated_date** | **String** | The date the event was last updated (in UTC format) |  |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainEvent.new(
+  body: null,
+  body_is_truncated: null,
+  body_link: null,
+  botnet_config_source: null,
+  created_date: null,
+  ddos_attack_source: null,
+  event_type: null,
+  fingerprint: null,
+  id: null,
+  matched_rules: null,
+  pastebin_text_source: null,
+  tags: null,
+  tweet_source: null,
+  updated_date: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondomainevent">Falcon::DomainEvent</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><strong>String</strong></td>
+      <td>The raw body of the event</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body_is_truncated</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>By default, event bodies are truncated to 64kb and bodyIsTruncated is set to True. For event bodies larger than 64kb, call the /events-full-body endpoint with the respective eventId</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body_link</strong></td>
+      <td><strong>String</strong></td>
+      <td>Link to the event, can be missing</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>botnet_config_source</strong></td>
+      <td><a href="DomainBotnetConfigSource.md"><strong>DomainBotnetConfigSource</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>created_date</strong></td>
+      <td><strong>String</strong></td>
+      <td>The date the event was created (in UTC format)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>ddos_attack_source</strong></td>
+      <td><a href="DomainDDOSAttackSource.md"><strong>DomainDDOSAttackSource</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>event_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of event. One of `TweetEvent`, `CodePasteEvent`, `BotnetConfigEvent`, `DdosAttackEvent`</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>fingerprint</strong></td>
+      <td><strong>String</strong></td>
+      <td>The event's fingerprint</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The unique event ID</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>matched_rules</strong></td>
+      <td><a href="DomainMatchedRule.md"><strong>Array&lt;DomainMatchedRule&gt;</strong></a></td>
+      <td>List of objects with rules that matched the event</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>pastebin_text_source</strong></td>
+      <td><a href="DomainPastebinTextSource.md"><strong>DomainPastebinTextSource</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>tags</strong></td>
+      <td><strong>Array&lt;String&gt;</strong></td>
+      <td>A list of tags summarizing event content</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>tweet_source</strong></td>
+      <td><a href="DomainTweetSource.md"><strong>DomainTweetSource</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>updated_date</strong></td>
+      <td><strong>String</strong></td>
+      <td>The date the event was last updated (in UTC format)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::DomainEvent.new(
+  body: null,
+  body_is_truncated: null,
+  body_link: null,
+  botnet_config_source: null,
+  created_date: null,
+  ddos_attack_source: null,
+  event_type: null,
+  fingerprint: null,
+  id: null,
+  matched_rules: null,
+  pastebin_text_source: null,
+  tags: null,
+  tweet_source: null,
+  updated_date: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

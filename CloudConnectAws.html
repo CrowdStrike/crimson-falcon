@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::CloudConnectAws
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_or_update_aws_settings**](CloudConnectAws.md#create_or_update_aws_settings) | **POST** /cloud-connect-aws/entities/settings/v1 | Create or update Global Settings which are applicable to all provisioned AWS accounts |
+| [**delete_aws_accounts**](CloudConnectAws.md#delete_aws_accounts) | **DELETE** /cloud-connect-aws/entities/accounts/v1 | Delete a set of AWS Accounts by specifying their IDs |
+| [**get_aws_accounts**](CloudConnectAws.md#get_aws_accounts) | **GET** /cloud-connect-aws/entities/accounts/v1 | Retrieve a set of AWS Accounts by specifying their IDs |
+| [**get_aws_settings**](CloudConnectAws.md#get_aws_settings) | **GET** /cloud-connect-aws/combined/settings/v1 | Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts |
+| [**provision_aws_accounts**](CloudConnectAws.md#provision_aws_accounts) | **POST** /cloud-connect-aws/entities/accounts/v1 | Provision AWS Accounts by specifying details about the accounts to provision |
+| [**query_aws_accounts**](CloudConnectAws.md#query_aws_accounts) | **GET** /cloud-connect-aws/combined/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria |
+| [**query_aws_accounts_for_ids**](CloudConnectAws.md#query_aws_accounts_for_ids) | **GET** /cloud-connect-aws/queries/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria |
+| [**update_aws_accounts**](CloudConnectAws.md#update_aws_accounts) | **PATCH** /cloud-connect-aws/entities/accounts/v1 | Update AWS Accounts by specifying the ID of the account and details to update |
+| [**verify_aws_account_access**](CloudConnectAws.md#verify_aws_account_access) | **POST** /cloud-connect-aws/entities/verify-account-access/v1 | Performs an Access Verification check on the specified AWS Account IDs |
+
+
+## create_or_update_aws_settings
+
+> <ModelsCustomerConfigurationsV1> create_or_update_aws_settings(body)
+
+Create or update Global Settings which are applicable to all provisioned AWS accounts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsModifyAWSCustomerSettingsV1.new({resources: [Falcon::ModelsAWSCustomerSettingsRequestV1.new]}) # ModelsModifyAWSCustomerSettingsV1 | 
+
+begin
+  # Create or update Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.create_or_update_aws_settings(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings: #{e}"
+end
+```
+
+#### Using the create_or_update_aws_settings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)> create_or_update_aws_settings_with_http_info(body)
+
+```ruby
+begin
+  # Create or update Global Settings which are applicable to all provisioned AWS accounts
+  data, status_code, headers = api_instance.create_or_update_aws_settings_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsCustomerConfigurationsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsModifyAWSCustomerSettingsV1**](ModelsModifyAWSCustomerSettingsV1.md) |  |  |
+
+### Return type
+
+[**ModelsCustomerConfigurationsV1**](ModelsCustomerConfigurationsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_aws_accounts
+
+> <ModelsBaseResponseV1> delete_aws_accounts(ids)
+
+Delete a set of AWS Accounts by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to remove
+
+begin
+  # Delete a set of AWS Accounts by specifying their IDs
+  result = api_instance.delete_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->delete_aws_accounts: #{e}"
+end
+```
+
+#### Using the delete_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsBaseResponseV1>, Integer, Hash)> delete_aws_accounts_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of AWS Accounts by specifying their IDs
+  data, status_code, headers = api_instance.delete_aws_accounts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsBaseResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->delete_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to remove |  |
+
+### Return type
+
+[**ModelsBaseResponseV1**](ModelsBaseResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_aws_accounts
+
+> <ModelsAWSAccountsV1> get_aws_accounts(ids)
+
+Retrieve a set of AWS Accounts by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to retrieve details
+
+begin
+  # Retrieve a set of AWS Accounts by specifying their IDs
+  result = api_instance.get_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_accounts: #{e}"
+end
+```
+
+#### Using the get_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> get_aws_accounts_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of AWS Accounts by specifying their IDs
+  data, status_code, headers = api_instance.get_aws_accounts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to retrieve details |  |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_aws_settings
+
+> <ModelsCustomerConfigurationsV1> get_aws_settings
+
+Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+
+begin
+  # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.get_aws_settings
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_settings: #{e}"
+end
+```
+
+#### Using the get_aws_settings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)> get_aws_settings_with_http_info
+
+```ruby
+begin
+  # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+  data, status_code, headers = api_instance.get_aws_settings_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsCustomerConfigurationsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_settings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsCustomerConfigurationsV1**](ModelsCustomerConfigurationsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## provision_aws_accounts
+
+> <ModelsAWSAccountsV1> provision_aws_accounts(body, opts)
+
+Provision AWS Accounts by specifying details about the accounts to provision
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsCreateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsCreateAWSAccountsV1 | 
+opts = {
+  mode: 'cloudformation' # String | Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.
+}
+
+begin
+  # Provision AWS Accounts by specifying details about the accounts to provision
+  result = api_instance.provision_aws_accounts(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->provision_aws_accounts: #{e}"
+end
+```
+
+#### Using the provision_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> provision_aws_accounts_with_http_info(body, opts)
+
+```ruby
+begin
+  # Provision AWS Accounts by specifying details about the accounts to provision
+  data, status_code, headers = api_instance.provision_aws_accounts_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->provision_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsCreateAWSAccountsV1**](ModelsCreateAWSAccountsV1.md) |  |  |
+| **mode** | **String** | Mode for provisioning. Allowed values are &#x60;manual&#x60; or &#x60;cloudformation&#x60;. Defaults to manual if not defined. | [optional][default to &#39;manual&#39;] |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_aws_accounts
+
+> <ModelsAWSAccountsV1> query_aws_accounts(opts)
+
+Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+  result = api_instance.query_aws_accounts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts: #{e}"
+end
+```
+
+#### Using the query_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> query_aws_accounts_with_http_info(opts)
+
+```ruby
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+  data, status_code, headers = api_instance.query_aws_accounts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_aws_accounts_for_ids
+
+> <MsaQueryResponse> query_aws_accounts_for_ids(opts)
+
+Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+  result = api_instance.query_aws_accounts_for_ids(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids: #{e}"
+end
+```
+
+#### Using the query_aws_accounts_for_ids_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_aws_accounts_for_ids_with_http_info(opts)
+
+```ruby
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_aws_accounts_for_ids_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_aws_accounts
+
+> <ModelsAWSAccountsV1> update_aws_accounts(body)
+
+Update AWS Accounts by specifying the ID of the account and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsUpdateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsUpdateAWSAccountsV1 | 
+
+begin
+  # Update AWS Accounts by specifying the ID of the account and details to update
+  result = api_instance.update_aws_accounts(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->update_aws_accounts: #{e}"
+end
+```
+
+#### Using the update_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> update_aws_accounts_with_http_info(body)
+
+```ruby
+begin
+  # Update AWS Accounts by specifying the ID of the account and details to update
+  data, status_code, headers = api_instance.update_aws_accounts_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->update_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsUpdateAWSAccountsV1**](ModelsUpdateAWSAccountsV1.md) |  |  |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## verify_aws_account_access
+
+> <ModelsVerifyAccessResponseV1> verify_aws_account_access(ids)
+
+Performs an Access Verification check on the specified AWS Account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to verify access on
+
+begin
+  # Performs an Access Verification check on the specified AWS Account IDs
+  result = api_instance.verify_aws_account_access(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->verify_aws_account_access: #{e}"
+end
+```
+
+#### Using the verify_aws_account_access_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsVerifyAccessResponseV1>, Integer, Hash)> verify_aws_account_access_with_http_info(ids)
+
+```ruby
+begin
+  # Performs an Access Verification check on the specified AWS Account IDs
+  data, status_code, headers = api_instance.verify_aws_account_access_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsVerifyAccessResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->verify_aws_account_access_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to verify access on |  |
+
+### Return type
+
+[**ModelsVerifyAccessResponseV1**](ModelsVerifyAccessResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > CloudConnectAws
+        </nav>
+        <h1>Falcon::CloudConnectAws
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_or_update_aws_settings**](CloudConnectAws.md#create_or_update_aws_settings) | **POST** /cloud-connect-aws/entities/settings/v1 | Create or update Global Settings which are applicable to all provisioned AWS accounts |
+| [**delete_aws_accounts**](CloudConnectAws.md#delete_aws_accounts) | **DELETE** /cloud-connect-aws/entities/accounts/v1 | Delete a set of AWS Accounts by specifying their IDs |
+| [**get_aws_accounts**](CloudConnectAws.md#get_aws_accounts) | **GET** /cloud-connect-aws/entities/accounts/v1 | Retrieve a set of AWS Accounts by specifying their IDs |
+| [**get_aws_settings**](CloudConnectAws.md#get_aws_settings) | **GET** /cloud-connect-aws/combined/settings/v1 | Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts |
+| [**provision_aws_accounts**](CloudConnectAws.md#provision_aws_accounts) | **POST** /cloud-connect-aws/entities/accounts/v1 | Provision AWS Accounts by specifying details about the accounts to provision |
+| [**query_aws_accounts**](CloudConnectAws.md#query_aws_accounts) | **GET** /cloud-connect-aws/combined/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria |
+| [**query_aws_accounts_for_ids**](CloudConnectAws.md#query_aws_accounts_for_ids) | **GET** /cloud-connect-aws/queries/accounts/v1 | Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria |
+| [**update_aws_accounts**](CloudConnectAws.md#update_aws_accounts) | **PATCH** /cloud-connect-aws/entities/accounts/v1 | Update AWS Accounts by specifying the ID of the account and details to update |
+| [**verify_aws_account_access**](CloudConnectAws.md#verify_aws_account_access) | **POST** /cloud-connect-aws/entities/verify-account-access/v1 | Performs an Access Verification check on the specified AWS Account IDs |
+
+
+## create_or_update_aws_settings
+
+> <ModelsCustomerConfigurationsV1> create_or_update_aws_settings(body)
+
+Create or update Global Settings which are applicable to all provisioned AWS accounts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsModifyAWSCustomerSettingsV1.new({resources: [Falcon::ModelsAWSCustomerSettingsRequestV1.new]}) # ModelsModifyAWSCustomerSettingsV1 | 
+
+begin
+  # Create or update Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.create_or_update_aws_settings(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings: #{e}"
+end
+```
+
+#### Using the create_or_update_aws_settings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)> create_or_update_aws_settings_with_http_info(body)
+
+```ruby
+begin
+  # Create or update Global Settings which are applicable to all provisioned AWS accounts
+  data, status_code, headers = api_instance.create_or_update_aws_settings_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsCustomerConfigurationsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->create_or_update_aws_settings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsModifyAWSCustomerSettingsV1**](ModelsModifyAWSCustomerSettingsV1.md) |  |  |
+
+### Return type
+
+[**ModelsCustomerConfigurationsV1**](ModelsCustomerConfigurationsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_aws_accounts
+
+> <ModelsBaseResponseV1> delete_aws_accounts(ids)
+
+Delete a set of AWS Accounts by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to remove
+
+begin
+  # Delete a set of AWS Accounts by specifying their IDs
+  result = api_instance.delete_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->delete_aws_accounts: #{e}"
+end
+```
+
+#### Using the delete_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsBaseResponseV1>, Integer, Hash)> delete_aws_accounts_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of AWS Accounts by specifying their IDs
+  data, status_code, headers = api_instance.delete_aws_accounts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsBaseResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->delete_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to remove |  |
+
+### Return type
+
+[**ModelsBaseResponseV1**](ModelsBaseResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_aws_accounts
+
+> <ModelsAWSAccountsV1> get_aws_accounts(ids)
+
+Retrieve a set of AWS Accounts by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to retrieve details
+
+begin
+  # Retrieve a set of AWS Accounts by specifying their IDs
+  result = api_instance.get_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_accounts: #{e}"
+end
+```
+
+#### Using the get_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> get_aws_accounts_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of AWS Accounts by specifying their IDs
+  data, status_code, headers = api_instance.get_aws_accounts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to retrieve details |  |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_aws_settings
+
+> <ModelsCustomerConfigurationsV1> get_aws_settings
+
+Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+
+begin
+  # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.get_aws_settings
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_settings: #{e}"
+end
+```
+
+#### Using the get_aws_settings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)> get_aws_settings_with_http_info
+
+```ruby
+begin
+  # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+  data, status_code, headers = api_instance.get_aws_settings_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsCustomerConfigurationsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->get_aws_settings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsCustomerConfigurationsV1**](ModelsCustomerConfigurationsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## provision_aws_accounts
+
+> <ModelsAWSAccountsV1> provision_aws_accounts(body, opts)
+
+Provision AWS Accounts by specifying details about the accounts to provision
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsCreateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsCreateAWSAccountsV1 | 
+opts = {
+  mode: 'cloudformation' # String | Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.
+}
+
+begin
+  # Provision AWS Accounts by specifying details about the accounts to provision
+  result = api_instance.provision_aws_accounts(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->provision_aws_accounts: #{e}"
+end
+```
+
+#### Using the provision_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> provision_aws_accounts_with_http_info(body, opts)
+
+```ruby
+begin
+  # Provision AWS Accounts by specifying details about the accounts to provision
+  data, status_code, headers = api_instance.provision_aws_accounts_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->provision_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsCreateAWSAccountsV1**](ModelsCreateAWSAccountsV1.md) |  |  |
+| **mode** | **String** | Mode for provisioning. Allowed values are &#x60;manual&#x60; or &#x60;cloudformation&#x60;. Defaults to manual if not defined. | [optional][default to &#39;manual&#39;] |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_aws_accounts
+
+> <ModelsAWSAccountsV1> query_aws_accounts(opts)
+
+Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+  result = api_instance.query_aws_accounts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts: #{e}"
+end
+```
+
+#### Using the query_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> query_aws_accounts_with_http_info(opts)
+
+```ruby
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+  data, status_code, headers = api_instance.query_aws_accounts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_aws_accounts_for_ids
+
+> <MsaQueryResponse> query_aws_accounts_for_ids(opts)
+
+Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: 'sort_example', # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+  result = api_instance.query_aws_accounts_for_ids(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids: #{e}"
+end
+```
+
+#### Using the query_aws_accounts_for_ids_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_aws_accounts_for_ids_with_http_info(opts)
+
+```ruby
+begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_aws_accounts_for_ids_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->query_aws_accounts_for_ids_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** | The maximum records to return. [1-1000]. Defaults to 100. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **sort** | **String** | The property to sort by (e.g. alias.desc or state.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_aws_accounts
+
+> <ModelsAWSAccountsV1> update_aws_accounts(body)
+
+Update AWS Accounts by specifying the ID of the account and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsUpdateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsUpdateAWSAccountsV1 | 
+
+begin
+  # Update AWS Accounts by specifying the ID of the account and details to update
+  result = api_instance.update_aws_accounts(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->update_aws_accounts: #{e}"
+end
+```
+
+#### Using the update_aws_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAWSAccountsV1>, Integer, Hash)> update_aws_accounts_with_http_info(body)
+
+```ruby
+begin
+  # Update AWS Accounts by specifying the ID of the account and details to update
+  data, status_code, headers = api_instance.update_aws_accounts_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAWSAccountsV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->update_aws_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsUpdateAWSAccountsV1**](ModelsUpdateAWSAccountsV1.md) |  |  |
+
+### Return type
+
+[**ModelsAWSAccountsV1**](ModelsAWSAccountsV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## verify_aws_account_access
+
+> <ModelsVerifyAccessResponseV1> verify_aws_account_access(ids)
+
+Performs an Access Verification check on the specified AWS Account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudConnectAws.new
+ids = ['inner_example'] # Array<String> | IDs of accounts to verify access on
+
+begin
+  # Performs an Access Verification check on the specified AWS Account IDs
+  result = api_instance.verify_aws_account_access(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->verify_aws_account_access: #{e}"
+end
+```
+
+#### Using the verify_aws_account_access_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsVerifyAccessResponseV1>, Integer, Hash)> verify_aws_account_access_with_http_info(ids)
+
+```ruby
+begin
+  # Performs an Access Verification check on the specified AWS Account IDs
+  data, status_code, headers = api_instance.verify_aws_account_access_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsVerifyAccessResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudConnectAws->verify_aws_account_access_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of accounts to verify access on |  |
+
+### Return type
+
+[**ModelsVerifyAccessResponseV1**](ModelsVerifyAccessResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconcloudconnectaws">Falcon::CloudConnectAws</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CloudConnectAws.md#create_or_update_aws_settings"><strong>create_or_update_aws_settings</strong></a></td>
+      <td><strong>POST</strong> /cloud-connect-aws/entities/settings/v1</td>
+      <td>Create or update Global Settings which are applicable to all provisioned AWS accounts</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#delete_aws_accounts"><strong>delete_aws_accounts</strong></a></td>
+      <td><strong>DELETE</strong> /cloud-connect-aws/entities/accounts/v1</td>
+      <td>Delete a set of AWS Accounts by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#get_aws_accounts"><strong>get_aws_accounts</strong></a></td>
+      <td><strong>GET</strong> /cloud-connect-aws/entities/accounts/v1</td>
+      <td>Retrieve a set of AWS Accounts by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#get_aws_settings"><strong>get_aws_settings</strong></a></td>
+      <td><strong>GET</strong> /cloud-connect-aws/combined/settings/v1</td>
+      <td>Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#provision_aws_accounts"><strong>provision_aws_accounts</strong></a></td>
+      <td><strong>POST</strong> /cloud-connect-aws/entities/accounts/v1</td>
+      <td>Provision AWS Accounts by specifying details about the accounts to provision</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#query_aws_accounts"><strong>query_aws_accounts</strong></a></td>
+      <td><strong>GET</strong> /cloud-connect-aws/combined/accounts/v1</td>
+      <td>Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#query_aws_accounts_for_ids"><strong>query_aws_accounts_for_ids</strong></a></td>
+      <td><strong>GET</strong> /cloud-connect-aws/queries/accounts/v1</td>
+      <td>Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#update_aws_accounts"><strong>update_aws_accounts</strong></a></td>
+      <td><strong>PATCH</strong> /cloud-connect-aws/entities/accounts/v1</td>
+      <td>Update AWS Accounts by specifying the ID of the account and details to update</td>
+    </tr>
+    <tr>
+      <td><a href="CloudConnectAws.md#verify_aws_account_access"><strong>verify_aws_account_access</strong></a></td>
+      <td><strong>POST</strong> /cloud-connect-aws/entities/verify-account-access/v1</td>
+      <td>Performs an Access Verification check on the specified AWS Account IDs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="createorupdateawssettings">create_or_update_aws_settings</h2>
+
+<blockquote>
+  <ModelsCustomerConfigurationsV1> create_or_update_aws_settings(body)
+</ModelsCustomerConfigurationsV1>
+</blockquote>
+
+<p>Create or update Global Settings which are applicable to all provisioned AWS accounts</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsModifyAWSCustomerSettingsV1.new({resources: [Falcon::ModelsAWSCustomerSettingsRequestV1.new]}) # ModelsModifyAWSCustomerSettingsV1 |</p>
+
+<p>begin
+  # Create or update Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.create_or_update_aws_settings(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;create_or_update_aws_settings: #{e}”
+end
+```</p>
+
+<h4 id="using-the-createorupdateawssettingswithhttpinfo-variant">Using the create_or_update_aws_settings_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)&gt; create_or_update_aws_settings_with_http_info(body)</ModelsCustomerConfigurationsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Create or update Global Settings which are applicable to all provisioned AWS accounts</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">create_or_update_aws_settings_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsCustomerConfigurationsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;create_or_update_aws_settings_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelsModifyAWSCustomerSettingsV1.md"><strong>ModelsModifyAWSCustomerSettingsV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="ModelsCustomerConfigurationsV1.md"><strong>ModelsCustomerConfigurationsV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="deleteawsaccounts">delete_aws_accounts</h2>
+
+<blockquote>
+  <ModelsBaseResponseV1> delete_aws_accounts(ids)
+</ModelsBaseResponseV1>
+</blockquote>
+
+<p>Delete a set of AWS Accounts by specifying their IDs</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+ids = [‘inner_example’] # Array<String> | IDs of accounts to remove</String></p>
+
+<p>begin
+  # Delete a set of AWS Accounts by specifying their IDs
+  result = api_instance.delete_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;delete_aws_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-deleteawsaccountswithhttpinfo-variant">Using the delete_aws_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsBaseResponseV1>, Integer, Hash)&gt; delete_aws_accounts_with_http_info(ids)</ModelsBaseResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Delete a set of AWS Accounts by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">delete_aws_accounts_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsBaseResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;delete_aws_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>IDs of accounts to remove</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="ModelsBaseResponseV1.md"><strong>ModelsBaseResponseV1</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getawsaccounts">get_aws_accounts</h2>
+
+<blockquote>
+  <ModelsAWSAccountsV1> get_aws_accounts(ids)
+</ModelsAWSAccountsV1>
+</blockquote>
+
+<p>Retrieve a set of AWS Accounts by specifying their IDs</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+ids = [‘inner_example’] # Array<String> | IDs of accounts to retrieve details</String></p>
+
+<p>begin
+  # Retrieve a set of AWS Accounts by specifying their IDs
+  result = api_instance.get_aws_accounts(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;get_aws_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getawsaccountswithhttpinfo-variant">Using the get_aws_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsAWSAccountsV1>, Integer, Hash)&gt; get_aws_accounts_with_http_info(ids)</ModelsAWSAccountsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve a set of AWS Accounts by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_aws_accounts_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsAWSAccountsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;get_aws_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>IDs of accounts to retrieve details</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="ModelsAWSAccountsV1.md"><strong>ModelsAWSAccountsV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getawssettings">get_aws_settings</h2>
+
+<blockquote>
+  <ModelsCustomerConfigurationsV1> get_aws_settings
+</ModelsCustomerConfigurationsV1>
+</blockquote>
+
+<p>Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new</p>
+
+<p>begin
+  # Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
+  result = api_instance.get_aws_settings
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;get_aws_settings: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getawssettingswithhttpinfo-variant">Using the get_aws_settings_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsCustomerConfigurationsV1>, Integer, Hash)&gt; get_aws_settings_with_http_info</ModelsCustomerConfigurationsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_aws_settings_with_http_info</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsCustomerConfigurationsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;get_aws_settings_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<p>This endpoint does not need any parameter.</p>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="ModelsCustomerConfigurationsV1.md"><strong>ModelsCustomerConfigurationsV1</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="provisionawsaccounts">provision_aws_accounts</h2>
+
+<blockquote>
+  <ModelsAWSAccountsV1> provision_aws_accounts(body, opts)
+</ModelsAWSAccountsV1>
+</blockquote>
+
+<p>Provision AWS Accounts by specifying details about the accounts to provision</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsCreateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsCreateAWSAccountsV1 | 
+opts = {
+  mode: ‘cloudformation’ # String | Mode for provisioning. Allowed values are <code class="language-ruby highlighter-rouge"><span class="n">manual</span></code> or <code class="language-ruby highlighter-rouge"><span class="n">cloudformation</span></code>. Defaults to manual if not defined.
+}</p>
+
+<p>begin
+  # Provision AWS Accounts by specifying details about the accounts to provision
+  result = api_instance.provision_aws_accounts(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;provision_aws_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-provisionawsaccountswithhttpinfo-variant">Using the provision_aws_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsAWSAccountsV1>, Integer, Hash)&gt; provision_aws_accounts_with_http_info(body, opts)</ModelsAWSAccountsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Provision AWS Accounts by specifying details about the accounts to provision</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">provision_aws_accounts_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsAWSAccountsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;provision_aws_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelsCreateAWSAccountsV1.md"><strong>ModelsCreateAWSAccountsV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>mode</strong></td>
+      <td><strong>String</strong></td>
+      <td>Mode for provisioning. Allowed values are `manual` or `cloudformation`. Defaults to manual if not defined.</td>
+      <td>[optional][default to 'manual']</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="ModelsAWSAccountsV1.md"><strong>ModelsAWSAccountsV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryawsaccounts">query_aws_accounts</h2>
+
+<blockquote>
+  <ModelsAWSAccountsV1> query_aws_accounts(opts)
+</ModelsAWSAccountsV1>
+</blockquote>
+
+<p>Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: ‘sort_example’, # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: ‘filter_example’ # String | The filter expression that should be used to limit the results
+}</p>
+
+<p>begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
+  result = api_instance.query_aws_accounts(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;query_aws_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryawsaccountswithhttpinfo-variant">Using the query_aws_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsAWSAccountsV1>, Integer, Hash)&gt; query_aws_accounts_with_http_info(opts)</ModelsAWSAccountsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_aws_accounts_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsAWSAccountsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;query_aws_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-1000]. Defaults to 100.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. alias.desc or state.asc)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="ModelsAWSAccountsV1.md"><strong>ModelsAWSAccountsV1</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryawsaccountsforids">query_aws_accounts_for_ids</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_aws_accounts_for_ids(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+opts = {
+  limit: 56, # Integer | The maximum records to return. [1-1000]. Defaults to 100.
+  offset: 56, # Integer | The offset to start retrieving records from
+  sort: ‘sort_example’, # String | The property to sort by (e.g. alias.desc or state.asc)
+  filter: ‘filter_example’ # String | The filter expression that should be used to limit the results
+}</p>
+
+<p>begin
+  # Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
+  result = api_instance.query_aws_accounts_for_ids(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;query_aws_accounts_for_ids: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryawsaccountsforidswithhttpinfo-variant">Using the query_aws_accounts_for_ids_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_aws_accounts_for_ids_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_aws_accounts_for_ids_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;query_aws_accounts_for_ids_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-1000]. Defaults to 100.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. alias.desc or state.asc)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="updateawsaccounts">update_aws_accounts</h2>
+
+<blockquote>
+  <ModelsAWSAccountsV1> update_aws_accounts(body)
+</ModelsAWSAccountsV1>
+</blockquote>
+
+<p>Update AWS Accounts by specifying the ID of the account and details to update</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+body = Falcon::ModelsUpdateAWSAccountsV1.new({resources: [Falcon::ModelsAWSAccountRequestV1.new]}) # ModelsUpdateAWSAccountsV1 |</p>
+
+<p>begin
+  # Update AWS Accounts by specifying the ID of the account and details to update
+  result = api_instance.update_aws_accounts(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;update_aws_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-updateawsaccountswithhttpinfo-variant">Using the update_aws_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsAWSAccountsV1>, Integer, Hash)&gt; update_aws_accounts_with_http_info(body)</ModelsAWSAccountsV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Update AWS Accounts by specifying the ID of the account and details to update</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">update_aws_accounts_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsAWSAccountsV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;update_aws_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelsUpdateAWSAccountsV1.md"><strong>ModelsUpdateAWSAccountsV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="ModelsAWSAccountsV1.md"><strong>ModelsAWSAccountsV1</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="verifyawsaccountaccess">verify_aws_account_access</h2>
+
+<blockquote>
+  <ModelsVerifyAccessResponseV1> verify_aws_account_access(ids)
+</ModelsVerifyAccessResponseV1>
+</blockquote>
+
+<p>Performs an Access Verification check on the specified AWS Account IDs</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudConnectAws.new
+ids = [‘inner_example’] # Array<String> | IDs of accounts to verify access on</String></p>
+
+<p>begin
+  # Performs an Access Verification check on the specified AWS Account IDs
+  result = api_instance.verify_aws_account_access(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudConnectAws-&gt;verify_aws_account_access: #{e}”
+end
+```</p>
+
+<h4 id="using-the-verifyawsaccountaccesswithhttpinfo-variant">Using the verify_aws_account_access_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelsVerifyAccessResponseV1>, Integer, Hash)&gt; verify_aws_account_access_with_http_info(ids)</ModelsVerifyAccessResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Performs an Access Verification check on the specified AWS Account IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">verify_aws_account_access_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelsVerifyAccessResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudConnectAws-&gt;verify_aws_account_access_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>IDs of accounts to verify access on</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="ModelsVerifyAccessResponseV1.md"><strong>ModelsVerifyAccessResponseV1</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

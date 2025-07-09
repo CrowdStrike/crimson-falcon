@@ -1,0 +1,4430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::Ioc
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**action_get_v1**](Ioc.md#action_get_v1) | **GET** /iocs/entities/actions/v1 | Get Actions by ids. |
+| [**action_query_v1**](Ioc.md#action_query_v1) | **GET** /iocs/queries/actions/v1 | Query Actions. |
+| [**get_indicators_report**](Ioc.md#get_indicators_report) | **POST** /iocs/entities/indicators-reports/v1 | Launch an indicators report creation job |
+| [**indicator_aggregate_v1**](Ioc.md#indicator_aggregate_v1) | **POST** /iocs/aggregates/indicators/v1 | Get Indicators aggregates as specified via json in the request body. |
+| [**indicator_combined_v1**](Ioc.md#indicator_combined_v1) | **GET** /iocs/combined/indicator/v1 | Get Combined for Indicators. |
+| [**indicator_create_v1**](Ioc.md#indicator_create_v1) | **POST** /iocs/entities/indicators/v1 | Create Indicators. |
+| [**indicator_delete_v1**](Ioc.md#indicator_delete_v1) | **DELETE** /iocs/entities/indicators/v1 | Delete Indicators by ids. |
+| [**indicator_get_device_count_v1**](Ioc.md#indicator_get_device_count_v1) | **GET** /iocs/aggregates/indicators/device-count/v1 | Get the number of devices the indicator has run on |
+| [**indicator_get_devices_ran_on_v1**](Ioc.md#indicator_get_devices_ran_on_v1) | **GET** /iocs/queries/indicators/devices/v1 | Get the IDs of devices the indicator has run on |
+| [**indicator_get_processes_ran_on_v1**](Ioc.md#indicator_get_processes_ran_on_v1) | **GET** /iocs/queries/indicators/processes/v1 | Get the number of processes the indicator has run on |
+| [**indicator_get_v1**](Ioc.md#indicator_get_v1) | **GET** /iocs/entities/indicators/v1 | Get Indicators by ids. |
+| [**indicator_search_v1**](Ioc.md#indicator_search_v1) | **GET** /iocs/queries/indicators/v1 | Search for Indicators. |
+| [**indicator_update_v1**](Ioc.md#indicator_update_v1) | **PATCH** /iocs/entities/indicators/v1 | Update Indicators. |
+| [**ioc_type_query_v1**](Ioc.md#ioc_type_query_v1) | **GET** /iocs/queries/ioc-types/v1 | Query IOC Types. |
+| [**platform_query_v1**](Ioc.md#platform_query_v1) | **GET** /iocs/queries/platforms/v1 | Query Platforms. |
+| [**severity_query_v1**](Ioc.md#severity_query_v1) | **GET** /iocs/queries/severities/v1 | Query Severities. |
+
+
+## action_get_v1
+
+> <ApiActionRespV1> action_get_v1(opts)
+
+Get Actions by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  ids: ['inner_example'] # Array<String> | The ids of the Actions to retrieve
+}
+
+begin
+  # Get Actions by ids.
+  result = api_instance.action_get_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_get_v1: #{e}"
+end
+```
+
+#### Using the action_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiActionRespV1>, Integer, Hash)> action_get_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Get Actions by ids.
+  data, status_code, headers = api_instance.action_get_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiActionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Actions to retrieve | [optional] |
+
+### Return type
+
+[**ApiActionRespV1**](ApiActionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## action_query_v1
+
+> <ApiIndicatorQueryRespV1> action_query_v1(opts)
+
+Query Actions.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Actions.
+  result = api_instance.action_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_query_v1: #{e}"
+end
+```
+
+#### Using the action_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> action_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Actions.
+  data, status_code, headers = api_instance.action_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_indicators_report
+
+> <MsaEntitiesResponse> get_indicators_report(body)
+
+Launch an indicators report creation job
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorsReportRequest.new({report_format: 'report_format_example', search: Falcon::ApiIndicatorsSortedSearch.new({filter: 'filter_example', query: 'query_example', sort: 'sort_example'})}) # ApiIndicatorsReportRequest | 
+
+begin
+  # Launch an indicators report creation job
+  result = api_instance.get_indicators_report(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->get_indicators_report: #{e}"
+end
+```
+
+#### Using the get_indicators_report_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaEntitiesResponse>, Integer, Hash)> get_indicators_report_with_http_info(body)
+
+```ruby
+begin
+  # Launch an indicators report creation job
+  data, status_code, headers = api_instance.get_indicators_report_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->get_indicators_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorsReportRequest**](ApiIndicatorsReportRequest.md) |  |  |
+
+### Return type
+
+[**MsaEntitiesResponse**](MsaEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_aggregate_v1
+
+> <MsaAggregatesResponse> indicator_aggregate_v1(body, opts)
+
+Get Indicators aggregates as specified via json in the request body.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
+opts = {
+  filter: 'filter_example', # String | The filter to narrow down the aggregation data
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Get Indicators aggregates as specified via json in the request body.
+  result = api_instance.indicator_aggregate_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_aggregate_v1: #{e}"
+end
+```
+
+#### Using the indicator_aggregate_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaAggregatesResponse>, Integer, Hash)> indicator_aggregate_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Get Indicators aggregates as specified via json in the request body.
+  data, status_code, headers = api_instance.indicator_aggregate_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaAggregatesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_aggregate_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaAggregateQueryRequest**](MsaAggregateQueryRequest.md) |  |  |
+| **filter** | **String** | The filter to narrow down the aggregation data | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**MsaAggregatesResponse**](MsaAggregatesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_combined_v1
+
+> <ApiIndicatorRespV1> indicator_combined_v1(opts)
+
+Get Combined for Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.
+  limit: 56, # Integer | The maximum records to return.
+  sort: 'action', # String | The sort expression that should be used to sort the results.
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Get Combined for Indicators.
+  result = api_instance.indicator_combined_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_combined_v1: #{e}"
+end
+```
+
+#### Using the indicator_combined_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_combined_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Get Combined for Indicators.
+  data, status_code, headers = api_instance.indicator_combined_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_combined_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results. | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **limit** | **Integer** | The maximum records to return. | [optional] |
+| **sort** | **String** | The sort expression that should be used to sort the results. | [optional] |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#39;after&#39; token. On subsequent requests, provide the &#39;after&#39; token from the previous response to continue from that place in the results. To access more than 10k indicators, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_create_v1
+
+> <ApiIndicatorRespV1> indicator_create_v1(body, opts)
+
+Create Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorCreateReqsV1.new({indicators: [Falcon::ApiIndicatorCreateReqV1.new({applied_globally: false})]}) # ApiIndicatorCreateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}
+
+begin
+  # Create Indicators.
+  result = api_instance.indicator_create_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_create_v1: #{e}"
+end
+```
+
+#### Using the indicator_create_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_create_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Create Indicators.
+  data, status_code, headers = api_instance.indicator_create_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_create_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorCreateReqsV1**](ApiIndicatorCreateReqsV1.md) |  |  |
+| **retrodetects** | **Boolean** | Whether to submit to retrodetects | [optional] |
+| **ignore_warnings** | **Boolean** | Set to true to ignore warnings and add all IOCs | [optional][default to false] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_delete_v1
+
+> <ApiIndicatorQueryRespV1> indicator_delete_v1(opts)
+
+Delete Indicators by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The FQL expression to delete Indicators in bulk. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids.
+  ids: ['inner_example'], # Array<String> | The ids of the Indicators to delete. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids
+  comment: 'comment_example', # String | The comment why these indicators were deleted
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Delete Indicators by ids.
+  result = api_instance.indicator_delete_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_delete_v1: #{e}"
+end
+```
+
+#### Using the indicator_delete_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> indicator_delete_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Delete Indicators by ids.
+  data, status_code, headers = api_instance.indicator_delete_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_delete_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The FQL expression to delete Indicators in bulk. If both &#39;filter&#39; and &#39;ids&#39; are provided, then filter takes precedence and ignores ids. | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Indicators to delete. If both &#39;filter&#39; and &#39;ids&#39; are provided, then filter takes precedence and ignores ids | [optional] |
+| **comment** | **String** | The comment why these indicators were deleted | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_device_count_v1
+
+> <ApiDeviceCountRespV1> indicator_get_device_count_v1(type, value)
+
+Get the number of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+
+begin
+  # Get the number of devices the indicator has run on
+  result = api_instance.indicator_get_device_count_v1(type, value)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_device_count_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_device_count_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDeviceCountRespV1>, Integer, Hash)> indicator_get_device_count_v1_with_http_info(type, value)
+
+```ruby
+begin
+  # Get the number of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_device_count_v1_with_http_info(type, value)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDeviceCountRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_device_count_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+
+### Return type
+
+[**ApiDeviceCountRespV1**](ApiDeviceCountRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_devices_ran_on_v1
+
+> <ApiDevicesRanOnRespV1> indicator_get_devices_ran_on_v1(type, value, opts)
+
+Get the IDs of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the IDs of devices the indicator has run on
+  result = api_instance.indicator_get_devices_ran_on_v1(type, value, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_devices_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_devices_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDevicesRanOnRespV1>, Integer, Hash)> indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+
+```ruby
+begin
+  # Get the IDs of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDevicesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_devices_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiDevicesRanOnRespV1**](ApiDevicesRanOnRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_processes_ran_on_v1
+
+> <ApiProcessesRanOnRespV1> indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+
+Get the number of processes the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+device_id = 'device_id_example' # String | Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the number of processes the indicator has run on
+  result = api_instance.indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_processes_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_processes_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiProcessesRanOnRespV1>, Integer, Hash)> indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+
+```ruby
+begin
+  # Get the number of processes the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiProcessesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_processes_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **device_id** | **String** | Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API. |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiProcessesRanOnRespV1**](ApiProcessesRanOnRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_v1
+
+> <ApiIndicatorRespV1> indicator_get_v1(ids)
+
+Get Indicators by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+ids = ['inner_example'] # Array<String> | The ids of the Indicators to retrieve
+
+begin
+  # Get Indicators by ids.
+  result = api_instance.indicator_get_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_get_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Get Indicators by ids.
+  data, status_code, headers = api_instance.indicator_get_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Indicators to retrieve |  |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_search_v1
+
+> <ApiIndicatorQueryRespV1> indicator_search_v1(opts)
+
+Search for Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.
+  limit: 56, # Integer | The maximum records to return.
+  sort: 'action', # String | The sort expression that should be used to sort the results.
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Search for Indicators.
+  result = api_instance.indicator_search_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_search_v1: #{e}"
+end
+```
+
+#### Using the indicator_search_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> indicator_search_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Indicators.
+  data, status_code, headers = api_instance.indicator_search_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_search_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results. | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **limit** | **Integer** | The maximum records to return. | [optional] |
+| **sort** | **String** | The sort expression that should be used to sort the results. | [optional] |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#39;after&#39; token. On subsequent requests, provide the &#39;after&#39; token from the previous response to continue from that place in the results. To access more than 10k indicators, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_update_v1
+
+> <ApiIndicatorRespV1> indicator_update_v1(body, opts)
+
+Update Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorUpdateReqsV1.new({bulk_update: Falcon::ApiBulkUpdateReqV1.new, indicators: [Falcon::ApiIndicatorUpdateReqV1.new]}) # ApiIndicatorUpdateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}
+
+begin
+  # Update Indicators.
+  result = api_instance.indicator_update_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_update_v1: #{e}"
+end
+```
+
+#### Using the indicator_update_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_update_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Update Indicators.
+  data, status_code, headers = api_instance.indicator_update_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_update_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorUpdateReqsV1**](ApiIndicatorUpdateReqsV1.md) |  |  |
+| **retrodetects** | **Boolean** | Whether to submit to retrodetects | [optional] |
+| **ignore_warnings** | **Boolean** | Set to true to ignore warnings and add all IOCs | [optional][default to false] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## ioc_type_query_v1
+
+> <ApiIndicatorQueryRespV1> ioc_type_query_v1(opts)
+
+Query IOC Types.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query IOC Types.
+  result = api_instance.ioc_type_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->ioc_type_query_v1: #{e}"
+end
+```
+
+#### Using the ioc_type_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> ioc_type_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query IOC Types.
+  data, status_code, headers = api_instance.ioc_type_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->ioc_type_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## platform_query_v1
+
+> <ApiIndicatorQueryRespV1> platform_query_v1(opts)
+
+Query Platforms.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Platforms.
+  result = api_instance.platform_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->platform_query_v1: #{e}"
+end
+```
+
+#### Using the platform_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> platform_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Platforms.
+  data, status_code, headers = api_instance.platform_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->platform_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## severity_query_v1
+
+> <ApiIndicatorQueryRespV1> severity_query_v1(opts)
+
+Query Severities.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Severities.
+  result = api_instance.severity_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->severity_query_v1: #{e}"
+end
+```
+
+#### Using the severity_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> severity_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Severities.
+  data, status_code, headers = api_instance.severity_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->severity_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > Ioc
+        </nav>
+        <h1>Falcon::Ioc
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**action_get_v1**](Ioc.md#action_get_v1) | **GET** /iocs/entities/actions/v1 | Get Actions by ids. |
+| [**action_query_v1**](Ioc.md#action_query_v1) | **GET** /iocs/queries/actions/v1 | Query Actions. |
+| [**get_indicators_report**](Ioc.md#get_indicators_report) | **POST** /iocs/entities/indicators-reports/v1 | Launch an indicators report creation job |
+| [**indicator_aggregate_v1**](Ioc.md#indicator_aggregate_v1) | **POST** /iocs/aggregates/indicators/v1 | Get Indicators aggregates as specified via json in the request body. |
+| [**indicator_combined_v1**](Ioc.md#indicator_combined_v1) | **GET** /iocs/combined/indicator/v1 | Get Combined for Indicators. |
+| [**indicator_create_v1**](Ioc.md#indicator_create_v1) | **POST** /iocs/entities/indicators/v1 | Create Indicators. |
+| [**indicator_delete_v1**](Ioc.md#indicator_delete_v1) | **DELETE** /iocs/entities/indicators/v1 | Delete Indicators by ids. |
+| [**indicator_get_device_count_v1**](Ioc.md#indicator_get_device_count_v1) | **GET** /iocs/aggregates/indicators/device-count/v1 | Get the number of devices the indicator has run on |
+| [**indicator_get_devices_ran_on_v1**](Ioc.md#indicator_get_devices_ran_on_v1) | **GET** /iocs/queries/indicators/devices/v1 | Get the IDs of devices the indicator has run on |
+| [**indicator_get_processes_ran_on_v1**](Ioc.md#indicator_get_processes_ran_on_v1) | **GET** /iocs/queries/indicators/processes/v1 | Get the number of processes the indicator has run on |
+| [**indicator_get_v1**](Ioc.md#indicator_get_v1) | **GET** /iocs/entities/indicators/v1 | Get Indicators by ids. |
+| [**indicator_search_v1**](Ioc.md#indicator_search_v1) | **GET** /iocs/queries/indicators/v1 | Search for Indicators. |
+| [**indicator_update_v1**](Ioc.md#indicator_update_v1) | **PATCH** /iocs/entities/indicators/v1 | Update Indicators. |
+| [**ioc_type_query_v1**](Ioc.md#ioc_type_query_v1) | **GET** /iocs/queries/ioc-types/v1 | Query IOC Types. |
+| [**platform_query_v1**](Ioc.md#platform_query_v1) | **GET** /iocs/queries/platforms/v1 | Query Platforms. |
+| [**severity_query_v1**](Ioc.md#severity_query_v1) | **GET** /iocs/queries/severities/v1 | Query Severities. |
+
+
+## action_get_v1
+
+> <ApiActionRespV1> action_get_v1(opts)
+
+Get Actions by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  ids: ['inner_example'] # Array<String> | The ids of the Actions to retrieve
+}
+
+begin
+  # Get Actions by ids.
+  result = api_instance.action_get_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_get_v1: #{e}"
+end
+```
+
+#### Using the action_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiActionRespV1>, Integer, Hash)> action_get_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Get Actions by ids.
+  data, status_code, headers = api_instance.action_get_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiActionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Actions to retrieve | [optional] |
+
+### Return type
+
+[**ApiActionRespV1**](ApiActionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## action_query_v1
+
+> <ApiIndicatorQueryRespV1> action_query_v1(opts)
+
+Query Actions.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Actions.
+  result = api_instance.action_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_query_v1: #{e}"
+end
+```
+
+#### Using the action_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> action_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Actions.
+  data, status_code, headers = api_instance.action_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->action_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_indicators_report
+
+> <MsaEntitiesResponse> get_indicators_report(body)
+
+Launch an indicators report creation job
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorsReportRequest.new({report_format: 'report_format_example', search: Falcon::ApiIndicatorsSortedSearch.new({filter: 'filter_example', query: 'query_example', sort: 'sort_example'})}) # ApiIndicatorsReportRequest | 
+
+begin
+  # Launch an indicators report creation job
+  result = api_instance.get_indicators_report(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->get_indicators_report: #{e}"
+end
+```
+
+#### Using the get_indicators_report_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaEntitiesResponse>, Integer, Hash)> get_indicators_report_with_http_info(body)
+
+```ruby
+begin
+  # Launch an indicators report creation job
+  data, status_code, headers = api_instance.get_indicators_report_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->get_indicators_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorsReportRequest**](ApiIndicatorsReportRequest.md) |  |  |
+
+### Return type
+
+[**MsaEntitiesResponse**](MsaEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_aggregate_v1
+
+> <MsaAggregatesResponse> indicator_aggregate_v1(body, opts)
+
+Get Indicators aggregates as specified via json in the request body.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: 'from_example', to: 'to_example'})], exclude: 'exclude_example', field: 'field_example', filter: 'filter_example', from: 37, include: 'include_example', interval: 'interval_example', missing: 'missing_example', name: 'name_example', q: 'q_example', ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: 'sort_example', sub_aggregates: [], time_zone: 'time_zone_example', type: 'type_example'})], time_zone: 'time_zone_example', type: 'type_example'}) # MsaAggregateQueryRequest | 
+opts = {
+  filter: 'filter_example', # String | The filter to narrow down the aggregation data
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Get Indicators aggregates as specified via json in the request body.
+  result = api_instance.indicator_aggregate_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_aggregate_v1: #{e}"
+end
+```
+
+#### Using the indicator_aggregate_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaAggregatesResponse>, Integer, Hash)> indicator_aggregate_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Get Indicators aggregates as specified via json in the request body.
+  data, status_code, headers = api_instance.indicator_aggregate_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaAggregatesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_aggregate_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaAggregateQueryRequest**](MsaAggregateQueryRequest.md) |  |  |
+| **filter** | **String** | The filter to narrow down the aggregation data | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**MsaAggregatesResponse**](MsaAggregatesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_combined_v1
+
+> <ApiIndicatorRespV1> indicator_combined_v1(opts)
+
+Get Combined for Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.
+  limit: 56, # Integer | The maximum records to return.
+  sort: 'action', # String | The sort expression that should be used to sort the results.
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Get Combined for Indicators.
+  result = api_instance.indicator_combined_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_combined_v1: #{e}"
+end
+```
+
+#### Using the indicator_combined_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_combined_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Get Combined for Indicators.
+  data, status_code, headers = api_instance.indicator_combined_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_combined_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results. | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **limit** | **Integer** | The maximum records to return. | [optional] |
+| **sort** | **String** | The sort expression that should be used to sort the results. | [optional] |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#39;after&#39; token. On subsequent requests, provide the &#39;after&#39; token from the previous response to continue from that place in the results. To access more than 10k indicators, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_create_v1
+
+> <ApiIndicatorRespV1> indicator_create_v1(body, opts)
+
+Create Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorCreateReqsV1.new({indicators: [Falcon::ApiIndicatorCreateReqV1.new({applied_globally: false})]}) # ApiIndicatorCreateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}
+
+begin
+  # Create Indicators.
+  result = api_instance.indicator_create_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_create_v1: #{e}"
+end
+```
+
+#### Using the indicator_create_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_create_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Create Indicators.
+  data, status_code, headers = api_instance.indicator_create_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_create_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorCreateReqsV1**](ApiIndicatorCreateReqsV1.md) |  |  |
+| **retrodetects** | **Boolean** | Whether to submit to retrodetects | [optional] |
+| **ignore_warnings** | **Boolean** | Set to true to ignore warnings and add all IOCs | [optional][default to false] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## indicator_delete_v1
+
+> <ApiIndicatorQueryRespV1> indicator_delete_v1(opts)
+
+Delete Indicators by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The FQL expression to delete Indicators in bulk. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids.
+  ids: ['inner_example'], # Array<String> | The ids of the Indicators to delete. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids
+  comment: 'comment_example', # String | The comment why these indicators were deleted
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Delete Indicators by ids.
+  result = api_instance.indicator_delete_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_delete_v1: #{e}"
+end
+```
+
+#### Using the indicator_delete_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> indicator_delete_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Delete Indicators by ids.
+  data, status_code, headers = api_instance.indicator_delete_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_delete_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The FQL expression to delete Indicators in bulk. If both &#39;filter&#39; and &#39;ids&#39; are provided, then filter takes precedence and ignores ids. | [optional] |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Indicators to delete. If both &#39;filter&#39; and &#39;ids&#39; are provided, then filter takes precedence and ignores ids | [optional] |
+| **comment** | **String** | The comment why these indicators were deleted | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_device_count_v1
+
+> <ApiDeviceCountRespV1> indicator_get_device_count_v1(type, value)
+
+Get the number of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+
+begin
+  # Get the number of devices the indicator has run on
+  result = api_instance.indicator_get_device_count_v1(type, value)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_device_count_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_device_count_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDeviceCountRespV1>, Integer, Hash)> indicator_get_device_count_v1_with_http_info(type, value)
+
+```ruby
+begin
+  # Get the number of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_device_count_v1_with_http_info(type, value)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDeviceCountRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_device_count_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+
+### Return type
+
+[**ApiDeviceCountRespV1**](ApiDeviceCountRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_devices_ran_on_v1
+
+> <ApiDevicesRanOnRespV1> indicator_get_devices_ran_on_v1(type, value, opts)
+
+Get the IDs of devices the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the IDs of devices the indicator has run on
+  result = api_instance.indicator_get_devices_ran_on_v1(type, value, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_devices_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_devices_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiDevicesRanOnRespV1>, Integer, Hash)> indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+
+```ruby
+begin
+  # Get the IDs of devices the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiDevicesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_devices_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiDevicesRanOnRespV1**](ApiDevicesRanOnRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_processes_ran_on_v1
+
+> <ApiProcessesRanOnRespV1> indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+
+Get the number of processes the indicator has run on
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+type = 'type_example' # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = 'value_example' # String | The string representation of the indicator
+device_id = 'device_id_example' # String | Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+opts = {
+  limit: 'limit_example', # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: 'offset_example' # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}
+
+begin
+  # Get the number of processes the indicator has run on
+  result = api_instance.indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_processes_ran_on_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_processes_ran_on_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiProcessesRanOnRespV1>, Integer, Hash)> indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+
+```ruby
+begin
+  # Get the number of processes the indicator has run on
+  data, status_code, headers = api_instance.indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiProcessesRanOnRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_processes_ran_on_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.  |  |
+| **value** | **String** | The string representation of the indicator |  |
+| **device_id** | **String** | Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API. |  |
+| **limit** | **String** | The maximum number of results to return. Use with the offset parameter to manage pagination of results. | [optional] |
+| **offset** | **String** | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results. | [optional] |
+
+### Return type
+
+[**ApiProcessesRanOnRespV1**](ApiProcessesRanOnRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_get_v1
+
+> <ApiIndicatorRespV1> indicator_get_v1(ids)
+
+Get Indicators by ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+ids = ['inner_example'] # Array<String> | The ids of the Indicators to retrieve
+
+begin
+  # Get Indicators by ids.
+  result = api_instance.indicator_get_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_v1: #{e}"
+end
+```
+
+#### Using the indicator_get_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_get_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Get Indicators by ids.
+  data, status_code, headers = api_instance.indicator_get_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_get_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The ids of the Indicators to retrieve |  |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_search_v1
+
+> <ApiIndicatorQueryRespV1> indicator_search_v1(opts)
+
+Search for Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.
+  limit: 56, # Integer | The maximum records to return.
+  sort: 'action', # String | The sort expression that should be used to sort the results.
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}
+
+begin
+  # Search for Indicators.
+  result = api_instance.indicator_search_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_search_v1: #{e}"
+end
+```
+
+#### Using the indicator_search_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> indicator_search_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Indicators.
+  data, status_code, headers = api_instance.indicator_search_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_search_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results. | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **limit** | **Integer** | The maximum records to return. | [optional] |
+| **sort** | **String** | The sort expression that should be used to sort the results. | [optional] |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#39;after&#39; token. On subsequent requests, provide the &#39;after&#39; token from the previous response to continue from that place in the results. To access more than 10k indicators, use the &#39;after&#39; parameter instead of &#39;offset&#39;. | [optional] |
+| **from_parent** | **Boolean** | The filter for returning either only indicators for the request customer or its MSSP parents | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## indicator_update_v1
+
+> <ApiIndicatorRespV1> indicator_update_v1(body, opts)
+
+Update Indicators.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorUpdateReqsV1.new({bulk_update: Falcon::ApiBulkUpdateReqV1.new, indicators: [Falcon::ApiIndicatorUpdateReqV1.new]}) # ApiIndicatorUpdateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}
+
+begin
+  # Update Indicators.
+  result = api_instance.indicator_update_v1(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_update_v1: #{e}"
+end
+```
+
+#### Using the indicator_update_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorRespV1>, Integer, Hash)> indicator_update_v1_with_http_info(body, opts)
+
+```ruby
+begin
+  # Update Indicators.
+  data, status_code, headers = api_instance.indicator_update_v1_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->indicator_update_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApiIndicatorUpdateReqsV1**](ApiIndicatorUpdateReqsV1.md) |  |  |
+| **retrodetects** | **Boolean** | Whether to submit to retrodetects | [optional] |
+| **ignore_warnings** | **Boolean** | Set to true to ignore warnings and add all IOCs | [optional][default to false] |
+
+### Return type
+
+[**ApiIndicatorRespV1**](ApiIndicatorRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## ioc_type_query_v1
+
+> <ApiIndicatorQueryRespV1> ioc_type_query_v1(opts)
+
+Query IOC Types.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query IOC Types.
+  result = api_instance.ioc_type_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->ioc_type_query_v1: #{e}"
+end
+```
+
+#### Using the ioc_type_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> ioc_type_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query IOC Types.
+  data, status_code, headers = api_instance.ioc_type_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->ioc_type_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## platform_query_v1
+
+> <ApiIndicatorQueryRespV1> platform_query_v1(opts)
+
+Query Platforms.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Platforms.
+  result = api_instance.platform_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->platform_query_v1: #{e}"
+end
+```
+
+#### Using the platform_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> platform_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Platforms.
+  data, status_code, headers = api_instance.platform_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->platform_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## severity_query_v1
+
+> <ApiIndicatorQueryRespV1> severity_query_v1(opts)
+
+Query Severities.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Ioc.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Query Severities.
+  result = api_instance.severity_query_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->severity_query_v1: #{e}"
+end
+```
+
+#### Using the severity_query_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiIndicatorQueryRespV1>, Integer, Hash)> severity_query_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Query Severities.
+  data, status_code, headers = api_instance.severity_query_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiIndicatorQueryRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Ioc->severity_query_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**ApiIndicatorQueryRespV1**](ApiIndicatorQueryRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconioc">Falcon::Ioc</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Ioc.md#action_get_v1"><strong>action_get_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/entities/actions/v1</td>
+      <td>Get Actions by ids.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#action_query_v1"><strong>action_query_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/actions/v1</td>
+      <td>Query Actions.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#get_indicators_report"><strong>get_indicators_report</strong></a></td>
+      <td><strong>POST</strong> /iocs/entities/indicators-reports/v1</td>
+      <td>Launch an indicators report creation job</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_aggregate_v1"><strong>indicator_aggregate_v1</strong></a></td>
+      <td><strong>POST</strong> /iocs/aggregates/indicators/v1</td>
+      <td>Get Indicators aggregates as specified via json in the request body.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_combined_v1"><strong>indicator_combined_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/combined/indicator/v1</td>
+      <td>Get Combined for Indicators.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_create_v1"><strong>indicator_create_v1</strong></a></td>
+      <td><strong>POST</strong> /iocs/entities/indicators/v1</td>
+      <td>Create Indicators.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_delete_v1"><strong>indicator_delete_v1</strong></a></td>
+      <td><strong>DELETE</strong> /iocs/entities/indicators/v1</td>
+      <td>Delete Indicators by ids.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_get_device_count_v1"><strong>indicator_get_device_count_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/aggregates/indicators/device-count/v1</td>
+      <td>Get the number of devices the indicator has run on</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_get_devices_ran_on_v1"><strong>indicator_get_devices_ran_on_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/indicators/devices/v1</td>
+      <td>Get the IDs of devices the indicator has run on</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_get_processes_ran_on_v1"><strong>indicator_get_processes_ran_on_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/indicators/processes/v1</td>
+      <td>Get the number of processes the indicator has run on</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_get_v1"><strong>indicator_get_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/entities/indicators/v1</td>
+      <td>Get Indicators by ids.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_search_v1"><strong>indicator_search_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/indicators/v1</td>
+      <td>Search for Indicators.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#indicator_update_v1"><strong>indicator_update_v1</strong></a></td>
+      <td><strong>PATCH</strong> /iocs/entities/indicators/v1</td>
+      <td>Update Indicators.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#ioc_type_query_v1"><strong>ioc_type_query_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/ioc-types/v1</td>
+      <td>Query IOC Types.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#platform_query_v1"><strong>platform_query_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/platforms/v1</td>
+      <td>Query Platforms.</td>
+    </tr>
+    <tr>
+      <td><a href="Ioc.md#severity_query_v1"><strong>severity_query_v1</strong></a></td>
+      <td><strong>GET</strong> /iocs/queries/severities/v1</td>
+      <td>Query Severities.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="actiongetv1">action_get_v1</h2>
+
+<blockquote>
+  <ApiActionRespV1> action_get_v1(opts)
+</ApiActionRespV1>
+</blockquote>
+
+<p>Get Actions by ids.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  ids: [‘inner_example’] # Array<String> | The ids of the Actions to retrieve
+}</String></p>
+
+<p>begin
+  # Get Actions by ids.
+  result = api_instance.action_get_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;action_get_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-actiongetv1withhttpinfo-variant">Using the action_get_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiActionRespV1>, Integer, Hash)&gt; action_get_v1_with_http_info(opts)</ApiActionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get Actions by ids.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">action_get_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiActionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;action_get_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The ids of the Actions to retrieve</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="ApiActionRespV1.md"><strong>ApiActionRespV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="actionqueryv1">action_query_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> action_query_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Query Actions.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}</p>
+
+<p>begin
+  # Query Actions.
+  result = api_instance.action_query_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;action_query_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-actionqueryv1withhttpinfo-variant">Using the action_query_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; action_query_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Query Actions.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">action_query_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;action_query_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getindicatorsreport">get_indicators_report</h2>
+
+<blockquote>
+  <MsaEntitiesResponse> get_indicators_report(body)
+</MsaEntitiesResponse>
+</blockquote>
+
+<p>Launch an indicators report creation job</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorsReportRequest.new({report_format: ‘report_format_example’, search: Falcon::ApiIndicatorsSortedSearch.new({filter: ‘filter_example’, query: ‘query_example’, sort: ‘sort_example’})}) # ApiIndicatorsReportRequest |</p>
+
+<p>begin
+  # Launch an indicators report creation job
+  result = api_instance.get_indicators_report(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;get_indicators_report: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getindicatorsreportwithhttpinfo-variant">Using the get_indicators_report_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaEntitiesResponse>, Integer, Hash)&gt; get_indicators_report_with_http_info(body)</MsaEntitiesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Launch an indicators report creation job</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_indicators_report_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaEntitiesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;get_indicators_report_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ApiIndicatorsReportRequest.md"><strong>ApiIndicatorsReportRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="MsaEntitiesResponse.md"><strong>MsaEntitiesResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatoraggregatev1">indicator_aggregate_v1</h2>
+
+<blockquote>
+  <MsaAggregatesResponse> indicator_aggregate_v1(body, opts)
+</MsaAggregatesResponse>
+</blockquote>
+
+<p>Get Indicators aggregates as specified via json in the request body.</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+body = Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: ‘from_example’, to: ‘to_example’})], exclude: ‘exclude_example’, field: ‘field_example’, filter: ‘filter_example’, from: 37, include: ‘include_example’, interval: ‘interval_example’, missing: ‘missing_example’, name: ‘name_example’, q: ‘q_example’, ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: ‘sort_example’, sub_aggregates: [Falcon::MsaAggregateQueryRequest.new({date_ranges: [Falcon::MsaDateRangeSpec.new({from: ‘from_example’, to: ‘to_example’})], exclude: ‘exclude_example’, field: ‘field_example’, filter: ‘filter_example’, from: 37, include: ‘include_example’, interval: ‘interval_example’, missing: ‘missing_example’, name: ‘name_example’, q: ‘q_example’, ranges: [Falcon::MsaRangeSpec.new({from: 3.56, to: 3.56})], size: 37, sort: ‘sort_example’, sub_aggregates: [], time_zone: ‘time_zone_example’, type: ‘type_example’})], time_zone: ‘time_zone_example’, type: ‘type_example’}) # MsaAggregateQueryRequest | 
+opts = {
+  filter: ‘filter_example’, # String | The filter to narrow down the aggregation data
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}</p>
+
+<p>begin
+  # Get Indicators aggregates as specified via json in the request body.
+  result = api_instance.indicator_aggregate_v1(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_aggregate_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatoraggregatev1withhttpinfo-variant">Using the indicator_aggregate_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaAggregatesResponse>, Integer, Hash)&gt; indicator_aggregate_v1_with_http_info(body, opts)</MsaAggregatesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get Indicators aggregates as specified via json in the request body.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_aggregate_v1_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaAggregatesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_aggregate_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaAggregateQueryRequest.md"><strong>MsaAggregateQueryRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter to narrow down the aggregation data</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>from_parent</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>The filter for returning either only indicators for the request customer or its MSSP parents</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="MsaAggregatesResponse.md"><strong>MsaAggregatesResponse</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorcombinedv1">indicator_combined_v1</h2>
+
+<blockquote>
+  <ApiIndicatorRespV1> indicator_combined_v1(opts)
+</ApiIndicatorRespV1>
+</blockquote>
+
+<p>Get Combined for Indicators.</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the ‘after’ parameter instead of ‘offset’.
+  limit: 56, # Integer | The maximum records to return.
+  sort: ‘action’, # String | The sort expression that should be used to sort the results.
+  after: ‘after_example’, # String | A pagination token used with the <code class="language-ruby highlighter-rouge"><span class="n">limit</span></code> parameter to manage pagination of results. On your first request, don’t provide an ‘after’ token. On subsequent requests, provide the ‘after’ token from the previous response to continue from that place in the results. To access more than 10k indicators, use the ‘after’ parameter instead of ‘offset’.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}</p>
+
+<p>begin
+  # Get Combined for Indicators.
+  result = api_instance.indicator_combined_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_combined_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorcombinedv1withhttpinfo-variant">Using the indicator_combined_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorRespV1>, Integer, Hash)&gt; indicator_combined_v1_with_http_info(opts)</ApiIndicatorRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get Combined for Indicators.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_combined_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_combined_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The sort expression that should be used to sort the results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>after</strong></td>
+      <td><strong>String</strong></td>
+      <td>A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>from_parent</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>The filter for returning either only indicators for the request customer or its MSSP parents</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="ApiIndicatorRespV1.md"><strong>ApiIndicatorRespV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorcreatev1">indicator_create_v1</h2>
+
+<blockquote>
+  <ApiIndicatorRespV1> indicator_create_v1(body, opts)
+</ApiIndicatorRespV1>
+</blockquote>
+
+<p>Create Indicators.</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorCreateReqsV1.new({indicators: [Falcon::ApiIndicatorCreateReqV1.new({applied_globally: false})]}) # ApiIndicatorCreateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}</p>
+
+<p>begin
+  # Create Indicators.
+  result = api_instance.indicator_create_v1(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_create_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorcreatev1withhttpinfo-variant">Using the indicator_create_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorRespV1>, Integer, Hash)&gt; indicator_create_v1_with_http_info(body, opts)</ApiIndicatorRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Create Indicators.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_create_v1_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_create_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ApiIndicatorCreateReqsV1.md"><strong>ApiIndicatorCreateReqsV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>retrodetects</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Whether to submit to retrodetects</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>ignore_warnings</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Set to true to ignore warnings and add all IOCs</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="ApiIndicatorRespV1.md"><strong>ApiIndicatorRespV1</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatordeletev1">indicator_delete_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> indicator_delete_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Delete Indicators by ids.</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  filter: ‘filter_example’, # String | The FQL expression to delete Indicators in bulk. If both ‘filter’ and ‘ids’ are provided, then filter takes precedence and ignores ids.
+  ids: [‘inner_example’], # Array<String> | The ids of the Indicators to delete. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids
+  comment: 'comment_example', # String | The comment why these indicators were deleted
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}</String></p>
+
+<p>begin
+  # Delete Indicators by ids.
+  result = api_instance.indicator_delete_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_delete_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatordeletev1withhttpinfo-variant">Using the indicator_delete_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; indicator_delete_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Delete Indicators by ids.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_delete_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_delete_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The FQL expression to delete Indicators in bulk. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The ids of the Indicators to delete. If both 'filter' and 'ids' are provided, then filter takes precedence and ignores ids</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>comment</strong></td>
+      <td><strong>String</strong></td>
+      <td>The comment why these indicators were deleted</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>from_parent</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>The filter for returning either only indicators for the request customer or its MSSP parents</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorgetdevicecountv1">indicator_get_device_count_v1</h2>
+
+<blockquote>
+  <ApiDeviceCountRespV1> indicator_get_device_count_v1(type, value)
+</ApiDeviceCountRespV1>
+</blockquote>
+
+<p>Get the number of devices the indicator has run on</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+type = ‘type_example’ # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = ‘value_example’ # String | The string representation of the indicator</p>
+
+<p>begin
+  # Get the number of devices the indicator has run on
+  result = api_instance.indicator_get_device_count_v1(type, value)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_get_device_count_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorgetdevicecountv1withhttpinfo-variant">Using the indicator_get_device_count_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiDeviceCountRespV1>, Integer, Hash)&gt; indicator_get_device_count_v1_with_http_info(type, value)</ApiDeviceCountRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get the number of devices the indicator has run on</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_get_device_count_v1_with_http_info</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiDeviceCountRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_get_device_count_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>value</strong></td>
+      <td><strong>String</strong></td>
+      <td>The string representation of the indicator</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="ApiDeviceCountRespV1.md"><strong>ApiDeviceCountRespV1</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorgetdevicesranonv1">indicator_get_devices_ran_on_v1</h2>
+
+<blockquote>
+  <ApiDevicesRanOnRespV1> indicator_get_devices_ran_on_v1(type, value, opts)
+</ApiDevicesRanOnRespV1>
+</blockquote>
+
+<p>Get the IDs of devices the indicator has run on</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+type = ‘type_example’ # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = ‘value_example’ # String | The string representation of the indicator
+opts = {
+  limit: ‘limit_example’, # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: ‘offset_example’ # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}</p>
+
+<p>begin
+  # Get the IDs of devices the indicator has run on
+  result = api_instance.indicator_get_devices_ran_on_v1(type, value, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_get_devices_ran_on_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorgetdevicesranonv1withhttpinfo-variant">Using the indicator_get_devices_ran_on_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiDevicesRanOnRespV1>, Integer, Hash)&gt; indicator_get_devices_ran_on_v1_with_http_info(type, value, opts)</ApiDevicesRanOnRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get the IDs of devices the indicator has run on</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_get_devices_ran_on_v1_with_http_info</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiDevicesRanOnRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_get_devices_ran_on_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>value</strong></td>
+      <td><strong>String</strong></td>
+      <td>The string representation of the indicator</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>String</strong></td>
+      <td>The maximum number of results to return. Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="ApiDevicesRanOnRespV1.md"><strong>ApiDevicesRanOnRespV1</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorgetprocessesranonv1">indicator_get_processes_ran_on_v1</h2>
+
+<blockquote>
+  <ApiProcessesRanOnRespV1> indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+</ApiProcessesRanOnRespV1>
+</blockquote>
+
+<p>Get the number of processes the indicator has run on</p>
+
+<h3 id="examples-9">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-9">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+type = ‘type_example’ # String |  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
+value = ‘value_example’ # String | The string representation of the indicator
+device_id = ‘device_id_example’ # String | Specify a host’s ID to return only processes from that host. Get a host’s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
+opts = {
+  limit: ‘limit_example’, # String | The maximum number of results to return. Use with the offset parameter to manage pagination of results.
+  offset: ‘offset_example’ # String | The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.
+}</p>
+
+<p>begin
+  # Get the number of processes the indicator has run on
+  result = api_instance.indicator_get_processes_ran_on_v1(type, value, device_id, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_get_processes_ran_on_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorgetprocessesranonv1withhttpinfo-variant">Using the indicator_get_processes_ran_on_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiProcessesRanOnRespV1>, Integer, Hash)&gt; indicator_get_processes_ran_on_v1_with_http_info(type, value, device_id, opts)</ApiProcessesRanOnRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get the number of processes the indicator has run on</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_get_processes_ran_on_v1_with_http_info</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiProcessesRanOnRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_get_processes_ran_on_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-9">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>value</strong></td>
+      <td><strong>String</strong></td>
+      <td>The string representation of the indicator</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>device_id</strong></td>
+      <td><strong>String</strong></td>
+      <td>Specify a host's ID to return only processes from that host. Get a host's ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>String</strong></td>
+      <td>The maximum number of results to return. Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The first process to return, where 0 is the latest offset. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-9">Return type</h3>
+
+<p><a href="ApiProcessesRanOnRespV1.md"><strong>ApiProcessesRanOnRespV1</strong></a></p>
+
+<h3 id="authorization-9">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-9">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorgetv1">indicator_get_v1</h2>
+
+<blockquote>
+  <ApiIndicatorRespV1> indicator_get_v1(ids)
+</ApiIndicatorRespV1>
+</blockquote>
+
+<p>Get Indicators by ids.</p>
+
+<h3 id="examples-10">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-10">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+ids = [‘inner_example’] # Array<String> | The ids of the Indicators to retrieve</String></p>
+
+<p>begin
+  # Get Indicators by ids.
+  result = api_instance.indicator_get_v1(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_get_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorgetv1withhttpinfo-variant">Using the indicator_get_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorRespV1>, Integer, Hash)&gt; indicator_get_v1_with_http_info(ids)</ApiIndicatorRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get Indicators by ids.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_get_v1_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_get_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-10">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The ids of the Indicators to retrieve</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-10">Return type</h3>
+
+<p><a href="ApiIndicatorRespV1.md"><strong>ApiIndicatorRespV1</strong></a></p>
+
+<h3 id="authorization-10">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-10">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorsearchv1">indicator_search_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> indicator_search_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Search for Indicators.</p>
+
+<h3 id="examples-11">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-11">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results.
+  offset: 56, # Integer | The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the ‘after’ parameter instead of ‘offset’.
+  limit: 56, # Integer | The maximum records to return.
+  sort: ‘action’, # String | The sort expression that should be used to sort the results.
+  after: ‘after_example’, # String | A pagination token used with the <code class="language-ruby highlighter-rouge"><span class="n">limit</span></code> parameter to manage pagination of results. On your first request, don’t provide an ‘after’ token. On subsequent requests, provide the ‘after’ token from the previous response to continue from that place in the results. To access more than 10k indicators, use the ‘after’ parameter instead of ‘offset’.
+  from_parent: true # Boolean | The filter for returning either only indicators for the request customer or its MSSP parents
+}</p>
+
+<p>begin
+  # Search for Indicators.
+  result = api_instance.indicator_search_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_search_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorsearchv1withhttpinfo-variant">Using the indicator_search_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; indicator_search_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for Indicators.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_search_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_search_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-11">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from. Offset and After params are mutually exclusive. If none provided then scrolling will be used by default. To access more than 10k iocs, use the 'after' parameter instead of 'offset'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The sort expression that should be used to sort the results.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>after</strong></td>
+      <td><strong>String</strong></td>
+      <td>A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an 'after' token. On subsequent requests, provide the 'after' token from the previous response to continue from that place in the results. To access more than 10k indicators, use the 'after' parameter instead of 'offset'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>from_parent</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>The filter for returning either only indicators for the request customer or its MSSP parents</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-11">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-11">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-11">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="indicatorupdatev1">indicator_update_v1</h2>
+
+<blockquote>
+  <ApiIndicatorRespV1> indicator_update_v1(body, opts)
+</ApiIndicatorRespV1>
+</blockquote>
+
+<p>Update Indicators.</p>
+
+<h3 id="examples-12">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-12">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+body = Falcon::ApiIndicatorUpdateReqsV1.new({bulk_update: Falcon::ApiBulkUpdateReqV1.new, indicators: [Falcon::ApiIndicatorUpdateReqV1.new]}) # ApiIndicatorUpdateReqsV1 | 
+opts = {
+  retrodetects: true, # Boolean | Whether to submit to retrodetects
+  ignore_warnings: true # Boolean | Set to true to ignore warnings and add all IOCs
+}</p>
+
+<p>begin
+  # Update Indicators.
+  result = api_instance.indicator_update_v1(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;indicator_update_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-indicatorupdatev1withhttpinfo-variant">Using the indicator_update_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorRespV1>, Integer, Hash)&gt; indicator_update_v1_with_http_info(body, opts)</ApiIndicatorRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Update Indicators.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">indicator_update_v1_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;indicator_update_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-12">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ApiIndicatorUpdateReqsV1.md"><strong>ApiIndicatorUpdateReqsV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>retrodetects</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Whether to submit to retrodetects</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>ignore_warnings</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Set to true to ignore warnings and add all IOCs</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-12">Return type</h3>
+
+<p><a href="ApiIndicatorRespV1.md"><strong>ApiIndicatorRespV1</strong></a></p>
+
+<h3 id="authorization-12">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-12">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="ioctypequeryv1">ioc_type_query_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> ioc_type_query_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Query IOC Types.</p>
+
+<h3 id="examples-13">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-13">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}</p>
+
+<p>begin
+  # Query IOC Types.
+  result = api_instance.ioc_type_query_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;ioc_type_query_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-ioctypequeryv1withhttpinfo-variant">Using the ioc_type_query_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; ioc_type_query_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Query IOC Types.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">ioc_type_query_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;ioc_type_query_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-13">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-13">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-13">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-13">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="platformqueryv1">platform_query_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> platform_query_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Query Platforms.</p>
+
+<h3 id="examples-14">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-14">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}</p>
+
+<p>begin
+  # Query Platforms.
+  result = api_instance.platform_query_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;platform_query_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-platformqueryv1withhttpinfo-variant">Using the platform_query_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; platform_query_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Query Platforms.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">platform_query_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;platform_query_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-14">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-14">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-14">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-14">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="severityqueryv1">severity_query_v1</h2>
+
+<blockquote>
+  <ApiIndicatorQueryRespV1> severity_query_v1(opts)
+</ApiIndicatorQueryRespV1>
+</blockquote>
+
+<p>Query Severities.</p>
+
+<h3 id="examples-15">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-15">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Ioc.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}</p>
+
+<p>begin
+  # Query Severities.
+  result = api_instance.severity_query_v1(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Ioc-&gt;severity_query_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-severityqueryv1withhttpinfo-variant">Using the severity_query_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiIndicatorQueryRespV1>, Integer, Hash)&gt; severity_query_v1_with_http_info(opts)</ApiIndicatorQueryRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Query Severities.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">severity_query_v1_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiIndicatorQueryRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Ioc-&gt;severity_query_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-15">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-15">Return type</h3>
+
+<p><a href="ApiIndicatorQueryRespV1.md"><strong>ApiIndicatorQueryRespV1</strong></a></p>
+
+<h3 id="authorization-15">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-15">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

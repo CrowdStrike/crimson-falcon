@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::ApiQueryJobInput
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **allow_event_skipping** | **Boolean** | Enables some LogScale functions, such as head() and tail(), to stop processing all data in the selected timeframe and exit the query early | [optional] |
+| **arguments** | **Object** | JSON blob with parameters defined in query | [optional] |
+| **around** | [**ApiQueryJobAroundInput**](ApiQueryJobAroundInput.md) |  | [optional] |
+| **autobucket_count** | **Integer** | The number of buckets the system should create during live query searches, when no other explicit bucketing aggregate is specified | [optional] |
+| **_end** | **String** | The date and time to use as the ending point of the search results | [optional] |
+| **ingest_end** | **String** | The end date and time applied for @ingesttimestamp | [optional] |
+| **ingest_start** | **String** | The end date and time applied for @ingesttimestamp | [optional] |
+| **is_live** | **Boolean** | Sets whether this query is live. Defaults to false . Live queries are continuously updated. | [optional] |
+| **query_string** | **String** | The CQL query to use for the search |  |
+| **start** | **String** | The date and time to use as the starting point of the search results | [optional] |
+| **time_zone** | **String** | The time zone to use if start and end times are not specified in milliseconds. Eg: UTC | [optional] |
+| **time_zone_offset_minutes** | **Integer** | A positive or negative number representing how many minutes a given time zone is ahead or behind Coordinated Universal Time (UTC) | [optional] |
+| **use_ingest_time** | **Boolean** | When set to true, the event’s ingestStart and ingestEnd times are used as the basis for the query timespan rather than the start and end timestamps | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::ApiQueryJobInput.new(
+  allow_event_skipping: null,
+  arguments: null,
+  around: null,
+  autobucket_count: null,
+  _end: null,
+  ingest_end: null,
+  ingest_start: null,
+  is_live: null,
+  query_string: null,
+  start: null,
+  time_zone: null,
+  time_zone_offset_minutes: null,
+  use_ingest_time: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > ApiQueryJobInput
+        </nav>
+        <h1>Falcon::ApiQueryJobInput
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **allow_event_skipping** | **Boolean** | Enables some LogScale functions, such as head() and tail(), to stop processing all data in the selected timeframe and exit the query early | [optional] |
+| **arguments** | **Object** | JSON blob with parameters defined in query | [optional] |
+| **around** | [**ApiQueryJobAroundInput**](ApiQueryJobAroundInput.md) |  | [optional] |
+| **autobucket_count** | **Integer** | The number of buckets the system should create during live query searches, when no other explicit bucketing aggregate is specified | [optional] |
+| **_end** | **String** | The date and time to use as the ending point of the search results | [optional] |
+| **ingest_end** | **String** | The end date and time applied for @ingesttimestamp | [optional] |
+| **ingest_start** | **String** | The end date and time applied for @ingesttimestamp | [optional] |
+| **is_live** | **Boolean** | Sets whether this query is live. Defaults to false . Live queries are continuously updated. | [optional] |
+| **query_string** | **String** | The CQL query to use for the search |  |
+| **start** | **String** | The date and time to use as the starting point of the search results | [optional] |
+| **time_zone** | **String** | The time zone to use if start and end times are not specified in milliseconds. Eg: UTC | [optional] |
+| **time_zone_offset_minutes** | **Integer** | A positive or negative number representing how many minutes a given time zone is ahead or behind Coordinated Universal Time (UTC) | [optional] |
+| **use_ingest_time** | **Boolean** | When set to true, the event’s ingestStart and ingestEnd times are used as the basis for the query timespan rather than the start and end timestamps | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::ApiQueryJobInput.new(
+  allow_event_skipping: null,
+  arguments: null,
+  around: null,
+  autobucket_count: null,
+  _end: null,
+  ingest_end: null,
+  ingest_start: null,
+  is_live: null,
+  query_string: null,
+  start: null,
+  time_zone: null,
+  time_zone_offset_minutes: null,
+  use_ingest_time: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falconapiqueryjobinput">Falcon::ApiQueryJobInput</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>allow_event_skipping</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Enables some LogScale functions, such as head() and tail(), to stop processing all data in the selected timeframe and exit the query early</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>arguments</strong></td>
+      <td><strong>Object</strong></td>
+      <td>JSON blob with parameters defined in query</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>around</strong></td>
+      <td><a href="ApiQueryJobAroundInput.md"><strong>ApiQueryJobAroundInput</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>autobucket_count</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of buckets the system should create during live query searches, when no other explicit bucketing aggregate is specified</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>_end</strong></td>
+      <td><strong>String</strong></td>
+      <td>The date and time to use as the ending point of the search results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>ingest_end</strong></td>
+      <td><strong>String</strong></td>
+      <td>The end date and time applied for @ingesttimestamp</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>ingest_start</strong></td>
+      <td><strong>String</strong></td>
+      <td>The end date and time applied for @ingesttimestamp</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>is_live</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Sets whether this query is live. Defaults to false . Live queries are continuously updated.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>query_string</strong></td>
+      <td><strong>String</strong></td>
+      <td>The CQL query to use for the search</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>start</strong></td>
+      <td><strong>String</strong></td>
+      <td>The date and time to use as the starting point of the search results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>time_zone</strong></td>
+      <td><strong>String</strong></td>
+      <td>The time zone to use if start and end times are not specified in milliseconds. Eg: UTC</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>time_zone_offset_minutes</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>A positive or negative number representing how many minutes a given time zone is ahead or behind Coordinated Universal Time (UTC)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>use_ingest_time</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>When set to true, the event’s ingestStart and ingestEnd times are used as the basis for the query timespan rather than the start and end timestamps</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::ApiQueryJobInput.new(
+  allow_event_skipping: null,
+  arguments: null,
+  around: null,
+  autobucket_count: null,
+  _end: null,
+  ingest_end: null,
+  ingest_start: null,
+  is_live: null,
+  query_string: null,
+  start: null,
+  time_zone: null,
+  time_zone_offset_minutes: null,
+  use_ingest_time: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

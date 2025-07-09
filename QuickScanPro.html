@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::QuickScanPro
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**delete_file**](QuickScanPro.md#delete_file) | **DELETE** /quickscanpro/entities/files/v1 | Deletes file by its sha256 identifier. |
+| [**delete_scan_result**](QuickScanPro.md#delete_scan_result) | **DELETE** /quickscanpro/entities/scans/v1 | Deletes the result of an QuickScan Pro scan. |
+| [**get_scan_result**](QuickScanPro.md#get_scan_result) | **GET** /quickscanpro/entities/scans/v1 | Gets the result of an QuickScan Pro scan. |
+| [**launch_scan**](QuickScanPro.md#launch_scan) | **POST** /quickscanpro/entities/scans/v1 | Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;. |
+| [**query_scan_results**](QuickScanPro.md#query_scan_results) | **GET** /quickscanpro/queries/scans/v1 | FQL query specifying the filter parameters |
+| [**upload_file_quick_scan_pro**](QuickScanPro.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set. |
+
+
+## delete_file
+
+> <QuickscanproDeleteFileResponse> delete_file(ids)
+
+Deletes file by its sha256 identifier.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | File's SHA256
+
+begin
+  # Deletes file by its sha256 identifier.
+  result = api_instance.delete_file(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_file: #{e}"
+end
+```
+
+#### Using the delete_file_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproDeleteFileResponse>, Integer, Hash)> delete_file_with_http_info(ids)
+
+```ruby
+begin
+  # Deletes file by its sha256 identifier.
+  data, status_code, headers = api_instance.delete_file_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproDeleteFileResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_file_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | File&#39;s SHA256 |  |
+
+### Return type
+
+[**QuickscanproDeleteFileResponse**](QuickscanproDeleteFileResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_scan_result
+
+> <MsaspecQueryResponse> delete_scan_result(ids)
+
+Deletes the result of an QuickScan Pro scan.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
+
+begin
+  # Deletes the result of an QuickScan Pro scan.
+  result = api_instance.delete_scan_result(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_scan_result: #{e}"
+end
+```
+
+#### Using the delete_scan_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> delete_scan_result_with_http_info(ids)
+
+```ruby
+begin
+  # Deletes the result of an QuickScan Pro scan.
+  data, status_code, headers = api_instance.delete_scan_result_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_scan_result_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Scan job IDs previously created by LaunchScan |  |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_scan_result
+
+> <QuickscanproGetScanResultResponse> get_scan_result(ids)
+
+Gets the result of an QuickScan Pro scan.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
+
+begin
+  # Gets the result of an QuickScan Pro scan.
+  result = api_instance.get_scan_result(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->get_scan_result: #{e}"
+end
+```
+
+#### Using the get_scan_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproGetScanResultResponse>, Integer, Hash)> get_scan_result_with_http_info(ids)
+
+```ruby
+begin
+  # Gets the result of an QuickScan Pro scan.
+  data, status_code, headers = api_instance.get_scan_result_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproGetScanResultResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->get_scan_result_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Scan job IDs previously created by LaunchScan |  |
+
+### Return type
+
+[**QuickscanproGetScanResultResponse**](QuickscanproGetScanResultResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## launch_scan
+
+> <QuickscanproLaunchScanResponse> launch_scan(body)
+
+Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+body = Falcon::QuickscanproLaunchScanRequest.new({resources: [Falcon::QuickscanproLaunchScanRequestResource.new({sha256: 'sha256_example'})]}) # QuickscanproLaunchScanRequest | 
+
+begin
+  # Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+  result = api_instance.launch_scan(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->launch_scan: #{e}"
+end
+```
+
+#### Using the launch_scan_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproLaunchScanResponse>, Integer, Hash)> launch_scan_with_http_info(body)
+
+```ruby
+begin
+  # Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+  data, status_code, headers = api_instance.launch_scan_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproLaunchScanResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->launch_scan_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**QuickscanproLaunchScanRequest**](QuickscanproLaunchScanRequest.md) |  |  |
+
+### Return type
+
+[**QuickscanproLaunchScanResponse**](QuickscanproLaunchScanResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_scan_results
+
+> <QuickscanproQueryScanResultsResponse> query_scan_results(filter, opts)
+
+FQL query specifying the filter parameters
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+filter = 'filter_example' # String | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+opts = {
+  offset: 56, # Integer | The offset to start retrieving ids from.
+  limit: 56, # Integer | Maximum number of IDs to return. Max: 5000.
+  sort: 'sort_example' # String | Sort order: `asc` or `desc`. Sort supported fields `created_timestamp`
+}
+
+begin
+  # FQL query specifying the filter parameters
+  result = api_instance.query_scan_results(filter, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->query_scan_results: #{e}"
+end
+```
+
+#### Using the query_scan_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproQueryScanResultsResponse>, Integer, Hash)> query_scan_results_with_http_info(filter, opts)
+
+```ruby
+begin
+  # FQL query specifying the filter parameters
+  data, status_code, headers = api_instance.query_scan_results_with_http_info(filter, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproQueryScanResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->query_scan_results_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields. |  |
+| **offset** | **Integer** | The offset to start retrieving ids from. | [optional] |
+| **limit** | **Integer** | Maximum number of IDs to return. Max: 5000. | [optional][default to 50] |
+| **sort** | **String** | Sort order: &#x60;asc&#x60; or &#x60;desc&#x60;. Sort supported fields &#x60;created_timestamp&#x60; | [optional] |
+
+### Return type
+
+[**QuickscanproQueryScanResultsResponse**](QuickscanproQueryScanResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## upload_file_quick_scan_pro
+
+> <QuickscanproFileUploadResponse> upload_file_quick_scan_pro(file, opts)
+
+Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+file = File.new('/path/to/some/file') # File | Binary file to be uploaded. Max file size: 256 MB.
+opts = {
+  scan: true # Boolean | If true, after upload, it starts scanning immediately. Default scan mode is 'false'
+}
+
+begin
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+  result = api_instance.upload_file_quick_scan_pro(file, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro: #{e}"
+end
+```
+
+#### Using the upload_file_quick_scan_pro_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproFileUploadResponse>, Integer, Hash)> upload_file_quick_scan_pro_with_http_info(file, opts)
+
+```ruby
+begin
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+  data, status_code, headers = api_instance.upload_file_quick_scan_pro_with_http_info(file, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproFileUploadResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **file** | **File** | Binary file to be uploaded. Max file size: 256 MB. |  |
+| **scan** | **Boolean** | If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; | [optional][default to false] |
+
+### Return type
+
+[**QuickscanproFileUploadResponse**](QuickscanproFileUploadResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > QuickScanPro
+        </nav>
+        <h1>Falcon::QuickScanPro
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**delete_file**](QuickScanPro.md#delete_file) | **DELETE** /quickscanpro/entities/files/v1 | Deletes file by its sha256 identifier. |
+| [**delete_scan_result**](QuickScanPro.md#delete_scan_result) | **DELETE** /quickscanpro/entities/scans/v1 | Deletes the result of an QuickScan Pro scan. |
+| [**get_scan_result**](QuickScanPro.md#get_scan_result) | **GET** /quickscanpro/entities/scans/v1 | Gets the result of an QuickScan Pro scan. |
+| [**launch_scan**](QuickScanPro.md#launch_scan) | **POST** /quickscanpro/entities/scans/v1 | Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;. |
+| [**query_scan_results**](QuickScanPro.md#query_scan_results) | **GET** /quickscanpro/queries/scans/v1 | FQL query specifying the filter parameters |
+| [**upload_file_quick_scan_pro**](QuickScanPro.md#upload_file_quick_scan_pro) | **POST** /quickscanpro/entities/files/v1 | Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set. |
+
+
+## delete_file
+
+> <QuickscanproDeleteFileResponse> delete_file(ids)
+
+Deletes file by its sha256 identifier.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | File's SHA256
+
+begin
+  # Deletes file by its sha256 identifier.
+  result = api_instance.delete_file(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_file: #{e}"
+end
+```
+
+#### Using the delete_file_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproDeleteFileResponse>, Integer, Hash)> delete_file_with_http_info(ids)
+
+```ruby
+begin
+  # Deletes file by its sha256 identifier.
+  data, status_code, headers = api_instance.delete_file_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproDeleteFileResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_file_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | File&#39;s SHA256 |  |
+
+### Return type
+
+[**QuickscanproDeleteFileResponse**](QuickscanproDeleteFileResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## delete_scan_result
+
+> <MsaspecQueryResponse> delete_scan_result(ids)
+
+Deletes the result of an QuickScan Pro scan.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
+
+begin
+  # Deletes the result of an QuickScan Pro scan.
+  result = api_instance.delete_scan_result(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_scan_result: #{e}"
+end
+```
+
+#### Using the delete_scan_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> delete_scan_result_with_http_info(ids)
+
+```ruby
+begin
+  # Deletes the result of an QuickScan Pro scan.
+  data, status_code, headers = api_instance.delete_scan_result_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->delete_scan_result_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Scan job IDs previously created by LaunchScan |  |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_scan_result
+
+> <QuickscanproGetScanResultResponse> get_scan_result(ids)
+
+Gets the result of an QuickScan Pro scan.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+ids = ['inner_example'] # Array<String> | Scan job IDs previously created by LaunchScan
+
+begin
+  # Gets the result of an QuickScan Pro scan.
+  result = api_instance.get_scan_result(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->get_scan_result: #{e}"
+end
+```
+
+#### Using the get_scan_result_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproGetScanResultResponse>, Integer, Hash)> get_scan_result_with_http_info(ids)
+
+```ruby
+begin
+  # Gets the result of an QuickScan Pro scan.
+  data, status_code, headers = api_instance.get_scan_result_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproGetScanResultResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->get_scan_result_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Scan job IDs previously created by LaunchScan |  |
+
+### Return type
+
+[**QuickscanproGetScanResultResponse**](QuickscanproGetScanResultResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## launch_scan
+
+> <QuickscanproLaunchScanResponse> launch_scan(body)
+
+Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+body = Falcon::QuickscanproLaunchScanRequest.new({resources: [Falcon::QuickscanproLaunchScanRequestResource.new({sha256: 'sha256_example'})]}) # QuickscanproLaunchScanRequest | 
+
+begin
+  # Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+  result = api_instance.launch_scan(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->launch_scan: #{e}"
+end
+```
+
+#### Using the launch_scan_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproLaunchScanResponse>, Integer, Hash)> launch_scan_with_http_info(body)
+
+```ruby
+begin
+  # Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.
+  data, status_code, headers = api_instance.launch_scan_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproLaunchScanResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->launch_scan_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**QuickscanproLaunchScanRequest**](QuickscanproLaunchScanRequest.md) |  |  |
+
+### Return type
+
+[**QuickscanproLaunchScanResponse**](QuickscanproLaunchScanResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_scan_results
+
+> <QuickscanproQueryScanResultsResponse> query_scan_results(filter, opts)
+
+FQL query specifying the filter parameters
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+filter = 'filter_example' # String | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (>, <, >=, <=): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+opts = {
+  offset: 56, # Integer | The offset to start retrieving ids from.
+  limit: 56, # Integer | Maximum number of IDs to return. Max: 5000.
+  sort: 'sort_example' # String | Sort order: `asc` or `desc`. Sort supported fields `created_timestamp`
+}
+
+begin
+  # FQL query specifying the filter parameters
+  result = api_instance.query_scan_results(filter, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->query_scan_results: #{e}"
+end
+```
+
+#### Using the query_scan_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproQueryScanResultsResponse>, Integer, Hash)> query_scan_results_with_http_info(filter, opts)
+
+```ruby
+begin
+  # FQL query specifying the filter parameters
+  data, status_code, headers = api_instance.query_scan_results_with_http_info(filter, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproQueryScanResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->query_scan_results_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields. |  |
+| **offset** | **Integer** | The offset to start retrieving ids from. | [optional] |
+| **limit** | **Integer** | Maximum number of IDs to return. Max: 5000. | [optional][default to 50] |
+| **sort** | **String** | Sort order: &#x60;asc&#x60; or &#x60;desc&#x60;. Sort supported fields &#x60;created_timestamp&#x60; | [optional] |
+
+### Return type
+
+[**QuickscanproQueryScanResultsResponse**](QuickscanproQueryScanResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## upload_file_quick_scan_pro
+
+> <QuickscanproFileUploadResponse> upload_file_quick_scan_pro(file, opts)
+
+Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::QuickScanPro.new
+file = File.new('/path/to/some/file') # File | Binary file to be uploaded. Max file size: 256 MB.
+opts = {
+  scan: true # Boolean | If true, after upload, it starts scanning immediately. Default scan mode is 'false'
+}
+
+begin
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+  result = api_instance.upload_file_quick_scan_pro(file, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro: #{e}"
+end
+```
+
+#### Using the upload_file_quick_scan_pro_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<QuickscanproFileUploadResponse>, Integer, Hash)> upload_file_quick_scan_pro_with_http_info(file, opts)
+
+```ruby
+begin
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+  data, status_code, headers = api_instance.upload_file_quick_scan_pro_with_http_info(file, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <QuickscanproFileUploadResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling QuickScanPro->upload_file_quick_scan_pro_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **file** | **File** | Binary file to be uploaded. Max file size: 256 MB. |  |
+| **scan** | **Boolean** | If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; | [optional][default to false] |
+
+### Return type
+
+[**QuickscanproFileUploadResponse**](QuickscanproFileUploadResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconquickscanpro">Falcon::QuickScanPro</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="QuickScanPro.md#delete_file"><strong>delete_file</strong></a></td>
+      <td><strong>DELETE</strong> /quickscanpro/entities/files/v1</td>
+      <td>Deletes file by its sha256 identifier.</td>
+    </tr>
+    <tr>
+      <td><a href="QuickScanPro.md#delete_scan_result"><strong>delete_scan_result</strong></a></td>
+      <td><strong>DELETE</strong> /quickscanpro/entities/scans/v1</td>
+      <td>Deletes the result of an QuickScan Pro scan.</td>
+    </tr>
+    <tr>
+      <td><a href="QuickScanPro.md#get_scan_result"><strong>get_scan_result</strong></a></td>
+      <td><strong>GET</strong> /quickscanpro/entities/scans/v1</td>
+      <td>Gets the result of an QuickScan Pro scan.</td>
+    </tr>
+    <tr>
+      <td><a href="QuickScanPro.md#launch_scan"><strong>launch_scan</strong></a></td>
+      <td><strong>POST</strong> /quickscanpro/entities/scans/v1</td>
+      <td>Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.</td>
+    </tr>
+    <tr>
+      <td><a href="QuickScanPro.md#query_scan_results"><strong>query_scan_results</strong></a></td>
+      <td><strong>GET</strong> /quickscanpro/queries/scans/v1</td>
+      <td>FQL query specifying the filter parameters</td>
+    </tr>
+    <tr>
+      <td><a href="QuickScanPro.md#upload_file_quick_scan_pro"><strong>upload_file_quick_scan_pro</strong></a></td>
+      <td><strong>POST</strong> /quickscanpro/entities/files/v1</td>
+      <td>Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="deletefile">delete_file</h2>
+
+<blockquote>
+  <QuickscanproDeleteFileResponse> delete_file(ids)
+</QuickscanproDeleteFileResponse>
+</blockquote>
+
+<p>Deletes file by its sha256 identifier.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+ids = [‘inner_example’] # Array<String> | File's SHA256</String></p>
+
+<p>begin
+  # Deletes file by its sha256 identifier.
+  result = api_instance.delete_file(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;delete_file: #{e}”
+end
+```</p>
+
+<h4 id="using-the-deletefilewithhttpinfo-variant">Using the delete_file_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<QuickscanproDeleteFileResponse>, Integer, Hash)&gt; delete_file_with_http_info(ids)</QuickscanproDeleteFileResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Deletes file by its sha256 identifier.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">delete_file_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;QuickscanproDeleteFileResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;delete_file_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>File's SHA256</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="QuickscanproDeleteFileResponse.md"><strong>QuickscanproDeleteFileResponse</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="deletescanresult">delete_scan_result</h2>
+
+<blockquote>
+  <MsaspecQueryResponse> delete_scan_result(ids)
+</MsaspecQueryResponse>
+</blockquote>
+
+<p>Deletes the result of an QuickScan Pro scan.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+ids = [‘inner_example’] # Array<String> | Scan job IDs previously created by LaunchScan</String></p>
+
+<p>begin
+  # Deletes the result of an QuickScan Pro scan.
+  result = api_instance.delete_scan_result(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;delete_scan_result: #{e}”
+end
+```</p>
+
+<h4 id="using-the-deletescanresultwithhttpinfo-variant">Using the delete_scan_result_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecQueryResponse>, Integer, Hash)&gt; delete_scan_result_with_http_info(ids)</MsaspecQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Deletes the result of an QuickScan Pro scan.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">delete_scan_result_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;delete_scan_result_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Scan job IDs previously created by LaunchScan</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="MsaspecQueryResponse.md"><strong>MsaspecQueryResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getscanresult">get_scan_result</h2>
+
+<blockquote>
+  <QuickscanproGetScanResultResponse> get_scan_result(ids)
+</QuickscanproGetScanResultResponse>
+</blockquote>
+
+<p>Gets the result of an QuickScan Pro scan.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+ids = [‘inner_example’] # Array<String> | Scan job IDs previously created by LaunchScan</String></p>
+
+<p>begin
+  # Gets the result of an QuickScan Pro scan.
+  result = api_instance.get_scan_result(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;get_scan_result: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getscanresultwithhttpinfo-variant">Using the get_scan_result_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<QuickscanproGetScanResultResponse>, Integer, Hash)&gt; get_scan_result_with_http_info(ids)</QuickscanproGetScanResultResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Gets the result of an QuickScan Pro scan.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_scan_result_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;QuickscanproGetScanResultResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;get_scan_result_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Scan job IDs previously created by LaunchScan</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="QuickscanproGetScanResultResponse.md"><strong>QuickscanproGetScanResultResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="launchscan">launch_scan</h2>
+
+<blockquote>
+  <QuickscanproLaunchScanResponse> launch_scan(body)
+</QuickscanproLaunchScanResponse>
+</blockquote>
+
+<p>Starts scanning a file uploaded through ‘/quickscanpro/entities/files/v1’.</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+body = Falcon::QuickscanproLaunchScanRequest.new({resources: [Falcon::QuickscanproLaunchScanRequestResource.new({sha256: ‘sha256_example’})]}) # QuickscanproLaunchScanRequest |</p>
+
+<p>begin
+  # Starts scanning a file uploaded through ‘/quickscanpro/entities/files/v1’.
+  result = api_instance.launch_scan(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;launch_scan: #{e}”
+end
+```</p>
+
+<h4 id="using-the-launchscanwithhttpinfo-variant">Using the launch_scan_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<QuickscanproLaunchScanResponse>, Integer, Hash)&gt; launch_scan_with_http_info(body)</QuickscanproLaunchScanResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Starts scanning a file uploaded through '/quickscanpro/entities/files/v1'.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">launch_scan_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;QuickscanproLaunchScanResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;launch_scan_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="QuickscanproLaunchScanRequest.md"><strong>QuickscanproLaunchScanRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="QuickscanproLaunchScanResponse.md"><strong>QuickscanproLaunchScanResponse</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryscanresults">query_scan_results</h2>
+
+<blockquote>
+  <QuickscanproQueryScanResultsResponse> query_scan_results(filter, opts)
+</QuickscanproQueryScanResultsResponse>
+</blockquote>
+
+<p>FQL query specifying the filter parameters</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+filter = ‘filter_example’ # String | Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+opts = {
+  offset: 56, # Integer | The offset to start retrieving ids from.
+  limit: 56, # Integer | Maximum number of IDs to return. Max: 5000.
+  sort: ‘sort_example’ # String | Sort order: <code class="language-ruby highlighter-rouge"><span class="n">asc</span></code> or <code class="language-ruby highlighter-rouge"><span class="n">desc</span></code>. Sort supported fields <code class="language-ruby highlighter-rouge"><span class="n">created_timestamp</span></code>
+}</p>
+
+<p>begin
+  # FQL query specifying the filter parameters
+  result = api_instance.query_scan_results(filter, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;query_scan_results: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryscanresultswithhttpinfo-variant">Using the query_scan_results_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<QuickscanproQueryScanResultsResponse>, Integer, Hash)&gt; query_scan_results_with_http_info(filter, opts)</QuickscanproQueryScanResultsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># FQL query specifying the filter parameters</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_scan_results_with_http_info</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;QuickscanproQueryScanResultsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;query_scan_results_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving ids from.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Maximum number of IDs to return. Max: 5000.</td>
+      <td>[optional][default to 50]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort order: `asc` or `desc`. Sort supported fields `created_timestamp`</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="QuickscanproQueryScanResultsResponse.md"><strong>QuickscanproQueryScanResultsResponse</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="uploadfilequickscanpro">upload_file_quick_scan_pro</h2>
+
+<blockquote>
+  <QuickscanproFileUploadResponse> upload_file_quick_scan_pro(file, opts)
+</QuickscanproFileUploadResponse>
+</blockquote>
+
+<p>Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::QuickScanPro.new
+file = File.new(‘/path/to/some/file’) # File | Binary file to be uploaded. Max file size: 256 MB.
+opts = {
+  scan: true # Boolean | If true, after upload, it starts scanning immediately. Default scan mode is ‘false’
+}</p>
+
+<p>begin
+  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
+  result = api_instance.upload_file_quick_scan_pro(file, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling QuickScanPro-&gt;upload_file_quick_scan_pro: #{e}”
+end
+```</p>
+
+<h4 id="using-the-uploadfilequickscanprowithhttpinfo-variant">Using the upload_file_quick_scan_pro_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<QuickscanproFileUploadResponse>, Integer, Hash)&gt; upload_file_quick_scan_pro_with_http_info(file, opts)</QuickscanproFileUploadResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">upload_file_quick_scan_pro_with_http_info</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;QuickscanproFileUploadResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling QuickScanPro-&gt;upload_file_quick_scan_pro_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>file</strong></td>
+      <td><strong>File</strong></td>
+      <td>Binary file to be uploaded. Max file size: 256 MB.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>scan</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>If true, after upload, it starts scanning immediately. Default scan mode is 'false'</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="QuickscanproFileUploadResponse.md"><strong>QuickscanproFileUploadResponse</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: multipart/form-data</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

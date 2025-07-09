@@ -1,0 +1,3808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::Hosts
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**combined_devices_by_filter**](Hosts.md#combined_devices_by_filter) | **GET** /devices/combined/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
+| [**combined_hidden_devices_by_filter**](Hosts.md#combined_hidden_devices_by_filter) | **GET** /devices/combined/devices-hidden/v1 | Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
+| [**entities_perform_action**](Hosts.md#entities_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided group IDs. |
+| [**get_device_details_v2**](Hosts.md#get_device_details_v2) | **GET** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs. |
+| [**get_online_state_v1**](Hosts.md#get_online_state_v1) | **GET** /devices/entities/online-state/v1 | Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a &#x60;state&#x60; of &#x60;online&#x60;, &#x60;offline&#x60;, or &#x60;unknown&#x60; for each host, identified by host &#x60;id&#x60;.  Make a &#x60;GET&#x60; request to &#x60;/devices/queries/devices/v1&#x60; to get a list of host IDs. |
+| [**perform_action_v2**](Hosts.md#perform_action_v2) | **POST** /devices/entities/devices-actions/v2 | Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host. |
+| [**post_device_details_v2**](Hosts.md#post_device_details_v2) | **POST** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs. |
+| [**query_device_login_history**](Hosts.md#query_device_login_history) | **POST** /devices/combined/devices/login-history/v1 | Retrieve details about recent login sessions for a set of devices. |
+| [**query_device_login_history_v2**](Hosts.md#query_device_login_history_v2) | **POST** /devices/combined/devices/login-history/v2 | Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified |
+| [**query_devices_by_filter**](Hosts.md#query_devices_by_filter) | **GET** /devices/queries/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. |
+| [**query_devices_by_filter_scroll**](Hosts.md#query_devices_by_filter_scroll) | **GET** /devices/queries/devices-scroll/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit) |
+| [**query_get_network_address_history_v1**](Hosts.md#query_get_network_address_history_v1) | **POST** /devices/combined/devices/network-address-history/v1 | Retrieve history of IP and MAC addresses of devices. |
+| [**query_hidden_devices**](Hosts.md#query_hidden_devices) | **GET** /devices/queries/devices-hidden/v1 | Retrieve hidden hosts that match the provided filter criteria. |
+| [**update_device_tags**](Hosts.md#update_device_tags) | **PATCH** /devices/entities/devices/tags/v1 | Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/ |
+
+
+## combined_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_devices_by_filter(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the {{TITLE}}quot;next{{TITLE}}quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_hidden_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_hidden_devices_by_filter(opts)
+
+Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_hidden_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_hidden_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_hidden_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_hidden_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the {{TITLE}}quot;next{{TITLE}}quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_perform_action
+
+> <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body, opts)
+
+Performs the specified action on the provided group IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The group ids to act on
+action_name = 'add_group_member' # String | The action to perform.
+body = Falcon::MsaEntityActionRequest.new # MsaEntityActionRequest | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}
+
+begin
+  # Performs the specified action on the provided group IDs.
+  result = api_instance.entities_perform_action(ids, action_name, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->entities_perform_action: #{e}"
+end
+```
+
+#### Using the entities_perform_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiGroupsResponseV1>, Integer, Hash)> entities_perform_action_with_http_info(ids, action_name, body, opts)
+
+```ruby
+begin
+  # Performs the specified action on the provided group IDs.
+  data, status_code, headers = api_instance.entities_perform_action_with_http_info(ids, action_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiGroupsResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->entities_perform_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The group ids to act on |  |
+| **action_name** | **String** | The action to perform. |  |
+| **body** | [**MsaEntityActionRequest**](MsaEntityActionRequest.md) |  |  |
+| **disable_hostname_check** | **Boolean** | Bool to disable hostname check on add-member | [optional][default to false] |
+
+### Return type
+
+[**DeviceapiGroupsResponseV1**](DeviceapiGroupsResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_device_details_v2
+
+> <DeviceapiDeviceDetailsResponseSwagger> get_device_details_v2(ids)
+
+Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The host agentIDs used to get details on
+
+begin
+  # Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+  result = api_instance.get_device_details_v2(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_device_details_v2: #{e}"
+end
+```
+
+#### Using the get_device_details_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> get_device_details_v2_with_http_info(ids)
+
+```ruby
+begin
+  # Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+  data, status_code, headers = api_instance.get_device_details_v2_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceDetailsResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_device_details_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The host agentIDs used to get details on |  |
+
+### Return type
+
+[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_online_state_v1
+
+> <StateOnlineStateRespV1> get_online_state_v1(ids)
+
+Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The unique ID of the host to get the online status of.
+
+begin
+  # Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+  result = api_instance.get_online_state_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_online_state_v1: #{e}"
+end
+```
+
+#### Using the get_online_state_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<StateOnlineStateRespV1>, Integer, Hash)> get_online_state_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+  data, status_code, headers = api_instance.get_online_state_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <StateOnlineStateRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_online_state_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The unique ID of the host to get the online status of. |  |
+
+### Return type
+
+[**StateOnlineStateRespV1**](StateOnlineStateRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_action_v2
+
+> <MsaReplyAffectedEntities> perform_action_v2(action_name, body)
+
+Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+action_name = 'action_name_example' # String | Specify one of these actions:  - `contain` - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy) - `lift_containment`: This action lifts containment on the host, which returns its network communications to normal - `hide_host`: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - `unhide_host`: This action will restore a host. Detection reporting will resume after the host is restored
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key `ids` and the value in square brackets, such as:   `\"ids\": [\"123456789\"]`
+
+begin
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  result = api_instance.perform_action_v2(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->perform_action_v2: #{e}"
+end
+```
+
+#### Using the perform_action_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaReplyAffectedEntities>, Integer, Hash)> perform_action_v2_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  data, status_code, headers = api_instance.perform_action_v2_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaReplyAffectedEntities>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->perform_action_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | Specify one of these actions:  - &#x60;contain&#x60; - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy) - &#x60;lift_containment&#x60;: This action lifts containment on the host, which returns its network communications to normal - &#x60;hide_host&#x60;: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - &#x60;unhide_host&#x60;: This action will restore a host. Detection reporting will resume after the host is restored |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) | The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key &#x60;ids&#x60; and the value in square brackets, such as:   &#x60;{{TITLE}}quot;ids{{TITLE}}quot;: [{{TITLE}}quot;123456789{{TITLE}}quot;]&#x60; |  |
+
+### Return type
+
+[**MsaReplyAffectedEntities**](MsaReplyAffectedEntities.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## post_device_details_v2
+
+> <DeviceapiDeviceDetailsResponseSwagger> post_device_details_v2(body)
+
+Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+  result = api_instance.post_device_details_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->post_device_details_v2: #{e}"
+end
+```
+
+#### Using the post_device_details_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> post_device_details_v2_with_http_info(body)
+
+```ruby
+begin
+  # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+  data, status_code, headers = api_instance.post_device_details_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceDetailsResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->post_device_details_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_device_login_history
+
+> <DeviceapiLoginHistoryResponseV1> query_device_login_history(body)
+
+Retrieve details about recent login sessions for a set of devices.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve details about recent login sessions for a set of devices.
+  result = api_instance.query_device_login_history(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history: #{e}"
+end
+```
+
+#### Using the query_device_login_history_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)> query_device_login_history_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve details about recent login sessions for a set of devices.
+  data, status_code, headers = api_instance.query_device_login_history_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiLoginHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiLoginHistoryResponseV1**](DeviceapiLoginHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_device_login_history_v2
+
+> <DeviceapiLoginHistoryResponseV1> query_device_login_history_v2(body)
+
+Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  result = api_instance.query_device_login_history_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_v2: #{e}"
+end
+```
+
+#### Using the query_device_login_history_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)> query_device_login_history_v2_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  data, status_code, headers = api_instance.query_device_login_history_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiLoginHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiLoginHistoryResponseV1**](DeviceapiLoginHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_devices_by_filter
+
+> <MsaQueryResponse> query_devices_by_filter(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria.
+  result = api_instance.query_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter: #{e}"
+end
+```
+
+#### Using the query_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria.
+  data, status_code, headers = api_instance.query_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_devices_by_filter_scroll
+
+> <DeviceapiDeviceResponse> query_devices_by_filter_scroll(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  result = api_instance.query_devices_by_filter_scroll(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_scroll: #{e}"
+end
+```
+
+#### Using the query_devices_by_filter_scroll_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceResponse>, Integer, Hash)> query_devices_by_filter_scroll_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  data, status_code, headers = api_instance.query_devices_by_filter_scroll_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_scroll_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceResponse**](DeviceapiDeviceResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_get_network_address_history_v1
+
+> <DeviceapiNetworkAddressHistoryResponseV1> query_get_network_address_history_v1(body)
+
+Retrieve history of IP and MAC addresses of devices.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve history of IP and MAC addresses of devices.
+  result = api_instance.query_get_network_address_history_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_get_network_address_history_v1: #{e}"
+end
+```
+
+#### Using the query_get_network_address_history_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiNetworkAddressHistoryResponseV1>, Integer, Hash)> query_get_network_address_history_v1_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve history of IP and MAC addresses of devices.
+  data, status_code, headers = api_instance.query_get_network_address_history_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiNetworkAddressHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_get_network_address_history_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiNetworkAddressHistoryResponseV1**](DeviceapiNetworkAddressHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_hidden_devices
+
+> <MsaQueryResponse> query_hidden_devices(opts)
+
+Retrieve hidden hosts that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Retrieve hidden hosts that match the provided filter criteria.
+  result = api_instance.query_hidden_devices(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_hidden_devices: #{e}"
+end
+```
+
+#### Using the query_hidden_devices_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_hidden_devices_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve hidden hosts that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_hidden_devices_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_hidden_devices_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_device_tags
+
+> <DeviceapiUpdateDeviceTagsSwaggerV1> update_device_tags(body)
+
+Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::DeviceapiUpdateDeviceTagsRequestV1.new({action: 'action_example', device_ids: ['device_ids_example'], tags: ['tags_example']}) # DeviceapiUpdateDeviceTagsRequestV1 | 
+
+begin
+  # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+  result = api_instance.update_device_tags(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->update_device_tags: #{e}"
+end
+```
+
+#### Using the update_device_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiUpdateDeviceTagsSwaggerV1>, Integer, Hash)> update_device_tags_with_http_info(body)
+
+```ruby
+begin
+  # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+  data, status_code, headers = api_instance.update_device_tags_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiUpdateDeviceTagsSwaggerV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->update_device_tags_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DeviceapiUpdateDeviceTagsRequestV1**](DeviceapiUpdateDeviceTagsRequestV1.md) |  |  |
+
+### Return type
+
+[**DeviceapiUpdateDeviceTagsSwaggerV1**](DeviceapiUpdateDeviceTagsSwaggerV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > Hosts
+        </nav>
+        <h1>Falcon::Hosts
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**combined_devices_by_filter**](Hosts.md#combined_devices_by_filter) | **GET** /devices/combined/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
+| [**combined_hidden_devices_by_filter**](Hosts.md#combined_hidden_devices_by_filter) | **GET** /devices/combined/devices-hidden/v1 | Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records. |
+| [**entities_perform_action**](Hosts.md#entities_perform_action) | **POST** /devices/entities/group-actions/v1 | Performs the specified action on the provided group IDs. |
+| [**get_device_details_v2**](Hosts.md#get_device_details_v2) | **GET** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs. |
+| [**get_online_state_v1**](Hosts.md#get_online_state_v1) | **GET** /devices/entities/online-state/v1 | Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a &#x60;state&#x60; of &#x60;online&#x60;, &#x60;offline&#x60;, or &#x60;unknown&#x60; for each host, identified by host &#x60;id&#x60;.  Make a &#x60;GET&#x60; request to &#x60;/devices/queries/devices/v1&#x60; to get a list of host IDs. |
+| [**perform_action_v2**](Hosts.md#perform_action_v2) | **POST** /devices/entities/devices-actions/v2 | Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host. |
+| [**post_device_details_v2**](Hosts.md#post_device_details_v2) | **POST** /devices/entities/devices/v2 | Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs. |
+| [**query_device_login_history**](Hosts.md#query_device_login_history) | **POST** /devices/combined/devices/login-history/v1 | Retrieve details about recent login sessions for a set of devices. |
+| [**query_device_login_history_v2**](Hosts.md#query_device_login_history_v2) | **POST** /devices/combined/devices/login-history/v2 | Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified |
+| [**query_devices_by_filter**](Hosts.md#query_devices_by_filter) | **GET** /devices/queries/devices/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria. |
+| [**query_devices_by_filter_scroll**](Hosts.md#query_devices_by_filter_scroll) | **GET** /devices/queries/devices-scroll/v1 | Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit) |
+| [**query_get_network_address_history_v1**](Hosts.md#query_get_network_address_history_v1) | **POST** /devices/combined/devices/network-address-history/v1 | Retrieve history of IP and MAC addresses of devices. |
+| [**query_hidden_devices**](Hosts.md#query_hidden_devices) | **GET** /devices/queries/devices-hidden/v1 | Retrieve hidden hosts that match the provided filter criteria. |
+| [**update_device_tags**](Hosts.md#update_device_tags) | **PATCH** /devices/entities/devices/tags/v1 | Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/ |
+
+
+## combined_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_devices_by_filter(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the {{PAGE_TITLE}}quot;next{{PAGE_TITLE}}quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_hidden_devices_by_filter
+
+> <DeviceapiDeviceCombinedResponseSwagger> combined_hidden_devices_by_filter(opts)
+
+Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'device_policies.jumpcloud.policy_id', # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: 'fields_example' # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}
+
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_hidden_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter: #{e}"
+end
+```
+
+#### Using the combined_hidden_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)> combined_hidden_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  data, status_code, headers = api_instance.combined_hidden_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceCombinedResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->combined_hidden_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous call as the {{PAGE_TITLE}}quot;next{{PAGE_TITLE}}quot; value, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional][default to 100] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call. | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results. This should be supplied for each consecutive call. | [optional] |
+| **fields** | **String** | The fields to return, comma delimited if specifying more than one field. For example: fields&#x3D;hostname,device_id would return device records only containing the hostname and device_id | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceCombinedResponseSwagger**](DeviceapiDeviceCombinedResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_perform_action
+
+> <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body, opts)
+
+Performs the specified action on the provided group IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The group ids to act on
+action_name = 'add_group_member' # String | The action to perform.
+body = Falcon::MsaEntityActionRequest.new # MsaEntityActionRequest | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}
+
+begin
+  # Performs the specified action on the provided group IDs.
+  result = api_instance.entities_perform_action(ids, action_name, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->entities_perform_action: #{e}"
+end
+```
+
+#### Using the entities_perform_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiGroupsResponseV1>, Integer, Hash)> entities_perform_action_with_http_info(ids, action_name, body, opts)
+
+```ruby
+begin
+  # Performs the specified action on the provided group IDs.
+  data, status_code, headers = api_instance.entities_perform_action_with_http_info(ids, action_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiGroupsResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->entities_perform_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The group ids to act on |  |
+| **action_name** | **String** | The action to perform. |  |
+| **body** | [**MsaEntityActionRequest**](MsaEntityActionRequest.md) |  |  |
+| **disable_hostname_check** | **Boolean** | Bool to disable hostname check on add-member | [optional][default to false] |
+
+### Return type
+
+[**DeviceapiGroupsResponseV1**](DeviceapiGroupsResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_device_details_v2
+
+> <DeviceapiDeviceDetailsResponseSwagger> get_device_details_v2(ids)
+
+Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The host agentIDs used to get details on
+
+begin
+  # Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+  result = api_instance.get_device_details_v2(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_device_details_v2: #{e}"
+end
+```
+
+#### Using the get_device_details_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> get_device_details_v2_with_http_info(ids)
+
+```ruby
+begin
+  # Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+  data, status_code, headers = api_instance.get_device_details_v2_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceDetailsResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_device_details_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The host agentIDs used to get details on |  |
+
+### Return type
+
+[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_online_state_v1
+
+> <StateOnlineStateRespV1> get_online_state_v1(ids)
+
+Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+ids = ['inner_example'] # Array<String> | The unique ID of the host to get the online status of.
+
+begin
+  # Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+  result = api_instance.get_online_state_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_online_state_v1: #{e}"
+end
+```
+
+#### Using the get_online_state_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<StateOnlineStateRespV1>, Integer, Hash)> get_online_state_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.
+  data, status_code, headers = api_instance.get_online_state_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <StateOnlineStateRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->get_online_state_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The unique ID of the host to get the online status of. |  |
+
+### Return type
+
+[**StateOnlineStateRespV1**](StateOnlineStateRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_action_v2
+
+> <MsaReplyAffectedEntities> perform_action_v2(action_name, body)
+
+Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+action_name = 'action_name_example' # String | Specify one of these actions:  - `contain` - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy) - `lift_containment`: This action lifts containment on the host, which returns its network communications to normal - `hide_host`: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - `unhide_host`: This action will restore a host. Detection reporting will resume after the host is restored
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key `ids` and the value in square brackets, such as:   `\"ids\": [\"123456789\"]`
+
+begin
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  result = api_instance.perform_action_v2(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->perform_action_v2: #{e}"
+end
+```
+
+#### Using the perform_action_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaReplyAffectedEntities>, Integer, Hash)> perform_action_v2_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  data, status_code, headers = api_instance.perform_action_v2_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaReplyAffectedEntities>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->perform_action_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | Specify one of these actions:  - &#x60;contain&#x60; - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your [containment policy](https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy) - &#x60;lift_containment&#x60;: This action lifts containment on the host, which returns its network communications to normal - &#x60;hide_host&#x60;: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - &#x60;unhide_host&#x60;: This action will restore a host. Detection reporting will resume after the host is restored |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) | The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key &#x60;ids&#x60; and the value in square brackets, such as:   &#x60;{{PAGE_TITLE}}quot;ids{{PAGE_TITLE}}quot;: [{{PAGE_TITLE}}quot;123456789{{PAGE_TITLE}}quot;]&#x60; |  |
+
+### Return type
+
+[**MsaReplyAffectedEntities**](MsaReplyAffectedEntities.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## post_device_details_v2
+
+> <DeviceapiDeviceDetailsResponseSwagger> post_device_details_v2(body)
+
+Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+  result = api_instance.post_device_details_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->post_device_details_v2: #{e}"
+end
+```
+
+#### Using the post_device_details_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)> post_device_details_v2_with_http_info(body)
+
+```ruby
+begin
+  # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+  data, status_code, headers = api_instance.post_device_details_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceDetailsResponseSwagger>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->post_device_details_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiDeviceDetailsResponseSwagger**](DeviceapiDeviceDetailsResponseSwagger.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_device_login_history
+
+> <DeviceapiLoginHistoryResponseV1> query_device_login_history(body)
+
+Retrieve details about recent login sessions for a set of devices.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve details about recent login sessions for a set of devices.
+  result = api_instance.query_device_login_history(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history: #{e}"
+end
+```
+
+#### Using the query_device_login_history_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)> query_device_login_history_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve details about recent login sessions for a set of devices.
+  data, status_code, headers = api_instance.query_device_login_history_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiLoginHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiLoginHistoryResponseV1**](DeviceapiLoginHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_device_login_history_v2
+
+> <DeviceapiLoginHistoryResponseV1> query_device_login_history_v2(body)
+
+Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  result = api_instance.query_device_login_history_v2(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_v2: #{e}"
+end
+```
+
+#### Using the query_device_login_history_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)> query_device_login_history_v2_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  data, status_code, headers = api_instance.query_device_login_history_v2_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiLoginHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_device_login_history_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiLoginHistoryResponseV1**](DeviceapiLoginHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_devices_by_filter
+
+> <MsaQueryResponse> query_devices_by_filter(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria.
+  result = api_instance.query_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter: #{e}"
+end
+```
+
+#### Using the query_devices_by_filter_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_devices_by_filter_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria.
+  data, status_code, headers = api_instance.query_devices_by_filter_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_devices_by_filter_scroll
+
+> <DeviceapiDeviceResponse> query_devices_by_filter_scroll(opts)
+
+Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 'offset_example', # String | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  result = api_instance.query_devices_by_filter_scroll(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_scroll: #{e}"
+end
+```
+
+#### Using the query_devices_by_filter_scroll_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiDeviceResponse>, Integer, Hash)> query_devices_by_filter_scroll_with_http_info(opts)
+
+```ruby
+begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  data, status_code, headers = api_instance.query_devices_by_filter_scroll_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiDeviceResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_devices_by_filter_scroll_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset. | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-10000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**DeviceapiDeviceResponse**](DeviceapiDeviceResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_get_network_address_history_v1
+
+> <DeviceapiNetworkAddressHistoryResponseV1> query_get_network_address_history_v1(body)
+
+Retrieve history of IP and MAC addresses of devices.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Retrieve history of IP and MAC addresses of devices.
+  result = api_instance.query_get_network_address_history_v1(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_get_network_address_history_v1: #{e}"
+end
+```
+
+#### Using the query_get_network_address_history_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiNetworkAddressHistoryResponseV1>, Integer, Hash)> query_get_network_address_history_v1_with_http_info(body)
+
+```ruby
+begin
+  # Retrieve history of IP and MAC addresses of devices.
+  data, status_code, headers = api_instance.query_get_network_address_history_v1_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiNetworkAddressHistoryResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_get_network_address_history_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DeviceapiNetworkAddressHistoryResponseV1**](DeviceapiNetworkAddressHistoryResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_hidden_devices
+
+> <MsaQueryResponse> query_hidden_devices(opts)
+
+Retrieve hidden hosts that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example', # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: 'filter_example' # String | The filter expression that should be used to limit the results
+}
+
+begin
+  # Retrieve hidden hosts that match the provided filter criteria.
+  result = api_instance.query_hidden_devices(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_hidden_devices: #{e}"
+end
+```
+
+#### Using the query_hidden_devices_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_hidden_devices_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve hidden hosts that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_hidden_devices_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->query_hidden_devices_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by (e.g. status.desc or hostname.asc) | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_device_tags
+
+> <DeviceapiUpdateDeviceTagsSwaggerV1> update_device_tags(body)
+
+Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Hosts.new
+body = Falcon::DeviceapiUpdateDeviceTagsRequestV1.new({action: 'action_example', device_ids: ['device_ids_example'], tags: ['tags_example']}) # DeviceapiUpdateDeviceTagsRequestV1 | 
+
+begin
+  # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+  result = api_instance.update_device_tags(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->update_device_tags: #{e}"
+end
+```
+
+#### Using the update_device_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeviceapiUpdateDeviceTagsSwaggerV1>, Integer, Hash)> update_device_tags_with_http_info(body)
+
+```ruby
+begin
+  # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+  data, status_code, headers = api_instance.update_device_tags_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeviceapiUpdateDeviceTagsSwaggerV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling Hosts->update_device_tags_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**DeviceapiUpdateDeviceTagsRequestV1**](DeviceapiUpdateDeviceTagsRequestV1.md) |  |  |
+
+### Return type
+
+[**DeviceapiUpdateDeviceTagsSwaggerV1**](DeviceapiUpdateDeviceTagsSwaggerV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconhosts">Falcon::Hosts</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Hosts.md#combined_devices_by_filter"><strong>combined_devices_by_filter</strong></a></td>
+      <td><strong>GET</strong> /devices/combined/devices/v1</td>
+      <td>Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#combined_hidden_devices_by_filter"><strong>combined_hidden_devices_by_filter</strong></a></td>
+      <td><strong>GET</strong> /devices/combined/devices-hidden/v1</td>
+      <td>Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#entities_perform_action"><strong>entities_perform_action</strong></a></td>
+      <td><strong>POST</strong> /devices/entities/group-actions/v1</td>
+      <td>Performs the specified action on the provided group IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#get_device_details_v2"><strong>get_device_details_v2</strong></a></td>
+      <td><strong>GET</strong> /devices/entities/devices/v2</td>
+      <td>Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#get_online_state_v1"><strong>get_online_state_v1</strong></a></td>
+      <td><strong>GET</strong> /devices/entities/online-state/v1</td>
+      <td>Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#perform_action_v2"><strong>perform_action_v2</strong></a></td>
+      <td><strong>POST</strong> /devices/entities/devices-actions/v2</td>
+      <td>Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#post_device_details_v2"><strong>post_device_details_v2</strong></a></td>
+      <td><strong>POST</strong> /devices/entities/devices/v2</td>
+      <td>Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_device_login_history"><strong>query_device_login_history</strong></a></td>
+      <td><strong>POST</strong> /devices/combined/devices/login-history/v1</td>
+      <td>Retrieve details about recent login sessions for a set of devices.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_device_login_history_v2"><strong>query_device_login_history_v2</strong></a></td>
+      <td><strong>POST</strong> /devices/combined/devices/login-history/v2</td>
+      <td>Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_devices_by_filter"><strong>query_devices_by_filter</strong></a></td>
+      <td><strong>GET</strong> /devices/queries/devices/v1</td>
+      <td>Search for hosts in your environment by platform, hostname, IP, and other criteria.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_devices_by_filter_scroll"><strong>query_devices_by_filter_scroll</strong></a></td>
+      <td><strong>GET</strong> /devices/queries/devices-scroll/v1</td>
+      <td>Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_get_network_address_history_v1"><strong>query_get_network_address_history_v1</strong></a></td>
+      <td><strong>POST</strong> /devices/combined/devices/network-address-history/v1</td>
+      <td>Retrieve history of IP and MAC addresses of devices.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#query_hidden_devices"><strong>query_hidden_devices</strong></a></td>
+      <td><strong>GET</strong> /devices/queries/devices-hidden/v1</td>
+      <td>Retrieve hidden hosts that match the provided filter criteria.</td>
+    </tr>
+    <tr>
+      <td><a href="Hosts.md#update_device_tags"><strong>update_device_tags</strong></a></td>
+      <td><strong>PATCH</strong> /devices/entities/devices/tags/v1</td>
+      <td>Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="combineddevicesbyfilter">combined_devices_by_filter</h2>
+
+<blockquote>
+  <DeviceapiDeviceCombinedResponseSwagger> combined_devices_by_filter(opts)
+</DeviceapiDeviceCombinedResponseSwagger>
+</blockquote>
+
+<p>Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+opts = {
+  offset: ‘offset_example’, # String | The offset to page from, provided from the previous call as the "next" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: ‘device_policies.jumpcloud.policy_id’, # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: ‘fields_example’ # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}</p>
+
+<p>begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;combined_devices_by_filter: #{e}”
+end
+```</p>
+
+<h4 id="using-the-combineddevicesbyfilterwithhttpinfo-variant">Using the combined_devices_by_filter_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)&gt; combined_devices_by_filter_with_http_info(opts)</DeviceapiDeviceCombinedResponseSwagger></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">combined_devices_by_filter_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiDeviceCombinedResponseSwagger&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;combined_devices_by_filter_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-10000]</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results. This should be supplied for each consecutive call.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>fields</strong></td>
+      <td><strong>String</strong></td>
+      <td>The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="DeviceapiDeviceCombinedResponseSwagger.md"><strong>DeviceapiDeviceCombinedResponseSwagger</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="combinedhiddendevicesbyfilter">combined_hidden_devices_by_filter</h2>
+
+<blockquote>
+  <DeviceapiDeviceCombinedResponseSwagger> combined_hidden_devices_by_filter(opts)
+</DeviceapiDeviceCombinedResponseSwagger>
+</blockquote>
+
+<p>Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+opts = {
+  offset: ‘offset_example’, # String | The offset to page from, provided from the previous call as the "next" value, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: ‘device_policies.jumpcloud.policy_id’, # String | The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results. This should be supplied for each consecutive call.
+  fields: ‘fields_example’ # String | The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id
+}</p>
+
+<p>begin
+  # Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
+  result = api_instance.combined_hidden_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;combined_hidden_devices_by_filter: #{e}”
+end
+```</p>
+
+<h4 id="using-the-combinedhiddendevicesbyfilterwithhttpinfo-variant">Using the combined_hidden_devices_by_filter_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiDeviceCombinedResponseSwagger>, Integer, Hash)&gt; combined_hidden_devices_by_filter_with_http_info(opts)</DeviceapiDeviceCombinedResponseSwagger></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">combined_hidden_devices_by_filter_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiDeviceCombinedResponseSwagger&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;combined_hidden_devices_by_filter_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The offset to page from, provided from the previous call as the \"next\" value, for the next result set. For the first call, do not supply an offset.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-10000]</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. status.desc or hostname.asc). If not specified, the default sort will be device_id.asc. This should be supplied for each consecutive call.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results. This should be supplied for each consecutive call.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>fields</strong></td>
+      <td><strong>String</strong></td>
+      <td>The fields to return, comma delimited if specifying more than one field. For example: fields=hostname,device_id would return device records only containing the hostname and device_id</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="DeviceapiDeviceCombinedResponseSwagger.md"><strong>DeviceapiDeviceCombinedResponseSwagger</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="entitiesperformaction">entities_perform_action</h2>
+
+<blockquote>
+  <DeviceapiGroupsResponseV1> entities_perform_action(ids, action_name, body, opts)
+</DeviceapiGroupsResponseV1>
+</blockquote>
+
+<p>Performs the specified action on the provided group IDs.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+ids = [‘inner_example’] # Array<String> | The group ids to act on
+action_name = 'add_group_member' # String | The action to perform.
+body = Falcon::MsaEntityActionRequest.new # MsaEntityActionRequest | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}</String></p>
+
+<p>begin
+  # Performs the specified action on the provided group IDs.
+  result = api_instance.entities_perform_action(ids, action_name, body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;entities_perform_action: #{e}”
+end
+```</p>
+
+<h4 id="using-the-entitiesperformactionwithhttpinfo-variant">Using the entities_perform_action_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiGroupsResponseV1>, Integer, Hash)&gt; entities_perform_action_with_http_info(ids, action_name, body, opts)</DeviceapiGroupsResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Performs the specified action on the provided group IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">entities_perform_action_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">action_name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiGroupsResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;entities_perform_action_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The group ids to act on</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>action_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The action to perform.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaEntityActionRequest.md"><strong>MsaEntityActionRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>disable_hostname_check</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Bool to disable hostname check on add-member</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="DeviceapiGroupsResponseV1.md"><strong>DeviceapiGroupsResponseV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getdevicedetailsv2">get_device_details_v2</h2>
+
+<blockquote>
+  <DeviceapiDeviceDetailsResponseSwagger> get_device_details_v2(ids)
+</DeviceapiDeviceDetailsResponseSwagger>
+</blockquote>
+
+<p>Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+ids = [‘inner_example’] # Array<String> | The host agentIDs used to get details on</String></p>
+
+<p>begin
+  # Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
+  result = api_instance.get_device_details_v2(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;get_device_details_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getdevicedetailsv2withhttpinfo-variant">Using the get_device_details_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)&gt; get_device_details_v2_with_http_info(ids)</DeviceapiDeviceDetailsResponseSwagger></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_device_details_v2_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiDeviceDetailsResponseSwagger&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;get_device_details_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The host agentIDs used to get details on</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="DeviceapiDeviceDetailsResponseSwagger.md"><strong>DeviceapiDeviceDetailsResponseSwagger</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getonlinestatev1">get_online_state_v1</h2>
+
+<blockquote>
+  <StateOnlineStateRespV1> get_online_state_v1(ids)
+</StateOnlineStateRespV1>
+</blockquote>
+
+<p>Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a <code class="language-ruby highlighter-rouge"><span class="n">state</span></code> of <code class="language-ruby highlighter-rouge"><span class="n">online</span></code>, <code class="language-ruby highlighter-rouge"><span class="n">offline</span></code>, or <code class="language-ruby highlighter-rouge"><span class="n">unknown</span></code> for each host, identified by host <code class="language-ruby highlighter-rouge"><span class="nb">id</span></code>.  Make a <code class="language-ruby highlighter-rouge"><span class="no">GET</span></code> request to <code class="language-ruby highlighter-rouge"><span class="sr">/devices/</span><span class="n">queries</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">v1</span></code> to get a list of host IDs.</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+ids = [‘inner_example’] # Array<String> | The unique ID of the host to get the online status of.</String></p>
+
+<p>begin
+  # Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a <code class="language-ruby highlighter-rouge"><span class="n">state</span></code> of <code class="language-ruby highlighter-rouge"><span class="n">online</span></code>, <code class="language-ruby highlighter-rouge"><span class="n">offline</span></code>, or <code class="language-ruby highlighter-rouge"><span class="n">unknown</span></code> for each host, identified by host <code class="language-ruby highlighter-rouge"><span class="nb">id</span></code>.  Make a <code class="language-ruby highlighter-rouge"><span class="no">GET</span></code> request to <code class="language-ruby highlighter-rouge"><span class="sr">/devices/</span><span class="n">queries</span><span class="o">/</span><span class="n">devices</span><span class="o">/</span><span class="n">v1</span></code> to get a list of host IDs.
+  result = api_instance.get_online_state_v1(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;get_online_state_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getonlinestatev1withhttpinfo-variant">Using the get_online_state_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<StateOnlineStateRespV1>, Integer, Hash)&gt; get_online_state_v1_with_http_info(ids)</StateOnlineStateRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a `state` of `online`, `offline`, or `unknown` for each host, identified by host `id`.  Make a `GET` request to `/devices/queries/devices/v1` to get a list of host IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_online_state_v1_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;StateOnlineStateRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;get_online_state_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The unique ID of the host to get the online status of.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="StateOnlineStateRespV1.md"><strong>StateOnlineStateRespV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="performactionv2">perform_action_v2</h2>
+
+<blockquote>
+  <MsaReplyAffectedEntities> perform_action_v2(action_name, body)
+</MsaReplyAffectedEntities>
+</blockquote>
+
+<p>Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+action_name = ‘action_name_example’ # String | Specify one of these actions:  - <code class="language-ruby highlighter-rouge"><span class="n">contain</span></code> - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your <a href="https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy">containment policy</a> - <code class="language-ruby highlighter-rouge"><span class="n">lift_containment</span></code>: This action lifts containment on the host, which returns its network communications to normal - <code class="language-ruby highlighter-rouge"><span class="n">hide_host</span></code>: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - <code class="language-ruby highlighter-rouge"><span class="n">unhide_host</span></code>: This action will restore a host. Detection reporting will resume after the host is restored
+body = Falcon::MsaEntityActionRequestV2.new({ids: [‘ids_example’]}) # MsaEntityActionRequestV2 | The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key <code class="language-ruby highlighter-rouge"><span class="n">ids</span></code> and the value in square brackets, such as:   <code class="language-ruby highlighter-rouge"><span class="p">\</span><span class="s2">"ids</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\"</span><span class="s2">123456789</span><span class="se">\"</span><span class="s2">]</span></code></p>
+
+<p>begin
+  # Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
+  result = api_instance.perform_action_v2(action_name, body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;perform_action_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-performactionv2withhttpinfo-variant">Using the perform_action_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaReplyAffectedEntities>, Integer, Hash)&gt; perform_action_v2_with_http_info(action_name, body)</MsaReplyAffectedEntities></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">perform_action_v2_with_http_info</span><span class="p">(</span><span class="n">action_name</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaReplyAffectedEntities&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;perform_action_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>action_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Specify one of these actions:  - `contain` - This action contains the host, which stops any network communications to locations other than the CrowdStrike cloud and IPs specified in your <a href="https://falcon.crowdstrike.com/support/documentation/11/getting-started-guide#containmentpolicy">containment policy</a> - `lift_containment`: This action lifts containment on the host, which returns its network communications to normal - `hide_host`: This action will delete a host. After the host is deleted, no new detections for that host will be reported via UI or APIs - `unhide_host`: This action will restore a host. Detection reporting will resume after the host is restored</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaEntityActionRequestV2.md"><strong>MsaEntityActionRequestV2</strong></a></td>
+      <td>The host agent ID (AID) of the host you want to contain. Get an agent ID from a detection, the Falcon console, or the Streaming API.  Provide the ID in JSON format with the key `ids` and the value in square brackets, such as:   `\"ids\": [\"123456789\"]`</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="MsaReplyAffectedEntities.md"><strong>MsaReplyAffectedEntities</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="postdevicedetailsv2">post_device_details_v2</h2>
+
+<blockquote>
+  <DeviceapiDeviceDetailsResponseSwagger> post_device_details_v2(body)
+</DeviceapiDeviceDetailsResponseSwagger>
+</blockquote>
+
+<p>Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
+  result = api_instance.post_device_details_v2(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;post_device_details_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-postdevicedetailsv2withhttpinfo-variant">Using the post_device_details_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiDeviceDetailsResponseSwagger>, Integer, Hash)&gt; post_device_details_v2_with_http_info(body)</DeviceapiDeviceDetailsResponseSwagger></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">post_device_details_v2_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiDeviceDetailsResponseSwagger&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;post_device_details_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="DeviceapiDeviceDetailsResponseSwagger.md"><strong>DeviceapiDeviceDetailsResponseSwagger</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querydeviceloginhistory">query_device_login_history</h2>
+
+<blockquote>
+  <DeviceapiLoginHistoryResponseV1> query_device_login_history(body)
+</DeviceapiLoginHistoryResponseV1>
+</blockquote>
+
+<p>Retrieve details about recent login sessions for a set of devices.</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Retrieve details about recent login sessions for a set of devices.
+  result = api_instance.query_device_login_history(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_device_login_history: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querydeviceloginhistorywithhttpinfo-variant">Using the query_device_login_history_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)&gt; query_device_login_history_with_http_info(body)</DeviceapiLoginHistoryResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve details about recent login sessions for a set of devices.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_device_login_history_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiLoginHistoryResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_device_login_history_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="DeviceapiLoginHistoryResponseV1.md"><strong>DeviceapiLoginHistoryResponseV1</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querydeviceloginhistoryv2">query_device_login_history_v2</h2>
+
+<blockquote>
+  <DeviceapiLoginHistoryResponseV1> query_device_login_history_v2(body)
+</DeviceapiLoginHistoryResponseV1>
+</blockquote>
+
+<p>Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
+  result = api_instance.query_device_login_history_v2(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_device_login_history_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querydeviceloginhistoryv2withhttpinfo-variant">Using the query_device_login_history_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiLoginHistoryResponseV1>, Integer, Hash)&gt; query_device_login_history_v2_with_http_info(body)</DeviceapiLoginHistoryResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_device_login_history_v2_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiLoginHistoryResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_device_login_history_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="DeviceapiLoginHistoryResponseV1.md"><strong>DeviceapiLoginHistoryResponseV1</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querydevicesbyfilter">query_devices_by_filter</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_devices_by_filter(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for hosts in your environment by platform, hostname, IP, and other criteria.</p>
+
+<h3 id="examples-9">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-9">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’, # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: ‘filter_example’ # String | The filter expression that should be used to limit the results
+}</p>
+
+<p>begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria.
+  result = api_instance.query_devices_by_filter(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_devices_by_filter: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querydevicesbyfilterwithhttpinfo-variant">Using the query_devices_by_filter_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_devices_by_filter_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for hosts in your environment by platform, hostname, IP, and other criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_devices_by_filter_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_devices_by_filter_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-9">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. status.desc or hostname.asc)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-9">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-9">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-9">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querydevicesbyfilterscroll">query_devices_by_filter_scroll</h2>
+
+<blockquote>
+  <DeviceapiDeviceResponse> query_devices_by_filter_scroll(opts)
+</DeviceapiDeviceResponse>
+</blockquote>
+
+<p>Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)</p>
+
+<h3 id="examples-10">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-10">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+opts = {
+  offset: ‘offset_example’, # String | The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+  limit: 56, # Integer | The maximum records to return. [1-10000]
+  sort: ‘sort_example’, # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: ‘filter_example’ # String | The filter expression that should be used to limit the results
+}</p>
+
+<p>begin
+  # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
+  result = api_instance.query_devices_by_filter_scroll(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_devices_by_filter_scroll: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querydevicesbyfilterscrollwithhttpinfo-variant">Using the query_devices_by_filter_scroll_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiDeviceResponse>, Integer, Hash)&gt; query_devices_by_filter_scroll_with_http_info(opts)</DeviceapiDeviceResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_devices_by_filter_scroll_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiDeviceResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_devices_by_filter_scroll_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-10">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-10000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. status.desc or hostname.asc)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-10">Return type</h3>
+
+<p><a href="DeviceapiDeviceResponse.md"><strong>DeviceapiDeviceResponse</strong></a></p>
+
+<h3 id="authorization-10">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-10">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querygetnetworkaddresshistoryv1">query_get_network_address_history_v1</h2>
+
+<blockquote>
+  <DeviceapiNetworkAddressHistoryResponseV1> query_get_network_address_history_v1(body)
+</DeviceapiNetworkAddressHistoryResponseV1>
+</blockquote>
+
+<p>Retrieve history of IP and MAC addresses of devices.</p>
+
+<h3 id="examples-11">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-11">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Retrieve history of IP and MAC addresses of devices.
+  result = api_instance.query_get_network_address_history_v1(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_get_network_address_history_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querygetnetworkaddresshistoryv1withhttpinfo-variant">Using the query_get_network_address_history_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiNetworkAddressHistoryResponseV1>, Integer, Hash)&gt; query_get_network_address_history_v1_with_http_info(body)</DeviceapiNetworkAddressHistoryResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve history of IP and MAC addresses of devices.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_get_network_address_history_v1_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiNetworkAddressHistoryResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_get_network_address_history_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-11">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-11">Return type</h3>
+
+<p><a href="DeviceapiNetworkAddressHistoryResponseV1.md"><strong>DeviceapiNetworkAddressHistoryResponseV1</strong></a></p>
+
+<h3 id="authorization-11">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-11">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryhiddendevices">query_hidden_devices</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_hidden_devices(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Retrieve hidden hosts that match the provided filter criteria.</p>
+
+<h3 id="examples-12">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-12">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+opts = {
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’, # String | The property to sort by (e.g. status.desc or hostname.asc)
+  filter: ‘filter_example’ # String | The filter expression that should be used to limit the results
+}</p>
+
+<p>begin
+  # Retrieve hidden hosts that match the provided filter criteria.
+  result = api_instance.query_hidden_devices(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;query_hidden_devices: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryhiddendeviceswithhttpinfo-variant">Using the query_hidden_devices_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_hidden_devices_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve hidden hosts that match the provided filter criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_hidden_devices_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;query_hidden_devices_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-12">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by (e.g. status.desc or hostname.asc)</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-12">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-12">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-12">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="updatedevicetags">update_device_tags</h2>
+
+<blockquote>
+  <DeviceapiUpdateDeviceTagsSwaggerV1> update_device_tags(body)
+</DeviceapiUpdateDeviceTagsSwaggerV1>
+</blockquote>
+
+<p>Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/</p>
+
+<h3 id="examples-13">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-13">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Hosts.new
+body = Falcon::DeviceapiUpdateDeviceTagsRequestV1.new({action: ‘action_example’, device_ids: [‘device_ids_example’], tags: [‘tags_example’]}) # DeviceapiUpdateDeviceTagsRequestV1 |</p>
+
+<p>begin
+  # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
+  result = api_instance.update_device_tags(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Hosts-&gt;update_device_tags: #{e}”
+end
+```</p>
+
+<h4 id="using-the-updatedevicetagswithhttpinfo-variant">Using the update_device_tags_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DeviceapiUpdateDeviceTagsSwaggerV1>, Integer, Hash)&gt; update_device_tags_with_http_info(body)</DeviceapiUpdateDeviceTagsSwaggerV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">update_device_tags_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DeviceapiUpdateDeviceTagsSwaggerV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Hosts-&gt;update_device_tags_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-13">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="DeviceapiUpdateDeviceTagsRequestV1.md"><strong>DeviceapiUpdateDeviceTagsRequestV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-13">Return type</h3>
+
+<p><a href="DeviceapiUpdateDeviceTagsSwaggerV1.md"><strong>DeviceapiUpdateDeviceTagsSwaggerV1</strong></a></p>
+
+<h3 id="authorization-13">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-13">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

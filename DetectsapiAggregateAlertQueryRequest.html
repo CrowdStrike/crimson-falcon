@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DetectsapiAggregateAlertQueryRequest
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **date_ranges** | [**Array&lt;MsaDateRangeSpec&gt;**](MsaDateRangeSpec.md) | DateRanges applies to date_range aggregations. |  |
+| **exclude** | **String** | Exclude Post-filtering on queried fields |  |
+| **field** | **String** | Field applies for example to date_histogram and range aggregations. |  |
+| **filter** | **String** | FQL query specifying the filter parameters. |  |
+| **from** | **Integer** | used in bucket sort aggregations as an offset |  |
+| **include** | **String** | Include Post-filtering on queried fields |  |
+| **interval** | **String** | Interval applies for example to date_histogram aggregations (uses calendar_interval). Possible values: year, month, week, day, hour, minute. |  |
+| **max_doc_count** | **Integer** | only return terms that match less than a configured number of hits. | [optional] |
+| **min_doc_count** | **Integer** | only return terms that match more than a configured number of hits. | [optional] |
+| **missing** | **String** | Missing is a value for missing term field. The behavior that query should return if the document does not have the field in the query |  |
+| **name** | **String** | Name of the aggregate query |  |
+| **q** | **String** | represents full text query |  |
+| **ranges** | [**Array&lt;MsaRangeSpec&gt;**](MsaRangeSpec.md) | Ranges applies to range aggregations. |  |
+| **size** | **Integer** | how many term buckets should be returned. |  |
+| **sort** | **String** | Sort spec, ex: &#39;pattern_id|desc&#39;. |  |
+| **sub_aggregates** | [**Array&lt;DetectsapiAggregateAlertQueryRequest&gt;**](DetectsapiAggregateAlertQueryRequest.md) | sub aggregate alert query. |  |
+| **time_zone** | **String** | TimeZone timezone to specify when bucketing results. |  |
+| **type** | **String** | Datastore supported value types: term, terms, date_histogram, facet, range, cardinality. Exact allowed values specific to endpoint. |  |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DetectsapiAggregateAlertQueryRequest.new(
+  date_ranges: null,
+  exclude: null,
+  field: null,
+  filter: null,
+  from: null,
+  include: null,
+  interval: null,
+  max_doc_count: null,
+  min_doc_count: null,
+  missing: null,
+  name: null,
+  q: null,
+  ranges: null,
+  size: null,
+  sort: null,
+  sub_aggregates: null,
+  time_zone: null,
+  type: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DetectsapiAggregateAlertQueryRequest
+        </nav>
+        <h1>Falcon::DetectsapiAggregateAlertQueryRequest
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **date_ranges** | [**Array&lt;MsaDateRangeSpec&gt;**](MsaDateRangeSpec.md) | DateRanges applies to date_range aggregations. |  |
+| **exclude** | **String** | Exclude Post-filtering on queried fields |  |
+| **field** | **String** | Field applies for example to date_histogram and range aggregations. |  |
+| **filter** | **String** | FQL query specifying the filter parameters. |  |
+| **from** | **Integer** | used in bucket sort aggregations as an offset |  |
+| **include** | **String** | Include Post-filtering on queried fields |  |
+| **interval** | **String** | Interval applies for example to date_histogram aggregations (uses calendar_interval). Possible values: year, month, week, day, hour, minute. |  |
+| **max_doc_count** | **Integer** | only return terms that match less than a configured number of hits. | [optional] |
+| **min_doc_count** | **Integer** | only return terms that match more than a configured number of hits. | [optional] |
+| **missing** | **String** | Missing is a value for missing term field. The behavior that query should return if the document does not have the field in the query |  |
+| **name** | **String** | Name of the aggregate query |  |
+| **q** | **String** | represents full text query |  |
+| **ranges** | [**Array&lt;MsaRangeSpec&gt;**](MsaRangeSpec.md) | Ranges applies to range aggregations. |  |
+| **size** | **Integer** | how many term buckets should be returned. |  |
+| **sort** | **String** | Sort spec, ex: &#39;pattern_id|desc&#39;. |  |
+| **sub_aggregates** | [**Array&lt;DetectsapiAggregateAlertQueryRequest&gt;**](DetectsapiAggregateAlertQueryRequest.md) | sub aggregate alert query. |  |
+| **time_zone** | **String** | TimeZone timezone to specify when bucketing results. |  |
+| **type** | **String** | Datastore supported value types: term, terms, date_histogram, facet, range, cardinality. Exact allowed values specific to endpoint. |  |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DetectsapiAggregateAlertQueryRequest.new(
+  date_ranges: null,
+  exclude: null,
+  field: null,
+  filter: null,
+  from: null,
+  include: null,
+  interval: null,
+  max_doc_count: null,
+  min_doc_count: null,
+  missing: null,
+  name: null,
+  q: null,
+  ranges: null,
+  size: null,
+  sort: null,
+  sub_aggregates: null,
+  time_zone: null,
+  type: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondetectsapiaggregatealertqueryrequest">Falcon::DetectsapiAggregateAlertQueryRequest</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>date_ranges</strong></td>
+      <td><a href="MsaDateRangeSpec.md"><strong>Array&lt;MsaDateRangeSpec&gt;</strong></a></td>
+      <td>DateRanges applies to date_range aggregations.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>exclude</strong></td>
+      <td><strong>String</strong></td>
+      <td>Exclude Post-filtering on queried fields</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>field</strong></td>
+      <td><strong>String</strong></td>
+      <td>Field applies for example to date_histogram and range aggregations.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying the filter parameters.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>from</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>used in bucket sort aggregations as an offset</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>include</strong></td>
+      <td><strong>String</strong></td>
+      <td>Include Post-filtering on queried fields</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>interval</strong></td>
+      <td><strong>String</strong></td>
+      <td>Interval applies for example to date_histogram aggregations (uses calendar_interval). Possible values: year, month, week, day, hour, minute.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>max_doc_count</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>only return terms that match less than a configured number of hits.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>min_doc_count</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>only return terms that match more than a configured number of hits.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>missing</strong></td>
+      <td><strong>String</strong></td>
+      <td>Missing is a value for missing term field. The behavior that query should return if the document does not have the field in the query</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Name of the aggregate query</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>q</strong></td>
+      <td><strong>String</strong></td>
+      <td>represents full text query</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>ranges</strong></td>
+      <td><a href="MsaRangeSpec.md"><strong>Array&lt;MsaRangeSpec&gt;</strong></a></td>
+      <td>Ranges applies to range aggregations.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>size</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>how many term buckets should be returned.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort spec, ex: 'pattern_id</td>
+      <td>desc'.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sub_aggregates</strong></td>
+      <td><a href="DetectsapiAggregateAlertQueryRequest.md"><strong>Array&lt;DetectsapiAggregateAlertQueryRequest&gt;</strong></a></td>
+      <td>sub aggregate alert query.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>time_zone</strong></td>
+      <td><strong>String</strong></td>
+      <td>TimeZone timezone to specify when bucketing results.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>type</strong></td>
+      <td><strong>String</strong></td>
+      <td>Datastore supported value types: term, terms, date_histogram, facet, range, cardinality. Exact allowed values specific to endpoint.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::DetectsapiAggregateAlertQueryRequest.new(
+  date_ranges: null,
+  exclude: null,
+  field: null,
+  filter: null,
+  from: null,
+  include: null,
+  interval: null,
+  max_doc_count: null,
+  min_doc_count: null,
+  missing: null,
+  name: null,
+  q: null,
+  ranges: null,
+  size: null,
+  sort: null,
+  sub_aggregates: null,
+  time_zone: null,
+  type: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

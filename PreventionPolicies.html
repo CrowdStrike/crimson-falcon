@@ -1,0 +1,2790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::PreventionPolicies
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_prevention_policies**](PreventionPolicies.md#create_prevention_policies) | **POST** /policy/entities/prevention/v1 | Create Prevention Policies by specifying details about the policy to create |
+| [**delete_prevention_policies**](PreventionPolicies.md#delete_prevention_policies) | **DELETE** /policy/entities/prevention/v1 | Delete a set of Prevention Policies by specifying their IDs |
+| [**get_prevention_policies**](PreventionPolicies.md#get_prevention_policies) | **GET** /policy/entities/prevention/v1 | Retrieve a set of Prevention Policies by specifying their IDs |
+| [**perform_prevention_policies_action**](PreventionPolicies.md#perform_prevention_policies_action) | **POST** /policy/entities/prevention-actions/v1 | Perform the specified action on the Prevention Policies specified in the request |
+| [**query_combined_prevention_policies**](PreventionPolicies.md#query_combined_prevention_policies) | **GET** /policy/combined/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria |
+| [**query_combined_prevention_policy_members**](PreventionPolicies.md#query_combined_prevention_policy_members) | **GET** /policy/combined/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_prevention_policies**](PreventionPolicies.md#query_prevention_policies) | **GET** /policy/queries/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria |
+| [**query_prevention_policy_members**](PreventionPolicies.md#query_prevention_policy_members) | **GET** /policy/queries/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**set_prevention_policies_precedence**](PreventionPolicies.md#set_prevention_policies_precedence) | **POST** /policy/entities/prevention-precedence/v1 | Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_prevention_policies**](PreventionPolicies.md#update_prevention_policies) | **PATCH** /policy/entities/prevention/v1 | Update Prevention Policies by specifying the ID of the policy and details to update |
+
+
+## create_prevention_policies
+
+> <PreventionRespV1> create_prevention_policies(body)
+
+Create Prevention Policies by specifying details about the policy to create
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionCreatePoliciesReqV1.new({resources: [Falcon::PreventionCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # PreventionCreatePoliciesReqV1 | 
+
+begin
+  # Create Prevention Policies by specifying details about the policy to create
+  result = api_instance.create_prevention_policies(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->create_prevention_policies: #{e}"
+end
+```
+
+#### Using the create_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> create_prevention_policies_with_http_info(body)
+
+```ruby
+begin
+  # Create Prevention Policies by specifying details about the policy to create
+  data, status_code, headers = api_instance.create_prevention_policies_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->create_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**PreventionCreatePoliciesReqV1**](PreventionCreatePoliciesReqV1.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_prevention_policies
+
+> <MsaQueryResponse> delete_prevention_policies(ids)
+
+Delete a set of Prevention Policies by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to delete
+
+begin
+  # Delete a set of Prevention Policies by specifying their IDs
+  result = api_instance.delete_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->delete_prevention_policies: #{e}"
+end
+```
+
+#### Using the delete_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> delete_prevention_policies_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of Prevention Policies by specifying their IDs
+  data, status_code, headers = api_instance.delete_prevention_policies_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->delete_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Prevention Policies to delete |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_prevention_policies
+
+> <PreventionRespV1> get_prevention_policies(ids)
+
+Retrieve a set of Prevention Policies by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to return
+
+begin
+  # Retrieve a set of Prevention Policies by specifying their IDs
+  result = api_instance.get_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->get_prevention_policies: #{e}"
+end
+```
+
+#### Using the get_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> get_prevention_policies_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of Prevention Policies by specifying their IDs
+  data, status_code, headers = api_instance.get_prevention_policies_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->get_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Prevention Policies to return |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_prevention_policies_action
+
+> <PreventionRespV1> perform_prevention_policies_action(action_name, body)
+
+Perform the specified action on the Prevention Policies specified in the request
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+action_name = 'add-host-group' # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
+
+begin
+  # Perform the specified action on the Prevention Policies specified in the request
+  result = api_instance.perform_prevention_policies_action(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action: #{e}"
+end
+```
+
+#### Using the perform_prevention_policies_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> perform_prevention_policies_action_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Perform the specified action on the Prevention Policies specified in the request
+  data, status_code, headers = api_instance.perform_prevention_policies_action_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | The action to perform |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_combined_prevention_policies
+
+> <PreventionRespV1> query_combined_prevention_policies(opts)
+
+Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+  result = api_instance.query_combined_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies: #{e}"
+end
+```
+
+#### Using the query_combined_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> query_combined_prevention_policies_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_prevention_policies_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_combined_prevention_policy_members
+
+> <BasePolicyMembersRespV1> query_combined_prevention_policy_members(opts)
+
+Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: 'id_example', # String | The ID of the Prevention Policy to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members: #{e}"
+end
+```
+
+#### Using the query_combined_prevention_policy_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_prevention_policy_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_prevention_policy_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BasePolicyMembersRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Prevention Policy to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_prevention_policies
+
+> <MsaQueryResponse> query_prevention_policies(opts)
+
+Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+  result = api_instance.query_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policies: #{e}"
+end
+```
+
+#### Using the query_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_prevention_policies_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_prevention_policies_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_prevention_policy_members
+
+> <MsaQueryResponse> query_prevention_policy_members(opts)
+
+Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: 'id_example', # String | The ID of the Prevention Policy to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members: #{e}"
+end
+```
+
+#### Using the query_prevention_policy_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_prevention_policy_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_prevention_policy_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Prevention Policy to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## set_prevention_policies_precedence
+
+> <MsaQueryResponse> set_prevention_policies_precedence(body)
+
+Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
+
+begin
+  # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+  result = api_instance.set_prevention_policies_precedence(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence: #{e}"
+end
+```
+
+#### Using the set_prevention_policies_precedence_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> set_prevention_policies_precedence_with_http_info(body)
+
+```ruby
+begin
+  # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+  data, status_code, headers = api_instance.set_prevention_policies_precedence_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_prevention_policies
+
+> <PreventionRespV1> update_prevention_policies(body)
+
+Update Prevention Policies by specifying the ID of the policy and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionUpdatePoliciesReqV1.new({resources: [Falcon::PreventionUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # PreventionUpdatePoliciesReqV1 | 
+
+begin
+  # Update Prevention Policies by specifying the ID of the policy and details to update
+  result = api_instance.update_prevention_policies(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->update_prevention_policies: #{e}"
+end
+```
+
+#### Using the update_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> update_prevention_policies_with_http_info(body)
+
+```ruby
+begin
+  # Update Prevention Policies by specifying the ID of the policy and details to update
+  data, status_code, headers = api_instance.update_prevention_policies_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->update_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**PreventionUpdatePoliciesReqV1**](PreventionUpdatePoliciesReqV1.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > PreventionPolicies
+        </nav>
+        <h1>Falcon::PreventionPolicies
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_prevention_policies**](PreventionPolicies.md#create_prevention_policies) | **POST** /policy/entities/prevention/v1 | Create Prevention Policies by specifying details about the policy to create |
+| [**delete_prevention_policies**](PreventionPolicies.md#delete_prevention_policies) | **DELETE** /policy/entities/prevention/v1 | Delete a set of Prevention Policies by specifying their IDs |
+| [**get_prevention_policies**](PreventionPolicies.md#get_prevention_policies) | **GET** /policy/entities/prevention/v1 | Retrieve a set of Prevention Policies by specifying their IDs |
+| [**perform_prevention_policies_action**](PreventionPolicies.md#perform_prevention_policies_action) | **POST** /policy/entities/prevention-actions/v1 | Perform the specified action on the Prevention Policies specified in the request |
+| [**query_combined_prevention_policies**](PreventionPolicies.md#query_combined_prevention_policies) | **GET** /policy/combined/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria |
+| [**query_combined_prevention_policy_members**](PreventionPolicies.md#query_combined_prevention_policy_members) | **GET** /policy/combined/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_prevention_policies**](PreventionPolicies.md#query_prevention_policies) | **GET** /policy/queries/prevention/v1 | Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria |
+| [**query_prevention_policy_members**](PreventionPolicies.md#query_prevention_policy_members) | **GET** /policy/queries/prevention-members/v1 | Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**set_prevention_policies_precedence**](PreventionPolicies.md#set_prevention_policies_precedence) | **POST** /policy/entities/prevention-precedence/v1 | Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence |
+| [**update_prevention_policies**](PreventionPolicies.md#update_prevention_policies) | **PATCH** /policy/entities/prevention/v1 | Update Prevention Policies by specifying the ID of the policy and details to update |
+
+
+## create_prevention_policies
+
+> <PreventionRespV1> create_prevention_policies(body)
+
+Create Prevention Policies by specifying details about the policy to create
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionCreatePoliciesReqV1.new({resources: [Falcon::PreventionCreatePolicyReqV1.new({name: 'name_example', platform_name: 'Windows'})]}) # PreventionCreatePoliciesReqV1 | 
+
+begin
+  # Create Prevention Policies by specifying details about the policy to create
+  result = api_instance.create_prevention_policies(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->create_prevention_policies: #{e}"
+end
+```
+
+#### Using the create_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> create_prevention_policies_with_http_info(body)
+
+```ruby
+begin
+  # Create Prevention Policies by specifying details about the policy to create
+  data, status_code, headers = api_instance.create_prevention_policies_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->create_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**PreventionCreatePoliciesReqV1**](PreventionCreatePoliciesReqV1.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_prevention_policies
+
+> <MsaQueryResponse> delete_prevention_policies(ids)
+
+Delete a set of Prevention Policies by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to delete
+
+begin
+  # Delete a set of Prevention Policies by specifying their IDs
+  result = api_instance.delete_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->delete_prevention_policies: #{e}"
+end
+```
+
+#### Using the delete_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> delete_prevention_policies_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of Prevention Policies by specifying their IDs
+  data, status_code, headers = api_instance.delete_prevention_policies_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->delete_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Prevention Policies to delete |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_prevention_policies
+
+> <PreventionRespV1> get_prevention_policies(ids)
+
+Retrieve a set of Prevention Policies by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+ids = ['inner_example'] # Array<String> | The IDs of the Prevention Policies to return
+
+begin
+  # Retrieve a set of Prevention Policies by specifying their IDs
+  result = api_instance.get_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->get_prevention_policies: #{e}"
+end
+```
+
+#### Using the get_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> get_prevention_policies_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of Prevention Policies by specifying their IDs
+  data, status_code, headers = api_instance.get_prevention_policies_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->get_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Prevention Policies to return |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_prevention_policies_action
+
+> <PreventionRespV1> perform_prevention_policies_action(action_name, body)
+
+Perform the specified action on the Prevention Policies specified in the request
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+action_name = 'add-host-group' # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
+
+begin
+  # Perform the specified action on the Prevention Policies specified in the request
+  result = api_instance.perform_prevention_policies_action(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action: #{e}"
+end
+```
+
+#### Using the perform_prevention_policies_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> perform_prevention_policies_action_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Perform the specified action on the Prevention Policies specified in the request
+  data, status_code, headers = api_instance.perform_prevention_policies_action_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->perform_prevention_policies_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | The action to perform |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_combined_prevention_policies
+
+> <PreventionRespV1> query_combined_prevention_policies(opts)
+
+Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+  result = api_instance.query_combined_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies: #{e}"
+end
+```
+
+#### Using the query_combined_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> query_combined_prevention_policies_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_prevention_policies_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_combined_prevention_policy_members
+
+> <BasePolicyMembersRespV1> query_combined_prevention_policy_members(opts)
+
+Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: 'id_example', # String | The ID of the Prevention Policy to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members: #{e}"
+end
+```
+
+#### Using the query_combined_prevention_policy_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BasePolicyMembersRespV1>, Integer, Hash)> query_combined_prevention_policy_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_prevention_policy_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BasePolicyMembersRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_combined_prevention_policy_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Prevention Policy to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**BasePolicyMembersRespV1**](BasePolicyMembersRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_prevention_policies
+
+> <MsaQueryResponse> query_prevention_policies(opts)
+
+Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+  result = api_instance.query_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policies: #{e}"
+end
+```
+
+#### Using the query_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_prevention_policies_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_prevention_policies_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_prevention_policy_members
+
+> <MsaQueryResponse> query_prevention_policy_members(opts)
+
+Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: 'id_example', # String | The ID of the Prevention Policy to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members: #{e}"
+end
+```
+
+#### Using the query_prevention_policy_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_prevention_policy_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_prevention_policy_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->query_prevention_policy_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Prevention Policy to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## set_prevention_policies_precedence
+
+> <MsaQueryResponse> set_prevention_policies_precedence(body)
+
+Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: ['ids_example'], platform_name: 'Windows'}) # BaseSetPolicyPrecedenceReqV1 | 
+
+begin
+  # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+  result = api_instance.set_prevention_policies_precedence(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence: #{e}"
+end
+```
+
+#### Using the set_prevention_policies_precedence_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> set_prevention_policies_precedence_with_http_info(body)
+
+```ruby
+begin
+  # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+  data, status_code, headers = api_instance.set_prevention_policies_precedence_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->set_prevention_policies_precedence_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**BaseSetPolicyPrecedenceReqV1**](BaseSetPolicyPrecedenceReqV1.md) |  |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_prevention_policies
+
+> <PreventionRespV1> update_prevention_policies(body)
+
+Update Prevention Policies by specifying the ID of the policy and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionUpdatePoliciesReqV1.new({resources: [Falcon::PreventionUpdatePolicyReqV1.new({id: 'id_example', settings: [Falcon::PreventionSettingReqV1.new({id: 'id_example', value: 3.56})]})]}) # PreventionUpdatePoliciesReqV1 | 
+
+begin
+  # Update Prevention Policies by specifying the ID of the policy and details to update
+  result = api_instance.update_prevention_policies(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->update_prevention_policies: #{e}"
+end
+```
+
+#### Using the update_prevention_policies_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PreventionRespV1>, Integer, Hash)> update_prevention_policies_with_http_info(body)
+
+```ruby
+begin
+  # Update Prevention Policies by specifying the ID of the policy and details to update
+  data, status_code, headers = api_instance.update_prevention_policies_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PreventionRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling PreventionPolicies->update_prevention_policies_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**PreventionUpdatePoliciesReqV1**](PreventionUpdatePoliciesReqV1.md) |  |  |
+
+### Return type
+
+[**PreventionRespV1**](PreventionRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconpreventionpolicies">Falcon::PreventionPolicies</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="PreventionPolicies.md#create_prevention_policies"><strong>create_prevention_policies</strong></a></td>
+      <td><strong>POST</strong> /policy/entities/prevention/v1</td>
+      <td>Create Prevention Policies by specifying details about the policy to create</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#delete_prevention_policies"><strong>delete_prevention_policies</strong></a></td>
+      <td><strong>DELETE</strong> /policy/entities/prevention/v1</td>
+      <td>Delete a set of Prevention Policies by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#get_prevention_policies"><strong>get_prevention_policies</strong></a></td>
+      <td><strong>GET</strong> /policy/entities/prevention/v1</td>
+      <td>Retrieve a set of Prevention Policies by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#perform_prevention_policies_action"><strong>perform_prevention_policies_action</strong></a></td>
+      <td><strong>POST</strong> /policy/entities/prevention-actions/v1</td>
+      <td>Perform the specified action on the Prevention Policies specified in the request</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#query_combined_prevention_policies"><strong>query_combined_prevention_policies</strong></a></td>
+      <td><strong>GET</strong> /policy/combined/prevention/v1</td>
+      <td>Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#query_combined_prevention_policy_members"><strong>query_combined_prevention_policy_members</strong></a></td>
+      <td><strong>GET</strong> /policy/combined/prevention-members/v1</td>
+      <td>Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#query_prevention_policies"><strong>query_prevention_policies</strong></a></td>
+      <td><strong>GET</strong> /policy/queries/prevention/v1</td>
+      <td>Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#query_prevention_policy_members"><strong>query_prevention_policy_members</strong></a></td>
+      <td><strong>GET</strong> /policy/queries/prevention-members/v1</td>
+      <td>Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#set_prevention_policies_precedence"><strong>set_prevention_policies_precedence</strong></a></td>
+      <td><strong>POST</strong> /policy/entities/prevention-precedence/v1</td>
+      <td>Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence</td>
+    </tr>
+    <tr>
+      <td><a href="PreventionPolicies.md#update_prevention_policies"><strong>update_prevention_policies</strong></a></td>
+      <td><strong>PATCH</strong> /policy/entities/prevention/v1</td>
+      <td>Update Prevention Policies by specifying the ID of the policy and details to update</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="createpreventionpolicies">create_prevention_policies</h2>
+
+<blockquote>
+  <PreventionRespV1> create_prevention_policies(body)
+</PreventionRespV1>
+</blockquote>
+
+<p>Create Prevention Policies by specifying details about the policy to create</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionCreatePoliciesReqV1.new({resources: [Falcon::PreventionCreatePolicyReqV1.new({name: ‘name_example’, platform_name: ‘Windows’})]}) # PreventionCreatePoliciesReqV1 |</p>
+
+<p>begin
+  # Create Prevention Policies by specifying details about the policy to create
+  result = api_instance.create_prevention_policies(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;create_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-createpreventionpolicieswithhttpinfo-variant">Using the create_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<PreventionRespV1>, Integer, Hash)&gt; create_prevention_policies_with_http_info(body)</PreventionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Create Prevention Policies by specifying details about the policy to create</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">create_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;PreventionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;create_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="PreventionCreatePoliciesReqV1.md"><strong>PreventionCreatePoliciesReqV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="PreventionRespV1.md"><strong>PreventionRespV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="deletepreventionpolicies">delete_prevention_policies</h2>
+
+<blockquote>
+  <MsaQueryResponse> delete_prevention_policies(ids)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Delete a set of Prevention Policies by specifying their IDs</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+ids = [‘inner_example’] # Array<String> | The IDs of the Prevention Policies to delete</String></p>
+
+<p>begin
+  # Delete a set of Prevention Policies by specifying their IDs
+  result = api_instance.delete_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;delete_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-deletepreventionpolicieswithhttpinfo-variant">Using the delete_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; delete_prevention_policies_with_http_info(ids)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Delete a set of Prevention Policies by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">delete_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;delete_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the Prevention Policies to delete</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getpreventionpolicies">get_prevention_policies</h2>
+
+<blockquote>
+  <PreventionRespV1> get_prevention_policies(ids)
+</PreventionRespV1>
+</blockquote>
+
+<p>Retrieve a set of Prevention Policies by specifying their IDs</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+ids = [‘inner_example’] # Array<String> | The IDs of the Prevention Policies to return</String></p>
+
+<p>begin
+  # Retrieve a set of Prevention Policies by specifying their IDs
+  result = api_instance.get_prevention_policies(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;get_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getpreventionpolicieswithhttpinfo-variant">Using the get_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<PreventionRespV1>, Integer, Hash)&gt; get_prevention_policies_with_http_info(ids)</PreventionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve a set of Prevention Policies by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;PreventionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;get_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the Prevention Policies to return</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="PreventionRespV1.md"><strong>PreventionRespV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="performpreventionpoliciesaction">perform_prevention_policies_action</h2>
+
+<blockquote>
+  <PreventionRespV1> perform_prevention_policies_action(action_name, body)
+</PreventionRespV1>
+</blockquote>
+
+<p>Perform the specified action on the Prevention Policies specified in the request</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+action_name = ‘add-host-group’ # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: [‘ids_example’]}) # MsaEntityActionRequestV2 |</p>
+
+<p>begin
+  # Perform the specified action on the Prevention Policies specified in the request
+  result = api_instance.perform_prevention_policies_action(action_name, body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;perform_prevention_policies_action: #{e}”
+end
+```</p>
+
+<h4 id="using-the-performpreventionpoliciesactionwithhttpinfo-variant">Using the perform_prevention_policies_action_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<PreventionRespV1>, Integer, Hash)&gt; perform_prevention_policies_action_with_http_info(action_name, body)</PreventionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Perform the specified action on the Prevention Policies specified in the request</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">perform_prevention_policies_action_with_http_info</span><span class="p">(</span><span class="n">action_name</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;PreventionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;perform_prevention_policies_action_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>action_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The action to perform</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaEntityActionRequestV2.md"><strong>MsaEntityActionRequestV2</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="PreventionRespV1.md"><strong>PreventionRespV1</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querycombinedpreventionpolicies">query_combined_prevention_policies</h2>
+
+<blockquote>
+  <PreventionRespV1> query_combined_prevention_policies(opts)
+</PreventionRespV1>
+</blockquote>
+
+<p>Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘created_by.asc’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
+  result = api_instance.query_combined_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;query_combined_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querycombinedpreventionpolicieswithhttpinfo-variant">Using the query_combined_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<PreventionRespV1>, Integer, Hash)&gt; query_combined_prevention_policies_with_http_info(opts)</PreventionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_combined_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;PreventionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;query_combined_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="PreventionRespV1.md"><strong>PreventionRespV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querycombinedpreventionpolicymembers">query_combined_prevention_policy_members</h2>
+
+<blockquote>
+  <BasePolicyMembersRespV1> query_combined_prevention_policy_members(opts)
+</BasePolicyMembersRespV1>
+</blockquote>
+
+<p>Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: ‘id_example’, # String | The ID of the Prevention Policy to search for members of
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;query_combined_prevention_policy_members: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querycombinedpreventionpolicymemberswithhttpinfo-variant">Using the query_combined_prevention_policy_members_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<BasePolicyMembersRespV1>, Integer, Hash)&gt; query_combined_prevention_policy_members_with_http_info(opts)</BasePolicyMembersRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_combined_prevention_policy_members_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;BasePolicyMembersRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;query_combined_prevention_policy_members_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The ID of the Prevention Policy to search for members of</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="BasePolicyMembersRespV1.md"><strong>BasePolicyMembersRespV1</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querypreventionpolicies">query_prevention_policies</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_prevention_policies(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘created_by.asc’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
+  result = api_instance.query_prevention_policies(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;query_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querypreventionpolicieswithhttpinfo-variant">Using the query_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_prevention_policies_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;query_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querypreventionpolicymembers">query_prevention_policy_members</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_prevention_policy_members(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+opts = {
+  id: ‘id_example’, # String | The ID of the Prevention Policy to search for members of
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_prevention_policy_members(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;query_prevention_policy_members: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querypreventionpolicymemberswithhttpinfo-variant">Using the query_prevention_policy_members_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_prevention_policy_members_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_prevention_policy_members_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;query_prevention_policy_members_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The ID of the Prevention Policy to search for members of</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="setpreventionpoliciesprecedence">set_prevention_policies_precedence</h2>
+
+<blockquote>
+  <MsaQueryResponse> set_prevention_policies_precedence(body)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+body = Falcon::BaseSetPolicyPrecedenceReqV1.new({ids: [‘ids_example’], platform_name: ‘Windows’}) # BaseSetPolicyPrecedenceReqV1 |</p>
+
+<p>begin
+  # Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
+  result = api_instance.set_prevention_policies_precedence(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;set_prevention_policies_precedence: #{e}”
+end
+```</p>
+
+<h4 id="using-the-setpreventionpoliciesprecedencewithhttpinfo-variant">Using the set_prevention_policies_precedence_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; set_prevention_policies_precedence_with_http_info(body)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">set_prevention_policies_precedence_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;set_prevention_policies_precedence_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="BaseSetPolicyPrecedenceReqV1.md"><strong>BaseSetPolicyPrecedenceReqV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="updatepreventionpolicies">update_prevention_policies</h2>
+
+<blockquote>
+  <PreventionRespV1> update_prevention_policies(body)
+</PreventionRespV1>
+</blockquote>
+
+<p>Update Prevention Policies by specifying the ID of the policy and details to update</p>
+
+<h3 id="examples-9">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-9">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::PreventionPolicies.new
+body = Falcon::PreventionUpdatePoliciesReqV1.new({resources: [Falcon::PreventionUpdatePolicyReqV1.new({id: ‘id_example’, settings: [Falcon::PreventionSettingReqV1.new({id: ‘id_example’, value: 3.56})]})]}) # PreventionUpdatePoliciesReqV1 |</p>
+
+<p>begin
+  # Update Prevention Policies by specifying the ID of the policy and details to update
+  result = api_instance.update_prevention_policies(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling PreventionPolicies-&gt;update_prevention_policies: #{e}”
+end
+```</p>
+
+<h4 id="using-the-updatepreventionpolicieswithhttpinfo-variant">Using the update_prevention_policies_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<PreventionRespV1>, Integer, Hash)&gt; update_prevention_policies_with_http_info(body)</PreventionRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Update Prevention Policies by specifying the ID of the policy and details to update</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">update_prevention_policies_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;PreventionRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling PreventionPolicies-&gt;update_prevention_policies_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-9">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="PreventionUpdatePoliciesReqV1.md"><strong>PreventionUpdatePoliciesReqV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-9">Return type</h3>
+
+<p><a href="PreventionRespV1.md"><strong>PreventionRespV1</strong></a></p>
+
+<h3 id="authorization-9">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-9">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

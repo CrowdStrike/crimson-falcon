@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DomainPolicyInfo
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **created_at** | **Time** |  |  |
+| **deleted_at** | **Time** |  |  |
+| **id** | **Integer** |  |  |
+| **updated_at** | **Time** |  |  |
+| **account_scope** | **String** |  |  |
+| **alert_logic** | **String** |  | [optional] |
+| **api_command** | **String** |  | [optional] |
+| **asset_type_id** | **Integer** |  | [optional] |
+| **attack_tool** | **String** |  | [optional] |
+| **attack_tool_command** | **String** |  | [optional] |
+| **attack_types** | **Array&lt;String&gt;** |  | [optional] |
+| **cis_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **cisa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **cli_command** | **String** |  | [optional] |
+| **cloud_asset_type** | **String** |  | [optional] |
+| **cloud_document** | **String** |  | [optional] |
+| **cloud_platform** | **Integer** |  | [optional] |
+| **cloud_platform_type** | **String** |  | [optional] |
+| **cloud_service** | **Integer** |  | [optional] |
+| **cloud_service_friendly** | **String** |  | [optional] |
+| **cloud_service_id** | **Integer** |  | [optional] |
+| **cloud_service_subtype** | **String** |  | [optional] |
+| **cloud_service_type** | **String** |  | [optional] |
+| **compliance** | [**DomainCompliance**](DomainCompliance.md) |  | [optional] |
+| **confidence** | **String** |  | [optional] |
+| **controls** | [**Array&lt;DomainControl&gt;**](DomainControl.md) |  | [optional] |
+| **default_severity** | **String** |  | [optional] |
+| **deprecated** | **Boolean** |  | [optional] |
+| **description** | **String** |  | [optional] |
+| **event_type** | **String** |  | [optional] |
+| **fql_policy** | **String** |  | [optional] |
+| **hipaa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **hitrust_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **internal_only** | **Boolean** |  | [optional] |
+| **is_enabled** | **Boolean** |  |  |
+| **is_remediable** | **Boolean** |  |  |
+| **iso_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **mitre_attack_cloud_matrix** | **String** |  | [optional] |
+| **mitre_attack_cloud_subtype** | **String** |  | [optional] |
+| **nist_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **pci_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **policy_confidence_score** | **Integer** |  | [optional] |
+| **policy_fail_query** | **String** |  | [optional] |
+| **policy_pass_query** | **String** |  | [optional] |
+| **policy_remediation** | **String** |  | [optional] |
+| **policy_severity** | **Integer** |  | [optional] |
+| **policy_severity_score** | **Integer** |  | [optional] |
+| **policy_statement** | **String** |  | [optional] |
+| **policy_type** | **String** |  | [optional] |
+| **remediation_summary** | **String** |  | [optional] |
+| **resource_type_friendly_name** | **String** |  | [optional] |
+| **resource_type_id** | **String** |  | [optional] |
+| **soc2_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **tactic** | **String** |  | [optional] |
+| **tactic_id** | **String** |  | [optional] |
+| **tactic_url** | **String** |  | [optional] |
+| **technique** | **String** |  | [optional] |
+| **technique_id** | **String** |  | [optional] |
+| **technique_url** | **String** |  | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainPolicyInfo.new(
+  created_at: null,
+  deleted_at: null,
+  id: null,
+  updated_at: null,
+  account_scope: null,
+  alert_logic: null,
+  api_command: null,
+  asset_type_id: null,
+  attack_tool: null,
+  attack_tool_command: null,
+  attack_types: null,
+  cis_benchmark_ids: null,
+  cisa_benchmark_ids: null,
+  cli_command: null,
+  cloud_asset_type: null,
+  cloud_document: null,
+  cloud_platform: null,
+  cloud_platform_type: null,
+  cloud_service: null,
+  cloud_service_friendly: null,
+  cloud_service_id: null,
+  cloud_service_subtype: null,
+  cloud_service_type: null,
+  compliance: null,
+  confidence: null,
+  controls: null,
+  default_severity: null,
+  deprecated: null,
+  description: null,
+  event_type: null,
+  fql_policy: null,
+  hipaa_benchmark_ids: null,
+  hitrust_benchmark_ids: null,
+  internal_only: null,
+  is_enabled: null,
+  is_remediable: null,
+  iso_benchmark_ids: null,
+  mitre_attack_cloud_matrix: null,
+  mitre_attack_cloud_subtype: null,
+  nist_benchmark_ids: null,
+  pci_benchmark_ids: null,
+  policy_confidence_score: null,
+  policy_fail_query: null,
+  policy_pass_query: null,
+  policy_remediation: null,
+  policy_severity: null,
+  policy_severity_score: null,
+  policy_statement: null,
+  policy_type: null,
+  remediation_summary: null,
+  resource_type_friendly_name: null,
+  resource_type_id: null,
+  soc2_benchmark_ids: null,
+  tactic: null,
+  tactic_id: null,
+  tactic_url: null,
+  technique: null,
+  technique_id: null,
+  technique_url: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DomainPolicyInfo
+        </nav>
+        <h1>Falcon::DomainPolicyInfo
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **created_at** | **Time** |  |  |
+| **deleted_at** | **Time** |  |  |
+| **id** | **Integer** |  |  |
+| **updated_at** | **Time** |  |  |
+| **account_scope** | **String** |  |  |
+| **alert_logic** | **String** |  | [optional] |
+| **api_command** | **String** |  | [optional] |
+| **asset_type_id** | **Integer** |  | [optional] |
+| **attack_tool** | **String** |  | [optional] |
+| **attack_tool_command** | **String** |  | [optional] |
+| **attack_types** | **Array&lt;String&gt;** |  | [optional] |
+| **cis_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **cisa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **cli_command** | **String** |  | [optional] |
+| **cloud_asset_type** | **String** |  | [optional] |
+| **cloud_document** | **String** |  | [optional] |
+| **cloud_platform** | **Integer** |  | [optional] |
+| **cloud_platform_type** | **String** |  | [optional] |
+| **cloud_service** | **Integer** |  | [optional] |
+| **cloud_service_friendly** | **String** |  | [optional] |
+| **cloud_service_id** | **Integer** |  | [optional] |
+| **cloud_service_subtype** | **String** |  | [optional] |
+| **cloud_service_type** | **String** |  | [optional] |
+| **compliance** | [**DomainCompliance**](DomainCompliance.md) |  | [optional] |
+| **confidence** | **String** |  | [optional] |
+| **controls** | [**Array&lt;DomainControl&gt;**](DomainControl.md) |  | [optional] |
+| **default_severity** | **String** |  | [optional] |
+| **deprecated** | **Boolean** |  | [optional] |
+| **description** | **String** |  | [optional] |
+| **event_type** | **String** |  | [optional] |
+| **fql_policy** | **String** |  | [optional] |
+| **hipaa_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **hitrust_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **internal_only** | **Boolean** |  | [optional] |
+| **is_enabled** | **Boolean** |  |  |
+| **is_remediable** | **Boolean** |  |  |
+| **iso_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **mitre_attack_cloud_matrix** | **String** |  | [optional] |
+| **mitre_attack_cloud_subtype** | **String** |  | [optional] |
+| **nist_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **pci_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **policy_confidence_score** | **Integer** |  | [optional] |
+| **policy_fail_query** | **String** |  | [optional] |
+| **policy_pass_query** | **String** |  | [optional] |
+| **policy_remediation** | **String** |  | [optional] |
+| **policy_severity** | **Integer** |  | [optional] |
+| **policy_severity_score** | **Integer** |  | [optional] |
+| **policy_statement** | **String** |  | [optional] |
+| **policy_type** | **String** |  | [optional] |
+| **remediation_summary** | **String** |  | [optional] |
+| **resource_type_friendly_name** | **String** |  | [optional] |
+| **resource_type_id** | **String** |  | [optional] |
+| **soc2_benchmark_ids** | **Array&lt;Integer&gt;** |  | [optional] |
+| **tactic** | **String** |  | [optional] |
+| **tactic_id** | **String** |  | [optional] |
+| **tactic_url** | **String** |  | [optional] |
+| **technique** | **String** |  | [optional] |
+| **technique_id** | **String** |  | [optional] |
+| **technique_url** | **String** |  | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainPolicyInfo.new(
+  created_at: null,
+  deleted_at: null,
+  id: null,
+  updated_at: null,
+  account_scope: null,
+  alert_logic: null,
+  api_command: null,
+  asset_type_id: null,
+  attack_tool: null,
+  attack_tool_command: null,
+  attack_types: null,
+  cis_benchmark_ids: null,
+  cisa_benchmark_ids: null,
+  cli_command: null,
+  cloud_asset_type: null,
+  cloud_document: null,
+  cloud_platform: null,
+  cloud_platform_type: null,
+  cloud_service: null,
+  cloud_service_friendly: null,
+  cloud_service_id: null,
+  cloud_service_subtype: null,
+  cloud_service_type: null,
+  compliance: null,
+  confidence: null,
+  controls: null,
+  default_severity: null,
+  deprecated: null,
+  description: null,
+  event_type: null,
+  fql_policy: null,
+  hipaa_benchmark_ids: null,
+  hitrust_benchmark_ids: null,
+  internal_only: null,
+  is_enabled: null,
+  is_remediable: null,
+  iso_benchmark_ids: null,
+  mitre_attack_cloud_matrix: null,
+  mitre_attack_cloud_subtype: null,
+  nist_benchmark_ids: null,
+  pci_benchmark_ids: null,
+  policy_confidence_score: null,
+  policy_fail_query: null,
+  policy_pass_query: null,
+  policy_remediation: null,
+  policy_severity: null,
+  policy_severity_score: null,
+  policy_statement: null,
+  policy_type: null,
+  remediation_summary: null,
+  resource_type_friendly_name: null,
+  resource_type_id: null,
+  soc2_benchmark_ids: null,
+  tactic: null,
+  tactic_id: null,
+  tactic_url: null,
+  technique: null,
+  technique_id: null,
+  technique_url: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondomainpolicyinfo">Falcon::DomainPolicyInfo</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>created_at</strong></td>
+      <td><strong>Time</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>deleted_at</strong></td>
+      <td><strong>Time</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>updated_at</strong></td>
+      <td><strong>Time</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>account_scope</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>alert_logic</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>api_command</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>asset_type_id</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>attack_tool</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>attack_tool_command</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>attack_types</strong></td>
+      <td><strong>Array&lt;String&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cis_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cisa_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cli_command</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_asset_type</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_document</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_platform</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_platform_type</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_service</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_service_friendly</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_service_id</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_service_subtype</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cloud_service_type</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>compliance</strong></td>
+      <td><a href="DomainCompliance.md"><strong>DomainCompliance</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>confidence</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>controls</strong></td>
+      <td><a href="DomainControl.md"><strong>Array&lt;DomainControl&gt;</strong></a></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>default_severity</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>deprecated</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>description</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>event_type</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>fql_policy</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>hipaa_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>hitrust_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>internal_only</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>is_enabled</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>is_remediable</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>iso_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>mitre_attack_cloud_matrix</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>mitre_attack_cloud_subtype</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>nist_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>pci_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_confidence_score</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_fail_query</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_pass_query</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_remediation</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_severity</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_severity_score</strong></td>
+      <td><strong>Integer</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_statement</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>policy_type</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>remediation_summary</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>resource_type_friendly_name</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>resource_type_id</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>soc2_benchmark_ids</strong></td>
+      <td><strong>Array&lt;Integer&gt;</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>tactic</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>tactic_id</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>tactic_url</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>technique</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>technique_id</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>technique_url</strong></td>
+      <td><strong>String</strong></td>
+      <td> </td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::DomainPolicyInfo.new(
+  created_at: null,
+  deleted_at: null,
+  id: null,
+  updated_at: null,
+  account_scope: null,
+  alert_logic: null,
+  api_command: null,
+  asset_type_id: null,
+  attack_tool: null,
+  attack_tool_command: null,
+  attack_types: null,
+  cis_benchmark_ids: null,
+  cisa_benchmark_ids: null,
+  cli_command: null,
+  cloud_asset_type: null,
+  cloud_document: null,
+  cloud_platform: null,
+  cloud_platform_type: null,
+  cloud_service: null,
+  cloud_service_friendly: null,
+  cloud_service_id: null,
+  cloud_service_subtype: null,
+  cloud_service_type: null,
+  compliance: null,
+  confidence: null,
+  controls: null,
+  default_severity: null,
+  deprecated: null,
+  description: null,
+  event_type: null,
+  fql_policy: null,
+  hipaa_benchmark_ids: null,
+  hitrust_benchmark_ids: null,
+  internal_only: null,
+  is_enabled: null,
+  is_remediable: null,
+  iso_benchmark_ids: null,
+  mitre_attack_cloud_matrix: null,
+  mitre_attack_cloud_subtype: null,
+  nist_benchmark_ids: null,
+  pci_benchmark_ids: null,
+  policy_confidence_score: null,
+  policy_fail_query: null,
+  policy_pass_query: null,
+  policy_remediation: null,
+  policy_severity: null,
+  policy_severity_score: null,
+  policy_statement: null,
+  policy_type: null,
+  remediation_summary: null,
+  resource_type_friendly_name: null,
+  resource_type_id: null,
+  soc2_benchmark_ids: null,
+  tactic: null,
+  tactic_id: null,
+  tactic_url: null,
+  technique: null,
+  technique_id: null,
+  technique_url: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

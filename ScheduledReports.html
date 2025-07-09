@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::ScheduledReports
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**scheduled_reports_get**](ScheduledReports.md#scheduled_reports_get) | **GET** /reports/entities/scheduled-reports/v1 | Retrieve scheduled reports for the provided report IDs. |
+| [**scheduled_reports_launch**](ScheduledReports.md#scheduled_reports_launch) | **POST** /reports/entities/scheduled-reports/execution/v1 | Launch scheduled reports executions for the provided report IDs. |
+| [**scheduled_reports_query**](ScheduledReports.md#scheduled_reports_query) | **GET** /reports/queries/scheduled-reports/v1 | Find all report IDs matching the query with filter |
+
+
+## scheduled_reports_get
+
+> <DomainScheduledReportsResultV1> scheduled_reports_get(ids)
+
+Retrieve scheduled reports for the provided report IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+ids = ['inner_example'] # Array<String> | The scheduled_report id to get details about.
+
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  result = api_instance.scheduled_reports_get(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_get: #{e}"
+end
+```
+
+#### Using the scheduled_reports_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainScheduledReportsResultV1>, Integer, Hash)> scheduled_reports_get_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  data, status_code, headers = api_instance.scheduled_reports_get_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainScheduledReportsResultV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The scheduled_report id to get details about. |  |
+
+### Return type
+
+[**DomainScheduledReportsResultV1**](DomainScheduledReportsResultV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## scheduled_reports_launch
+
+> <DomainReportExecutionsResponseV1> scheduled_reports_launch(body)
+
+Launch scheduled reports executions for the provided report IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+body = [Falcon::DomainReportExecutionLaunchRequestV1.new({id: 'id_example'})] # Array<DomainReportExecutionLaunchRequestV1> | 
+
+begin
+  # Launch scheduled reports executions for the provided report IDs.
+  result = api_instance.scheduled_reports_launch(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_launch: #{e}"
+end
+```
+
+#### Using the scheduled_reports_launch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> scheduled_reports_launch_with_http_info(body)
+
+```ruby
+begin
+  # Launch scheduled reports executions for the provided report IDs.
+  data, status_code, headers = api_instance.scheduled_reports_launch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainReportExecutionsResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_launch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;DomainReportExecutionLaunchRequestV1&gt;**](DomainReportExecutionLaunchRequestV1.md) |  |  |
+
+### Return type
+
+[**DomainReportExecutionsResponseV1**](DomainReportExecutionsResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## scheduled_reports_query
+
+> <MsaQueryResponse> scheduled_reports_query(opts)
+
+Find all report IDs matching the query with filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+opts = {
+  sort: 'sort_example', # String | Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
+  q: 'q_example', # String | Match query criteria, which includes all the filter string fields
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Find all report IDs matching the query with filter
+  result = api_instance.scheduled_reports_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_query: #{e}"
+end
+```
+
+#### Using the scheduled_reports_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> scheduled_reports_query_with_http_info(opts)
+
+```ruby
+begin
+  # Find all report IDs matching the query with filter
+  data, status_code, headers = api_instance.scheduled_reports_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **sort** | **String** | Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
+| **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > ScheduledReports
+        </nav>
+        <h1>Falcon::ScheduledReports
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**scheduled_reports_get**](ScheduledReports.md#scheduled_reports_get) | **GET** /reports/entities/scheduled-reports/v1 | Retrieve scheduled reports for the provided report IDs. |
+| [**scheduled_reports_launch**](ScheduledReports.md#scheduled_reports_launch) | **POST** /reports/entities/scheduled-reports/execution/v1 | Launch scheduled reports executions for the provided report IDs. |
+| [**scheduled_reports_query**](ScheduledReports.md#scheduled_reports_query) | **GET** /reports/queries/scheduled-reports/v1 | Find all report IDs matching the query with filter |
+
+
+## scheduled_reports_get
+
+> <DomainScheduledReportsResultV1> scheduled_reports_get(ids)
+
+Retrieve scheduled reports for the provided report IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+ids = ['inner_example'] # Array<String> | The scheduled_report id to get details about.
+
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  result = api_instance.scheduled_reports_get(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_get: #{e}"
+end
+```
+
+#### Using the scheduled_reports_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainScheduledReportsResultV1>, Integer, Hash)> scheduled_reports_get_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  data, status_code, headers = api_instance.scheduled_reports_get_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainScheduledReportsResultV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The scheduled_report id to get details about. |  |
+
+### Return type
+
+[**DomainScheduledReportsResultV1**](DomainScheduledReportsResultV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## scheduled_reports_launch
+
+> <DomainReportExecutionsResponseV1> scheduled_reports_launch(body)
+
+Launch scheduled reports executions for the provided report IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+body = [Falcon::DomainReportExecutionLaunchRequestV1.new({id: 'id_example'})] # Array<DomainReportExecutionLaunchRequestV1> | 
+
+begin
+  # Launch scheduled reports executions for the provided report IDs.
+  result = api_instance.scheduled_reports_launch(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_launch: #{e}"
+end
+```
+
+#### Using the scheduled_reports_launch_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> scheduled_reports_launch_with_http_info(body)
+
+```ruby
+begin
+  # Launch scheduled reports executions for the provided report IDs.
+  data, status_code, headers = api_instance.scheduled_reports_launch_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainReportExecutionsResponseV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_launch_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**Array&lt;DomainReportExecutionLaunchRequestV1&gt;**](DomainReportExecutionLaunchRequestV1.md) |  |  |
+
+### Return type
+
+[**DomainReportExecutionsResponseV1**](DomainReportExecutionsResponseV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## scheduled_reports_query
+
+> <MsaQueryResponse> scheduled_reports_query(opts)
+
+Find all report IDs matching the query with filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReports.new
+opts = {
+  sort: 'sort_example', # String | Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.
+  q: 'q_example', # String | Match query criteria, which includes all the filter string fields
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}
+
+begin
+  # Find all report IDs matching the query with filter
+  result = api_instance.scheduled_reports_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_query: #{e}"
+end
+```
+
+#### Using the scheduled_reports_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> scheduled_reports_query_with_http_info(opts)
+
+```ruby
+begin
+  # Find all report IDs matching the query with filter
+  data, status_code, headers = api_instance.scheduled_reports_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReports->scheduled_reports_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **sort** | **String** | Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;. | [optional] |
+| **q** | **String** | Match query criteria, which includes all the filter string fields | [optional] |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconscheduledreports">Falcon::ScheduledReports</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ScheduledReports.md#scheduled_reports_get"><strong>scheduled_reports_get</strong></a></td>
+      <td><strong>GET</strong> /reports/entities/scheduled-reports/v1</td>
+      <td>Retrieve scheduled reports for the provided report IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="ScheduledReports.md#scheduled_reports_launch"><strong>scheduled_reports_launch</strong></a></td>
+      <td><strong>POST</strong> /reports/entities/scheduled-reports/execution/v1</td>
+      <td>Launch scheduled reports executions for the provided report IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="ScheduledReports.md#scheduled_reports_query"><strong>scheduled_reports_query</strong></a></td>
+      <td><strong>GET</strong> /reports/queries/scheduled-reports/v1</td>
+      <td>Find all report IDs matching the query with filter</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="scheduledreportsget">scheduled_reports_get</h2>
+
+<blockquote>
+  <DomainScheduledReportsResultV1> scheduled_reports_get(ids)
+</DomainScheduledReportsResultV1>
+</blockquote>
+
+<p>Retrieve scheduled reports for the provided report IDs.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ScheduledReports.new
+ids = [‘inner_example’] # Array<String> | The scheduled_report id to get details about.</String></p>
+
+<p>begin
+  # Retrieve scheduled reports for the provided report IDs.
+  result = api_instance.scheduled_reports_get(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ScheduledReports-&gt;scheduled_reports_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-scheduledreportsgetwithhttpinfo-variant">Using the scheduled_reports_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainScheduledReportsResultV1>, Integer, Hash)&gt; scheduled_reports_get_with_http_info(ids)</DomainScheduledReportsResultV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve scheduled reports for the provided report IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">scheduled_reports_get_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainScheduledReportsResultV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ScheduledReports-&gt;scheduled_reports_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The scheduled_report id to get details about.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="DomainScheduledReportsResultV1.md"><strong>DomainScheduledReportsResultV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="scheduledreportslaunch">scheduled_reports_launch</h2>
+
+<blockquote>
+  <DomainReportExecutionsResponseV1> scheduled_reports_launch(body)
+</DomainReportExecutionsResponseV1>
+</blockquote>
+
+<p>Launch scheduled reports executions for the provided report IDs.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ScheduledReports.new
+body = [Falcon::DomainReportExecutionLaunchRequestV1.new({id: ‘id_example’})] # Array<DomainReportExecutionLaunchRequestV1> |</DomainReportExecutionLaunchRequestV1></p>
+
+<p>begin
+  # Launch scheduled reports executions for the provided report IDs.
+  result = api_instance.scheduled_reports_launch(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ScheduledReports-&gt;scheduled_reports_launch: #{e}”
+end
+```</p>
+
+<h4 id="using-the-scheduledreportslaunchwithhttpinfo-variant">Using the scheduled_reports_launch_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainReportExecutionsResponseV1>, Integer, Hash)&gt; scheduled_reports_launch_with_http_info(body)</DomainReportExecutionsResponseV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Launch scheduled reports executions for the provided report IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">scheduled_reports_launch_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainReportExecutionsResponseV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ScheduledReports-&gt;scheduled_reports_launch_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="DomainReportExecutionLaunchRequestV1.md"><strong>Array&lt;DomainReportExecutionLaunchRequestV1&gt;</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="DomainReportExecutionsResponseV1.md"><strong>DomainReportExecutionsResponseV1</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="scheduledreportsquery">scheduled_reports_query</h2>
+
+<blockquote>
+  <MsaQueryResponse> scheduled_reports_query(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Find all report IDs matching the query with filter</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ScheduledReports.new
+opts = {
+  sort: ‘sort_example’, # String | Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on
+  filter: ‘filter_example’, # String | FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as ‘2010-05-15T14:55:21.892315096Z’.
+  q: ‘q_example’, # String | Match query criteria, which includes all the filter string fields
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56 # Integer | Number of ids to return.
+}</p>
+
+<p>begin
+  # Find all report IDs matching the query with filter
+  result = api_instance.scheduled_reports_query(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ScheduledReports-&gt;scheduled_reports_query: #{e}”
+end
+```</p>
+
+<h4 id="using-the-scheduledreportsquerywithhttpinfo-variant">Using the scheduled_reports_query_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; scheduled_reports_query_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Find all report IDs matching the query with filter</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">scheduled_reports_query_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ScheduledReports-&gt;scheduled_reports_query_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Possible order by fields: created_on, last_updated_on, last_execution_on, next_execution_on</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying the filter parameters. Filter term criteria: type, trigger_reference, recipients, user_uuid, cid, trigger_params.metadata. Filter range criteria: created_on, modified_on; use any common date format, such as '2010-05-15T14:55:21.892315096Z'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>q</strong></td>
+      <td><strong>String</strong></td>
+      <td>Match query criteria, which includes all the filter string fields</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

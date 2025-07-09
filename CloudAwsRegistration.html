@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::CloudAwsRegistration
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**cloud_registration_aws_create_account**](CloudAwsRegistration.md#cloud_registration_aws_create_account) | **POST** /cloud-security-registration-aws/entities/account/v1 | Creates a new account in our system for a customer. |
+| [**cloud_registration_aws_delete_account**](CloudAwsRegistration.md#cloud_registration_aws_delete_account) | **DELETE** /cloud-security-registration-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
+| [**cloud_registration_aws_get_accounts**](CloudAwsRegistration.md#cloud_registration_aws_get_accounts) | **GET** /cloud-security-registration-aws/entities/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_query_accounts**](CloudAwsRegistration.md#cloud_registration_aws_query_accounts) | **GET** /cloud-security-registration-aws/queries/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_update_account**](CloudAwsRegistration.md#cloud_registration_aws_update_account) | **PATCH** /cloud-security-registration-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
+
+
+## cloud_registration_aws_create_account
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_create_account(body)
+
+Creates a new account in our system for a customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
+
+begin
+  # Creates a new account in our system for a customer.
+  result = api_instance.cloud_registration_aws_create_account(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_create_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_create_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_create_account_with_http_info(body)
+
+```ruby
+begin
+  # Creates a new account in our system for a customer.
+  data, status_code, headers = api_instance.cloud_registration_aws_create_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_create_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RestAWSAccountCreateRequestExtv1**](RestAWSAccountCreateRequestExtv1.md) |  |  |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## cloud_registration_aws_delete_account
+
+> <MsaspecResponseFields> cloud_registration_aws_delete_account(opts)
+
+Deletes an existing AWS account or organization in our system.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: ['inner_example'], # Array<String> | AWS account IDs to remove
+  organization_ids: ['inner_example'] # Array<String> | AWS organization IDs to remove
+}
+
+begin
+  # Deletes an existing AWS account or organization in our system.
+  result = api_instance.cloud_registration_aws_delete_account(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_delete_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_delete_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecResponseFields>, Integer, Hash)> cloud_registration_aws_delete_account_with_http_info(opts)
+
+```ruby
+begin
+  # Deletes an existing AWS account or organization in our system.
+  data, status_code, headers = api_instance.cloud_registration_aws_delete_account_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecResponseFields>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_delete_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs to remove | [optional] |
+| **organization_ids** | [**Array&lt;String&gt;**](String.md) | AWS organization IDs to remove | [optional] |
+
+### Return type
+
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_get_accounts
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_get_accounts(opts)
+
+Retrieve existing AWS accounts by account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: ['inner_example'] # Array<String> | AWS account IDs to filter
+}
+
+begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_get_accounts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_get_accounts: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_get_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_get_accounts_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve existing AWS accounts by account IDs
+  data, status_code, headers = api_instance.cloud_registration_aws_get_accounts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_get_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs to filter | [optional] |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_query_accounts
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_query_accounts(products, features, opts)
+
+Retrieve existing AWS accounts by account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+products = ['inner_example'] # Array<String> | Products registered for an account
+features = ['inner_example'] # Array<String> | Features registered for an account
+opts = {
+  organization_ids: ['inner_example'], # Array<String> | Organization IDs used to filter accounts
+  account_status: 'provisioned', # String | Account status to filter results by.
+  limit: 56, # Integer | The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used.
+  offset: 56, # Integer | The offset to start retrieving records from.
+  group_by: 'organization' # String | Field to group by.
+}
+
+begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_query_accounts(products, features, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_query_accounts: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_query_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_query_accounts_with_http_info(products, features, opts)
+
+```ruby
+begin
+  # Retrieve existing AWS accounts by account IDs
+  data, status_code, headers = api_instance.cloud_registration_aws_query_accounts_with_http_info(products, features, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_query_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **products** | [**Array&lt;String&gt;**](String.md) | Products registered for an account |  |
+| **features** | [**Array&lt;String&gt;**](String.md) | Features registered for an account |  |
+| **organization_ids** | [**Array&lt;String&gt;**](String.md) | Organization IDs used to filter accounts | [optional] |
+| **account_status** | **String** | Account status to filter results by. | [optional] |
+| **limit** | **Integer** | The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from. | [optional] |
+| **group_by** | **String** | Field to group by. | [optional] |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_update_account
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_update_account(body)
+
+Patches a existing account in our system for a customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
+
+begin
+  # Patches a existing account in our system for a customer.
+  result = api_instance.cloud_registration_aws_update_account(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_update_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_update_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_update_account_with_http_info(body)
+
+```ruby
+begin
+  # Patches a existing account in our system for a customer.
+  data, status_code, headers = api_instance.cloud_registration_aws_update_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_update_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RestAWSAccountCreateRequestExtv1**](RestAWSAccountCreateRequestExtv1.md) |  |  |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > CloudAwsRegistration
+        </nav>
+        <h1>Falcon::CloudAwsRegistration
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**cloud_registration_aws_create_account**](CloudAwsRegistration.md#cloud_registration_aws_create_account) | **POST** /cloud-security-registration-aws/entities/account/v1 | Creates a new account in our system for a customer. |
+| [**cloud_registration_aws_delete_account**](CloudAwsRegistration.md#cloud_registration_aws_delete_account) | **DELETE** /cloud-security-registration-aws/entities/account/v1 | Deletes an existing AWS account or organization in our system. |
+| [**cloud_registration_aws_get_accounts**](CloudAwsRegistration.md#cloud_registration_aws_get_accounts) | **GET** /cloud-security-registration-aws/entities/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_query_accounts**](CloudAwsRegistration.md#cloud_registration_aws_query_accounts) | **GET** /cloud-security-registration-aws/queries/account/v1 | Retrieve existing AWS accounts by account IDs |
+| [**cloud_registration_aws_update_account**](CloudAwsRegistration.md#cloud_registration_aws_update_account) | **PATCH** /cloud-security-registration-aws/entities/account/v1 | Patches a existing account in our system for a customer. |
+
+
+## cloud_registration_aws_create_account
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_create_account(body)
+
+Creates a new account in our system for a customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
+
+begin
+  # Creates a new account in our system for a customer.
+  result = api_instance.cloud_registration_aws_create_account(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_create_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_create_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_create_account_with_http_info(body)
+
+```ruby
+begin
+  # Creates a new account in our system for a customer.
+  data, status_code, headers = api_instance.cloud_registration_aws_create_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_create_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RestAWSAccountCreateRequestExtv1**](RestAWSAccountCreateRequestExtv1.md) |  |  |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## cloud_registration_aws_delete_account
+
+> <MsaspecResponseFields> cloud_registration_aws_delete_account(opts)
+
+Deletes an existing AWS account or organization in our system.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: ['inner_example'], # Array<String> | AWS account IDs to remove
+  organization_ids: ['inner_example'] # Array<String> | AWS organization IDs to remove
+}
+
+begin
+  # Deletes an existing AWS account or organization in our system.
+  result = api_instance.cloud_registration_aws_delete_account(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_delete_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_delete_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecResponseFields>, Integer, Hash)> cloud_registration_aws_delete_account_with_http_info(opts)
+
+```ruby
+begin
+  # Deletes an existing AWS account or organization in our system.
+  data, status_code, headers = api_instance.cloud_registration_aws_delete_account_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecResponseFields>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_delete_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs to remove | [optional] |
+| **organization_ids** | [**Array&lt;String&gt;**](String.md) | AWS organization IDs to remove | [optional] |
+
+### Return type
+
+[**MsaspecResponseFields**](MsaspecResponseFields.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_get_accounts
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_get_accounts(opts)
+
+Retrieve existing AWS accounts by account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: ['inner_example'] # Array<String> | AWS account IDs to filter
+}
+
+begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_get_accounts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_get_accounts: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_get_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_get_accounts_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve existing AWS accounts by account IDs
+  data, status_code, headers = api_instance.cloud_registration_aws_get_accounts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_get_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | AWS account IDs to filter | [optional] |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_query_accounts
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_query_accounts(products, features, opts)
+
+Retrieve existing AWS accounts by account IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+products = ['inner_example'] # Array<String> | Products registered for an account
+features = ['inner_example'] # Array<String> | Features registered for an account
+opts = {
+  organization_ids: ['inner_example'], # Array<String> | Organization IDs used to filter accounts
+  account_status: 'provisioned', # String | Account status to filter results by.
+  limit: 56, # Integer | The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used.
+  offset: 56, # Integer | The offset to start retrieving records from.
+  group_by: 'organization' # String | Field to group by.
+}
+
+begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_query_accounts(products, features, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_query_accounts: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_query_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_query_accounts_with_http_info(products, features, opts)
+
+```ruby
+begin
+  # Retrieve existing AWS accounts by account IDs
+  data, status_code, headers = api_instance.cloud_registration_aws_query_accounts_with_http_info(products, features, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_query_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **products** | [**Array&lt;String&gt;**](String.md) | Products registered for an account |  |
+| **features** | [**Array&lt;String&gt;**](String.md) | Features registered for an account |  |
+| **organization_ids** | [**Array&lt;String&gt;**](String.md) | Organization IDs used to filter accounts | [optional] |
+| **account_status** | **String** | Account status to filter results by. | [optional] |
+| **limit** | **Integer** | The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used. | [optional][default to 100] |
+| **offset** | **Integer** | The offset to start retrieving records from. | [optional] |
+| **group_by** | **String** | Field to group by. | [optional] |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cloud_registration_aws_update_account
+
+> <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_update_account(body)
+
+Patches a existing account in our system for a customer.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 | 
+
+begin
+  # Patches a existing account in our system for a customer.
+  result = api_instance.cloud_registration_aws_update_account(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_update_account: #{e}"
+end
+```
+
+#### Using the cloud_registration_aws_update_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)> cloud_registration_aws_update_account_with_http_info(body)
+
+```ruby
+begin
+  # Patches a existing account in our system for a customer.
+  data, status_code, headers = api_instance.cloud_registration_aws_update_account_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RestAWSAccountCreateResponseExtV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling CloudAwsRegistration->cloud_registration_aws_update_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**RestAWSAccountCreateRequestExtv1**](RestAWSAccountCreateRequestExtv1.md) |  |  |
+
+### Return type
+
+[**RestAWSAccountCreateResponseExtV1**](RestAWSAccountCreateResponseExtV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconcloudawsregistration">Falcon::CloudAwsRegistration</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="CloudAwsRegistration.md#cloud_registration_aws_create_account"><strong>cloud_registration_aws_create_account</strong></a></td>
+      <td><strong>POST</strong> /cloud-security-registration-aws/entities/account/v1</td>
+      <td>Creates a new account in our system for a customer.</td>
+    </tr>
+    <tr>
+      <td><a href="CloudAwsRegistration.md#cloud_registration_aws_delete_account"><strong>cloud_registration_aws_delete_account</strong></a></td>
+      <td><strong>DELETE</strong> /cloud-security-registration-aws/entities/account/v1</td>
+      <td>Deletes an existing AWS account or organization in our system.</td>
+    </tr>
+    <tr>
+      <td><a href="CloudAwsRegistration.md#cloud_registration_aws_get_accounts"><strong>cloud_registration_aws_get_accounts</strong></a></td>
+      <td><strong>GET</strong> /cloud-security-registration-aws/entities/account/v1</td>
+      <td>Retrieve existing AWS accounts by account IDs</td>
+    </tr>
+    <tr>
+      <td><a href="CloudAwsRegistration.md#cloud_registration_aws_query_accounts"><strong>cloud_registration_aws_query_accounts</strong></a></td>
+      <td><strong>GET</strong> /cloud-security-registration-aws/queries/account/v1</td>
+      <td>Retrieve existing AWS accounts by account IDs</td>
+    </tr>
+    <tr>
+      <td><a href="CloudAwsRegistration.md#cloud_registration_aws_update_account"><strong>cloud_registration_aws_update_account</strong></a></td>
+      <td><strong>PATCH</strong> /cloud-security-registration-aws/entities/account/v1</td>
+      <td>Patches a existing account in our system for a customer.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cloudregistrationawscreateaccount">cloud_registration_aws_create_account</h2>
+
+<blockquote>
+  <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_create_account(body)
+</RestAWSAccountCreateResponseExtV1>
+</blockquote>
+
+<p>Creates a new account in our system for a customer.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 |</p>
+
+<p>begin
+  # Creates a new account in our system for a customer.
+  result = api_instance.cloud_registration_aws_create_account(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_create_account: #{e}”
+end
+```</p>
+
+<h4 id="using-the-cloudregistrationawscreateaccountwithhttpinfo-variant">Using the cloud_registration_aws_create_account_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)&gt; cloud_registration_aws_create_account_with_http_info(body)</RestAWSAccountCreateResponseExtV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Creates a new account in our system for a customer.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">cloud_registration_aws_create_account_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;RestAWSAccountCreateResponseExtV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_create_account_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="RestAWSAccountCreateRequestExtv1.md"><strong>RestAWSAccountCreateRequestExtv1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="RestAWSAccountCreateResponseExtV1.md"><strong>RestAWSAccountCreateResponseExtV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="cloudregistrationawsdeleteaccount">cloud_registration_aws_delete_account</h2>
+
+<blockquote>
+  <MsaspecResponseFields> cloud_registration_aws_delete_account(opts)
+</MsaspecResponseFields>
+</blockquote>
+
+<p>Deletes an existing AWS account or organization in our system.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: [‘inner_example’], # Array<String> | AWS account IDs to remove
+  organization_ids: ['inner_example'] # Array<String> | AWS organization IDs to remove
+}</String></String></p>
+
+<p>begin
+  # Deletes an existing AWS account or organization in our system.
+  result = api_instance.cloud_registration_aws_delete_account(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_delete_account: #{e}”
+end
+```</p>
+
+<h4 id="using-the-cloudregistrationawsdeleteaccountwithhttpinfo-variant">Using the cloud_registration_aws_delete_account_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecResponseFields>, Integer, Hash)&gt; cloud_registration_aws_delete_account_with_http_info(opts)</MsaspecResponseFields></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Deletes an existing AWS account or organization in our system.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">cloud_registration_aws_delete_account_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecResponseFields&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_delete_account_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>AWS account IDs to remove</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>organization_ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>AWS organization IDs to remove</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="MsaspecResponseFields.md"><strong>MsaspecResponseFields</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="cloudregistrationawsgetaccounts">cloud_registration_aws_get_accounts</h2>
+
+<blockquote>
+  <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_get_accounts(opts)
+</RestAWSAccountCreateResponseExtV1>
+</blockquote>
+
+<p>Retrieve existing AWS accounts by account IDs</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudAwsRegistration.new
+opts = {
+  ids: [‘inner_example’] # Array<String> | AWS account IDs to filter
+}</String></p>
+
+<p>begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_get_accounts(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_get_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-cloudregistrationawsgetaccountswithhttpinfo-variant">Using the cloud_registration_aws_get_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)&gt; cloud_registration_aws_get_accounts_with_http_info(opts)</RestAWSAccountCreateResponseExtV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve existing AWS accounts by account IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">cloud_registration_aws_get_accounts_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;RestAWSAccountCreateResponseExtV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_get_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>AWS account IDs to filter</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="RestAWSAccountCreateResponseExtV1.md"><strong>RestAWSAccountCreateResponseExtV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="cloudregistrationawsqueryaccounts">cloud_registration_aws_query_accounts</h2>
+
+<blockquote>
+  <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_query_accounts(products, features, opts)
+</RestAWSAccountCreateResponseExtV1>
+</blockquote>
+
+<p>Retrieve existing AWS accounts by account IDs</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudAwsRegistration.new
+products = [‘inner_example’] # Array<String> | Products registered for an account
+features = ['inner_example'] # Array<String> | Features registered for an account
+opts = {
+  organization_ids: ['inner_example'], # Array<String> | Organization IDs used to filter accounts
+  account_status: 'provisioned', # String | Account status to filter results by.
+  limit: 56, # Integer | The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used.
+  offset: 56, # Integer | The offset to start retrieving records from.
+  group_by: 'organization' # String | Field to group by.
+}</String></String></String></p>
+
+<p>begin
+  # Retrieve existing AWS accounts by account IDs
+  result = api_instance.cloud_registration_aws_query_accounts(products, features, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_query_accounts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-cloudregistrationawsqueryaccountswithhttpinfo-variant">Using the cloud_registration_aws_query_accounts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)&gt; cloud_registration_aws_query_accounts_with_http_info(products, features, opts)</RestAWSAccountCreateResponseExtV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve existing AWS accounts by account IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">cloud_registration_aws_query_accounts_with_http_info</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;RestAWSAccountCreateResponseExtV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_query_accounts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>products</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Products registered for an account</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>features</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Features registered for an account</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>organization_ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Organization IDs used to filter accounts</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>account_status</strong></td>
+      <td><strong>String</strong></td>
+      <td>Account status to filter results by.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum number of items to return. When not specified or 0, 100 is used. When larger than 500, 500 is used.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>group_by</strong></td>
+      <td><strong>String</strong></td>
+      <td>Field to group by.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="RestAWSAccountCreateResponseExtV1.md"><strong>RestAWSAccountCreateResponseExtV1</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="cloudregistrationawsupdateaccount">cloud_registration_aws_update_account</h2>
+
+<blockquote>
+  <RestAWSAccountCreateResponseExtV1> cloud_registration_aws_update_account(body)
+</RestAWSAccountCreateResponseExtV1>
+</blockquote>
+
+<p>Patches a existing account in our system for a customer.</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::CloudAwsRegistration.new
+body = Falcon::RestAWSAccountCreateRequestExtv1.new({resources: [Falcon::RestCloudAWSAccountCreateExtV1.new({use_existing_cloudtrail: false})]}) # RestAWSAccountCreateRequestExtv1 |</p>
+
+<p>begin
+  # Patches a existing account in our system for a customer.
+  result = api_instance.cloud_registration_aws_update_account(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_update_account: #{e}”
+end
+```</p>
+
+<h4 id="using-the-cloudregistrationawsupdateaccountwithhttpinfo-variant">Using the cloud_registration_aws_update_account_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<RestAWSAccountCreateResponseExtV1>, Integer, Hash)&gt; cloud_registration_aws_update_account_with_http_info(body)</RestAWSAccountCreateResponseExtV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Patches a existing account in our system for a customer.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">cloud_registration_aws_update_account_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;RestAWSAccountCreateResponseExtV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling CloudAwsRegistration-&gt;cloud_registration_aws_update_account_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="RestAWSAccountCreateRequestExtv1.md"><strong>RestAWSAccountCreateRequestExtv1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="RestAWSAccountCreateResponseExtV1.md"><strong>RestAWSAccountCreateResponseExtV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

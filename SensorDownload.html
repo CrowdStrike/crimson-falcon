@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::SensorDownload
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**download_sensor_installer_by_id**](SensorDownload.md#download_sensor_installer_by_id) | **GET** /sensors/entities/download-installer/v1 | Download sensor installer by SHA256 ID |
+| [**download_sensor_installer_by_id_v2**](SensorDownload.md#download_sensor_installer_by_id_v2) | **GET** /sensors/entities/download-installer/v2 | Download sensor installer by SHA256 ID |
+| [**get_combined_sensor_installers_by_query**](SensorDownload.md#get_combined_sensor_installers_by_query) | **GET** /sensors/combined/installers/v1 | Get sensor installer details by provided query |
+| [**get_combined_sensor_installers_by_query_v2**](SensorDownload.md#get_combined_sensor_installers_by_query_v2) | **GET** /sensors/combined/installers/v2 | Get sensor installer details by provided query |
+| [**get_sensor_installers_by_query**](SensorDownload.md#get_sensor_installers_by_query) | **GET** /sensors/queries/installers/v1 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_by_query_v2**](SensorDownload.md#get_sensor_installers_by_query_v2) | **GET** /sensors/queries/installers/v2 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_ccidby_query**](SensorDownload.md#get_sensor_installers_ccidby_query) | **GET** /sensors/queries/installers/ccid/v1 | Get CCID to use with sensor installers |
+| [**get_sensor_installers_entities**](SensorDownload.md#get_sensor_installers_entities) | **GET** /sensors/entities/installers/v1 | Get sensor installer details by provided SHA256 IDs |
+| [**get_sensor_installers_entities_v2**](SensorDownload.md#get_sensor_installers_entities_v2) | **GET** /sensors/entities/installers/v2 | Get sensor installer details by provided SHA256 IDs |
+
+
+## download_sensor_installer_by_id
+
+> File download_sensor_installer_by_id(id)
+
+Download sensor installer by SHA256 ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+id = 'id_example' # String | SHA256 of the installer to download
+
+begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id: #{e}"
+end
+```
+
+#### Using the download_sensor_installer_by_id_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(File, Integer, Hash)> download_sensor_installer_by_id_with_http_info(id)
+
+```ruby
+begin
+  # Download sensor installer by SHA256 ID
+  data, status_code, headers = api_instance.download_sensor_installer_by_id_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => File
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | SHA256 of the installer to download |  |
+
+### Return type
+
+**File**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## download_sensor_installer_by_id_v2
+
+> File download_sensor_installer_by_id_v2(id)
+
+Download sensor installer by SHA256 ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+id = 'id_example' # String | SHA256 of the installer to download
+
+begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id_v2(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2: #{e}"
+end
+```
+
+#### Using the download_sensor_installer_by_id_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(File, Integer, Hash)> download_sensor_installer_by_id_v2_with_http_info(id)
+
+```ruby
+begin
+  # Download sensor installer by SHA256 ID
+  data, status_code, headers = api_instance.download_sensor_installer_by_id_v2_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => File
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | SHA256 of the installer to download |  |
+
+### Return type
+
+**File**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## get_combined_sensor_installers_by_query
+
+> <DomainSensorInstallersV1> get_combined_sensor_installers_by_query(opts)
+
+Get sensor installer details by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query: #{e}"
+end
+```
+
+#### Using the get_combined_sensor_installers_by_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV1>, Integer, Hash)> get_combined_sensor_installers_by_query_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer details by provided query
+  data, status_code, headers = api_instance.get_combined_sensor_installers_by_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{TITLE}}quot;windows{{TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{TITLE}}quot;5.2{{TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**DomainSensorInstallersV1**](DomainSensorInstallersV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_combined_sensor_installers_by_query_v2
+
+> <DomainSensorInstallersV2> get_combined_sensor_installers_by_query_v2(opts)
+
+Get sensor installer details by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2: #{e}"
+end
+```
+
+#### Using the get_combined_sensor_installers_by_query_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV2>, Integer, Hash)> get_combined_sensor_installers_by_query_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer details by provided query
+  data, status_code, headers = api_instance.get_combined_sensor_installers_by_query_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{TITLE}}quot;windows{{TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{TITLE}}quot;5.2{{TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**DomainSensorInstallersV2**](DomainSensorInstallersV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_by_query
+
+> <MsaspecQueryResponse> get_sensor_installers_by_query(opts)
+
+Get sensor installer IDs by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_by_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer IDs by provided query
+  data, status_code, headers = api_instance.get_sensor_installers_by_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{TITLE}}quot;windows{{TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{TITLE}}quot;5.2{{TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_by_query_v2
+
+> <MsaspecQueryResponse> get_sensor_installers_by_query_v2(opts)
+
+Get sensor installer IDs by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_by_query_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer IDs by provided query
+  data, status_code, headers = api_instance.get_sensor_installers_by_query_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{TITLE}}quot;windows{{TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{TITLE}}quot;5.2{{TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_ccidby_query
+
+> <MsaspecQueryResponse> get_sensor_installers_ccidby_query
+
+Get CCID to use with sensor installers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+
+begin
+  # Get CCID to use with sensor installers
+  result = api_instance.get_sensor_installers_ccidby_query
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_ccidby_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_ccidby_query_with_http_info
+
+```ruby
+begin
+  # Get CCID to use with sensor installers
+  data, status_code, headers = api_instance.get_sensor_installers_ccidby_query_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_entities
+
+> <DomainSensorInstallersV1> get_sensor_installers_entities(ids)
+
+Get sensor installer details by provided SHA256 IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+ids = ['inner_example'] # Array<String> | The IDs of the installers
+
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV1>, Integer, Hash)> get_sensor_installers_entities_with_http_info(ids)
+
+```ruby
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  data, status_code, headers = api_instance.get_sensor_installers_entities_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the installers |  |
+
+### Return type
+
+[**DomainSensorInstallersV1**](DomainSensorInstallersV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_entities_v2
+
+> <DomainSensorInstallersV2> get_sensor_installers_entities_v2(ids)
+
+Get sensor installer details by provided SHA256 IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+ids = ['inner_example'] # Array<String> | The IDs of the installers
+
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities_v2(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_entities_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV2>, Integer, Hash)> get_sensor_installers_entities_v2_with_http_info(ids)
+
+```ruby
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  data, status_code, headers = api_instance.get_sensor_installers_entities_v2_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the installers |  |
+
+### Return type
+
+[**DomainSensorInstallersV2**](DomainSensorInstallersV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > SensorDownload
+        </nav>
+        <h1>Falcon::SensorDownload
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**download_sensor_installer_by_id**](SensorDownload.md#download_sensor_installer_by_id) | **GET** /sensors/entities/download-installer/v1 | Download sensor installer by SHA256 ID |
+| [**download_sensor_installer_by_id_v2**](SensorDownload.md#download_sensor_installer_by_id_v2) | **GET** /sensors/entities/download-installer/v2 | Download sensor installer by SHA256 ID |
+| [**get_combined_sensor_installers_by_query**](SensorDownload.md#get_combined_sensor_installers_by_query) | **GET** /sensors/combined/installers/v1 | Get sensor installer details by provided query |
+| [**get_combined_sensor_installers_by_query_v2**](SensorDownload.md#get_combined_sensor_installers_by_query_v2) | **GET** /sensors/combined/installers/v2 | Get sensor installer details by provided query |
+| [**get_sensor_installers_by_query**](SensorDownload.md#get_sensor_installers_by_query) | **GET** /sensors/queries/installers/v1 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_by_query_v2**](SensorDownload.md#get_sensor_installers_by_query_v2) | **GET** /sensors/queries/installers/v2 | Get sensor installer IDs by provided query |
+| [**get_sensor_installers_ccidby_query**](SensorDownload.md#get_sensor_installers_ccidby_query) | **GET** /sensors/queries/installers/ccid/v1 | Get CCID to use with sensor installers |
+| [**get_sensor_installers_entities**](SensorDownload.md#get_sensor_installers_entities) | **GET** /sensors/entities/installers/v1 | Get sensor installer details by provided SHA256 IDs |
+| [**get_sensor_installers_entities_v2**](SensorDownload.md#get_sensor_installers_entities_v2) | **GET** /sensors/entities/installers/v2 | Get sensor installer details by provided SHA256 IDs |
+
+
+## download_sensor_installer_by_id
+
+> File download_sensor_installer_by_id(id)
+
+Download sensor installer by SHA256 ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+id = 'id_example' # String | SHA256 of the installer to download
+
+begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id: #{e}"
+end
+```
+
+#### Using the download_sensor_installer_by_id_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(File, Integer, Hash)> download_sensor_installer_by_id_with_http_info(id)
+
+```ruby
+begin
+  # Download sensor installer by SHA256 ID
+  data, status_code, headers = api_instance.download_sensor_installer_by_id_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => File
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | SHA256 of the installer to download |  |
+
+### Return type
+
+**File**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## download_sensor_installer_by_id_v2
+
+> File download_sensor_installer_by_id_v2(id)
+
+Download sensor installer by SHA256 ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+id = 'id_example' # String | SHA256 of the installer to download
+
+begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id_v2(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2: #{e}"
+end
+```
+
+#### Using the download_sensor_installer_by_id_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(File, Integer, Hash)> download_sensor_installer_by_id_v2_with_http_info(id)
+
+```ruby
+begin
+  # Download sensor installer by SHA256 ID
+  data, status_code, headers = api_instance.download_sensor_installer_by_id_v2_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => File
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->download_sensor_installer_by_id_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | SHA256 of the installer to download |  |
+
+### Return type
+
+**File**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/octet-stream
+
+
+## get_combined_sensor_installers_by_query
+
+> <DomainSensorInstallersV1> get_combined_sensor_installers_by_query(opts)
+
+Get sensor installer details by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query: #{e}"
+end
+```
+
+#### Using the get_combined_sensor_installers_by_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV1>, Integer, Hash)> get_combined_sensor_installers_by_query_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer details by provided query
+  data, status_code, headers = api_instance.get_combined_sensor_installers_by_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{PAGE_TITLE}}quot;windows{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{PAGE_TITLE}}quot;5.2{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**DomainSensorInstallersV1**](DomainSensorInstallersV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_combined_sensor_installers_by_query_v2
+
+> <DomainSensorInstallersV2> get_combined_sensor_installers_by_query_v2(opts)
+
+Get sensor installer details by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2: #{e}"
+end
+```
+
+#### Using the get_combined_sensor_installers_by_query_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV2>, Integer, Hash)> get_combined_sensor_installers_by_query_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer details by provided query
+  data, status_code, headers = api_instance.get_combined_sensor_installers_by_query_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_combined_sensor_installers_by_query_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{PAGE_TITLE}}quot;windows{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{PAGE_TITLE}}quot;5.2{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**DomainSensorInstallersV2**](DomainSensorInstallersV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_by_query
+
+> <MsaspecQueryResponse> get_sensor_installers_by_query(opts)
+
+Get sensor installer IDs by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_by_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer IDs by provided query
+  data, status_code, headers = api_instance.get_sensor_installers_by_query_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{PAGE_TITLE}}quot;windows{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{PAGE_TITLE}}quot;5.2{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_by_query_v2
+
+> <MsaspecQueryResponse> get_sensor_installers_by_query_v2(opts)
+
+Get sensor installer IDs by provided query
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort items using their properties. Common sort options include:  <ul><li>version|asc</li><li>release_date|desc</li></ul>
+  filter: 'filter_example' # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: <ul><li>platform:\"windows\"</li><li>version:>\"5.2\"</li></ul>
+}
+
+begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_by_query_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_by_query_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Get sensor installer IDs by provided query
+  data, status_code, headers = api_instance.get_sensor_installers_by_query_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_by_query_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results. | [optional] |
+| **limit** | **Integer** | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:{{PAGE_TITLE}}quot;windows{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;li&gt;version:&gt;{{PAGE_TITLE}}quot;5.2{{PAGE_TITLE}}quot;&lt;/li&gt;&lt;/ul&gt; | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_ccidby_query
+
+> <MsaspecQueryResponse> get_sensor_installers_ccidby_query
+
+Get CCID to use with sensor installers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+
+begin
+  # Get CCID to use with sensor installers
+  result = api_instance.get_sensor_installers_ccidby_query
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_ccidby_query_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> get_sensor_installers_ccidby_query_with_http_info
+
+```ruby
+begin
+  # Get CCID to use with sensor installers
+  data, status_code, headers = api_instance.get_sensor_installers_ccidby_query_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_ccidby_query_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_entities
+
+> <DomainSensorInstallersV1> get_sensor_installers_entities(ids)
+
+Get sensor installer details by provided SHA256 IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+ids = ['inner_example'] # Array<String> | The IDs of the installers
+
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV1>, Integer, Hash)> get_sensor_installers_entities_with_http_info(ids)
+
+```ruby
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  data, status_code, headers = api_instance.get_sensor_installers_entities_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the installers |  |
+
+### Return type
+
+[**DomainSensorInstallersV1**](DomainSensorInstallersV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_sensor_installers_entities_v2
+
+> <DomainSensorInstallersV2> get_sensor_installers_entities_v2(ids)
+
+Get sensor installer details by provided SHA256 IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::SensorDownload.new
+ids = ['inner_example'] # Array<String> | The IDs of the installers
+
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities_v2(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2: #{e}"
+end
+```
+
+#### Using the get_sensor_installers_entities_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainSensorInstallersV2>, Integer, Hash)> get_sensor_installers_entities_v2_with_http_info(ids)
+
+```ruby
+begin
+  # Get sensor installer details by provided SHA256 IDs
+  data, status_code, headers = api_instance.get_sensor_installers_entities_v2_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainSensorInstallersV2>
+rescue Falcon::ApiError => e
+  puts "Error when calling SensorDownload->get_sensor_installers_entities_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the installers |  |
+
+### Return type
+
+[**DomainSensorInstallersV2**](DomainSensorInstallersV2.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconsensordownload">Falcon::SensorDownload</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="SensorDownload.md#download_sensor_installer_by_id"><strong>download_sensor_installer_by_id</strong></a></td>
+      <td><strong>GET</strong> /sensors/entities/download-installer/v1</td>
+      <td>Download sensor installer by SHA256 ID</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#download_sensor_installer_by_id_v2"><strong>download_sensor_installer_by_id_v2</strong></a></td>
+      <td><strong>GET</strong> /sensors/entities/download-installer/v2</td>
+      <td>Download sensor installer by SHA256 ID</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_combined_sensor_installers_by_query"><strong>get_combined_sensor_installers_by_query</strong></a></td>
+      <td><strong>GET</strong> /sensors/combined/installers/v1</td>
+      <td>Get sensor installer details by provided query</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_combined_sensor_installers_by_query_v2"><strong>get_combined_sensor_installers_by_query_v2</strong></a></td>
+      <td><strong>GET</strong> /sensors/combined/installers/v2</td>
+      <td>Get sensor installer details by provided query</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_sensor_installers_by_query"><strong>get_sensor_installers_by_query</strong></a></td>
+      <td><strong>GET</strong> /sensors/queries/installers/v1</td>
+      <td>Get sensor installer IDs by provided query</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_sensor_installers_by_query_v2"><strong>get_sensor_installers_by_query_v2</strong></a></td>
+      <td><strong>GET</strong> /sensors/queries/installers/v2</td>
+      <td>Get sensor installer IDs by provided query</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_sensor_installers_ccidby_query"><strong>get_sensor_installers_ccidby_query</strong></a></td>
+      <td><strong>GET</strong> /sensors/queries/installers/ccid/v1</td>
+      <td>Get CCID to use with sensor installers</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_sensor_installers_entities"><strong>get_sensor_installers_entities</strong></a></td>
+      <td><strong>GET</strong> /sensors/entities/installers/v1</td>
+      <td>Get sensor installer details by provided SHA256 IDs</td>
+    </tr>
+    <tr>
+      <td><a href="SensorDownload.md#get_sensor_installers_entities_v2"><strong>get_sensor_installers_entities_v2</strong></a></td>
+      <td><strong>GET</strong> /sensors/entities/installers/v2</td>
+      <td>Get sensor installer details by provided SHA256 IDs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="downloadsensorinstallerbyid">download_sensor_installer_by_id</h2>
+
+<blockquote>
+  <p>File download_sensor_installer_by_id(id)</p>
+</blockquote>
+
+<p>Download sensor installer by SHA256 ID</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+id = ‘id_example’ # String | SHA256 of the installer to download</p>
+
+<p>begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id(id)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;download_sensor_installer_by_id: #{e}”
+end
+```</p>
+
+<h4 id="using-the-downloadsensorinstallerbyidwithhttpinfo-variant">Using the download_sensor_installer_by_id_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(File, Integer, Hash)&gt; download_sensor_installer_by_id_with_http_info(id)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Download sensor installer by SHA256 ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">download_sensor_installer_by_id_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; File</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;download_sensor_installer_by_id_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>SHA256 of the installer to download</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><strong>File</strong></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json, application/octet-stream</li>
+</ul>
+
+<h2 id="downloadsensorinstallerbyidv2">download_sensor_installer_by_id_v2</h2>
+
+<blockquote>
+  <p>File download_sensor_installer_by_id_v2(id)</p>
+</blockquote>
+
+<p>Download sensor installer by SHA256 ID</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+id = ‘id_example’ # String | SHA256 of the installer to download</p>
+
+<p>begin
+  # Download sensor installer by SHA256 ID
+  result = api_instance.download_sensor_installer_by_id_v2(id)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;download_sensor_installer_by_id_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-downloadsensorinstallerbyidv2withhttpinfo-variant">Using the download_sensor_installer_by_id_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(File, Integer, Hash)&gt; download_sensor_installer_by_id_v2_with_http_info(id)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Download sensor installer by SHA256 ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">download_sensor_installer_by_id_v2_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; File</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;download_sensor_installer_by_id_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>SHA256 of the installer to download</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><strong>File</strong></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json, application/octet-stream</li>
+</ul>
+
+<h2 id="getcombinedsensorinstallersbyquery">get_combined_sensor_installers_by_query</h2>
+
+<blockquote>
+  <DomainSensorInstallersV1> get_combined_sensor_installers_by_query(opts)
+</DomainSensorInstallersV1>
+</blockquote>
+
+<p>Get sensor installer details by provided query</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:"windows"&lt;/li&gt;&lt;li&gt;version:&gt;"5.2"&lt;/li&gt;&lt;/ul&gt;
+}</p>
+
+<p>begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_combined_sensor_installers_by_query: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getcombinedsensorinstallersbyquerywithhttpinfo-variant">Using the get_combined_sensor_installers_by_query_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainSensorInstallersV1>, Integer, Hash)&gt; get_combined_sensor_installers_by_query_with_http_info(opts)</DomainSensorInstallersV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer details by provided query</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_combined_sensor_installers_by_query_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainSensorInstallersV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_combined_sensor_installers_by_query_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;release_date</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\"windows\"&lt;/li&gt;&lt;li&gt;version:&gt;\"5.2\"&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="DomainSensorInstallersV1.md"><strong>DomainSensorInstallersV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getcombinedsensorinstallersbyqueryv2">get_combined_sensor_installers_by_query_v2</h2>
+
+<blockquote>
+  <DomainSensorInstallersV2> get_combined_sensor_installers_by_query_v2(opts)
+</DomainSensorInstallersV2>
+</blockquote>
+
+<p>Get sensor installer details by provided query</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:"windows"&lt;/li&gt;&lt;li&gt;version:&gt;"5.2"&lt;/li&gt;&lt;/ul&gt;
+}</p>
+
+<p>begin
+  # Get sensor installer details by provided query
+  result = api_instance.get_combined_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_combined_sensor_installers_by_query_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getcombinedsensorinstallersbyqueryv2withhttpinfo-variant">Using the get_combined_sensor_installers_by_query_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainSensorInstallersV2>, Integer, Hash)&gt; get_combined_sensor_installers_by_query_v2_with_http_info(opts)</DomainSensorInstallersV2></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer details by provided query</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_combined_sensor_installers_by_query_v2_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainSensorInstallersV2&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_combined_sensor_installers_by_query_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;release_date</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\"windows\"&lt;/li&gt;&lt;li&gt;version:&gt;\"5.2\"&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="DomainSensorInstallersV2.md"><strong>DomainSensorInstallersV2</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getsensorinstallersbyquery">get_sensor_installers_by_query</h2>
+
+<blockquote>
+  <MsaspecQueryResponse> get_sensor_installers_by_query(opts)
+</MsaspecQueryResponse>
+</blockquote>
+
+<p>Get sensor installer IDs by provided query</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:"windows"&lt;/li&gt;&lt;li&gt;version:&gt;"5.2"&lt;/li&gt;&lt;/ul&gt;
+}</p>
+
+<p>begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_sensor_installers_by_query: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getsensorinstallersbyquerywithhttpinfo-variant">Using the get_sensor_installers_by_query_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecQueryResponse>, Integer, Hash)&gt; get_sensor_installers_by_query_with_http_info(opts)</MsaspecQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer IDs by provided query</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_sensor_installers_by_query_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_sensor_installers_by_query_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;release_date</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\"windows\"&lt;/li&gt;&lt;li&gt;version:&gt;\"5.2\"&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="MsaspecQueryResponse.md"><strong>MsaspecQueryResponse</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getsensorinstallersbyqueryv2">get_sensor_installers_by_query_v2</h2>
+
+<blockquote>
+  <MsaspecQueryResponse> get_sensor_installers_by_query_v2(opts)
+</MsaspecQueryResponse>
+</blockquote>
+
+<p>Get sensor installer IDs by provided query</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+opts = {
+  offset: 56, # Integer | The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.
+  limit: 56, # Integer | The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version|asc&lt;/li&gt;&lt;li&gt;release_date|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:"windows"&lt;/li&gt;&lt;li&gt;version:&gt;"5.2"&lt;/li&gt;&lt;/ul&gt;
+}</p>
+
+<p>begin
+  # Get sensor installer IDs by provided query
+  result = api_instance.get_sensor_installers_by_query_v2(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_sensor_installers_by_query_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getsensorinstallersbyqueryv2withhttpinfo-variant">Using the get_sensor_installers_by_query_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecQueryResponse>, Integer, Hash)&gt; get_sensor_installers_by_query_v2_with_http_info(opts)</MsaspecQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer IDs by provided query</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_sensor_installers_by_query_v2_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_sensor_installers_by_query_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The first item to return, where 0 is the latest item. Use with the limit parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of items to return in this response (default: 100, max: 500). Use with the offset parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items using their properties. Common sort options include:  &lt;ul&gt;&lt;li&gt;version</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;release_date</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter items using a query in Falcon Query Language (FQL). An asterisk wildcard * includes all results.  Common filter options include: &lt;ul&gt;&lt;li&gt;platform:\"windows\"&lt;/li&gt;&lt;li&gt;version:&gt;\"5.2\"&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="MsaspecQueryResponse.md"><strong>MsaspecQueryResponse</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getsensorinstallersccidbyquery">get_sensor_installers_ccidby_query</h2>
+
+<blockquote>
+  <MsaspecQueryResponse> get_sensor_installers_ccidby_query
+</MsaspecQueryResponse>
+</blockquote>
+
+<p>Get CCID to use with sensor installers</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new</p>
+
+<p>begin
+  # Get CCID to use with sensor installers
+  result = api_instance.get_sensor_installers_ccidby_query
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_sensor_installers_ccidby_query: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getsensorinstallersccidbyquerywithhttpinfo-variant">Using the get_sensor_installers_ccidby_query_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecQueryResponse>, Integer, Hash)&gt; get_sensor_installers_ccidby_query_with_http_info</MsaspecQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get CCID to use with sensor installers</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_sensor_installers_ccidby_query_with_http_info</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_sensor_installers_ccidby_query_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<p>This endpoint does not need any parameter.</p>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="MsaspecQueryResponse.md"><strong>MsaspecQueryResponse</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getsensorinstallersentities">get_sensor_installers_entities</h2>
+
+<blockquote>
+  <DomainSensorInstallersV1> get_sensor_installers_entities(ids)
+</DomainSensorInstallersV1>
+</blockquote>
+
+<p>Get sensor installer details by provided SHA256 IDs</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+ids = [‘inner_example’] # Array<String> | The IDs of the installers</String></p>
+
+<p>begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_sensor_installers_entities: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getsensorinstallersentitieswithhttpinfo-variant">Using the get_sensor_installers_entities_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainSensorInstallersV1>, Integer, Hash)&gt; get_sensor_installers_entities_with_http_info(ids)</DomainSensorInstallersV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer details by provided SHA256 IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_sensor_installers_entities_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainSensorInstallersV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_sensor_installers_entities_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the installers</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="DomainSensorInstallersV1.md"><strong>DomainSensorInstallersV1</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getsensorinstallersentitiesv2">get_sensor_installers_entities_v2</h2>
+
+<blockquote>
+  <DomainSensorInstallersV2> get_sensor_installers_entities_v2(ids)
+</DomainSensorInstallersV2>
+</blockquote>
+
+<p>Get sensor installer details by provided SHA256 IDs</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::SensorDownload.new
+ids = [‘inner_example’] # Array<String> | The IDs of the installers</String></p>
+
+<p>begin
+  # Get sensor installer details by provided SHA256 IDs
+  result = api_instance.get_sensor_installers_entities_v2(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling SensorDownload-&gt;get_sensor_installers_entities_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getsensorinstallersentitiesv2withhttpinfo-variant">Using the get_sensor_installers_entities_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainSensorInstallersV2>, Integer, Hash)&gt; get_sensor_installers_entities_v2_with_http_info(ids)</DomainSensorInstallersV2></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get sensor installer details by provided SHA256 IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_sensor_installers_entities_v2_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainSensorInstallersV2&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling SensorDownload-&gt;get_sensor_installers_entities_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the installers</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="DomainSensorInstallersV2.md"><strong>DomainSensorInstallersV2</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

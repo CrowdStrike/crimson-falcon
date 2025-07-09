@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::Threatgraph
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**combined_edges_get**](Threatgraph.md#combined_edges_get) | **GET** /threatgraph/combined/edges/v1 | Retrieve edges for a given vertex id.  One edge type must be specified |
+| [**combined_ran_on_get**](Threatgraph.md#combined_ran_on_get) | **GET** /threatgraph/combined/ran-on/v1 | Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment. |
+| [**combined_summary_get**](Threatgraph.md#combined_summary_get) | **GET** /threatgraph/combined/{vertex-type}/summary/v1 | Retrieve summary for a given vertex ID |
+| [**entities_vertices_get**](Threatgraph.md#entities_vertices_get) | **GET** /threatgraph/entities/{vertex-type}/v1 | Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead. |
+| [**entities_vertices_getv2**](Threatgraph.md#entities_vertices_getv2) | **GET** /threatgraph/entities/{vertex-type}/v2 | Retrieve metadata for a given vertex ID |
+| [**queries_edgetypes_get**](Threatgraph.md#queries_edgetypes_get) | **GET** /threatgraph/queries/edge-types/v1 | Show all available edge types |
+
+
+## combined_edges_get
+
+> combined_edges_get(ids, edge_type, opts)
+
+Retrieve edges for a given vertex id.  One edge type must be specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+ids = 'ids_example' # String | Vertex ID to get details for.  Only one value is supported
+edge_type = 'accessed_ad_computer' # String | The type of edges that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: 'offset_example', # String | The offset to use to retrieve the next page of results
+  direction: 'direction_example', # String | The direction of edges that you would like to retrieve.
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve edges for a given vertex id.  One edge type must be specified
+  api_instance.combined_edges_get(ids, edge_type, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_edges_get: #{e}"
+end
+```
+
+#### Using the combined_edges_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_edges_get_with_http_info(ids, edge_type, opts)
+
+```ruby
+begin
+  # Retrieve edges for a given vertex id.  One edge type must be specified
+  data, status_code, headers = api_instance.combined_edges_get_with_http_info(ids, edge_type, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_edges_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | **String** | Vertex ID to get details for.  Only one value is supported |  |
+| **edge_type** | **String** | The type of edges that you would like to retrieve |  |
+| **limit** | **Integer** | How many edges to return in a single request [1-100] | [optional][default to 100] |
+| **offset** | **String** | The offset to use to retrieve the next page of results | [optional] |
+| **direction** | **String** | The direction of edges that you would like to retrieve. | [optional] |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_ran_on_get
+
+> combined_ran_on_get(value, type, opts)
+
+Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+value = 'value_example' # String | The value of the indicator to search by.
+type = 'domain' # String | The type of indicator that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: 'offset_example', # String | The offset to use to retrieve the next page of results
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+  api_instance.combined_ran_on_get(value, type, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_ran_on_get: #{e}"
+end
+```
+
+#### Using the combined_ran_on_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_ran_on_get_with_http_info(value, type, opts)
+
+```ruby
+begin
+  # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+  data, status_code, headers = api_instance.combined_ran_on_get_with_http_info(value, type, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_ran_on_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **value** | **String** | The value of the indicator to search by. |  |
+| **type** | **String** | The type of indicator that you would like to retrieve |  |
+| **limit** | **Integer** | How many edges to return in a single request [1-100] | [optional][default to 100] |
+| **offset** | **String** | The offset to use to retrieve the next page of results | [optional] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_summary_get
+
+> combined_summary_get(vertex_type, ids, opts)
+
+Retrieve summary for a given vertex ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve summary for a given vertex ID
+  api_instance.combined_summary_get(vertex_type, ids, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_summary_get: #{e}"
+end
+```
+
+#### Using the combined_summary_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_summary_get_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve summary for a given vertex ID
+  data, status_code, headers = api_instance.combined_summary_get_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_summary_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_vertices_get
+
+> <ThreatgraphVertexDetailsResponse> entities_vertices_get(vertex_type, ids, opts)
+
+Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+  result = api_instance.entities_vertices_get(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_get: #{e}"
+end
+```
+
+#### Using the entities_vertices_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)> entities_vertices_get_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+  data, status_code, headers = api_instance.entities_vertices_get_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ThreatgraphVertexDetailsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+[**ThreatgraphVertexDetailsResponse**](ThreatgraphVertexDetailsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_vertices_getv2
+
+> <ThreatgraphVertexDetailsResponse> entities_vertices_getv2(vertex_type, ids, opts)
+
+Retrieve metadata for a given vertex ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve metadata for a given vertex ID
+  result = api_instance.entities_vertices_getv2(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_getv2: #{e}"
+end
+```
+
+#### Using the entities_vertices_getv2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)> entities_vertices_getv2_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve metadata for a given vertex ID
+  data, status_code, headers = api_instance.entities_vertices_getv2_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ThreatgraphVertexDetailsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_getv2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+[**ThreatgraphVertexDetailsResponse**](ThreatgraphVertexDetailsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## queries_edgetypes_get
+
+> queries_edgetypes_get
+
+Show all available edge types
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+
+begin
+  # Show all available edge types
+  api_instance.queries_edgetypes_get
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->queries_edgetypes_get: #{e}"
+end
+```
+
+#### Using the queries_edgetypes_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> queries_edgetypes_get_with_http_info
+
+```ruby
+begin
+  # Show all available edge types
+  data, status_code, headers = api_instance.queries_edgetypes_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->queries_edgetypes_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > Threatgraph
+        </nav>
+        <h1>Falcon::Threatgraph
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**combined_edges_get**](Threatgraph.md#combined_edges_get) | **GET** /threatgraph/combined/edges/v1 | Retrieve edges for a given vertex id.  One edge type must be specified |
+| [**combined_ran_on_get**](Threatgraph.md#combined_ran_on_get) | **GET** /threatgraph/combined/ran-on/v1 | Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment. |
+| [**combined_summary_get**](Threatgraph.md#combined_summary_get) | **GET** /threatgraph/combined/{vertex-type}/summary/v1 | Retrieve summary for a given vertex ID |
+| [**entities_vertices_get**](Threatgraph.md#entities_vertices_get) | **GET** /threatgraph/entities/{vertex-type}/v1 | Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead. |
+| [**entities_vertices_getv2**](Threatgraph.md#entities_vertices_getv2) | **GET** /threatgraph/entities/{vertex-type}/v2 | Retrieve metadata for a given vertex ID |
+| [**queries_edgetypes_get**](Threatgraph.md#queries_edgetypes_get) | **GET** /threatgraph/queries/edge-types/v1 | Show all available edge types |
+
+
+## combined_edges_get
+
+> combined_edges_get(ids, edge_type, opts)
+
+Retrieve edges for a given vertex id.  One edge type must be specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+ids = 'ids_example' # String | Vertex ID to get details for.  Only one value is supported
+edge_type = 'accessed_ad_computer' # String | The type of edges that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: 'offset_example', # String | The offset to use to retrieve the next page of results
+  direction: 'direction_example', # String | The direction of edges that you would like to retrieve.
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve edges for a given vertex id.  One edge type must be specified
+  api_instance.combined_edges_get(ids, edge_type, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_edges_get: #{e}"
+end
+```
+
+#### Using the combined_edges_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_edges_get_with_http_info(ids, edge_type, opts)
+
+```ruby
+begin
+  # Retrieve edges for a given vertex id.  One edge type must be specified
+  data, status_code, headers = api_instance.combined_edges_get_with_http_info(ids, edge_type, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_edges_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | **String** | Vertex ID to get details for.  Only one value is supported |  |
+| **edge_type** | **String** | The type of edges that you would like to retrieve |  |
+| **limit** | **Integer** | How many edges to return in a single request [1-100] | [optional][default to 100] |
+| **offset** | **String** | The offset to use to retrieve the next page of results | [optional] |
+| **direction** | **String** | The direction of edges that you would like to retrieve. | [optional] |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_ran_on_get
+
+> combined_ran_on_get(value, type, opts)
+
+Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+value = 'value_example' # String | The value of the indicator to search by.
+type = 'domain' # String | The type of indicator that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: 'offset_example', # String | The offset to use to retrieve the next page of results
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+  api_instance.combined_ran_on_get(value, type, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_ran_on_get: #{e}"
+end
+```
+
+#### Using the combined_ran_on_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_ran_on_get_with_http_info(value, type, opts)
+
+```ruby
+begin
+  # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+  data, status_code, headers = api_instance.combined_ran_on_get_with_http_info(value, type, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_ran_on_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **value** | **String** | The value of the indicator to search by. |  |
+| **type** | **String** | The type of indicator that you would like to retrieve |  |
+| **limit** | **Integer** | How many edges to return in a single request [1-100] | [optional][default to 100] |
+| **offset** | **String** | The offset to use to retrieve the next page of results | [optional] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## combined_summary_get
+
+> combined_summary_get(vertex_type, ids, opts)
+
+Retrieve summary for a given vertex ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve summary for a given vertex ID
+  api_instance.combined_summary_get(vertex_type, ids, opts)
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_summary_get: #{e}"
+end
+```
+
+#### Using the combined_summary_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> combined_summary_get_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve summary for a given vertex ID
+  data, status_code, headers = api_instance.combined_summary_get_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->combined_summary_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_vertices_get
+
+> <ThreatgraphVertexDetailsResponse> entities_vertices_get(vertex_type, ids, opts)
+
+Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+  result = api_instance.entities_vertices_get(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_get: #{e}"
+end
+```
+
+#### Using the entities_vertices_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)> entities_vertices_get_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+  data, status_code, headers = api_instance.entities_vertices_get_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ThreatgraphVertexDetailsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+[**ThreatgraphVertexDetailsResponse**](ThreatgraphVertexDetailsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## entities_vertices_getv2
+
+> <ThreatgraphVertexDetailsResponse> entities_vertices_getv2(vertex_type, ids, opts)
+
+Retrieve metadata for a given vertex ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+vertex_type = 'accessory' # String | Type of vertex to get properties for
+ids = ['inner_example'] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}
+
+begin
+  # Retrieve metadata for a given vertex ID
+  result = api_instance.entities_vertices_getv2(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_getv2: #{e}"
+end
+```
+
+#### Using the entities_vertices_getv2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)> entities_vertices_getv2_with_http_info(vertex_type, ids, opts)
+
+```ruby
+begin
+  # Retrieve metadata for a given vertex ID
+  data, status_code, headers = api_instance.entities_vertices_getv2_with_http_info(vertex_type, ids, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ThreatgraphVertexDetailsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->entities_vertices_getv2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **vertex_type** | **String** | Type of vertex to get properties for |  |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Vertex ID to get details for |  |
+| **scope** | **String** | Scope of the request | [optional][default to &#39;device&#39;] |
+| **nano** | **Boolean** | Return nano-precision entity timestamps | [optional][default to false] |
+
+### Return type
+
+[**ThreatgraphVertexDetailsResponse**](ThreatgraphVertexDetailsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## queries_edgetypes_get
+
+> queries_edgetypes_get
+
+Show all available edge types
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Threatgraph.new
+
+begin
+  # Show all available edge types
+  api_instance.queries_edgetypes_get
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->queries_edgetypes_get: #{e}"
+end
+```
+
+#### Using the queries_edgetypes_get_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> queries_edgetypes_get_with_http_info
+
+```ruby
+begin
+  # Show all available edge types
+  data, status_code, headers = api_instance.queries_edgetypes_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue Falcon::ApiError => e
+  puts "Error when calling Threatgraph->queries_edgetypes_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconthreatgraph">Falcon::Threatgraph</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Threatgraph.md#combined_edges_get"><strong>combined_edges_get</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/combined/edges/v1</td>
+      <td>Retrieve edges for a given vertex id.  One edge type must be specified</td>
+    </tr>
+    <tr>
+      <td><a href="Threatgraph.md#combined_ran_on_get"><strong>combined_ran_on_get</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/combined/ran-on/v1</td>
+      <td>Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.</td>
+    </tr>
+    <tr>
+      <td><a href="Threatgraph.md#combined_summary_get"><strong>combined_summary_get</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/combined/{vertex-type}/summary/v1</td>
+      <td>Retrieve summary for a given vertex ID</td>
+    </tr>
+    <tr>
+      <td><a href="Threatgraph.md#entities_vertices_get"><strong>entities_vertices_get</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/entities/{vertex-type}/v1</td>
+      <td>Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.</td>
+    </tr>
+    <tr>
+      <td><a href="Threatgraph.md#entities_vertices_getv2"><strong>entities_vertices_getv2</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/entities/{vertex-type}/v2</td>
+      <td>Retrieve metadata for a given vertex ID</td>
+    </tr>
+    <tr>
+      <td><a href="Threatgraph.md#queries_edgetypes_get"><strong>queries_edgetypes_get</strong></a></td>
+      <td><strong>GET</strong> /threatgraph/queries/edge-types/v1</td>
+      <td>Show all available edge types</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="combinededgesget">combined_edges_get</h2>
+
+<blockquote>
+  <p>combined_edges_get(ids, edge_type, opts)</p>
+</blockquote>
+
+<p>Retrieve edges for a given vertex id.  One edge type must be specified</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new
+ids = ‘ids_example’ # String | Vertex ID to get details for.  Only one value is supported
+edge_type = ‘accessed_ad_computer’ # String | The type of edges that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: ‘offset_example’, # String | The offset to use to retrieve the next page of results
+  direction: ‘direction_example’, # String | The direction of edges that you would like to retrieve.
+  scope: ‘device’, # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}</p>
+
+<p>begin
+  # Retrieve edges for a given vertex id.  One edge type must be specified
+  api_instance.combined_edges_get(ids, edge_type, opts)
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;combined_edges_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-combinededgesgetwithhttpinfo-variant">Using the combined_edges_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data (<code class="language-ruby highlighter-rouge"><span class="kp">nil</span></code> in this case), status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(nil, Integer, Hash)&gt; combined_edges_get_with_http_info(ids, edge_type, opts)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve edges for a given vertex id.  One edge type must be specified</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">combined_edges_get_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">edge_type</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; nil</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;combined_edges_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><strong>String</strong></td>
+      <td>Vertex ID to get details for.  Only one value is supported</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>edge_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of edges that you would like to retrieve</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>How many edges to return in a single request [1-100]</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The offset to use to retrieve the next page of results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>direction</strong></td>
+      <td><strong>String</strong></td>
+      <td>The direction of edges that you would like to retrieve.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>scope</strong></td>
+      <td><strong>String</strong></td>
+      <td>Scope of the request</td>
+      <td>[optional][default to 'device']</td>
+    </tr>
+    <tr>
+      <td><strong>nano</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Return nano-precision entity timestamps</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p>nil (empty response body)</p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="combinedranonget">combined_ran_on_get</h2>
+
+<blockquote>
+  <p>combined_ran_on_get(value, type, opts)</p>
+</blockquote>
+
+<p>Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new
+value = ‘value_example’ # String | The value of the indicator to search by.
+type = ‘domain’ # String | The type of indicator that you would like to retrieve
+opts = {
+  limit: 56, # Integer | How many edges to return in a single request [1-100]
+  offset: ‘offset_example’, # String | The offset to use to retrieve the next page of results
+  nano: true # Boolean | Return nano-precision entity timestamps
+}</p>
+
+<p>begin
+  # Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
+  api_instance.combined_ran_on_get(value, type, opts)
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;combined_ran_on_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-combinedranongetwithhttpinfo-variant">Using the combined_ran_on_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data (<code class="language-ruby highlighter-rouge"><span class="kp">nil</span></code> in this case), status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(nil, Integer, Hash)&gt; combined_ran_on_get_with_http_info(value, type, opts)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">combined_ran_on_get_with_http_info</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; nil</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;combined_ran_on_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>value</strong></td>
+      <td><strong>String</strong></td>
+      <td>The value of the indicator to search by.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of indicator that you would like to retrieve</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>How many edges to return in a single request [1-100]</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>The offset to use to retrieve the next page of results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>nano</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Return nano-precision entity timestamps</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p>nil (empty response body)</p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="combinedsummaryget">combined_summary_get</h2>
+
+<blockquote>
+  <p>combined_summary_get(vertex_type, ids, opts)</p>
+</blockquote>
+
+<p>Retrieve summary for a given vertex ID</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new
+vertex_type = ‘accessory’ # String | Type of vertex to get properties for
+ids = [‘inner_example’] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}</String></p>
+
+<p>begin
+  # Retrieve summary for a given vertex ID
+  api_instance.combined_summary_get(vertex_type, ids, opts)
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;combined_summary_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-combinedsummarygetwithhttpinfo-variant">Using the combined_summary_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data (<code class="language-ruby highlighter-rouge"><span class="kp">nil</span></code> in this case), status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(nil, Integer, Hash)&gt; combined_summary_get_with_http_info(vertex_type, ids, opts)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve summary for a given vertex ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">combined_summary_get_with_http_info</span><span class="p">(</span><span class="n">vertex_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; nil</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;combined_summary_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>vertex_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>Type of vertex to get properties for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Vertex ID to get details for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>scope</strong></td>
+      <td><strong>String</strong></td>
+      <td>Scope of the request</td>
+      <td>[optional][default to 'device']</td>
+    </tr>
+    <tr>
+      <td><strong>nano</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Return nano-precision entity timestamps</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p>nil (empty response body)</p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="entitiesverticesget">entities_vertices_get</h2>
+
+<blockquote>
+  <ThreatgraphVertexDetailsResponse> entities_vertices_get(vertex_type, ids, opts)
+</ThreatgraphVertexDetailsResponse>
+</blockquote>
+
+<p>Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new
+vertex_type = ‘accessory’ # String | Type of vertex to get properties for
+ids = [‘inner_example’] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}</String></p>
+
+<p>begin
+  # Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
+  result = api_instance.entities_vertices_get(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;entities_vertices_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-entitiesverticesgetwithhttpinfo-variant">Using the entities_vertices_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)&gt; entities_vertices_get_with_http_info(vertex_type, ids, opts)</ThreatgraphVertexDetailsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">entities_vertices_get_with_http_info</span><span class="p">(</span><span class="n">vertex_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ThreatgraphVertexDetailsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;entities_vertices_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>vertex_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>Type of vertex to get properties for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Vertex ID to get details for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>scope</strong></td>
+      <td><strong>String</strong></td>
+      <td>Scope of the request</td>
+      <td>[optional][default to 'device']</td>
+    </tr>
+    <tr>
+      <td><strong>nano</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Return nano-precision entity timestamps</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="ThreatgraphVertexDetailsResponse.md"><strong>ThreatgraphVertexDetailsResponse</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="entitiesverticesgetv2">entities_vertices_getv2</h2>
+
+<blockquote>
+  <ThreatgraphVertexDetailsResponse> entities_vertices_getv2(vertex_type, ids, opts)
+</ThreatgraphVertexDetailsResponse>
+</blockquote>
+
+<p>Retrieve metadata for a given vertex ID</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new
+vertex_type = ‘accessory’ # String | Type of vertex to get properties for
+ids = [‘inner_example’] # Array<String> | Vertex ID to get details for
+opts = {
+  scope: 'device', # String | Scope of the request
+  nano: true # Boolean | Return nano-precision entity timestamps
+}</String></p>
+
+<p>begin
+  # Retrieve metadata for a given vertex ID
+  result = api_instance.entities_vertices_getv2(vertex_type, ids, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;entities_vertices_getv2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-entitiesverticesgetv2withhttpinfo-variant">Using the entities_vertices_getv2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ThreatgraphVertexDetailsResponse>, Integer, Hash)&gt; entities_vertices_getv2_with_http_info(vertex_type, ids, opts)</ThreatgraphVertexDetailsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve metadata for a given vertex ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">entities_vertices_getv2_with_http_info</span><span class="p">(</span><span class="n">vertex_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ThreatgraphVertexDetailsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;entities_vertices_getv2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>vertex_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>Type of vertex to get properties for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Vertex ID to get details for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>scope</strong></td>
+      <td><strong>String</strong></td>
+      <td>Scope of the request</td>
+      <td>[optional][default to 'device']</td>
+    </tr>
+    <tr>
+      <td><strong>nano</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Return nano-precision entity timestamps</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="ThreatgraphVertexDetailsResponse.md"><strong>ThreatgraphVertexDetailsResponse</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queriesedgetypesget">queries_edgetypes_get</h2>
+
+<blockquote>
+  <p>queries_edgetypes_get</p>
+</blockquote>
+
+<p>Show all available edge types</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Threatgraph.new</p>
+
+<p>begin
+  # Show all available edge types
+  api_instance.queries_edgetypes_get
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Threatgraph-&gt;queries_edgetypes_get: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queriesedgetypesgetwithhttpinfo-variant">Using the queries_edgetypes_get_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data (<code class="language-ruby highlighter-rouge"><span class="kp">nil</span></code> in this case), status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(nil, Integer, Hash)&gt; queries_edgetypes_get_with_http_info</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Show all available edge types</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">queries_edgetypes_get_with_http_info</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; nil</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Threatgraph-&gt;queries_edgetypes_get_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<p>This endpoint does not need any parameter.</p>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p>nil (empty response body)</p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DiscoverIot
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_iot_hosts**](DiscoverIot.md#get_iot_hosts) | **GET** /discover/entities/iot-hosts/v1 | Get details on IoT assets by providing one or more IDs. |
+| [**query_iot_hosts**](DiscoverIot.md#query_iot_hosts) | **GET** /discover/queries/iot-hosts/v1 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+| [**query_iot_hosts_v2**](DiscoverIot.md#query_iot_hosts_v2) | **GET** /discover/queries/iot-hosts/v2 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+
+
+## get_iot_hosts
+
+> <DomainDiscoverAPIIoTHostEntitiesResponse> get_iot_hosts(ids)
+
+Get details on IoT assets by providing one or more IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100). Find asset IDs with GET `/discover/queries/iot-hosts/v1`
+
+begin
+  # Get details on IoT assets by providing one or more IDs.
+  result = api_instance.get_iot_hosts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->get_iot_hosts: #{e}"
+end
+```
+
+#### Using the get_iot_hosts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainDiscoverAPIIoTHostEntitiesResponse>, Integer, Hash)> get_iot_hosts_with_http_info(ids)
+
+```ruby
+begin
+  # Get details on IoT assets by providing one or more IDs.
+  data, status_code, headers = api_instance.get_iot_hosts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainDiscoverAPIIoTHostEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->get_iot_hosts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | One or more asset IDs (max: 100). Find asset IDs with GET &#x60;/discover/queries/iot-hosts/v1&#x60; |  |
+
+### Return type
+
+[**DomainDiscoverAPIIoTHostEntitiesResponse**](DomainDiscoverAPIIoTHostEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_iot_hosts
+
+> <MsaspecQueryResponse> query_iot_hosts(opts)
+
+Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+opts = {
+  offset: 56, # Integer | An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `offset` parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  <ul><li>hostname|asc</li><li>product_type_desc|desc</li></ul>
+  filter: 'filter_example' # String | Filter assets using an FQL query. Common filter options include:<ul><li>entity_type:'managed'</li><li>product_type_desc:'Workstation'</li><li>platform_name:'Windows'</li><li>last_seen_timestamp:>'now-7d'</li></ul>    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).
+}
+
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts: #{e}"
+end
+```
+
+#### Using the query_iot_hosts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_iot_hosts_with_http_info(opts)
+
+```ruby
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  data, status_code, headers = api_instance.query_iot_hosts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results. | [optional] |
+| **limit** | **Integer** | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;offset&#x60; parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!). | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_iot_hosts_v2
+
+> <DomainDiscoverAPIResponse> query_iot_hosts_v2(opts)
+
+Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+opts = {
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `after` parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  <ul><li>hostname|asc</li><li>product_type_desc|desc</li></ul>
+  filter: 'filter_example' # String | Filter assets using an FQL query. Common filter options include:<ul><li>entity_type:'managed'</li><li>product_type_desc:'Workstation'</li><li>platform_name:'Windows'</li><li>last_seen_timestamp:>'now-7d'</li></ul>    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count    All filter fields and operations supports negation (!).
+}
+
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2: #{e}"
+end
+```
+
+#### Using the query_iot_hosts_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainDiscoverAPIResponse>, Integer, Hash)> query_iot_hosts_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  data, status_code, headers = api_instance.query_iot_hosts_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainDiscoverAPIResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results. | [optional] |
+| **limit** | **Integer** | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;after&#x60; parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!). | [optional] |
+
+### Return type
+
+[**DomainDiscoverAPIResponse**](DomainDiscoverAPIResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DiscoverIot
+        </nav>
+        <h1>Falcon::DiscoverIot
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_iot_hosts**](DiscoverIot.md#get_iot_hosts) | **GET** /discover/entities/iot-hosts/v1 | Get details on IoT assets by providing one or more IDs. |
+| [**query_iot_hosts**](DiscoverIot.md#query_iot_hosts) | **GET** /discover/queries/iot-hosts/v1 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+| [**query_iot_hosts_v2**](DiscoverIot.md#query_iot_hosts_v2) | **GET** /discover/queries/iot-hosts/v2 | Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria. |
+
+
+## get_iot_hosts
+
+> <DomainDiscoverAPIIoTHostEntitiesResponse> get_iot_hosts(ids)
+
+Get details on IoT assets by providing one or more IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+ids = ['inner_example'] # Array<String> | One or more asset IDs (max: 100). Find asset IDs with GET `/discover/queries/iot-hosts/v1`
+
+begin
+  # Get details on IoT assets by providing one or more IDs.
+  result = api_instance.get_iot_hosts(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->get_iot_hosts: #{e}"
+end
+```
+
+#### Using the get_iot_hosts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainDiscoverAPIIoTHostEntitiesResponse>, Integer, Hash)> get_iot_hosts_with_http_info(ids)
+
+```ruby
+begin
+  # Get details on IoT assets by providing one or more IDs.
+  data, status_code, headers = api_instance.get_iot_hosts_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainDiscoverAPIIoTHostEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->get_iot_hosts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | One or more asset IDs (max: 100). Find asset IDs with GET &#x60;/discover/queries/iot-hosts/v1&#x60; |  |
+
+### Return type
+
+[**DomainDiscoverAPIIoTHostEntitiesResponse**](DomainDiscoverAPIIoTHostEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_iot_hosts
+
+> <MsaspecQueryResponse> query_iot_hosts(opts)
+
+Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+opts = {
+  offset: 56, # Integer | An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `offset` parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  <ul><li>hostname|asc</li><li>product_type_desc|desc</li></ul>
+  filter: 'filter_example' # String | Filter assets using an FQL query. Common filter options include:<ul><li>entity_type:'managed'</li><li>product_type_desc:'Workstation'</li><li>platform_name:'Windows'</li><li>last_seen_timestamp:>'now-7d'</li></ul>    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).
+}
+
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts: #{e}"
+end
+```
+
+#### Using the query_iot_hosts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaspecQueryResponse>, Integer, Hash)> query_iot_hosts_with_http_info(opts)
+
+```ruby
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  data, status_code, headers = api_instance.query_iot_hosts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaspecQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **Integer** | An offset used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don’t provide an &#x60;offset&#x60;. On subsequent requests, add previous &#x60;offset&#x60; with the previous &#x60;limit&#x60; to continue from that place in the results. | [optional] |
+| **limit** | **Integer** | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;offset&#x60; parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!). | [optional] |
+
+### Return type
+
+[**MsaspecQueryResponse**](MsaspecQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_iot_hosts_v2
+
+> <DomainDiscoverAPIResponse> query_iot_hosts_v2(opts)
+
+Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::DiscoverIot.new
+opts = {
+  after: 'after_example', # String | A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `after` parameter to manage pagination of results.
+  sort: 'sort_example', # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  <ul><li>hostname|asc</li><li>product_type_desc|desc</li></ul>
+  filter: 'filter_example' # String | Filter assets using an FQL query. Common filter options include:<ul><li>entity_type:'managed'</li><li>product_type_desc:'Workstation'</li><li>platform_name:'Windows'</li><li>last_seen_timestamp:>'now-7d'</li></ul>    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (>, <, >=, <=): physical_connections_count    All filter fields and operations supports negation (!).
+}
+
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts_v2(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2: #{e}"
+end
+```
+
+#### Using the query_iot_hosts_v2_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainDiscoverAPIResponse>, Integer, Hash)> query_iot_hosts_v2_with_http_info(opts)
+
+```ruby
+begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  data, status_code, headers = api_instance.query_iot_hosts_v2_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainDiscoverAPIResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling DiscoverIot->query_iot_hosts_v2_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **after** | **String** | A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results. | [optional] |
+| **limit** | **Integer** | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the &#x60;after&#x60; parameter to manage pagination of results. | [optional] |
+| **sort** | **String** | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **filter** | **String** | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:&#39;managed&#39;&lt;/li&gt;&lt;li&gt;product_type_desc:&#39;Workstation&#39;&lt;/li&gt;&lt;li&gt;platform_name:&#39;Windows&#39;&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;&#39;now-7d&#39;&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): physical_connections_count    All filter fields and operations supports negation (!). | [optional] |
+
+### Return type
+
+[**DomainDiscoverAPIResponse**](DomainDiscoverAPIResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondiscoveriot">Falcon::DiscoverIot</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="DiscoverIot.md#get_iot_hosts"><strong>get_iot_hosts</strong></a></td>
+      <td><strong>GET</strong> /discover/entities/iot-hosts/v1</td>
+      <td>Get details on IoT assets by providing one or more IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="DiscoverIot.md#query_iot_hosts"><strong>query_iot_hosts</strong></a></td>
+      <td><strong>GET</strong> /discover/queries/iot-hosts/v1</td>
+      <td>Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</td>
+    </tr>
+    <tr>
+      <td><a href="DiscoverIot.md#query_iot_hosts_v2"><strong>query_iot_hosts_v2</strong></a></td>
+      <td><strong>GET</strong> /discover/queries/iot-hosts/v2</td>
+      <td>Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="getiothosts">get_iot_hosts</h2>
+
+<blockquote>
+  <DomainDiscoverAPIIoTHostEntitiesResponse> get_iot_hosts(ids)
+</DomainDiscoverAPIIoTHostEntitiesResponse>
+</blockquote>
+
+<p>Get details on IoT assets by providing one or more IDs.</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::DiscoverIot.new
+ids = [‘inner_example’] # Array<String> | One or more asset IDs (max: 100). Find asset IDs with GET `/discover/queries/iot-hosts/v1`</String></p>
+
+<p>begin
+  # Get details on IoT assets by providing one or more IDs.
+  result = api_instance.get_iot_hosts(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling DiscoverIot-&gt;get_iot_hosts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getiothostswithhttpinfo-variant">Using the get_iot_hosts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainDiscoverAPIIoTHostEntitiesResponse>, Integer, Hash)&gt; get_iot_hosts_with_http_info(ids)</DomainDiscoverAPIIoTHostEntitiesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get details on IoT assets by providing one or more IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_iot_hosts_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainDiscoverAPIIoTHostEntitiesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling DiscoverIot-&gt;get_iot_hosts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>One or more asset IDs (max: 100). Find asset IDs with GET `/discover/queries/iot-hosts/v1`</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="DomainDiscoverAPIIoTHostEntitiesResponse.md"><strong>DomainDiscoverAPIIoTHostEntitiesResponse</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryiothosts">query_iot_hosts</h2>
+
+<blockquote>
+  <MsaspecQueryResponse> query_iot_hosts(opts)
+</MsaspecQueryResponse>
+</blockquote>
+
+<p>Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::DiscoverIot.new
+opts = {
+  offset: 56, # Integer | An offset used with the <code class="language-ruby highlighter-rouge"><span class="n">limit</span></code> parameter to manage pagination of results. On your first request, don’t provide an <code class="language-ruby highlighter-rouge"><span class="n">offset</span></code>. On subsequent requests, add previous <code class="language-ruby highlighter-rouge"><span class="n">offset</span></code> with the previous <code class="language-ruby highlighter-rouge"><span class="n">limit</span></code> to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the <code class="language-ruby highlighter-rouge"><span class="n">offset</span></code> parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:’managed’&lt;/li&gt;&lt;li&gt;product_type_desc:’Workstation’&lt;/li&gt;&lt;li&gt;platform_name:’Windows’&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;’now-7d’&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).
+}</p>
+
+<p>begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling DiscoverIot-&gt;query_iot_hosts: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryiothostswithhttpinfo-variant">Using the query_iot_hosts_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaspecQueryResponse>, Integer, Hash)&gt; query_iot_hosts_with_http_info(opts)</MsaspecQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_iot_hosts_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaspecQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling DiscoverIot-&gt;query_iot_hosts_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>An offset used with the `limit` parameter to manage pagination of results. On your first request, don’t provide an `offset`. On subsequent requests, add previous `offset` with the previous `limit` to continue from that place in the results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `offset` parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;product_type_desc</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:'managed'&lt;/li&gt;&lt;li&gt;product_type_desc:'Workstation'&lt;/li&gt;&lt;li&gt;platform_name:'Windows'&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;'now-7d'&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers, local_ips_count, network_interfaces.local_ip, classification    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): physical_connections_count, local_ips_count    All filter fields and operations supports negation (!).</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="MsaspecQueryResponse.md"><strong>MsaspecQueryResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryiothostsv2">query_iot_hosts_v2</h2>
+
+<blockquote>
+  <DomainDiscoverAPIResponse> query_iot_hosts_v2(opts)
+</DomainDiscoverAPIResponse>
+</blockquote>
+
+<p>Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::DiscoverIot.new
+opts = {
+  after: ‘after_example’, # String | A pagination token used with the <code class="language-ruby highlighter-rouge"><span class="n">limit</span></code> parameter to manage pagination of results. On your first request, don’t provide an <code class="language-ruby highlighter-rouge"><span class="n">after</span></code> token. On subsequent requests, provide the <code class="language-ruby highlighter-rouge"><span class="n">after</span></code> token from the previous response to continue from that place in the results.
+  limit: 56, # Integer | The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the <code class="language-ruby highlighter-rouge"><span class="n">after</span></code> parameter to manage pagination of results.
+  sort: ‘sort_example’, # String | Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname|asc&lt;/li&gt;&lt;li&gt;product_type_desc|desc&lt;/li&gt;&lt;/ul&gt;
+  filter: ‘filter_example’ # String | Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:’managed’&lt;/li&gt;&lt;li&gt;product_type_desc:’Workstation’&lt;/li&gt;&lt;li&gt;platform_name:’Windows’&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;’now-7d’&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): physical_connections_count    All filter fields and operations supports negation (!).
+}</p>
+
+<p>begin
+  # Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
+  result = api_instance.query_iot_hosts_v2(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling DiscoverIot-&gt;query_iot_hosts_v2: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryiothostsv2withhttpinfo-variant">Using the query_iot_hosts_v2_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainDiscoverAPIResponse>, Integer, Hash)&gt; query_iot_hosts_v2_with_http_info(opts)</DomainDiscoverAPIResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_iot_hosts_v2_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainDiscoverAPIResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling DiscoverIot-&gt;query_iot_hosts_v2_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>after</strong></td>
+      <td><strong>String</strong></td>
+      <td>A pagination token used with the `limit` parameter to manage pagination of results. On your first request, don't provide an `after` token. On subsequent requests, provide the `after` token from the previous response to continue from that place in the results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The number of asset IDs to return in this response (min: 1, max: 100, default: 100). Use with the `after` parameter to manage pagination of results.</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort assets by their properties. A single sort field is allowed. Common sort options include:  &lt;ul&gt;&lt;li&gt;hostname</td>
+      <td>asc&lt;/li&gt;&lt;li&gt;product_type_desc</td>
+      <td>desc&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter assets using an FQL query. Common filter options include:&lt;ul&gt;&lt;li&gt;entity_type:'managed'&lt;/li&gt;&lt;li&gt;product_type_desc:'Workstation'&lt;/li&gt;&lt;li&gt;platform_name:'Windows'&lt;/li&gt;&lt;li&gt;last_seen_timestamp:&gt;'now-7d'&lt;/li&gt;&lt;/ul&gt;    Available filter fields that support exact match: device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, physical_connections_count, data_providers    Available filter fields that supports wildcard (*): device_family, device_class, device_type, device_mode, business_criticality, line_of_business, virtual_zone, subnet, purdue_level, vlan, local_ip_addresses, mac_addresses, data_providers    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;=, &lt;=): physical_connections_count    All filter fields and operations supports negation (!).</td>
+      <td>[optional]</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="DomainDiscoverAPIResponse.md"><strong>DomainDiscoverAPIResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

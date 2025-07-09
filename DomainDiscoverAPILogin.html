@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::DomainDiscoverAPILogin
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The ID of the account that made the login. | [optional] |
+| **account_name** | **String** | The name of the account that made the login (Domain\Username or Hostname\Username). | [optional] |
+| **account_type** | **String** | The type of the account that made the login. | [optional] |
+| **admin_privileges** | **String** | Whether the account that made the login has administrator privileges (Yes, No, or Unknown). | [optional] |
+| **aggregation_time_interval** | **String** | A login represents an aggregation of login attempts made in a window of time (1-hour window for logins in the past day, or 24-hour window for logins older than a day). | [optional] |
+| **aid** | **String** | The agent ID of the Falcon sensor installed on the asset where the login took place. | [optional] |
+| **cid** | **String** | The customer ID where login took place. | [optional] |
+| **failure_description** | **String** | The description of the reason why the login failed, if login_status&#x3D;{{TITLE}}quot;Failed{{TITLE}}quot;.&lt;ul&gt;&lt;li&gt;There are currently no login servers available to service the login request.&lt;/li&gt;&lt;li&gt;User login with misspelled or bad user account&lt;/li&gt;&lt;li&gt;User login with misspelled or bad password&lt;/li&gt;&lt;li&gt;This is either due to a bad username or authentication information&lt;/li&gt;&lt;li&gt;Unknown user name or bad password.&lt;/li&gt;&lt;li&gt;User login outside authorized hours&lt;/li&gt;&lt;li&gt;User login from unauthorized workstation&lt;/li&gt;&lt;li&gt;User login with expired password&lt;/li&gt;&lt;li&gt;User login to account disabled by administrator&lt;/li&gt;&lt;li&gt;Indicates the Sam Server was in the wrong state to perform the desired operation.&lt;/li&gt;&lt;li&gt;Clocks between DC and other computer too far out of sync&lt;/li&gt;&lt;li&gt;The user has not been granted the requested login type (aka login right) at this machine&lt;/li&gt;&lt;li&gt;The login request failed because the trust relationship between the primary domain and the trusted domain failed.&lt;/li&gt;&lt;li&gt;An attempt was made to login, but the Netlogon service was not started.&lt;/li&gt;&lt;li&gt;User login with expired account&lt;/li&gt;&lt;li&gt;User is required to change password at next login&lt;/li&gt;&lt;li&gt;Evidently a bug in Windows and not a risk&lt;/li&gt;&lt;li&gt;User login with account locked&lt;/li&gt;&lt;li&gt;Failure Reason: An Error occurred during Login&lt;/li&gt;&lt;li&gt;Login Failure: The machine you are logging in to is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine.&lt;/li&gt;&lt;li&gt;Status OK.&lt;/li&gt;&lt;li&gt;Invalid password entered&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **host_city** | **String** | The name of the city where the asset is located where the login took place. | [optional] |
+| **host_country** | **String** | The name of the country where the asset is located on which the login took place. | [optional] |
+| **host_id** | **String** | The unique ID of the asset where the login took place. | [optional] |
+| **hostname** | **String** | The hostname of the host where the login took place. | [optional] |
+| **id** | **String** | The unique ID of the login. | [optional] |
+| **is_suspicious** | **Boolean** | Whether the failed login is considered suspicious based on criteria including login failures and locations (true or false). | [optional] |
+| **local_admin_privileges** | **String** | Whether the account has local administrator privileges (Yes, No). | [optional] |
+| **local_ip** | **String** | The external IP address of the asset where the login took place. | [optional] |
+| **login_domain** | **String** | The domain of the asset where the login took place. | [optional] |
+| **login_event_count** | **Integer** | Number of times a login attempt happened in the specified aggregation time interval for this login (1-hour window for logins in the past day, or 24-hour window for logins older than a day). | [optional] |
+| **login_status** | **String** | The status of the login (Successful or Failed). | [optional] |
+| **login_timestamp** | **String** | The date and time of the most recent attempt in the login. | [optional] |
+| **login_type** | **String** | The type of the login.  For successful logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Remote interactive&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; For failed logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Batch&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Unlock&lt;/li&gt;&lt;li&gt;Network cleartext&lt;/li&gt;&lt;li&gt;New credentials&lt;/li&gt;&lt;li&gt;Remote Credentials&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **remote_ip** | **String** | The remote IP address where the login was initiated. | [optional] |
+| **user_sid** | **String** | The security identifier of the account on a Windows asset that made the login. | [optional] |
+| **username** | **String** | The username of the account that made the login. | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainDiscoverAPILogin.new(
+  account_id: null,
+  account_name: null,
+  account_type: null,
+  admin_privileges: null,
+  aggregation_time_interval: null,
+  aid: null,
+  cid: null,
+  failure_description: null,
+  host_city: null,
+  host_country: null,
+  host_id: null,
+  hostname: null,
+  id: null,
+  is_suspicious: null,
+  local_admin_privileges: null,
+  local_ip: null,
+  login_domain: null,
+  login_event_count: null,
+  login_status: null,
+  login_timestamp: null,
+  login_type: null,
+  remote_ip: null,
+  user_sid: null,
+  username: null
+)
+``` - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > DomainDiscoverAPILogin
+        </nav>
+        <h1>Falcon::DomainDiscoverAPILogin
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The ID of the account that made the login. | [optional] |
+| **account_name** | **String** | The name of the account that made the login (Domain\Username or Hostname\Username). | [optional] |
+| **account_type** | **String** | The type of the account that made the login. | [optional] |
+| **admin_privileges** | **String** | Whether the account that made the login has administrator privileges (Yes, No, or Unknown). | [optional] |
+| **aggregation_time_interval** | **String** | A login represents an aggregation of login attempts made in a window of time (1-hour window for logins in the past day, or 24-hour window for logins older than a day). | [optional] |
+| **aid** | **String** | The agent ID of the Falcon sensor installed on the asset where the login took place. | [optional] |
+| **cid** | **String** | The customer ID where login took place. | [optional] |
+| **failure_description** | **String** | The description of the reason why the login failed, if login_status&#x3D;{{PAGE_TITLE}}quot;Failed{{PAGE_TITLE}}quot;.&lt;ul&gt;&lt;li&gt;There are currently no login servers available to service the login request.&lt;/li&gt;&lt;li&gt;User login with misspelled or bad user account&lt;/li&gt;&lt;li&gt;User login with misspelled or bad password&lt;/li&gt;&lt;li&gt;This is either due to a bad username or authentication information&lt;/li&gt;&lt;li&gt;Unknown user name or bad password.&lt;/li&gt;&lt;li&gt;User login outside authorized hours&lt;/li&gt;&lt;li&gt;User login from unauthorized workstation&lt;/li&gt;&lt;li&gt;User login with expired password&lt;/li&gt;&lt;li&gt;User login to account disabled by administrator&lt;/li&gt;&lt;li&gt;Indicates the Sam Server was in the wrong state to perform the desired operation.&lt;/li&gt;&lt;li&gt;Clocks between DC and other computer too far out of sync&lt;/li&gt;&lt;li&gt;The user has not been granted the requested login type (aka login right) at this machine&lt;/li&gt;&lt;li&gt;The login request failed because the trust relationship between the primary domain and the trusted domain failed.&lt;/li&gt;&lt;li&gt;An attempt was made to login, but the Netlogon service was not started.&lt;/li&gt;&lt;li&gt;User login with expired account&lt;/li&gt;&lt;li&gt;User is required to change password at next login&lt;/li&gt;&lt;li&gt;Evidently a bug in Windows and not a risk&lt;/li&gt;&lt;li&gt;User login with account locked&lt;/li&gt;&lt;li&gt;Failure Reason: An Error occurred during Login&lt;/li&gt;&lt;li&gt;Login Failure: The machine you are logging in to is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine.&lt;/li&gt;&lt;li&gt;Status OK.&lt;/li&gt;&lt;li&gt;Invalid password entered&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **host_city** | **String** | The name of the city where the asset is located where the login took place. | [optional] |
+| **host_country** | **String** | The name of the country where the asset is located on which the login took place. | [optional] |
+| **host_id** | **String** | The unique ID of the asset where the login took place. | [optional] |
+| **hostname** | **String** | The hostname of the host where the login took place. | [optional] |
+| **id** | **String** | The unique ID of the login. | [optional] |
+| **is_suspicious** | **Boolean** | Whether the failed login is considered suspicious based on criteria including login failures and locations (true or false). | [optional] |
+| **local_admin_privileges** | **String** | Whether the account has local administrator privileges (Yes, No). | [optional] |
+| **local_ip** | **String** | The external IP address of the asset where the login took place. | [optional] |
+| **login_domain** | **String** | The domain of the asset where the login took place. | [optional] |
+| **login_event_count** | **Integer** | Number of times a login attempt happened in the specified aggregation time interval for this login (1-hour window for logins in the past day, or 24-hour window for logins older than a day). | [optional] |
+| **login_status** | **String** | The status of the login (Successful or Failed). | [optional] |
+| **login_timestamp** | **String** | The date and time of the most recent attempt in the login. | [optional] |
+| **login_type** | **String** | The type of the login.  For successful logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Remote interactive&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; For failed logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Batch&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Unlock&lt;/li&gt;&lt;li&gt;Network cleartext&lt;/li&gt;&lt;li&gt;New credentials&lt;/li&gt;&lt;li&gt;Remote Credentials&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; | [optional] |
+| **remote_ip** | **String** | The remote IP address where the login was initiated. | [optional] |
+| **user_sid** | **String** | The security identifier of the account on a Windows asset that made the login. | [optional] |
+| **username** | **String** | The username of the account that made the login. | [optional] |
+
+## Example
+
+```ruby
+require 'crimson-falcon'
+
+instance = Falcon::DomainDiscoverAPILogin.new(
+  account_id: null,
+  account_name: null,
+  account_type: null,
+  admin_privileges: null,
+  aggregation_time_interval: null,
+  aid: null,
+  cid: null,
+  failure_description: null,
+  host_city: null,
+  host_country: null,
+  host_id: null,
+  hostname: null,
+  id: null,
+  is_suspicious: null,
+  local_admin_privileges: null,
+  local_ip: null,
+  login_domain: null,
+  login_event_count: null,
+  login_status: null,
+  login_timestamp: null,
+  login_type: null,
+  remote_ip: null,
+  user_sid: null,
+  username: null
+)
+```</h1>
+    </div>
+
+    <main>
+        <h1 id="falcondomaindiscoverapilogin">Falcon::DomainDiscoverAPILogin</h1>
+
+<h2 id="properties">Properties</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>account_id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The ID of the account that made the login.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>account_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The name of the account that made the login (Domain\Username or Hostname\Username).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>account_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of the account that made the login.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>admin_privileges</strong></td>
+      <td><strong>String</strong></td>
+      <td>Whether the account that made the login has administrator privileges (Yes, No, or Unknown).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>aggregation_time_interval</strong></td>
+      <td><strong>String</strong></td>
+      <td>A login represents an aggregation of login attempts made in a window of time (1-hour window for logins in the past day, or 24-hour window for logins older than a day).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>aid</strong></td>
+      <td><strong>String</strong></td>
+      <td>The agent ID of the Falcon sensor installed on the asset where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>cid</strong></td>
+      <td><strong>String</strong></td>
+      <td>The customer ID where login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>failure_description</strong></td>
+      <td><strong>String</strong></td>
+      <td>The description of the reason why the login failed, if login_status=\"Failed\".&lt;ul&gt;&lt;li&gt;There are currently no login servers available to service the login request.&lt;/li&gt;&lt;li&gt;User login with misspelled or bad user account&lt;/li&gt;&lt;li&gt;User login with misspelled or bad password&lt;/li&gt;&lt;li&gt;This is either due to a bad username or authentication information&lt;/li&gt;&lt;li&gt;Unknown user name or bad password.&lt;/li&gt;&lt;li&gt;User login outside authorized hours&lt;/li&gt;&lt;li&gt;User login from unauthorized workstation&lt;/li&gt;&lt;li&gt;User login with expired password&lt;/li&gt;&lt;li&gt;User login to account disabled by administrator&lt;/li&gt;&lt;li&gt;Indicates the Sam Server was in the wrong state to perform the desired operation.&lt;/li&gt;&lt;li&gt;Clocks between DC and other computer too far out of sync&lt;/li&gt;&lt;li&gt;The user has not been granted the requested login type (aka login right) at this machine&lt;/li&gt;&lt;li&gt;The login request failed because the trust relationship between the primary domain and the trusted domain failed.&lt;/li&gt;&lt;li&gt;An attempt was made to login, but the Netlogon service was not started.&lt;/li&gt;&lt;li&gt;User login with expired account&lt;/li&gt;&lt;li&gt;User is required to change password at next login&lt;/li&gt;&lt;li&gt;Evidently a bug in Windows and not a risk&lt;/li&gt;&lt;li&gt;User login with account locked&lt;/li&gt;&lt;li&gt;Failure Reason: An Error occurred during Login&lt;/li&gt;&lt;li&gt;Login Failure: The machine you are logging in to is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine.&lt;/li&gt;&lt;li&gt;Status OK.&lt;/li&gt;&lt;li&gt;Invalid password entered&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>host_city</strong></td>
+      <td><strong>String</strong></td>
+      <td>The name of the city where the asset is located where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>host_country</strong></td>
+      <td><strong>String</strong></td>
+      <td>The name of the country where the asset is located on which the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>host_id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The unique ID of the asset where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>hostname</strong></td>
+      <td><strong>String</strong></td>
+      <td>The hostname of the host where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The unique ID of the login.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>is_suspicious</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Whether the failed login is considered suspicious based on criteria including login failures and locations (true or false).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>local_admin_privileges</strong></td>
+      <td><strong>String</strong></td>
+      <td>Whether the account has local administrator privileges (Yes, No).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>local_ip</strong></td>
+      <td><strong>String</strong></td>
+      <td>The external IP address of the asset where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>login_domain</strong></td>
+      <td><strong>String</strong></td>
+      <td>The domain of the asset where the login took place.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>login_event_count</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of times a login attempt happened in the specified aggregation time interval for this login (1-hour window for logins in the past day, or 24-hour window for logins older than a day).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>login_status</strong></td>
+      <td><strong>String</strong></td>
+      <td>The status of the login (Successful or Failed).</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>login_timestamp</strong></td>
+      <td><strong>String</strong></td>
+      <td>The date and time of the most recent attempt in the login.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>login_type</strong></td>
+      <td><strong>String</strong></td>
+      <td>The type of the login.  For successful logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Remote interactive&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt; For failed logins: &lt;ul&gt;&lt;li&gt;Interactive&lt;/li&gt;&lt;li&gt;Network&lt;/li&gt;&lt;li&gt;Batch&lt;/li&gt;&lt;li&gt;Service&lt;/li&gt;&lt;li&gt;Unlock&lt;/li&gt;&lt;li&gt;Network cleartext&lt;/li&gt;&lt;li&gt;New credentials&lt;/li&gt;&lt;li&gt;Remote Credentials&lt;/li&gt;&lt;li&gt;Cached credentials&lt;/li&gt;&lt;li&gt;Auditing&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>remote_ip</strong></td>
+      <td><strong>String</strong></td>
+      <td>The remote IP address where the login was initiated.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>user_sid</strong></td>
+      <td><strong>String</strong></td>
+      <td>The security identifier of the account on a Windows asset that made the login.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>username</strong></td>
+      <td><strong>String</strong></td>
+      <td>The username of the account that made the login.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
+
+<p>```ruby
+require ‘crimson-falcon’</p>
+
+<p>instance = Falcon::DomainDiscoverAPILogin.new(
+  account_id: null,
+  account_name: null,
+  account_type: null,
+  admin_privileges: null,
+  aggregation_time_interval: null,
+  aid: null,
+  cid: null,
+  failure_description: null,
+  host_city: null,
+  host_country: null,
+  host_id: null,
+  hostname: null,
+  id: null,
+  is_suspicious: null,
+  local_admin_privileges: null,
+  local_ip: null,
+  login_domain: null,
+  login_event_count: null,
+  login_status: null,
+  login_timestamp: null,
+  login_type: null,
+  remote_ip: null,
+  user_sid: null,
+  username: null
+)
+```</p>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

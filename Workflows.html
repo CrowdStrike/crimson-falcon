@@ -1,0 +1,4964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::Workflows
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**workflow_activities_combined**](Workflows.md#workflow_activities_combined) | **GET** /workflows/combined/activities/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_activities_content_combined**](Workflows.md#workflow_activities_content_combined) | **GET** /workflows/combined/activity-content/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_definitions_combined**](Workflows.md#workflow_definitions_combined) | **GET** /workflows/combined/definitions/v1 | Search workflow definitions based on the provided filter |
+| [**workflow_definitions_export**](Workflows.md#workflow_definitions_export) | **GET** /workflows/entities/definitions/export/v1 | Exports a workflow definition for the given definition ID |
+| [**workflow_definitions_import**](Workflows.md#workflow_definitions_import) | **POST** /workflows/entities/definitions/import/v1 | Imports a workflow definition based on the provided model |
+| [**workflow_definitions_update**](Workflows.md#workflow_definitions_update) | **PUT** /workflows/entities/definitions/v1 | Updates a workflow definition based on the provided model |
+| [**workflow_execute**](Workflows.md#workflow_execute) | **POST** /workflows/entities/execute/v1 | Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execute_internal**](Workflows.md#workflow_execute_internal) | **POST** /workflows/entities/execute/internal/v1 | Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execution_results**](Workflows.md#workflow_execution_results) | **GET** /workflows/entities/execution-results/v1 | Get execution result of a given execution |
+| [**workflow_executions_action**](Workflows.md#workflow_executions_action) | **POST** /workflows/entities/execution-actions/v1 | Allows a user to resume/retry a failed workflow execution. |
+| [**workflow_executions_combined**](Workflows.md#workflow_executions_combined) | **GET** /workflows/combined/executions/v1 | Search workflow executions based on the provided filter |
+| [**workflow_get_human_input_v1**](Workflows.md#workflow_get_human_input_v1) | **GET** /workflows/entities/human-inputs/v1 | Gets one or more specific human inputs by their IDs. |
+| [**workflow_mock_execute**](Workflows.md#workflow_mock_execute) | **POST** /workflows/entities/mock-executions/v1 | Executes a workflow definition with mocks |
+| [**workflow_system_definitions_de_provision**](Workflows.md#workflow_system_definitions_de_provision) | **POST** /workflows/system-definitions/deprovision/v1 | Deprovisions a system definition that was previously provisioned on the target CID |
+| [**workflow_system_definitions_promote**](Workflows.md#workflow_system_definitions_promote) | **POST** /workflows/system-definitions/promote/v1 | Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated. |
+| [**workflow_system_definitions_provision**](Workflows.md#workflow_system_definitions_provision) | **POST** /workflows/system-definitions/provision/v1 | Provisions a system definition onto the target CID by using the template and provided parameters |
+| [**workflow_triggers_combined**](Workflows.md#workflow_triggers_combined) | **GET** /workflows/combined/triggers/v1 | Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified |
+| [**workflow_update_human_input_v1**](Workflows.md#workflow_update_human_input_v1) | **PATCH** /workflows/entities/human-inputs/v1 | Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted. |
+
+
+## workflow_activities_combined
+
+> <ActivitiesActivityExternalResponse> workflow_activities_combined(opts)
+
+Search for activities by name. Returns all supported activities if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_combined: #{e}"
+end
+```
+
+#### Using the workflow_activities_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ActivitiesActivityExternalResponse>, Integer, Hash)> workflow_activities_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  data, status_code, headers = api_instance.workflow_activities_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ActivitiesActivityExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ActivitiesActivityExternalResponse**](ActivitiesActivityExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_activities_content_combined
+
+> <ActivitiesActivityExternalResponse> workflow_activities_content_combined(opts)
+
+Search for activities by name. Returns all supported activities if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_content_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined: #{e}"
+end
+```
+
+#### Using the workflow_activities_content_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ActivitiesActivityExternalResponse>, Integer, Hash)> workflow_activities_content_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  data, status_code, headers = api_instance.workflow_activities_content_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ActivitiesActivityExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ActivitiesActivityExternalResponse**](ActivitiesActivityExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_definitions_combined
+
+> <DefinitionsDefinitionExternalResponse> workflow_definitions_combined(opts)
+
+Search workflow definitions based on the provided filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search workflow definitions based on the provided filter
+  result = api_instance.workflow_definitions_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_combined: #{e}"
+end
+```
+
+#### Using the workflow_definitions_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionExternalResponse>, Integer, Hash)> workflow_definitions_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search workflow definitions based on the provided filter
+  data, status_code, headers = api_instance.workflow_definitions_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**DefinitionsDefinitionExternalResponse**](DefinitionsDefinitionExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml
+
+
+## workflow_definitions_export
+
+> Array&lt;Integer&gt; workflow_definitions_export(id, opts)
+
+Exports a workflow definition for the given definition ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+id = 'id_example' # String | ID of workflow definitions to return details for
+opts = {
+  sanitize: true # Boolean | whether or not to sanitize PII from workflow before it's exported
+}
+
+begin
+  # Exports a workflow definition for the given definition ID
+  result = api_instance.workflow_definitions_export(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_export: #{e}"
+end
+```
+
+#### Using the workflow_definitions_export_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> workflow_definitions_export_with_http_info(id, opts)
+
+```ruby
+begin
+  # Exports a workflow definition for the given definition ID
+  data, status_code, headers = api_instance.workflow_definitions_export_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;Integer&gt;
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_export_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | ID of workflow definitions to return details for |  |
+| **sanitize** | **Boolean** | whether or not to sanitize PII from workflow before it&#39;s exported | [optional][default to true] |
+
+### Return type
+
+**Array&lt;Integer&gt;**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/yaml, application/json
+
+
+## workflow_definitions_import
+
+> <DefinitionsDefinitionImportResponse> workflow_definitions_import(data_file, opts)
+
+Imports a workflow definition based on the provided model
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+data_file = File.new('/path/to/some/file') # File | A workflow definition in YAML format to import
+opts = {
+  name: 'name_example', # String | Workflow name to override
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}
+
+begin
+  # Imports a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_import(data_file, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_import: #{e}"
+end
+```
+
+#### Using the workflow_definitions_import_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionImportResponse>, Integer, Hash)> workflow_definitions_import_with_http_info(data_file, opts)
+
+```ruby
+begin
+  # Imports a workflow definition based on the provided model
+  data, status_code, headers = api_instance.workflow_definitions_import_with_http_info(data_file, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionImportResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_import_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data_file** | **File** | A workflow definition in YAML format to import |  |
+| **name** | **String** | Workflow name to override | [optional] |
+| **validate_only** | **Boolean** | When enabled, prevents saving workflow after validating | [optional][default to false] |
+
+### Return type
+
+[**DefinitionsDefinitionImportResponse**](DefinitionsDefinitionImportResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+## workflow_definitions_update
+
+> <ApiResourceIDsResponse> workflow_definitions_update(body, opts)
+
+Updates a workflow definition based on the provided model
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ModelsDefinitionUpdateRequestV2.new({definition: Falcon::V2Definition.new({name: 'name_example', node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: , trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: , uniq_node_seen: { key: false}}), enabled: false, id: 'id_example'}) # ModelsDefinitionUpdateRequestV2 | 
+opts = {
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}
+
+begin
+  # Updates a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_update(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_update: #{e}"
+end
+```
+
+#### Using the workflow_definitions_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_definitions_update_with_http_info(body, opts)
+
+```ruby
+begin
+  # Updates a workflow definition based on the provided model
+  data, status_code, headers = api_instance.workflow_definitions_update_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsDefinitionUpdateRequestV2**](ModelsDefinitionUpdateRequestV2.md) |  |  |
+| **validate_only** | **Boolean** | When enabled, prevents saving workflow after validating | [optional][default to false] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
+## workflow_execute
+
+> <ApiResourceIDsResponse> workflow_execute(body, opts)
+
+Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = { ... } # Object | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}
+
+begin
+  # Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute: #{e}"
+end
+```
+
+#### Using the workflow_execute_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_execute_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+  data, status_code, headers = api_instance.workflow_execute_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **Object** |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | [**Array&lt;String&gt;**](String.md) | Definition ID to execute, either a name or an ID can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_execute_internal
+
+> <ApiResourceIDsResponse> workflow_execute_internal(body, opts)
+
+Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = { ... } # Object | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  batch_size: 56, # Integer | Used to set the batchSize, if unset the default batchSize is used
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}
+
+begin
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute_internal(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_internal: #{e}"
+end
+```
+
+#### Using the workflow_execute_internal_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_execute_internal_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  data, status_code, headers = api_instance.workflow_execute_internal_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_internal_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **Object** |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | [**Array&lt;String&gt;**](String.md) | Definition ID to execute, either a name or an ID can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **batch_size** | **Integer** | Used to set the batchSize, if unset the default batchSize is used | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_execution_results
+
+> <ApiExecutionResultsResponse> workflow_execution_results(ids)
+
+Get execution result of a given execution
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+ids = ['inner_example'] # Array<String> | workflow execution id to return results for.
+
+begin
+  # Get execution result of a given execution
+  result = api_instance.workflow_execution_results(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execution_results: #{e}"
+end
+```
+
+#### Using the workflow_execution_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiExecutionResultsResponse>, Integer, Hash)> workflow_execution_results_with_http_info(ids)
+
+```ruby
+begin
+  # Get execution result of a given execution
+  data, status_code, headers = api_instance.workflow_execution_results_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiExecutionResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execution_results_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | workflow execution id to return results for. |  |
+
+### Return type
+
+[**ApiExecutionResultsResponse**](ApiExecutionResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_executions_action
+
+> <DefinitionsDefinitionEntitiesResponse> workflow_executions_action(action_name, body)
+
+Allows a user to resume/retry a failed workflow execution.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+action_name = 'resume' # String | Specify one of these actions:  - `resume`: resume/retry the workflow execution(s) specified in ids
+body = Falcon::ClientActionRequest.new({ids: ['ids_example']}) # ClientActionRequest | 
+
+begin
+  # Allows a user to resume/retry a failed workflow execution.
+  result = api_instance.workflow_executions_action(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_action: #{e}"
+end
+```
+
+#### Using the workflow_executions_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionEntitiesResponse>, Integer, Hash)> workflow_executions_action_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Allows a user to resume/retry a failed workflow execution.
+  data, status_code, headers = api_instance.workflow_executions_action_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | Specify one of these actions:  - &#x60;resume&#x60;: resume/retry the workflow execution(s) specified in ids |  |
+| **body** | [**ClientActionRequest**](ClientActionRequest.md) |  |  |
+
+### Return type
+
+[**DefinitionsDefinitionEntitiesResponse**](DefinitionsDefinitionEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_executions_combined
+
+> <ApiExecutionResultsResponse> workflow_executions_combined(opts)
+
+Search workflow executions based on the provided filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search workflow executions based on the provided filter
+  result = api_instance.workflow_executions_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_combined: #{e}"
+end
+```
+
+#### Using the workflow_executions_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiExecutionResultsResponse>, Integer, Hash)> workflow_executions_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search workflow executions based on the provided filter
+  data, status_code, headers = api_instance.workflow_executions_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiExecutionResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ApiExecutionResultsResponse**](ApiExecutionResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_get_human_input_v1
+
+> <ModelUserInputReadResponse> workflow_get_human_input_v1(ids)
+
+Gets one or more specific human inputs by their IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+ids = ['inner_example'] # Array<String> | IDs of human inputs to read
+
+begin
+  # Gets one or more specific human inputs by their IDs.
+  result = api_instance.workflow_get_human_input_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_get_human_input_v1: #{e}"
+end
+```
+
+#### Using the workflow_get_human_input_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelUserInputReadResponse>, Integer, Hash)> workflow_get_human_input_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Gets one or more specific human inputs by their IDs.
+  data, status_code, headers = api_instance.workflow_get_human_input_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelUserInputReadResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_get_human_input_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of human inputs to read |  |
+
+### Return type
+
+[**ModelUserInputReadResponse**](ModelUserInputReadResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_mock_execute
+
+> <ApiResourceIDsResponse> workflow_mock_execute(body, opts)
+
+Executes a workflow definition with mocks
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ModelsMockExecutionCreateRequestV1.new({mocks: 'mocks_example'}) # ModelsMockExecutionCreateRequestV1 | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: 'definition_id_example', # String | Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example', # String | Used to record a URL to the source that led to triggering this workflow
+  validate_only: true # Boolean | When enabled, prevents execution after validating mocks against definition
+}
+
+begin
+  # Executes a workflow definition with mocks
+  result = api_instance.workflow_mock_execute(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_mock_execute: #{e}"
+end
+```
+
+#### Using the workflow_mock_execute_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_mock_execute_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes a workflow definition with mocks
+  data, status_code, headers = api_instance.workflow_mock_execute_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_mock_execute_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsMockExecutionCreateRequestV1**](ModelsMockExecutionCreateRequestV1.md) |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | **String** | Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+| **validate_only** | **Boolean** | When enabled, prevents execution after validating mocks against definition | [optional][default to false] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_de_provision
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_de_provision(body)
+
+Deprovisions a system definition that was previously provisioned on the target CID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionDeProvisionRequest.new({definition_id: 'definition_id_example', deprovision_all: false, template_id: 'template_id_example', template_name: 'template_name_example'}) # ClientSystemDefinitionDeProvisionRequest | 
+
+begin
+  # Deprovisions a system definition that was previously provisioned on the target CID
+  result = api_instance.workflow_system_definitions_de_provision(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_de_provision_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_de_provision_with_http_info(body)
+
+```ruby
+begin
+  # Deprovisions a system definition that was previously provisioned on the target CID
+  data, status_code, headers = api_instance.workflow_system_definitions_de_provision_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionDeProvisionRequest**](ClientSystemDefinitionDeProvisionRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_promote
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_promote(body)
+
+Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionPromoteRequest.new({customer_definition_id: 'customer_definition_id_example', name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionPromoteRequest | 
+
+begin
+  # Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+  result = api_instance.workflow_system_definitions_promote(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_promote: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_promote_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_promote_with_http_info(body)
+
+```ruby
+begin
+  # Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+  data, status_code, headers = api_instance.workflow_system_definitions_promote_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_promote_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionPromoteRequest**](ClientSystemDefinitionPromoteRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_provision
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_provision(body)
+
+Provisions a system definition onto the target CID by using the template and provided parameters
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionProvisionRequest.new({name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionProvisionRequest | 
+
+begin
+  # Provisions a system definition onto the target CID by using the template and provided parameters
+  result = api_instance.workflow_system_definitions_provision(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_provision: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_provision_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_provision_with_http_info(body)
+
+```ruby
+begin
+  # Provisions a system definition onto the target CID by using the template and provided parameters
+  data, status_code, headers = api_instance.workflow_system_definitions_provision_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_provision_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionProvisionRequest**](ClientSystemDefinitionProvisionRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_triggers_combined
+
+> <TriggersTriggerExternalResponse> workflow_triggers_combined(opts)
+
+Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example' # String | FQL query specifying filter parameters.
+}
+
+begin
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  result = api_instance.workflow_triggers_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_triggers_combined: #{e}"
+end
+```
+
+#### Using the workflow_triggers_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TriggersTriggerExternalResponse>, Integer, Hash)> workflow_triggers_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  data, status_code, headers = api_instance.workflow_triggers_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TriggersTriggerExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_triggers_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+
+### Return type
+
+[**TriggersTriggerExternalResponse**](TriggersTriggerExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_update_human_input_v1
+
+> <ApiResourceIDsResponse> workflow_update_human_input_v1(id, body)
+
+Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+id = 'id_example' # String | ID of human input to provide an input to
+body = Falcon::ModelUserInputUpdateRequest.new({input: 'input_example', note: 'note_example'}) # ModelUserInputUpdateRequest | 
+
+begin
+  # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+  result = api_instance.workflow_update_human_input_v1(id, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_update_human_input_v1: #{e}"
+end
+```
+
+#### Using the workflow_update_human_input_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_update_human_input_v1_with_http_info(id, body)
+
+```ruby
+begin
+  # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+  data, status_code, headers = api_instance.workflow_update_human_input_v1_with_http_info(id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_update_human_input_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | ID of human input to provide an input to |  |
+| **body** | [**ModelUserInputUpdateRequest**](ModelUserInputUpdateRequest.md) |  |  |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > Workflows
+        </nav>
+        <h1>Falcon::Workflows
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**workflow_activities_combined**](Workflows.md#workflow_activities_combined) | **GET** /workflows/combined/activities/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_activities_content_combined**](Workflows.md#workflow_activities_content_combined) | **GET** /workflows/combined/activity-content/v1 | Search for activities by name. Returns all supported activities if no filter specified |
+| [**workflow_definitions_combined**](Workflows.md#workflow_definitions_combined) | **GET** /workflows/combined/definitions/v1 | Search workflow definitions based on the provided filter |
+| [**workflow_definitions_export**](Workflows.md#workflow_definitions_export) | **GET** /workflows/entities/definitions/export/v1 | Exports a workflow definition for the given definition ID |
+| [**workflow_definitions_import**](Workflows.md#workflow_definitions_import) | **POST** /workflows/entities/definitions/import/v1 | Imports a workflow definition based on the provided model |
+| [**workflow_definitions_update**](Workflows.md#workflow_definitions_update) | **PUT** /workflows/entities/definitions/v1 | Updates a workflow definition based on the provided model |
+| [**workflow_execute**](Workflows.md#workflow_execute) | **POST** /workflows/entities/execute/v1 | Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execute_internal**](Workflows.md#workflow_execute_internal) | **POST** /workflows/entities/execute/internal/v1 | Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s) |
+| [**workflow_execution_results**](Workflows.md#workflow_execution_results) | **GET** /workflows/entities/execution-results/v1 | Get execution result of a given execution |
+| [**workflow_executions_action**](Workflows.md#workflow_executions_action) | **POST** /workflows/entities/execution-actions/v1 | Allows a user to resume/retry a failed workflow execution. |
+| [**workflow_executions_combined**](Workflows.md#workflow_executions_combined) | **GET** /workflows/combined/executions/v1 | Search workflow executions based on the provided filter |
+| [**workflow_get_human_input_v1**](Workflows.md#workflow_get_human_input_v1) | **GET** /workflows/entities/human-inputs/v1 | Gets one or more specific human inputs by their IDs. |
+| [**workflow_mock_execute**](Workflows.md#workflow_mock_execute) | **POST** /workflows/entities/mock-executions/v1 | Executes a workflow definition with mocks |
+| [**workflow_system_definitions_de_provision**](Workflows.md#workflow_system_definitions_de_provision) | **POST** /workflows/system-definitions/deprovision/v1 | Deprovisions a system definition that was previously provisioned on the target CID |
+| [**workflow_system_definitions_promote**](Workflows.md#workflow_system_definitions_promote) | **POST** /workflows/system-definitions/promote/v1 | Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated. |
+| [**workflow_system_definitions_provision**](Workflows.md#workflow_system_definitions_provision) | **POST** /workflows/system-definitions/provision/v1 | Provisions a system definition onto the target CID by using the template and provided parameters |
+| [**workflow_triggers_combined**](Workflows.md#workflow_triggers_combined) | **GET** /workflows/combined/triggers/v1 | Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified |
+| [**workflow_update_human_input_v1**](Workflows.md#workflow_update_human_input_v1) | **PATCH** /workflows/entities/human-inputs/v1 | Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted. |
+
+
+## workflow_activities_combined
+
+> <ActivitiesActivityExternalResponse> workflow_activities_combined(opts)
+
+Search for activities by name. Returns all supported activities if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_combined: #{e}"
+end
+```
+
+#### Using the workflow_activities_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ActivitiesActivityExternalResponse>, Integer, Hash)> workflow_activities_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  data, status_code, headers = api_instance.workflow_activities_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ActivitiesActivityExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ActivitiesActivityExternalResponse**](ActivitiesActivityExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_activities_content_combined
+
+> <ActivitiesActivityExternalResponse> workflow_activities_content_combined(opts)
+
+Search for activities by name. Returns all supported activities if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_content_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined: #{e}"
+end
+```
+
+#### Using the workflow_activities_content_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ActivitiesActivityExternalResponse>, Integer, Hash)> workflow_activities_content_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  data, status_code, headers = api_instance.workflow_activities_content_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ActivitiesActivityExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_activities_content_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ActivitiesActivityExternalResponse**](ActivitiesActivityExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_definitions_combined
+
+> <DefinitionsDefinitionExternalResponse> workflow_definitions_combined(opts)
+
+Search workflow definitions based on the provided filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search workflow definitions based on the provided filter
+  result = api_instance.workflow_definitions_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_combined: #{e}"
+end
+```
+
+#### Using the workflow_definitions_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionExternalResponse>, Integer, Hash)> workflow_definitions_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search workflow definitions based on the provided filter
+  data, status_code, headers = api_instance.workflow_definitions_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**DefinitionsDefinitionExternalResponse**](DefinitionsDefinitionExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml
+
+
+## workflow_definitions_export
+
+> Array&lt;Integer&gt; workflow_definitions_export(id, opts)
+
+Exports a workflow definition for the given definition ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+id = 'id_example' # String | ID of workflow definitions to return details for
+opts = {
+  sanitize: true # Boolean | whether or not to sanitize PII from workflow before it's exported
+}
+
+begin
+  # Exports a workflow definition for the given definition ID
+  result = api_instance.workflow_definitions_export(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_export: #{e}"
+end
+```
+
+#### Using the workflow_definitions_export_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> workflow_definitions_export_with_http_info(id, opts)
+
+```ruby
+begin
+  # Exports a workflow definition for the given definition ID
+  data, status_code, headers = api_instance.workflow_definitions_export_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;Integer&gt;
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_export_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | ID of workflow definitions to return details for |  |
+| **sanitize** | **Boolean** | whether or not to sanitize PII from workflow before it&#39;s exported | [optional][default to true] |
+
+### Return type
+
+**Array&lt;Integer&gt;**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/yaml, application/json
+
+
+## workflow_definitions_import
+
+> <DefinitionsDefinitionImportResponse> workflow_definitions_import(data_file, opts)
+
+Imports a workflow definition based on the provided model
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+data_file = File.new('/path/to/some/file') # File | A workflow definition in YAML format to import
+opts = {
+  name: 'name_example', # String | Workflow name to override
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}
+
+begin
+  # Imports a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_import(data_file, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_import: #{e}"
+end
+```
+
+#### Using the workflow_definitions_import_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionImportResponse>, Integer, Hash)> workflow_definitions_import_with_http_info(data_file, opts)
+
+```ruby
+begin
+  # Imports a workflow definition based on the provided model
+  data, status_code, headers = api_instance.workflow_definitions_import_with_http_info(data_file, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionImportResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_import_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data_file** | **File** | A workflow definition in YAML format to import |  |
+| **name** | **String** | Workflow name to override | [optional] |
+| **validate_only** | **Boolean** | When enabled, prevents saving workflow after validating | [optional][default to false] |
+
+### Return type
+
+[**DefinitionsDefinitionImportResponse**](DefinitionsDefinitionImportResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+## workflow_definitions_update
+
+> <ApiResourceIDsResponse> workflow_definitions_update(body, opts)
+
+Updates a workflow definition based on the provided model
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ModelsDefinitionUpdateRequestV2.new({definition: Falcon::V2Definition.new({name: 'name_example', node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: Falcon::V2Model.new({node_registry: { key: 'inner_example'}, parent: , trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: Falcon::V2Trigger.new({_next: ['_next_example']}), uniq_node_seen: { key: false}}), trigger: , uniq_node_seen: { key: false}}), enabled: false, id: 'id_example'}) # ModelsDefinitionUpdateRequestV2 | 
+opts = {
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}
+
+begin
+  # Updates a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_update(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_update: #{e}"
+end
+```
+
+#### Using the workflow_definitions_update_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_definitions_update_with_http_info(body, opts)
+
+```ruby
+begin
+  # Updates a workflow definition based on the provided model
+  data, status_code, headers = api_instance.workflow_definitions_update_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_definitions_update_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsDefinitionUpdateRequestV2**](ModelsDefinitionUpdateRequestV2.md) |  |  |
+| **validate_only** | **Boolean** | When enabled, prevents saving workflow after validating | [optional][default to false] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/yaml
+- **Accept**: application/json
+
+
+## workflow_execute
+
+> <ApiResourceIDsResponse> workflow_execute(body, opts)
+
+Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = { ... } # Object | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}
+
+begin
+  # Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute: #{e}"
+end
+```
+
+#### Using the workflow_execute_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_execute_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+  data, status_code, headers = api_instance.workflow_execute_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **Object** |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | [**Array&lt;String&gt;**](String.md) | Definition ID to execute, either a name or an ID can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_execute_internal
+
+> <ApiResourceIDsResponse> workflow_execute_internal(body, opts)
+
+Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = { ... } # Object | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  batch_size: 56, # Integer | Used to set the batchSize, if unset the default batchSize is used
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}
+
+begin
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute_internal(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_internal: #{e}"
+end
+```
+
+#### Using the workflow_execute_internal_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_execute_internal_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  data, status_code, headers = api_instance.workflow_execute_internal_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execute_internal_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | **Object** |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | [**Array&lt;String&gt;**](String.md) | Definition ID to execute, either a name or an ID can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **batch_size** | **Integer** | Used to set the batchSize, if unset the default batchSize is used | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_execution_results
+
+> <ApiExecutionResultsResponse> workflow_execution_results(ids)
+
+Get execution result of a given execution
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+ids = ['inner_example'] # Array<String> | workflow execution id to return results for.
+
+begin
+  # Get execution result of a given execution
+  result = api_instance.workflow_execution_results(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execution_results: #{e}"
+end
+```
+
+#### Using the workflow_execution_results_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiExecutionResultsResponse>, Integer, Hash)> workflow_execution_results_with_http_info(ids)
+
+```ruby
+begin
+  # Get execution result of a given execution
+  data, status_code, headers = api_instance.workflow_execution_results_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiExecutionResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_execution_results_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | workflow execution id to return results for. |  |
+
+### Return type
+
+[**ApiExecutionResultsResponse**](ApiExecutionResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_executions_action
+
+> <DefinitionsDefinitionEntitiesResponse> workflow_executions_action(action_name, body)
+
+Allows a user to resume/retry a failed workflow execution.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+action_name = 'resume' # String | Specify one of these actions:  - `resume`: resume/retry the workflow execution(s) specified in ids
+body = Falcon::ClientActionRequest.new({ids: ['ids_example']}) # ClientActionRequest | 
+
+begin
+  # Allows a user to resume/retry a failed workflow execution.
+  result = api_instance.workflow_executions_action(action_name, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_action: #{e}"
+end
+```
+
+#### Using the workflow_executions_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DefinitionsDefinitionEntitiesResponse>, Integer, Hash)> workflow_executions_action_with_http_info(action_name, body)
+
+```ruby
+begin
+  # Allows a user to resume/retry a failed workflow execution.
+  data, status_code, headers = api_instance.workflow_executions_action_with_http_info(action_name, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DefinitionsDefinitionEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | Specify one of these actions:  - &#x60;resume&#x60;: resume/retry the workflow execution(s) specified in ids |  |
+| **body** | [**ClientActionRequest**](ClientActionRequest.md) |  |  |
+
+### Return type
+
+[**DefinitionsDefinitionEntitiesResponse**](DefinitionsDefinitionEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_executions_combined
+
+> <ApiExecutionResultsResponse> workflow_executions_combined(opts)
+
+Search workflow executions based on the provided filter
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example', # String | FQL query specifying filter parameters.
+  offset: 'offset_example', # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: 'sort_example' # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}
+
+begin
+  # Search workflow executions based on the provided filter
+  result = api_instance.workflow_executions_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_combined: #{e}"
+end
+```
+
+#### Using the workflow_executions_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiExecutionResultsResponse>, Integer, Hash)> workflow_executions_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search workflow executions based on the provided filter
+  data, status_code, headers = api_instance.workflow_executions_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiExecutionResultsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_executions_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
+| **limit** | **Integer** | Maximum number of records to return. | [optional] |
+| **sort** | **String** | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending. | [optional] |
+
+### Return type
+
+[**ApiExecutionResultsResponse**](ApiExecutionResultsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_get_human_input_v1
+
+> <ModelUserInputReadResponse> workflow_get_human_input_v1(ids)
+
+Gets one or more specific human inputs by their IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+ids = ['inner_example'] # Array<String> | IDs of human inputs to read
+
+begin
+  # Gets one or more specific human inputs by their IDs.
+  result = api_instance.workflow_get_human_input_v1(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_get_human_input_v1: #{e}"
+end
+```
+
+#### Using the workflow_get_human_input_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelUserInputReadResponse>, Integer, Hash)> workflow_get_human_input_v1_with_http_info(ids)
+
+```ruby
+begin
+  # Gets one or more specific human inputs by their IDs.
+  data, status_code, headers = api_instance.workflow_get_human_input_v1_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelUserInputReadResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_get_human_input_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | IDs of human inputs to read |  |
+
+### Return type
+
+[**ModelUserInputReadResponse**](ModelUserInputReadResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_mock_execute
+
+> <ApiResourceIDsResponse> workflow_mock_execute(body, opts)
+
+Executes a workflow definition with mocks
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ModelsMockExecutionCreateRequestV1.new({mocks: 'mocks_example'}) # ModelsMockExecutionCreateRequestV1 | 
+opts = {
+  execution_cid: ['inner_example'], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: 'definition_id_example', # String | Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example', # String | Used to record a URL to the source that led to triggering this workflow
+  validate_only: true # Boolean | When enabled, prevents execution after validating mocks against definition
+}
+
+begin
+  # Executes a workflow definition with mocks
+  result = api_instance.workflow_mock_execute(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_mock_execute: #{e}"
+end
+```
+
+#### Using the workflow_mock_execute_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_mock_execute_with_http_info(body, opts)
+
+```ruby
+begin
+  # Executes a workflow definition with mocks
+  data, status_code, headers = api_instance.workflow_mock_execute_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_mock_execute_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ModelsMockExecutionCreateRequestV1**](ModelsMockExecutionCreateRequestV1.md) |  |  |
+| **execution_cid** | [**Array&lt;String&gt;**](String.md) | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used. | [optional] |
+| **definition_id** | **String** | Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified. | [optional] |
+| **name** | **String** | Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified. | [optional] |
+| **key** | **String** | Key used to help deduplicate executions, if unset a new UUID is used | [optional] |
+| **depth** | **Integer** | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4. | [optional] |
+| **source_event_url** | **String** | Used to record a URL to the source that led to triggering this workflow | [optional] |
+| **validate_only** | **Boolean** | When enabled, prevents execution after validating mocks against definition | [optional][default to false] |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_de_provision
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_de_provision(body)
+
+Deprovisions a system definition that was previously provisioned on the target CID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionDeProvisionRequest.new({definition_id: 'definition_id_example', deprovision_all: false, template_id: 'template_id_example', template_name: 'template_name_example'}) # ClientSystemDefinitionDeProvisionRequest | 
+
+begin
+  # Deprovisions a system definition that was previously provisioned on the target CID
+  result = api_instance.workflow_system_definitions_de_provision(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_de_provision_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_de_provision_with_http_info(body)
+
+```ruby
+begin
+  # Deprovisions a system definition that was previously provisioned on the target CID
+  data, status_code, headers = api_instance.workflow_system_definitions_de_provision_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_de_provision_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionDeProvisionRequest**](ClientSystemDefinitionDeProvisionRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_promote
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_promote(body)
+
+Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionPromoteRequest.new({customer_definition_id: 'customer_definition_id_example', name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionPromoteRequest | 
+
+begin
+  # Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+  result = api_instance.workflow_system_definitions_promote(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_promote: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_promote_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_promote_with_http_info(body)
+
+```ruby
+begin
+  # Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+  data, status_code, headers = api_instance.workflow_system_definitions_promote_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_promote_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionPromoteRequest**](ClientSystemDefinitionPromoteRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_system_definitions_provision
+
+> <ClientSystemDefinitionCreateResponse> workflow_system_definitions_provision(body)
+
+Provisions a system definition onto the target CID by using the template and provided parameters
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionProvisionRequest.new({name: 'name_example', parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: 'template_id_example', template_name: 'template_name_example', template_version: 'template_version_example'}) # ClientSystemDefinitionProvisionRequest | 
+
+begin
+  # Provisions a system definition onto the target CID by using the template and provided parameters
+  result = api_instance.workflow_system_definitions_provision(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_provision: #{e}"
+end
+```
+
+#### Using the workflow_system_definitions_provision_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)> workflow_system_definitions_provision_with_http_info(body)
+
+```ruby
+begin
+  # Provisions a system definition onto the target CID by using the template and provided parameters
+  data, status_code, headers = api_instance.workflow_system_definitions_provision_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientSystemDefinitionCreateResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_system_definitions_provision_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ClientSystemDefinitionProvisionRequest**](ClientSystemDefinitionProvisionRequest.md) |  |  |
+
+### Return type
+
+[**ClientSystemDefinitionCreateResponse**](ClientSystemDefinitionCreateResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## workflow_triggers_combined
+
+> <TriggersTriggerExternalResponse> workflow_triggers_combined(opts)
+
+Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+opts = {
+  filter: 'filter_example' # String | FQL query specifying filter parameters.
+}
+
+begin
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  result = api_instance.workflow_triggers_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_triggers_combined: #{e}"
+end
+```
+
+#### Using the workflow_triggers_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TriggersTriggerExternalResponse>, Integer, Hash)> workflow_triggers_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  data, status_code, headers = api_instance.workflow_triggers_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TriggersTriggerExternalResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_triggers_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | FQL query specifying filter parameters. | [optional] |
+
+### Return type
+
+[**TriggersTriggerExternalResponse**](TriggersTriggerExternalResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## workflow_update_human_input_v1
+
+> <ApiResourceIDsResponse> workflow_update_human_input_v1(id, body)
+
+Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::Workflows.new
+id = 'id_example' # String | ID of human input to provide an input to
+body = Falcon::ModelUserInputUpdateRequest.new({input: 'input_example', note: 'note_example'}) # ModelUserInputUpdateRequest | 
+
+begin
+  # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+  result = api_instance.workflow_update_human_input_v1(id, body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_update_human_input_v1: #{e}"
+end
+```
+
+#### Using the workflow_update_human_input_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiResourceIDsResponse>, Integer, Hash)> workflow_update_human_input_v1_with_http_info(id, body)
+
+```ruby
+begin
+  # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+  data, status_code, headers = api_instance.workflow_update_human_input_v1_with_http_info(id, body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiResourceIDsResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling Workflows->workflow_update_human_input_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | ID of human input to provide an input to |  |
+| **body** | [**ModelUserInputUpdateRequest**](ModelUserInputUpdateRequest.md) |  |  |
+
+### Return type
+
+[**ApiResourceIDsResponse**](ApiResourceIDsResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconworkflows">Falcon::Workflows</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="Workflows.md#workflow_activities_combined"><strong>workflow_activities_combined</strong></a></td>
+      <td><strong>GET</strong> /workflows/combined/activities/v1</td>
+      <td>Search for activities by name. Returns all supported activities if no filter specified</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_activities_content_combined"><strong>workflow_activities_content_combined</strong></a></td>
+      <td><strong>GET</strong> /workflows/combined/activity-content/v1</td>
+      <td>Search for activities by name. Returns all supported activities if no filter specified</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_definitions_combined"><strong>workflow_definitions_combined</strong></a></td>
+      <td><strong>GET</strong> /workflows/combined/definitions/v1</td>
+      <td>Search workflow definitions based on the provided filter</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_definitions_export"><strong>workflow_definitions_export</strong></a></td>
+      <td><strong>GET</strong> /workflows/entities/definitions/export/v1</td>
+      <td>Exports a workflow definition for the given definition ID</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_definitions_import"><strong>workflow_definitions_import</strong></a></td>
+      <td><strong>POST</strong> /workflows/entities/definitions/import/v1</td>
+      <td>Imports a workflow definition based on the provided model</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_definitions_update"><strong>workflow_definitions_update</strong></a></td>
+      <td><strong>PUT</strong> /workflows/entities/definitions/v1</td>
+      <td>Updates a workflow definition based on the provided model</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_execute"><strong>workflow_execute</strong></a></td>
+      <td><strong>POST</strong> /workflows/entities/execute/v1</td>
+      <td>Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_execute_internal"><strong>workflow_execute_internal</strong></a></td>
+      <td><strong>POST</strong> /workflows/entities/execute/internal/v1</td>
+      <td>Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_execution_results"><strong>workflow_execution_results</strong></a></td>
+      <td><strong>GET</strong> /workflows/entities/execution-results/v1</td>
+      <td>Get execution result of a given execution</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_executions_action"><strong>workflow_executions_action</strong></a></td>
+      <td><strong>POST</strong> /workflows/entities/execution-actions/v1</td>
+      <td>Allows a user to resume/retry a failed workflow execution.</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_executions_combined"><strong>workflow_executions_combined</strong></a></td>
+      <td><strong>GET</strong> /workflows/combined/executions/v1</td>
+      <td>Search workflow executions based on the provided filter</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_get_human_input_v1"><strong>workflow_get_human_input_v1</strong></a></td>
+      <td><strong>GET</strong> /workflows/entities/human-inputs/v1</td>
+      <td>Gets one or more specific human inputs by their IDs.</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_mock_execute"><strong>workflow_mock_execute</strong></a></td>
+      <td><strong>POST</strong> /workflows/entities/mock-executions/v1</td>
+      <td>Executes a workflow definition with mocks</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_system_definitions_de_provision"><strong>workflow_system_definitions_de_provision</strong></a></td>
+      <td><strong>POST</strong> /workflows/system-definitions/deprovision/v1</td>
+      <td>Deprovisions a system definition that was previously provisioned on the target CID</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_system_definitions_promote"><strong>workflow_system_definitions_promote</strong></a></td>
+      <td><strong>POST</strong> /workflows/system-definitions/promote/v1</td>
+      <td>Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_system_definitions_provision"><strong>workflow_system_definitions_provision</strong></a></td>
+      <td><strong>POST</strong> /workflows/system-definitions/provision/v1</td>
+      <td>Provisions a system definition onto the target CID by using the template and provided parameters</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_triggers_combined"><strong>workflow_triggers_combined</strong></a></td>
+      <td><strong>GET</strong> /workflows/combined/triggers/v1</td>
+      <td>Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified</td>
+    </tr>
+    <tr>
+      <td><a href="Workflows.md#workflow_update_human_input_v1"><strong>workflow_update_human_input_v1</strong></a></td>
+      <td><strong>PATCH</strong> /workflows/entities/human-inputs/v1</td>
+      <td>Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="workflowactivitiescombined">workflow_activities_combined</h2>
+
+<blockquote>
+  <ActivitiesActivityExternalResponse> workflow_activities_combined(opts)
+</ActivitiesActivityExternalResponse>
+</blockquote>
+
+<p>Search for activities by name. Returns all supported activities if no filter specified</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+opts = {
+  filter: ‘filter_example’, # String | FQL query specifying filter parameters.
+  offset: ‘offset_example’, # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: ‘sort_example’ # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}</p>
+
+<p>begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_combined(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_activities_combined: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowactivitiescombinedwithhttpinfo-variant">Using the workflow_activities_combined_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ActivitiesActivityExternalResponse>, Integer, Hash)&gt; workflow_activities_combined_with_http_info(opts)</ActivitiesActivityExternalResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for activities by name. Returns all supported activities if no filter specified</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_activities_combined_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ActivitiesActivityExternalResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_activities_combined_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying filter parameters.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting pagination offset of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Maximum number of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="ActivitiesActivityExternalResponse.md"><strong>ActivitiesActivityExternalResponse</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowactivitiescontentcombined">workflow_activities_content_combined</h2>
+
+<blockquote>
+  <ActivitiesActivityExternalResponse> workflow_activities_content_combined(opts)
+</ActivitiesActivityExternalResponse>
+</blockquote>
+
+<p>Search for activities by name. Returns all supported activities if no filter specified</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+opts = {
+  filter: ‘filter_example’, # String | FQL query specifying filter parameters.
+  offset: ‘offset_example’, # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: ‘sort_example’ # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}</p>
+
+<p>begin
+  # Search for activities by name. Returns all supported activities if no filter specified
+  result = api_instance.workflow_activities_content_combined(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_activities_content_combined: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowactivitiescontentcombinedwithhttpinfo-variant">Using the workflow_activities_content_combined_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ActivitiesActivityExternalResponse>, Integer, Hash)&gt; workflow_activities_content_combined_with_http_info(opts)</ActivitiesActivityExternalResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for activities by name. Returns all supported activities if no filter specified</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_activities_content_combined_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ActivitiesActivityExternalResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_activities_content_combined_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying filter parameters.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting pagination offset of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Maximum number of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="ActivitiesActivityExternalResponse.md"><strong>ActivitiesActivityExternalResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowdefinitionscombined">workflow_definitions_combined</h2>
+
+<blockquote>
+  <DefinitionsDefinitionExternalResponse> workflow_definitions_combined(opts)
+</DefinitionsDefinitionExternalResponse>
+</blockquote>
+
+<p>Search workflow definitions based on the provided filter</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+opts = {
+  filter: ‘filter_example’, # String | FQL query specifying filter parameters.
+  offset: ‘offset_example’, # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: ‘sort_example’ # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}</p>
+
+<p>begin
+  # Search workflow definitions based on the provided filter
+  result = api_instance.workflow_definitions_combined(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_definitions_combined: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowdefinitionscombinedwithhttpinfo-variant">Using the workflow_definitions_combined_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DefinitionsDefinitionExternalResponse>, Integer, Hash)&gt; workflow_definitions_combined_with_http_info(opts)</DefinitionsDefinitionExternalResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search workflow definitions based on the provided filter</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_definitions_combined_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DefinitionsDefinitionExternalResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_definitions_combined_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying filter parameters.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting pagination offset of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Maximum number of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="DefinitionsDefinitionExternalResponse.md"><strong>DefinitionsDefinitionExternalResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json, application/yaml</li>
+</ul>
+
+<h2 id="workflowdefinitionsexport">workflow_definitions_export</h2>
+
+<blockquote>
+  <p>Array&lt;Integer&gt; workflow_definitions_export(id, opts)</p>
+</blockquote>
+
+<p>Exports a workflow definition for the given definition ID</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+id = ‘id_example’ # String | ID of workflow definitions to return details for
+opts = {
+  sanitize: true # Boolean | whether or not to sanitize PII from workflow before it’s exported
+}</p>
+
+<p>begin
+  # Exports a workflow definition for the given definition ID
+  result = api_instance.workflow_definitions_export(id, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_definitions_export: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowdefinitionsexportwithhttpinfo-variant">Using the workflow_definitions_export_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(Array&lt;Integer&gt;, Integer, Hash)&gt; workflow_definitions_export_with_http_info(id, opts)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Exports a workflow definition for the given definition ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_definitions_export_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; Array&amp;lt;Integer&amp;gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_definitions_export_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>ID of workflow definitions to return details for</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sanitize</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>whether or not to sanitize PII from workflow before it's exported</td>
+      <td>[optional][default to true]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><strong>Array&lt;Integer&gt;</strong></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/yaml, application/json</li>
+</ul>
+
+<h2 id="workflowdefinitionsimport">workflow_definitions_import</h2>
+
+<blockquote>
+  <DefinitionsDefinitionImportResponse> workflow_definitions_import(data_file, opts)
+</DefinitionsDefinitionImportResponse>
+</blockquote>
+
+<p>Imports a workflow definition based on the provided model</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+data_file = File.new(‘/path/to/some/file’) # File | A workflow definition in YAML format to import
+opts = {
+  name: ‘name_example’, # String | Workflow name to override
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}</p>
+
+<p>begin
+  # Imports a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_import(data_file, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_definitions_import: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowdefinitionsimportwithhttpinfo-variant">Using the workflow_definitions_import_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DefinitionsDefinitionImportResponse>, Integer, Hash)&gt; workflow_definitions_import_with_http_info(data_file, opts)</DefinitionsDefinitionImportResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Imports a workflow definition based on the provided model</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_definitions_import_with_http_info</span><span class="p">(</span><span class="n">data_file</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DefinitionsDefinitionImportResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_definitions_import_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>data_file</strong></td>
+      <td><strong>File</strong></td>
+      <td>A workflow definition in YAML format to import</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Workflow name to override</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>validate_only</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>When enabled, prevents saving workflow after validating</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="DefinitionsDefinitionImportResponse.md"><strong>DefinitionsDefinitionImportResponse</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: multipart/form-data</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowdefinitionsupdate">workflow_definitions_update</h2>
+
+<blockquote>
+  <ApiResourceIDsResponse> workflow_definitions_update(body, opts)
+</ApiResourceIDsResponse>
+</blockquote>
+
+<p>Updates a workflow definition based on the provided model</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = Falcon::ModelsDefinitionUpdateRequestV2.new({definition: Falcon::V2Definition.new({name: ‘name_example’, node_registry: { key: ‘inner_example’}, parent: Falcon::V2Model.new({node_registry: { key: ‘inner_example’}, parent: Falcon::V2Model.new({node_registry: { key: ‘inner_example’}, parent: , trigger: Falcon::V2Trigger.new({_next: [‘_next_example’]}), uniq_node_seen: { key: false}}), trigger: Falcon::V2Trigger.new({_next: [‘_next_example’]}), uniq_node_seen: { key: false}}), trigger: , uniq_node_seen: { key: false}}), enabled: false, id: ‘id_example’}) # ModelsDefinitionUpdateRequestV2 | 
+opts = {
+  validate_only: true # Boolean | When enabled, prevents saving workflow after validating
+}</p>
+
+<p>begin
+  # Updates a workflow definition based on the provided model
+  result = api_instance.workflow_definitions_update(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_definitions_update: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowdefinitionsupdatewithhttpinfo-variant">Using the workflow_definitions_update_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiResourceIDsResponse>, Integer, Hash)&gt; workflow_definitions_update_with_http_info(body, opts)</ApiResourceIDsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Updates a workflow definition based on the provided model</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_definitions_update_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiResourceIDsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_definitions_update_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelsDefinitionUpdateRequestV2.md"><strong>ModelsDefinitionUpdateRequestV2</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>validate_only</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>When enabled, prevents saving workflow after validating</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="ApiResourceIDsResponse.md"><strong>ApiResourceIDsResponse</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json, application/yaml</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowexecute">workflow_execute</h2>
+
+<blockquote>
+  <ApiResourceIDsResponse> workflow_execute(body, opts)
+</ApiResourceIDsResponse>
+</blockquote>
+
+<p>Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = { … } # Object | 
+opts = {
+  execution_cid: [‘inner_example’], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}</String></String></p>
+
+<p>begin
+  # Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_execute: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowexecutewithhttpinfo-variant">Using the workflow_execute_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiResourceIDsResponse>, Integer, Hash)&gt; workflow_execute_with_http_info(body, opts)</ApiResourceIDsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_execute_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiResourceIDsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_execute_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><strong>Object</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>execution_cid</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>definition_id</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Definition ID to execute, either a name or an ID can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Workflow name to execute, either a name or an ID can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>key</strong></td>
+      <td><strong>String</strong></td>
+      <td>Key used to help deduplicate executions, if unset a new UUID is used</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>depth</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>source_event_url</strong></td>
+      <td><strong>String</strong></td>
+      <td>Used to record a URL to the source that led to triggering this workflow</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="ApiResourceIDsResponse.md"><strong>ApiResourceIDsResponse</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowexecuteinternal">workflow_execute_internal</h2>
+
+<blockquote>
+  <ApiResourceIDsResponse> workflow_execute_internal(body, opts)
+</ApiResourceIDsResponse>
+</blockquote>
+
+<p>Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = { … } # Object | 
+opts = {
+  execution_cid: [‘inner_example’], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: ['inner_example'], # Array<String> | Definition ID to execute, either a name or an ID can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  batch_size: 56, # Integer | Used to set the batchSize, if unset the default batchSize is used
+  source_event_url: 'source_event_url_example' # String | Used to record a URL to the source that led to triggering this workflow
+}</String></String></p>
+
+<p>begin
+  # Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
+  result = api_instance.workflow_execute_internal(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_execute_internal: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowexecuteinternalwithhttpinfo-variant">Using the workflow_execute_internal_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiResourceIDsResponse>, Integer, Hash)&gt; workflow_execute_internal_with_http_info(body, opts)</ApiResourceIDsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_execute_internal_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiResourceIDsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_execute_internal_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><strong>Object</strong></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>execution_cid</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>definition_id</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>Definition ID to execute, either a name or an ID can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Workflow name to execute, either a name or an ID can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>key</strong></td>
+      <td><strong>String</strong></td>
+      <td>Key used to help deduplicate executions, if unset a new UUID is used</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>depth</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>batch_size</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Used to set the batchSize, if unset the default batchSize is used</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>source_event_url</strong></td>
+      <td><strong>String</strong></td>
+      <td>Used to record a URL to the source that led to triggering this workflow</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="ApiResourceIDsResponse.md"><strong>ApiResourceIDsResponse</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowexecutionresults">workflow_execution_results</h2>
+
+<blockquote>
+  <ApiExecutionResultsResponse> workflow_execution_results(ids)
+</ApiExecutionResultsResponse>
+</blockquote>
+
+<p>Get execution result of a given execution</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+ids = [‘inner_example’] # Array<String> | workflow execution id to return results for.</String></p>
+
+<p>begin
+  # Get execution result of a given execution
+  result = api_instance.workflow_execution_results(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_execution_results: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowexecutionresultswithhttpinfo-variant">Using the workflow_execution_results_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiExecutionResultsResponse>, Integer, Hash)&gt; workflow_execution_results_with_http_info(ids)</ApiExecutionResultsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get execution result of a given execution</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_execution_results_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiExecutionResultsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_execution_results_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>workflow execution id to return results for.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="ApiExecutionResultsResponse.md"><strong>ApiExecutionResultsResponse</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowexecutionsaction">workflow_executions_action</h2>
+
+<blockquote>
+  <DefinitionsDefinitionEntitiesResponse> workflow_executions_action(action_name, body)
+</DefinitionsDefinitionEntitiesResponse>
+</blockquote>
+
+<p>Allows a user to resume/retry a failed workflow execution.</p>
+
+<h3 id="examples-9">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-9">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+action_name = ‘resume’ # String | Specify one of these actions:  - <code class="language-ruby highlighter-rouge"><span class="n">resume</span></code>: resume/retry the workflow execution(s) specified in ids
+body = Falcon::ClientActionRequest.new({ids: [‘ids_example’]}) # ClientActionRequest |</p>
+
+<p>begin
+  # Allows a user to resume/retry a failed workflow execution.
+  result = api_instance.workflow_executions_action(action_name, body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_executions_action: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowexecutionsactionwithhttpinfo-variant">Using the workflow_executions_action_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DefinitionsDefinitionEntitiesResponse>, Integer, Hash)&gt; workflow_executions_action_with_http_info(action_name, body)</DefinitionsDefinitionEntitiesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Allows a user to resume/retry a failed workflow execution.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_executions_action_with_http_info</span><span class="p">(</span><span class="n">action_name</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DefinitionsDefinitionEntitiesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_executions_action_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-9">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>action_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Specify one of these actions:  - `resume`: resume/retry the workflow execution(s) specified in ids</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ClientActionRequest.md"><strong>ClientActionRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-9">Return type</h3>
+
+<p><a href="DefinitionsDefinitionEntitiesResponse.md"><strong>DefinitionsDefinitionEntitiesResponse</strong></a></p>
+
+<h3 id="authorization-9">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-9">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowexecutionscombined">workflow_executions_combined</h2>
+
+<blockquote>
+  <ApiExecutionResultsResponse> workflow_executions_combined(opts)
+</ApiExecutionResultsResponse>
+</blockquote>
+
+<p>Search workflow executions based on the provided filter</p>
+
+<h3 id="examples-10">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-10">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+opts = {
+  filter: ‘filter_example’, # String | FQL query specifying filter parameters.
+  offset: ‘offset_example’, # String | Starting pagination offset of records to return.
+  limit: 56, # Integer | Maximum number of records to return.
+  sort: ‘sort_example’ # String | Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+}</p>
+
+<p>begin
+  # Search workflow executions based on the provided filter
+  result = api_instance.workflow_executions_combined(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_executions_combined: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowexecutionscombinedwithhttpinfo-variant">Using the workflow_executions_combined_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiExecutionResultsResponse>, Integer, Hash)&gt; workflow_executions_combined_with_http_info(opts)</ApiExecutionResultsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search workflow executions based on the provided filter</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_executions_combined_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiExecutionResultsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_executions_combined_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-10">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying filter parameters.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting pagination offset of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Maximum number of records to return.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-10">Return type</h3>
+
+<p><a href="ApiExecutionResultsResponse.md"><strong>ApiExecutionResultsResponse</strong></a></p>
+
+<h3 id="authorization-10">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-10">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowgethumaninputv1">workflow_get_human_input_v1</h2>
+
+<blockquote>
+  <ModelUserInputReadResponse> workflow_get_human_input_v1(ids)
+</ModelUserInputReadResponse>
+</blockquote>
+
+<p>Gets one or more specific human inputs by their IDs.</p>
+
+<h3 id="examples-11">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-11">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+ids = [‘inner_example’] # Array<String> | IDs of human inputs to read</String></p>
+
+<p>begin
+  # Gets one or more specific human inputs by their IDs.
+  result = api_instance.workflow_get_human_input_v1(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_get_human_input_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowgethumaninputv1withhttpinfo-variant">Using the workflow_get_human_input_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ModelUserInputReadResponse>, Integer, Hash)&gt; workflow_get_human_input_v1_with_http_info(ids)</ModelUserInputReadResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Gets one or more specific human inputs by their IDs.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_get_human_input_v1_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ModelUserInputReadResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_get_human_input_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-11">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>IDs of human inputs to read</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-11">Return type</h3>
+
+<p><a href="ModelUserInputReadResponse.md"><strong>ModelUserInputReadResponse</strong></a></p>
+
+<h3 id="authorization-11">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-11">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowmockexecute">workflow_mock_execute</h2>
+
+<blockquote>
+  <ApiResourceIDsResponse> workflow_mock_execute(body, opts)
+</ApiResourceIDsResponse>
+</blockquote>
+
+<p>Executes a workflow definition with mocks</p>
+
+<h3 id="examples-12">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-12">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = Falcon::ModelsMockExecutionCreateRequestV1.new({mocks: ‘mocks_example’}) # ModelsMockExecutionCreateRequestV1 | 
+opts = {
+  execution_cid: [‘inner_example’], # Array<String> | CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  definition_id: 'definition_id_example', # String | Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  name: 'name_example', # String | Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  key: 'key_example', # String | Key used to help deduplicate executions, if unset a new UUID is used
+  depth: 56, # Integer | Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  source_event_url: 'source_event_url_example', # String | Used to record a URL to the source that led to triggering this workflow
+  validate_only: true # Boolean | When enabled, prevents execution after validating mocks against definition
+}</String></p>
+
+<p>begin
+  # Executes a workflow definition with mocks
+  result = api_instance.workflow_mock_execute(body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_mock_execute: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowmockexecutewithhttpinfo-variant">Using the workflow_mock_execute_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiResourceIDsResponse>, Integer, Hash)&gt; workflow_mock_execute_with_http_info(body, opts)</ApiResourceIDsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Executes a workflow definition with mocks</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_mock_execute_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiResourceIDsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_mock_execute_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-12">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelsMockExecutionCreateRequestV1.md"><strong>ModelsMockExecutionCreateRequestV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>execution_cid</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>definition_id</strong></td>
+      <td><strong>String</strong></td>
+      <td>Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong>String</strong></td>
+      <td>Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>key</strong></td>
+      <td><strong>String</strong></td>
+      <td>Key used to help deduplicate executions, if unset a new UUID is used</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>depth</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>source_event_url</strong></td>
+      <td><strong>String</strong></td>
+      <td>Used to record a URL to the source that led to triggering this workflow</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>validate_only</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>When enabled, prevents execution after validating mocks against definition</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-12">Return type</h3>
+
+<p><a href="ApiResourceIDsResponse.md"><strong>ApiResourceIDsResponse</strong></a></p>
+
+<h3 id="authorization-12">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-12">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowsystemdefinitionsdeprovision">workflow_system_definitions_de_provision</h2>
+
+<blockquote>
+  <ClientSystemDefinitionCreateResponse> workflow_system_definitions_de_provision(body)
+</ClientSystemDefinitionCreateResponse>
+</blockquote>
+
+<p>Deprovisions a system definition that was previously provisioned on the target CID</p>
+
+<h3 id="examples-13">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-13">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionDeProvisionRequest.new({definition_id: ‘definition_id_example’, deprovision_all: false, template_id: ‘template_id_example’, template_name: ‘template_name_example’}) # ClientSystemDefinitionDeProvisionRequest |</p>
+
+<p>begin
+  # Deprovisions a system definition that was previously provisioned on the target CID
+  result = api_instance.workflow_system_definitions_de_provision(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_system_definitions_de_provision: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowsystemdefinitionsdeprovisionwithhttpinfo-variant">Using the workflow_system_definitions_de_provision_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)&gt; workflow_system_definitions_de_provision_with_http_info(body)</ClientSystemDefinitionCreateResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Deprovisions a system definition that was previously provisioned on the target CID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_system_definitions_de_provision_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ClientSystemDefinitionCreateResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_system_definitions_de_provision_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-13">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ClientSystemDefinitionDeProvisionRequest.md"><strong>ClientSystemDefinitionDeProvisionRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-13">Return type</h3>
+
+<p><a href="ClientSystemDefinitionCreateResponse.md"><strong>ClientSystemDefinitionCreateResponse</strong></a></p>
+
+<h3 id="authorization-13">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-13">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowsystemdefinitionspromote">workflow_system_definitions_promote</h2>
+
+<blockquote>
+  <ClientSystemDefinitionCreateResponse> workflow_system_definitions_promote(body)
+</ClientSystemDefinitionCreateResponse>
+</blockquote>
+
+<p>Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.</p>
+
+<h3 id="examples-14">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-14">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionPromoteRequest.new({customer_definition_id: ‘customer_definition_id_example’, name: ‘name_example’, parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: ‘template_id_example’, template_name: ‘template_name_example’, template_version: ‘template_version_example’}) # ClientSystemDefinitionPromoteRequest |</p>
+
+<p>begin
+  # Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
+  result = api_instance.workflow_system_definitions_promote(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_system_definitions_promote: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowsystemdefinitionspromotewithhttpinfo-variant">Using the workflow_system_definitions_promote_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)&gt; workflow_system_definitions_promote_with_http_info(body)</ClientSystemDefinitionCreateResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_system_definitions_promote_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ClientSystemDefinitionCreateResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_system_definitions_promote_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-14">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ClientSystemDefinitionPromoteRequest.md"><strong>ClientSystemDefinitionPromoteRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-14">Return type</h3>
+
+<p><a href="ClientSystemDefinitionCreateResponse.md"><strong>ClientSystemDefinitionCreateResponse</strong></a></p>
+
+<h3 id="authorization-14">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-14">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowsystemdefinitionsprovision">workflow_system_definitions_provision</h2>
+
+<blockquote>
+  <ClientSystemDefinitionCreateResponse> workflow_system_definitions_provision(body)
+</ClientSystemDefinitionCreateResponse>
+</blockquote>
+
+<p>Provisions a system definition onto the target CID by using the template and provided parameters</p>
+
+<h3 id="examples-15">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-15">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+body = Falcon::ClientSystemDefinitionProvisionRequest.new({name: ‘name_example’, parameters: Falcon::ParameterTemplateProvisionParameters.new, template_id: ‘template_id_example’, template_name: ‘template_name_example’, template_version: ‘template_version_example’}) # ClientSystemDefinitionProvisionRequest |</p>
+
+<p>begin
+  # Provisions a system definition onto the target CID by using the template and provided parameters
+  result = api_instance.workflow_system_definitions_provision(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_system_definitions_provision: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowsystemdefinitionsprovisionwithhttpinfo-variant">Using the workflow_system_definitions_provision_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ClientSystemDefinitionCreateResponse>, Integer, Hash)&gt; workflow_system_definitions_provision_with_http_info(body)</ClientSystemDefinitionCreateResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Provisions a system definition onto the target CID by using the template and provided parameters</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_system_definitions_provision_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ClientSystemDefinitionCreateResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_system_definitions_provision_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-15">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ClientSystemDefinitionProvisionRequest.md"><strong>ClientSystemDefinitionProvisionRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-15">Return type</h3>
+
+<p><a href="ClientSystemDefinitionCreateResponse.md"><strong>ClientSystemDefinitionCreateResponse</strong></a></p>
+
+<h3 id="authorization-15">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-15">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowtriggerscombined">workflow_triggers_combined</h2>
+
+<blockquote>
+  <TriggersTriggerExternalResponse> workflow_triggers_combined(opts)
+</TriggersTriggerExternalResponse>
+</blockquote>
+
+<p>Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified</p>
+
+<h3 id="examples-16">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-16">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+opts = {
+  filter: ‘filter_example’ # String | FQL query specifying filter parameters.
+}</p>
+
+<p>begin
+  # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
+  result = api_instance.workflow_triggers_combined(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_triggers_combined: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowtriggerscombinedwithhttpinfo-variant">Using the workflow_triggers_combined_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<TriggersTriggerExternalResponse>, Integer, Hash)&gt; workflow_triggers_combined_with_http_info(opts)</TriggersTriggerExternalResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_triggers_combined_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;TriggersTriggerExternalResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_triggers_combined_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-16">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying filter parameters.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-16">Return type</h3>
+
+<p><a href="TriggersTriggerExternalResponse.md"><strong>TriggersTriggerExternalResponse</strong></a></p>
+
+<h3 id="authorization-16">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-16">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="workflowupdatehumaninputv1">workflow_update_human_input_v1</h2>
+
+<blockquote>
+  <ApiResourceIDsResponse> workflow_update_human_input_v1(id, body)
+</ApiResourceIDsResponse>
+</blockquote>
+
+<p>Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.</p>
+
+<h3 id="examples-17">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-17">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::Workflows.new
+id = ‘id_example’ # String | ID of human input to provide an input to
+body = Falcon::ModelUserInputUpdateRequest.new({input: ‘input_example’, note: ‘note_example’}) # ModelUserInputUpdateRequest |</p>
+
+<p>begin
+  # Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
+  result = api_instance.workflow_update_human_input_v1(id, body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling Workflows-&gt;workflow_update_human_input_v1: #{e}”
+end
+```</p>
+
+<h4 id="using-the-workflowupdatehumaninputv1withhttpinfo-variant">Using the workflow_update_human_input_v1_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<ApiResourceIDsResponse>, Integer, Hash)&gt; workflow_update_human_input_v1_with_http_info(id, body)</ApiResourceIDsResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">workflow_update_human_input_v1_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;ApiResourceIDsResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling Workflows-&gt;workflow_update_human_input_v1_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-17">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>ID of human input to provide an input to</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="ModelUserInputUpdateRequest.md"><strong>ModelUserInputUpdateRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-17">Return type</h3>
+
+<p><a href="ApiResourceIDsResponse.md"><strong>ApiResourceIDsResponse</strong></a></p>
+
+<h3 id="authorization-17">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-17">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

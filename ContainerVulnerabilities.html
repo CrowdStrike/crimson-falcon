@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::ContainerVulnerabilities
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**read_combined_vulnerabilities**](ContainerVulnerabilities.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_details**](ContainerVulnerabilities.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_info**](ContainerVulnerabilities.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilities.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_publication_date**](ContainerVulnerabilities.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count**](ContainerVulnerabilities.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_severity**](ContainerVulnerabilities.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Maximum offset &#x3D; 10000 - limit |
+
+
+## read_combined_vulnerabilities
+
+> <VulnerabilitiesApiCombinedVulnerability> read_combined_vulnerabilities(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | The fields to sort the records on. Supported columns: - `cps_current_rating` - `cve_id` - `cvss_score` - `description` - `images_impacted` - `packages_impacted` - `severity`
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerability>, Integer, Hash)> read_combined_vulnerabilities_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerability>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;cps_current_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;images_impacted&#x60; - &#x60;packages_impacted&#x60; - &#x60;severity&#x60; | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerability**](VulnerabilitiesApiCombinedVulnerability.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_combined_vulnerabilities_details
+
+> <VulnerabilitiesApiCombinedVulnerabilityDetails> read_combined_vulnerabilities_details(id, opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+id = 'id_example' # String | Image UUID
+opts = {
+  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - `cid` - `cps_rating` - `cve_id` - `cvss_score` - `exploited_status_name` - `exploited_status` - `include_base_image_vuln` - `is_zero_day` - `remediation_available` - `severity`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_details(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_details_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerabilityDetails>, Integer, Hash)> read_combined_vulnerabilities_details_with_http_info(id, opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_details_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerabilityDetails>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Image UUID |  |
+| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 5000] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerabilityDetails**](VulnerabilitiesApiCombinedVulnerabilityDetails.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_combined_vulnerabilities_info
+
+> <VulnerabilitiesApiCombinedVulnerabilityInfo> read_combined_vulnerabilities_info(cve_id, opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+cve_id = 'cve_id_example' # String | Vulnerability CVE ID
+opts = {
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_info(cve_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_info_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerabilityInfo>, Integer, Hash)> read_combined_vulnerabilities_info_with_http_info(cve_id, opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_info_with_http_info(cve_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerabilityInfo>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **cve_id** | **String** | Vulnerability CVE ID |  |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerabilityInfo**](VulnerabilitiesApiCombinedVulnerabilityInfo.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerabilities_by_image_count
+
+> <VulnerabilitiesApiVulnByImageCount> read_vulnerabilities_by_image_count(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_by_image_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count: #{e}"
+end
+```
+
+#### Using the read_vulnerabilities_by_image_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnByImageCount>, Integer, Hash)> read_vulnerabilities_by_image_count_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerabilities_by_image_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnByImageCount>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnByImageCount**](VulnerabilitiesApiVulnByImageCount.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerabilities_publication_date
+
+> <VulnerabilitiesApiVulnByPublication> read_vulnerabilities_publication_date(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_publication_date(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date: #{e}"
+end
+```
+
+#### Using the read_vulnerabilities_publication_date_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnByPublication>, Integer, Hash)> read_vulnerabilities_publication_date_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerabilities_publication_date_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnByPublication>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnByPublication**](VulnerabilitiesApiVulnByPublication.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count
+
+> <VulnerabilitiesApiVulnCount> read_vulnerability_count(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCount>, Integer, Hash)> read_vulnerability_count_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCount>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCount**](VulnerabilitiesApiVulnCount.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_actively_exploited
+
+> <VulnerabilitiesApiVulnCountByActivelyExploited> read_vulnerability_count_by_actively_exploited(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_actively_exploited(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_actively_exploited_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByActivelyExploited>, Integer, Hash)> read_vulnerability_count_by_actively_exploited_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_actively_exploited_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByActivelyExploited>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByActivelyExploited**](VulnerabilitiesApiVulnCountByActivelyExploited.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_cps_rating
+
+> <VulnerabilitiesApiVulnCountByCSPRating> read_vulnerability_count_by_cps_rating(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cps_rating(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_cps_rating_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByCSPRating>, Integer, Hash)> read_vulnerability_count_by_cps_rating_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_cps_rating_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByCSPRating>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByCSPRating**](VulnerabilitiesApiVulnCountByCSPRating.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_cvss_score
+
+> <VulnerabilitiesApiVulnCountByCVSSScore> read_vulnerability_count_by_cvss_score(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cvss_score(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_cvss_score_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByCVSSScore>, Integer, Hash)> read_vulnerability_count_by_cvss_score_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_cvss_score_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByCVSSScore>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByCVSSScore**](VulnerabilitiesApiVulnCountByCVSSScore.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_severity
+
+> <VulnerabilitiesApiVulnCountBySeverity> read_vulnerability_count_by_severity(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_severity(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_severity_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountBySeverity>, Integer, Hash)> read_vulnerability_count_by_severity_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_severity_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountBySeverity>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountBySeverity**](VulnerabilitiesApiVulnCountBySeverity.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > ContainerVulnerabilities
+        </nav>
+        <h1>Falcon::ContainerVulnerabilities
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**read_combined_vulnerabilities**](ContainerVulnerabilities.md#read_combined_vulnerabilities) | **GET** /container-security/combined/vulnerabilities/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_details**](ContainerVulnerabilities.md#read_combined_vulnerabilities_details) | **GET** /container-security/combined/vulnerabilities/details/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_combined_vulnerabilities_info**](ContainerVulnerabilities.md#read_combined_vulnerabilities_info) | **GET** /container-security/combined/vulnerabilities/info/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_by_image_count**](ContainerVulnerabilities.md#read_vulnerabilities_by_image_count) | **GET** /container-security/combined/vulnerabilities/by-image-count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerabilities_publication_date**](ContainerVulnerabilities.md#read_vulnerabilities_publication_date) | **GET** /container-security/combined/vulnerabilities/by-published-date/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count**](ContainerVulnerabilities.md#read_vulnerability_count) | **GET** /container-security/aggregates/vulnerabilities/count/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_actively_exploited**](ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited) | **GET** /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cps_rating**](ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating) | **GET** /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_cvss_score**](ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score) | **GET** /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1 | Maximum offset &#x3D; 10000 - limit |
+| [**read_vulnerability_count_by_severity**](ContainerVulnerabilities.md#read_vulnerability_count_by_severity) | **GET** /container-security/aggregates/vulnerabilities/count-by-severity/v1 | Maximum offset &#x3D; 10000 - limit |
+
+
+## read_combined_vulnerabilities
+
+> <VulnerabilitiesApiCombinedVulnerability> read_combined_vulnerabilities(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | The fields to sort the records on. Supported columns: - `cps_current_rating` - `cve_id` - `cvss_score` - `description` - `images_impacted` - `packages_impacted` - `severity`
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerability>, Integer, Hash)> read_combined_vulnerabilities_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerability>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | The fields to sort the records on. Supported columns: - &#x60;cps_current_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;images_impacted&#x60; - &#x60;packages_impacted&#x60; - &#x60;severity&#x60; | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerability**](VulnerabilitiesApiCombinedVulnerability.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_combined_vulnerabilities_details
+
+> <VulnerabilitiesApiCombinedVulnerabilityDetails> read_combined_vulnerabilities_details(id, opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+id = 'id_example' # String | Image UUID
+opts = {
+  filter: 'filter_example', # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - `cid` - `cps_rating` - `cve_id` - `cvss_score` - `exploited_status_name` - `exploited_status` - `include_base_image_vuln` - `is_zero_day` - `remediation_available` - `severity`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_details(id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_details_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerabilityDetails>, Integer, Hash)> read_combined_vulnerabilities_details_with_http_info(id, opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_details_with_http_info(id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerabilityDetails>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_details_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Image UUID |  |
+| **filter** | **String** | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - &#x60;cid&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;is_zero_day&#x60; - &#x60;remediation_available&#x60; - &#x60;severity&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 5000] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerabilityDetails**](VulnerabilitiesApiCombinedVulnerabilityDetails.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_combined_vulnerabilities_info
+
+> <VulnerabilitiesApiCombinedVulnerabilityInfo> read_combined_vulnerabilities_info(cve_id, opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+cve_id = 'cve_id_example' # String | Vulnerability CVE ID
+opts = {
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_info(cve_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info: #{e}"
+end
+```
+
+#### Using the read_combined_vulnerabilities_info_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiCombinedVulnerabilityInfo>, Integer, Hash)> read_combined_vulnerabilities_info_with_http_info(cve_id, opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_combined_vulnerabilities_info_with_http_info(cve_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiCombinedVulnerabilityInfo>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_combined_vulnerabilities_info_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **cve_id** | **String** | Vulnerability CVE ID |  |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiCombinedVulnerabilityInfo**](VulnerabilitiesApiCombinedVulnerabilityInfo.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerabilities_by_image_count
+
+> <VulnerabilitiesApiVulnByImageCount> read_vulnerabilities_by_image_count(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_by_image_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count: #{e}"
+end
+```
+
+#### Using the read_vulnerabilities_by_image_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnByImageCount>, Integer, Hash)> read_vulnerabilities_by_image_count_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerabilities_by_image_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnByImageCount>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_by_image_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnByImageCount**](VulnerabilitiesApiVulnByImageCount.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerabilities_publication_date
+
+> <VulnerabilitiesApiVulnByPublication> read_vulnerabilities_publication_date(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_publication_date(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date: #{e}"
+end
+```
+
+#### Using the read_vulnerabilities_publication_date_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnByPublication>, Integer, Hash)> read_vulnerabilities_publication_date_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerabilities_publication_date_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnByPublication>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerabilities_publication_date_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cve_id&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnByPublication**](VulnerabilitiesApiVulnByPublication.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count
+
+> <VulnerabilitiesApiVulnCount> read_vulnerability_count(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCount>, Integer, Hash)> read_vulnerability_count_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCount>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCount**](VulnerabilitiesApiVulnCount.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_actively_exploited
+
+> <VulnerabilitiesApiVulnCountByActivelyExploited> read_vulnerability_count_by_actively_exploited(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_actively_exploited(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_actively_exploited_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByActivelyExploited>, Integer, Hash)> read_vulnerability_count_by_actively_exploited_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_actively_exploited_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByActivelyExploited>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_actively_exploited_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByActivelyExploited**](VulnerabilitiesApiVulnCountByActivelyExploited.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_cps_rating
+
+> <VulnerabilitiesApiVulnCountByCSPRating> read_vulnerability_count_by_cps_rating(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cps_rating(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_cps_rating_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByCSPRating>, Integer, Hash)> read_vulnerability_count_by_cps_rating_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_cps_rating_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByCSPRating>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cps_rating_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByCSPRating**](VulnerabilitiesApiVulnCountByCSPRating.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_cvss_score
+
+> <VulnerabilitiesApiVulnCountByCVSSScore> read_vulnerability_count_by_cvss_score(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cvss_score(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_cvss_score_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountByCVSSScore>, Integer, Hash)> read_vulnerability_count_by_cvss_score_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_cvss_score_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountByCVSSScore>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_cvss_score_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountByCVSSScore**](VulnerabilitiesApiVulnCountByCVSSScore.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## read_vulnerability_count_by_severity
+
+> <VulnerabilitiesApiVulnCountBySeverity> read_vulnerability_count_by_severity(opts)
+
+Maximum offset = 10000 - limit
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: 'filter_example', # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}
+
+begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_severity(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity: #{e}"
+end
+```
+
+#### Using the read_vulnerability_count_by_severity_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<VulnerabilitiesApiVulnCountBySeverity>, Integer, Hash)> read_vulnerability_count_by_severity_with_http_info(opts)
+
+```ruby
+begin
+  # Maximum offset = 10000 - limit
+  data, status_code, headers = api_instance.read_vulnerability_count_by_severity_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <VulnerabilitiesApiVulnCountBySeverity>
+rescue Falcon::ApiError => e
+  puts "Error when calling ContainerVulnerabilities->read_vulnerability_count_by_severity_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;ai_related&#x60; - &#x60;base_os&#x60; - &#x60;cid&#x60; - &#x60;container_id&#x60; - &#x60;container_running_status&#x60; - &#x60;containers_impacted_range&#x60; - &#x60;cps_rating&#x60; - &#x60;cve_id&#x60; - &#x60;cvss_score&#x60; - &#x60;description&#x60; - &#x60;exploited_status_name&#x60; - &#x60;exploited_status&#x60; - &#x60;fix_status&#x60; - &#x60;image_digest&#x60; - &#x60;image_id&#x60; - &#x60;images_impacted_range&#x60; - &#x60;include_base_image_vuln&#x60; - &#x60;package_name_version&#x60; - &#x60;registry&#x60; - &#x60;repository&#x60; - &#x60;severity&#x60; - &#x60;tag&#x60; | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional][default to 100] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+
+### Return type
+
+[**VulnerabilitiesApiVulnCountBySeverity**](VulnerabilitiesApiVulnCountBySeverity.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconcontainervulnerabilities">Falcon::ContainerVulnerabilities</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_combined_vulnerabilities"><strong>read_combined_vulnerabilities</strong></a></td>
+      <td><strong>GET</strong> /container-security/combined/vulnerabilities/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_combined_vulnerabilities_details"><strong>read_combined_vulnerabilities_details</strong></a></td>
+      <td><strong>GET</strong> /container-security/combined/vulnerabilities/details/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_combined_vulnerabilities_info"><strong>read_combined_vulnerabilities_info</strong></a></td>
+      <td><strong>GET</strong> /container-security/combined/vulnerabilities/info/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerabilities_by_image_count"><strong>read_vulnerabilities_by_image_count</strong></a></td>
+      <td><strong>GET</strong> /container-security/combined/vulnerabilities/by-image-count/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerabilities_publication_date"><strong>read_vulnerabilities_publication_date</strong></a></td>
+      <td><strong>GET</strong> /container-security/combined/vulnerabilities/by-published-date/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerability_count"><strong>read_vulnerability_count</strong></a></td>
+      <td><strong>GET</strong> /container-security/aggregates/vulnerabilities/count/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited"><strong>read_vulnerability_count_by_actively_exploited</strong></a></td>
+      <td><strong>GET</strong> /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating"><strong>read_vulnerability_count_by_cps_rating</strong></a></td>
+      <td><strong>GET</strong> /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score"><strong>read_vulnerability_count_by_cvss_score</strong></a></td>
+      <td><strong>GET</strong> /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+    <tr>
+      <td><a href="ContainerVulnerabilities.md#read_vulnerability_count_by_severity"><strong>read_vulnerability_count_by_severity</strong></a></td>
+      <td><strong>GET</strong> /container-security/aggregates/vulnerabilities/count-by-severity/v1</td>
+      <td>Maximum offset = 10000 - limit</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="readcombinedvulnerabilities">read_combined_vulnerabilities</h2>
+
+<blockquote>
+  <VulnerabilitiesApiCombinedVulnerability> read_combined_vulnerabilities(opts)
+</VulnerabilitiesApiCombinedVulnerability>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: ‘sort_example’ # String | The fields to sort the records on. Supported columns: - <code class="language-ruby highlighter-rouge"><span class="n">cps_current_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">packages_impacted</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code>
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readcombinedvulnerabilitieswithhttpinfo-variant">Using the read_combined_vulnerabilities_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiCombinedVulnerability>, Integer, Hash)&gt; read_combined_vulnerabilities_with_http_info(opts)</VulnerabilitiesApiCombinedVulnerability></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_combined_vulnerabilities_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiCombinedVulnerability&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The fields to sort the records on. Supported columns: - `cps_current_rating` - `cve_id` - `cvss_score` - `description` - `images_impacted` - `packages_impacted` - `severity`</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="VulnerabilitiesApiCombinedVulnerability.md"><strong>VulnerabilitiesApiCombinedVulnerability</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readcombinedvulnerabilitiesdetails">read_combined_vulnerabilities_details</h2>
+
+<blockquote>
+  <VulnerabilitiesApiCombinedVulnerabilityDetails> read_combined_vulnerabilities_details(id, opts)
+</VulnerabilitiesApiCombinedVulnerabilityDetails>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+id = ‘id_example’ # String | Image UUID
+opts = {
+  filter: ‘filter_example’, # String | Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">is_zero_day</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">remediation_available</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_details(id, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities_details: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readcombinedvulnerabilitiesdetailswithhttpinfo-variant">Using the read_combined_vulnerabilities_details_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiCombinedVulnerabilityDetails>, Integer, Hash)&gt; read_combined_vulnerabilities_details_with_http_info(id, opts)</VulnerabilitiesApiCombinedVulnerabilityDetails></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_combined_vulnerabilities_details_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiCombinedVulnerabilityDetails&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities_details_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>Image UUID</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter the vulnerabilities using a query in Falcon Query Language (FQL). Supported vulnerability filter fields: - `cid` - `cps_rating` - `cve_id` - `cvss_score` - `exploited_status_name` - `exploited_status` - `include_base_image_vuln` - `is_zero_day` - `remediation_available` - `severity`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 5000]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="VulnerabilitiesApiCombinedVulnerabilityDetails.md"><strong>VulnerabilitiesApiCombinedVulnerabilityDetails</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readcombinedvulnerabilitiesinfo">read_combined_vulnerabilities_info</h2>
+
+<blockquote>
+  <VulnerabilitiesApiCombinedVulnerabilityInfo> read_combined_vulnerabilities_info(cve_id, opts)
+</VulnerabilitiesApiCombinedVulnerabilityInfo>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+cve_id = ‘cve_id_example’ # String | Vulnerability CVE ID
+opts = {
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_combined_vulnerabilities_info(cve_id, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities_info: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readcombinedvulnerabilitiesinfowithhttpinfo-variant">Using the read_combined_vulnerabilities_info_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiCombinedVulnerabilityInfo>, Integer, Hash)&gt; read_combined_vulnerabilities_info_with_http_info(cve_id, opts)</VulnerabilitiesApiCombinedVulnerabilityInfo></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_combined_vulnerabilities_info_with_http_info</span><span class="p">(</span><span class="n">cve_id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiCombinedVulnerabilityInfo&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_combined_vulnerabilities_info_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>cve_id</strong></td>
+      <td><strong>String</strong></td>
+      <td>Vulnerability CVE ID</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="VulnerabilitiesApiCombinedVulnerabilityInfo.md"><strong>VulnerabilitiesApiCombinedVulnerabilityInfo</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitiesbyimagecount">read_vulnerabilities_by_image_count</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnByImageCount> read_vulnerabilities_by_image_count(opts)
+</VulnerabilitiesApiVulnByImageCount>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_by_image_count(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerabilities_by_image_count: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitiesbyimagecountwithhttpinfo-variant">Using the read_vulnerabilities_by_image_count_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnByImageCount>, Integer, Hash)&gt; read_vulnerabilities_by_image_count_with_http_info(opts)</VulnerabilitiesApiVulnByImageCount></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerabilities_by_image_count_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnByImageCount&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerabilities_by_image_count_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnByImageCount.md"><strong>VulnerabilitiesApiVulnByImageCount</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitiespublicationdate">read_vulnerabilities_publication_date</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnByPublication> read_vulnerabilities_publication_date(opts)
+</VulnerabilitiesApiVulnByPublication>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerabilities_publication_date(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerabilities_publication_date: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitiespublicationdatewithhttpinfo-variant">Using the read_vulnerabilities_publication_date_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnByPublication>, Integer, Hash)&gt; read_vulnerabilities_publication_date_with_http_info(opts)</VulnerabilitiesApiVulnByPublication></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerabilities_publication_date_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnByPublication&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerabilities_publication_date_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `cid` - `cve_id` - `registry` - `repository` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnByPublication.md"><strong>VulnerabilitiesApiVulnByPublication</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitycount">read_vulnerability_count</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnCount> read_vulnerability_count(opts)
+</VulnerabilitiesApiVulnCount>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitycountwithhttpinfo-variant">Using the read_vulnerability_count_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnCount>, Integer, Hash)&gt; read_vulnerability_count_with_http_info(opts)</VulnerabilitiesApiVulnCount></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerability_count_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnCount&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnCount.md"><strong>VulnerabilitiesApiVulnCount</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitycountbyactivelyexploited">read_vulnerability_count_by_actively_exploited</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnCountByActivelyExploited> read_vulnerability_count_by_actively_exploited(opts)
+</VulnerabilitiesApiVulnCountByActivelyExploited>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_actively_exploited(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_actively_exploited: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitycountbyactivelyexploitedwithhttpinfo-variant">Using the read_vulnerability_count_by_actively_exploited_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnCountByActivelyExploited>, Integer, Hash)&gt; read_vulnerability_count_by_actively_exploited_with_http_info(opts)</VulnerabilitiesApiVulnCountByActivelyExploited></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerability_count_by_actively_exploited_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnCountByActivelyExploited&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_actively_exploited_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnCountByActivelyExploited.md"><strong>VulnerabilitiesApiVulnCountByActivelyExploited</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitycountbycpsrating">read_vulnerability_count_by_cps_rating</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnCountByCSPRating> read_vulnerability_count_by_cps_rating(opts)
+</VulnerabilitiesApiVulnCountByCSPRating>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cps_rating(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_cps_rating: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitycountbycpsratingwithhttpinfo-variant">Using the read_vulnerability_count_by_cps_rating_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnCountByCSPRating>, Integer, Hash)&gt; read_vulnerability_count_by_cps_rating_with_http_info(opts)</VulnerabilitiesApiVulnCountByCSPRating></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerability_count_by_cps_rating_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnCountByCSPRating&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_cps_rating_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnCountByCSPRating.md"><strong>VulnerabilitiesApiVulnCountByCSPRating</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitycountbycvssscore">read_vulnerability_count_by_cvss_score</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnCountByCVSSScore> read_vulnerability_count_by_cvss_score(opts)
+</VulnerabilitiesApiVulnCountByCVSSScore>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_cvss_score(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_cvss_score: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitycountbycvssscorewithhttpinfo-variant">Using the read_vulnerability_count_by_cvss_score_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnCountByCVSSScore>, Integer, Hash)&gt; read_vulnerability_count_by_cvss_score_with_http_info(opts)</VulnerabilitiesApiVulnCountByCVSSScore></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerability_count_by_cvss_score_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnCountByCVSSScore&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_cvss_score_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnCountByCVSSScore.md"><strong>VulnerabilitiesApiVulnCountByCVSSScore</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="readvulnerabilitycountbyseverity">read_vulnerability_count_by_severity</h2>
+
+<blockquote>
+  <VulnerabilitiesApiVulnCountBySeverity> read_vulnerability_count_by_severity(opts)
+</VulnerabilitiesApiVulnCountBySeverity>
+</blockquote>
+
+<p>Maximum offset = 10000 - limit</p>
+
+<h3 id="examples-9">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-9">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::ContainerVulnerabilities.new
+opts = {
+  filter: ‘filter_example’, # String | Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - <code class="language-ruby highlighter-rouge"><span class="n">ai_related</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">base_os</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cid</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">container_running_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">containers_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cps_rating</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cve_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">cvss_score</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">description</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status_name</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">exploited_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">fix_status</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_digest</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">image_id</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">images_impacted_range</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">include_base_image_vuln</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">package_name_version</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">registry</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">repository</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">severity</span></code> - <code class="language-ruby highlighter-rouge"><span class="n">tag</span></code>
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56 # Integer | The offset from where to begin.
+}</p>
+
+<p>begin
+  # Maximum offset = 10000 - limit
+  result = api_instance.read_vulnerability_count_by_severity(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_severity: #{e}”
+end
+```</p>
+
+<h4 id="using-the-readvulnerabilitycountbyseveritywithhttpinfo-variant">Using the read_vulnerability_count_by_severity_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<VulnerabilitiesApiVulnCountBySeverity>, Integer, Hash)&gt; read_vulnerability_count_by_severity_with_http_info(opts)</VulnerabilitiesApiVulnCountBySeverity></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Maximum offset = 10000 - limit</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">read_vulnerability_count_by_severity_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;VulnerabilitiesApiVulnCountBySeverity&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling ContainerVulnerabilities-&gt;read_vulnerability_count_by_severity_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-9">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>Filter vulnerabilities using a query in Falcon Query Language (FQL). Supported filter fields: - `ai_related` - `base_os` - `cid` - `container_id` - `container_running_status` - `containers_impacted_range` - `cps_rating` - `cve_id` - `cvss_score` - `description` - `exploited_status_name` - `exploited_status` - `fix_status` - `image_digest` - `image_id` - `images_impacted_range` - `include_base_image_vuln` - `package_name_version` - `registry` - `repository` - `severity` - `tag`</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The upper-bound on the number of records to retrieve.</td>
+      <td>[optional][default to 100]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset from where to begin.</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-9">Return type</h3>
+
+<p><a href="VulnerabilitiesApiVulnCountBySeverity.md"><strong>VulnerabilitiesApiVulnCountBySeverity</strong></a></p>
+
+<h3 id="authorization-9">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-9">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

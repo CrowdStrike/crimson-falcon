@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::HostGroup
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_host_groups**](HostGroup.md#create_host_groups) | **POST** /devices/entities/host-groups/v1 | Create Host Groups by specifying details about the group to create |
+| [**delete_host_groups**](HostGroup.md#delete_host_groups) | **DELETE** /devices/entities/host-groups/v1 | Delete a set of Host Groups by specifying their IDs |
+| [**get_host_groups**](HostGroup.md#get_host_groups) | **GET** /devices/entities/host-groups/v1 | Retrieve a set of Host Groups by specifying their IDs |
+| [**perform_group_action**](HostGroup.md#perform_group_action) | **POST** /devices/entities/host-group-actions/v1 | Perform the specified action on the Host Groups specified in the request |
+| [**query_combined_group_members**](HostGroup.md#query_combined_group_members) | **GET** /devices/combined/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_combined_host_groups**](HostGroup.md#query_combined_host_groups) | **GET** /devices/combined/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria |
+| [**query_group_members**](HostGroup.md#query_group_members) | **GET** /devices/queries/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**query_host_groups**](HostGroup.md#query_host_groups) | **GET** /devices/queries/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria |
+| [**update_host_groups**](HostGroup.md#update_host_groups) | **PATCH** /devices/entities/host-groups/v1 | Update Host Groups by specifying the ID of the group and details to update |
+
+
+## create_host_groups
+
+> <HostGroupsRespV1> create_host_groups(body)
+
+Create Host Groups by specifying details about the group to create
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsCreateGroupsReqV1.new({resources: [Falcon::HostGroupsCreateGroupReqV1.new({group_type: 'static', name: 'name_example'})]}) # HostGroupsCreateGroupsReqV1 | 
+
+begin
+  # Create Host Groups by specifying details about the group to create
+  result = api_instance.create_host_groups(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->create_host_groups: #{e}"
+end
+```
+
+#### Using the create_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> create_host_groups_with_http_info(body)
+
+```ruby
+begin
+  # Create Host Groups by specifying details about the group to create
+  data, status_code, headers = api_instance.create_host_groups_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->create_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**HostGroupsCreateGroupsReqV1**](HostGroupsCreateGroupsReqV1.md) |  |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_host_groups
+
+> <MsaQueryResponse> delete_host_groups(ids)
+
+Delete a set of Host Groups by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to delete
+
+begin
+  # Delete a set of Host Groups by specifying their IDs
+  result = api_instance.delete_host_groups(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->delete_host_groups: #{e}"
+end
+```
+
+#### Using the delete_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> delete_host_groups_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of Host Groups by specifying their IDs
+  data, status_code, headers = api_instance.delete_host_groups_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->delete_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Host Groups to delete |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_host_groups
+
+> <HostGroupsRespV1> get_host_groups(ids)
+
+Retrieve a set of Host Groups by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to return
+
+begin
+  # Retrieve a set of Host Groups by specifying their IDs
+  result = api_instance.get_host_groups(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->get_host_groups: #{e}"
+end
+```
+
+#### Using the get_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> get_host_groups_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of Host Groups by specifying their IDs
+  data, status_code, headers = api_instance.get_host_groups_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->get_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Host Groups to return |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_group_action
+
+> <HostGroupsRespV1> perform_group_action(action_name, body, opts)
+
+Perform the specified action on the Host Groups specified in the request
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+action_name = 'add-hosts' # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}
+
+begin
+  # Perform the specified action on the Host Groups specified in the request
+  result = api_instance.perform_group_action(action_name, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->perform_group_action: #{e}"
+end
+```
+
+#### Using the perform_group_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> perform_group_action_with_http_info(action_name, body, opts)
+
+```ruby
+begin
+  # Perform the specified action on the Host Groups specified in the request
+  data, status_code, headers = api_instance.perform_group_action_with_http_info(action_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->perform_group_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | The action to perform |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) |  |  |
+| **disable_hostname_check** | **Boolean** | Bool to disable hostname check on add-member | [optional][default to false] |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_combined_group_members
+
+> <HostGroupsMembersRespV1> query_combined_group_members(opts)
+
+Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  id: 'id_example', # String | The ID of the Host Group to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_group_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_group_members: #{e}"
+end
+```
+
+#### Using the query_combined_group_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsMembersRespV1>, Integer, Hash)> query_combined_group_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_group_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsMembersRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_group_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Host Group to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**HostGroupsMembersRespV1**](HostGroupsMembersRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_combined_host_groups
+
+> <HostGroupsRespV1> query_combined_host_groups(opts)
+
+Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+  result = api_instance.query_combined_host_groups(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_host_groups: #{e}"
+end
+```
+
+#### Using the query_combined_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> query_combined_host_groups_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_host_groups_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_group_members
+
+> <MsaQueryResponse> query_group_members(opts)
+
+Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  id: 'id_example', # String | The ID of the Host Group to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_group_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_group_members: #{e}"
+end
+```
+
+#### Using the query_group_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_group_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_group_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_group_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Host Group to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_host_groups
+
+> <MsaQueryResponse> query_host_groups(opts)
+
+Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+  result = api_instance.query_host_groups(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_host_groups: #{e}"
+end
+```
+
+#### Using the query_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_host_groups_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_host_groups_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_host_groups
+
+> <HostGroupsRespV1> update_host_groups(body)
+
+Update Host Groups by specifying the ID of the group and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsUpdateGroupsReqV1.new({resources: [Falcon::HostGroupsUpdateGroupReqV1.new({id: 'id_example'})]}) # HostGroupsUpdateGroupsReqV1 | 
+
+begin
+  # Update Host Groups by specifying the ID of the group and details to update
+  result = api_instance.update_host_groups(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->update_host_groups: #{e}"
+end
+```
+
+#### Using the update_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> update_host_groups_with_http_info(body)
+
+```ruby
+begin
+  # Update Host Groups by specifying the ID of the group and details to update
+  data, status_code, headers = api_instance.update_host_groups_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->update_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**HostGroupsUpdateGroupsReqV1**](HostGroupsUpdateGroupsReqV1.md) |  |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > HostGroup
+        </nav>
+        <h1>Falcon::HostGroup
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**create_host_groups**](HostGroup.md#create_host_groups) | **POST** /devices/entities/host-groups/v1 | Create Host Groups by specifying details about the group to create |
+| [**delete_host_groups**](HostGroup.md#delete_host_groups) | **DELETE** /devices/entities/host-groups/v1 | Delete a set of Host Groups by specifying their IDs |
+| [**get_host_groups**](HostGroup.md#get_host_groups) | **GET** /devices/entities/host-groups/v1 | Retrieve a set of Host Groups by specifying their IDs |
+| [**perform_group_action**](HostGroup.md#perform_group_action) | **POST** /devices/entities/host-group-actions/v1 | Perform the specified action on the Host Groups specified in the request |
+| [**query_combined_group_members**](HostGroup.md#query_combined_group_members) | **GET** /devices/combined/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria |
+| [**query_combined_host_groups**](HostGroup.md#query_combined_host_groups) | **GET** /devices/combined/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria |
+| [**query_group_members**](HostGroup.md#query_group_members) | **GET** /devices/queries/host-group-members/v1 | Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria |
+| [**query_host_groups**](HostGroup.md#query_host_groups) | **GET** /devices/queries/host-groups/v1 | Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria |
+| [**update_host_groups**](HostGroup.md#update_host_groups) | **PATCH** /devices/entities/host-groups/v1 | Update Host Groups by specifying the ID of the group and details to update |
+
+
+## create_host_groups
+
+> <HostGroupsRespV1> create_host_groups(body)
+
+Create Host Groups by specifying details about the group to create
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsCreateGroupsReqV1.new({resources: [Falcon::HostGroupsCreateGroupReqV1.new({group_type: 'static', name: 'name_example'})]}) # HostGroupsCreateGroupsReqV1 | 
+
+begin
+  # Create Host Groups by specifying details about the group to create
+  result = api_instance.create_host_groups(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->create_host_groups: #{e}"
+end
+```
+
+#### Using the create_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> create_host_groups_with_http_info(body)
+
+```ruby
+begin
+  # Create Host Groups by specifying details about the group to create
+  data, status_code, headers = api_instance.create_host_groups_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->create_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**HostGroupsCreateGroupsReqV1**](HostGroupsCreateGroupsReqV1.md) |  |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_host_groups
+
+> <MsaQueryResponse> delete_host_groups(ids)
+
+Delete a set of Host Groups by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to delete
+
+begin
+  # Delete a set of Host Groups by specifying their IDs
+  result = api_instance.delete_host_groups(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->delete_host_groups: #{e}"
+end
+```
+
+#### Using the delete_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> delete_host_groups_with_http_info(ids)
+
+```ruby
+begin
+  # Delete a set of Host Groups by specifying their IDs
+  data, status_code, headers = api_instance.delete_host_groups_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->delete_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Host Groups to delete |  |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_host_groups
+
+> <HostGroupsRespV1> get_host_groups(ids)
+
+Retrieve a set of Host Groups by specifying their IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+ids = ['inner_example'] # Array<String> | The IDs of the Host Groups to return
+
+begin
+  # Retrieve a set of Host Groups by specifying their IDs
+  result = api_instance.get_host_groups(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->get_host_groups: #{e}"
+end
+```
+
+#### Using the get_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> get_host_groups_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve a set of Host Groups by specifying their IDs
+  data, status_code, headers = api_instance.get_host_groups_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->get_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The IDs of the Host Groups to return |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## perform_group_action
+
+> <HostGroupsRespV1> perform_group_action(action_name, body, opts)
+
+Perform the specified action on the Host Groups specified in the request
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+action_name = 'add-hosts' # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: ['ids_example']}) # MsaEntityActionRequestV2 | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}
+
+begin
+  # Perform the specified action on the Host Groups specified in the request
+  result = api_instance.perform_group_action(action_name, body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->perform_group_action: #{e}"
+end
+```
+
+#### Using the perform_group_action_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> perform_group_action_with_http_info(action_name, body, opts)
+
+```ruby
+begin
+  # Perform the specified action on the Host Groups specified in the request
+  data, status_code, headers = api_instance.perform_group_action_with_http_info(action_name, body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->perform_group_action_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **action_name** | **String** | The action to perform |  |
+| **body** | [**MsaEntityActionRequestV2**](MsaEntityActionRequestV2.md) |  |  |
+| **disable_hostname_check** | **Boolean** | Bool to disable hostname check on add-member | [optional][default to false] |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_combined_group_members
+
+> <HostGroupsMembersRespV1> query_combined_group_members(opts)
+
+Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  id: 'id_example', # String | The ID of the Host Group to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_group_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_group_members: #{e}"
+end
+```
+
+#### Using the query_combined_group_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsMembersRespV1>, Integer, Hash)> query_combined_group_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_group_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsMembersRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_group_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Host Group to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**HostGroupsMembersRespV1**](HostGroupsMembersRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_combined_host_groups
+
+> <HostGroupsRespV1> query_combined_host_groups(opts)
+
+Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+  result = api_instance.query_combined_host_groups(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_host_groups: #{e}"
+end
+```
+
+#### Using the query_combined_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> query_combined_host_groups_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+  data, status_code, headers = api_instance.query_combined_host_groups_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_combined_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_group_members
+
+> <MsaQueryResponse> query_group_members(opts)
+
+Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  id: 'id_example', # String | The ID of the Host Group to search for members of
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'sort_example' # String | The property to sort by
+}
+
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_group_members(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_group_members: #{e}"
+end
+```
+
+#### Using the query_group_members_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_group_members_with_http_info(opts)
+
+```ruby
+begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_group_members_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_group_members_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | The ID of the Host Group to search for members of | [optional] |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_host_groups
+
+> <MsaQueryResponse> query_host_groups(opts)
+
+Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+opts = {
+  filter: 'filter_example', # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: 'created_by.asc' # String | The property to sort by
+}
+
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+  result = api_instance.query_host_groups(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_host_groups: #{e}"
+end
+```
+
+#### Using the query_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_host_groups_with_http_info(opts)
+
+```ruby
+begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+  data, status_code, headers = api_instance.query_host_groups_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MsaQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->query_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | The filter expression that should be used to limit the results | [optional] |
+| **offset** | **Integer** | The offset to start retrieving records from | [optional] |
+| **limit** | **Integer** | The maximum records to return. [1-5000] | [optional] |
+| **sort** | **String** | The property to sort by | [optional] |
+
+### Return type
+
+[**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_host_groups
+
+> <HostGroupsRespV1> update_host_groups(body)
+
+Update Host Groups by specifying the ID of the group and details to update
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsUpdateGroupsReqV1.new({resources: [Falcon::HostGroupsUpdateGroupReqV1.new({id: 'id_example'})]}) # HostGroupsUpdateGroupsReqV1 | 
+
+begin
+  # Update Host Groups by specifying the ID of the group and details to update
+  result = api_instance.update_host_groups(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->update_host_groups: #{e}"
+end
+```
+
+#### Using the update_host_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HostGroupsRespV1>, Integer, Hash)> update_host_groups_with_http_info(body)
+
+```ruby
+begin
+  # Update Host Groups by specifying the ID of the group and details to update
+  data, status_code, headers = api_instance.update_host_groups_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HostGroupsRespV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling HostGroup->update_host_groups_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**HostGroupsUpdateGroupsReqV1**](HostGroupsUpdateGroupsReqV1.md) |  |  |
+
+### Return type
+
+[**HostGroupsRespV1**](HostGroupsRespV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falconhostgroup">Falcon::HostGroup</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="HostGroup.md#create_host_groups"><strong>create_host_groups</strong></a></td>
+      <td><strong>POST</strong> /devices/entities/host-groups/v1</td>
+      <td>Create Host Groups by specifying details about the group to create</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#delete_host_groups"><strong>delete_host_groups</strong></a></td>
+      <td><strong>DELETE</strong> /devices/entities/host-groups/v1</td>
+      <td>Delete a set of Host Groups by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#get_host_groups"><strong>get_host_groups</strong></a></td>
+      <td><strong>GET</strong> /devices/entities/host-groups/v1</td>
+      <td>Retrieve a set of Host Groups by specifying their IDs</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#perform_group_action"><strong>perform_group_action</strong></a></td>
+      <td><strong>POST</strong> /devices/entities/host-group-actions/v1</td>
+      <td>Perform the specified action on the Host Groups specified in the request</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#query_combined_group_members"><strong>query_combined_group_members</strong></a></td>
+      <td><strong>GET</strong> /devices/combined/host-group-members/v1</td>
+      <td>Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#query_combined_host_groups"><strong>query_combined_host_groups</strong></a></td>
+      <td><strong>GET</strong> /devices/combined/host-groups/v1</td>
+      <td>Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#query_group_members"><strong>query_group_members</strong></a></td>
+      <td><strong>GET</strong> /devices/queries/host-group-members/v1</td>
+      <td>Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#query_host_groups"><strong>query_host_groups</strong></a></td>
+      <td><strong>GET</strong> /devices/queries/host-groups/v1</td>
+      <td>Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria</td>
+    </tr>
+    <tr>
+      <td><a href="HostGroup.md#update_host_groups"><strong>update_host_groups</strong></a></td>
+      <td><strong>PATCH</strong> /devices/entities/host-groups/v1</td>
+      <td>Update Host Groups by specifying the ID of the group and details to update</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="createhostgroups">create_host_groups</h2>
+
+<blockquote>
+  <HostGroupsRespV1> create_host_groups(body)
+</HostGroupsRespV1>
+</blockquote>
+
+<p>Create Host Groups by specifying details about the group to create</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsCreateGroupsReqV1.new({resources: [Falcon::HostGroupsCreateGroupReqV1.new({group_type: ‘static’, name: ‘name_example’})]}) # HostGroupsCreateGroupsReqV1 |</p>
+
+<p>begin
+  # Create Host Groups by specifying details about the group to create
+  result = api_instance.create_host_groups(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;create_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-createhostgroupswithhttpinfo-variant">Using the create_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsRespV1>, Integer, Hash)&gt; create_host_groups_with_http_info(body)</HostGroupsRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Create Host Groups by specifying details about the group to create</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">create_host_groups_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;create_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="HostGroupsCreateGroupsReqV1.md"><strong>HostGroupsCreateGroupsReqV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><a href="HostGroupsRespV1.md"><strong>HostGroupsRespV1</strong></a></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="deletehostgroups">delete_host_groups</h2>
+
+<blockquote>
+  <MsaQueryResponse> delete_host_groups(ids)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Delete a set of Host Groups by specifying their IDs</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+ids = [‘inner_example’] # Array<String> | The IDs of the Host Groups to delete</String></p>
+
+<p>begin
+  # Delete a set of Host Groups by specifying their IDs
+  result = api_instance.delete_host_groups(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;delete_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-deletehostgroupswithhttpinfo-variant">Using the delete_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; delete_host_groups_with_http_info(ids)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Delete a set of Host Groups by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">delete_host_groups_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;delete_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the Host Groups to delete</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="gethostgroups">get_host_groups</h2>
+
+<blockquote>
+  <HostGroupsRespV1> get_host_groups(ids)
+</HostGroupsRespV1>
+</blockquote>
+
+<p>Retrieve a set of Host Groups by specifying their IDs</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+ids = [‘inner_example’] # Array<String> | The IDs of the Host Groups to return</String></p>
+
+<p>begin
+  # Retrieve a set of Host Groups by specifying their IDs
+  result = api_instance.get_host_groups(ids)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;get_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-gethostgroupswithhttpinfo-variant">Using the get_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsRespV1>, Integer, Hash)&gt; get_host_groups_with_http_info(ids)</HostGroupsRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Retrieve a set of Host Groups by specifying their IDs</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_host_groups_with_http_info</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;get_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ids</strong></td>
+      <td><a href="String.md"><strong>Array&lt;String&gt;</strong></a></td>
+      <td>The IDs of the Host Groups to return</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="HostGroupsRespV1.md"><strong>HostGroupsRespV1</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="performgroupaction">perform_group_action</h2>
+
+<blockquote>
+  <HostGroupsRespV1> perform_group_action(action_name, body, opts)
+</HostGroupsRespV1>
+</blockquote>
+
+<p>Perform the specified action on the Host Groups specified in the request</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+action_name = ‘add-hosts’ # String | The action to perform
+body = Falcon::MsaEntityActionRequestV2.new({ids: [‘ids_example’]}) # MsaEntityActionRequestV2 | 
+opts = {
+  disable_hostname_check: true # Boolean | Bool to disable hostname check on add-member
+}</p>
+
+<p>begin
+  # Perform the specified action on the Host Groups specified in the request
+  result = api_instance.perform_group_action(action_name, body, opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;perform_group_action: #{e}”
+end
+```</p>
+
+<h4 id="using-the-performgroupactionwithhttpinfo-variant">Using the perform_group_action_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsRespV1>, Integer, Hash)&gt; perform_group_action_with_http_info(action_name, body, opts)</HostGroupsRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Perform the specified action on the Host Groups specified in the request</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">perform_group_action_with_http_info</span><span class="p">(</span><span class="n">action_name</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;perform_group_action_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>action_name</strong></td>
+      <td><strong>String</strong></td>
+      <td>The action to perform</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaEntityActionRequestV2.md"><strong>MsaEntityActionRequestV2</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>disable_hostname_check</strong></td>
+      <td><strong>Boolean</strong></td>
+      <td>Bool to disable hostname check on add-member</td>
+      <td>[optional][default to false]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="HostGroupsRespV1.md"><strong>HostGroupsRespV1</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querycombinedgroupmembers">query_combined_group_members</h2>
+
+<blockquote>
+  <HostGroupsMembersRespV1> query_combined_group_members(opts)
+</HostGroupsMembersRespV1>
+</blockquote>
+
+<p>Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+opts = {
+  id: ‘id_example’, # String | The ID of the Host Group to search for members of
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
+  result = api_instance.query_combined_group_members(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;query_combined_group_members: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querycombinedgroupmemberswithhttpinfo-variant">Using the query_combined_group_members_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsMembersRespV1>, Integer, Hash)&gt; query_combined_group_members_with_http_info(opts)</HostGroupsMembersRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_combined_group_members_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsMembersRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;query_combined_group_members_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The ID of the Host Group to search for members of</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="HostGroupsMembersRespV1.md"><strong>HostGroupsMembersRespV1</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querycombinedhostgroups">query_combined_host_groups</h2>
+
+<blockquote>
+  <HostGroupsRespV1> query_combined_host_groups(opts)
+</HostGroupsRespV1>
+</blockquote>
+
+<p>Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria</p>
+
+<h3 id="examples-5">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-5">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘created_by.asc’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
+  result = api_instance.query_combined_host_groups(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;query_combined_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querycombinedhostgroupswithhttpinfo-variant">Using the query_combined_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsRespV1>, Integer, Hash)&gt; query_combined_host_groups_with_http_info(opts)</HostGroupsRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_combined_host_groups_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;query_combined_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-5">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-5">Return type</h3>
+
+<p><a href="HostGroupsRespV1.md"><strong>HostGroupsRespV1</strong></a></p>
+
+<h3 id="authorization-5">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-5">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="querygroupmembers">query_group_members</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_group_members(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</p>
+
+<h3 id="examples-6">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-6">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+opts = {
+  id: ‘id_example’, # String | The ID of the Host Group to search for members of
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘sort_example’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
+  result = api_instance.query_group_members(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;query_group_members: #{e}”
+end
+```</p>
+
+<h4 id="using-the-querygroupmemberswithhttpinfo-variant">Using the query_group_members_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_group_members_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_group_members_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;query_group_members_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-6">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>The ID of the Host Group to search for members of</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-6">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-6">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-6">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryhostgroups">query_host_groups</h2>
+
+<blockquote>
+  <MsaQueryResponse> query_host_groups(opts)
+</MsaQueryResponse>
+</blockquote>
+
+<p>Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria</p>
+
+<h3 id="examples-7">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-7">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+opts = {
+  filter: ‘filter_example’, # String | The filter expression that should be used to limit the results
+  offset: 56, # Integer | The offset to start retrieving records from
+  limit: 56, # Integer | The maximum records to return. [1-5000]
+  sort: ‘created_by.asc’ # String | The property to sort by
+}</p>
+
+<p>begin
+  # Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
+  result = api_instance.query_host_groups(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;query_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryhostgroupswithhttpinfo-variant">Using the query_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<MsaQueryResponse>, Integer, Hash)&gt; query_host_groups_with_http_info(opts)</MsaQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_host_groups_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;MsaQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;query_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-7">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>The filter expression that should be used to limit the results</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The offset to start retrieving records from</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>The maximum records to return. [1-5000]</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>The property to sort by</td>
+      <td>[optional]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-7">Return type</h3>
+
+<p><a href="MsaQueryResponse.md"><strong>MsaQueryResponse</strong></a></p>
+
+<h3 id="authorization-7">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-7">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="updatehostgroups">update_host_groups</h2>
+
+<blockquote>
+  <HostGroupsRespV1> update_host_groups(body)
+</HostGroupsRespV1>
+</blockquote>
+
+<p>Update Host Groups by specifying the ID of the group and details to update</p>
+
+<h3 id="examples-8">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-8">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::HostGroup.new
+body = Falcon::HostGroupsUpdateGroupsReqV1.new({resources: [Falcon::HostGroupsUpdateGroupReqV1.new({id: ‘id_example’})]}) # HostGroupsUpdateGroupsReqV1 |</p>
+
+<p>begin
+  # Update Host Groups by specifying the ID of the group and details to update
+  result = api_instance.update_host_groups(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling HostGroup-&gt;update_host_groups: #{e}”
+end
+```</p>
+
+<h4 id="using-the-updatehostgroupswithhttpinfo-variant">Using the update_host_groups_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<HostGroupsRespV1>, Integer, Hash)&gt; update_host_groups_with_http_info(body)</HostGroupsRespV1></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Update Host Groups by specifying the ID of the group and details to update</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">update_host_groups_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;HostGroupsRespV1&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling HostGroup-&gt;update_host_groups_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-8">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="HostGroupsUpdateGroupsReqV1.md"><strong>HostGroupsUpdateGroupsReqV1</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-8">Return type</h3>
+
+<p><a href="HostGroupsRespV1.md"><strong>HostGroupsRespV1</strong></a></p>
+
+<h3 id="authorization-8">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-8">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>

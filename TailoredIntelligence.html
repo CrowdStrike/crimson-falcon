@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falcon::TailoredIntelligence
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_events_body**](TailoredIntelligence.md#get_events_body) | **GET** /ti/events/entities/events-full-body/v2 | Get event body for the provided event ID |
+| [**get_events_entities**](TailoredIntelligence.md#get_events_entities) | **POST** /ti/events/entities/events/GET/v2 | Get events entities for specified ids. |
+| [**get_rules_entities**](TailoredIntelligence.md#get_rules_entities) | **POST** /ti/rules/entities/rules/GET/v2 | Get rules entities for specified ids. |
+| [**query_events**](TailoredIntelligence.md#query_events) | **GET** /ti/events/queries/events/v2 | Get events ids that match the provided filter criteria. |
+| [**query_rules**](TailoredIntelligence.md#query_rules) | **GET** /ti/rules/queries/rules/v2 | Get rules ids that match the provided filter criteria. |
+
+
+## get_events_body
+
+> Array&lt;Integer&gt; get_events_body(id)
+
+Get event body for the provided event ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+id = 'id_example' # String | Return the event body for event id.
+
+begin
+  # Get event body for the provided event ID
+  result = api_instance.get_events_body(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_body: #{e}"
+end
+```
+
+#### Using the get_events_body_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> get_events_body_with_http_info(id)
+
+```ruby
+begin
+  # Get event body for the provided event ID
+  data, status_code, headers = api_instance.get_events_body_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;Integer&gt;
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_body_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Return the event body for event id. |  |
+
+### Return type
+
+**Array&lt;Integer&gt;**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+## get_events_entities
+
+> <DomainEventEntitiesResponse> get_events_entities(body)
+
+Get events entities for specified ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get events entities for specified ids.
+  result = api_instance.get_events_entities(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_entities: #{e}"
+end
+```
+
+#### Using the get_events_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainEventEntitiesResponse>, Integer, Hash)> get_events_entities_with_http_info(body)
+
+```ruby
+begin
+  # Get events entities for specified ids.
+  data, status_code, headers = api_instance.get_events_entities_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainEventEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DomainEventEntitiesResponse**](DomainEventEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_rules_entities
+
+> <DomainRuleEntitiesResponse> get_rules_entities(body)
+
+Get rules entities for specified ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get rules entities for specified ids.
+  result = api_instance.get_rules_entities(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_rules_entities: #{e}"
+end
+```
+
+#### Using the get_rules_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainRuleEntitiesResponse>, Integer, Hash)> get_rules_entities_with_http_info(body)
+
+```ruby
+begin
+  # Get rules entities for specified ids.
+  data, status_code, headers = api_instance.get_rules_entities_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainRuleEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_rules_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DomainRuleEntitiesResponse**](DomainRuleEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_events
+
+> <DomainQueryResponse> query_events(opts)
+
+Get events ids that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: 'sort_example', # String | Possible order by fields: source_type, created_date, updated_date. Ex: 'updated_date|desc'.
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Special value '*' means to not filter on anything.
+  q: 'q_example' # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}
+
+begin
+  # Get events ids that match the provided filter criteria.
+  result = api_instance.query_events(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_events: #{e}"
+end
+```
+
+#### Using the query_events_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_events_with_http_info(opts)
+
+```ruby
+begin
+  # Get events ids that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_events_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_events_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+| **sort** | **String** | Possible order by fields: source_type, created_date, updated_date. Ex: &#39;updated_date|desc&#39;. | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. | [optional] |
+| **q** | **String** | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). | [optional] |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_rules
+
+> <DomainQueryResponse> query_rules(opts)
+
+Get rules ids that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: 'sort_example', # String | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: 'updated_date|asc'.
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Special value '*' means to not filter on anything.
+  q: 'q_example' # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}
+
+begin
+  # Get rules ids that match the provided filter criteria.
+  result = api_instance.query_rules(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_rules: #{e}"
+end
+```
+
+#### Using the query_rules_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_rules_with_http_info(opts)
+
+```ruby
+begin
+  # Get rules ids that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_rules_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_rules_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+| **sort** | **String** | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: &#39;updated_date|asc&#39;. | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. | [optional] |
+| **q** | **String** | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). | [optional] |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json - Crimson Falcon Documentation</title>
+    <style>
+        :root {
+            --crwd-red: #EC0000;
+            --crwd-dark-red: #B52026;
+            --crwd-black: #000000;
+            --crwd-gray: #666666;
+            --crwd-light-gray: #f8f9fa;
+            --crwd-border: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Red Hat Display", "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--crwd-black);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .header {
+            border-bottom: 3px solid var(--crwd-red);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: var(--crwd-gray);
+        }
+
+        .breadcrumb a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: var(--crwd-red);
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--crwd-dark-red);
+            font-size: 1.8em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+            border-bottom: 2px solid var(--crwd-light-gray);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--crwd-black);
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            font-weight: 600;
+        }
+
+        h4, h5, h6 {
+            color: var(--crwd-black);
+            font-weight: 600;
+            margin: 20px 0 10px 0;
+        }
+
+        a {
+            color: var(--crwd-red);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--crwd-dark-red);
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid var(--crwd-border);
+        }
+
+        th {
+            background-color: var(--crwd-red);
+            color: white;
+            font-weight: 600;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--crwd-border);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--crwd-light-gray);
+        }
+
+        tr:hover {
+            background-color: #e8f4f8;
+        }
+
+        pre {
+            background-color: #f6f8fA;
+            border: 1px solid var(--crwd-border);
+            border-left: 4px solid var(--crwd-red);
+            border-radius: 4px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: var(--crwd-light-gray);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--crwd-red);
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: var(--crwd-light-gray);
+            font-style: italic;
+        }
+
+        .back-link {
+            margin: 40px 0 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--crwd-border);
+            text-align: center;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: var(--crwd-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: var(--crwd-dark-red);
+        }
+
+        /* Syntax highlighting for Ruby code */
+        .highlight .k { color: #d73a49; font-weight: bold; } /* Keywords */
+        .highlight .s { color: #032f62; } /* Strings */
+        .highlight .c { color: #6a737d; font-style: italic; } /* Comments */
+        .highlight .n { color: #24292e; } /* Names */
+        .highlight .o { color: #d73a49; } /* Operators */
+        .highlight .p { color: #24292e; } /* Punctuation */
+        .highlight .nb { color: #005cc5; } /* Built-ins */
+        .highlight .nf { color: #6f42c1; } /* Functions */
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            pre {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="breadcrumb">
+            🏠 <a href="../index.html">Documentation</a> > TailoredIntelligence
+        </nav>
+        <h1>Falcon::TailoredIntelligence
+
+All URIs are relative to *https://api.crowdstrike.com*
+
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**get_events_body**](TailoredIntelligence.md#get_events_body) | **GET** /ti/events/entities/events-full-body/v2 | Get event body for the provided event ID |
+| [**get_events_entities**](TailoredIntelligence.md#get_events_entities) | **POST** /ti/events/entities/events/GET/v2 | Get events entities for specified ids. |
+| [**get_rules_entities**](TailoredIntelligence.md#get_rules_entities) | **POST** /ti/rules/entities/rules/GET/v2 | Get rules entities for specified ids. |
+| [**query_events**](TailoredIntelligence.md#query_events) | **GET** /ti/events/queries/events/v2 | Get events ids that match the provided filter criteria. |
+| [**query_rules**](TailoredIntelligence.md#query_rules) | **GET** /ti/rules/queries/rules/v2 | Get rules ids that match the provided filter criteria. |
+
+
+## get_events_body
+
+> Array&lt;Integer&gt; get_events_body(id)
+
+Get event body for the provided event ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+id = 'id_example' # String | Return the event body for event id.
+
+begin
+  # Get event body for the provided event ID
+  result = api_instance.get_events_body(id)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_body: #{e}"
+end
+```
+
+#### Using the get_events_body_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Array&lt;Integer&gt;, Integer, Hash)> get_events_body_with_http_info(id)
+
+```ruby
+begin
+  # Get event body for the provided event ID
+  data, status_code, headers = api_instance.get_events_body_with_http_info(id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Array&lt;Integer&gt;
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_body_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** | Return the event body for event id. |  |
+
+### Return type
+
+**Array&lt;Integer&gt;**
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/octet-stream
+
+
+## get_events_entities
+
+> <DomainEventEntitiesResponse> get_events_entities(body)
+
+Get events entities for specified ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get events entities for specified ids.
+  result = api_instance.get_events_entities(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_entities: #{e}"
+end
+```
+
+#### Using the get_events_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainEventEntitiesResponse>, Integer, Hash)> get_events_entities_with_http_info(body)
+
+```ruby
+begin
+  # Get events entities for specified ids.
+  data, status_code, headers = api_instance.get_events_entities_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainEventEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_events_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DomainEventEntitiesResponse**](DomainEventEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## get_rules_entities
+
+> <DomainRuleEntitiesResponse> get_rules_entities(body)
+
+Get rules entities for specified ids.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: ['ids_example']}) # MsaIdsRequest | 
+
+begin
+  # Get rules entities for specified ids.
+  result = api_instance.get_rules_entities(body)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_rules_entities: #{e}"
+end
+```
+
+#### Using the get_rules_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainRuleEntitiesResponse>, Integer, Hash)> get_rules_entities_with_http_info(body)
+
+```ruby
+begin
+  # Get rules entities for specified ids.
+  data, status_code, headers = api_instance.get_rules_entities_with_http_info(body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainRuleEntitiesResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->get_rules_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**MsaIdsRequest**](MsaIdsRequest.md) |  |  |
+
+### Return type
+
+[**DomainRuleEntitiesResponse**](DomainRuleEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## query_events
+
+> <DomainQueryResponse> query_events(opts)
+
+Get events ids that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: 'sort_example', # String | Possible order by fields: source_type, created_date, updated_date. Ex: 'updated_date|desc'.
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Special value '*' means to not filter on anything.
+  q: 'q_example' # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}
+
+begin
+  # Get events ids that match the provided filter criteria.
+  result = api_instance.query_events(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_events: #{e}"
+end
+```
+
+#### Using the query_events_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_events_with_http_info(opts)
+
+```ruby
+begin
+  # Get events ids that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_events_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_events_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+| **sort** | **String** | Possible order by fields: source_type, created_date, updated_date. Ex: &#39;updated_date|desc&#39;. | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. | [optional] |
+| **q** | **String** | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). | [optional] |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_rules
+
+> <DomainQueryResponse> query_rules(opts)
+
+Get rules ids that match the provided filter criteria.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: 'offset_example', # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: 'sort_example', # String | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: 'updated_date|asc'.
+  filter: 'filter_example', # String | FQL query specifying the filter parameters. Special value '*' means to not filter on anything.
+  q: 'q_example' # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}
+
+begin
+  # Get rules ids that match the provided filter criteria.
+  result = api_instance.query_rules(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_rules: #{e}"
+end
+```
+
+#### Using the query_rules_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainQueryResponse>, Integer, Hash)> query_rules_with_http_info(opts)
+
+```ruby
+begin
+  # Get rules ids that match the provided filter criteria.
+  data, status_code, headers = api_instance.query_rules_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainQueryResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling TailoredIntelligence->query_rules_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **offset** | **String** | Starting index of overall result set from which to return ids. | [optional] |
+| **limit** | **Integer** | Number of ids to return. | [optional] |
+| **sort** | **String** | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: &#39;updated_date|asc&#39;. | [optional] |
+| **filter** | **String** | FQL query specifying the filter parameters. Special value &#39;*&#39; means to not filter on anything. | [optional] |
+| **q** | **String** | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed). | [optional] |
+
+### Return type
+
+[**DomainQueryResponse**](DomainQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json</h1>
+    </div>
+
+    <main>
+        <h1 id="falcontailoredintelligence">Falcon::TailoredIntelligence</h1>
+
+<p>All URIs are relative to <em>https://api.crowdstrike.com</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>HTTP request</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="TailoredIntelligence.md#get_events_body"><strong>get_events_body</strong></a></td>
+      <td><strong>GET</strong> /ti/events/entities/events-full-body/v2</td>
+      <td>Get event body for the provided event ID</td>
+    </tr>
+    <tr>
+      <td><a href="TailoredIntelligence.md#get_events_entities"><strong>get_events_entities</strong></a></td>
+      <td><strong>POST</strong> /ti/events/entities/events/GET/v2</td>
+      <td>Get events entities for specified ids.</td>
+    </tr>
+    <tr>
+      <td><a href="TailoredIntelligence.md#get_rules_entities"><strong>get_rules_entities</strong></a></td>
+      <td><strong>POST</strong> /ti/rules/entities/rules/GET/v2</td>
+      <td>Get rules entities for specified ids.</td>
+    </tr>
+    <tr>
+      <td><a href="TailoredIntelligence.md#query_events"><strong>query_events</strong></a></td>
+      <td><strong>GET</strong> /ti/events/queries/events/v2</td>
+      <td>Get events ids that match the provided filter criteria.</td>
+    </tr>
+    <tr>
+      <td><a href="TailoredIntelligence.md#query_rules"><strong>query_rules</strong></a></td>
+      <td><strong>GET</strong> /ti/rules/queries/rules/v2</td>
+      <td>Get rules ids that match the provided filter criteria.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="geteventsbody">get_events_body</h2>
+
+<blockquote>
+  <p>Array&lt;Integer&gt; get_events_body(id)</p>
+</blockquote>
+
+<p>Get event body for the provided event ID</p>
+
+<h3 id="examples">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::TailoredIntelligence.new
+id = ‘id_example’ # String | Return the event body for event id.</p>
+
+<p>begin
+  # Get event body for the provided event ID
+  result = api_instance.get_events_body(id)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling TailoredIntelligence-&gt;get_events_body: #{e}”
+end
+```</p>
+
+<h4 id="using-the-geteventsbodywithhttpinfo-variant">Using the get_events_body_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(Array&lt;Integer&gt;, Integer, Hash)&gt; get_events_body_with_http_info(id)</p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get event body for the provided event ID</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_events_body_with_http_info</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; Array&amp;lt;Integer&amp;gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling TailoredIntelligence-&gt;get_events_body_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>id</strong></td>
+      <td><strong>String</strong></td>
+      <td>Return the event body for event id.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type">Return type</h3>
+
+<p><strong>Array&lt;Integer&gt;</strong></p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/octet-stream</li>
+</ul>
+
+<h2 id="geteventsentities">get_events_entities</h2>
+
+<blockquote>
+  <DomainEventEntitiesResponse> get_events_entities(body)
+</DomainEventEntitiesResponse>
+</blockquote>
+
+<p>Get events entities for specified ids.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-1">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Get events entities for specified ids.
+  result = api_instance.get_events_entities(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling TailoredIntelligence-&gt;get_events_entities: #{e}”
+end
+```</p>
+
+<h4 id="using-the-geteventsentitieswithhttpinfo-variant">Using the get_events_entities_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainEventEntitiesResponse>, Integer, Hash)&gt; get_events_entities_with_http_info(body)</DomainEventEntitiesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get events entities for specified ids.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_events_entities_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainEventEntitiesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling TailoredIntelligence-&gt;get_events_entities_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-1">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-1">Return type</h3>
+
+<p><a href="DomainEventEntitiesResponse.md"><strong>DomainEventEntitiesResponse</strong></a></p>
+
+<h3 id="authorization-1">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-1">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="getrulesentities">get_rules_entities</h2>
+
+<blockquote>
+  <DomainRuleEntitiesResponse> get_rules_entities(body)
+</DomainRuleEntitiesResponse>
+</blockquote>
+
+<p>Get rules entities for specified ids.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-2">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::TailoredIntelligence.new
+body = Falcon::MsaIdsRequest.new({ids: [‘ids_example’]}) # MsaIdsRequest |</p>
+
+<p>begin
+  # Get rules entities for specified ids.
+  result = api_instance.get_rules_entities(body)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling TailoredIntelligence-&gt;get_rules_entities: #{e}”
+end
+```</p>
+
+<h4 id="using-the-getrulesentitieswithhttpinfo-variant">Using the get_rules_entities_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainRuleEntitiesResponse>, Integer, Hash)&gt; get_rules_entities_with_http_info(body)</DomainRuleEntitiesResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get rules entities for specified ids.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">get_rules_entities_with_http_info</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainRuleEntitiesResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling TailoredIntelligence-&gt;get_rules_entities_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-2">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td><a href="MsaIdsRequest.md"><strong>MsaIdsRequest</strong></a></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-2">Return type</h3>
+
+<p><a href="DomainRuleEntitiesResponse.md"><strong>DomainRuleEntitiesResponse</strong></a></p>
+
+<h3 id="authorization-2">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-2">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: application/json</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryevents">query_events</h2>
+
+<blockquote>
+  <DomainQueryResponse> query_events(opts)
+</DomainQueryResponse>
+</blockquote>
+
+<p>Get events ids that match the provided filter criteria.</p>
+
+<h3 id="examples-3">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-3">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: ‘sort_example’, # String | Possible order by fields: source_type, created_date, updated_date. Ex: ‘updated_date|desc’.
+  filter: ‘filter_example’, # String | FQL query specifying the filter parameters. Special value ‘*’ means to not filter on anything.
+  q: ‘q_example’ # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}</p>
+
+<p>begin
+  # Get events ids that match the provided filter criteria.
+  result = api_instance.query_events(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling TailoredIntelligence-&gt;query_events: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryeventswithhttpinfo-variant">Using the query_events_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainQueryResponse>, Integer, Hash)&gt; query_events_with_http_info(opts)</DomainQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get events ids that match the provided filter criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_events_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling TailoredIntelligence-&gt;query_events_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-3">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Possible order by fields: source_type, created_date, updated_date. Ex: 'updated_date</td>
+      <td>desc'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying the filter parameters. Special value '*' means to not filter on anything.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>q</strong></td>
+      <td><strong>String</strong></td>
+      <td>Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-3">Return type</h3>
+
+<p><a href="DomainQueryResponse.md"><strong>DomainQueryResponse</strong></a></p>
+
+<h3 id="authorization-3">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-3">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+<h2 id="queryrules">query_rules</h2>
+
+<blockquote>
+  <DomainQueryResponse> query_rules(opts)
+</DomainQueryResponse>
+</blockquote>
+
+<p>Get rules ids that match the provided filter criteria.</p>
+
+<h3 id="examples-4">Examples</h3>
+
+<p>```ruby
+require ‘time’
+require ‘crimson-falcon’</p>
+
+<h1 id="setup-authorization-4">Setup authorization</h1>
+<p>Falcon.configure do |config|
+  config.client_id = “Your_Client_ID”
+  config.client_secret = “Your_Client_Secret”
+  config.cloud = “us-1” # or “us-2”, “eu-1”, “us-gov1”
+end</p>
+
+<p>api_instance = Falcon::TailoredIntelligence.new
+opts = {
+  offset: ‘offset_example’, # String | Starting index of overall result set from which to return ids.
+  limit: 56, # Integer | Number of ids to return.
+  sort: ‘sort_example’, # String | Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: ‘updated_date|asc’.
+  filter: ‘filter_example’, # String | FQL query specifying the filter parameters. Special value ‘*’ means to not filter on anything.
+  q: ‘q_example’ # String | Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+}</p>
+
+<p>begin
+  # Get rules ids that match the provided filter criteria.
+  result = api_instance.query_rules(opts)
+  p result
+rescue Falcon::ApiError =&gt; e
+  puts “Error when calling TailoredIntelligence-&gt;query_rules: #{e}”
+end
+```</p>
+
+<h4 id="using-the-queryruleswithhttpinfo-variant">Using the query_rules_with_http_info variant</h4>
+
+<p>This returns an Array which contains the response data, status code and headers.</p>
+
+<blockquote>
+  <p>&lt;Array(<DomainQueryResponse>, Integer, Hash)&gt; query_rules_with_http_info(opts)</DomainQueryResponse></p>
+</blockquote>
+
+<p><code class="language-ruby highlighter-rouge"><span class="n">ruby</span>
+<span class="k">begin</span>
+  <span class="c1"># Get rules ids that match the provided filter criteria.</span>
+  <span class="n">data</span><span class="p">,</span> <span class="n">status_code</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">api_instance</span><span class="p">.</span><span class="nf">query_rules_with_http_info</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">status_code</span> <span class="c1"># =&gt; 2xx</span>
+  <span class="nb">p</span> <span class="n">headers</span> <span class="c1"># =&gt; { ... }</span>
+  <span class="nb">p</span> <span class="n">data</span> <span class="c1"># =&gt; &lt;DomainQueryResponse&gt;</span>
+<span class="k">rescue</span> <span class="no">Falcon</span><span class="o">::</span><span class="no">ApiError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">"Error when calling TailoredIntelligence-&gt;query_rules_with_http_info: </span><span class="si">#{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+</code></p>
+
+<h3 id="parameters-4">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>offset</strong></td>
+      <td><strong>String</strong></td>
+      <td>Starting index of overall result set from which to return ids.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>limit</strong></td>
+      <td><strong>Integer</strong></td>
+      <td>Number of ids to return.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>sort</strong></td>
+      <td><strong>String</strong></td>
+      <td>Possible order by fields: name, value, rule_type, customer_id, created_date, updated_date. Ex: 'updated_date</td>
+      <td>asc'.</td>
+      <td>[optional]</td>
+    </tr>
+    <tr>
+      <td><strong>filter</strong></td>
+      <td><strong>String</strong></td>
+      <td>FQL query specifying the filter parameters. Special value '*' means to not filter on anything.</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>q</strong></td>
+      <td><strong>String</strong></td>
+      <td>Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).</td>
+      <td>[optional]</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-type-4">Return type</h3>
+
+<p><a href="DomainQueryResponse.md"><strong>DomainQueryResponse</strong></a></p>
+
+<h3 id="authorization-4">Authorization</h3>
+
+<p><strong>oauth2</strong></p>
+
+<h3 id="http-request-headers-4">HTTP request headers</h3>
+
+<ul>
+  <li><strong>Content-Type</strong>: Not defined</li>
+  <li><strong>Accept</strong>: application/json</li>
+</ul>
+
+
+    </main>
+
+    <div class="back-link">
+        <a href="../index.html">← Back to Documentation Index</a>
+    </div>
+</body>
+</html>
