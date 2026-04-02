@@ -1,54 +1,60 @@
 name: release-please
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      release_created: ${{ steps.release-please.outputs.release_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - uses: google-github-actions/release-please-action@db8f2c60ee802b3748b512940dde88eabd7b7e01 # v3.7.13
         id: release-please
         with:
           release-type: ruby
           package-name: crimson-falcon
           version-file: "lib/crimson-falcon/version.rb"
           pull-request-header: ':rocket: Prepare for Launch: New Release Incoming!'
-          # Override the changelog section to include miscellaneous changes.
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}]'
           extra-files: |
             .openapi-generator/config.yml
             README.md
-      # The following steps are only executed if a release is created.
-      - name: Check out code
-        uses: actions/checkout@v4
-        if: ${{ steps.release-please.outputs.release_created }}
+
+  gem-publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: release
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          ref: ${{ needs.release-please.outputs.tag_name }}
 
       - name: Set up Ruby 3.2
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
         with:
           ruby-version: 3.2
-        if: ${{ steps.release-please.outputs.release_created }}
+          bundler-cache: true
 
-      - name: Install dependencies
-        run: bundle install
-        if: ${{ steps.release-please.outputs.release_created }}
+      - name: Build and verify gem
+        run: |
+          make build
+          make install
 
-      - name: Build gem
-        run: make build
-        if: ${{ steps.release-please.outputs.release_created }}
-
-      - name: Ensure gem installs
-        run: make install
-        if: ${{ steps.release-please.outputs.release_created }}
-
-      - name: Publish gem
-        run: gem push crimson-falcon-*.gem
-        env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
-        if: ${{ steps.release-please.outputs.release_created }}
+      - name: Publish to RubyGems
+        uses: rubygems/release-gem@6317d8d1f7e28c24d28f6eff169ea854948bd9f7 # v1.2.0

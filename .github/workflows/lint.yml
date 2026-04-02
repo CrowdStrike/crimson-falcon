@@ -2,25 +2,29 @@ name: RuboCop Linter
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   rubocop:
     name: RuboCop
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 10
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@3ff19f5e2baf30647122352b96108b1fbe250c64 # v1
       with:
         ruby-version: 3.2
-
-    - name: Install dependencies
-      run: bundle install
+        bundler-cache: true
 
     - name: Run RuboCop
       run: rubocop
