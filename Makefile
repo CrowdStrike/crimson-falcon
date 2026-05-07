@@ -88,3 +88,6 @@ clean-generated-files:
 .PHONY: generate
 generate: clean-generated-files .openapi-generator/swagger-stripped-oauth.json build-sdk fix-regex remove-suffix rubocop
 	@echo "SDK generated successfully."
+
+sync-wiki:
+	@./scripts/sync-wiki.sh
