@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -45,7 +44,7 @@ describe Falcon::DeviceControlUSBClassExceptionsReqV1 do
   describe 'test attribute "action"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "BLOCK_EXECUTE", "READ_ONLY", "BLOCK_EXECUTE"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["FULL_ACCESS", "BLOCK_ALL", "BLOCK_EXECUTE", "BLOCK_WRITE_EXECUTE", "BLOCK_EXECUTE"])
       # validator.allowable_values.each do |value|
       #   expect { instance.action = value }.not_to raise_error
       # end
@@ -61,6 +60,10 @@ describe Falcon::DeviceControlUSBClassExceptionsReqV1 do
   describe 'test attribute "id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["ANY", "AUDIO_VIDEO", "IMAGING", "MASS_STORAGE", "MOBILE", "PRINTER", "WIRELESS"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.id = value }.not_to raise_error
+      # end
     end
   end
 

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -202,7 +201,7 @@ describe 'Ods' do
   # unit tests for query_scans
   # Query Scans.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
+  # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword description initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count targeted_platforms targeted_platforms.keyword]
   # @option opts [Integer] :offset Index of the starting resource
   # @option opts [Integer] :limit The max number of resources to return
   # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;
@@ -216,7 +215,7 @@ describe 'Ods' do
   # unit tests for query_scheduled_scans
   # Query ScheduledScans.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
+  # @option opts [String] :filter A FQL compatible query string. Terms: [id description.keyword description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted targeted_platforms channel_file_status]
   # @option opts [Integer] :offset Index of the starting resource
   # @option opts [Integer] :limit The max number of resources to return
   # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;

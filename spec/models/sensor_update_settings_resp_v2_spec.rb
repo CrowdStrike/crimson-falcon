@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -43,6 +42,12 @@ describe Falcon::SensorUpdateSettingsRespV2 do
     end
   end
   describe 'test attribute "build"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "is_lts_build"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -69,7 +74,7 @@ describe Falcon::SensorUpdateSettingsRespV2 do
   describe 'test attribute "stage"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["prod", "early_adopter"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
       # validator.allowable_values.each do |value|
       #   expect { instance.stage = value }.not_to raise_error
       # end

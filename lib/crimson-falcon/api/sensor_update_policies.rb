@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -451,7 +450,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SensorUpdatePolicies.query_combined_sensor_update_builds ...'
       end
-      allowable_values = ["linux", "linuxarm64", "mac", "windows", "zlinux"]
+      allowable_values = ["windows", "mac", "linux", "linuxarm64", "zlinux"]
       if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
         fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
       end
@@ -465,7 +464,7 @@ module Falcon
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
-      query_params[:'stage'] = @api_client.build_collection_param(opts[:'stage'], :csv) if !opts[:'stage'].nil?
+      query_params[:'stage'] = @api_client.build_collection_param(opts[:'stage'], :multi) if !opts[:'stage'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

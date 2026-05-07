@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -42,6 +41,9 @@ module Falcon
 
     # Nested fields of this object, only set when field type is complex
     attr_accessor :fields
+
+    # Indicates this field is a list
+    attr_accessor :multiple
 
     # Name of the field as it should be passed back to the API through conditions or data mapping.
     attr_accessor :name
@@ -61,6 +63,7 @@ module Falcon
         :'display' => :'display',
         :'example' => :'example',
         :'fields' => :'fields',
+        :'multiple' => :'multiple',
         :'name' => :'name',
         :'source' => :'source',
         :'type' => :'type',
@@ -80,6 +83,7 @@ module Falcon
         :'display' => :'String',
         :'example' => :'Object',
         :'fields' => :'Array<ActivitiesActivityExtField>',
+        :'multiple' => :'Boolean',
         :'name' => :'String',
         :'source' => :'FielddataFieldSource',
         :'type' => :'String',
@@ -124,6 +128,10 @@ module Falcon
         if (value = attributes[:'fields']).is_a?(Array)
           self.fields = value
         end
+      end
+
+      if attributes.key?(:'multiple')
+        self.multiple = attributes[:'multiple']
       end
 
       if attributes.key?(:'name')
@@ -175,6 +183,7 @@ module Falcon
           display == o.display &&
           example == o.example &&
           fields == o.fields &&
+          multiple == o.multiple &&
           name == o.name &&
           source == o.source &&
           type == o.type &&
@@ -190,7 +199,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, display, example, fields, name, source, type, x_cs_not_parameterizable].hash
+      [description, display, example, fields, multiple, name, source, type, x_cs_not_parameterizable].hash
     end
 
     # Builds the object from hash

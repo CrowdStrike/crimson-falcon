@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -87,6 +86,9 @@ module Falcon
 
     attr_accessor :sub_type
 
+    # Summary of the report content
+    attr_accessor :summary
+
     # News tags, which contains MITRE, Vulnerability community identifiers, capabilities, malware family name, customer target, activity cluster, notable event, geopolitical issue
     attr_accessor :tags
 
@@ -127,6 +129,7 @@ module Falcon
         :'short_description' => :'short_description',
         :'slug' => :'slug',
         :'sub_type' => :'sub_type',
+        :'summary' => :'summary',
         :'tags' => :'tags',
         :'target_countries' => :'target_countries',
         :'target_industries' => :'target_industries',
@@ -164,6 +167,7 @@ module Falcon
         :'short_description' => :'String',
         :'slug' => :'String',
         :'sub_type' => :'DomainEntity',
+        :'summary' => :'String',
         :'tags' => :'Array<DomainEntity>',
         :'target_countries' => :'Array<DomainEntity>',
         :'target_industries' => :'Array<DomainEntity>',
@@ -279,6 +283,10 @@ module Falcon
 
       if attributes.key?(:'sub_type')
         self.sub_type = attributes[:'sub_type']
+      end
+
+      if attributes.key?(:'summary')
+        self.summary = attributes[:'summary']
       end
 
       if attributes.key?(:'tags')
@@ -408,6 +416,7 @@ module Falcon
           short_description == o.short_description &&
           slug == o.slug &&
           sub_type == o.sub_type &&
+          summary == o.summary &&
           tags == o.tags &&
           target_countries == o.target_countries &&
           target_industries == o.target_industries &&
@@ -426,7 +435,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, read_time_in_minutes, rich_text_description, rich_text_short_description, short_description, slug, sub_type, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
+      [active, actors, attachments, created_date, description, entitlements, id, image, last_modified_date, malware, motivations, name, notify_users, read_time_in_minutes, rich_text_description, rich_text_short_description, short_description, slug, sub_type, summary, tags, target_countries, target_industries, thumbnail, topic, type, url].hash
     end
 
     # Builds the object from hash

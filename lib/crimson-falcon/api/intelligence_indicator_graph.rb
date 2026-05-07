@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -37,7 +36,7 @@ module Falcon
       @api_client = api_client
     end
     # Get indicators based on their value.
-    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
+    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 500 indicators in a single request.
     # @param body [RestapiIndicatorsLookupRequest]
     # @param [Hash] opts the optional parameters
     # @return [RestapiLookupIndicatorResponse]
@@ -47,7 +46,7 @@ module Falcon
     end
 
     # Get indicators based on their value.
-    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 100 indicators in a single request.
+    # Look up intelligence data for multiple indicators. Supports various indicator types including domains, IP addresses, and file hashes (MD5, SHA1, SHA256). Provide up to 500 indicators in a single request.
     # @param body [RestapiIndicatorsLookupRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(RestapiLookupIndicatorResponse, Integer, Hash)>] RestapiLookupIndicatorResponse data, response status code and response headers
@@ -105,10 +104,11 @@ module Falcon
     end
 
     # Search indicators based on FQL filter.
+    #  This method supports flexible parameter input through both query parameters and JSON request body.  ## Parameter Precedence Rules  | Parameter | Query Param | JSON Body | Precedence Rule | |-----------|-------------|-----------|-----------------| | filter    | ✅          | ✅        | **EXCLUSIVE** - Cannot specify both | | sort      | ✅          | ✅        | **Query param OVERRIDES** JSON body | | limit     | ✅          | ❌        | Query param only | | offset    | ✅          | ❌        | Query param only |  ### Usage Patterns: - **Query-only:** Use query parameters for simple requests - **Body-only:** Use JSON body for complex configurations - **Hybrid:** Combine both, following precedence rules above
     # @param body [RestapiIndicatorsQueryRequest]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;.
-    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [String] :filter  FQL query specifying the filter parameters.        **Filter parameters include:** Type, LastUpdated, KillChain, MaliciousConfidence, MaliciousConfidenceValidatedTime, FirstSeen, LastSeen,  Adversaries.Name, Adversaries.Slug, Reports.Title, Reports.Slug, Threats.FamilyName, Vulnerabilities.CVE, Sectors.Name, FileDetails.SHA256,  FileDetails.SHA1, FileDetails.MD5, DomainDetails.Detail, IPv4Details.IPv4, IPv6Details.IPv6, URLDetails.URL and others
     # @option opts [Integer] :limit Limit
     # @option opts [String] :offset Offset
     # @return [RestapiIndicatorResponse]
@@ -118,10 +118,11 @@ module Falcon
     end
 
     # Search indicators based on FQL filter.
+    #  This method supports flexible parameter input through both query parameters and JSON request body.  ## Parameter Precedence Rules  | Parameter | Query Param | JSON Body | Precedence Rule | |-----------|-------------|-----------|-----------------| | filter    | ✅          | ✅        | **EXCLUSIVE** - Cannot specify both | | sort      | ✅          | ✅        | **Query param OVERRIDES** JSON body | | limit     | ✅          | ❌        | Query param only | | offset    | ✅          | ❌        | Query param only |  ### Usage Patterns: - **Query-only:** Use query parameters for simple requests - **Body-only:** Use JSON body for complex configurations - **Hybrid:** Combine both, following precedence rules above
     # @param body [RestapiIndicatorsQueryRequest]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort Parameter to specify the order(field examples: FileDetails.SHA256, URLDetails.URL, PublishDate, MaliciousConfidence) Ex: &#39;PublishDate|asc&#39;.
-    # @option opts [String] :filter FQL query specifying the filter parameters.
+    # @option opts [String] :filter  FQL query specifying the filter parameters.        **Filter parameters include:** Type, LastUpdated, KillChain, MaliciousConfidence, MaliciousConfidenceValidatedTime, FirstSeen, LastSeen,  Adversaries.Name, Adversaries.Slug, Reports.Title, Reports.Slug, Threats.FamilyName, Vulnerabilities.CVE, Sectors.Name, FileDetails.SHA256,  FileDetails.SHA1, FileDetails.MD5, DomainDetails.Detail, IPv4Details.IPv4, IPv6Details.IPv6, URLDetails.URL and others
     # @option opts [Integer] :limit Limit
     # @option opts [String] :offset Offset
     # @return [Array<(RestapiIndicatorResponse, Integer, Hash)>] RestapiIndicatorResponse data, response status code and response headers

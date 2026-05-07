@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,11 @@ require 'time'
 
 module Falcon
   class AzureDeletedRegistration
+    attr_accessor :activity_log_diagnostic_settings_name
+
     attr_accessor :cs_infra_subscription_id
+
+    attr_accessor :deleted
 
     attr_accessor :deployment_method
 
@@ -41,6 +44,8 @@ module Falcon
     attr_accessor :deployment_stack_name
 
     attr_accessor :deployment_stack_scope
+
+    attr_accessor :deprovision_scripts
 
     attr_accessor :enterprise_app_url
 
@@ -57,11 +62,14 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'activity_log_diagnostic_settings_name' => :'activity_log_diagnostic_settings_name',
         :'cs_infra_subscription_id' => :'cs_infra_subscription_id',
+        :'deleted' => :'deleted',
         :'deployment_method' => :'deployment_method',
         :'deployment_stack_location' => :'deployment_stack_location',
         :'deployment_stack_name' => :'deployment_stack_name',
         :'deployment_stack_scope' => :'deployment_stack_scope',
+        :'deprovision_scripts' => :'deprovision_scripts',
         :'enterprise_app_url' => :'enterprise_app_url',
         :'products' => :'products',
         :'status' => :'status',
@@ -79,11 +87,14 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'activity_log_diagnostic_settings_name' => :'String',
         :'cs_infra_subscription_id' => :'String',
+        :'deleted' => :'Boolean',
         :'deployment_method' => :'String',
         :'deployment_stack_location' => :'String',
         :'deployment_stack_name' => :'String',
         :'deployment_stack_scope' => :'String',
+        :'deprovision_scripts' => :'AzureDeprovisionScripts',
         :'enterprise_app_url' => :'String',
         :'products' => :'Array<DomainProductFeatures>',
         :'status' => :'String',
@@ -114,8 +125,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'activity_log_diagnostic_settings_name')
+        self.activity_log_diagnostic_settings_name = attributes[:'activity_log_diagnostic_settings_name']
+      end
+
       if attributes.key?(:'cs_infra_subscription_id')
         self.cs_infra_subscription_id = attributes[:'cs_infra_subscription_id']
+      end
+
+      if attributes.key?(:'deleted')
+        self.deleted = attributes[:'deleted']
       end
 
       if attributes.key?(:'deployment_method')
@@ -132,6 +151,10 @@ module Falcon
 
       if attributes.key?(:'deployment_stack_scope')
         self.deployment_stack_scope = attributes[:'deployment_stack_scope']
+      end
+
+      if attributes.key?(:'deprovision_scripts')
+        self.deprovision_scripts = attributes[:'deprovision_scripts']
       end
 
       if attributes.key?(:'enterprise_app_url')
@@ -169,6 +192,10 @@ module Falcon
       invalid_properties = Array.new
       if @cs_infra_subscription_id.nil?
         invalid_properties.push('invalid value for "cs_infra_subscription_id", cs_infra_subscription_id cannot be nil.')
+      end
+
+      if @deleted.nil?
+        invalid_properties.push('invalid value for "deleted", deleted cannot be nil.')
       end
 
       if @deployment_method.nil?
@@ -218,6 +245,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @cs_infra_subscription_id.nil?
+      return false if @deleted.nil?
       return false if @deployment_method.nil?
       return false if @deployment_stack_location.nil?
       return false if @deployment_stack_name.nil?
@@ -236,11 +264,14 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          activity_log_diagnostic_settings_name == o.activity_log_diagnostic_settings_name &&
           cs_infra_subscription_id == o.cs_infra_subscription_id &&
+          deleted == o.deleted &&
           deployment_method == o.deployment_method &&
           deployment_stack_location == o.deployment_stack_location &&
           deployment_stack_name == o.deployment_stack_name &&
           deployment_stack_scope == o.deployment_stack_scope &&
+          deprovision_scripts == o.deprovision_scripts &&
           enterprise_app_url == o.enterprise_app_url &&
           products == o.products &&
           status == o.status &&
@@ -258,7 +289,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cs_infra_subscription_id, deployment_method, deployment_stack_location, deployment_stack_name, deployment_stack_scope, enterprise_app_url, products, status, subscriptions, tenant_id, tenant_name].hash
+      [activity_log_diagnostic_settings_name, cs_infra_subscription_id, deleted, deployment_method, deployment_stack_location, deployment_stack_name, deployment_stack_scope, deprovision_scripts, enterprise_app_url, products, status, subscriptions, tenant_id, tenant_name].hash
     end
 
     # Builds the object from hash

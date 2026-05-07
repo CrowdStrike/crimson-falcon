@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,24 +35,24 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Maximum offset = 10000 - limit
+    # Retrieve container runtime detections by the provided search criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_type&#x60; - &#x60;aid&#x60; - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud&#x60; - &#x60;cluster_name&#x60; - &#x60;computer_name&#x60; - &#x60;container_id&#x60; - &#x60;detect_timestamp&#x60; - &#x60;host_id&#x60; - &#x60;host_type&#x60; - &#x60;image_id&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;pod_name&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [RuntimedetectionsDetectionsEntityResponse]
     def get_runtime_detections_combined_v2(opts = {})
       data, _status_code, _headers = get_runtime_detections_combined_v2_with_http_info(opts)
       data
     end
 
-    # Maximum offset &#x3D; 10000 - limit
+    # Retrieve container runtime detections by the provided search criteria
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Filter Container Runtime Detections using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_type&#x60; - &#x60;aid&#x60; - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud&#x60; - &#x60;cluster_name&#x60; - &#x60;computer_name&#x60; - &#x60;container_id&#x60; - &#x60;detect_timestamp&#x60; - &#x60;host_id&#x60; - &#x60;host_type&#x60; - &#x60;image_id&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;pod_name&#x60; - &#x60;severity&#x60;
     # @option opts [String] :sort The fields to sort the records on.
-    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. (default to 100)
-    # @option opts [Integer] :offset The offset from where to begin.
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
     # @return [Array<(RuntimedetectionsDetectionsEntityResponse, Integer, Hash)>] RuntimedetectionsDetectionsEntityResponse data, response status code and response headers
     def get_runtime_detections_combined_v2_with_http_info(opts = {})
       if @api_client.config.debugging

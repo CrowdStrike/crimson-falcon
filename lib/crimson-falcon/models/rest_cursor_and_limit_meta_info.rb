@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,6 +37,8 @@ module Falcon
 
     attr_accessor :powered_by
 
+    attr_accessor :prev
+
     attr_accessor :query_time
 
     attr_accessor :trace_id
@@ -50,6 +51,7 @@ module Falcon
         :'_next' => :'next',
         :'pagination' => :'pagination',
         :'powered_by' => :'powered_by',
+        :'prev' => :'prev',
         :'query_time' => :'query_time',
         :'trace_id' => :'trace_id',
         :'writes' => :'writes'
@@ -67,6 +69,7 @@ module Falcon
         :'_next' => :'String',
         :'pagination' => :'RestPaging',
         :'powered_by' => :'String',
+        :'prev' => :'String',
         :'query_time' => :'Float',
         :'trace_id' => :'String',
         :'writes' => :'MsaspecWrites'
@@ -104,6 +107,10 @@ module Falcon
 
       if attributes.key?(:'powered_by')
         self.powered_by = attributes[:'powered_by']
+      end
+
+      if attributes.key?(:'prev')
+        self.prev = attributes[:'prev']
       end
 
       if attributes.key?(:'query_time')
@@ -150,6 +157,7 @@ module Falcon
           _next == o._next &&
           pagination == o.pagination &&
           powered_by == o.powered_by &&
+          prev == o.prev &&
           query_time == o.query_time &&
           trace_id == o.trace_id &&
           writes == o.writes
@@ -164,7 +172,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_next, pagination, powered_by, query_time, trace_id, writes].hash
+      [_next, pagination, powered_by, prev, query_time, trace_id, writes].hash
     end
 
     # Builds the object from hash

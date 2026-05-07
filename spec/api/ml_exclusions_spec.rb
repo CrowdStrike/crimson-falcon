@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -65,8 +64,111 @@ describe 'MlExclusions' do
   # @param ids The ids of the exclusions to delete
   # @param [Hash] opts the optional parameters
   # @option opts [String] :comment Explains why this exclusions was deleted
-  # @return [ExclusionsRespV1]
+  # @return [MsaspecQueryResponse]
   describe 'delete_ml_exclusions_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_aggregates_v2
+  # Get exclusion aggregates as specified via json in request body.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_aggregates_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_create_v2
+  # Create the exclusions, with ancestor fields.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_create_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_delete_v2
+  # Delete the exclusions by id, with ancestor fields.
+  # @param ids The ids of the exclusions to delete
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :comment The comment why these exclusions were deleted
+  # @return [nil]
+  describe 'exclusions_delete_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_get_all_v2
+  # Get all exclusions.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_get_all_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_get_reports_v2
+  # Create a report of ML exclusions scoped by the given filters
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_get_reports_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_get_v2
+  # Get the exclusions by id, with ancestor fields.
+  # @param ids The ids of the exclusions to retrieve
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_get_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_perform_action_v2
+  # Actions used to manipulate the content of exclusions, with ancestor fields.
+  # @param action_name The action to perform.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_perform_action_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_search_v2
+  # Search for exclusions, with ancestor fields.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter The filter expression that should be used to limit the results.
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @option opts [String] :sort The sort expression that should be used to sort the results.
+  # @return [nil]
+  describe 'exclusions_search_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for exclusions_update_v2
+  # Update the exclusions by id, with ancestor fields.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'exclusions_update_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -90,7 +192,7 @@ describe 'MlExclusions' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-500]
   # @option opts [String] :sort The sort expression that should be used to sort the results.
-  # @return [MsaQueryResponse]
+  # @return [MsaspecQueryResponse]
   describe 'query_ml_exclusions_v1 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

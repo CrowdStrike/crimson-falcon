@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -44,6 +43,8 @@ module Falcon
 
     attr_accessor :dspm_enabled
 
+    attr_accessor :dspm_host_account_id
+
     attr_accessor :dspm_role
 
     attr_accessor :falcon_client_id
@@ -62,6 +63,12 @@ module Falcon
 
     attr_accessor :use_existing_cloudtrail
 
+    attr_accessor :vulnerability_scanning_enabled
+
+    attr_accessor :vulnerability_scanning_host_account_id
+
+    attr_accessor :vulnerability_scanning_role
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -71,6 +78,7 @@ module Falcon
         :'cloudtrail_region' => :'cloudtrail_region',
         :'deployment_method' => :'deployment_method',
         :'dspm_enabled' => :'dspm_enabled',
+        :'dspm_host_account_id' => :'dspm_host_account_id',
         :'dspm_role' => :'dspm_role',
         :'falcon_client_id' => :'falcon_client_id',
         :'iam_role_arn' => :'iam_role_arn',
@@ -79,7 +87,10 @@ module Falcon
         :'root_stack_id' => :'root_stack_id',
         :'sensor_management_enabled' => :'sensor_management_enabled',
         :'target_ous' => :'target_ous',
-        :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
+        :'use_existing_cloudtrail' => :'use_existing_cloudtrail',
+        :'vulnerability_scanning_enabled' => :'vulnerability_scanning_enabled',
+        :'vulnerability_scanning_host_account_id' => :'vulnerability_scanning_host_account_id',
+        :'vulnerability_scanning_role' => :'vulnerability_scanning_role'
       }
     end
 
@@ -97,6 +108,7 @@ module Falcon
         :'cloudtrail_region' => :'String',
         :'deployment_method' => :'String',
         :'dspm_enabled' => :'Boolean',
+        :'dspm_host_account_id' => :'String',
         :'dspm_role' => :'String',
         :'falcon_client_id' => :'String',
         :'iam_role_arn' => :'String',
@@ -105,7 +117,10 @@ module Falcon
         :'root_stack_id' => :'String',
         :'sensor_management_enabled' => :'Boolean',
         :'target_ous' => :'Array<String>',
-        :'use_existing_cloudtrail' => :'Boolean'
+        :'use_existing_cloudtrail' => :'Boolean',
+        :'vulnerability_scanning_enabled' => :'Boolean',
+        :'vulnerability_scanning_host_account_id' => :'String',
+        :'vulnerability_scanning_role' => :'String'
       }
     end
 
@@ -154,6 +169,10 @@ module Falcon
         self.dspm_enabled = attributes[:'dspm_enabled']
       end
 
+      if attributes.key?(:'dspm_host_account_id')
+        self.dspm_host_account_id = attributes[:'dspm_host_account_id']
+      end
+
       if attributes.key?(:'dspm_role')
         self.dspm_role = attributes[:'dspm_role']
       end
@@ -190,6 +209,18 @@ module Falcon
 
       if attributes.key?(:'use_existing_cloudtrail')
         self.use_existing_cloudtrail = attributes[:'use_existing_cloudtrail']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_enabled')
+        self.vulnerability_scanning_enabled = attributes[:'vulnerability_scanning_enabled']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_host_account_id')
+        self.vulnerability_scanning_host_account_id = attributes[:'vulnerability_scanning_host_account_id']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_role')
+        self.vulnerability_scanning_role = attributes[:'vulnerability_scanning_role']
       end
     end
 
@@ -237,6 +268,7 @@ module Falcon
           cloudtrail_region == o.cloudtrail_region &&
           deployment_method == o.deployment_method &&
           dspm_enabled == o.dspm_enabled &&
+          dspm_host_account_id == o.dspm_host_account_id &&
           dspm_role == o.dspm_role &&
           falcon_client_id == o.falcon_client_id &&
           iam_role_arn == o.iam_role_arn &&
@@ -245,7 +277,10 @@ module Falcon
           root_stack_id == o.root_stack_id &&
           sensor_management_enabled == o.sensor_management_enabled &&
           target_ous == o.target_ous &&
-          use_existing_cloudtrail == o.use_existing_cloudtrail
+          use_existing_cloudtrail == o.use_existing_cloudtrail &&
+          vulnerability_scanning_enabled == o.vulnerability_scanning_enabled &&
+          vulnerability_scanning_host_account_id == o.vulnerability_scanning_host_account_id &&
+          vulnerability_scanning_role == o.vulnerability_scanning_role
     end
 
     # @see the `==` method
@@ -257,7 +292,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, falcon_client_id, iam_role_arn, is_master, organization_id, root_stack_id, sensor_management_enabled, target_ous, use_existing_cloudtrail].hash
+      [account_id, account_type, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_host_account_id, dspm_role, falcon_client_id, iam_role_arn, is_master, organization_id, root_stack_id, sensor_management_enabled, target_ous, use_existing_cloudtrail, vulnerability_scanning_enabled, vulnerability_scanning_host_account_id, vulnerability_scanning_role].hash
     end
 
     # Builds the object from hash

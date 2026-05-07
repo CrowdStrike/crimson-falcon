@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -228,7 +227,7 @@ module Falcon
 
     # Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{key_age, overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region}
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
     # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
     # @option opts [String] :next_token Token for cursor-based pagination. Currently unsupported.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 10000) (default to 100)
@@ -241,7 +240,7 @@ module Falcon
 
     # Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{key_age, overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region}
+    # @option opts [String] :filter FQL (Falcon Query Language) string for filtering results. Allowed filters are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
     # @option opts [String] :sort Field and direction for sorting results - allowed sort fields are Set{overall_status, created_at, updated_at, tenancy_ocid, tenancy_name, home_region, key_age}
     # @option opts [String] :next_token Token for cursor-based pagination. Currently unsupported.
     # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 10000) (default to 100)
@@ -440,7 +439,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Validate the OCI account in CSPM for a provided CID. For internal clients only.
+    # Validate the OCI account in CSPM for a provided CID.
     # @param body [DomainOCIValidateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [DomainOCITenancyValidationResponse]
@@ -449,7 +448,7 @@ module Falcon
       data
     end
 
-    # Validate the OCI account in CSPM for a provided CID. For internal clients only.
+    # Validate the OCI account in CSPM for a provided CID.
     # @param body [DomainOCIValidateRequestV1]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainOCITenancyValidationResponse, Integer, Hash)>] DomainOCITenancyValidationResponse data, response status code and response headers

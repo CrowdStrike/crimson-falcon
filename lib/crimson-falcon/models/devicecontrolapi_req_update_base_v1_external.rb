@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -43,6 +42,9 @@ module Falcon
     # Name of the policy (omit to keep current)
     attr_accessor :name
 
+    # For Flight Control enabled CIDs, indicates whether to propagate to child CIDs (omit to keep current)
+    attr_accessor :propagated
+
     attr_accessor :usb_settings
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -52,6 +54,7 @@ module Falcon
         :'description' => :'description',
         :'id' => :'id',
         :'name' => :'name',
+        :'propagated' => :'propagated',
         :'usb_settings' => :'usb_settings'
       }
     end
@@ -68,6 +71,7 @@ module Falcon
         :'description' => :'String',
         :'id' => :'String',
         :'name' => :'String',
+        :'propagated' => :'Boolean',
         :'usb_settings' => :'DevicecontrolapiReqUpdateUSBBaseV1External'
       }
     end
@@ -109,6 +113,10 @@ module Falcon
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'propagated')
+        self.propagated = attributes[:'propagated']
+      end
+
       if attributes.key?(:'usb_settings')
         self.usb_settings = attributes[:'usb_settings']
       end
@@ -122,6 +130,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @propagated.nil?
+        invalid_properties.push('invalid value for "propagated", propagated cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -129,6 +141,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
+      return false if @propagated.nil?
       true
     end
 
@@ -141,6 +154,7 @@ module Falcon
           description == o.description &&
           id == o.id &&
           name == o.name &&
+          propagated == o.propagated &&
           usb_settings == o.usb_settings
     end
 
@@ -153,7 +167,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [bluetooth_settings, description, id, name, usb_settings].hash
+      [bluetooth_settings, description, id, name, propagated, usb_settings].hash
     end
 
     # Builds the object from hash

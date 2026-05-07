@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,6 +37,8 @@ module Falcon
 
     attr_accessor :author
 
+    attr_accessor :case_template_id
+
     attr_accessor :comment
 
     attr_accessor :execution_offset
@@ -47,6 +48,10 @@ module Falcon
     attr_accessor :mitre_attack
 
     attr_accessor :origin
+
+    attr_accessor :rule_id
+
+    attr_accessor :rule_version_id
 
     attr_accessor :severity
 
@@ -70,11 +75,14 @@ module Falcon
         :'assign_to' => :'assign_to',
         :'assign_to_uuid' => :'assign_to_uuid',
         :'author' => :'author',
+        :'case_template_id' => :'case_template_id',
         :'comment' => :'comment',
         :'execution_offset' => :'execution_offset',
         :'guardrail_notifications' => :'guardrail_notifications',
         :'mitre_attack' => :'mitre_attack',
         :'origin' => :'origin',
+        :'rule_id' => :'rule_id',
+        :'rule_version_id' => :'rule_version_id',
         :'severity' => :'severity',
         :'status' => :'status',
         :'tactic' => :'tactic',
@@ -97,11 +105,14 @@ module Falcon
         :'assign_to' => :'String',
         :'assign_to_uuid' => :'String',
         :'author' => :'String',
+        :'case_template_id' => :'String',
         :'comment' => :'String',
         :'execution_offset' => :'String',
         :'guardrail_notifications' => :'Array<DomainNotifications>',
         :'mitre_attack' => :'Array<DomainMitreAttackMapping>',
         :'origin' => :'String',
+        :'rule_id' => :'String',
+        :'rule_version_id' => :'String',
         :'severity' => :'Integer',
         :'status' => :'String',
         :'tactic' => :'String',
@@ -146,6 +157,10 @@ module Falcon
         self.author = attributes[:'author']
       end
 
+      if attributes.key?(:'case_template_id')
+        self.case_template_id = attributes[:'case_template_id']
+      end
+
       if attributes.key?(:'comment')
         self.comment = attributes[:'comment']
       end
@@ -168,6 +183,14 @@ module Falcon
 
       if attributes.key?(:'origin')
         self.origin = attributes[:'origin']
+      end
+
+      if attributes.key?(:'rule_id')
+        self.rule_id = attributes[:'rule_id']
+      end
+
+      if attributes.key?(:'rule_version_id')
+        self.rule_version_id = attributes[:'rule_version_id']
       end
 
       if attributes.key?(:'severity')
@@ -233,6 +256,14 @@ module Falcon
         invalid_properties.push('invalid value for "origin", origin cannot be nil.')
       end
 
+      if @rule_id.nil?
+        invalid_properties.push('invalid value for "rule_id", rule_id cannot be nil.')
+      end
+
+      if @rule_version_id.nil?
+        invalid_properties.push('invalid value for "rule_version_id", rule_version_id cannot be nil.')
+      end
+
       if @severity.nil?
         invalid_properties.push('invalid value for "severity", severity cannot be nil.')
       end
@@ -277,6 +308,8 @@ module Falcon
       return false if @comment.nil?
       return false if @execution_offset.nil?
       return false if @origin.nil?
+      return false if @rule_id.nil?
+      return false if @rule_version_id.nil?
       return false if @severity.nil?
       return false if @status.nil?
       return false if @tactic.nil?
@@ -296,11 +329,14 @@ module Falcon
           assign_to == o.assign_to &&
           assign_to_uuid == o.assign_to_uuid &&
           author == o.author &&
+          case_template_id == o.case_template_id &&
           comment == o.comment &&
           execution_offset == o.execution_offset &&
           guardrail_notifications == o.guardrail_notifications &&
           mitre_attack == o.mitre_attack &&
           origin == o.origin &&
+          rule_id == o.rule_id &&
+          rule_version_id == o.rule_version_id &&
           severity == o.severity &&
           status == o.status &&
           tactic == o.tactic &&
@@ -320,7 +356,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assign_to, assign_to_uuid, author, comment, execution_offset, guardrail_notifications, mitre_attack, origin, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
+      [assign_to, assign_to_uuid, author, case_template_id, comment, execution_offset, guardrail_notifications, mitre_attack, origin, rule_id, rule_version_id, severity, status, tactic, tags, technique, template_id, trigger_mode, type].hash
     end
 
     # Builds the object from hash

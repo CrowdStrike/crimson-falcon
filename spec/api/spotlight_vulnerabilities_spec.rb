@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -88,7 +87,7 @@ describe 'SpotlightVulnerabilities' do
 
   # unit tests for query_vulnerabilities
   # Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
-  # @param filter Filter items using a query in Falcon Query Language (FQL). Wildcards * and empty filter values are unsupported.    Available filter fields that supports match (~): N/A    Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level, cve.cps_rating, cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.base_score, cve.types, host_info.asset_criticality, host_info.asset_roles, host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name, suppression_info.is_suppressed, suppression_info.reason, host_info.instance_state    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, closed_timestamp, updated_timestamp, cve.base_score
+  # @param filter Filter items using a query in Falcon Query Language (FQL). Wildcards * and empty filter values are unsupported.    Available filter fields that supports match (~): N/A    Available filter fields that supports exact match: aid, cid, last_seen_within, status, cve.id, cve.is_cisa_kev, cve.remediation_level,    cve.cps_rating, cve.exprt_rating, cve.exploit_status_to_include, cve.severity, cve.base_score, cve.types, host_info.asset_criticality,    host_info.asset_roles, host_info.internet_exposure, host_info.tags, host_info.groups, host_info.product_type_desc, host_info.platform_name,    suppression_info.is_suppressed, suppression_info.reason, host_info.instance_state    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, closed_timestamp, updated_timestamp, cve.base_score
   # @param [Hash] opts the optional parameters
   # @option opts [String] :after A pagination token used with the &#x60;limit&#x60; parameter to manage pagination of results. On your first request, don&#39;t provide an &#x60;after&#x60; token. On subsequent requests, provide the &#x60;after&#x60; token from the previous response to continue from that place in the results.
   # @option opts [Integer] :limit The number of items to return in this response (default: 100, max: 400). Use with the after parameter to manage pagination of results.

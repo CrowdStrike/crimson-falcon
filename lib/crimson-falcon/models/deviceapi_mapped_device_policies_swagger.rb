@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,7 +31,11 @@ require 'time'
 
 module Falcon
   class DeviceapiMappedDevicePoliciesSwagger
+    attr_accessor :aidr
+
     attr_accessor :airlock
+
+    attr_accessor :application_abuse_prevention
 
     attr_accessor :automox
 
@@ -40,13 +43,21 @@ module Falcon
 
     attr_accessor :browser_extension
 
+    attr_accessor :cloud_ml
+
     attr_accessor :content_update
 
     attr_accessor :customer_entitlements
 
     attr_accessor :data_protection
 
+    attr_accessor :data_protection_cloud
+
     attr_accessor :device_control
+
+    attr_accessor :exposure_management
+
+    attr_accessor :fem_browser_extension_control
 
     attr_accessor :fim
 
@@ -56,6 +67,8 @@ module Falcon
 
     attr_accessor :host_retention
 
+    attr_accessor :identity_endpoint
+
     attr_accessor :identity_protection
 
     attr_accessor :it_automation
@@ -63,6 +76,8 @@ module Falcon
     attr_accessor :jumpcloud
 
     attr_accessor :kubernetes_admission_control
+
+    attr_accessor :logscale_collector
 
     attr_accessor :mobile
 
@@ -87,22 +102,30 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'aidr' => :'aidr',
         :'airlock' => :'airlock',
+        :'application_abuse_prevention' => :'application-abuse-prevention',
         :'automox' => :'automox',
         :'aws_verified_access' => :'aws-verified-access',
         :'browser_extension' => :'browser-extension',
+        :'cloud_ml' => :'cloud-ml',
         :'content_update' => :'content-update',
         :'customer_entitlements' => :'customer-entitlements',
         :'data_protection' => :'data-protection',
+        :'data_protection_cloud' => :'data-protection-cloud',
         :'device_control' => :'device_control',
+        :'exposure_management' => :'exposure-management',
+        :'fem_browser_extension_control' => :'fem-browser-extension-control',
         :'fim' => :'fim',
         :'firewall' => :'firewall',
         :'global_config' => :'global_config',
         :'host_retention' => :'host-retention',
+        :'identity_endpoint' => :'identity-endpoint',
         :'identity_protection' => :'identity-protection',
         :'it_automation' => :'it-automation',
         :'jumpcloud' => :'jumpcloud',
         :'kubernetes_admission_control' => :'kubernetes-admission-control',
+        :'logscale_collector' => :'logscale-collector',
         :'mobile' => :'mobile',
         :'netskope' => :'netskope',
         :'network_scan_content' => :'network-scan-content',
@@ -124,22 +147,30 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'aidr' => :'DeviceDevicePolicy',
         :'airlock' => :'DeviceDevicePolicy',
+        :'application_abuse_prevention' => :'DeviceDevicePolicy',
         :'automox' => :'DeviceDevicePolicy',
         :'aws_verified_access' => :'DeviceDevicePolicy',
         :'browser_extension' => :'DeviceDevicePolicy',
+        :'cloud_ml' => :'DeviceDevicePolicy',
         :'content_update' => :'DeviceDevicePolicy',
         :'customer_entitlements' => :'DeviceDevicePolicy',
         :'data_protection' => :'DeviceDevicePolicy',
+        :'data_protection_cloud' => :'DeviceDevicePolicy',
         :'device_control' => :'DeviceDevicePolicy',
+        :'exposure_management' => :'DeviceDevicePolicy',
+        :'fem_browser_extension_control' => :'DeviceDevicePolicy',
         :'fim' => :'DeviceDevicePolicy',
         :'firewall' => :'DeviceDevicePolicy',
         :'global_config' => :'DeviceDevicePolicy',
         :'host_retention' => :'DeviceDevicePolicy',
+        :'identity_endpoint' => :'DeviceDevicePolicy',
         :'identity_protection' => :'DeviceDevicePolicy',
         :'it_automation' => :'DeviceDevicePolicy',
         :'jumpcloud' => :'DeviceDevicePolicy',
         :'kubernetes_admission_control' => :'DeviceDevicePolicy',
+        :'logscale_collector' => :'DeviceDevicePolicy',
         :'mobile' => :'DeviceDevicePolicy',
         :'netskope' => :'DeviceDevicePolicy',
         :'network_scan_content' => :'DeviceDevicePolicy',
@@ -174,8 +205,16 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'aidr')
+        self.aidr = attributes[:'aidr']
+      end
+
       if attributes.key?(:'airlock')
         self.airlock = attributes[:'airlock']
+      end
+
+      if attributes.key?(:'application_abuse_prevention')
+        self.application_abuse_prevention = attributes[:'application_abuse_prevention']
       end
 
       if attributes.key?(:'automox')
@@ -190,6 +229,10 @@ module Falcon
         self.browser_extension = attributes[:'browser_extension']
       end
 
+      if attributes.key?(:'cloud_ml')
+        self.cloud_ml = attributes[:'cloud_ml']
+      end
+
       if attributes.key?(:'content_update')
         self.content_update = attributes[:'content_update']
       end
@@ -202,8 +245,20 @@ module Falcon
         self.data_protection = attributes[:'data_protection']
       end
 
+      if attributes.key?(:'data_protection_cloud')
+        self.data_protection_cloud = attributes[:'data_protection_cloud']
+      end
+
       if attributes.key?(:'device_control')
         self.device_control = attributes[:'device_control']
+      end
+
+      if attributes.key?(:'exposure_management')
+        self.exposure_management = attributes[:'exposure_management']
+      end
+
+      if attributes.key?(:'fem_browser_extension_control')
+        self.fem_browser_extension_control = attributes[:'fem_browser_extension_control']
       end
 
       if attributes.key?(:'fim')
@@ -222,6 +277,10 @@ module Falcon
         self.host_retention = attributes[:'host_retention']
       end
 
+      if attributes.key?(:'identity_endpoint')
+        self.identity_endpoint = attributes[:'identity_endpoint']
+      end
+
       if attributes.key?(:'identity_protection')
         self.identity_protection = attributes[:'identity_protection']
       end
@@ -236,6 +295,10 @@ module Falcon
 
       if attributes.key?(:'kubernetes_admission_control')
         self.kubernetes_admission_control = attributes[:'kubernetes_admission_control']
+      end
+
+      if attributes.key?(:'logscale_collector')
+        self.logscale_collector = attributes[:'logscale_collector']
       end
 
       if attributes.key?(:'mobile')
@@ -297,22 +360,30 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          aidr == o.aidr &&
           airlock == o.airlock &&
+          application_abuse_prevention == o.application_abuse_prevention &&
           automox == o.automox &&
           aws_verified_access == o.aws_verified_access &&
           browser_extension == o.browser_extension &&
+          cloud_ml == o.cloud_ml &&
           content_update == o.content_update &&
           customer_entitlements == o.customer_entitlements &&
           data_protection == o.data_protection &&
+          data_protection_cloud == o.data_protection_cloud &&
           device_control == o.device_control &&
+          exposure_management == o.exposure_management &&
+          fem_browser_extension_control == o.fem_browser_extension_control &&
           fim == o.fim &&
           firewall == o.firewall &&
           global_config == o.global_config &&
           host_retention == o.host_retention &&
+          identity_endpoint == o.identity_endpoint &&
           identity_protection == o.identity_protection &&
           it_automation == o.it_automation &&
           jumpcloud == o.jumpcloud &&
           kubernetes_admission_control == o.kubernetes_admission_control &&
+          logscale_collector == o.logscale_collector &&
           mobile == o.mobile &&
           netskope == o.netskope &&
           network_scan_content == o.network_scan_content &&
@@ -334,7 +405,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [airlock, automox, aws_verified_access, browser_extension, content_update, customer_entitlements, data_protection, device_control, fim, firewall, global_config, host_retention, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
+      [aidr, airlock, application_abuse_prevention, automox, aws_verified_access, browser_extension, cloud_ml, content_update, customer_entitlements, data_protection, data_protection_cloud, device_control, exposure_management, fem_browser_extension_control, fim, firewall, global_config, host_retention, identity_endpoint, identity_protection, it_automation, jumpcloud, kubernetes_admission_control, logscale_collector, mobile, netskope, network_scan_content, prevention, remote_response, sca, sensor_update, system_tray, vulnerability_management, ztl].hash
     end
 
     # Builds the object from hash

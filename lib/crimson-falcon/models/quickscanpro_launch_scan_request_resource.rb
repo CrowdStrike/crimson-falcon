@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,11 +31,14 @@ require 'time'
 
 module Falcon
   class QuickscanproLaunchScanRequestResource
+    attr_accessor :password
+
     attr_accessor :sha256
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'password' => :'password',
         :'sha256' => :'sha256'
       }
     end
@@ -49,6 +51,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'password' => :'String',
         :'sha256' => :'String'
       }
     end
@@ -73,6 +76,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'password')
+        self.password = attributes[:'password']
+      end
 
       if attributes.key?(:'sha256')
         self.sha256 = attributes[:'sha256']
@@ -102,6 +109,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          password == o.password &&
           sha256 == o.sha256
     end
 
@@ -114,7 +122,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sha256].hash
+      [password, sha256].hash
     end
 
     # Builds the object from hash

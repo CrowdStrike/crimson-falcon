@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -41,6 +40,8 @@ module Falcon
     attr_accessor :config_id_build
 
     attr_accessor :config_id_platform
+
+    attr_accessor :deployment_type
 
     attr_accessor :device_id
 
@@ -110,6 +111,7 @@ module Falcon
         :'config_id_base' => :'config_id_base',
         :'config_id_build' => :'config_id_build',
         :'config_id_platform' => :'config_id_platform',
+        :'deployment_type' => :'deployment_type',
         :'device_id' => :'device_id',
         :'device_policies' => :'device_policies',
         :'external_ip' => :'external_ip',
@@ -156,6 +158,7 @@ module Falcon
         :'config_id_base' => :'String',
         :'config_id_build' => :'String',
         :'config_id_platform' => :'String',
+        :'deployment_type' => :'String',
         :'device_id' => :'String',
         :'device_policies' => :'DomainMappedDevicePolicies',
         :'external_ip' => :'String',
@@ -228,6 +231,10 @@ module Falcon
 
       if attributes.key?(:'config_id_platform')
         self.config_id_platform = attributes[:'config_id_platform']
+      end
+
+      if attributes.key?(:'deployment_type')
+        self.deployment_type = attributes[:'deployment_type']
       end
 
       if attributes.key?(:'device_id')
@@ -390,6 +397,7 @@ module Falcon
           config_id_base == o.config_id_base &&
           config_id_build == o.config_id_build &&
           config_id_platform == o.config_id_platform &&
+          deployment_type == o.deployment_type &&
           device_id == o.device_id &&
           device_policies == o.device_policies &&
           external_ip == o.external_ip &&
@@ -431,7 +439,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [_, agent_version, config_id_base, config_id_build, config_id_platform, device_id, device_policies, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
+      [_, agent_version, config_id_base, config_id_build, config_id_platform, deployment_type, device_id, device_policies, external_ip, first_login_timestamp, first_login_user, first_seen, hostname, last_login_timestamp, last_login_user, last_seen, last_seen_ago_seconds, local_ip, mac_address, machine_domain, major_version, minor_version, modified_timestamp, notes, os_version, ou, platform_id, platform_name, product_type, product_type_desc, release_group, site_name, status, system_manufacturer, system_product_name, tags].hash
     end
 
     # Builds the object from hash

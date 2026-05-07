@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -226,6 +225,146 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Get image assessment scan report by image reference (v2)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [CoreEntitiesResponse]
+    def get_report_by_reference(opts = {})
+      data, _status_code, _headers = get_report_by_reference_with_http_info(opts)
+      data
+    end
+
+    # Get image assessment scan report by image reference (v2)
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @option opts [String] :repository Repository
+    # @option opts [String] :tag Tag
+    # @option opts [String] :image_id Image ID
+    # @option opts [String] :digest Digest
+    # @option opts [String] :architecture Platform architecture to filter multi-arch images (e.g. amd64, arm64)
+    # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
+    def get_report_by_reference_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.get_report_by_reference ...'
+      end
+      # resource path
+      local_var_path = '/image-assessment/entities/reports/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'registry'] = opts[:'registry'] if !opts[:'registry'].nil?
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      query_params[:'tag'] = opts[:'tag'] if !opts[:'tag'].nil?
+      query_params[:'image_id'] = opts[:'image_id'] if !opts[:'image_id'].nil?
+      query_params[:'digest'] = opts[:'digest'] if !opts[:'digest'].nil?
+      query_params[:'architecture'] = opts[:'architecture'] if !opts[:'architecture'].nil?
+      query_params[:'report_format'] = opts[:'report_format'] if !opts[:'report_format'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoreEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.get_report_by_reference",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#get_report_by_reference\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get image assessment scan report by scan UUID (v2)
+    # @param uuid [String] Scan UUID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [CoreEntitiesResponse]
+    def get_report_by_scan_id(uuid, opts = {})
+      data, _status_code, _headers = get_report_by_scan_id_with_http_info(uuid, opts)
+      data
+    end
+
+    # Get image assessment scan report by scan UUID (v2)
+    # @param uuid [String] Scan UUID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :report_format Specify image-assessment scan report format. Supported formats:  - &#x60;cyclonedx-json&#x60; - &#x60;json&#x60; - &#x60;sarif&#x60; (default to 'json')
+    # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
+    def get_report_by_scan_id_with_http_info(uuid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.get_report_by_scan_id ...'
+      end
+      # verify the required parameter 'uuid' is set
+      if @api_client.config.client_side_validation && uuid.nil?
+        fail ArgumentError, "Missing the required parameter 'uuid' when calling FalconContainerImage.get_report_by_scan_id"
+      end
+      # resource path
+      local_var_path = '/image-assessment/entities/reports/v2/{uuid}'.sub('{' + 'uuid' + '}', CGI.escape(uuid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'report_format'] = opts[:'report_format'] if !opts[:'report_format'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CoreEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.get_report_by_scan_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#get_report_by_scan_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get headers for POST request for image scan inventory
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -282,7 +421,7 @@ module Falcon
     end
 
     # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
-    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;policies.exclusions&#x60;
     # @param [Hash] opts the optional parameters
     # @return [ExportsLaunchExportResponse]
     def launch_export_job(body, opts = {})
@@ -291,7 +430,7 @@ module Falcon
     end
 
     # Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
-    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;network.events&#x60; - &#x60;policies.exclusions&#x60;
+    # @param body [ExportsLaunchExportRequest] Supported resources: - &#x60;assets.clusters&#x60; - &#x60;assets.containers&#x60; - &#x60;assets.deployments&#x60; - &#x60;assets.images&#x60; - &#x60;assets.namespaces&#x60; - &#x60;assets.nodes&#x60; - &#x60;assets.pods&#x60; - &#x60;images.images-assessment-detections-expanded&#x60; - &#x60;images.images-assessment-expanded&#x60; - &#x60;images.images-assessment-vulnerabilities-expanded&#x60; - &#x60;images.images-assessment&#x60; - &#x60;images.images-detections&#x60; - &#x60;images.packages&#x60; - &#x60;images.vulnerabilities&#x60; - &#x60;investigate.container-alerts&#x60; - &#x60;investigate.drift-indicators&#x60; - &#x60;investigate.kubernetes-ioms&#x60; - &#x60;investigate.runtime-detections&#x60; - &#x60;investigate.unidentified-containers&#x60; - &#x60;policies.exclusions&#x60;
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExportsLaunchExportResponse, Integer, Hash)>] ExportsLaunchExportResponse data, response status code and response headers
     def launch_export_job_with_http_info(body, opts = {})
@@ -343,6 +482,81 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FalconContainerImage#launch_export_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Check image prevention policies
+    # @param repository [String] Repository
+    # @param tag [String] Tag
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @option opts [String] :architecture Architecture e.g. &#39;amd64&#39;, &#39;arm64&#39;...
+    # @return [ApiPolicyEntitiesResponse]
+    def policy_checks(repository, tag, opts = {})
+      data, _status_code, _headers = policy_checks_with_http_info(repository, tag, opts)
+      data
+    end
+
+    # Check image prevention policies
+    # @param repository [String] Repository
+    # @param tag [String] Tag
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :registry Registry
+    # @option opts [String] :architecture Architecture e.g. &#39;amd64&#39;, &#39;arm64&#39;...
+    # @return [Array<(ApiPolicyEntitiesResponse, Integer, Hash)>] ApiPolicyEntitiesResponse data, response status code and response headers
+    def policy_checks_with_http_info(repository, tag, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FalconContainerImage.policy_checks ...'
+      end
+      # verify the required parameter 'repository' is set
+      if @api_client.config.client_side_validation && repository.nil?
+        fail ArgumentError, "Missing the required parameter 'repository' when calling FalconContainerImage.policy_checks"
+      end
+      # verify the required parameter 'tag' is set
+      if @api_client.config.client_side_validation && tag.nil?
+        fail ArgumentError, "Missing the required parameter 'tag' when calling FalconContainerImage.policy_checks"
+      end
+      # resource path
+      local_var_path = '/image-assessment/entities/policy-checks/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'repository'] = repository
+      query_params[:'tag'] = tag
+      query_params[:'registry'] = opts[:'registry'] if !opts[:'registry'].nil?
+      query_params[:'architecture'] = opts[:'architecture'] if !opts[:'architecture'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiPolicyEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"FalconContainerImage.policy_checks",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FalconContainerImage#policy_checks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

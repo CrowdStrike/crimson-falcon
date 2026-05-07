@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -60,6 +59,10 @@ module Falcon
 
     attr_accessor :target_ous
 
+    attr_accessor :vulnerability_scanning_enabled
+
+    attr_accessor :vulnerability_scanning_role
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -76,7 +79,9 @@ module Falcon
         :'remediation_tou_accepted' => :'remediation_tou_accepted',
         :'root_stack_id' => :'root_stack_id',
         :'sensor_management_enabled' => :'sensor_management_enabled',
-        :'target_ous' => :'target_ous'
+        :'target_ous' => :'target_ous',
+        :'vulnerability_scanning_enabled' => :'vulnerability_scanning_enabled',
+        :'vulnerability_scanning_role' => :'vulnerability_scanning_role'
       }
     end
 
@@ -101,7 +106,9 @@ module Falcon
         :'remediation_tou_accepted' => :'Time',
         :'root_stack_id' => :'String',
         :'sensor_management_enabled' => :'Boolean',
-        :'target_ous' => :'Array<String>'
+        :'target_ous' => :'Array<String>',
+        :'vulnerability_scanning_enabled' => :'Boolean',
+        :'vulnerability_scanning_role' => :'String'
       }
     end
 
@@ -183,6 +190,14 @@ module Falcon
           self.target_ous = value
         end
       end
+
+      if attributes.key?(:'vulnerability_scanning_enabled')
+        self.vulnerability_scanning_enabled = attributes[:'vulnerability_scanning_enabled']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_role')
+        self.vulnerability_scanning_role = attributes[:'vulnerability_scanning_role']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -209,6 +224,10 @@ module Falcon
         invalid_properties.push('invalid value for "sensor_management_enabled", sensor_management_enabled cannot be nil.')
       end
 
+      if @vulnerability_scanning_enabled.nil?
+        invalid_properties.push('invalid value for "vulnerability_scanning_enabled", vulnerability_scanning_enabled cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -220,6 +239,7 @@ module Falcon
       return false if @dspm_enabled.nil?
       return false if @iam_role_arn.nil?
       return false if @sensor_management_enabled.nil?
+      return false if @vulnerability_scanning_enabled.nil?
       true
     end
 
@@ -241,7 +261,9 @@ module Falcon
           remediation_tou_accepted == o.remediation_tou_accepted &&
           root_stack_id == o.root_stack_id &&
           sensor_management_enabled == o.sensor_management_enabled &&
-          target_ous == o.target_ous
+          target_ous == o.target_ous &&
+          vulnerability_scanning_enabled == o.vulnerability_scanning_enabled &&
+          vulnerability_scanning_role == o.vulnerability_scanning_role
     end
 
     # @see the `==` method
@@ -253,7 +275,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, environment, falcon_client_id, iam_role_arn, remediation_region, remediation_tou_accepted, root_stack_id, sensor_management_enabled, target_ous].hash
+      [account_id, behavior_assessment_enabled, cloudtrail_region, deployment_method, dspm_enabled, dspm_role, environment, falcon_client_id, iam_role_arn, remediation_region, remediation_tou_accepted, root_stack_id, sensor_management_enabled, target_ous, vulnerability_scanning_enabled, vulnerability_scanning_role].hash
     end
 
     # Builds the object from hash

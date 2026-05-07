@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -289,7 +288,7 @@ module Falcon
     end
 
     # FQL query specifying the filter parameters
-    # @param filter [String] Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+    # @param filter [String] Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_reasons,verdict_source,file_size,file_type,mime_type,adversary,file_type_short,first_content_bytes_hex,first_content_bytes_ascii,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique,static_indicators,malware_config.url,malware_config.domain,malware_config.ip,artifacts_tree.nodes.type,artifacts_tree.nodes.value,artifacts_tree.nodes.verdict,artifacts_tree.edges.from,artifacts_tree.edges.to,artifacts_tree.edges.label Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp, file_size All filter fields and operations supports negation (!). _all field is used to search between all fields.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The offset to start retrieving ids from.
     # @option opts [Integer] :limit Maximum number of IDs to return. Max: 5000. (default to 50)
@@ -301,7 +300,7 @@ module Falcon
     end
 
     # FQL query specifying the filter parameters
-    # @param filter [String] Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+    # @param filter [String] Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_reasons,verdict_source,file_size,file_type,mime_type,adversary,file_type_short,first_content_bytes_hex,first_content_bytes_ascii,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique,static_indicators,malware_config.url,malware_config.domain,malware_config.ip,artifacts_tree.nodes.type,artifacts_tree.nodes.value,artifacts_tree.nodes.verdict,artifacts_tree.edges.from,artifacts_tree.edges.to,artifacts_tree.edges.label Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp, file_size All filter fields and operations supports negation (!). _all field is used to search between all fields.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset The offset to start retrieving ids from.
     # @option opts [Integer] :limit Maximum number of IDs to return. Max: 5000. (default to 50)
@@ -359,52 +358,54 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
-    # @param file [File] Binary file to be uploaded. Max file size: 256 MB.
+    # Uploads a file to be further analyzed with QuickScan Pro. Supports both multipart/form-data and application/octet-stream uploads. The samples expire according to the Retention Policies set. See parameter descriptions for usage per content type.
+    # @param upload_file_quick_scan_pro_request [UploadFileQuickScanProRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :scan If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; (default to false)
+    # @option opts [String] :file_name OCTET-STREAM ONLY - Name of the file (required for octet-stream uploads).
+    # @option opts [String] :x_file_password OCTET-STREAM ONLY - Password for encrypted archives (use for octet-stream uploads). If &#39;scan&#39; is true, the value is used for the scan just starting.
     # @return [QuickscanproFileUploadResponse]
-    def upload_file_quick_scan_pro(file, opts = {})
-      data, _status_code, _headers = upload_file_quick_scan_pro_with_http_info(file, opts)
+    def upload_file_quick_scan_pro(upload_file_quick_scan_pro_request, opts = {})
+      data, _status_code, _headers = upload_file_quick_scan_pro_with_http_info(upload_file_quick_scan_pro_request, opts)
       data
     end
 
-    # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
-    # @param file [File] Binary file to be uploaded. Max file size: 256 MB.
+    # Uploads a file to be further analyzed with QuickScan Pro. Supports both multipart/form-data and application/octet-stream uploads. The samples expire according to the Retention Policies set. See parameter descriptions for usage per content type.
+    # @param upload_file_quick_scan_pro_request [UploadFileQuickScanProRequest]
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :scan If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39; (default to false)
+    # @option opts [String] :file_name OCTET-STREAM ONLY - Name of the file (required for octet-stream uploads).
+    # @option opts [String] :x_file_password OCTET-STREAM ONLY - Password for encrypted archives (use for octet-stream uploads). If &#39;scan&#39; is true, the value is used for the scan just starting.
     # @return [Array<(QuickscanproFileUploadResponse, Integer, Hash)>] QuickscanproFileUploadResponse data, response status code and response headers
-    def upload_file_quick_scan_pro_with_http_info(file, opts = {})
+    def upload_file_quick_scan_pro_with_http_info(upload_file_quick_scan_pro_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuickScanPro.upload_file_quick_scan_pro ...'
       end
-      # verify the required parameter 'file' is set
-      if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling QuickScanPro.upload_file_quick_scan_pro"
+      # verify the required parameter 'upload_file_quick_scan_pro_request' is set
+      if @api_client.config.client_side_validation && upload_file_quick_scan_pro_request.nil?
+        fail ArgumentError, "Missing the required parameter 'upload_file_quick_scan_pro_request' when calling QuickScanPro.upload_file_quick_scan_pro"
       end
       # resource path
       local_var_path = '/quickscanpro/entities/files/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'file_name'] = opts[:'file_name'] if !opts[:'file_name'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/octet-stream', 'multipart/form-data'])
       if !content_type.nil?
         header_params['Content-Type'] = content_type
       end
+      header_params[:'X-File-Password'] = opts[:'x_file_password'] if !opts[:'x_file_password'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['file'] = file
-      form_params['scan'] = opts[:'scan'] if !opts[:'scan'].nil?
 
       # http body (model)
-      post_body = opts[:debug_body]
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(upload_file_quick_scan_pro_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'QuickscanproFileUploadResponse'

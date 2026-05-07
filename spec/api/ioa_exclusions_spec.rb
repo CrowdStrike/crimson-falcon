@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -94,6 +93,121 @@ describe 'IoaExclusions' do
   # @option opts [String] :sort The sort expression that should be used to sort the results.
   # @return [MsaQueryResponse]
   describe 'query_ioa_exclusions_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_aggregates_v2
+  # Get Self Service IOA Exclusion aggregates as specified via json in the request body.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+  # @return [MsaAggregatesResponse]
+  describe 'ss_ioa_exclusions_aggregates_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_create_v2
+  # Create new Self Service IOA Exclusions.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSsIoaExclusionsRespV2]
+  describe 'ss_ioa_exclusions_create_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_delete_v2
+  # Delete the Self Service IOA Exclusions rule by id.
+  # @param ids The ids of the exclusions to delete
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :comment The comment why these ss ioa exclusions were deleted
+  # @return [DomainSsIoaExclusionsRespV2]
+  describe 'ss_ioa_exclusions_delete_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_get_reports_v2
+  # Create a report of Self Service IOA Exclusions scoped by the given filters
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'ss_ioa_exclusions_get_reports_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_get_v2
+  # Get the Self Service IOA Exclusions rules by id.
+  # @param ids The ids of the exclusions to retrieve
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSsIoaExclusionsRespV2]
+  describe 'ss_ioa_exclusions_get_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_matched_rule_v2
+  # Get Self Service IOA Exclusions rules for matched IFN/CLI for child, parent and grandparent
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSsIoaExclusionsRespV2]
+  describe 'ss_ioa_exclusions_matched_rule_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_new_rules_v2
+  # Get defaults for Self Service IOA Exclusions based on provided IFN/CLI for child, parent and grandparent.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSsIoaExclusionsNewRuleRespV2]
+  describe 'ss_ioa_exclusions_new_rules_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_search_v2
+  # Search for Self Service IOA Exclusions.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters.
+  # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+  # @option opts [Integer] :offset The offset to start retrieving records from
+  # @option opts [Integer] :limit The maximum records to return. [1-500]
+  # @option opts [String] :sort The sort expression that should be used to sort the results.
+  # @return [MsaspecQueryResponse]
+  describe 'ss_ioa_exclusions_search_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for ss_ioa_exclusions_update_v2
+  # Update the Self Service IOA Exclusions rule by id.
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DomainSsIoaExclusionsRespV2]
+  describe 'ss_ioa_exclusions_update_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

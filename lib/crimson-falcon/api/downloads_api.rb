@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -44,7 +43,7 @@ module Falcon
     # @option opts [String] :os Apply filtering on operating system
     # @option opts [String] :arch Apply filtering on architecture
     # @option opts [String] :category Apply filtering on file category
-    # @return [CommonEntitiesResponse]
+    # @return [ModelsEntitiesResponse]
     def enumerate_file(opts = {})
       data, _status_code, _headers = enumerate_file_with_http_info(opts)
       data
@@ -58,7 +57,7 @@ module Falcon
     # @option opts [String] :os Apply filtering on operating system
     # @option opts [String] :arch Apply filtering on architecture
     # @option opts [String] :category Apply filtering on file category
-    # @return [Array<(CommonEntitiesResponse, Integer, Hash)>] CommonEntitiesResponse data, response status code and response headers
+    # @return [Array<(ModelsEntitiesResponse, Integer, Hash)>] ModelsEntitiesResponse data, response status code and response headers
     def enumerate_file_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DownloadsApi.enumerate_file ...'
@@ -87,7 +86,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CommonEntitiesResponse'
+      return_type = opts[:debug_return_type] || 'ModelsEntitiesResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -105,6 +104,134 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DownloadsApi#enumerate_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get files info and pre-signed download URLs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search files using various filters using query in Falcon Query Language (FQL). Supported filters: arch,category,file_name,file_version,os
+    # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+    # @return [ModelsEntitiesResponse]
+    def fetch_files_download_info(opts = {})
+      data, _status_code, _headers = fetch_files_download_info_with_http_info(opts)
+      data
+    end
+
+    # Get files info and pre-signed download URLs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search files using various filters using query in Falcon Query Language (FQL). Supported filters: arch,category,file_name,file_version,os
+    # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+    # @return [Array<(ModelsEntitiesResponse, Integer, Hash)>] ModelsEntitiesResponse data, response status code and response headers
+    def fetch_files_download_info_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DownloadsApi.fetch_files_download_info ...'
+      end
+      # resource path
+      local_var_path = '/csdownloads/combined/files-download/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsEntitiesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DownloadsApi.fetch_files_download_info",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DownloadsApi#fetch_files_download_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get cloud security tools info and pre-signed download URLs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search files using various filters. Supported filters: arch,category,file_name,file_version,os
+    # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 1000 - limit.
+    # @return [ModelsCombinedFilesDownloadResponse]
+    def fetch_files_download_info_v2(opts = {})
+      data, _status_code, _headers = fetch_files_download_info_v2_with_http_info(opts)
+      data
+    end
+
+    # Get cloud security tools info and pre-signed download URLs
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Search files using various filters. Supported filters: arch,category,file_name,file_version,os
+    # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+    # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100. (default to 100)
+    # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 1000 - limit.
+    # @return [Array<(ModelsCombinedFilesDownloadResponse, Integer, Hash)>] ModelsCombinedFilesDownloadResponse data, response status code and response headers
+    def fetch_files_download_info_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DownloadsApi.fetch_files_download_info_v2 ...'
+      end
+      # resource path
+      local_var_path = '/csdownloads/combined/files-download/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ModelsCombinedFilesDownloadResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"DownloadsApi.fetch_files_download_info_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DownloadsApi#fetch_files_download_info_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,8 @@ require 'time'
 
 module Falcon
   class DomainKestrelParams
+    attr_accessor :is_cryptographically_signed
+
     attr_accessor :is_published
 
     attr_accessor :view_id
@@ -39,6 +40,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'is_cryptographically_signed' => :'is_cryptographically_signed',
         :'is_published' => :'is_published',
         :'view_id' => :'view_id'
       }
@@ -52,6 +54,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'is_cryptographically_signed' => :'Boolean',
         :'is_published' => :'Boolean',
         :'view_id' => :'String'
       }
@@ -78,6 +81,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'is_cryptographically_signed')
+        self.is_cryptographically_signed = attributes[:'is_cryptographically_signed']
+      end
+
       if attributes.key?(:'is_published')
         self.is_published = attributes[:'is_published']
       end
@@ -91,6 +98,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @is_cryptographically_signed.nil?
+        invalid_properties.push('invalid value for "is_cryptographically_signed", is_cryptographically_signed cannot be nil.')
+      end
+
       if @is_published.nil?
         invalid_properties.push('invalid value for "is_published", is_published cannot be nil.')
       end
@@ -105,6 +116,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @is_cryptographically_signed.nil?
       return false if @is_published.nil?
       return false if @view_id.nil?
       true
@@ -115,6 +127,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          is_cryptographically_signed == o.is_cryptographically_signed &&
           is_published == o.is_published &&
           view_id == o.view_id
     end
@@ -128,7 +141,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [is_published, view_id].hash
+      [is_cryptographically_signed, is_published, view_id].hash
     end
 
     # Builds the object from hash

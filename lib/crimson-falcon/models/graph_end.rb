@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -40,6 +39,8 @@ module Falcon
     # Keys of the fields that are the output for this model
     attr_accessor :output_fields
 
+    attr_accessor :position
+
     # Summary of the workflow is free form text with possibly embedded variables
     attr_accessor :summary
 
@@ -49,6 +50,7 @@ module Falcon
         :'incoming_flows' => :'incoming_flows',
         :'node_id' => :'nodeID',
         :'output_fields' => :'output_fields',
+        :'position' => :'position',
         :'summary' => :'summary'
       }
     end
@@ -64,6 +66,7 @@ module Falcon
         :'incoming_flows' => :'Array<String>',
         :'node_id' => :'String',
         :'output_fields' => :'Array<String>',
+        :'position' => :'GraphNodePosition',
         :'summary' => :'String'
       }
     end
@@ -105,6 +108,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
+      end
+
       if attributes.key?(:'summary')
         self.summary = attributes[:'summary']
       end
@@ -141,6 +148,7 @@ module Falcon
           incoming_flows == o.incoming_flows &&
           node_id == o.node_id &&
           output_fields == o.output_fields &&
+          position == o.position &&
           summary == o.summary
     end
 
@@ -153,7 +161,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [incoming_flows, node_id, output_fields, summary].hash
+      [incoming_flows, node_id, output_fields, position, summary].hash
     end
 
     # Builds the object from hash

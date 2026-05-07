@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,8 +37,14 @@ module Falcon
     # Populated when the execution origin is from a sub model.
     attr_accessor :ancestor_executions
 
+    # A boolean value indicating whether the workflow execution contains mocked result data for trigger or activities
+    attr_accessor :contains_mocks
+
     # Unique id of the workflow the execution is associated with.
     attr_accessor :definition_id
+
+    # The name of the workflow the execution is associated with.
+    attr_accessor :definition_name
 
     # Version of the definition that executed.
     attr_accessor :definition_version
@@ -71,6 +76,9 @@ module Falcon
     # Execution summary if defined in the workflow definition
     attr_accessor :summary
 
+    # indicates the entity (definition or activity) being tested, if any
+    attr_accessor :tested_entity
+
     attr_accessor :trigger
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -78,7 +86,9 @@ module Falcon
       {
         :'activities' => :'activities',
         :'ancestor_executions' => :'ancestor_executions',
+        :'contains_mocks' => :'contains_mocks',
         :'definition_id' => :'definition_id',
+        :'definition_name' => :'definition_name',
         :'definition_version' => :'definition_version',
         :'end_timestamp' => :'end_timestamp',
         :'execution_id' => :'execution_id',
@@ -89,6 +99,7 @@ module Falcon
         :'start_timestamp' => :'start_timestamp',
         :'status' => :'status',
         :'summary' => :'summary',
+        :'tested_entity' => :'tested_entity',
         :'trigger' => :'trigger'
       }
     end
@@ -103,7 +114,9 @@ module Falcon
       {
         :'activities' => :'Array<ExecutionsActivityExecutionResult>',
         :'ancestor_executions' => :'Array<ExecutionsAncestorExecution>',
+        :'contains_mocks' => :'Boolean',
         :'definition_id' => :'String',
+        :'definition_name' => :'String',
         :'definition_version' => :'Integer',
         :'end_timestamp' => :'Time',
         :'execution_id' => :'String',
@@ -114,6 +127,7 @@ module Falcon
         :'start_timestamp' => :'Time',
         :'status' => :'String',
         :'summary' => :'String',
+        :'tested_entity' => :'String',
         :'trigger' => :'ExecutionsTriggerResult'
       }
     end
@@ -151,8 +165,16 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'contains_mocks')
+        self.contains_mocks = attributes[:'contains_mocks']
+      end
+
       if attributes.key?(:'definition_id')
         self.definition_id = attributes[:'definition_id']
+      end
+
+      if attributes.key?(:'definition_name')
+        self.definition_name = attributes[:'definition_name']
       end
 
       if attributes.key?(:'definition_version')
@@ -199,6 +221,10 @@ module Falcon
         self.summary = attributes[:'summary']
       end
 
+      if attributes.key?(:'tested_entity')
+        self.tested_entity = attributes[:'tested_entity']
+      end
+
       if attributes.key?(:'trigger')
         self.trigger = attributes[:'trigger']
       end
@@ -216,8 +242,16 @@ module Falcon
         invalid_properties.push('invalid value for "ancestor_executions", ancestor_executions cannot be nil.')
       end
 
+      if @contains_mocks.nil?
+        invalid_properties.push('invalid value for "contains_mocks", contains_mocks cannot be nil.')
+      end
+
       if @definition_id.nil?
         invalid_properties.push('invalid value for "definition_id", definition_id cannot be nil.')
+      end
+
+      if @definition_name.nil?
+        invalid_properties.push('invalid value for "definition_name", definition_name cannot be nil.')
       end
 
       if @definition_version.nil?
@@ -256,7 +290,9 @@ module Falcon
     def valid?
       return false if @activities.nil?
       return false if @ancestor_executions.nil?
+      return false if @contains_mocks.nil?
       return false if @definition_id.nil?
+      return false if @definition_name.nil?
       return false if @definition_version.nil?
       return false if @execution_id.nil?
       return false if @loops.nil?
@@ -274,7 +310,9 @@ module Falcon
       self.class == o.class &&
           activities == o.activities &&
           ancestor_executions == o.ancestor_executions &&
+          contains_mocks == o.contains_mocks &&
           definition_id == o.definition_id &&
+          definition_name == o.definition_name &&
           definition_version == o.definition_version &&
           end_timestamp == o.end_timestamp &&
           execution_id == o.execution_id &&
@@ -285,6 +323,7 @@ module Falcon
           start_timestamp == o.start_timestamp &&
           status == o.status &&
           summary == o.summary &&
+          tested_entity == o.tested_entity &&
           trigger == o.trigger
     end
 
@@ -297,7 +336,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, flows, loops, output_data, retryable, start_timestamp, status, summary, trigger].hash
+      [activities, ancestor_executions, contains_mocks, definition_id, definition_name, definition_version, end_timestamp, execution_id, flows, loops, output_data, retryable, start_timestamp, status, summary, tested_entity, trigger].hash
     end
 
     # Builds the object from hash

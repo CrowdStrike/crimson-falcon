@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -155,22 +154,22 @@ module Falcon
 
     # Queries the accessible feed types for a customer. Returns a list of feed item IDs which can be later downloaded
     # @param feed_name [String] Feed Name
-    # @param feed_interval [String] Feed interval must be one of: dump|daily|hourly|minutely
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :feed_interval Feed interval must be one of: - dump: Complete historical data snapshot - daily: Daily aggregated updates - hourly: Hourly incremental updates - minutely: Minute-by-minute updates - any: Automatically combines the appropriate intervals to provide complete, up-to-date data with minimal overlap  Defaults to &#39;any&#39; if not specified.
     # @option opts [String] :since Since is a valid timestamp in RFC3399 format. Restrictions: minutely: now()-2h, hourly: now()-2d, daily: now()-5d; dump: now()-7d
     # @return [RestapiIndicatorFeedQueryResponse]
-    def query_feed_archives(feed_name, feed_interval, opts = {})
-      data, _status_code, _headers = query_feed_archives_with_http_info(feed_name, feed_interval, opts)
+    def query_feed_archives(feed_name, opts = {})
+      data, _status_code, _headers = query_feed_archives_with_http_info(feed_name, opts)
       data
     end
 
     # Queries the accessible feed types for a customer. Returns a list of feed item IDs which can be later downloaded
     # @param feed_name [String] Feed Name
-    # @param feed_interval [String] Feed interval must be one of: dump|daily|hourly|minutely
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :feed_interval Feed interval must be one of: - dump: Complete historical data snapshot - daily: Daily aggregated updates - hourly: Hourly incremental updates - minutely: Minute-by-minute updates - any: Automatically combines the appropriate intervals to provide complete, up-to-date data with minimal overlap  Defaults to &#39;any&#39; if not specified.
     # @option opts [String] :since Since is a valid timestamp in RFC3399 format. Restrictions: minutely: now()-2h, hourly: now()-2d, daily: now()-5d; dump: now()-7d
     # @return [Array<(RestapiIndicatorFeedQueryResponse, Integer, Hash)>] RestapiIndicatorFeedQueryResponse data, response status code and response headers
-    def query_feed_archives_with_http_info(feed_name, feed_interval, opts = {})
+    def query_feed_archives_with_http_info(feed_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: IntelligenceFeeds.query_feed_archives ...'
       end
@@ -178,17 +177,13 @@ module Falcon
       if @api_client.config.client_side_validation && feed_name.nil?
         fail ArgumentError, "Missing the required parameter 'feed_name' when calling IntelligenceFeeds.query_feed_archives"
       end
-      # verify the required parameter 'feed_interval' is set
-      if @api_client.config.client_side_validation && feed_interval.nil?
-        fail ArgumentError, "Missing the required parameter 'feed_interval' when calling IntelligenceFeeds.query_feed_archives"
-      end
       # resource path
       local_var_path = '/indicator-feed/queries/feed/v1'
 
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'feed_name'] = feed_name
-      query_params[:'feed_interval'] = feed_interval
+      query_params[:'feed_interval'] = opts[:'feed_interval'] if !opts[:'feed_interval'].nil?
       query_params[:'since'] = opts[:'since'] if !opts[:'since'].nil?
 
       # header parameters

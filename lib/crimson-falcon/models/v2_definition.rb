@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -37,6 +36,8 @@ module Falcon
     attr_accessor :conditions
 
     attr_accessor :description
+
+    attr_accessor :disconnected_nodes
 
     attr_accessor :labels
 
@@ -74,6 +75,7 @@ module Falcon
         :'actions' => :'actions',
         :'conditions' => :'conditions',
         :'description' => :'description',
+        :'disconnected_nodes' => :'disconnected_nodes',
         :'labels' => :'labels',
         :'loops' => :'loops',
         :'multi_instance' => :'multi_instance',
@@ -103,6 +105,7 @@ module Falcon
         :'actions' => :'Hash<String, V2Activity>',
         :'conditions' => :'Hash<String, V2Condition>',
         :'description' => :'String',
+        :'disconnected_nodes' => :'Array<String>',
         :'labels' => :'Array<String>',
         :'loops' => :'Hash<String, V2Loop>',
         :'multi_instance' => :'Boolean',
@@ -156,6 +159,12 @@ module Falcon
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'disconnected_nodes')
+        if (value = attributes[:'disconnected_nodes']).is_a?(Array)
+          self.disconnected_nodes = value
+        end
       end
 
       if attributes.key?(:'labels')
@@ -279,6 +288,7 @@ module Falcon
           actions == o.actions &&
           conditions == o.conditions &&
           description == o.description &&
+          disconnected_nodes == o.disconnected_nodes &&
           labels == o.labels &&
           loops == o.loops &&
           multi_instance == o.multi_instance &&
@@ -305,7 +315,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, description, labels, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors].hash
+      [actions, conditions, description, disconnected_nodes, labels, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors].hash
     end
 
     # Builds the object from hash

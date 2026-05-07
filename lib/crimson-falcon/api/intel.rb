@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,6 +35,205 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Perform statistical aggregations over incident data. Available aggregation properties: TargetCountries.Name, Id, InvolvesAdversaries.AnimalClassifier, TargetIndustries.Name, TargetRegions.Slug, MitreAttack.TacticName, MitreAttack.TechniqueId, MitreAttack.TechniqueName, TargetCountries.Slug, TargetRegions.Name, MitreAttack.TacticId, PublishDate, ActivityStart, ActivityEnd, Objectives.Slug, Motivations.Slug, InvolvesAdversaries.Slug, InvolvesThreats.FamilyName, TargetIndustries.Slug.
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [MsaAggregatesResponse]
+    def cao_incidents_aggregates_v1(body, opts = {})
+      data, _status_code, _headers = cao_incidents_aggregates_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Perform statistical aggregations over incident data. Available aggregation properties: TargetCountries.Name, Id, InvolvesAdversaries.AnimalClassifier, TargetIndustries.Name, TargetRegions.Slug, MitreAttack.TacticName, MitreAttack.TechniqueId, MitreAttack.TechniqueName, TargetCountries.Slug, TargetRegions.Name, MitreAttack.TacticId, PublishDate, ActivityStart, ActivityEnd, Objectives.Slug, Motivations.Slug, InvolvesAdversaries.Slug, InvolvesThreats.FamilyName, TargetIndustries.Slug.
+    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
+    def cao_incidents_aggregates_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Intel.cao_incidents_aggregates_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Intel.cao_incidents_aggregates_v1"
+      end
+      # resource path
+      local_var_path = '/intel/aggregates/incidents/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Intel.cao_incidents_aggregates_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Intel#cao_incidents_aggregates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve full details for one or more adversary incidents by their IDs. Returns complete incident data including adversary activity, timestamps, and associated metadata.
+    # @param body [MsaIdsRequest] List of incident IDs.
+    # @param [Hash] opts the optional parameters
+    # @return [IncidentResponseV1]
+    def cao_incidents_entities_v1(body, opts = {})
+      data, _status_code, _headers = cao_incidents_entities_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Retrieve full details for one or more adversary incidents by their IDs. Returns complete incident data including adversary activity, timestamps, and associated metadata.
+    # @param body [MsaIdsRequest] List of incident IDs.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(IncidentResponseV1, Integer, Hash)>] IncidentResponseV1 data, response status code and response headers
+    def cao_incidents_entities_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Intel.cao_incidents_entities_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Intel.cao_incidents_entities_v1"
+      end
+      # resource path
+      local_var_path = '/intel/entities/incidents/GET/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'IncidentResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Intel.cao_incidents_entities_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Intel#cao_incidents_entities_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for adversary incidents using FQL criteria and return a paginated list of matching incident IDs. Use the returned IDs with the entities endpoint to retrieve full incident details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. Available sort properties: ActivityEnd, PublishDate, InvolvesAdversaries.Name, InvolvesAdversaries.Slug, LastModifiedAt, ActivityStart.
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).   Available filters: ReferencesNotableEvents.Title, InvolvesIndicators.Value, LastModifiedAt, ActivityEnd, InvolvesAdversaries.Slug, MitreAttack.TacticId, All, Title, ActivityStart, InvolvesAdversaries.Name, InvolvesAdversaries.AnimalClassifier, TargetsVulnerabilities.CVE, Motivations.Slug, TargetingProfile.Slug, PublishDate, InvolvesThreats.FamilyName, MitreAttack.Id, MitreAttack.TacticName, MitreAttack.TechniqueId, TargetCountries.Slug, TargetRegions.Slug, TargetIndustries.Slug, Id, InvolvesAdversaries.Id, Objectives.Slug, MitreAttack.TechniqueName. &#39;All&#39; can be used for text queries on all attributes.
+    # @option opts [Integer] :limit The maximum records to return. Cannot be higher than 200.
+    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @return [MsaspecQueryResponse]
+    def cao_incidents_queries_v1(opts = {})
+      data, _status_code, _headers = cao_incidents_queries_v1_with_http_info(opts)
+      data
+    end
+
+    # Search for adversary incidents using FQL criteria and return a paginated list of matching incident IDs. Use the returned IDs with the entities endpoint to retrieve full incident details.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;. Available sort properties: ActivityEnd, PublishDate, InvolvesAdversaries.Name, InvolvesAdversaries.Slug, LastModifiedAt, ActivityStart.
+    # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).   Available filters: ReferencesNotableEvents.Title, InvolvesIndicators.Value, LastModifiedAt, ActivityEnd, InvolvesAdversaries.Slug, MitreAttack.TacticId, All, Title, ActivityStart, InvolvesAdversaries.Name, InvolvesAdversaries.AnimalClassifier, TargetsVulnerabilities.CVE, Motivations.Slug, TargetingProfile.Slug, PublishDate, InvolvesThreats.FamilyName, MitreAttack.Id, MitreAttack.TacticName, MitreAttack.TechniqueId, TargetCountries.Slug, TargetRegions.Slug, TargetIndustries.Slug, Id, InvolvesAdversaries.Id, Objectives.Slug, MitreAttack.TechniqueName. &#39;All&#39; can be used for text queries on all attributes.
+    # @option opts [Integer] :limit The maximum records to return. Cannot be higher than 200.
+    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def cao_incidents_queries_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Intel.cao_incidents_queries_v1 ...'
+      end
+      # resource path
+      local_var_path = '/intel/queries/incidents/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Intel.cao_incidents_queries_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Intel#cao_incidents_queries_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retrieve specific actors using their actor IDs.
     # @param ids [Array<String>] The IDs of the actors you want to retrieve.
     # @param [Hash] opts the optional parameters
@@ -983,7 +1181,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return indicators from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of indicators to return. The number must be between 1 and 10000
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: published_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, scope, targets, threat_types, type, vulnerabilities.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, reports.slug, scope, targets, threat_types, type, vulnerabilities.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Boolean] :include_deleted If true, include both published and deleted indicators in the response. Defaults to false.
     # @option opts [Boolean] :include_relations If true, include related indicators in the response. Defaults to true.
@@ -998,7 +1196,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return indicators from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of indicators to return. The number must be between 1 and 10000
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: published_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, scope, targets, threat_types, type, vulnerabilities.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, reports.slug, scope, targets, threat_types, type, vulnerabilities.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Boolean] :include_deleted If true, include both published and deleted indicators in the response. Defaults to false.
     # @option opts [Boolean] :include_relations If true, include related indicators in the response. Defaults to true.
@@ -1059,7 +1257,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return indicator IDs from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of indicator IDs to return. The number must be between 1 and 10000
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: published_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, scope, targets, threat_types, type, vulnerabilities.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, reports.slug, scope, targets, threat_types, type, vulnerabilities.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Boolean] :include_deleted If true, include both published and deleted indicators in the response. Defaults to false.
     # @option opts [Boolean] :include_relations If true, include related indicators in the response. Defaults to true.
@@ -1074,7 +1272,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return indicator IDs from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of indicator IDs to return. The number must be between 1 and 10000
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: published_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, scope, targets, threat_types, type, vulnerabilities.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  _marker, actors, deleted, domain_types, id, indicator, ip_address_types, kill_chains, labels, labels.created_on, labels.last_valid_on, labels.name, last_updated, malicious_confidence, malware_families, published_date, reports, reports.slug, scope, targets, threat_types, type, vulnerabilities.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Boolean] :include_deleted If true, include both published and deleted indicators in the response. Defaults to false.
     # @option opts [Boolean] :include_relations If true, include related indicators in the response. Defaults to true.
@@ -1135,7 +1333,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of reports to return. The value must be between 1 and 5000.
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: created_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, summary, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Array<String>] :fields The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\&lt;collection\\&gt;\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_.
     # @return [DomainNewsResponse]
@@ -1149,7 +1347,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return reports from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of reports to return. The value must be between 1 and 5000.
     # @option opts [String] :sort Order fields in ascending or descending order. Ex: created_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, summary, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @option opts [Array<String>] :fields The fields to return, or a predefined set of fields in the form of the collection name surrounded by two underscores like:  \\_\\_\\&lt;collection\\&gt;\\_\\_.  Ex: slug \\_\\_full\\_\\_.  Defaults to \\_\\_basic\\_\\_.
     # @return [Array<(DomainNewsResponse, Integer, Hash)>] DomainNewsResponse data, response status code and response headers
@@ -1208,7 +1406,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return report IDs from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of report IDs to return. The value must be between 1 and 5000.
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, summary, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @return [MsaQueryResponse]
     def query_intel_report_ids(opts = {})
@@ -1221,7 +1419,7 @@ module Falcon
     # @option opts [Integer] :offset Set the starting row number to return report IDs from. Defaults to 0.
     # @option opts [Integer] :limit Set the number of report IDs to return. The value must be between 1 and 5000.
     # @option opts [String] :sort Order fields in ascending or descending order.  Ex: created_date|asc.
-    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
+    # @option opts [String] :filter Filter your query by specifying FQL filter parameters. Filter parameters include:  actors, actors.animal_classifier, actors.id, actors.name, actors.slug, actors.url, created_date, description, id, last_modified_date, malware, malware.community_identifiers, malware.family_name, malware.slug, motivations, motivations.id, motivations.slug, motivations.value, name, name.raw, short_description, slug, sub_type, sub_type.id, sub_type.name, sub_type.slug, summary, tags, tags.id, tags.slug, tags.value, target_countries, target_countries.id, target_countries.slug, target_countries.value, target_industries, target_industries.id, target_industries.slug, target_industries.value, type, type.id, type.name, type.slug, url.
     # @option opts [String] :q Perform a generic substring search across all fields.
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def query_intel_report_ids_with_http_info(opts = {})

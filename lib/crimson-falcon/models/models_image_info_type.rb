@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -39,6 +38,8 @@ module Falcon
     attr_accessor :digest
 
     attr_accessor :id
+
+    attr_accessor :index_digest
 
     attr_accessor :registry
 
@@ -63,6 +64,7 @@ module Falcon
         :'created_at' => :'CreatedAt',
         :'digest' => :'Digest',
         :'id' => :'ID',
+        :'index_digest' => :'IndexDigest',
         :'registry' => :'Registry',
         :'repository' => :'Repository',
         :'size' => :'Size',
@@ -86,6 +88,7 @@ module Falcon
         :'created_at' => :'String',
         :'digest' => :'String',
         :'id' => :'String',
+        :'index_digest' => :'String',
         :'registry' => :'String',
         :'repository' => :'String',
         :'size' => :'Integer',
@@ -132,6 +135,10 @@ module Falcon
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'index_digest')
+        self.index_digest = attributes[:'index_digest']
       end
 
       if attributes.key?(:'registry')
@@ -183,6 +190,10 @@ module Falcon
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if @index_digest.nil?
+        invalid_properties.push('invalid value for "index_digest", index_digest cannot be nil.')
+      end
+
       if @size.nil?
         invalid_properties.push('invalid value for "size", size cannot be nil.')
       end
@@ -196,6 +207,7 @@ module Falcon
       return false if @architecture.nil?
       return false if @digest.nil?
       return false if @id.nil?
+      return false if @index_digest.nil?
       return false if @size.nil?
       true
     end
@@ -209,6 +221,7 @@ module Falcon
           created_at == o.created_at &&
           digest == o.digest &&
           id == o.id &&
+          index_digest == o.index_digest &&
           registry == o.registry &&
           repository == o.repository &&
           size == o.size &&
@@ -228,7 +241,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [architecture, created_at, digest, id, registry, repository, size, tag, config_s3_key, manifest_s3_key, scan_request_s3_key, source].hash
+      [architecture, created_at, digest, id, index_digest, registry, repository, size, tag, config_s3_key, manifest_s3_key, scan_request_s3_key, source].hash
     end
 
     # Builds the object from hash

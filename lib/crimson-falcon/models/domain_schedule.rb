@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,18 +31,21 @@ require 'time'
 
 module Falcon
   class DomainSchedule
-    attr_accessor :ignored_by_channelfile
+    attr_accessor :can_stagger
 
-    attr_accessor :interval
+    attr_accessor :definition
 
-    attr_accessor :start_timestamp
+    attr_accessor :display
+
+    attr_accessor :scheduled_time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ignored_by_channelfile' => :'ignored_by_channelfile',
-        :'interval' => :'interval',
-        :'start_timestamp' => :'start_timestamp'
+        :'can_stagger' => :'can_stagger',
+        :'definition' => :'definition',
+        :'display' => :'display',
+        :'scheduled_time' => :'scheduled_time'
       }
     end
 
@@ -55,9 +57,10 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'ignored_by_channelfile' => :'Boolean',
-        :'interval' => :'Integer',
-        :'start_timestamp' => :'String'
+        :'can_stagger' => :'Boolean',
+        :'definition' => :'String',
+        :'display' => :'String',
+        :'scheduled_time' => :'Time'
       }
     end
 
@@ -82,16 +85,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'ignored_by_channelfile')
-        self.ignored_by_channelfile = attributes[:'ignored_by_channelfile']
+      if attributes.key?(:'can_stagger')
+        self.can_stagger = attributes[:'can_stagger']
       end
 
-      if attributes.key?(:'interval')
-        self.interval = attributes[:'interval']
+      if attributes.key?(:'definition')
+        self.definition = attributes[:'definition']
       end
 
-      if attributes.key?(:'start_timestamp')
-        self.start_timestamp = attributes[:'start_timestamp']
+      if attributes.key?(:'display')
+        self.display = attributes[:'display']
+      end
+
+      if attributes.key?(:'scheduled_time')
+        self.scheduled_time = attributes[:'scheduled_time']
       end
     end
 
@@ -99,12 +106,32 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @can_stagger.nil?
+        invalid_properties.push('invalid value for "can_stagger", can_stagger cannot be nil.')
+      end
+
+      if @definition.nil?
+        invalid_properties.push('invalid value for "definition", definition cannot be nil.')
+      end
+
+      if @display.nil?
+        invalid_properties.push('invalid value for "display", display cannot be nil.')
+      end
+
+      if @scheduled_time.nil?
+        invalid_properties.push('invalid value for "scheduled_time", scheduled_time cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @can_stagger.nil?
+      return false if @definition.nil?
+      return false if @display.nil?
+      return false if @scheduled_time.nil?
       true
     end
 
@@ -113,9 +140,10 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ignored_by_channelfile == o.ignored_by_channelfile &&
-          interval == o.interval &&
-          start_timestamp == o.start_timestamp
+          can_stagger == o.can_stagger &&
+          definition == o.definition &&
+          display == o.display &&
+          scheduled_time == o.scheduled_time
     end
 
     # @see the `==` method
@@ -127,7 +155,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ignored_by_channelfile, interval, start_timestamp].hash
+      [can_stagger, definition, display, scheduled_time].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -99,6 +98,9 @@ module Falcon
     # Information of the bot malware family
     attr_accessor :malware_family
 
+    # The thread group ID of the parent notification associated with this entity
+    attr_accessor :notification_group_id
+
     # The ID of the parent notification associated with this entity
     attr_accessor :notification_id
 
@@ -164,6 +166,7 @@ module Falcon
         :'location' => :'location',
         :'login_id' => :'login_id',
         :'malware_family' => :'malware_family',
+        :'notification_group_id' => :'notification_group_id',
         :'notification_id' => :'notification_id',
         :'password' => :'password',
         :'password_hash' => :'password_hash',
@@ -213,6 +216,7 @@ module Falcon
         :'location' => :'ApiExposedDataRecordLocationV1',
         :'login_id' => :'String',
         :'malware_family' => :'String',
+        :'notification_group_id' => :'String',
         :'notification_id' => :'String',
         :'password' => :'String',
         :'password_hash' => :'String',
@@ -345,6 +349,10 @@ module Falcon
 
       if attributes.key?(:'malware_family')
         self.malware_family = attributes[:'malware_family']
+      end
+
+      if attributes.key?(:'notification_group_id')
+        self.notification_group_id = attributes[:'notification_group_id']
       end
 
       if attributes.key?(:'notification_id')
@@ -506,6 +514,7 @@ module Falcon
           location == o.location &&
           login_id == o.login_id &&
           malware_family == o.malware_family &&
+          notification_group_id == o.notification_group_id &&
           notification_id == o.notification_id &&
           password == o.password &&
           password_hash == o.password_hash &&
@@ -531,7 +540,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [author, author_id, bot, cid, company, created_date, credential_status, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, event_date, exposure_date, file, financial, full_name, hash_type, id, job_position, location, login_id, malware_family, notification_id, password, password_hash, password_salt, phone_number, raw_intel_id, rule, site, site_id, social, source_category, user_id, user_ip, user_uuid].hash
+      [author, author_id, bot, cid, company, created_date, credential_status, credentials_domain, credentials_ip, credentials_url, display_name, domain, email, event_date, exposure_date, file, financial, full_name, hash_type, id, job_position, location, login_id, malware_family, notification_group_id, notification_id, password, password_hash, password_salt, phone_number, raw_intel_id, rule, site, site_id, social, source_category, user_id, user_ip, user_uuid].hash
     end
 
     # Builds the object from hash

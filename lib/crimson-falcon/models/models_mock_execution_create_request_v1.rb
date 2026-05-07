@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,7 +33,7 @@ module Falcon
   class ModelsMockExecutionCreateRequestV1
     attr_accessor :definition
 
-    # Mock activity data and trigger data for non-on-demand executions, keyed by node ID, may include trigger and/or activity nodes
+    # Mock activity data and trigger data for non-on-demand executions, keyed by node ID, may include trigger and/or activity nodes; mocks can also be defined by reference in the workflow definition itself; in case of a conflict, the mocks provided in the request body (this field) take precedence
     attr_accessor :mocks
 
     # Trigger data for on-demand executions

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -885,7 +884,7 @@ module Falcon
 
     # Query Scans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword description initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count targeted_platforms targeted_platforms.keyword]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'created_on|desc')
@@ -897,7 +896,7 @@ module Falcon
 
     # Query Scans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id profile_id description.keyword description initiated_from filecount.scanned filecount.malicious filecount.quarantined filecount.skipped affected_hosts_count status severity scan_started_on scan_completed_on created_on created_by last_updated targeted_host_count missing_host_count targeted_platforms targeted_platforms.keyword]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'created_on|desc')
@@ -906,7 +905,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ods.query_scans ...'
       end
-      allowable_values = ["id|asc", "id|desc", "initiated_from|asc", "initiated_from|desc", "description.keyword|asc", "description.keyword|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "affected_hosts_count|asc", "affected_hosts_count|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "scan_started_on|asc", "scan_started_on|desc", "scan_completed_on|asc", "scan_completed_on|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc", "targeted_host_count|asc", "targeted_host_count|desc", "missing_host_count|asc", "missing_host_count|desc"]
+      allowable_values = ["id|asc", "id|desc", "initiated_from|asc", "initiated_from|desc", "description.keyword|asc", "description.keyword|desc", "description|asc", "description|desc", "filecount.scanned|asc", "filecount.scanned|desc", "filecount.malicious|asc", "filecount.malicious|desc", "filecount.quarantined|asc", "filecount.quarantined|desc", "filecount.skipped|asc", "filecount.skipped|desc", "affected_hosts_count|asc", "affected_hosts_count|desc", "status|asc", "status|desc", "severity|asc", "severity|desc", "scan_started_on|asc", "scan_started_on|desc", "scan_completed_on|asc", "scan_completed_on|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc", "targeted_host_count|asc", "targeted_host_count|desc", "missing_host_count|asc", "missing_host_count|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -956,7 +955,7 @@ module Falcon
 
     # Query ScheduledScans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id description.keyword description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted targeted_platforms channel_file_status]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'schedule.start_timestamp|desc')
@@ -968,7 +967,7 @@ module Falcon
 
     # Query ScheduledScans.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter A FQL compatible query string. Terms: [id description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted]
+    # @option opts [String] :filter A FQL compatible query string. Terms: [id description.keyword description initiated_from status schedule.start_timestamp schedule.Interval created_on created_by last_updated deleted targeted_platforms channel_file_status]
     # @option opts [Integer] :offset Index of the starting resource (default to 0)
     # @option opts [Integer] :limit The max number of resources to return (default to 500)
     # @option opts [String] :sort The property to sort on, followed by a |, followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot; (default to 'schedule.start_timestamp|desc')
@@ -977,7 +976,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: Ods.query_scheduled_scans ...'
       end
-      allowable_values = ["id|asc", "id|desc", "description.keyword|asc", "description.keyword|desc", "status|asc", "status|desc", "schedule.start_timestamp|asc", "schedule.start_timestamp|desc", "schedule.interval|asc", "schedule.interval|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc"]
+      allowable_values = ["id|asc", "id|desc", "description.keyword|asc", "description.keyword|desc", "description|asc", "description|desc", "status|asc", "status|desc", "schedule.start_timestamp|asc", "schedule.start_timestamp|desc", "schedule.interval|asc", "schedule.interval|desc", "created_on|asc", "created_on|desc", "created_by|asc", "created_by|desc", "last_updated|asc", "last_updated|desc", "targeted_host_count|asc", "targeted_host_count|desc", "targeted_platforms|asc", "targeted_platforms|desc", "channel_file_status|asc", "channel_file_status|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

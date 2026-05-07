@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -37,6 +36,10 @@ module Falcon
     attr_accessor :cid
 
     attr_accessor :device_id
+
+    attr_accessor :directory_auditing
+
+    attr_accessor :group_policy_object
 
     attr_accessor :heartbeat_time
 
@@ -55,6 +58,8 @@ module Falcon
     attr_accessor :local_ip
 
     attr_accessor :machine_domain
+
+    attr_accessor :new_enforcement_mode
 
     attr_accessor :ntlm_config
 
@@ -76,6 +81,8 @@ module Falcon
         :'agent_version' => :'agent_version',
         :'cid' => :'cid',
         :'device_id' => :'device_id',
+        :'directory_auditing' => :'directory_auditing',
+        :'group_policy_object' => :'group_policy_object',
         :'heartbeat_time' => :'heartbeat_time',
         :'hostname' => :'hostname',
         :'idp_policy_id' => :'idp_policy_id',
@@ -85,6 +92,7 @@ module Falcon
         :'ldaps_config' => :'ldaps_config',
         :'local_ip' => :'local_ip',
         :'machine_domain' => :'machine_domain',
+        :'new_enforcement_mode' => :'new_enforcement_mode',
         :'ntlm_config' => :'ntlm_config',
         :'os_version' => :'os_version',
         :'rdp_to_dc_config' => :'rdp_to_dc_config',
@@ -106,6 +114,8 @@ module Falcon
         :'agent_version' => :'String',
         :'cid' => :'String',
         :'device_id' => :'String',
+        :'directory_auditing' => :'String',
+        :'group_policy_object' => :'String',
         :'heartbeat_time' => :'Integer',
         :'hostname' => :'String',
         :'idp_policy_id' => :'String',
@@ -115,6 +125,7 @@ module Falcon
         :'ldaps_config' => :'String',
         :'local_ip' => :'String',
         :'machine_domain' => :'String',
+        :'new_enforcement_mode' => :'String',
         :'ntlm_config' => :'String',
         :'os_version' => :'String',
         :'rdp_to_dc_config' => :'String',
@@ -158,6 +169,14 @@ module Falcon
         self.device_id = attributes[:'device_id']
       end
 
+      if attributes.key?(:'directory_auditing')
+        self.directory_auditing = attributes[:'directory_auditing']
+      end
+
+      if attributes.key?(:'group_policy_object')
+        self.group_policy_object = attributes[:'group_policy_object']
+      end
+
       if attributes.key?(:'heartbeat_time')
         self.heartbeat_time = attributes[:'heartbeat_time']
       end
@@ -192,6 +211,10 @@ module Falcon
 
       if attributes.key?(:'machine_domain')
         self.machine_domain = attributes[:'machine_domain']
+      end
+
+      if attributes.key?(:'new_enforcement_mode')
+        self.new_enforcement_mode = attributes[:'new_enforcement_mode']
       end
 
       if attributes.key?(:'ntlm_config')
@@ -256,6 +279,8 @@ module Falcon
           agent_version == o.agent_version &&
           cid == o.cid &&
           device_id == o.device_id &&
+          directory_auditing == o.directory_auditing &&
+          group_policy_object == o.group_policy_object &&
           heartbeat_time == o.heartbeat_time &&
           hostname == o.hostname &&
           idp_policy_id == o.idp_policy_id &&
@@ -265,6 +290,7 @@ module Falcon
           ldaps_config == o.ldaps_config &&
           local_ip == o.local_ip &&
           machine_domain == o.machine_domain &&
+          new_enforcement_mode == o.new_enforcement_mode &&
           ntlm_config == o.ntlm_config &&
           os_version == o.os_version &&
           rdp_to_dc_config == o.rdp_to_dc_config &&
@@ -283,7 +309,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_version, cid, device_id, heartbeat_time, hostname, idp_policy_id, idp_policy_name, kerberos_config, ldap_config, ldaps_config, local_ip, machine_domain, ntlm_config, os_version, rdp_to_dc_config, smb_to_dc_config, status, status_causes, ti_enabled].hash
+      [agent_version, cid, device_id, directory_auditing, group_policy_object, heartbeat_time, hostname, idp_policy_id, idp_policy_name, kerberos_config, ldap_config, ldaps_config, local_ip, machine_domain, new_enforcement_mode, ntlm_config, os_version, rdp_to_dc_config, smb_to_dc_config, status, status_causes, ti_enabled].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -49,14 +48,27 @@ module Falcon
     # generate a hidden card during mobiledoc generation
     attr_accessor :hide
 
+    attr_accessor :meta
+
+    # placeholder default text for form field
+    attr_accessor :placeholder
+
+    # makes a form field read only
+    attr_accessor :read_only
+
     # local reference to look up the dynamic json schema and mobiledoc card configuration returned in the top-level of api response
     attr_accessor :schema_reference
 
     # skip generating a card during mobiledoc generation
     attr_accessor :skip
 
+    attr_accessor :statement
+
     # decimal step to increment float values
     attr_accessor :step
+
+    # tooltip to display when hovering over a form field
+    attr_accessor :tooltip
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -68,9 +80,14 @@ module Falcon
         :'encoding' => :'encoding',
         :'helper_text' => :'helperText',
         :'hide' => :'hide',
+        :'meta' => :'meta',
+        :'placeholder' => :'placeholder',
+        :'read_only' => :'readOnly',
         :'schema_reference' => :'schema_reference',
         :'skip' => :'skip',
-        :'step' => :'step'
+        :'statement' => :'statement',
+        :'step' => :'step',
+        :'tooltip' => :'tooltip'
       }
     end
 
@@ -89,9 +106,14 @@ module Falcon
         :'encoding' => :'String',
         :'helper_text' => :'String',
         :'hide' => :'Boolean',
+        :'meta' => :'JsonschemaMeta',
+        :'placeholder' => :'String',
+        :'read_only' => :'Boolean',
         :'schema_reference' => :'String',
         :'skip' => :'Boolean',
-        :'step' => :'Float'
+        :'statement' => :'JsonschemaStatement',
+        :'step' => :'Float',
+        :'tooltip' => :'String'
       }
     end
 
@@ -148,6 +170,18 @@ module Falcon
         self.hide = attributes[:'hide']
       end
 
+      if attributes.key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
+
+      if attributes.key?(:'placeholder')
+        self.placeholder = attributes[:'placeholder']
+      end
+
+      if attributes.key?(:'read_only')
+        self.read_only = attributes[:'read_only']
+      end
+
       if attributes.key?(:'schema_reference')
         self.schema_reference = attributes[:'schema_reference']
       end
@@ -156,8 +190,16 @@ module Falcon
         self.skip = attributes[:'skip']
       end
 
+      if attributes.key?(:'statement')
+        self.statement = attributes[:'statement']
+      end
+
       if attributes.key?(:'step')
         self.step = attributes[:'step']
+      end
+
+      if attributes.key?(:'tooltip')
+        self.tooltip = attributes[:'tooltip']
       end
     end
 
@@ -186,9 +228,14 @@ module Falcon
           encoding == o.encoding &&
           helper_text == o.helper_text &&
           hide == o.hide &&
+          meta == o.meta &&
+          placeholder == o.placeholder &&
+          read_only == o.read_only &&
           schema_reference == o.schema_reference &&
           skip == o.skip &&
-          step == o.step
+          statement == o.statement &&
+          step == o.step &&
+          tooltip == o.tooltip
     end
 
     # @see the `==` method
@@ -200,7 +247,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, schema_reference, skip, step].hash
+      [accept, component, custom_group_name, duration_options, encoding, helper_text, hide, meta, placeholder, read_only, schema_reference, skip, statement, step, tooltip].hash
     end
 
     # Builds the object from hash

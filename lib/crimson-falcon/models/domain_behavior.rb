@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -35,6 +34,8 @@ module Falcon
     attr_accessor :aid
 
     attr_accessor :alert_ids
+
+    attr_accessor :alerts_details
 
     attr_accessor :behavior_id
 
@@ -53,8 +54,6 @@ module Falcon
     attr_accessor :exclusion_type
 
     attr_accessor :filepath
-
-    attr_accessor :grouping_ids
 
     attr_accessor :incident_id
 
@@ -97,6 +96,7 @@ module Falcon
       {
         :'aid' => :'aid',
         :'alert_ids' => :'alert_ids',
+        :'alerts_details' => :'alerts_details',
         :'behavior_id' => :'behavior_id',
         :'cid' => :'cid',
         :'cmdline' => :'cmdline',
@@ -106,7 +106,6 @@ module Falcon
         :'domain' => :'domain',
         :'exclusion_type' => :'exclusion_type',
         :'filepath' => :'filepath',
-        :'grouping_ids' => :'grouping_ids',
         :'incident_id' => :'incident_id',
         :'incident_ids' => :'incident_ids',
         :'ioc_source' => :'ioc_source',
@@ -138,6 +137,7 @@ module Falcon
       {
         :'aid' => :'String',
         :'alert_ids' => :'Array<String>',
+        :'alerts_details' => :'Array<DomainAlertDetails>',
         :'behavior_id' => :'String',
         :'cid' => :'String',
         :'cmdline' => :'String',
@@ -147,7 +147,6 @@ module Falcon
         :'domain' => :'String',
         :'exclusion_type' => :'String',
         :'filepath' => :'String',
-        :'grouping_ids' => :'Array<String>',
         :'incident_id' => :'String',
         :'incident_ids' => :'Array<String>',
         :'ioc_source' => :'String',
@@ -200,6 +199,12 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'alerts_details')
+        if (value = attributes[:'alerts_details']).is_a?(Array)
+          self.alerts_details = value
+        end
+      end
+
       if attributes.key?(:'behavior_id')
         self.behavior_id = attributes[:'behavior_id']
       end
@@ -236,12 +241,6 @@ module Falcon
 
       if attributes.key?(:'filepath')
         self.filepath = attributes[:'filepath']
-      end
-
-      if attributes.key?(:'grouping_ids')
-        if (value = attributes[:'grouping_ids']).is_a?(Array)
-          self.grouping_ids = value
-        end
       end
 
       if attributes.key?(:'incident_id')
@@ -354,6 +353,7 @@ module Falcon
       self.class == o.class &&
           aid == o.aid &&
           alert_ids == o.alert_ids &&
+          alerts_details == o.alerts_details &&
           behavior_id == o.behavior_id &&
           cid == o.cid &&
           cmdline == o.cmdline &&
@@ -363,7 +363,6 @@ module Falcon
           domain == o.domain &&
           exclusion_type == o.exclusion_type &&
           filepath == o.filepath &&
-          grouping_ids == o.grouping_ids &&
           incident_id == o.incident_id &&
           incident_ids == o.incident_ids &&
           ioc_source == o.ioc_source &&
@@ -393,7 +392,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aid, alert_ids, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, grouping_ids, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_description, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
+      [aid, alert_ids, alerts_details, behavior_id, cid, cmdline, compound_tto, detection_ids, display_name, domain, exclusion_type, filepath, incident_id, incident_ids, ioc_source, ioc_type, ioc_value, objective, pattern_description, pattern_disposition, pattern_disposition_details, pattern_id, sha256, tactic, tactic_id, technique, technique_id, template_instance_id, timestamp, user_name].hash
     end
 
     # Builds the object from hash

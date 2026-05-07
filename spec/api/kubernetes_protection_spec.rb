@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -71,12 +70,12 @@ describe 'KubernetesProtection' do
     end
   end
 
-  # unit tests for delete_aws_accounts_mixin0
+  # unit tests for delete_aws_accounts
   # Delete AWS accounts.
   # @param ids AWS Account IDs
   # @param [Hash] opts the optional parameters
   # @return [MsaMetaInfo]
-  describe 'delete_aws_accounts_mixin0 test' do
+  describe 'delete_aws_accounts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -94,10 +93,10 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for find_containers_by_container_run_time_version
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve containers by container_runtime_version
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [String] :filter Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;ai_related&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;app_name&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
   # @return [ModelsContainerRuntimePivotResponse]
@@ -117,7 +116,7 @@ describe 'KubernetesProtection' do
     end
   end
 
-  # unit tests for get_aws_accounts_mixin0
+  # unit tests for get_aws_accounts
   # Provides a list of AWS accounts.
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :ids AWS Account IDs
@@ -126,7 +125,7 @@ describe 'KubernetesProtection' do
   # @option opts [Integer] :limit Limit returned accounts
   # @option opts [Integer] :offset Offset returned accounts
   # @return [K8sregGetAWSAccountsResp]
-  describe 'get_aws_accounts_mixin0 test' do
+  describe 'get_aws_accounts test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -276,13 +275,27 @@ describe 'KubernetesProtection' do
     end
   end
 
-  # unit tests for read_cluster_combined
-  # Maximum offset &#x3D; 10000 - limit
+  # unit tests for post_search_kubernetes_iom_entities
+  # Search for Kubernetes IOMs with filtering options.Pagination is supported via Elasticsearch&#39;s search_after search param and point in time. Assets are sorted by unique ID in ascending direction.
+  # @param body
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit Maximum number of records to return (default: 100, max: 500)
+  # @return [K8siomsSearchResponse]
+  describe 'post_search_kubernetes_iom_entities test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_cluster_combined
+  # Retrieve kubernetes clusters identified by the provided filter criteria
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;namespace&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;pod_name&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :sort The fields to sort the records on.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsClusterEntityResponse]
   describe 'read_cluster_combined test' do
     it 'should work' do
@@ -291,13 +304,13 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_cluster_combined_v2
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve Kubernetes cluster data
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :filter Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;namespace&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;pod_name&#x60; - &#x60;tags&#x60;
   # @option opts [String] :sort The fields to sort the records on.
   # @option opts [Boolean] :include_counts Flag to include node, pod and container counts in the response
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [V2ClusterEntityResponseV2]
   describe 'read_cluster_combined_v2 test' do
     it 'should work' do
@@ -308,7 +321,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_cluster_count
   # Retrieve cluster counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;namespace&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;pod_name&#x60; - &#x60;tags&#x60;
   # @return [CommonCountResponse]
   describe 'read_cluster_count test' do
     it 'should work' do
@@ -320,7 +333,7 @@ describe 'KubernetesProtection' do
   # Retrieve cluster enrichment data
   # @param cluster_id One or more cluster ids for which to retrieve enrichment info
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
+  # @option opts [String] :filter Supported filter fields: - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60;
   # @return [K8sassetsClusterEnrichmentResponse]
   describe 'read_cluster_enrichment test' do
     it 'should work' do
@@ -341,7 +354,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_clusters_by_kubernetes_version_count
   # Bucket clusters by kubernetes version
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;namespace&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;pod_name&#x60; - &#x60;tags&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_clusters_by_kubernetes_version_count test' do
     it 'should work' do
@@ -352,7 +365,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_clusters_by_status_count
   # Bucket clusters by status
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;tags&#x60;
+  # @option opts [String] :filter Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;access&#x60; - &#x60;agent_id&#x60; - &#x60;agent_status&#x60; - &#x60;agent_type&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;cluster_status&#x60; - &#x60;container_count&#x60; - &#x60;iar_coverage&#x60; - &#x60;kac_agent_id&#x60; - &#x60;kubernetes_version&#x60; - &#x60;last_seen&#x60; - &#x60;management_status&#x60; - &#x60;namespace&#x60; - &#x60;node_count&#x60; - &#x60;pod_count&#x60; - &#x60;pod_name&#x60; - &#x60;tags&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_clusters_by_status_count test' do
     it 'should work' do
@@ -361,12 +374,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_container_combined
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieves a paginated list of containers identified by the provided filter criteria. Maximum page size: 200. Maximum available containers: 10,000
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;ai_related&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;app_name&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_instance_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_id&#x60; - &#x60;container_image_id&#x60; - &#x60;container_name&#x60; - &#x60;cve_id&#x60; - &#x60;detection_name&#x60; - &#x60;first_seen&#x60; - &#x60;image_detection_count&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;image_vulnerability_count&#x60; - &#x60;insecure_mount_source&#x60; - &#x60;insecure_mount_type&#x60; - &#x60;insecure_propagation_mode&#x60; - &#x60;interactive_mode&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;package_name_version&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60; - &#x60;running_status&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsContainerEntityResponse]
   describe 'read_container_combined test' do
     it 'should work' do
@@ -402,7 +415,7 @@ describe 'KubernetesProtection' do
   # Retrieve container enrichment data
   # @param container_id One or more container ids for which to retrieve enrichment info
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
+  # @option opts [String] :filter Supported filter fields: - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60;
   # @return [K8sassetsContainerEnrichmentResponse]
   describe 'read_container_enrichment test' do
     it 'should work' do
@@ -477,12 +490,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_deployment_combined
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve kubernetes deployments identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;deployment_id&#x60; - &#x60;deployment_name&#x60; - &#x60;deployment_status&#x60; - &#x60;first_seen&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsDeploymentEntityResponse]
   describe 'read_deployment_combined test' do
     it 'should work' do
@@ -505,7 +518,7 @@ describe 'KubernetesProtection' do
   # Retrieve deployment enrichment data
   # @param deployment_id One or more deployment ids for which to retrieve enrichment info
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
+  # @option opts [String] :filter Supported filter fields: - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60;
   # @return [K8sassetsDeploymentEnrichmentResponse]
   describe 'read_deployment_enrichment test' do
     it 'should work' do
@@ -589,12 +602,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_node_combined
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve kubernetes nodes identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsNodeEntityResponse]
   describe 'read_node_combined test' do
     it 'should work' do
@@ -605,7 +618,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_node_count
   # Retrieve node counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+  # @option opts [String] :filter Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @return [CommonCountResponse]
   describe 'read_node_count test' do
     it 'should work' do
@@ -617,7 +630,7 @@ describe 'KubernetesProtection' do
   # Retrieve node enrichment data
   # @param node_name One or more node names for which to retrieve enrichment info
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
+  # @option opts [String] :filter Supported filter fields: - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60;
   # @return [K8sassetsNodeEnrichmentResponse]
   describe 'read_node_enrichment test' do
     it 'should work' do
@@ -628,7 +641,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_nodes_by_cloud_count
   # Bucket nodes by cloud providers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_cloud_count test' do
     it 'should work' do
@@ -639,7 +652,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_nodes_by_container_engine_version_count
   # Bucket nodes by their container engine version
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_container_engine_version_count test' do
     it 'should work' do
@@ -650,7 +663,7 @@ describe 'KubernetesProtection' do
   # unit tests for read_nodes_by_date_range_count
   # Retrieve nodes by date range counts
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
+  # @option opts [String] :filter Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;annotations_list&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;container_runtime_version&#x60; - &#x60;first_seen&#x60; - &#x60;image_digest&#x60; - &#x60;ipv4&#x60; - &#x60;kac_agent_id&#x60; - &#x60;last_seen&#x60; - &#x60;linux_sensor_coverage&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;pod_count&#x60; - &#x60;resource_status&#x60;
   # @return [ModelsAggregateValuesByFieldResponse]
   describe 'read_nodes_by_date_range_count test' do
     it 'should work' do
@@ -659,12 +672,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_pod_combined
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve kubernetes pods identified by the provided filter criteria
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;agent_id&#x60; - &#x60;agent_type&#x60; - &#x60;allow_privilege_escalation&#x60; - &#x60;annotations_list&#x60; - &#x60;app_name&#x60; - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cloud_service&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;container_count&#x60; - &#x60;first_seen&#x60; - &#x60;ipv4&#x60; - &#x60;ipv6&#x60; - &#x60;kac_agent_id&#x60; - &#x60;labels&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;node_name&#x60; - &#x60;node_uid&#x60; - &#x60;owner_id&#x60; - &#x60;owner_type&#x60; - &#x60;pod_external_id&#x60; - &#x60;pod_id&#x60; - &#x60;pod_name&#x60; - &#x60;port&#x60; - &#x60;privileged&#x60; - &#x60;resource_status&#x60; - &#x60;root_write_access&#x60; - &#x60;run_as_root_group&#x60; - &#x60;run_as_root_user&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsPodEntityResponse]
   describe 'read_pod_combined test' do
     it 'should work' do
@@ -687,7 +700,7 @@ describe 'KubernetesProtection' do
   # Retrieve pod enrichment data
   # @param pod_id One or more pod ids for which to retrieve enrichment info
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Supported filter fields: - &#x60;last_seen&#x60;
+  # @option opts [String] :filter Supported filter fields: - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60;
   # @return [K8sassetsPodEnrichmentResponse]
   describe 'read_pod_enrichment test' do
     it 'should work' do
@@ -706,12 +719,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for read_running_container_images
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve images on running containers
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;hosts&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_name&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;last_seen&#x60; - &#x60;running_status&#x60;
+  # @option opts [String] :filter Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_account_id&#x60; - &#x60;cloud_name&#x60; - &#x60;cloud_region&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;hosts&#x60; - &#x60;image_digest&#x60; - &#x60;image_has_been_assessed&#x60; - &#x60;image_id&#x60; - &#x60;image_name&#x60; - &#x60;image_registry&#x60; - &#x60;image_repository&#x60; - &#x60;image_tag&#x60; - &#x60;last_seen&#x60; - &#x60;namespace&#x60; - &#x60;running_status&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 200.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [ModelsContainerImage]
   describe 'read_running_container_images test' do
     it 'should work' do
@@ -741,12 +754,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for search_and_read_kubernetes_iom_entities
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieves a list of Kubernetes IOMs identified by the provided search criteria. Maximum page size: 100. Maximum available Kubernetes IOMs: 10,000
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [K8siomsKubernetesIOMEntityResponse]
   describe 'search_and_read_kubernetes_iom_entities test' do
     it 'should work' do
@@ -755,12 +768,12 @@ describe 'KubernetesProtection' do
   end
 
   # unit tests for search_kubernetes_ioms
-  # Maximum offset &#x3D; 10000 - limit
+  # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cis_id&#x60; - &#x60;cluster_id&#x60; - &#x60;cluster_name&#x60; - &#x60;containers_impacted_ai_related&#x60; - &#x60;containers_impacted_count&#x60; - &#x60;containers_impacted_ids&#x60; - &#x60;detection_type&#x60; - &#x60;name&#x60; - &#x60;namespace&#x60; - &#x60;prevented&#x60; - &#x60;resource_id&#x60; - &#x60;resource_name&#x60; - &#x60;resource_type&#x60; - &#x60;severity&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [CommonGenericEntityResponseString]
   describe 'search_kubernetes_ioms test' do
     it 'should work' do

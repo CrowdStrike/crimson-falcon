@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,6 +33,8 @@ module Falcon
   class GraphConfiguredTrigger
     # Unique identifier for the selected trigger as provided by the triggers API
     attr_accessor :id
+
+    attr_accessor :mock_output
 
     # Display name of the trigger
     attr_accessor :name
@@ -45,9 +46,11 @@ module Falcon
 
     attr_accessor :parameters
 
+    attr_accessor :position
+
     attr_accessor :timer_event_definition
 
-    # Denotes the type of trigger, signal based, scheduled, on demand, etc
+    # The type of trigger, signal, scheduled, on demand, etc
     attr_accessor :trigger_type
 
     # Semantic version constraint of the trigger, it can be an explicit version or a version constraint. If unspecified the evaluator will use the latest version <= 1.0.0
@@ -59,10 +62,12 @@ module Falcon
     def self.attribute_map
       {
         :'id' => :'id',
+        :'mock_output' => :'mock_output',
         :'name' => :'name',
         :'node_id' => :'nodeID',
         :'outgoing_flow' => :'outgoing_flow',
         :'parameters' => :'parameters',
+        :'position' => :'position',
         :'timer_event_definition' => :'timer_event_definition',
         :'trigger_type' => :'trigger_type',
         :'version_constraint' => :'version_constraint',
@@ -79,14 +84,16 @@ module Falcon
     def self.openapi_types
       {
         :'id' => :'String',
+        :'mock_output' => :'NodemocksReference',
         :'name' => :'String',
         :'node_id' => :'String',
         :'outgoing_flow' => :'String',
         :'parameters' => :'JsonschemaSchema',
+        :'position' => :'GraphNodePosition',
         :'timer_event_definition' => :'GraphTimerEventDefinition',
         :'trigger_type' => :'String',
         :'version_constraint' => :'String',
-        :'webhook_config' => :'WebhooktriggerAPIRequest'
+        :'webhook_config' => :'GraphWebhookTriggerDefinition'
       }
     end
 
@@ -115,6 +122,10 @@ module Falcon
         self.id = attributes[:'id']
       end
 
+      if attributes.key?(:'mock_output')
+        self.mock_output = attributes[:'mock_output']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
@@ -129,6 +140,10 @@ module Falcon
 
       if attributes.key?(:'parameters')
         self.parameters = attributes[:'parameters']
+      end
+
+      if attributes.key?(:'position')
+        self.position = attributes[:'position']
       end
 
       if attributes.key?(:'timer_event_definition')
@@ -182,10 +197,12 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          mock_output == o.mock_output &&
           name == o.name &&
           node_id == o.node_id &&
           outgoing_flow == o.outgoing_flow &&
           parameters == o.parameters &&
+          position == o.position &&
           timer_event_definition == o.timer_event_definition &&
           trigger_type == o.trigger_type &&
           version_constraint == o.version_constraint &&
@@ -201,7 +218,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, node_id, outgoing_flow, parameters, timer_event_definition, trigger_type, version_constraint, webhook_config].hash
+      [id, mock_output, name, node_id, outgoing_flow, parameters, position, timer_event_definition, trigger_type, version_constraint, webhook_config].hash
     end
 
     # Builds the object from hash

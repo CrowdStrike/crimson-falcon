@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,7 +35,7 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Query environment wide CrowdScore and return the entity data
+    # DEPRECATED: the incidentapi will be removed in March 2026. Query environment wide CrowdScore and return the entity data
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -48,7 +47,7 @@ module Falcon
       data
     end
 
-    # Query environment wide CrowdScore and return the entity data
+    # DEPRECATED: the incidentapi will be removed in March 2026. Query environment wide CrowdScore and return the entity data
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -107,7 +106,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get details on behaviors by providing behavior IDs
+    # DEPRECATED: the incidentapi will be removed in March 2026. Get details on behaviors by providing behavior IDs
     # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaExternalBehaviorResponse]
@@ -116,7 +115,7 @@ module Falcon
       data
     end
 
-    # Get details on behaviors by providing behavior IDs
+    # DEPRECATED: the incidentapi will be removed in March 2026. Get details on behaviors by providing behavior IDs
     # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaExternalBehaviorResponse, Integer, Hash)>] DomainMsaExternalBehaviorResponse data, response status code and response headers
@@ -173,7 +172,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get details on incidents by providing incident IDs
+    # DEPRECATED: the incidentapi will be removed in March 2026. Get details on incidents by providing incident IDs
     # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaExternalIncidentResponse]
@@ -182,7 +181,7 @@ module Falcon
       data
     end
 
-    # Get details on incidents by providing incident IDs
+    # DEPRECATED: the incidentapi will be removed in March 2026. Get details on incidents by providing incident IDs
     # @param body [MsaIdsRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaExternalIncidentResponse, Integer, Hash)>] DomainMsaExternalIncidentResponse data, response status code and response headers
@@ -239,7 +238,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
+    # DEPRECATED: the incidentapi will be removed in March 2026. Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
     # @param body [DomainEntityActionRequest] Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :update_detects If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false (default to false)
@@ -250,7 +249,7 @@ module Falcon
       data
     end
 
-    # Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
+    # DEPRECATED: the incidentapi will be removed in March 2026. Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
     # @param body [DomainEntityActionRequest] Incident Update request body containing minimum 1 and maximum 5000 Incident ID(s) and action param(s) to be performed action against.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :update_detects If true, update assigned-to-uuid and or status of detections associated with the incident(s). Defaults to false (default to false)
@@ -311,7 +310,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search for behaviors by providing an FQL filter, sorting, and paging details
+    # DEPRECATED: the incidentapi will be removed in March 2026. Search for behaviors by providing an FQL filter, sorting, and paging details
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -323,7 +322,7 @@ module Falcon
       data
     end
 
-    # Search for behaviors by providing an FQL filter, sorting, and paging details
+    # DEPRECATED: the incidentapi will be removed in March 2026. Search for behaviors by providing an FQL filter, sorting, and paging details
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
@@ -382,7 +381,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Search for incidents by providing an FQL filter, sorting, and paging details
+    # DEPRECATED: the incidentapi will be removed in March 2026. Search for incidents by providing an FQL filter, sorting, and paging details
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).
@@ -394,7 +393,7 @@ module Falcon
       data
     end
 
-    # Search for incidents by providing an FQL filter, sorting, and paging details
+    # DEPRECATED: the incidentapi will be removed in March 2026. Search for incidents by providing an FQL filter, sorting, and paging details
     # @param [Hash] opts the optional parameters
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. For more information about FQL queries, see [our FQL documentation in Falcon](https://falcon.crowdstrike.com/support/documentation/45/falcon-query-language-feature-guide).

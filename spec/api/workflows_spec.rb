@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -46,6 +45,20 @@ describe 'Workflows' do
   describe 'test an instance of Workflows' do
     it 'should create an instance of Workflows' do
       expect(@api_instance).to be_instance_of(Falcon::Workflows)
+    end
+  end
+
+  # unit tests for v1_child_executions_query
+  # Search for child executions by providing a FQL filter and paging details. Returns the set of child workflow execution IDs which match the filter criteria
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter FQL query specifying filter parameters.
+  # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [Integer] :limit Maximum number of records to return.
+  # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
+  # @return [MsaspecQueryResponse]
+  describe 'v1_child_executions_query test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
@@ -77,8 +90,20 @@ describe 'Workflows' do
     end
   end
 
+  # unit tests for workflow_definitions_action
+  # Enable or disable a workflow definition, or stop all executions for a definition. When a definition is disabled it will not execute against any new trigger events.
+  # @param action_name Specify one of these actions:  - &#x60;enable&#x60;: enable the workflow(s) specified in ids. - &#x60;disable&#x60;: disable the workflow(s) specified in ids. - &#x60;cancel&#x60;: cancel all in-flight executions for the workflow specified in ids
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [DefinitionsDefinitionEntitiesResponse]
+  describe 'workflow_definitions_action test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for workflow_definitions_combined
-  # Search workflow definitions based on the provided filter
+  # Search workflow definitions based on the provided filter. NOTE: this API has a large response payload. Click on &#x60;Wait&#x60; if the page is unresponsive during loading
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter FQL query specifying filter parameters.
   # @option opts [String] :offset Starting pagination offset of records to return.
@@ -86,6 +111,17 @@ describe 'Workflows' do
   # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
   # @return [DefinitionsDefinitionExternalResponse]
   describe 'workflow_definitions_combined test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for workflow_definitions_delete
+  # Accepts a list of workflow definition IDs and deletes those definitions and all their associated versions.
+  # @param ids IDs of the workflow definitions to delete
+  # @param [Hash] opts the optional parameters
+  # @return [DefinitionsDefinitionEntitiesResponse]
+  describe 'workflow_definitions_delete test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -109,6 +145,7 @@ describe 'Workflows' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :name Workflow name to override
   # @option opts [Boolean] :validate_only When enabled, prevents saving workflow after validating
+  # @option opts [Boolean] :include_activity_metadata When true, populates the definition model with Activity metadata which includes Activity Dependency and Vendor
   # @return [DefinitionsDefinitionImportResponse]
   describe 'workflow_definitions_import test' do
     it 'should work' do
@@ -163,10 +200,27 @@ describe 'Workflows' do
     end
   end
 
+  # unit tests for workflow_execute_single_node_v1
+  # Executes a single activity node, resulting in an execution where test_mode&#x3D;true and single_node_execution&#x3D;true, associated with a definition ID if provided
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :execution_cid CID(s) to execute on. This can be a child if this is a flight control enabled definition. If unset the definition CID is used.
+  # @option opts [String] :definition_id Definition ID to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  # @option opts [String] :name Workflow name to execute, either a name or an ID, or the definition itself in the request body, can be specified.
+  # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
+  # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
+  # @return [ApiResourceIDsResponse]
+  describe 'workflow_execute_single_node_v1 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for workflow_execution_results
   # Get execution result of a given execution
   # @param ids workflow execution id to return results for.
   # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :skip_fields Fields to omit from the response; valid values are (trigger, activities, flows, submodels). When specified, the corresponding node-level details are skipped.
   # @return [ApiExecutionResultsResponse]
   describe 'workflow_execution_results test' do
     it 'should work' do
@@ -175,8 +229,8 @@ describe 'Workflows' do
   end
 
   # unit tests for workflow_executions_action
-  # Allows a user to resume/retry a failed workflow execution.
-  # @param action_name Specify one of these actions:  - &#x60;resume&#x60;: resume/retry the workflow execution(s) specified in ids
+  # Allows a user to resume/retry a failed workflow execution, or cancel/stop a currently running workflow execution
+  # @param action_name Specify one of these actions:  - &#x60;resume&#x60;: resume/retry the workflow execution(s) specified in ids  - &#x60;cancel&#x60;: cancel/stop the workflow execution specified in ids
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [DefinitionsDefinitionEntitiesResponse]
@@ -221,7 +275,9 @@ describe 'Workflows' do
   # @option opts [String] :key Key used to help deduplicate executions, if unset a new UUID is used
   # @option opts [Integer] :depth Used to record the execution depth to help limit execution loops when a workflow triggers another. The maximum depth is 4.
   # @option opts [String] :source_event_url Used to record a URL to the source that led to triggering this workflow
-  # @option opts [Boolean] :validate_only When enabled, prevents execution after validating mocks against definition
+  # @option opts [Boolean] :validate_only When enabled, prevents execution after validating mocks from the request body against the mocked entity&#39;s output schema. Mocks provided in the definition by reference are not validated in any case.
+  # @option opts [Boolean] :skip_validation When enabled, skips validating mocks from the request body against the mocked entity&#39;s output schema. Mocks provided in the definition by reference are not validated in any case.
+  # @option opts [Boolean] :ignore_activity_mock_references When enabled, treats all activity mocks in the definition as disabled for this mock execution. Mocks provided in the request body are treated normally.
   # @return [ApiResourceIDsResponse]
   describe 'workflow_mock_execute test' do
     it 'should work' do
@@ -266,6 +322,8 @@ describe 'Workflows' do
   # Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter FQL query specifying filter parameters.
+  # @option opts [String] :offset Starting pagination offset of records to return.
+  # @option opts [Integer] :limit Maximum number of records to return.
   # @return [TriggersTriggerExternalResponse]
   describe 'workflow_triggers_combined test' do
     it 'should work' do

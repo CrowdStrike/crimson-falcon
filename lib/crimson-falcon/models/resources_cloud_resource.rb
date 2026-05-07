@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -65,6 +64,8 @@ module Falcon
     attr_accessor :compartment_path
 
     attr_accessor :configuration
+
+    attr_accessor :configuration_metadata
 
     attr_accessor :creation_time
 
@@ -154,6 +155,7 @@ module Falcon
         :'compartment_ocid' => :'compartment_ocid',
         :'compartment_path' => :'compartment_path',
         :'configuration' => :'configuration',
+        :'configuration_metadata' => :'configuration_metadata',
         :'creation_time' => :'creation_time',
         :'first_seen' => :'first_seen',
         :'gcrn' => :'gcrn',
@@ -216,6 +218,7 @@ module Falcon
         :'compartment_ocid' => :'String',
         :'compartment_path' => :'String',
         :'configuration' => :'Object',
+        :'configuration_metadata' => :'Object',
         :'creation_time' => :'Time',
         :'first_seen' => :'Time',
         :'gcrn' => :'String',
@@ -346,6 +349,10 @@ module Falcon
 
       if attributes.key?(:'configuration')
         self.configuration = attributes[:'configuration']
+      end
+
+      if attributes.key?(:'configuration_metadata')
+        self.configuration_metadata = attributes[:'configuration_metadata']
       end
 
       if attributes.key?(:'creation_time')
@@ -528,6 +535,7 @@ module Falcon
           compartment_ocid == o.compartment_ocid &&
           compartment_path == o.compartment_path &&
           configuration == o.configuration &&
+          configuration_metadata == o.configuration_metadata &&
           creation_time == o.creation_time &&
           first_seen == o.first_seen &&
           gcrn == o.gcrn &&
@@ -573,7 +581,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_groups_v2, cloud_labels, cloud_provider, cluster_id, cluster_name, compartment_name, compartment_ocid, compartment_path, configuration, creation_time, first_seen, gcrn, groups, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, service_category, status, subscription_id, supplementary_configuration, tags, tenancy_name, tenancy_ocid, tenancy_type, tenant_id, updated_at, zone, zones].hash
+      [account_id, account_name, active, arn, category, cid, cloud_context, cloud_groups, cloud_groups_v2, cloud_labels, cloud_provider, cluster_id, cluster_name, compartment_name, compartment_ocid, compartment_path, configuration, configuration_metadata, creation_time, first_seen, gcrn, groups, @hash, id, location, organization_id, parent, project_id, project_number, region, relationships, resource_group, resource_id, resource_name, resource_number, resource_type, resource_type_name, resource_url, revision, service, service_category, status, subscription_id, supplementary_configuration, tags, tenancy_name, tenancy_ocid, tenancy_type, tenant_id, updated_at, zone, zones].hash
     end
 
     # Builds the object from hash

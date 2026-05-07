@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -58,7 +57,7 @@ describe 'Releases' do
   # @option opts [Integer] :limit Maximum number of records to return.
   # @option opts [String] :offset Starting pagination offset of records to return.
   # @option opts [String] :sort Sort items by providing a comma separated list of property and direction (eg name.desc,time.asc). If direction is omitted, defaults to descending.
-  # @return [ReleasesReleaseWrapper]
+  # @return [ReleasesReleaseResponseWrapperV1]
   describe 'combined_releases_v1_mixin0 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

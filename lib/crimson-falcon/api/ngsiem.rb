@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,6 +35,1810 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Installs multiple CrowdStrike-managed out-of-the-box (OOTB) parsers into the customer's repository in a single operation. This endpoint provisions multiple pre-built parsers with their specific versions for the requesting customer ID (CID). The parsers are installed as-is and cannot be modified by the customer. Requires an array of parsers with parser_id and version in the request body. Maximum 100 parsers per request.
+    # @param body [ApiParserBulkInstallRequestV1] bulk install parsers request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiParserBulkInstallResponseV1]
+    def bulk_install_parsers(body, opts = {})
+      data, _status_code, _headers = bulk_install_parsers_with_http_info(body, opts)
+      data
+    end
+
+    # Installs multiple CrowdStrike-managed out-of-the-box (OOTB) parsers into the customer&#39;s repository in a single operation. This endpoint provisions multiple pre-built parsers with their specific versions for the requesting customer ID (CID). The parsers are installed as-is and cannot be modified by the customer. Requires an array of parsers with parser_id and version in the request body. Maximum 100 parsers per request.
+    # @param body [ApiParserBulkInstallRequestV1] bulk install parsers request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiParserBulkInstallResponseV1, Integer, Hash)>] ApiParserBulkInstallResponseV1 data, response status code and response headers
+    def bulk_install_parsers_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.bulk_install_parsers ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.bulk_install_parsers"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/bulk-install/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiParserBulkInstallResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.bulk_install_parsers",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#bulk_install_parsers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Clone an existing parser with a new name
+    # @param body [ApiCloneParserRequestV1] clone parser request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCloneParserResponseV1]
+    def clone_parser(body, opts = {})
+      data, _status_code, _headers = clone_parser_with_http_info(body, opts)
+      data
+    end
+
+    # Clone an existing parser with a new name
+    # @param body [ApiCloneParserRequestV1] clone parser request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCloneParserResponseV1, Integer, Hash)>] ApiCloneParserResponseV1 data, response status code and response headers
+    def clone_parser_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.clone_parser ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.clone_parser"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-clone/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCloneParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.clone_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#clone_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Dashboard from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :name name of the dashboard
+    # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiCreateDashboardFromTemplateResponseV1]
+    def create_dashboard_from_template(opts = {})
+      data, _status_code, _headers = create_dashboard_from_template_with_http_info(opts)
+      data
+    end
+
+    # Create Dashboard from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :name name of the dashboard
+    # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiCreateDashboardFromTemplateResponseV1, Integer, Hash)>] ApiCreateDashboardFromTemplateResponseV1 data, response status code and response headers
+    def create_dashboard_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_dashboard_from_template ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboards-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['name'] = opts[:'name'] if !opts[:'name'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateDashboardFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_dashboard_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_dashboard_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to create
+    # @option opts [File] :file file content to upload
+    # @return [ApiCreateLookupFileResponseV1]
+    def create_lookup_file(opts = {})
+      data, _status_code, _headers = create_lookup_file_with_http_info(opts)
+      data
+    end
+
+    # Create Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to create
+    # @option opts [File] :file file content to upload
+    # @return [Array<(ApiCreateLookupFileResponseV1, Integer, Hash)>] ApiCreateLookupFileResponseV1 data, response status code and response headers
+    def create_lookup_file_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_lookup_file ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateLookupFileResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_lookup_file",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_lookup_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Parser in NGSIEM. This endpoint has been deprecated in favour of the POST /entities/parsers-template/v1 API.
+    # @param body [ApiCreateParserRequestV1] create parser request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiCreateParserResponseV1]
+    def create_parser(body, opts = {})
+      data, _status_code, _headers = create_parser_with_http_info(body, opts)
+      data
+    end
+
+    # Create Parser in NGSIEM. This endpoint has been deprecated in favour of the POST /entities/parsers-template/v1 API.
+    # @param body [ApiCreateParserRequestV1] create parser request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiCreateParserResponseV1, Integer, Hash)>] ApiCreateParserResponseV1 data, response status code and response headers
+    def create_parser_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_parser ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.create_parser"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Parser from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository name of repository
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiCreateParserFromTemplateResponseV1]
+    def create_parser_from_template(opts = {})
+      data, _status_code, _headers = create_parser_from_template_with_http_info(opts)
+      data
+    end
+
+    # Create Parser from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository name of repository
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiCreateParserFromTemplateResponseV1, Integer, Hash)>] ApiCreateParserFromTemplateResponseV1 data, response status code and response headers
+    def create_parser_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_parser_from_template ...'
+      end
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateParserFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_parser_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_parser_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Saved Query from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiCreateSavedQueryResponseV1]
+    def create_saved_query(opts = {})
+      data, _status_code, _headers = create_saved_query_with_http_info(opts)
+      data
+    end
+
+    # Create Saved Query from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiCreateSavedQueryResponseV1, Integer, Hash)>] ApiCreateSavedQueryResponseV1 data, response status code and response headers
+    def create_saved_query_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.create_saved_query ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedqueries-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiCreateSavedQueryResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.create_saved_query",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#create_saved_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Dashboard in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids dashboard ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiDeleteDashboardResponseV1]
+    def delete_dashboard(opts = {})
+      data, _status_code, _headers = delete_dashboard_with_http_info(opts)
+      data
+    end
+
+    # Delete Dashboard in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids dashboard ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiDeleteDashboardResponseV1, Integer, Hash)>] ApiDeleteDashboardResponseV1 data, response status code and response headers
+    def delete_dashboard_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_dashboard ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboards/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeleteDashboardResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_dashboard",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_dashboard\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filename lookup file filename
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiDeleteLookupFileResponseV1]
+    def delete_lookup_file(opts = {})
+      data, _status_code, _headers = delete_lookup_file_with_http_info(opts)
+      data
+    end
+
+    # Delete Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filename lookup file filename
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiDeleteLookupFileResponseV1, Integer, Hash)>] ApiDeleteLookupFileResponseV1 data, response status code and response headers
+    def delete_lookup_file_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_lookup_file ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeleteLookupFileResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_lookup_file",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_lookup_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Parser in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [ApiDeleteParserResponseV1]
+    def delete_parser(opts = {})
+      data, _status_code, _headers = delete_parser_with_http_info(opts)
+      data
+    end
+
+    # Delete Parser in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [Array<(ApiDeleteParserResponseV1, Integer, Hash)>] ApiDeleteParserResponseV1 data, response status code and response headers
+    def delete_parser_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_parser ...'
+      end
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeleteParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete Saved Query in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids saved query ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiDeleteSavedQueryResponseV1]
+    def delete_saved_query(opts = {})
+      data, _status_code, _headers = delete_saved_query_with_http_info(opts)
+      data
+    end
+
+    # Delete Saved Query in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids saved query ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiDeleteSavedQueryResponseV1, Integer, Hash)>] ApiDeleteSavedQueryResponseV1 data, response status code and response headers
+    def delete_saved_query_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.delete_saved_query ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedqueries/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiDeleteSavedQueryResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.delete_saved_query",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#delete_saved_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new configuration for a data connector
+    # @param body [DataconnectionmanagementCreateConnectorConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementGenericCreateResponse]
+    def external_create_connector_config(body, opts = {})
+      data, _status_code, _headers = external_create_connector_config_with_http_info(body, opts)
+      data
+    end
+
+    # Create a new configuration for a data connector
+    # @param body [DataconnectionmanagementCreateConnectorConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementGenericCreateResponse, Integer, Hash)>] DataconnectionmanagementGenericCreateResponse data, response status code and response headers
+    def external_create_connector_config_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_create_connector_config ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.external_create_connector_config"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connectors/configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementGenericCreateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_create_connector_config",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_create_connector_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new data connection
+    # @param body [DataconnectionmanagementCreateDataConnectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementGenericResourcesResponse]
+    def external_create_data_connection(body, opts = {})
+      data, _status_code, _headers = external_create_data_connection_with_http_info(body, opts)
+      data
+    end
+
+    # Create a new data connection
+    # @param body [DataconnectionmanagementCreateDataConnectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementGenericResourcesResponse, Integer, Hash)>] DataconnectionmanagementGenericResourcesResponse data, response status code and response headers
+    def external_create_data_connection_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_create_data_connection ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.external_create_data_connection"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementGenericResourcesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_create_data_connection",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_create_data_connection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete data connection config
+    # @param connector_id [String] Unique identifier of the connector
+    # @param ids [Array<String>] Unique identifiers of the config(s) to delete
+    # @param [Hash] opts the optional parameters
+    # @return [MsaReplyAffectedEntities]
+    def external_delete_connector_configs(connector_id, ids, opts = {})
+      data, _status_code, _headers = external_delete_connector_configs_with_http_info(connector_id, ids, opts)
+      data
+    end
+
+    # Delete data connection config
+    # @param connector_id [String] Unique identifier of the connector
+    # @param ids [Array<String>] Unique identifiers of the config(s) to delete
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
+    def external_delete_connector_configs_with_http_info(connector_id, ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_delete_connector_configs ...'
+      end
+      # verify the required parameter 'connector_id' is set
+      if @api_client.config.client_side_validation && connector_id.nil?
+        fail ArgumentError, "Missing the required parameter 'connector_id' when calling Ngsiem.external_delete_connector_configs"
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_delete_connector_configs"
+      end
+      if @api_client.config.client_side_validation && ids.length > 20
+        fail ArgumentError, 'invalid value for "ids" when calling Ngsiem.external_delete_connector_configs, number of items must be less than or equal to 20.'
+      end
+
+      # resource path
+      local_var_path = '/ngsiem/entities/connectors/configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'connector_id'] = connector_id
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaReplyAffectedEntities'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_delete_connector_configs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_delete_connector_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete a data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [MsaReplyAffectedEntities]
+    def external_delete_data_connection(ids, opts = {})
+      data, _status_code, _headers = external_delete_data_connection_with_http_info(ids, opts)
+      data
+    end
+
+    # Delete a data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
+    def external_delete_data_connection_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_delete_data_connection ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_delete_data_connection"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaReplyAffectedEntities'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_delete_data_connection",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_delete_data_connection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get data connection by ID
+    # @param ids [Array<String>] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementDataConnectionResponse]
+    def external_get_data_connection_by_id(ids, opts = {})
+      data, _status_code, _headers = external_get_data_connection_by_id_with_http_info(ids, opts)
+      data
+    end
+
+    # Get data connection by ID
+    # @param ids [Array<String>] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementDataConnectionResponse, Integer, Hash)>] DataconnectionmanagementDataConnectionResponse data, response status code and response headers
+    def external_get_data_connection_by_id_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_get_data_connection_by_id ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_get_data_connection_by_id"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementDataConnectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_get_data_connection_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_get_data_connection_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get data connection provisioning status
+    # @param ids [Array<String>] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementConnectionStatusResponse]
+    def external_get_data_connection_status(ids, opts = {})
+      data, _status_code, _headers = external_get_data_connection_status_with_http_info(ids, opts)
+      data
+    end
+
+    # Get data connection provisioning status
+    # @param ids [Array<String>] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementConnectionStatusResponse, Integer, Hash)>] DataconnectionmanagementConnectionStatusResponse data, response status code and response headers
+    def external_get_data_connection_status_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_get_data_connection_status ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_get_data_connection_status"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/status/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementConnectionStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_get_data_connection_status",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_get_data_connection_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Ingest token for data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementConnectionTokenResponse]
+    def external_get_data_connection_token(ids, opts = {})
+      data, _status_code, _headers = external_get_data_connection_token_with_http_info(ids, opts)
+      data
+    end
+
+    # Get Ingest token for data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementConnectionTokenResponse, Integer, Hash)>] DataconnectionmanagementConnectionTokenResponse data, response status code and response headers
+    def external_get_data_connection_token_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_get_data_connection_token ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_get_data_connection_token"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/token/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementConnectionTokenResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_get_data_connection_token",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_get_data_connection_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List configurations for a data connector
+    # @param ids [String] Unique identifier of the data connector
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementConfigResponse]
+    def external_list_connector_configs(ids, opts = {})
+      data, _status_code, _headers = external_list_connector_configs_with_http_info(ids, opts)
+      data
+    end
+
+    # List configurations for a data connector
+    # @param ids [String] Unique identifier of the data connector
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementConfigResponse, Integer, Hash)>] DataconnectionmanagementConfigResponse data, response status code and response headers
+    def external_list_connector_configs_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_list_connector_configs ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_list_connector_configs"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connectors/configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementConfigResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_list_connector_configs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_list_connector_configs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List and search data connections
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in FQL format
+    # @option opts [Integer] :offset Starting position for pagination
+    # @option opts [Integer] :limit Maximum number of items to return
+    # @option opts [String] :sort Sort field and direction
+    # @return [DataconnectionmanagementDataConnectionResponse]
+    def external_list_data_connections(opts = {})
+      data, _status_code, _headers = external_list_data_connections_with_http_info(opts)
+      data
+    end
+
+    # List and search data connections
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in FQL format
+    # @option opts [Integer] :offset Starting position for pagination
+    # @option opts [Integer] :limit Maximum number of items to return
+    # @option opts [String] :sort Sort field and direction
+    # @return [Array<(DataconnectionmanagementDataConnectionResponse, Integer, Hash)>] DataconnectionmanagementDataConnectionResponse data, response status code and response headers
+    def external_list_data_connections_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_list_data_connections ...'
+      end
+      # resource path
+      local_var_path = '/ngsiem/combined/connections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementDataConnectionResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_list_data_connections",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_list_data_connections\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List available data connectors
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in FQL format
+    # @option opts [Integer] :offset Starting position for pagination
+    # @option opts [Integer] :limit Maximum number of items to return
+    # @option opts [String] :sort Sort field and direction
+    # @return [DataconnectionmanagementDataConnectorResponse]
+    def external_list_data_connectors(opts = {})
+      data, _status_code, _headers = external_list_data_connectors_with_http_info(opts)
+      data
+    end
+
+    # List available data connectors
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter Optional filter criteria in FQL format
+    # @option opts [Integer] :offset Starting position for pagination
+    # @option opts [Integer] :limit Maximum number of items to return
+    # @option opts [String] :sort Sort field and direction
+    # @return [Array<(DataconnectionmanagementDataConnectorResponse, Integer, Hash)>] DataconnectionmanagementDataConnectorResponse data, response status code and response headers
+    def external_list_data_connectors_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_list_data_connectors ...'
+      end
+      # resource path
+      local_var_path = '/ngsiem/combined/connectors/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementDataConnectorResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_list_data_connectors",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_list_data_connectors\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Patch configurations for a data connector
+    # @param ids [String] Unique id of the config to update
+    # @param body [DataconnectionmanagementCreateConnectorConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [MsaReplyAffectedEntities]
+    def external_patch_connector_config(ids, body, opts = {})
+      data, _status_code, _headers = external_patch_connector_config_with_http_info(ids, body, opts)
+      data
+    end
+
+    # Patch configurations for a data connector
+    # @param ids [String] Unique id of the config to update
+    # @param body [DataconnectionmanagementCreateConnectorConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
+    def external_patch_connector_config_with_http_info(ids, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_patch_connector_config ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_patch_connector_config"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.external_patch_connector_config"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connectors/configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaReplyAffectedEntities'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_patch_connector_config",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_patch_connector_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Regenerate Ingest token for data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementConnectionTokenResponse]
+    def external_regenerate_data_connection_token(ids, opts = {})
+      data, _status_code, _headers = external_regenerate_data_connection_token_with_http_info(ids, opts)
+      data
+    end
+
+    # Regenerate Ingest token for data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementConnectionTokenResponse, Integer, Hash)>] DataconnectionmanagementConnectionTokenResponse data, response status code and response headers
+    def external_regenerate_data_connection_token_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_regenerate_data_connection_token ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_regenerate_data_connection_token"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/token/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementConnectionTokenResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_regenerate_data_connection_token",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_regenerate_data_connection_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update a data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param body [DataconnectionmanagementUpdateDataConnectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [MsaReplyAffectedEntities]
+    def external_update_data_connection(ids, body, opts = {})
+      data, _status_code, _headers = external_update_data_connection_with_http_info(ids, body, opts)
+      data
+    end
+
+    # Update a data connection
+    # @param ids [String] Unique identifier of the data connection
+    # @param body [DataconnectionmanagementUpdateDataConnectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
+    def external_update_data_connection_with_http_info(ids, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_update_data_connection ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_update_data_connection"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.external_update_data_connection"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaReplyAffectedEntities'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_update_data_connection",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_update_data_connection\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update data connection status
+    # @param ids [String] Unique identifier of the data connection
+    # @param body [DataconnectionmanagementUpdateDataConnectionStatusRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DataconnectionmanagementConnectionStatusResponse]
+    def external_update_data_connection_status(ids, body, opts = {})
+      data, _status_code, _headers = external_update_data_connection_status_with_http_info(ids, body, opts)
+      data
+    end
+
+    # Update data connection status
+    # @param ids [String] Unique identifier of the data connection
+    # @param body [DataconnectionmanagementUpdateDataConnectionStatusRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DataconnectionmanagementConnectionStatusResponse, Integer, Hash)>] DataconnectionmanagementConnectionStatusResponse data, response status code and response headers
+    def external_update_data_connection_status_with_http_info(ids, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.external_update_data_connection_status ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Ngsiem.external_update_data_connection_status"
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.external_update_data_connection_status"
+      end
+      # resource path
+      local_var_path = '/ngsiem/entities/connections/status/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = ids
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DataconnectionmanagementConnectionStatusResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.external_update_data_connection_status",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#external_update_data_connection_status\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids dashboard ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiGetDashboardTemplateResponseV1]
+    def get_dashboard_template(opts = {})
+      data, _status_code, _headers = get_dashboard_template_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Dashboard in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids dashboard ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiGetDashboardTemplateResponseV1, Integer, Hash)>] ApiGetDashboardTemplateResponseV1 data, response status code and response headers
+    def get_dashboard_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_dashboard_template ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboards-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetDashboardTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_dashboard_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_dashboard_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filename lookup file filename
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [nil]
+    def get_lookup_file(opts = {})
+      get_lookup_file_with_http_info(opts)
+      nil
+    end
+
+    # Retrieve Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filename lookup file filename
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def get_lookup_file_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_lookup_file ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_lookup_file",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_lookup_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Download lookup file in package from NGSIEM
     # @param repository [String] name of repository
     # @param package [String] name of package
@@ -255,6 +2058,201 @@ module Falcon
       return data, status_code, headers
     end
 
+    # Retrieve Parser in NGSIEM. This endpoint has been deprecated in favour of the GET /entities/parsers-template/v1 API.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [ApiGetParserResponseV1]
+    def get_parser(opts = {})
+      data, _status_code, _headers = get_parser_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Parser in NGSIEM. This endpoint has been deprecated in favour of the GET /entities/parsers-template/v1 API.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [Array<(ApiGetParserResponseV1, Integer, Hash)>] ApiGetParserResponseV1 data, response status code and response headers
+    def get_parser_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_parser ...'
+      end
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Parser in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [ApiGetParserTemplateResponseV1]
+    def get_parser_template(opts = {})
+      data, _status_code, _headers = get_parser_template_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Parser in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids parser ID value
+    # @option opts [String] :repository name of repository
+    # @return [Array<(ApiGetParserTemplateResponseV1, Integer, Hash)>] ApiGetParserTemplateResponseV1 data, response status code and response headers
+    def get_parser_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_parser_template ...'
+      end
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetParserTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_parser_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_parser_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids saved query ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiGetSavedQueryResponseV1]
+    def get_saved_query_template(opts = {})
+      data, _status_code, _headers = get_saved_query_template_with_http_info(opts)
+      data
+    end
+
+    # Retrieve Saved Query in NGSIEM as LogScale YAML Template
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ids saved query ID value
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiGetSavedQueryResponseV1, Integer, Hash)>] ApiGetSavedQueryResponseV1 data, response status code and response headers
+    def get_saved_query_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.get_saved_query_template ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedqueries-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiGetSavedQueryResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.get_saved_query_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#get_saved_query_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get status of search
     # @param repository [String] name of repository
     # @param id [String] id of query
@@ -318,6 +2316,410 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#get_search_status_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Installs a CrowdStrike-managed out-of-the-box (OOTB) parser into the customer's repository. This endpoint provisions a pre-built parser with a specific version for the requesting customer ID (CID). The parser is installed as-is and cannot be modified by the customer. Requires parser_id and version in the request body.
+    # @param body [ApiParserInstallRequestV1] create parser install request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiParserInstallResponseV1]
+    def install_parser(body, opts = {})
+      data, _status_code, _headers = install_parser_with_http_info(body, opts)
+      data
+    end
+
+    # Installs a CrowdStrike-managed out-of-the-box (OOTB) parser into the customer&#39;s repository. This endpoint provisions a pre-built parser with a specific version for the requesting customer ID (CID). The parser is installed as-is and cannot be modified by the customer. Requires parser_id and version in the request body.
+    # @param body [ApiParserInstallRequestV1] create parser install request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiParserInstallResponseV1, Integer, Hash)>] ApiParserInstallResponseV1 data, response status code and response headers
+    def install_parser_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.install_parser ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.install_parser"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/install/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiParserInstallResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.install_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#install_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Dashboards in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiListDashboardsResponseV1]
+    def list_dashboards(opts = {})
+      data, _status_code, _headers = list_dashboards_with_http_info(opts)
+      data
+    end
+
+    # List Dashboards in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiListDashboardsResponseV1, Integer, Hash)>] ApiListDashboardsResponseV1 data, response status code and response headers
+    def list_dashboards_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_dashboards ...'
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_dashboards, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_dashboards, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/queries/dashboards/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListDashboardsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_dashboards",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_dashboards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Lookup Files in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiListLookupFilesResponseV1]
+    def list_lookup_files(opts = {})
+      data, _status_code, _headers = list_lookup_files_with_http_info(opts)
+      data
+    end
+
+    # List Lookup Files in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiListLookupFilesResponseV1, Integer, Hash)>] ApiListLookupFilesResponseV1 data, response status code and response headers
+    def list_lookup_files_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_lookup_files ...'
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_lookup_files, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_lookup_files, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["all", "falcon", "third-party", "dashboards", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/queries/lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListLookupFilesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_lookup_files",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_lookup_files\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Parsers in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :repository name of repository
+    # @option opts [String] :update_available filter parsers by update availability
+    # @option opts [String] :parser_type filter parsers by type
+    # @return [ApiListParsersResponseV1]
+    def list_parsers(opts = {})
+      data, _status_code, _headers = list_parsers_with_http_info(opts)
+      data
+    end
+
+    # List Parsers in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :repository name of repository
+    # @option opts [String] :update_available filter parsers by update availability
+    # @option opts [String] :parser_type filter parsers by type
+    # @return [Array<(ApiListParsersResponseV1, Integer, Hash)>] ApiListParsersResponseV1 data, response status code and response headers
+    def list_parsers_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_parsers ...'
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_parsers, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_parsers, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'update_available'] && !allowable_values.include?(opts[:'update_available'])
+        fail ArgumentError, "invalid value for \"update_available\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["ootb", "custom"]
+      if @api_client.config.client_side_validation && opts[:'parser_type'] && !allowable_values.include?(opts[:'parser_type'])
+        fail ArgumentError, "invalid value for \"parser_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/queries/parsers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      query_params[:'update_available'] = opts[:'update_available'] if !opts[:'update_available'].nil?
+      query_params[:'parser_type'] = opts[:'parser_type'] if !opts[:'parser_type'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListParsersResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_parsers",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_parsers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Saved Queries in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [ApiListSavedQueriesResponseV1]
+    def list_saved_queries(opts = {})
+      data, _status_code, _headers = list_saved_queries_with_http_info(opts)
+      data
+    end
+
+    # Get Saved Queries in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :limit maximum number of results to return (default to '50')
+    # @option opts [String] :offset number of results to offset the returned results by (default to '0')
+    # @option opts [String] :filter FQL filter to apply to the name of the content, only currently support text match on name field: name:~&#39;value&#39;
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @return [Array<(ApiListSavedQueriesResponseV1, Integer, Hash)>] ApiListSavedQueriesResponseV1 data, response status code and response headers
+    def list_saved_queries_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.list_saved_queries ...'
+      end
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"limit\"]' when calling Ngsiem.list_saved_queries, must conform to the pattern #{pattern}."
+      end
+
+      pattern = Regexp.new(/^\d{1,4}$/)
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"offset\"]' when calling Ngsiem.list_saved_queries, must conform to the pattern #{pattern}."
+      end
+
+      allowable_values = ["all", "falcon", "third-party", "dashboards"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/queries/savedqueries/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiListSavedQueriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.list_saved_queries",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#list_saved_queries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -457,6 +2859,586 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Ngsiem#stop_search_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Test Parser from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @option opts [Boolean] :schema_validation_enabled When true, schema validation is enforced (CPS) and validates against Crowdstrike Parsing Standard
+    # @return [ApiTestParserFromTemplateResponseV1]
+    def test_parser_from_template(opts = {})
+      data, _status_code, _headers = test_parser_from_template_with_http_info(opts)
+      data
+    end
+
+    # Test Parser from LogScale YAML Template in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @option opts [Boolean] :schema_validation_enabled When true, schema validation is enforced (CPS) and validates against Crowdstrike Parsing Standard
+    # @return [Array<(ApiTestParserFromTemplateResponseV1, Integer, Hash)>] ApiTestParserFromTemplateResponseV1 data, response status code and response headers
+    def test_parser_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.test_parser_from_template ...'
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-template-test/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+      form_params['schema_validation_enabled'] = opts[:'schema_validation_enabled'] if !opts[:'schema_validation_enabled'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiTestParserFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.test_parser_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#test_parser_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Dashboard from LogScale YAML Template in NGSIEM.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :ids id of the dashboard
+    # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiUpdateDashboardFromTemplateResponseV1]
+    def update_dashboard_from_template(opts = {})
+      data, _status_code, _headers = update_dashboard_from_template_with_http_info(opts)
+      data
+    end
+
+    # Update Dashboard from LogScale YAML Template in NGSIEM.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :ids id of the dashboard
+    # @option opts [File] :yaml_template LogScale dashboard YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiUpdateDashboardFromTemplateResponseV1, Integer, Hash)>] ApiUpdateDashboardFromTemplateResponseV1 data, response status code and response headers
+    def update_dashboard_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_dashboard_from_template ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/dashboards-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateDashboardFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_dashboard_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_dashboard_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an entire Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to update
+    # @option opts [File] :file file content to upload
+    # @return [ApiUpdateLookupFileResponseV1]
+    def update_lookup_file(opts = {})
+      data, _status_code, _headers = update_lookup_file_with_http_info(opts)
+      data
+    end
+
+    # Update an entire Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to update
+    # @option opts [File] :file file content to upload
+    # @return [Array<(ApiUpdateLookupFileResponseV1, Integer, Hash)>] ApiUpdateLookupFileResponseV1 data, response status code and response headers
+    def update_lookup_file_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_lookup_file ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfiles/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateLookupFileResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_lookup_file",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_lookup_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update entries in an existing Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to update
+    # @option opts [File] :file The file content for updating or appending the entries
+    # @option opts [String] :update_mode How to update the file entries
+    # @option opts [String] :key_columns For update mode, the comma separated list of key columns to use when matching entries (REQUIRED when update_mode&#x3D;update)
+    # @option opts [String] :ignore_case For update mode, whether to ignore case when matching keys (REQUIRED when update_mode&#x3D;update)
+    # @return [ApiUpdateLookupFileEntriesResponseV1]
+    def update_lookup_file_entries(opts = {})
+      data, _status_code, _headers = update_lookup_file_entries_with_http_info(opts)
+      data
+    end
+
+    # Update entries in an existing Lookup File in NGSIEM
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :filename Filename of the lookup file to update
+    # @option opts [File] :file The file content for updating or appending the entries
+    # @option opts [String] :update_mode How to update the file entries
+    # @option opts [String] :key_columns For update mode, the comma separated list of key columns to use when matching entries (REQUIRED when update_mode&#x3D;update)
+    # @option opts [String] :ignore_case For update mode, whether to ignore case when matching keys (REQUIRED when update_mode&#x3D;update)
+    # @return [Array<(ApiUpdateLookupFileEntriesResponseV1, Integer, Hash)>] ApiUpdateLookupFileEntriesResponseV1 data, response status code and response headers
+    def update_lookup_file_entries_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_lookup_file_entries ...'
+      end
+      allowable_values = ["all", "falcon", "third-party", "parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["append", "update"]
+      if @api_client.config.client_side_validation && opts[:'update_mode'] && !allowable_values.include?(opts[:'update_mode'])
+        fail ArgumentError, "invalid value for \"update_mode\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["true", "false"]
+      if @api_client.config.client_side_validation && opts[:'ignore_case'] && !allowable_values.include?(opts[:'ignore_case'])
+        fail ArgumentError, "invalid value for \"ignore_case\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/lookupfiles-entries/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['filename'] = opts[:'filename'] if !opts[:'filename'].nil?
+      form_params['file'] = opts[:'file'] if !opts[:'file'].nil?
+      form_params['update_mode'] = opts[:'update_mode'] if !opts[:'update_mode'].nil?
+      form_params['key_columns'] = opts[:'key_columns'] if !opts[:'key_columns'].nil?
+      form_params['ignore_case'] = opts[:'ignore_case'] if !opts[:'ignore_case'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateLookupFileEntriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_lookup_file_entries",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_lookup_file_entries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Parser in NGSIEM. Please note that name changes are not supported, but rather should be created as a new parser.  This endpoint has been deprecated in favour of the PATCH /entities/parsers-template/v1 API.
+    # @param body [ApiUpdateParserRequestV1] update parser request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiUpdateParserResponseV1]
+    def update_parser(body, opts = {})
+      data, _status_code, _headers = update_parser_with_http_info(body, opts)
+      data
+    end
+
+    # Update Parser in NGSIEM. Please note that name changes are not supported, but rather should be created as a new parser.  This endpoint has been deprecated in favour of the PATCH /entities/parsers-template/v1 API.
+    # @param body [ApiUpdateParserRequestV1] update parser request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiUpdateParserResponseV1, Integer, Hash)>] ApiUpdateParserResponseV1 data, response status code and response headers
+    def update_parser_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_parser ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_parser"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateParserResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_parser",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_parser\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Updates a parser auto update policy - 'on' enables auto-updates, 'off' disables them
+    # @param body [ApiUpdateAutoUpdatePolicyRequestV1] update parser auto update policy request
+    # @param [Hash] opts the optional parameters
+    # @return [ApiUpdateAutoUpdatePolicyResponseV1]
+    def update_parser_auto_update_policy(body, opts = {})
+      data, _status_code, _headers = update_parser_auto_update_policy_with_http_info(body, opts)
+      data
+    end
+
+    # Updates a parser auto update policy - &#39;on&#39; enables auto-updates, &#39;off&#39; disables them
+    # @param body [ApiUpdateAutoUpdatePolicyRequestV1] update parser auto update policy request
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiUpdateAutoUpdatePolicyResponseV1, Integer, Hash)>] ApiUpdateAutoUpdatePolicyResponseV1 data, response status code and response headers
+    def update_parser_auto_update_policy_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_parser_auto_update_policy ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Ngsiem.update_parser_auto_update_policy"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers/autoupdate/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateAutoUpdatePolicyResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_parser_auto_update_policy",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_parser_auto_update_policy\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Parser in NGSIEM from YAML Template. Please note that name changes are not supported, but rather should be created as a new parser.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository name of repository
+    # @option opts [String] :ids id of the parser
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiUpdateParserFromTemplateResponseV1]
+    def update_parser_from_template(opts = {})
+      data, _status_code, _headers = update_parser_from_template_with_http_info(opts)
+      data
+    end
+
+    # Update Parser in NGSIEM from YAML Template. Please note that name changes are not supported, but rather should be created as a new parser.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :repository name of repository
+    # @option opts [String] :ids id of the parser
+    # @option opts [File] :yaml_template LogScale Parser YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiUpdateParserFromTemplateResponseV1, Integer, Hash)>] ApiUpdateParserFromTemplateResponseV1 data, response status code and response headers
+    def update_parser_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_parser_from_template ...'
+      end
+      allowable_values = ["parsers-repository"]
+      if @api_client.config.client_side_validation && opts[:'repository'] && !allowable_values.include?(opts[:'repository'])
+        fail ArgumentError, "invalid value for \"repository\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/parsers-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['repository'] = opts[:'repository'] if !opts[:'repository'].nil?
+      form_params['ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateParserFromTemplateResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_parser_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_parser_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Saved Query from LogScale YAML Template in NGSIEM.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :ids id of the saved query
+    # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+    # @return [ApiUpdateSavedQueryResponseV1]
+    def update_saved_query_from_template(opts = {})
+      data, _status_code, _headers = update_saved_query_from_template_with_http_info(opts)
+      data
+    end
+
+    # Update Saved Query from LogScale YAML Template in NGSIEM.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :search_domain name of search domain (view or repo)
+    # @option opts [String] :ids id of the saved query
+    # @option opts [File] :yaml_template LogScale Saved Query YAML template content, see schema at https://schemas.humio.com/
+    # @return [Array<(ApiUpdateSavedQueryResponseV1, Integer, Hash)>] ApiUpdateSavedQueryResponseV1 data, response status code and response headers
+    def update_saved_query_from_template_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Ngsiem.update_saved_query_from_template ...'
+      end
+      allowable_values = ["all", "falcon", "third-party"]
+      if @api_client.config.client_side_validation && opts[:'search_domain'] && !allowable_values.include?(opts[:'search_domain'])
+        fail ArgumentError, "invalid value for \"search_domain\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/ngsiem-content/entities/savedqueries-template/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+      form_params['search_domain'] = opts[:'search_domain'] if !opts[:'search_domain'].nil?
+      form_params['ids'] = opts[:'ids'] if !opts[:'ids'].nil?
+      form_params['yaml_template'] = opts[:'yaml_template'] if !opts[:'yaml_template'].nil?
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiUpdateSavedQueryResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Ngsiem.update_saved_query_from_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Ngsiem#update_saved_query_from_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

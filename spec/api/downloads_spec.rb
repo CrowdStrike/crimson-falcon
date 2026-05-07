@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -58,8 +57,34 @@ describe 'DownloadsApi' do
   # @option opts [String] :os Apply filtering on operating system
   # @option opts [String] :arch Apply filtering on architecture
   # @option opts [String] :category Apply filtering on file category
-  # @return [CommonEntitiesResponse]
+  # @return [ModelsEntitiesResponse]
   describe 'enumerate_file test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for fetch_files_download_info
+  # Get files info and pre-signed download URLs
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Search files using various filters using query in Falcon Query Language (FQL). Supported filters: arch,category,file_name,file_version,os
+  # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+  # @return [ModelsEntitiesResponse]
+  describe 'fetch_files_download_info test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for fetch_files_download_info_v2
+  # Get cloud security tools info and pre-signed download URLs
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :filter Search files using various filters. Supported filters: arch,category,file_name,file_version,os
+  # @option opts [String] :sort The fields to sort records on. Supported columns:  - &#x60;arch&#x60; - &#x60;category&#x60; - &#x60;file_name&#x60; - &#x60;file_version&#x60; - &#x60;os&#x60;
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 1000 - limit.
+  # @return [ModelsCombinedFilesDownloadResponse]
+  describe 'fetch_files_download_info_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

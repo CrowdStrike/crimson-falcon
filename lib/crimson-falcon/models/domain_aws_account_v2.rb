@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -66,6 +65,8 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :cloud_registration_enabled
+
     attr_accessor :cloud_scopes
 
     attr_accessor :cloudformation_root_stack_arn
@@ -83,6 +84,8 @@ module Falcon
     attr_accessor :d4c_migrated
 
     attr_accessor :dspm_enabled
+
+    attr_accessor :dspm_host_account_id
 
     attr_accessor :dspm_role_arn
 
@@ -115,6 +118,8 @@ module Falcon
 
     attr_accessor :is_master
 
+    attr_accessor :ngsiem_enabled
+
     # Up to 34 character AWS provided unique identifier for the organization.
     attr_accessor :organization_id
 
@@ -146,9 +151,17 @@ module Falcon
 
     attr_accessor :target_ous
 
+    attr_accessor :template_source_region
+
     attr_accessor :use_existing_cloudtrail
 
     attr_accessor :valid
+
+    attr_accessor :vulnerability_scanning_enabled
+
+    attr_accessor :vulnerability_scanning_host_account_id
+
+    attr_accessor :vulnerability_scanning_role_arn
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -167,6 +180,7 @@ module Falcon
         :'aws_permissions_status' => :'aws_permissions_status',
         :'behavior_assessment_enabled' => :'behavior_assessment_enabled',
         :'cid' => :'cid',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'cloud_scopes' => :'cloud_scopes',
         :'cloudformation_root_stack_arn' => :'cloudformation_root_stack_arn',
         :'cloudformation_update_url' => :'cloudformation_update_url',
@@ -176,6 +190,7 @@ module Falcon
         :'d4c' => :'d4c',
         :'d4c_migrated' => :'d4c_migrated',
         :'dspm_enabled' => :'dspm_enabled',
+        :'dspm_host_account_id' => :'dspm_host_account_id',
         :'dspm_role_arn' => :'dspm_role_arn',
         :'environment' => :'environment',
         :'eventbus_name' => :'eventbus_name',
@@ -190,6 +205,7 @@ module Falcon
         :'is_custom_rolename' => :'is_custom_rolename',
         :'is_delegated_admin' => :'is_delegated_admin',
         :'is_master' => :'is_master',
+        :'ngsiem_enabled' => :'ngsiem_enabled',
         :'organization_id' => :'organization_id',
         :'remediation_cloudformation_url' => :'remediation_cloudformation_url',
         :'remediation_region' => :'remediation_region',
@@ -204,8 +220,12 @@ module Falcon
         :'settings' => :'settings',
         :'status' => :'status',
         :'target_ous' => :'target_ous',
+        :'template_source_region' => :'template_source_region',
         :'use_existing_cloudtrail' => :'use_existing_cloudtrail',
-        :'valid' => :'valid'
+        :'valid' => :'valid',
+        :'vulnerability_scanning_enabled' => :'vulnerability_scanning_enabled',
+        :'vulnerability_scanning_host_account_id' => :'vulnerability_scanning_host_account_id',
+        :'vulnerability_scanning_role_arn' => :'vulnerability_scanning_role_arn'
       }
     end
 
@@ -231,6 +251,7 @@ module Falcon
         :'aws_permissions_status' => :'Array<DomainPermission>',
         :'behavior_assessment_enabled' => :'Boolean',
         :'cid' => :'String',
+        :'cloud_registration_enabled' => :'Boolean',
         :'cloud_scopes' => :'Array<DomainCloudScope>',
         :'cloudformation_root_stack_arn' => :'String',
         :'cloudformation_update_url' => :'String',
@@ -240,6 +261,7 @@ module Falcon
         :'d4c' => :'DomainAWSD4CAccountV1',
         :'d4c_migrated' => :'Boolean',
         :'dspm_enabled' => :'Boolean',
+        :'dspm_host_account_id' => :'String',
         :'dspm_role_arn' => :'String',
         :'environment' => :'String',
         :'eventbus_name' => :'String',
@@ -254,6 +276,7 @@ module Falcon
         :'is_custom_rolename' => :'Boolean',
         :'is_delegated_admin' => :'Boolean',
         :'is_master' => :'Boolean',
+        :'ngsiem_enabled' => :'Boolean',
         :'organization_id' => :'String',
         :'remediation_cloudformation_url' => :'String',
         :'remediation_region' => :'String',
@@ -268,8 +291,12 @@ module Falcon
         :'settings' => :'Object',
         :'status' => :'String',
         :'target_ous' => :'Array<String>',
+        :'template_source_region' => :'String',
         :'use_existing_cloudtrail' => :'Boolean',
-        :'valid' => :'Boolean'
+        :'valid' => :'Boolean',
+        :'vulnerability_scanning_enabled' => :'Boolean',
+        :'vulnerability_scanning_host_account_id' => :'String',
+        :'vulnerability_scanning_role_arn' => :'String'
       }
     end
 
@@ -354,6 +381,10 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
+      end
+
       if attributes.key?(:'cloud_scopes')
         if (value = attributes[:'cloud_scopes']).is_a?(Array)
           self.cloud_scopes = value
@@ -392,6 +423,10 @@ module Falcon
 
       if attributes.key?(:'dspm_enabled')
         self.dspm_enabled = attributes[:'dspm_enabled']
+      end
+
+      if attributes.key?(:'dspm_host_account_id')
+        self.dspm_host_account_id = attributes[:'dspm_host_account_id']
       end
 
       if attributes.key?(:'dspm_role_arn')
@@ -454,6 +489,10 @@ module Falcon
         self.is_master = attributes[:'is_master']
       end
 
+      if attributes.key?(:'ngsiem_enabled')
+        self.ngsiem_enabled = attributes[:'ngsiem_enabled']
+      end
+
       if attributes.key?(:'organization_id')
         self.organization_id = attributes[:'organization_id']
       end
@@ -512,12 +551,28 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'template_source_region')
+        self.template_source_region = attributes[:'template_source_region']
+      end
+
       if attributes.key?(:'use_existing_cloudtrail')
         self.use_existing_cloudtrail = attributes[:'use_existing_cloudtrail']
       end
 
       if attributes.key?(:'valid')
         self.valid = attributes[:'valid']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_enabled')
+        self.vulnerability_scanning_enabled = attributes[:'vulnerability_scanning_enabled']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_host_account_id')
+        self.vulnerability_scanning_host_account_id = attributes[:'vulnerability_scanning_host_account_id']
+      end
+
+      if attributes.key?(:'vulnerability_scanning_role_arn')
+        self.vulnerability_scanning_role_arn = attributes[:'vulnerability_scanning_role_arn']
       end
     end
 
@@ -593,6 +648,7 @@ module Falcon
           aws_permissions_status == o.aws_permissions_status &&
           behavior_assessment_enabled == o.behavior_assessment_enabled &&
           cid == o.cid &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           cloud_scopes == o.cloud_scopes &&
           cloudformation_root_stack_arn == o.cloudformation_root_stack_arn &&
           cloudformation_update_url == o.cloudformation_update_url &&
@@ -602,6 +658,7 @@ module Falcon
           d4c == o.d4c &&
           d4c_migrated == o.d4c_migrated &&
           dspm_enabled == o.dspm_enabled &&
+          dspm_host_account_id == o.dspm_host_account_id &&
           dspm_role_arn == o.dspm_role_arn &&
           environment == o.environment &&
           eventbus_name == o.eventbus_name &&
@@ -616,6 +673,7 @@ module Falcon
           is_custom_rolename == o.is_custom_rolename &&
           is_delegated_admin == o.is_delegated_admin &&
           is_master == o.is_master &&
+          ngsiem_enabled == o.ngsiem_enabled &&
           organization_id == o.organization_id &&
           remediation_cloudformation_url == o.remediation_cloudformation_url &&
           remediation_region == o.remediation_region &&
@@ -630,8 +688,12 @@ module Falcon
           settings == o.settings &&
           status == o.status &&
           target_ous == o.target_ous &&
+          template_source_region == o.template_source_region &&
           use_existing_cloudtrail == o.use_existing_cloudtrail &&
-          valid == o.valid
+          valid == o.valid &&
+          vulnerability_scanning_enabled == o.vulnerability_scanning_enabled &&
+          vulnerability_scanning_host_account_id == o.vulnerability_scanning_host_account_id &&
+          vulnerability_scanning_role_arn == o.vulnerability_scanning_role_arn
     end
 
     # @see the `==` method
@@ -643,7 +705,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_scopes, cloudformation_root_stack_arn, cloudformation_update_url, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, dspm_enabled, dspm_role_arn, environment, eventbus_name, external_id, falcon_client_id, features, iam_role_arn, intermediate_role_arn, inventory_filter, is_cloud_registration, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, secondary_role_arn, sensor_management_enabled, settings, status, target_ous, use_existing_cloudtrail, valid].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, aws_cloudtrail_bucket_name, aws_cloudtrail_region, aws_eventbus_arn, aws_permissions_status, behavior_assessment_enabled, cid, cloud_registration_enabled, cloud_scopes, cloudformation_root_stack_arn, cloudformation_update_url, cloudformation_url, conditions, cspm_enabled, d4c, d4c_migrated, dspm_enabled, dspm_host_account_id, dspm_role_arn, environment, eventbus_name, external_id, falcon_client_id, features, iam_role_arn, intermediate_role_arn, inventory_filter, is_cloud_registration, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, ngsiem_enabled, organization_id, remediation_cloudformation_url, remediation_region, remediation_tou_accepted, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, secondary_role_arn, sensor_management_enabled, settings, status, target_ous, template_source_region, use_existing_cloudtrail, valid, vulnerability_scanning_enabled, vulnerability_scanning_host_account_id, vulnerability_scanning_role_arn].hash
     end
 
     # Builds the object from hash

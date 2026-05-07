@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,8 @@ require 'time'
 
 module Falcon
   class DomainExportJobMetadataV1
+    attr_accessor :completion_percentage
+
     attr_accessor :created_date
 
     attr_accessor :entity
@@ -45,6 +46,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'completion_percentage' => :'completion_percentage',
         :'created_date' => :'created_date',
         :'entity' => :'entity',
         :'filename' => :'filename',
@@ -61,6 +63,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'completion_percentage' => :'Integer',
         :'created_date' => :'String',
         :'entity' => :'String',
         :'filename' => :'String',
@@ -89,6 +92,10 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'completion_percentage')
+        self.completion_percentage = attributes[:'completion_percentage']
+      end
 
       if attributes.key?(:'created_date')
         self.created_date = attributes[:'created_date']
@@ -149,6 +156,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          completion_percentage == o.completion_percentage &&
           created_date == o.created_date &&
           entity == o.entity &&
           filename == o.filename &&
@@ -165,7 +173,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_date, entity, filename, id, status].hash
+      [completion_percentage, created_date, entity, filename, id, status].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -70,6 +69,8 @@ module Falcon
 
     attr_accessor :size
 
+    attr_accessor :workflow_activity_id
+
     attr_accessor :workflow_input_schema
 
     attr_accessor :workflow_is_disruptive
@@ -100,6 +101,7 @@ module Falcon
         :'sha256' => :'sha256',
         :'share_with_workflow' => :'share_with_workflow',
         :'size' => :'size',
+        :'workflow_activity_id' => :'workflow_activity_id',
         :'workflow_input_schema' => :'workflow_input_schema',
         :'workflow_is_disruptive' => :'workflow_is_disruptive',
         :'workflow_output_schema' => :'workflow_output_schema',
@@ -134,6 +136,7 @@ module Falcon
         :'sha256' => :'String',
         :'share_with_workflow' => :'Boolean',
         :'size' => :'Integer',
+        :'workflow_activity_id' => :'String',
         :'workflow_input_schema' => :'String',
         :'workflow_is_disruptive' => :'Boolean',
         :'workflow_output_schema' => :'String',
@@ -240,6 +243,10 @@ module Falcon
         self.size = attributes[:'size']
       end
 
+      if attributes.key?(:'workflow_activity_id')
+        self.workflow_activity_id = attributes[:'workflow_activity_id']
+      end
+
       if attributes.key?(:'workflow_input_schema')
         self.workflow_input_schema = attributes[:'workflow_input_schema']
       end
@@ -319,6 +326,7 @@ module Falcon
           sha256 == o.sha256 &&
           share_with_workflow == o.share_with_workflow &&
           size == o.size &&
+          workflow_activity_id == o.workflow_activity_id &&
           workflow_input_schema == o.workflow_input_schema &&
           workflow_is_disruptive == o.workflow_is_disruptive &&
           workflow_output_schema == o.workflow_output_schema &&
@@ -334,7 +342,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [comments_for_audit_log, content, created_by, created_by_uuid, created_timestamp, description, file_type, id, modified_by, modified_by_uuid, modified_timestamp, name, permission_type, platform, run_attempt_count, run_success_count, sha256, share_with_workflow, size, workflow_input_schema, workflow_is_disruptive, workflow_output_schema, write_access].hash
+      [comments_for_audit_log, content, created_by, created_by_uuid, created_timestamp, description, file_type, id, modified_by, modified_by_uuid, modified_timestamp, name, permission_type, platform, run_attempt_count, run_success_count, sha256, share_with_workflow, size, workflow_activity_id, workflow_input_schema, workflow_is_disruptive, workflow_output_schema, write_access].hash
     end
 
     # Builds the object from hash

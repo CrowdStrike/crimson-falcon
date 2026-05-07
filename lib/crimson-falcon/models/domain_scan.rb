@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -74,6 +73,30 @@ module Falcon
 
     attr_accessor :last_updated
 
+    attr_accessor :mac_cloud_ml_level_detection
+
+    attr_accessor :mac_cloud_ml_level_prevention
+
+    attr_accessor :mac_cloud_pup_adware_level_detection
+
+    attr_accessor :mac_cloud_pup_adware_level_prevention
+
+    attr_accessor :mac_file_paths
+
+    attr_accessor :mac_policy_setting
+
+    attr_accessor :mac_scan_exclusions
+
+    attr_accessor :mac_scan_inclusions
+
+    attr_accessor :mac_sensor_ml_level_detection
+
+    attr_accessor :mac_sensor_ml_level_prevention
+
+    attr_accessor :mac_sensor_pup_adware_level_detection
+
+    attr_accessor :mac_sensor_pup_adware_level_prevention
+
     attr_accessor :max_duration
 
     attr_accessor :metadata
@@ -116,6 +139,8 @@ module Falcon
 
     attr_accessor :targeted_host_count
 
+    attr_accessor :targeted_platforms
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -140,6 +165,18 @@ module Falcon
         :'incomplete_host_count' => :'incomplete_host_count',
         :'initiated_from' => :'initiated_from',
         :'last_updated' => :'last_updated',
+        :'mac_cloud_ml_level_detection' => :'mac_cloud_ml_level_detection',
+        :'mac_cloud_ml_level_prevention' => :'mac_cloud_ml_level_prevention',
+        :'mac_cloud_pup_adware_level_detection' => :'mac_cloud_pup_adware_level_detection',
+        :'mac_cloud_pup_adware_level_prevention' => :'mac_cloud_pup_adware_level_prevention',
+        :'mac_file_paths' => :'mac_file_paths',
+        :'mac_policy_setting' => :'mac_policy_setting',
+        :'mac_scan_exclusions' => :'mac_scan_exclusions',
+        :'mac_scan_inclusions' => :'mac_scan_inclusions',
+        :'mac_sensor_ml_level_detection' => :'mac_sensor_ml_level_detection',
+        :'mac_sensor_ml_level_prevention' => :'mac_sensor_ml_level_prevention',
+        :'mac_sensor_pup_adware_level_detection' => :'mac_sensor_pup_adware_level_detection',
+        :'mac_sensor_pup_adware_level_prevention' => :'mac_sensor_pup_adware_level_prevention',
         :'max_duration' => :'max_duration',
         :'metadata' => :'metadata',
         :'missing_host_count' => :'missing_host_count',
@@ -160,7 +197,8 @@ module Falcon
         :'severity' => :'severity',
         :'started_host_count' => :'started_host_count',
         :'status' => :'status',
-        :'targeted_host_count' => :'targeted_host_count'
+        :'targeted_host_count' => :'targeted_host_count',
+        :'targeted_platforms' => :'targeted_platforms'
       }
     end
 
@@ -193,6 +231,18 @@ module Falcon
         :'incomplete_host_count' => :'Integer',
         :'initiated_from' => :'String',
         :'last_updated' => :'Time',
+        :'mac_cloud_ml_level_detection' => :'Integer',
+        :'mac_cloud_ml_level_prevention' => :'Integer',
+        :'mac_cloud_pup_adware_level_detection' => :'Integer',
+        :'mac_cloud_pup_adware_level_prevention' => :'Integer',
+        :'mac_file_paths' => :'Array<String>',
+        :'mac_policy_setting' => :'Array<Integer>',
+        :'mac_scan_exclusions' => :'Array<String>',
+        :'mac_scan_inclusions' => :'Array<String>',
+        :'mac_sensor_ml_level_detection' => :'Integer',
+        :'mac_sensor_ml_level_prevention' => :'Integer',
+        :'mac_sensor_pup_adware_level_detection' => :'Integer',
+        :'mac_sensor_pup_adware_level_prevention' => :'Integer',
         :'max_duration' => :'Integer',
         :'metadata' => :'Array<DomainScanMetadata>',
         :'missing_host_count' => :'Integer',
@@ -213,7 +263,8 @@ module Falcon
         :'severity' => :'Integer',
         :'started_host_count' => :'Integer',
         :'status' => :'String',
-        :'targeted_host_count' => :'Integer'
+        :'targeted_host_count' => :'Integer',
+        :'targeted_platforms' => :'Array<String>'
       }
     end
 
@@ -328,6 +379,62 @@ module Falcon
         self.last_updated = attributes[:'last_updated']
       end
 
+      if attributes.key?(:'mac_cloud_ml_level_detection')
+        self.mac_cloud_ml_level_detection = attributes[:'mac_cloud_ml_level_detection']
+      end
+
+      if attributes.key?(:'mac_cloud_ml_level_prevention')
+        self.mac_cloud_ml_level_prevention = attributes[:'mac_cloud_ml_level_prevention']
+      end
+
+      if attributes.key?(:'mac_cloud_pup_adware_level_detection')
+        self.mac_cloud_pup_adware_level_detection = attributes[:'mac_cloud_pup_adware_level_detection']
+      end
+
+      if attributes.key?(:'mac_cloud_pup_adware_level_prevention')
+        self.mac_cloud_pup_adware_level_prevention = attributes[:'mac_cloud_pup_adware_level_prevention']
+      end
+
+      if attributes.key?(:'mac_file_paths')
+        if (value = attributes[:'mac_file_paths']).is_a?(Array)
+          self.mac_file_paths = value
+        end
+      end
+
+      if attributes.key?(:'mac_policy_setting')
+        if (value = attributes[:'mac_policy_setting']).is_a?(Array)
+          self.mac_policy_setting = value
+        end
+      end
+
+      if attributes.key?(:'mac_scan_exclusions')
+        if (value = attributes[:'mac_scan_exclusions']).is_a?(Array)
+          self.mac_scan_exclusions = value
+        end
+      end
+
+      if attributes.key?(:'mac_scan_inclusions')
+        if (value = attributes[:'mac_scan_inclusions']).is_a?(Array)
+          self.mac_scan_inclusions = value
+        end
+      end
+
+      if attributes.key?(:'mac_sensor_ml_level_detection')
+        self.mac_sensor_ml_level_detection = attributes[:'mac_sensor_ml_level_detection']
+      end
+
+      if attributes.key?(:'mac_sensor_ml_level_prevention')
+        self.mac_sensor_ml_level_prevention = attributes[:'mac_sensor_ml_level_prevention']
+      end
+
+      if attributes.key?(:'mac_sensor_pup_adware_level_detection')
+        self.mac_sensor_pup_adware_level_detection = attributes[:'mac_sensor_pup_adware_level_detection']
+      end
+
+      if attributes.key?(:'mac_sensor_pup_adware_level_prevention')
+        self.mac_sensor_pup_adware_level_prevention = attributes[:'mac_sensor_pup_adware_level_prevention']
+      end
+
       if attributes.key?(:'max_duration')
         self.max_duration = attributes[:'max_duration']
       end
@@ -419,6 +526,12 @@ module Falcon
       if attributes.key?(:'targeted_host_count')
         self.targeted_host_count = attributes[:'targeted_host_count']
       end
+
+      if attributes.key?(:'targeted_platforms')
+        if (value = attributes[:'targeted_platforms']).is_a?(Array)
+          self.targeted_platforms = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -465,6 +578,18 @@ module Falcon
           incomplete_host_count == o.incomplete_host_count &&
           initiated_from == o.initiated_from &&
           last_updated == o.last_updated &&
+          mac_cloud_ml_level_detection == o.mac_cloud_ml_level_detection &&
+          mac_cloud_ml_level_prevention == o.mac_cloud_ml_level_prevention &&
+          mac_cloud_pup_adware_level_detection == o.mac_cloud_pup_adware_level_detection &&
+          mac_cloud_pup_adware_level_prevention == o.mac_cloud_pup_adware_level_prevention &&
+          mac_file_paths == o.mac_file_paths &&
+          mac_policy_setting == o.mac_policy_setting &&
+          mac_scan_exclusions == o.mac_scan_exclusions &&
+          mac_scan_inclusions == o.mac_scan_inclusions &&
+          mac_sensor_ml_level_detection == o.mac_sensor_ml_level_detection &&
+          mac_sensor_ml_level_prevention == o.mac_sensor_ml_level_prevention &&
+          mac_sensor_pup_adware_level_detection == o.mac_sensor_pup_adware_level_detection &&
+          mac_sensor_pup_adware_level_prevention == o.mac_sensor_pup_adware_level_prevention &&
           max_duration == o.max_duration &&
           metadata == o.metadata &&
           missing_host_count == o.missing_host_count &&
@@ -485,7 +610,8 @@ module Falcon
           severity == o.severity &&
           started_host_count == o.started_host_count &&
           status == o.status &&
-          targeted_host_count == o.targeted_host_count
+          targeted_host_count == o.targeted_host_count &&
+          targeted_platforms == o.targeted_platforms
     end
 
     # @see the `==` method
@@ -497,7 +623,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, hosts_created, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, rollup_version, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, cloud_pup_adware_level_detection, cloud_pup_adware_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, hosts_created, id, incomplete_host_count, initiated_from, last_updated, mac_cloud_ml_level_detection, mac_cloud_ml_level_prevention, mac_cloud_pup_adware_level_detection, mac_cloud_pup_adware_level_prevention, mac_file_paths, mac_policy_setting, mac_scan_exclusions, mac_scan_inclusions, mac_sensor_ml_level_detection, mac_sensor_ml_level_prevention, mac_sensor_pup_adware_level_detection, mac_sensor_pup_adware_level_prevention, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, rollup_version, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count, targeted_platforms].hash
     end
 
     # Builds the object from hash

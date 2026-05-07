@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,21 +31,12 @@ require 'time'
 
 module Falcon
   class DomainRequest
-    attr_accessor :data
-
-    attr_accessor :json
-
-    attr_accessor :params
-
-    attr_accessor :x_www_form_urlencoded
+    attr_accessor :description
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'data' => :'data',
-        :'json' => :'json',
-        :'params' => :'params',
-        :'x_www_form_urlencoded' => :'x-www-form-urlencoded'
+        :'description' => :'description'
       }
     end
 
@@ -58,10 +48,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'String',
-        :'json' => :'Object',
-        :'params' => :'DomainParams',
-        :'x_www_form_urlencoded' => :'Object'
+        :'description' => :'String'
       }
     end
 
@@ -86,20 +73,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'data')
-        self.data = attributes[:'data']
-      end
-
-      if attributes.key?(:'json')
-        self.json = attributes[:'json']
-      end
-
-      if attributes.key?(:'params')
-        self.params = attributes[:'params']
-      end
-
-      if attributes.key?(:'x_www_form_urlencoded')
-        self.x_www_form_urlencoded = attributes[:'x_www_form_urlencoded']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
     end
 
@@ -107,12 +82,17 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @description.nil?
       true
     end
 
@@ -121,10 +101,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          data == o.data &&
-          json == o.json &&
-          params == o.params &&
-          x_www_form_urlencoded == o.x_www_form_urlencoded
+          description == o.description
     end
 
     # @see the `==` method
@@ -136,7 +113,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data, json, params, x_www_form_urlencoded].hash
+      [description].hash
     end
 
     # Builds the object from hash

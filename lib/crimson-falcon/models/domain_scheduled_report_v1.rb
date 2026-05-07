@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -66,6 +65,8 @@ module Falcon
 
     attr_accessor :schedule_type
 
+    attr_accessor :secret_references
+
     attr_accessor :shared_with
 
     attr_accessor :start_on
@@ -106,6 +107,7 @@ module Falcon
         :'report_params' => :'report_params',
         :'schedule' => :'schedule',
         :'schedule_type' => :'schedule_type',
+        :'secret_references' => :'secret_references',
         :'shared_with' => :'shared_with',
         :'start_on' => :'start_on',
         :'status' => :'status',
@@ -144,6 +146,7 @@ module Falcon
         :'report_params' => :'DomainReportParams',
         :'schedule' => :'DomainSchedule',
         :'schedule_type' => :'String',
+        :'secret_references' => :'DomainSecretReferencesV1',
         :'shared_with' => :'Array<String>',
         :'start_on' => :'Time',
         :'status' => :'String',
@@ -246,6 +249,10 @@ module Falcon
 
       if attributes.key?(:'schedule_type')
         self.schedule_type = attributes[:'schedule_type']
+      end
+
+      if attributes.key?(:'secret_references')
+        self.secret_references = attributes[:'secret_references']
       end
 
       if attributes.key?(:'shared_with')
@@ -406,6 +413,7 @@ module Falcon
           report_params == o.report_params &&
           schedule == o.schedule &&
           schedule_type == o.schedule_type &&
+          secret_references == o.secret_references &&
           shared_with == o.shared_with &&
           start_on == o.start_on &&
           status == o.status &&
@@ -427,7 +435,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, schedule_type, shared_with, start_on, status, stop_on, stopped_by_cs, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [api_client_id, can_write, created_on, customer_id, description, expiration_on, id, last_execution, last_updated_on, name, next_execution_on, notifications, owned_by_cs, report_metadata, report_params, schedule, schedule_type, secret_references, shared_with, start_on, status, stop_on, stopped_by_cs, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

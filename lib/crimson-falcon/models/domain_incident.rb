@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -49,8 +48,6 @@ module Falcon
     attr_accessor :events_histogram
 
     attr_accessor :fine_score
-
-    attr_accessor :grouping_ids
 
     attr_accessor :host_ids
 
@@ -102,7 +99,6 @@ module Falcon
         :'_end' => :'end',
         :'events_histogram' => :'events_histogram',
         :'fine_score' => :'fine_score',
-        :'grouping_ids' => :'grouping_ids',
         :'host_ids' => :'host_ids',
         :'hosts' => :'hosts',
         :'incident_id' => :'incident_id',
@@ -142,7 +138,6 @@ module Falcon
         :'_end' => :'Time',
         :'events_histogram' => :'Array<DomainEventHistogram>',
         :'fine_score' => :'Integer',
-        :'grouping_ids' => :'Array<String>',
         :'host_ids' => :'Array<String>',
         :'hosts' => :'Array<DetectsDeviceDetailIndexed>',
         :'incident_id' => :'String',
@@ -222,12 +217,6 @@ module Falcon
 
       if attributes.key?(:'fine_score')
         self.fine_score = attributes[:'fine_score']
-      end
-
-      if attributes.key?(:'grouping_ids')
-        if (value = attributes[:'grouping_ids']).is_a?(Array)
-          self.grouping_ids = value
-        end
       end
 
       if attributes.key?(:'host_ids')
@@ -392,7 +381,6 @@ module Falcon
           _end == o._end &&
           events_histogram == o.events_histogram &&
           fine_score == o.fine_score &&
-          grouping_ids == o.grouping_ids &&
           host_ids == o.host_ids &&
           hosts == o.hosts &&
           incident_id == o.incident_id &&
@@ -423,7 +411,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [assigned_to, assigned_to_name, cid, created, description, email_state, _end, events_histogram, fine_score, grouping_ids, host_ids, hosts, incident_id, incident_type, lm_host_ids, lm_hosts_capped, lm_types, lmra_host_ids, lmra_hosts_capped, modified_timestamp, name, objectives, start, state, status, tactics, tags, techniques, users].hash
+      [assigned_to, assigned_to_name, cid, created, description, email_state, _end, events_histogram, fine_score, host_ids, hosts, incident_id, incident_type, lm_host_ids, lm_hosts_capped, lm_types, lmra_host_ids, lmra_hosts_capped, modified_timestamp, name, objectives, start, state, status, tactics, tags, techniques, users].hash
     end
 
     # Builds the object from hash

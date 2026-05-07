@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,6 +35,1169 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Get installed patches information for hosts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after Pagination token for next page
+    # @option opts [Integer] :limit Maximum number of results
+    # @option opts [String] :filter FQL query specifying the filter parameters.    Empty value means to not filter on anything.    Available filter fields that supports exact match: aid, cid, hostname, reboot_required    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): N/A    All filter fields and operations supports negation (!)
+    # @option opts [String] :sort Sort field and direction. Available sort fields: hostname.     Ex: &#39;hostname|asc&#39; or &#39;hostname|desc&#39;.
+    # @return [DomainSPAPICombinedInstalledPatchesResponse]
+    def combined_query_installed_patches(opts = {})
+      data, _status_code, _headers = combined_query_installed_patches_with_http_info(opts)
+      data
+    end
+
+    # Get installed patches information for hosts
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :after Pagination token for next page
+    # @option opts [Integer] :limit Maximum number of results
+    # @option opts [String] :filter FQL query specifying the filter parameters.    Empty value means to not filter on anything.    Available filter fields that supports exact match: aid, cid, hostname, reboot_required    Available filter fields that supports wildcard (*): N/A    Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): N/A    All filter fields and operations supports negation (!)
+    # @option opts [String] :sort Sort field and direction. Available sort fields: hostname.     Ex: &#39;hostname|asc&#39; or &#39;hostname|desc&#39;.
+    # @return [Array<(DomainSPAPICombinedInstalledPatchesResponse, Integer, Hash)>] DomainSPAPICombinedInstalledPatchesResponse data, response status code and response headers
+    def combined_query_installed_patches_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.combined_query_installed_patches ...'
+      end
+      # resource path
+      local_var_path = '/spotlight/combined/installed-patches/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'after'] = opts[:'after'] if !opts[:'after'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSPAPICombinedInstalledPatchesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.combined_query_installed_patches",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#combined_query_installed_patches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Cancel Collections
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @return [DomainEntitiesCollectionsResponseV1]
+    def delete_collections_v1(opts = {})
+      data, _status_code, _headers = delete_collections_v1_with_http_info(opts)
+      data
+    end
+
+    # Cancel Collections
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @return [Array<(DomainEntitiesCollectionsResponseV1, Integer, Hash)>] DomainEntitiesCollectionsResponseV1 data, response status code and response headers
+    def delete_collections_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.delete_collections_v1 ...'
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.delete_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#delete_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retires a custom configuration
+    # @param ids [Array<String>] Configuration IDs
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesConfigurationsResponseV1]
+    def delete_configs_v1(ids, opts = {})
+      data, _status_code, _headers = delete_configs_v1_with_http_info(ids, opts)
+      data
+    end
+
+    # Retires a custom configuration
+    # @param ids [Array<String>] Configuration IDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesConfigurationsResponseV1, Integer, Hash)>] DomainEntitiesConfigurationsResponseV1 data, response status code and response headers
+    def delete_configs_v1_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.delete_configs_v1 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Default.delete_configs_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesConfigurationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.delete_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#delete_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Collection counts by field names: collection_tag and state
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainAggregateCollectionCountsByResponseV1]
+    def get_collection_counts_by_v1(opts = {})
+      data, _status_code, _headers = get_collection_counts_by_v1_with_http_info(opts)
+      data
+    end
+
+    # Get Collection counts by field names: collection_tag and state
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainAggregateCollectionCountsByResponseV1, Integer, Hash)>] DomainAggregateCollectionCountsByResponseV1 data, response status code and response headers
+    def get_collection_counts_by_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_collection_counts_by_v1 ...'
+      end
+      allowable_values = ["collection_tag|asc", "collection_tag|desc", "state|asc", "state|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/aggregate/collection-counts-by/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainAggregateCollectionCountsByResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_collection_counts_by_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_collection_counts_by_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @option opts [String] :platform Platform
+    # @option opts [Array<String>] :aids Agent IDs
+    # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+    # @option opts [Array<String>] :states Falcon Forensics Collection States
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesCollectionsResponseV1]
+    def get_collections_v1(opts = {})
+      data, _status_code, _headers = get_collections_v1_with_http_info(opts)
+      data
+    end
+
+    # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @option opts [String] :platform Platform
+    # @option opts [Array<String>] :aids Agent IDs
+    # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+    # @option opts [Array<String>] :states Falcon Forensics Collection States
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesCollectionsResponseV1, Integer, Hash)>] DomainEntitiesCollectionsResponseV1 data, response status code and response headers
+    def get_collections_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_collections_v1 ...'
+      end
+      allowable_values = ["windows", "linux", "mac"]
+      if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
+        fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["deadline|asc", "deadline|desc", "id|asc", "id|desc", "priority|asc", "priority|desc", "state|asc", "state|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'aids'] = @api_client.build_collection_param(opts[:'aids'], :csv) if !opts[:'aids'].nil?
+      query_params[:'ffcids'] = @api_client.build_collection_param(opts[:'ffcids'], :csv) if !opts[:'ffcids'].nil?
+      query_params[:'states'] = @api_client.build_collection_param(opts[:'states'], :csv) if !opts[:'states'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get collectors
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collector IDs
+    # @option opts [String] :platform Platform
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesCollectorsResponseV1]
+    def get_collectors_v1(opts = {})
+      data, _status_code, _headers = get_collectors_v1_with_http_info(opts)
+      data
+    end
+
+    # Get collectors
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collector IDs
+    # @option opts [String] :platform Platform
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesCollectorsResponseV1, Integer, Hash)>] DomainEntitiesCollectorsResponseV1 data, response status code and response headers
+    def get_collectors_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_collectors_v1 ...'
+      end
+      allowable_values = ["windows", "linux", "mac"]
+      if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
+        fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "state|asc", "state|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collectors/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectorsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_collectors_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_collectors_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesCollectionsResponseV1]
+    def get_combined_collections_v1(opts = {})
+      data, _status_code, _headers = get_combined_collections_v1_with_http_info(opts)
+      data
+    end
+
+    # Get Collections with given IDs, Platform, Agent/Collector IDs, States
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collection IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesCollectionsResponseV1, Integer, Hash)>] DomainEntitiesCollectionsResponseV1 data, response status code and response headers
+    def get_combined_collections_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_combined_collections_v1 ...'
+      end
+      allowable_values = ["deadline|asc", "deadline|desc", "id|asc", "id|desc", "priority|asc", "priority|desc", "state|asc", "state|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/combined/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_combined_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_combined_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get collectors for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collector IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesCollectorsResponseV1]
+    def get_combined_collectors_v1(opts = {})
+      data, _status_code, _headers = get_combined_collectors_v1_with_http_info(opts)
+      data
+    end
+
+    # Get collectors for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Collector IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesCollectorsResponseV1, Integer, Hash)>] DomainEntitiesCollectorsResponseV1 data, response status code and response headers
+    def get_combined_collectors_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_combined_collectors_v1 ...'
+      end
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc", "state|asc", "state|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/combined/collectors/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectorsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_combined_collectors_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_combined_collectors_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Configurations for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Configuration IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesConfigurationsResponseV1]
+    def get_combined_configs_v1(opts = {})
+      data, _status_code, _headers = get_combined_configs_v1_with_http_info(opts)
+      data
+    end
+
+    # Get Configurations for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Configuration IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesConfigurationsResponseV1, Integer, Hash)>] DomainEntitiesConfigurationsResponseV1 data, response status code and response headers
+    def get_combined_configs_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_combined_configs_v1 ...'
+      end
+      allowable_values = ["null", "id|asc", "id|desc", "name|asc", "name|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/combined/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesConfigurationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_combined_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_combined_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Templates with the given IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Template IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainEntitiesTemplatesResponseV1]
+    def get_combined_templates_v1(opts = {})
+      data, _status_code, _headers = get_combined_templates_v1_with_http_info(opts)
+      data
+    end
+
+    # Get Templates with the given IDs
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :ids Template IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainEntitiesTemplatesResponseV1, Integer, Hash)>] DomainEntitiesTemplatesResponseV1 data, response status code and response headers
+    def get_combined_templates_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_combined_templates_v1 ...'
+      end
+      allowable_values = ["id|asc", "id|desc", "name|asc", "name|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/combined/templates/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(opts[:'ids'], :csv) if !opts[:'ids'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesTemplatesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_combined_templates_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_combined_templates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Download offline Configuration file using ID
+    # @param id [String] Configuration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :collection_tag Configuration Collection Tag
+    # @option opts [Boolean] :self_destruct Self-Destruct config
+    # @return [Array<Integer>]
+    def get_config_download_v1(id, opts = {})
+      data, _status_code, _headers = get_config_download_v1_with_http_info(id, opts)
+      data
+    end
+
+    # Download offline Configuration file using ID
+    # @param id [String] Configuration ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :collection_tag Configuration Collection Tag
+    # @option opts [Boolean] :self_destruct Self-Destruct config
+    # @return [Array<(Array<Integer>, Integer, Hash)>] Array<Integer> data, response status code and response headers
+    def get_config_download_v1_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_config_download_v1 ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling Default.get_config_download_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configuration-download/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'id'] = id
+      query_params[:'collection_tag'] = opts[:'collection_tag'] if !opts[:'collection_tag'].nil?
+      query_params[:'self_destruct'] = opts[:'self_destruct'] if !opts[:'self_destruct'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/octet-stream'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<Integer>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_config_download_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_config_download_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Configurations with the given IDs
+    # @param ids [Array<String>] Configuration IDs
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesConfigurationsResponseV1]
+    def get_configs_v1(ids, opts = {})
+      data, _status_code, _headers = get_configs_v1_with_http_info(ids, opts)
+      data
+    end
+
+    # Get Configurations with the given IDs
+    # @param ids [Array<String>] Configuration IDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesConfigurationsResponseV1, Integer, Hash)>] DomainEntitiesConfigurationsResponseV1 data, response status code and response headers
+    def get_configs_v1_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_configs_v1 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Default.get_configs_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesConfigurationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Templates with the given IDs
+    # @param ids [Array<String>] Template IDs
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesTemplatesResponseV1]
+    def get_templates_v1(ids, opts = {})
+      data, _status_code, _headers = get_templates_v1_with_http_info(ids, opts)
+      data
+    end
+
+    # Get Templates with the given IDs
+    # @param ids [Array<String>] Template IDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesTemplatesResponseV1, Integer, Hash)>] DomainEntitiesTemplatesResponseV1 data, response status code and response headers
+    def get_templates_v1_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.get_templates_v1 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Default.get_templates_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/templates/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :csv)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesTemplatesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.get_templates_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#get_templates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Collections
+    # @param body [DomainNewCollectionsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesCollectionsResponseV1]
+    def post_collections_v1(body, opts = {})
+      data, _status_code, _headers = post_collections_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Create Collections
+    # @param body [DomainNewCollectionsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesCollectionsResponseV1, Integer, Hash)>] DomainEntitiesCollectionsResponseV1 data, response status code and response headers
+    def post_collections_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.post_collections_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.post_collections_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.post_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#post_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # shutdown collectors with self_destruct option
+    # @param body [DomainShutDownAgentsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesCollectorsResponseV1]
+    def post_collectors_v1(body, opts = {})
+      data, _status_code, _headers = post_collectors_v1_with_http_info(body, opts)
+      data
+    end
+
+    # shutdown collectors with self_destruct option
+    # @param body [DomainShutDownAgentsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesCollectorsResponseV1, Integer, Hash)>] DomainEntitiesCollectorsResponseV1 data, response status code and response headers
+    def post_collectors_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.post_collectors_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.post_collectors_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collectors-shutdown/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectorsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.post_collectors_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#post_collectors_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates a new custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesConfigurationsResponseV1]
+    def post_configs_v1(body, opts = {})
+      data, _status_code, _headers = post_configs_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Creates a new custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesConfigurationsResponseV1, Integer, Hash)>] DomainEntitiesConfigurationsResponseV1 data, response status code and response headers
+    def post_configs_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.post_configs_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.post_configs_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'application/yaml'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesConfigurationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.post_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#post_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # deploy collector to managed endpoints
+    # @param body [DomainDeployAgentsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesCollectorsResponseV1]
+    def post_deploy_v1(body, opts = {})
+      data, _status_code, _headers = post_deploy_v1_with_http_info(body, opts)
+      data
+    end
+
+    # deploy collector to managed endpoints
+    # @param body [DomainDeployAgentsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesCollectorsResponseV1, Integer, Hash)>] DomainEntitiesCollectorsResponseV1 data, response status code and response headers
+    def post_deploy_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.post_deploy_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.post_deploy_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collectors-deploy/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectorsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.post_deploy_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#post_deploy_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # - request graphql query
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
@@ -87,6 +1249,705 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Default#post_graphql_query_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Collections
+    # @param body [DomainNewCollectionsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesCollectionsResponseV1]
+    def put_collections_v1(body, opts = {})
+      data, _status_code, _headers = put_collections_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Update Collections
+    # @param body [DomainNewCollectionsRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesCollectionsResponseV1, Integer, Hash)>] DomainEntitiesCollectionsResponseV1 data, response status code and response headers
+    def put_collections_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.put_collections_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.put_collections_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesCollectionsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.put_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#put_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Creates or replaces an existing custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainEntitiesConfigurationsResponseV1]
+    def put_configs_v1(body, opts = {})
+      data, _status_code, _headers = put_configs_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Creates or replaces an existing custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainEntitiesConfigurationsResponseV1, Integer, Hash)>] DomainEntitiesConfigurationsResponseV1 data, response status code and response headers
+    def put_configs_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.put_configs_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.put_configs_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'application/yaml'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainEntitiesConfigurationsResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.put_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#put_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Collections for the given Customer ID and/or Platform in states
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Platform
+    # @option opts [Array<String>] :states Falcon Forensics Collection States
+    # @option opts [Array<String>] :aids Agent IDs
+    # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainQueriesResponseV1]
+    def search_collections_v1(opts = {})
+      data, _status_code, _headers = search_collections_v1_with_http_info(opts)
+      data
+    end
+
+    # Search Collections for the given Customer ID and/or Platform in states
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Platform
+    # @option opts [Array<String>] :states Falcon Forensics Collection States
+    # @option opts [Array<String>] :aids Agent IDs
+    # @option opts [Array<String>] :ffcids Falcon Forensics Collector IDs
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainQueriesResponseV1, Integer, Hash)>] DomainQueriesResponseV1 data, response status code and response headers
+    def search_collections_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.search_collections_v1 ...'
+      end
+      allowable_values = ["windows", "linux", "mac"]
+      if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
+        fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["deadline|asc", "deadline|desc", "id|asc", "id|desc", "priority|asc", "priority|desc", "state|asc", "state|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/queries/collections/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'states'] = @api_client.build_collection_param(opts[:'states'], :csv) if !opts[:'states'].nil?
+      query_params[:'aids'] = @api_client.build_collection_param(opts[:'aids'], :csv) if !opts[:'aids'].nil?
+      query_params[:'ffcids'] = @api_client.build_collection_param(opts[:'ffcids'], :csv) if !opts[:'ffcids'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.search_collections_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#search_collections_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Collectors for the given Customer ID and Platform
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Platform
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainQueriesResponseV1]
+    def search_collectors_v1(opts = {})
+      data, _status_code, _headers = search_collectors_v1_with_http_info(opts)
+      data
+    end
+
+    # Search Collectors for the given Customer ID and Platform
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :platform Platform
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainQueriesResponseV1, Integer, Hash)>] DomainQueriesResponseV1 data, response status code and response headers
+    def search_collectors_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.search_collectors_v1 ...'
+      end
+      allowable_values = ["windows", "linux", "mac"]
+      if @api_client.config.client_side_validation && opts[:'platform'] && !allowable_values.include?(opts[:'platform'])
+        fail ArgumentError, "invalid value for \"platform\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["null", "aid|asc", "aid|desc", "ffcid|asc", "ffcid|desc", "platform|asc", "platform|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/queries/collectors/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'platform'] = opts[:'platform'] if !opts[:'platform'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.search_collectors_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#search_collectors_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Configurations for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainQueriesResponseV1]
+    def search_configs_v1(opts = {})
+      data, _status_code, _headers = search_configs_v1_with_http_info(opts)
+      data
+    end
+
+    # Search Configurations for the given Customer ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainQueriesResponseV1, Integer, Hash)>] DomainQueriesResponseV1 data, response status code and response headers
+    def search_configs_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.search_configs_v1 ...'
+      end
+      allowable_values = ["id|asc", "id|desc", "name|asc", "name|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/queries/configurations/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.search_configs_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#search_configs_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search Templates
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [DomainQueriesResponseV1]
+    def search_templates_v1(opts = {})
+      data, _status_code, _headers = search_templates_v1_with_http_info(opts)
+      data
+    end
+
+    # Search Templates
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL filter
+    # @option opts [String] :limit Limit
+    # @option opts [String] :offset Offset
+    # @option opts [String] :sort Sort
+    # @return [Array<(DomainQueriesResponseV1, Integer, Hash)>] DomainQueriesResponseV1 data, response status code and response headers
+    def search_templates_v1_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.search_templates_v1 ...'
+      end
+      allowable_values = ["id|asc", "id|desc", "name|asc", "name|desc", "modified_timestamp|asc", "modified_timestamp|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/forensics/queries/templates/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainQueriesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.search_templates_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#search_templates_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Configures all hosts in the provided host group to be ready to accept an execute API call
+    # @param body [PluginsonpremapiOnPremConfigureRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [PluginsonpremapiOnPremConfigureResponse]
+    def v1_host_configs_post(body, opts = {})
+      data, _status_code, _headers = v1_host_configs_post_with_http_info(body, opts)
+      data
+    end
+
+    # Configures all hosts in the provided host group to be ready to accept an execute API call
+    # @param body [PluginsonpremapiOnPremConfigureRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PluginsonpremapiOnPremConfigureResponse, Integer, Hash)>] PluginsonpremapiOnPremConfigureResponse data, response status code and response headers
+    def v1_host_configs_post_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.v1_host_configs_post ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.v1_host_configs_post"
+      end
+      # resource path
+      local_var_path = '/pluginsonprem/entities/host-configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PluginsonpremapiOnPremConfigureResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.v1_host_configs_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#v1_host_configs_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetches the host configs within the provided host group.
+    # @param ids [Array<String>] ID of host group(s) to get configuration for.
+    # @param [Hash] opts the optional parameters
+    # @return [PluginsonpremapiOnPremGetHostConfigsResponse]
+    def v1_status_get(ids, opts = {})
+      data, _status_code, _headers = v1_status_get_with_http_info(ids, opts)
+      data
+    end
+
+    # Fetches the host configs within the provided host group.
+    # @param ids [Array<String>] ID of host group(s) to get configuration for.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PluginsonpremapiOnPremGetHostConfigsResponse, Integer, Hash)>] PluginsonpremapiOnPremGetHostConfigsResponse data, response status code and response headers
+    def v1_status_get_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.v1_status_get ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling Default.v1_status_get"
+      end
+      # resource path
+      local_var_path = '/pluginsonprem/entities/host-configs/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PluginsonpremapiOnPremGetHostConfigsResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.v1_status_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#v1_status_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validates a configuration collection
+    # @param body [DomainValidateCollectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainResponseV1]
+    def validate_collection_v1(body, opts = {})
+      data, _status_code, _headers = validate_collection_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Validates a configuration collection
+    # @param body [DomainValidateCollectionRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainResponseV1, Integer, Hash)>] DomainResponseV1 data, response status code and response headers
+    def validate_collection_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.validate_collection_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.validate_collection_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/collections-validate/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'application/yaml'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.validate_collection_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#validate_collection_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Validates a custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainResponseV1]
+    def validate_config_v1(body, opts = {})
+      data, _status_code, _headers = validate_config_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Validates a custom configuration
+    # @param body [DomainSaveConfigRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainResponseV1, Integer, Hash)>] DomainResponseV1 data, response status code and response headers
+    def validate_config_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: Default.validate_config_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling Default.validate_config_v1"
+      end
+      # resource path
+      local_var_path = '/forensics/entities/configurations-validate/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json', 'application/yaml'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"Default.validate_config_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: Default#validate_config_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

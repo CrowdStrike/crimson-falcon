@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,6 +31,8 @@ require 'time'
 
 module Falcon
   class InsightsInsight
+    attr_accessor :details
+
     attr_accessor :external
 
     attr_accessor :internal
@@ -39,6 +40,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'details' => :'details',
         :'external' => :'external',
         :'internal' => :'internal'
       }
@@ -52,7 +54,8 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'external' => :'Array<InsightsInsightDetails>',
+        :'details' => :'Hash<String, InsightsDetails>',
+        :'external' => :'Array<InsightsExternal>',
         :'internal' => :'Object'
       }
     end
@@ -78,6 +81,12 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'details')
+        if (value = attributes[:'details']).is_a?(Hash)
+          self.details = value
+        end
+      end
+
       if attributes.key?(:'external')
         if (value = attributes[:'external']).is_a?(Array)
           self.external = value
@@ -93,12 +102,12 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @external.nil?
-        invalid_properties.push('invalid value for "external", external cannot be nil.')
+      if @details.nil?
+        invalid_properties.push('invalid value for "details", details cannot be nil.')
       end
 
-      if @internal.nil?
-        invalid_properties.push('invalid value for "internal", internal cannot be nil.')
+      if @external.nil?
+        invalid_properties.push('invalid value for "external", external cannot be nil.')
       end
 
       invalid_properties
@@ -107,8 +116,8 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @details.nil?
       return false if @external.nil?
-      return false if @internal.nil?
       true
     end
 
@@ -117,6 +126,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          details == o.details &&
           external == o.external &&
           internal == o.internal
     end
@@ -130,7 +140,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [external, internal].hash
+      [details, external, internal].hash
     end
 
     # Builds the object from hash

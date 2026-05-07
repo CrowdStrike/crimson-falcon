@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -41,7 +40,7 @@ module Falcon
     # JSON of the events as an array
     attr_accessor :events
 
-    # List of the files used to fulfill the query
+    # JSON List of the files used to fulfill the query
     attr_accessor :files_used
 
     # Entries that match the supplied filter
@@ -79,7 +78,7 @@ module Falcon
         :'cancelled' => :'Boolean',
         :'done' => :'Boolean',
         :'events' => :'Array<Object>',
-        :'files_used' => :'Array<String>',
+        :'files_used' => :'Array<Object>',
         :'filter_matches' => :'Array<Object>',
         :'meta_data' => :'ApiQueryMetadataJSON',
         :'query_event_distribution' => :'ApiQueryEventDistribution',

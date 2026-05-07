@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -51,7 +50,7 @@ describe Falcon::DevicecontrolapiReqUpdateUSBBaseV1External do
   describe 'test attribute "end_user_notification"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NOTIFY_USER,SILENT"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["NOTIFY_USER", "SILENT"])
       # validator.allowable_values.each do |value|
       #   expect { instance.end_user_notification = value }.not_to raise_error
       # end
@@ -61,7 +60,7 @@ describe Falcon::DevicecontrolapiReqUpdateUSBBaseV1External do
   describe 'test attribute "enforcement_mode"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY,MONITOR_ENFORCE,OFF"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE", "OFF"])
       # validator.allowable_values.each do |value|
       #   expect { instance.enforcement_mode = value }.not_to raise_error
       # end
@@ -71,6 +70,36 @@ describe Falcon::DevicecontrolapiReqUpdateUSBBaseV1External do
   describe 'test attribute "enhanced_file_metadata"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "pcie_enforcement_mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.pcie_enforcement_mode = value }.not_to raise_error
+      # end
+    end
+  end
+
+  describe 'test attribute "storage_space_enforcement_mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.storage_space_enforcement_mode = value }.not_to raise_error
+      # end
+    end
+  end
+
+  describe 'test attribute "user_based_enforcement_mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["MONITOR_ONLY", "MONITOR_ENFORCE"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.user_based_enforcement_mode = value }.not_to raise_error
+      # end
     end
   end
 

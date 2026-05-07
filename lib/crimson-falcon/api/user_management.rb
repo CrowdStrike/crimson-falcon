@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -147,7 +146,7 @@ module Falcon
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v1, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc", "user_uuid|asc", "user_uuid|desc"]
+      allowable_values = ["cid", "cid|asc", "cid|desc", "expires_at", "expires_at|asc", "expires_at|desc", "role_name", "role_name|asc", "role_name|desc", "type", "type|asc", "type|desc", "user_uuid", "user_uuid|asc", "user_uuid|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -243,7 +242,7 @@ module Falcon
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.combined_user_roles_v2, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["cid|asc", "cid|desc", "expires_at|asc", "expires_at|desc", "role_name|asc", "role_name|desc", "type|asc", "type|desc", "user_uuid|asc", "user_uuid|desc"]
+      allowable_values = ["cid", "cid|asc", "cid|desc", "expires_at", "expires_at|asc", "expires_at|desc", "role_name", "role_name|asc", "role_name|desc", "type", "type|asc", "type|desc", "user_uuid", "user_uuid|asc", "user_uuid|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end
@@ -549,6 +548,75 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UserManagement#delete_user_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get info about a role
+    # @param body [MsaspecIdsRequest] Maximum of 5000 Role IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cid Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
+    # @return [FlightcontrolapiGetRolesResponse]
+    def entities_roles_getv2(body, opts = {})
+      data, _status_code, _headers = entities_roles_getv2_with_http_info(body, opts)
+      data
+    end
+
+    # Get info about a role
+    # @param body [MsaspecIdsRequest] Maximum of 5000 Role IDs can be specified per request.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :cid Customer ID to get available roles for. Empty CID would result in Role IDs for current CID in view.
+    # @return [Array<(FlightcontrolapiGetRolesResponse, Integer, Hash)>] FlightcontrolapiGetRolesResponse data, response status code and response headers
+    def entities_roles_getv2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UserManagement.entities_roles_getv2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling UserManagement.entities_roles_getv2"
+      end
+      # resource path
+      local_var_path = '/user-management/entities/roles/GET/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'cid'] = opts[:'cid'] if !opts[:'cid'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'FlightcontrolapiGetRolesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"UserManagement.entities_roles_getv2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UserManagement#entities_roles_getv2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -936,7 +1004,7 @@ module Falcon
 
     # List user IDs for all users in your customer account. For more information on each user, provide the user ID to `/user-management/entities/users/GET/v1`.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
     # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
     # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
     # @option opts [String] :sort The property to sort by (default to 'uid|asc')
@@ -948,7 +1016,7 @@ module Falcon
 
     # List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid
+    # @option opts [String] :filter Filter using a query in Falcon Query Language (FQL). Supported filters: assigned_cids, cid, direct_assigned_cids, factors, first_name, has_temporary_roles, last_name, name, status, temporarily_assigned_cids, uid, uuid
     # @option opts [Integer] :offset The offset to start retrieving records from (default to 0)
     # @option opts [Integer] :limit The maximum records to return. [1-500] (default to 100)
     # @option opts [String] :sort The property to sort by (default to 'uid|asc')
@@ -969,7 +1037,7 @@ module Falcon
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UserManagement.query_user_v1, must be greater than or equal to 1.'
       end
 
-      allowable_values = ["cid_name|asc", "cid_name|desc", "created_at|asc", "created_at|desc", "first_name|asc", "first_name|desc", "has_temporary_roles|asc", "has_temporary_roles|desc", "last_login_at|asc", "last_login_at|desc", "last_name|asc", "last_name|desc", "name|asc", "name|desc", "status|asc", "status|desc", "temporarily_assigned_cids|asc", "temporarily_assigned_cids|desc", "uid|asc", "uid|desc"]
+      allowable_values = ["cid_name", "cid_name|asc", "cid_name|desc", "created_at", "created_at|asc", "created_at|desc", "first_name", "first_name|asc", "first_name|desc", "has_temporary_roles", "has_temporary_roles|asc", "has_temporary_roles|desc", "last_login_at", "last_login_at|asc", "last_login_at|desc", "last_name", "last_name|asc", "last_name|desc", "name", "name|asc", "name|desc", "status", "status|asc", "status|desc", "temporarily_assigned_cids", "temporarily_assigned_cids|asc", "temporarily_assigned_cids|desc", "uid", "uid|asc", "uid|desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,27 +31,25 @@ require 'time'
 
 module Falcon
   class V2Loop
-    attr_accessor :actions
-
-    attr_accessor :conditions
+    attr_accessor :model
 
     attr_accessor :display
 
     attr_accessor :_for
 
-    attr_accessor :_next
+    # Optional user provided name for the loop
+    attr_accessor :name
 
-    attr_accessor :trigger
+    attr_accessor :_next
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'actions' => :'actions',
-        :'conditions' => :'conditions',
+        :'model' => :'Model',
         :'display' => :'display',
         :'_for' => :'for',
-        :'_next' => :'next',
-        :'trigger' => :'trigger'
+        :'name' => :'name',
+        :'_next' => :'next'
       }
     end
 
@@ -64,12 +61,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'actions' => :'Hash<String, V2Activity>',
-        :'conditions' => :'Hash<String, V2Condition>',
+        :'model' => :'V2Model',
         :'display' => :'String',
         :'_for' => :'V2ForLoop',
-        :'_next' => :'Array<String>',
-        :'trigger' => :'V2Trigger'
+        :'name' => :'String',
+        :'_next' => :'Array<String>'
       }
     end
 
@@ -94,16 +90,8 @@ module Falcon
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'actions')
-        if (value = attributes[:'actions']).is_a?(Hash)
-          self.actions = value
-        end
-      end
-
-      if attributes.key?(:'conditions')
-        if (value = attributes[:'conditions']).is_a?(Hash)
-          self.conditions = value
-        end
+      if attributes.key?(:'model')
+        self.model = attributes[:'model']
       end
 
       if attributes.key?(:'display')
@@ -114,14 +102,14 @@ module Falcon
         self._for = attributes[:'_for']
       end
 
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.key?(:'_next')
         if (value = attributes[:'_next']).is_a?(Array)
           self._next = value
         end
-      end
-
-      if attributes.key?(:'trigger')
-        self.trigger = attributes[:'trigger']
       end
     end
 
@@ -129,6 +117,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @model.nil?
+        invalid_properties.push('invalid value for "model", model cannot be nil.')
+      end
+
       if @_for.nil?
         invalid_properties.push('invalid value for "_for", _for cannot be nil.')
       end
@@ -139,6 +131,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @model.nil?
       return false if @_for.nil?
       true
     end
@@ -148,12 +141,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          actions == o.actions &&
-          conditions == o.conditions &&
+          model == o.model &&
           display == o.display &&
           _for == o._for &&
-          _next == o._next &&
-          trigger == o.trigger
+          name == o.name &&
+          _next == o._next
     end
 
     # @see the `==` method
@@ -165,7 +157,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, display, _for, _next, trigger].hash
+      [model, display, _for, name, _next].hash
     end
 
     # Builds the object from hash

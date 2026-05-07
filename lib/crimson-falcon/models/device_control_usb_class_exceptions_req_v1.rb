@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,10 +31,10 @@ require 'time'
 
 module Falcon
   class DeviceControlUSBClassExceptionsReqV1
-    # Policy action. Note: BLOCK_EXECUTE is only valid for MASS_STORAGE devices.
+    # Policy action. Note: BLOCK_EXECUTE and BLOCK_WRITE_EXECUTE are only valid for MASS_STORAGE devices.
     attr_accessor :action
 
-    # Exceptions to the rules of this policy setting
+    # List of exceptions to the rules of this policy setting. Maximum batch size: 1000.
     attr_accessor :exceptions
 
     # USB Class id
@@ -145,21 +144,33 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @action.nil?
-      action_validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "BLOCK_EXECUTE", "READ_ONLY", "BLOCK_EXECUTE"])
+      action_validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "BLOCK_ALL", "BLOCK_EXECUTE", "BLOCK_WRITE_EXECUTE", "BLOCK_EXECUTE"])
       return false unless action_validator.valid?(@action)
       return false if @exceptions.nil?
       return false if @id.nil?
+      id_validator = EnumAttributeValidator.new('String', ["ANY", "AUDIO_VIDEO", "IMAGING", "MASS_STORAGE", "MOBILE", "PRINTER", "WIRELESS"])
+      return false unless id_validator.valid?(@id)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] action Object to be assigned
     def action=(action)
-      validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "FULL_BLOCK", "BLOCK_EXECUTE", "READ_ONLY", "BLOCK_EXECUTE"])
+      validator = EnumAttributeValidator.new('String', ["FULL_ACCESS", "BLOCK_ALL", "BLOCK_EXECUTE", "BLOCK_WRITE_EXECUTE", "BLOCK_EXECUTE"])
       unless validator.valid?(action)
         fail ArgumentError, "invalid value for \"action\", must be one of #{validator.allowable_values}."
       end
       @action = action
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] id Object to be assigned
+    def id=(id)
+      validator = EnumAttributeValidator.new('String', ["ANY", "AUDIO_VIDEO", "IMAGING", "MASS_STORAGE", "MOBILE", "PRINTER", "WIRELESS"])
+      unless validator.valid?(id)
+        fail ArgumentError, "invalid value for \"id\", must be one of #{validator.allowable_values}."
+      end
+      @id = id
     end
 
     # Checks equality by comparing each attribute.

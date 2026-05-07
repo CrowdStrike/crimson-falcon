@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -52,6 +51,8 @@ module Falcon
 
     attr_accessor :cid
 
+    attr_accessor :cloud_registration_enabled
+
     attr_accessor :cloudformation_stack_arn
 
     attr_accessor :cloudformation_update_url
@@ -63,6 +64,8 @@ module Falcon
     # csp live events are enabled
     attr_accessor :csp_events
 
+    attr_accessor :cspm_enabled
+
     attr_accessor :environment
 
     attr_accessor :falcon_client_id
@@ -72,11 +75,16 @@ module Falcon
 
     attr_accessor :inventory_filter
 
+    # Is CSPM Lite enabled.
+    attr_accessor :is_cspm_lite
+
     attr_accessor :is_custom_rolename
 
     attr_accessor :is_delegated_admin
 
     attr_accessor :is_master
+
+    attr_accessor :ngsiem_enabled
 
     # Up to 34 character AWS provided unique identifier for the organization.
     attr_accessor :organization_id
@@ -84,6 +92,8 @@ module Falcon
     attr_accessor :products
 
     attr_accessor :registration_status
+
+    attr_accessor :remediation_cloudformation_url
 
     attr_accessor :resource_metadata
 
@@ -98,10 +108,14 @@ module Falcon
 
     attr_accessor :s3_url
 
+    attr_accessor :settings
+
     # Account registration status for each product and feature
     attr_accessor :status
 
     attr_accessor :target_ous
+
+    attr_accessor :template_source_region
 
     attr_accessor :use_existing_cloudtrail
 
@@ -117,29 +131,36 @@ module Falcon
         :'account_type' => :'account_type',
         :'active_regions' => :'active_regions',
         :'cid' => :'cid',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'cloudformation_stack_arn' => :'cloudformation_stack_arn',
         :'cloudformation_update_url' => :'cloudformation_update_url',
         :'cloudformation_url' => :'cloudformation_url',
         :'conditions' => :'conditions',
         :'csp_events' => :'csp_events',
+        :'cspm_enabled' => :'cspm_enabled',
         :'environment' => :'environment',
         :'falcon_client_id' => :'falcon_client_id',
         :'iam_service_permissions_status' => :'iam_service_permissions_status',
         :'inventory_filter' => :'inventory_filter',
+        :'is_cspm_lite' => :'is_cspm_lite',
         :'is_custom_rolename' => :'is_custom_rolename',
         :'is_delegated_admin' => :'is_delegated_admin',
         :'is_master' => :'is_master',
+        :'ngsiem_enabled' => :'ngsiem_enabled',
         :'organization_id' => :'organization_id',
         :'products' => :'products',
         :'registration_status' => :'registration_status',
+        :'remediation_cloudformation_url' => :'remediation_cloudformation_url',
         :'resource_metadata' => :'resource_metadata',
         :'resource_name_prefix' => :'resource_name_prefix',
         :'resource_name_suffix' => :'resource_name_suffix',
         :'root_account_id' => :'root_account_id',
         :'root_iam_role' => :'root_iam_role',
         :'s3_url' => :'s3_url',
+        :'settings' => :'settings',
         :'status' => :'status',
         :'target_ous' => :'target_ous',
+        :'template_source_region' => :'template_source_region',
         :'use_existing_cloudtrail' => :'use_existing_cloudtrail'
       }
     end
@@ -161,29 +182,36 @@ module Falcon
         :'account_type' => :'String',
         :'active_regions' => :'Array<String>',
         :'cid' => :'String',
+        :'cloud_registration_enabled' => :'Boolean',
         :'cloudformation_stack_arn' => :'String',
         :'cloudformation_update_url' => :'String',
         :'cloudformation_url' => :'String',
         :'conditions' => :'Array<DomainCloudCondition>',
         :'csp_events' => :'Boolean',
+        :'cspm_enabled' => :'Boolean',
         :'environment' => :'String',
         :'falcon_client_id' => :'String',
         :'iam_service_permissions_status' => :'Array<DomainProductPermission>',
         :'inventory_filter' => :'Array<DomainAWSInventoryFilterSetting>',
+        :'is_cspm_lite' => :'Boolean',
         :'is_custom_rolename' => :'Boolean',
         :'is_delegated_admin' => :'Boolean',
         :'is_master' => :'Boolean',
+        :'ngsiem_enabled' => :'Boolean',
         :'organization_id' => :'String',
         :'products' => :'Array<DomainProductFeatures>',
         :'registration_status' => :'String',
+        :'remediation_cloudformation_url' => :'String',
         :'resource_metadata' => :'DomainAWSAccountResourceMetadata',
         :'resource_name_prefix' => :'String',
         :'resource_name_suffix' => :'String',
         :'root_account_id' => :'String',
         :'root_iam_role' => :'Boolean',
         :'s3_url' => :'String',
+        :'settings' => :'Object',
         :'status' => :'Array<DomainProductFeaturesStatus>',
         :'target_ous' => :'Array<String>',
+        :'template_source_region' => :'String',
         :'use_existing_cloudtrail' => :'Boolean'
       }
     end
@@ -247,6 +275,10 @@ module Falcon
         self.cid = attributes[:'cid']
       end
 
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
+      end
+
       if attributes.key?(:'cloudformation_stack_arn')
         self.cloudformation_stack_arn = attributes[:'cloudformation_stack_arn']
       end
@@ -269,6 +301,10 @@ module Falcon
         self.csp_events = attributes[:'csp_events']
       end
 
+      if attributes.key?(:'cspm_enabled')
+        self.cspm_enabled = attributes[:'cspm_enabled']
+      end
+
       if attributes.key?(:'environment')
         self.environment = attributes[:'environment']
       end
@@ -289,6 +325,10 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'is_cspm_lite')
+        self.is_cspm_lite = attributes[:'is_cspm_lite']
+      end
+
       if attributes.key?(:'is_custom_rolename')
         self.is_custom_rolename = attributes[:'is_custom_rolename']
       end
@@ -299,6 +339,10 @@ module Falcon
 
       if attributes.key?(:'is_master')
         self.is_master = attributes[:'is_master']
+      end
+
+      if attributes.key?(:'ngsiem_enabled')
+        self.ngsiem_enabled = attributes[:'ngsiem_enabled']
       end
 
       if attributes.key?(:'organization_id')
@@ -313,6 +357,10 @@ module Falcon
 
       if attributes.key?(:'registration_status')
         self.registration_status = attributes[:'registration_status']
+      end
+
+      if attributes.key?(:'remediation_cloudformation_url')
+        self.remediation_cloudformation_url = attributes[:'remediation_cloudformation_url']
       end
 
       if attributes.key?(:'resource_metadata')
@@ -339,6 +387,10 @@ module Falcon
         self.s3_url = attributes[:'s3_url']
       end
 
+      if attributes.key?(:'settings')
+        self.settings = attributes[:'settings']
+      end
+
       if attributes.key?(:'status')
         if (value = attributes[:'status']).is_a?(Array)
           self.status = value
@@ -349,6 +401,10 @@ module Falcon
         if (value = attributes[:'target_ous']).is_a?(Array)
           self.target_ous = value
         end
+      end
+
+      if attributes.key?(:'template_source_region')
+        self.template_source_region = attributes[:'template_source_region']
       end
 
       if attributes.key?(:'use_existing_cloudtrail')
@@ -428,29 +484,36 @@ module Falcon
           account_type == o.account_type &&
           active_regions == o.active_regions &&
           cid == o.cid &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           cloudformation_stack_arn == o.cloudformation_stack_arn &&
           cloudformation_update_url == o.cloudformation_update_url &&
           cloudformation_url == o.cloudformation_url &&
           conditions == o.conditions &&
           csp_events == o.csp_events &&
+          cspm_enabled == o.cspm_enabled &&
           environment == o.environment &&
           falcon_client_id == o.falcon_client_id &&
           iam_service_permissions_status == o.iam_service_permissions_status &&
           inventory_filter == o.inventory_filter &&
+          is_cspm_lite == o.is_cspm_lite &&
           is_custom_rolename == o.is_custom_rolename &&
           is_delegated_admin == o.is_delegated_admin &&
           is_master == o.is_master &&
+          ngsiem_enabled == o.ngsiem_enabled &&
           organization_id == o.organization_id &&
           products == o.products &&
           registration_status == o.registration_status &&
+          remediation_cloudformation_url == o.remediation_cloudformation_url &&
           resource_metadata == o.resource_metadata &&
           resource_name_prefix == o.resource_name_prefix &&
           resource_name_suffix == o.resource_name_suffix &&
           root_account_id == o.root_account_id &&
           root_iam_role == o.root_iam_role &&
           s3_url == o.s3_url &&
+          settings == o.settings &&
           status == o.status &&
           target_ous == o.target_ous &&
+          template_source_region == o.template_source_region &&
           use_existing_cloudtrail == o.use_existing_cloudtrail
     end
 
@@ -463,7 +526,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, cloudformation_stack_arn, cloudformation_update_url, cloudformation_url, conditions, csp_events, environment, falcon_client_id, iam_service_permissions_status, inventory_filter, is_custom_rolename, is_delegated_admin, is_master, organization_id, products, registration_status, resource_metadata, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, status, target_ous, use_existing_cloudtrail].hash
+      [created_at, deleted_at, id, updated_at, account_id, account_name, account_type, active_regions, cid, cloud_registration_enabled, cloudformation_stack_arn, cloudformation_update_url, cloudformation_url, conditions, csp_events, cspm_enabled, environment, falcon_client_id, iam_service_permissions_status, inventory_filter, is_cspm_lite, is_custom_rolename, is_delegated_admin, is_master, ngsiem_enabled, organization_id, products, registration_status, remediation_cloudformation_url, resource_metadata, resource_name_prefix, resource_name_suffix, root_account_id, root_iam_role, s3_url, settings, status, target_ous, template_source_region, use_existing_cloudtrail].hash
     end
 
     # Builds the object from hash

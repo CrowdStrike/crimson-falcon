@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -292,6 +291,9 @@ module Falcon
     # For Linux and Mac hosts: the major version, minor version, and patch version of the kernel for the asset. For Windows hosts: the build number of the asset.
     attr_accessor :kernel_version
 
+    # The date of the most recent authenticated scan.
+    attr_accessor :last_authenticated_scan_date
+
     # The agent ID of the Falcon sensor installed on the source that most recently discovered the asset.
     attr_accessor :last_discoverer_aid
 
@@ -303,6 +305,9 @@ module Falcon
 
     # The most recent time the asset was seen in your environment.
     attr_accessor :last_seen_timestamp
+
+    # The date of the most recent unauthenticated scan.
+    attr_accessor :last_unauthenticated_scan_date
 
     # Historical local IPv4 addresses associated with the asset.
     attr_accessor :local_ip_addresses
@@ -500,6 +505,15 @@ module Falcon
     # The external ID of the IoT Device in 3rd Party System(Claroty Xdome)
     attr_accessor :xdome_id
 
+    # The hostnames of the sources that discovered the asset.
+    attr_accessor :xiot_discoverer_hostnames
+
+    # The tags of the sources that discovered the asset.
+    attr_accessor :xiot_discoverer_tags
+
+    # The hostname of the last source that discovered the asset.
+    attr_accessor :xiot_last_discoverer_hostname
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -591,10 +605,12 @@ module Falcon
         :'iot_imported' => :'iot_imported',
         :'iot_tags' => :'iot_tags',
         :'kernel_version' => :'kernel_version',
+        :'last_authenticated_scan_date' => :'last_authenticated_scan_date',
         :'last_discoverer_aid' => :'last_discoverer_aid',
         :'last_discoverer_hostname' => :'last_discoverer_hostname',
         :'last_discoverer_ics_collector_id' => :'last_discoverer_ics_collector_id',
         :'last_seen_timestamp' => :'last_seen_timestamp',
+        :'last_unauthenticated_scan_date' => :'last_unauthenticated_scan_date',
         :'local_ip_addresses' => :'local_ip_addresses',
         :'local_ips_count' => :'local_ips_count',
         :'location' => :'location',
@@ -660,7 +676,10 @@ module Falcon
         :'virtual_zone' => :'virtual_zone',
         :'vlan' => :'vlan',
         :'vulnerability_assessment_date' => :'vulnerability_assessment_date',
-        :'xdome_id' => :'xdome_id'
+        :'xdome_id' => :'xdome_id',
+        :'xiot_discoverer_hostnames' => :'xiot_discoverer_hostnames',
+        :'xiot_discoverer_tags' => :'xiot_discoverer_tags',
+        :'xiot_last_discoverer_hostname' => :'xiot_last_discoverer_hostname'
       }
     end
 
@@ -760,10 +779,12 @@ module Falcon
         :'iot_imported' => :'DomainIotImportedHost',
         :'iot_tags' => :'Array<String>',
         :'kernel_version' => :'String',
+        :'last_authenticated_scan_date' => :'String',
         :'last_discoverer_aid' => :'String',
         :'last_discoverer_hostname' => :'String',
         :'last_discoverer_ics_collector_id' => :'String',
         :'last_seen_timestamp' => :'String',
+        :'last_unauthenticated_scan_date' => :'String',
         :'local_ip_addresses' => :'Array<String>',
         :'local_ips_count' => :'Integer',
         :'location' => :'String',
@@ -829,7 +850,10 @@ module Falcon
         :'virtual_zone' => :'String',
         :'vlan' => :'Array<String>',
         :'vulnerability_assessment_date' => :'String',
-        :'xdome_id' => :'String'
+        :'xdome_id' => :'String',
+        :'xiot_discoverer_hostnames' => :'Array<String>',
+        :'xiot_discoverer_tags' => :'Array<String>',
+        :'xiot_last_discoverer_hostname' => :'String'
       }
     end
 
@@ -1244,6 +1268,10 @@ module Falcon
         self.kernel_version = attributes[:'kernel_version']
       end
 
+      if attributes.key?(:'last_authenticated_scan_date')
+        self.last_authenticated_scan_date = attributes[:'last_authenticated_scan_date']
+      end
+
       if attributes.key?(:'last_discoverer_aid')
         self.last_discoverer_aid = attributes[:'last_discoverer_aid']
       end
@@ -1258,6 +1286,10 @@ module Falcon
 
       if attributes.key?(:'last_seen_timestamp')
         self.last_seen_timestamp = attributes[:'last_seen_timestamp']
+      end
+
+      if attributes.key?(:'last_unauthenticated_scan_date')
+        self.last_unauthenticated_scan_date = attributes[:'last_unauthenticated_scan_date']
       end
 
       if attributes.key?(:'local_ip_addresses')
@@ -1553,6 +1585,22 @@ module Falcon
       if attributes.key?(:'xdome_id')
         self.xdome_id = attributes[:'xdome_id']
       end
+
+      if attributes.key?(:'xiot_discoverer_hostnames')
+        if (value = attributes[:'xiot_discoverer_hostnames']).is_a?(Array)
+          self.xiot_discoverer_hostnames = value
+        end
+      end
+
+      if attributes.key?(:'xiot_discoverer_tags')
+        if (value = attributes[:'xiot_discoverer_tags']).is_a?(Array)
+          self.xiot_discoverer_tags = value
+        end
+      end
+
+      if attributes.key?(:'xiot_last_discoverer_hostname')
+        self.xiot_last_discoverer_hostname = attributes[:'xiot_last_discoverer_hostname']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -1671,10 +1719,12 @@ module Falcon
           iot_imported == o.iot_imported &&
           iot_tags == o.iot_tags &&
           kernel_version == o.kernel_version &&
+          last_authenticated_scan_date == o.last_authenticated_scan_date &&
           last_discoverer_aid == o.last_discoverer_aid &&
           last_discoverer_hostname == o.last_discoverer_hostname &&
           last_discoverer_ics_collector_id == o.last_discoverer_ics_collector_id &&
           last_seen_timestamp == o.last_seen_timestamp &&
+          last_unauthenticated_scan_date == o.last_unauthenticated_scan_date &&
           local_ip_addresses == o.local_ip_addresses &&
           local_ips_count == o.local_ips_count &&
           location == o.location &&
@@ -1740,7 +1790,10 @@ module Falcon
           virtual_zone == o.virtual_zone &&
           vlan == o.vlan &&
           vulnerability_assessment_date == o.vulnerability_assessment_date &&
-          xdome_id == o.xdome_id
+          xdome_id == o.xdome_id &&
+          xiot_discoverer_hostnames == o.xiot_discoverer_hostnames &&
+          xiot_discoverer_tags == o.xiot_discoverer_tags &&
+          xiot_last_discoverer_hostname == o.xiot_last_discoverer_hostname
     end
 
     # @see the `==` method
@@ -1752,7 +1805,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, network_scanned_ids, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id].hash
+      [account_enabled, active_discovery, ad_user_account_control, ad_virtual_server, agent_version, aid, asset_roles, assigned_to, available_disk_space, available_disk_space_pct, average_memory_usage, average_memory_usage_pct, average_processor_usage, bios_hashes_data, bios_id, bios_manufacturer, bios_version, business_criticality, cid, city, claroty_id, classification, cloud_account_id, cloud_instance_id, cloud_provider, cloud_region, cloud_registered, cloud_resource_id, composite_internet_exposure, computed_asset_roles, computed_internet_exposure, computed_internet_exposure_external_ip, computed_internet_exposure_last_seen, confidence, country, cpu_manufacturer, cpu_processor_name, creation_timestamp, criticality, criticality_description, criticality_rule_id, criticality_timestamp, criticality_username, current_local_ip, current_network_prefix, data_providers, data_providers_count, department, descriptions, device_class, device_family, device_mode, device_slots, device_type, discoverer_aids, discoverer_count, discoverer_criticalities, discoverer_hostnames, discoverer_ics_collector_ids, discoverer_platform_names, discoverer_product_type_descs, discoverer_tags, discovering_by, disk_sizes, dragos_id, email, encrypted_drives, encrypted_drives_count, encryption_status, entity_type, external_ip, field_metadata, first_discoverer_aid, first_seen_timestamp, form_factor, fqdn, groups, hostname, ics_id, id, imported_host_id, internet_exposure, internet_exposure_description, internet_exposure_timestamp, internet_exposure_username, iot_imported, iot_tags, kernel_version, last_authenticated_scan_date, last_discoverer_aid, last_discoverer_hostname, last_discoverer_ics_collector_id, last_seen_timestamp, last_unauthenticated_scan_date, local_ip_addresses, local_ips_count, location, logical_core_count, mac_addresses, machine_domain, managed_by, max_memory_usage, max_memory_usage_pct, max_processor_usage, memory_total, mount_storage_info, network_id, network_interfaces, network_scanned_ids, number_of_disk_drives, object_guid, object_sid, os_is_eol, os_security, os_service_pack, os_version, ot_information_sources, ot_network_ids, ot_serial_numbers, ou, ous, override_asset_roles, override_criticality_rules, override_internet_exposure, owned_by, physical_core_count, platform_name, processor_package_count, product_type, product_type_desc, protocols, purdue_level, qualys_id, qualys_network_id, reduced_functionality_mode, scan_details, servicenow_id, site_name, state, subnet, system_manufacturer, system_product_name, system_serial_number, tags, tenableio_id, total_bios_files, total_disk_space, total_memory, triage, unencrypted_drives, unencrypted_drives_count, used_disk_space, used_disk_space_pct, used_for, user_asset_roles, user_internet_exposure, virtual_zone, vlan, vulnerability_assessment_date, xdome_id, xiot_discoverer_hostnames, xiot_discoverer_tags, xiot_last_discoverer_hostname].hash
     end
 
     # Builds the object from hash

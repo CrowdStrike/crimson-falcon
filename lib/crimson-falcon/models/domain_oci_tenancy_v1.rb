@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -33,6 +32,8 @@ require 'time'
 module Falcon
   class DomainOCITenancyV1
     attr_accessor :cid
+
+    attr_accessor :cloud_registration_enabled
 
     attr_accessor :conditions
 
@@ -104,6 +105,7 @@ module Falcon
     def self.attribute_map
       {
         :'cid' => :'cid',
+        :'cloud_registration_enabled' => :'cloud_registration_enabled',
         :'conditions' => :'conditions',
         :'created_at' => :'created_at',
         :'cspm_enabled' => :'cspm_enabled',
@@ -139,6 +141,7 @@ module Falcon
     def self.openapi_types
       {
         :'cid' => :'String',
+        :'cloud_registration_enabled' => :'Boolean',
         :'conditions' => :'Array<DomainCloudCondition>',
         :'created_at' => :'Time',
         :'cspm_enabled' => :'Boolean',
@@ -188,6 +191,10 @@ module Falcon
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'cloud_registration_enabled')
+        self.cloud_registration_enabled = attributes[:'cloud_registration_enabled']
       end
 
       if attributes.key?(:'conditions')
@@ -295,6 +302,10 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
+      if @cloud_registration_enabled.nil?
+        invalid_properties.push('invalid value for "cloud_registration_enabled", cloud_registration_enabled cannot be nil.')
+      end
+
       if @created_at.nil?
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
@@ -386,6 +397,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @cid.nil?
+      return false if @cloud_registration_enabled.nil?
       return false if @created_at.nil?
       return false if @cspm_enabled.nil?
       return false if @finger_print.nil?
@@ -416,6 +428,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           cid == o.cid &&
+          cloud_registration_enabled == o.cloud_registration_enabled &&
           conditions == o.conditions &&
           created_at == o.created_at &&
           cspm_enabled == o.cspm_enabled &&
@@ -450,7 +463,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, conditions, created_at, cspm_enabled, finger_print, group_name, group_ocid, home_region, is_connected, key_age, overall_status, policy_name, policy_ocid, private_key, products, public_key, stack_name, stack_ocid, tenancy_name, tenancy_ocid, updated_at, user_email, user_name, user_ocid].hash
+      [cid, cloud_registration_enabled, conditions, created_at, cspm_enabled, finger_print, group_name, group_ocid, home_region, is_connected, key_age, overall_status, policy_name, policy_ocid, private_key, products, public_key, stack_name, stack_ocid, tenancy_name, tenancy_ocid, updated_at, user_email, user_name, user_ocid].hash
     end
 
     # Builds the object from hash

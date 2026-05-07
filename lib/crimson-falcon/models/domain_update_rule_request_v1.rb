@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,10 +31,10 @@ require 'time'
 
 module Falcon
   class DomainUpdateRuleRequestV1
-    # Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true.
+    # Monitor only for exposed data. Must be accompanied by breach_monitoring_enabled:true.
     attr_accessor :breach_monitor_only
 
-    # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
+    # Whether to monitor for exposed data. Available only for `Company Domains` and `Email addresses` rule topics.
     attr_accessor :breach_monitoring_enabled
 
     # The FQL filter to be used for searching
@@ -53,7 +52,7 @@ module Falcon
     # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public`, `private`]
     attr_accessor :permissions
 
-    # The priority for a given rule. Possible values: [`low`, `medium`, `high`]
+    # The priority for a given rule. Possible values: [`none`, `low`, `medium`, `high`, `critical`]
     attr_accessor :priority
 
     # Whether to monitor for substring matches. Only available for the `Typosquatting` topic.

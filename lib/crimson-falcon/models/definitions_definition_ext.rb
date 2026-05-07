@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,8 +37,13 @@ module Falcon
 
     attr_accessor :description
 
+    attr_accessor :disconnected_nodes
+
     # Indicates whether the workflow is enabled and active or not.
     attr_accessor :enabled
+
+    # Indicates whether the workflow has validation errors
+    attr_accessor :has_validation_errors
 
     # Unique identifier for the trigger.
     attr_accessor :id
@@ -86,7 +90,9 @@ module Falcon
         :'actions' => :'actions',
         :'conditions' => :'conditions',
         :'description' => :'description',
+        :'disconnected_nodes' => :'disconnected_nodes',
         :'enabled' => :'enabled',
+        :'has_validation_errors' => :'has_validation_errors',
         :'id' => :'id',
         :'labels' => :'labels',
         :'last_modified_timestamp' => :'last_modified_timestamp',
@@ -119,7 +125,9 @@ module Falcon
         :'actions' => :'Hash<String, V2Activity>',
         :'conditions' => :'Hash<String, V2Condition>',
         :'description' => :'String',
+        :'disconnected_nodes' => :'Array<String>',
         :'enabled' => :'Boolean',
+        :'has_validation_errors' => :'Boolean',
         :'id' => :'String',
         :'labels' => :'Array<String>',
         :'last_modified_timestamp' => :'Time',
@@ -178,8 +186,18 @@ module Falcon
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'disconnected_nodes')
+        if (value = attributes[:'disconnected_nodes']).is_a?(Array)
+          self.disconnected_nodes = value
+        end
+      end
+
       if attributes.key?(:'enabled')
         self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'has_validation_errors')
+        self.has_validation_errors = attributes[:'has_validation_errors']
       end
 
       if attributes.key?(:'id')
@@ -277,6 +295,10 @@ module Falcon
         invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
       end
 
+      if @has_validation_errors.nil?
+        invalid_properties.push('invalid value for "has_validation_errors", has_validation_errors cannot be nil.')
+      end
+
       if @id.nil?
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
@@ -316,6 +338,7 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @enabled.nil?
+      return false if @has_validation_errors.nil?
       return false if @id.nil?
       return false if @last_modified_timestamp.nil?
       return false if @name.nil?
@@ -335,7 +358,9 @@ module Falcon
           actions == o.actions &&
           conditions == o.conditions &&
           description == o.description &&
+          disconnected_nodes == o.disconnected_nodes &&
           enabled == o.enabled &&
+          has_validation_errors == o.has_validation_errors &&
           id == o.id &&
           labels == o.labels &&
           last_modified_timestamp == o.last_modified_timestamp &&
@@ -365,7 +390,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, description, enabled, id, labels, last_modified_timestamp, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors, version].hash
+      [actions, conditions, description, disconnected_nodes, enabled, has_validation_errors, id, labels, last_modified_timestamp, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, summary, trigger, type, uniq_node_seen, use_cases, vendors, version].hash
     end
 
     # Builds the object from hash

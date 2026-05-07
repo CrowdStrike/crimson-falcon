@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -89,6 +88,20 @@ describe 'RealTimeResponseAdmin' do
     end
   end
 
+  # unit tests for r_tr_create_put_files_v2
+  # Upload a new put-file to use for the RTR &#x60;put&#x60; command.
+  # @param file put-file to upload
+  # @param description File description
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :name File name (if different than actual file name)
+  # @option opts [String] :comments_for_audit_log The audit log comment
+  # @return [EmpowerapiMsaPFResponseV2]
+  describe 'r_tr_create_put_files_v2 test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for r_tr_create_scripts
   # Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command.
   # @param description File description
@@ -101,6 +114,23 @@ describe 'RealTimeResponseAdmin' do
   # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to &#39;windows&#39;
   # @return [MsaReplyMetaOnly]
   describe 'r_tr_create_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for r_tr_create_scripts_v2
+  # Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command.
+  # @param description File description
+  # @param permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+  # @option opts [String] :name File name (if different than actual file name)
+  # @option opts [String] :comments_for_audit_log The audit log comment
+  # @option opts [String] :content The script text that you want to use to upload
+  # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux, . If no platform is provided, it will default to &#39;windows&#39;
+  # @return [EmpowerapiMsaPFResponseV2]
+  describe 'r_tr_create_scripts_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -260,6 +290,24 @@ describe 'RealTimeResponseAdmin' do
   # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
   # @return [MsaReplyMetaOnly]
   describe 'r_tr_update_scripts test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for r_tr_update_scripts_v2
+  # Upload a new scripts to replace an existing one.
+  # @param id ID to update
+  # @param [Hash] opts the optional parameters
+  # @option opts [File] :file custom-script file to upload.  These should be powershell scripts.
+  # @option opts [String] :description File description
+  # @option opts [String] :name File name (if different than actual file name)
+  # @option opts [String] :comments_for_audit_log The audit log comment
+  # @option opts [String] :permission_type Permission for the custom-script. Valid permission values:   - &#x60;private&#x60;, usable by only the user who uploaded it   - &#x60;group&#x60;, usable by all RTR Admins   - &#x60;public&#x60;, usable by all active-responders and RTR admins
+  # @option opts [String] :content The script text that you want to use to upload
+  # @option opts [Array<String>] :platform Platforms for the file. Currently supports: windows, mac, linux,
+  # @return [EmpowerapiMsaPFResponseV2]
+  describe 'r_tr_update_scripts_v2 test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

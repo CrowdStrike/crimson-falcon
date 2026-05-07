@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -36,7 +35,7 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
+    # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id notification_group_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
@@ -45,7 +44,7 @@ module Falcon
       data
     end
 
-    # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
+    # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id notification_group_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
     # @param body [Array<MsaAggregateQueryRequest>]
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
@@ -1328,7 +1327,7 @@ module Falcon
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
     # @option opts [String] :sort Possible order by fields: created_date, updated_date. Ex: &#39;updated_date|desc&#39;.
-    # @option opts [String] :filter FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id]
+    # @option opts [String] :filter FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id notification_group_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id]
     # @option opts [String] :q Free text search across all indexed fields.
     # @return [DomainQueryResponse]
     def query_notifications_exposed_data_records_v1(opts = {})
@@ -1341,7 +1340,7 @@ module Falcon
     # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
     # @option opts [String] :sort Possible order by fields: created_date, updated_date. Ex: &#39;updated_date|desc&#39;.
-    # @option opts [String] :filter FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id]
+    # @option opts [String] :filter FQL query to filter notifications by. Possible filter properties are: [id cid user_uuid created_date exposure_date rule.id rule.name rule.topic notification_id notification_group_id source_category site site_id author author_id user_id user_name credentials_url credentials_domain credentials_ip email domain hash_type display_name full_name user_ip phone_number company job_position file.name file.complete_data_set file.download_urls location.postal_code location.city location.state location.federal_district location.federal_admin_region location.country_code social.twitter_id social.facebook_id social.vk_id social.vk_token social.aim_id social.icq_id social.msn_id social.instagram_id social.skype_id financial.credit_card financial.bank_account financial.crypto_currency_addresses login_id credential_status _all bot.operating_system.hardware_id bot.bot_id]
     # @option opts [String] :q Free text search across all indexed fields.
     # @return [Array<(DomainQueryResponse, Integer, Hash)>] DomainQueryResponse data, response status code and response headers
     def query_notifications_exposed_data_records_v1_with_http_info(opts = {})
@@ -1483,10 +1482,10 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs.
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
-    # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+    # @option opts [String] :sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
-    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [DomainRuleQueryResponseV1]
     def query_rules_v1(opts = {})
       data, _status_code, _headers = query_rules_v1_with_http_info(opts)
@@ -1497,10 +1496,10 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs.
     # @option opts [Integer] :limit Number of IDs to return. Offset + limit should NOT be above 10K.
-    # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+    # @option opts [String] :sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
-    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp,last_updated_timestamp,permissions,priority,template_priority,topic. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [Array<(DomainRuleQueryResponseV1, Integer, Hash)>] DomainRuleQueryResponseV1 data, response status code and response headers
     def query_rules_v1_with_http_info(opts = {})
       if @api_client.config.debugging

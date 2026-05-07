@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -51,7 +50,6 @@ describe 'IdentityProtection' do
 
   # unit tests for api_preempt_proxy_delete_policy_rules
   # Delete policy rules
-  # @param authorization Authorization Header
   # @param ids Rule IDs
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -63,7 +61,6 @@ describe 'IdentityProtection' do
 
   # unit tests for api_preempt_proxy_get_policy_rules
   # Get policy rules
-  # @param authorization Authorization Header
   # @param ids Rule IDs
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -75,7 +72,6 @@ describe 'IdentityProtection' do
 
   # unit tests for api_preempt_proxy_get_policy_rules_query
   # Query policy rule IDs
-  # @param authorization Authorization Header
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :enabled Whether the rule is enabled
   # @option opts [Boolean] :simulation_mode Whether the rule is in simulation mode
@@ -89,7 +85,7 @@ describe 'IdentityProtection' do
 
   # unit tests for api_preempt_proxy_post_graphql
   # Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
-  # @param authorization Authorization Header
+  # @param body
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'api_preempt_proxy_post_graphql test' do
@@ -100,7 +96,6 @@ describe 'IdentityProtection' do
 
   # unit tests for api_preempt_proxy_post_policy_rules
   # Create policy rule
-  # @param authorization Authorization Header
   # @param body
   # @param [Hash] opts the optional parameters
   # @return [nil]

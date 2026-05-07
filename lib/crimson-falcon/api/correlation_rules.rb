@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -41,7 +40,7 @@ module Falcon
     # @param body [Array<Object>]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying the filter parameters
-    # @return [ApiAggregatesResponseV1]
+    # @return [CorrelationrulesapiAggregatesResponseV1]
     def aggregates_rule_versions_post_v1(ids, body, opts = {})
       data, _status_code, _headers = aggregates_rule_versions_post_v1_with_http_info(ids, body, opts)
       data
@@ -52,7 +51,7 @@ module Falcon
     # @param body [Array<Object>]
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying the filter parameters
-    # @return [Array<(ApiAggregatesResponseV1, Integer, Hash)>] ApiAggregatesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiAggregatesResponseV1, Integer, Hash)>] CorrelationrulesapiAggregatesResponseV1 data, response status code and response headers
     def aggregates_rule_versions_post_v1_with_http_info(ids, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.aggregates_rule_versions_post_v1 ...'
@@ -90,7 +89,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiAggregatesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiAggregatesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -119,7 +118,7 @@ module Falcon
     # @option opts [String] :sort Rule property to sort on (default to 'created_on')
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
     # @option opts [Integer] :limit Number of IDs to return (default to 100)
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def combined_rules_get_v1(opts = {})
       data, _status_code, _headers = combined_rules_get_v1_with_http_info(opts)
       data
@@ -132,7 +131,7 @@ module Falcon
     # @option opts [String] :sort Rule property to sort on (default to 'created_on')
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
     # @option opts [Integer] :limit Number of IDs to return (default to 100)
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def combined_rules_get_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.combined_rules_get_v1 ...'
@@ -164,7 +163,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -193,7 +192,7 @@ module Falcon
     # @option opts [String] :sort Rule property to sort on (default to 'created_on')
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
     # @option opts [Integer] :limit Number of IDs to return (default to 100)
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def combined_rules_get_v2(opts = {})
       data, _status_code, _headers = combined_rules_get_v2_with_http_info(opts)
       data
@@ -206,7 +205,7 @@ module Falcon
     # @option opts [String] :sort Rule property to sort on (default to 'created_on')
     # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
     # @option opts [Integer] :limit Number of IDs to return (default to 100)
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def combined_rules_get_v2_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.combined_rules_get_v2 ...'
@@ -238,7 +237,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -263,7 +262,7 @@ module Falcon
     # Retrieve latest rule versions by rule IDs
     # @param rule_ids [Array<String>] The rule IDs
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def entities_latest_rules_get_v1(rule_ids, opts = {})
       data, _status_code, _headers = entities_latest_rules_get_v1_with_http_info(rule_ids, opts)
       data
@@ -272,7 +271,7 @@ module Falcon
     # Retrieve latest rule versions by rule IDs
     # @param rule_ids [Array<String>] The rule IDs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def entities_latest_rules_get_v1_with_http_info(rule_ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_latest_rules_get_v1 ...'
@@ -300,7 +299,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -385,18 +384,18 @@ module Falcon
     end
 
     # Export rule versions
-    # @param body [ApiRuleVersionReportRequest]
+    # @param body [CorrelationrulesapiRuleVersionReportRequest]
     # @param [Hash] opts the optional parameters
-    # @return [ApiJobLinkResponseV1]
+    # @return [CorrelationrulesapiJobLinkResponseV1]
     def entities_rule_versions_export_post_v1(body, opts = {})
       data, _status_code, _headers = entities_rule_versions_export_post_v1_with_http_info(body, opts)
       data
     end
 
     # Export rule versions
-    # @param body [ApiRuleVersionReportRequest]
+    # @param body [CorrelationrulesapiRuleVersionReportRequest]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiJobLinkResponseV1, Integer, Hash)>] ApiJobLinkResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiJobLinkResponseV1, Integer, Hash)>] CorrelationrulesapiJobLinkResponseV1 data, response status code and response headers
     def entities_rule_versions_export_post_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rule_versions_export_post_v1 ...'
@@ -428,7 +427,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiJobLinkResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiJobLinkResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -452,7 +451,7 @@ module Falcon
 
     # Import rule versions
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRuleVersionsResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRuleVersionsResponseV1]
     def entities_rule_versions_import_post_v1(opts = {})
       data, _status_code, _headers = entities_rule_versions_import_post_v1_with_http_info(opts)
       data
@@ -460,7 +459,7 @@ module Falcon
 
     # Import rule versions
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRuleVersionsResponseV1, Integer, Hash)>] ApiGetEntitiesRuleVersionsResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRuleVersionsResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 data, response status code and response headers
     def entities_rule_versions_import_post_v1_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rule_versions_import_post_v1 ...'
@@ -483,7 +482,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRuleVersionsResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRuleVersionsResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -506,18 +505,18 @@ module Falcon
     end
 
     # Publish existing rule version
-    # @param body [ApiRuleVersionPublishRequestV1]
+    # @param body [CorrelationrulesapiRuleVersionPublishRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRuleVersionsResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRuleVersionsResponseV1]
     def entities_rule_versions_publish_patch_v1(body, opts = {})
       data, _status_code, _headers = entities_rule_versions_publish_patch_v1_with_http_info(body, opts)
       data
     end
 
     # Publish existing rule version
-    # @param body [ApiRuleVersionPublishRequestV1]
+    # @param body [CorrelationrulesapiRuleVersionPublishRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRuleVersionsResponseV1, Integer, Hash)>] ApiGetEntitiesRuleVersionsResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRuleVersionsResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRuleVersionsResponseV1 data, response status code and response headers
     def entities_rule_versions_publish_patch_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rule_versions_publish_patch_v1 ...'
@@ -549,7 +548,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRuleVersionsResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRuleVersionsResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -636,7 +635,7 @@ module Falcon
     # Retrieve rules by IDs
     # @param ids [Array<String>] The IDs
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def entities_rules_get_v1(ids, opts = {})
       data, _status_code, _headers = entities_rules_get_v1_with_http_info(ids, opts)
       data
@@ -645,7 +644,7 @@ module Falcon
     # Retrieve rules by IDs
     # @param ids [Array<String>] The IDs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def entities_rules_get_v1_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rules_get_v1 ...'
@@ -673,7 +672,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -698,7 +697,7 @@ module Falcon
     # Retrieve rule versions by IDs
     # @param ids [Array<String>] The IDs
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def entities_rules_get_v2(ids, opts = {})
       data, _status_code, _headers = entities_rules_get_v2_with_http_info(ids, opts)
       data
@@ -707,7 +706,7 @@ module Falcon
     # Retrieve rule versions by IDs
     # @param ids [Array<String>] The IDs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def entities_rules_get_v2_with_http_info(ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rules_get_v2 ...'
@@ -735,7 +734,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -758,18 +757,18 @@ module Falcon
     end
 
     # Update rules
-    # @param body [Array<ApiRulePatchRequestV1>]
+    # @param body [Array<CorrelationrulesapiRulePatchRequestV1>]
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def entities_rules_patch_v1(body, opts = {})
       data, _status_code, _headers = entities_rules_patch_v1_with_http_info(body, opts)
       data
     end
 
     # Update rules
-    # @param body [Array<ApiRulePatchRequestV1>]
+    # @param body [Array<CorrelationrulesapiRulePatchRequestV1>]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def entities_rules_patch_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rules_patch_v1 ...'
@@ -801,7 +800,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -824,18 +823,18 @@ module Falcon
     end
 
     # Create rule
-    # @param body [ApiRuleCreateRequestV1]
+    # @param body [CorrelationrulesapiRuleCreateRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [ApiGetEntitiesRulesResponseV1]
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
     def entities_rules_post_v1(body, opts = {})
       data, _status_code, _headers = entities_rules_post_v1_with_http_info(body, opts)
       data
     end
 
     # Create rule
-    # @param body [ApiRuleCreateRequestV1]
+    # @param body [CorrelationrulesapiRuleCreateRequestV1]
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiGetEntitiesRulesResponseV1, Integer, Hash)>] ApiGetEntitiesRulesResponseV1 data, response status code and response headers
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
     def entities_rules_post_v1_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_rules_post_v1 ...'
@@ -867,7 +866,7 @@ module Falcon
       post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiGetEntitiesRulesResponseV1'
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -885,6 +884,134 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CorrelationRules#entities_rules_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve rule templates by IDs
+    # @param ids [Array<String>] The IDs
+    # @param [Hash] opts the optional parameters
+    # @return [CorrelationrulesapiGetEntitiesTemplatesResponseV1]
+    def entities_templates_get_v1_mixin0(ids, opts = {})
+      data, _status_code, _headers = entities_templates_get_v1_mixin0_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieve rule templates by IDs
+    # @param ids [Array<String>] The IDs
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CorrelationrulesapiGetEntitiesTemplatesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesTemplatesResponseV1 data, response status code and response headers
+    def entities_templates_get_v1_mixin0_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_templates_get_v1_mixin0 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CorrelationRules.entities_templates_get_v1_mixin0"
+      end
+      # resource path
+      local_var_path = '/correlation-rules/entities/templates/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesTemplatesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CorrelationRules.entities_templates_get_v1_mixin0",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CorrelationRules#entities_templates_get_v1_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create rule from template
+    # @param body [Array<CorrelationrulesapiDeployTemplateRequestV1>]
+    # @param [Hash] opts the optional parameters
+    # @return [CorrelationrulesapiGetEntitiesRulesResponseV1]
+    def entities_templates_rules_post_v1(body, opts = {})
+      data, _status_code, _headers = entities_templates_rules_post_v1_with_http_info(body, opts)
+      data
+    end
+
+    # Create rule from template
+    # @param body [Array<CorrelationrulesapiDeployTemplateRequestV1>]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CorrelationrulesapiGetEntitiesRulesResponseV1, Integer, Hash)>] CorrelationrulesapiGetEntitiesRulesResponseV1 data, response status code and response headers
+    def entities_templates_rules_post_v1_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CorrelationRules.entities_templates_rules_post_v1 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CorrelationRules.entities_templates_rules_post_v1"
+      end
+      # resource path
+      local_var_path = '/correlation-rules/entities/templates/rules/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CorrelationrulesapiGetEntitiesRulesResponseV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CorrelationRules.entities_templates_rules_post_v1",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CorrelationRules#entities_templates_rules_post_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -963,7 +1090,7 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id Supported range filters: created_on,last_updated_on
+    # Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id,executor_rule_id Supported range filters: created_on,last_updated_on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying the filter parameters
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
@@ -976,7 +1103,7 @@ module Falcon
       data
     end
 
-    # Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id Supported range filters: created_on,last_updated_on
+    # Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id,executor_rule_id Supported range filters: created_on,last_updated_on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter FQL query specifying the filter parameters
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
@@ -1033,6 +1160,77 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CorrelationRules#queries_rules_get_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search rule template IDs matching the filter. Supported filters: name,description,vendor,outcome,mitre_attack.tactic_id,mitre_attack.technique_id,type Supported range filters: created_on,last_updated_on
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying the filter parameters
+    # @option opts [String] :sort Rule property to sort on (default to 'created_on')
+    # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
+    # @option opts [Integer] :limit Number of IDs to return (default to 100)
+    # @return [MsaspecQueryResponse]
+    def queries_templates_get_v1_mixin0(opts = {})
+      data, _status_code, _headers = queries_templates_get_v1_mixin0_with_http_info(opts)
+      data
+    end
+
+    # Search rule template IDs matching the filter. Supported filters: name,description,vendor,outcome,mitre_attack.tactic_id,mitre_attack.technique_id,type Supported range filters: created_on,last_updated_on
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter FQL query specifying the filter parameters
+    # @option opts [String] :sort Rule property to sort on (default to 'created_on')
+    # @option opts [Integer] :offset Starting index of overall result set from which to return IDs (default to 0)
+    # @option opts [Integer] :limit Number of IDs to return (default to 100)
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def queries_templates_get_v1_mixin0_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CorrelationRules.queries_templates_get_v1_mixin0 ...'
+      end
+      allowable_values = ["created_on", "created_on|desc", "last_updated_on", "last_updated_on|desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/correlation-rules/queries/templates/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CorrelationRules.queries_templates_get_v1_mixin0",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CorrelationRules#queries_templates_get_v1_mixin0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -45,6 +44,8 @@ module Falcon
     attr_accessor :id
 
     attr_accessor :last_updated
+
+    attr_accessor :platform_name
 
     attr_accessor :profile_id
 
@@ -68,6 +69,7 @@ module Falcon
         :'host_scan_id' => :'host_scan_id',
         :'id' => :'id',
         :'last_updated' => :'last_updated',
+        :'platform_name' => :'platform_name',
         :'profile_id' => :'profile_id',
         :'scan_control_reason' => :'scan_control_reason',
         :'scan_id' => :'scan_id',
@@ -92,6 +94,7 @@ module Falcon
         :'host_scan_id' => :'String',
         :'id' => :'String',
         :'last_updated' => :'Time',
+        :'platform_name' => :'String',
         :'profile_id' => :'String',
         :'scan_control_reason' => :'String',
         :'scan_id' => :'String',
@@ -150,6 +153,10 @@ module Falcon
         self.last_updated = attributes[:'last_updated']
       end
 
+      if attributes.key?(:'platform_name')
+        self.platform_name = attributes[:'platform_name']
+      end
+
       if attributes.key?(:'profile_id')
         self.profile_id = attributes[:'profile_id']
       end
@@ -205,6 +212,7 @@ module Falcon
           host_scan_id == o.host_scan_id &&
           id == o.id &&
           last_updated == o.last_updated &&
+          platform_name == o.platform_name &&
           profile_id == o.profile_id &&
           scan_control_reason == o.scan_control_reason &&
           scan_id == o.scan_id &&
@@ -222,7 +230,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, completed_on, filecount, host_id, host_scan_id, id, last_updated, profile_id, scan_control_reason, scan_id, severity, started_on, status].hash
+      [cid, completed_on, filecount, host_id, host_scan_id, id, last_updated, platform_name, profile_id, scan_control_reason, scan_id, severity, started_on, status].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,9 +37,13 @@ module Falcon
 
     attr_accessor :application_vendors
 
+    attr_accessor :group_by
+
     attr_accessor :inline_app_filter
 
     attr_accessor :requirement_criteria
+
+    attr_accessor :template_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -48,8 +51,10 @@ module Falcon
         :'application_filters' => :'application_filters',
         :'application_group_id' => :'application_group_id',
         :'application_vendors' => :'application_vendors',
+        :'group_by' => :'group_by',
         :'inline_app_filter' => :'inline_app_filter',
-        :'requirement_criteria' => :'requirement_criteria'
+        :'requirement_criteria' => :'requirement_criteria',
+        :'template_fields' => :'template_fields'
       }
     end
 
@@ -64,8 +69,10 @@ module Falcon
         :'application_filters' => :'String',
         :'application_group_id' => :'String',
         :'application_vendors' => :'String',
+        :'group_by' => :'String',
         :'inline_app_filter' => :'String',
-        :'requirement_criteria' => :'String'
+        :'requirement_criteria' => :'String',
+        :'template_fields' => :'Array<String>'
       }
     end
 
@@ -102,12 +109,22 @@ module Falcon
         self.application_vendors = attributes[:'application_vendors']
       end
 
+      if attributes.key?(:'group_by')
+        self.group_by = attributes[:'group_by']
+      end
+
       if attributes.key?(:'inline_app_filter')
         self.inline_app_filter = attributes[:'inline_app_filter']
       end
 
       if attributes.key?(:'requirement_criteria')
         self.requirement_criteria = attributes[:'requirement_criteria']
+      end
+
+      if attributes.key?(:'template_fields')
+        if (value = attributes[:'template_fields']).is_a?(Array)
+          self.template_fields = value
+        end
       end
     end
 
@@ -127,12 +144,20 @@ module Falcon
         invalid_properties.push('invalid value for "application_vendors", application_vendors cannot be nil.')
       end
 
+      if @group_by.nil?
+        invalid_properties.push('invalid value for "group_by", group_by cannot be nil.')
+      end
+
       if @inline_app_filter.nil?
         invalid_properties.push('invalid value for "inline_app_filter", inline_app_filter cannot be nil.')
       end
 
       if @requirement_criteria.nil?
         invalid_properties.push('invalid value for "requirement_criteria", requirement_criteria cannot be nil.')
+      end
+
+      if @template_fields.nil?
+        invalid_properties.push('invalid value for "template_fields", template_fields cannot be nil.')
       end
 
       invalid_properties
@@ -144,8 +169,10 @@ module Falcon
       return false if @application_filters.nil?
       return false if @application_group_id.nil?
       return false if @application_vendors.nil?
+      return false if @group_by.nil?
       return false if @inline_app_filter.nil?
       return false if @requirement_criteria.nil?
+      return false if @template_fields.nil?
       true
     end
 
@@ -157,8 +184,10 @@ module Falcon
           application_filters == o.application_filters &&
           application_group_id == o.application_group_id &&
           application_vendors == o.application_vendors &&
+          group_by == o.group_by &&
           inline_app_filter == o.inline_app_filter &&
-          requirement_criteria == o.requirement_criteria
+          requirement_criteria == o.requirement_criteria &&
+          template_fields == o.template_fields
     end
 
     # @see the `==` method
@@ -170,7 +199,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [application_filters, application_group_id, application_vendors, inline_app_filter, requirement_criteria].hash
+      [application_filters, application_group_id, application_vendors, group_by, inline_app_filter, requirement_criteria, template_fields].hash
     end
 
     # Builds the object from hash

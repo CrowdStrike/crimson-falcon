@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -34,6 +33,9 @@ module Falcon
   class SensorUpdateSettingsRespV2
     # The target build applied to devices in the policy
     attr_accessor :build
+
+    # Indicates whether or not the build configured on the policy is categorized as a LTS build (Long Term Support)
+    attr_accessor :is_lts_build
 
     attr_accessor :scheduler
 
@@ -76,6 +78,7 @@ module Falcon
     def self.attribute_map
       {
         :'build' => :'build',
+        :'is_lts_build' => :'is_lts_build',
         :'scheduler' => :'scheduler',
         :'sensor_version' => :'sensor_version',
         :'show_early_adopter_builds' => :'show_early_adopter_builds',
@@ -94,6 +97,7 @@ module Falcon
     def self.openapi_types
       {
         :'build' => :'String',
+        :'is_lts_build' => :'Boolean',
         :'scheduler' => :'PolicySensorUpdateScheduler',
         :'sensor_version' => :'String',
         :'show_early_adopter_builds' => :'Boolean',
@@ -126,6 +130,10 @@ module Falcon
 
       if attributes.key?(:'build')
         self.build = attributes[:'build']
+      end
+
+      if attributes.key?(:'is_lts_build')
+        self.is_lts_build = attributes[:'is_lts_build']
       end
 
       if attributes.key?(:'scheduler')
@@ -163,6 +171,10 @@ module Falcon
         invalid_properties.push('invalid value for "build", build cannot be nil.')
       end
 
+      if @is_lts_build.nil?
+        invalid_properties.push('invalid value for "is_lts_build", is_lts_build cannot be nil.')
+      end
+
       if @scheduler.nil?
         invalid_properties.push('invalid value for "scheduler", scheduler cannot be nil.')
       end
@@ -194,11 +206,12 @@ module Falcon
     # @return true if the model is valid
     def valid?
       return false if @build.nil?
+      return false if @is_lts_build.nil?
       return false if @scheduler.nil?
       return false if @sensor_version.nil?
       return false if @show_early_adopter_builds.nil?
       return false if @stage.nil?
-      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter"])
+      stage_validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
       return false unless stage_validator.valid?(@stage)
       return false if @uninstall_protection.nil?
       uninstall_protection_validator = EnumAttributeValidator.new('String', ["ENABLED", "DISABLED", "MAINTENANCE_MODE", "IGNORE", "UNKNOWN"])
@@ -210,7 +223,7 @@ module Falcon
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] stage Object to be assigned
     def stage=(stage)
-      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter"])
+      validator = EnumAttributeValidator.new('String', ["prod", "early_adopter", ""])
       unless validator.valid?(stage)
         fail ArgumentError, "invalid value for \"stage\", must be one of #{validator.allowable_values}."
       end
@@ -233,6 +246,7 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           build == o.build &&
+          is_lts_build == o.is_lts_build &&
           scheduler == o.scheduler &&
           sensor_version == o.sensor_version &&
           show_early_adopter_builds == o.show_early_adopter_builds &&
@@ -250,7 +264,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [build, scheduler, sensor_version, show_early_adopter_builds, stage, uninstall_protection, variants].hash
+      [build, is_lts_build, scheduler, sensor_version, show_early_adopter_builds, stage, uninstall_protection, variants].hash
     end
 
     # Builds the object from hash

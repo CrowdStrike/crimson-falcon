@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -95,7 +94,7 @@ describe 'QuickScanPro' do
 
   # unit tests for query_scan_results
   # FQL query specifying the filter parameters
-  # @param filter Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_source,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp All filter fields and operations supports negation (!). _all field is used to search between all fields.
+  # @param filter Empty value means to not filter on anything Available filter fields that supports match (~): _all, mitre_attacks.description Available filter fields that supports exact match: cid,sha256,id,status,type,entity,executor,verdict,verdict_reason,verdict_reasons,verdict_source,file_size,file_type,mime_type,adversary,file_type_short,first_content_bytes_hex,first_content_bytes_ascii,artifacts.file_artifacts.sha256,artifacts.file_artifacts.filename,artifacts.file_artifacts.verdict,artifacts.file_artifacts.verdict_reasons,artifacts.url_artifacts.url,artifacts.url_artifacts.verdict,artifacts.url_artifacts.verdict_reasons,mitre_attacks.attack_id,mitre_attacks.attack_id_wiki,mitre_attacks.tactic,mitre_attacks.technique,mitre_attacks.capec_id,mitre_attacks.parent.attack_id,mitre_attacks.parent.attack_id_wiki,mitre_attacks.parent.technique,static_indicators,malware_config.url,malware_config.domain,malware_config.ip,artifacts_tree.nodes.type,artifacts_tree.nodes.value,artifacts_tree.nodes.verdict,artifacts_tree.edges.from,artifacts_tree.edges.to,artifacts_tree.edges.label Available filter fields that supports wildcard (*): mitre_attacks.description Available filter fields that supports range comparisons (&gt;, &lt;, &gt;&#x3D;, &lt;&#x3D;): created_timestamp, updated_timestamp, file_size All filter fields and operations supports negation (!). _all field is used to search between all fields.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :offset The offset to start retrieving ids from.
   # @option opts [Integer] :limit Maximum number of IDs to return. Max: 5000.
@@ -108,10 +107,11 @@ describe 'QuickScanPro' do
   end
 
   # unit tests for upload_file_quick_scan_pro
-  # Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
-  # @param file Binary file to be uploaded. Max file size: 256 MB.
+  # Uploads a file to be further analyzed with QuickScan Pro. Supports both multipart/form-data and application/octet-stream uploads. The samples expire according to the Retention Policies set. See parameter descriptions for usage per content type.
+  # @param upload_file_quick_scan_pro_request
   # @param [Hash] opts the optional parameters
-  # @option opts [Boolean] :scan If true, after upload, it starts scanning immediately. Default scan mode is &#39;false&#39;
+  # @option opts [String] :file_name OCTET-STREAM ONLY - Name of the file (required for octet-stream uploads).
+  # @option opts [String] :x_file_password OCTET-STREAM ONLY - Password for encrypted archives (use for octet-stream uploads). If &#39;scan&#39; is true, the value is used for the scan just starting.
   # @return [QuickscanproFileUploadResponse]
   describe 'upload_file_quick_scan_pro test' do
     it 'should work' do

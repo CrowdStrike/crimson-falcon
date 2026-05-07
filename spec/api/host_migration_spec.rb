@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -69,7 +68,7 @@ describe 'HostMigration' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-10000]
   # @option opts [String] :sort The property to sort by.
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: migration_id, id, created_time, hostgroups, static_host_groups, hostname, status, groups, target_cid, source_cid, host_migration_id
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: static_host_groups, hostname, status, source_cid, hostgroups, target_cid, migration_id, id, created_time, host_migration_id, groups
   # @return [MsaspecQueryResponse]
   describe 'get_host_migration_ids_v1 test' do
     it 'should work' do
@@ -107,7 +106,7 @@ describe 'HostMigration' do
   # @option opts [Integer] :offset The offset to start retrieving records from
   # @option opts [Integer] :limit The maximum records to return. [1-10000]
   # @option opts [String] :sort The property to sort by.
-  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: migration_status, created_by, created_time, name, id, migration_id, target_cid, status
+  # @option opts [String] :filter The filter expression that should be used to limit the results. Valid fields: target_cid, status, migration_status, created_by, created_time, name, id, migration_id
   # @return [MsaspecQueryResponse]
   describe 'get_migration_ids_v1 test' do
     it 'should work' do

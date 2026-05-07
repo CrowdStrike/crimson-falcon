@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -54,9 +53,13 @@ module Falcon
 
     attr_accessor :image_id
 
+    attr_accessor :index_digest
+
     attr_accessor :last_seen
 
     attr_accessor :layers_with_vulnerabilities
+
+    attr_accessor :multi_arch
 
     attr_accessor :packages
 
@@ -88,8 +91,10 @@ module Falcon
         :'highest_vulnerability_severity' => :'highest_vulnerability_severity',
         :'image_digest' => :'image_digest',
         :'image_id' => :'image_id',
+        :'index_digest' => :'index_digest',
         :'last_seen' => :'last_seen',
         :'layers_with_vulnerabilities' => :'layers_with_vulnerabilities',
+        :'multi_arch' => :'multi_arch',
         :'packages' => :'packages',
         :'registry' => :'registry',
         :'report_url_by_id_and_digest' => :'report_url_by_id_and_digest',
@@ -120,8 +125,10 @@ module Falcon
         :'highest_vulnerability_severity' => :'String',
         :'image_digest' => :'String',
         :'image_id' => :'String',
+        :'index_digest' => :'String',
         :'last_seen' => :'String',
         :'layers_with_vulnerabilities' => :'Integer',
+        :'multi_arch' => :'Boolean',
         :'packages' => :'Integer',
         :'registry' => :'String',
         :'report_url_by_id_and_digest' => :'String',
@@ -198,12 +205,20 @@ module Falcon
         self.image_id = attributes[:'image_id']
       end
 
+      if attributes.key?(:'index_digest')
+        self.index_digest = attributes[:'index_digest']
+      end
+
       if attributes.key?(:'last_seen')
         self.last_seen = attributes[:'last_seen']
       end
 
       if attributes.key?(:'layers_with_vulnerabilities')
         self.layers_with_vulnerabilities = attributes[:'layers_with_vulnerabilities']
+      end
+
+      if attributes.key?(:'multi_arch')
+        self.multi_arch = attributes[:'multi_arch']
       end
 
       if attributes.key?(:'packages')
@@ -287,12 +302,20 @@ module Falcon
         invalid_properties.push('invalid value for "image_id", image_id cannot be nil.')
       end
 
+      if @index_digest.nil?
+        invalid_properties.push('invalid value for "index_digest", index_digest cannot be nil.')
+      end
+
       if @last_seen.nil?
         invalid_properties.push('invalid value for "last_seen", last_seen cannot be nil.')
       end
 
       if @layers_with_vulnerabilities.nil?
         invalid_properties.push('invalid value for "layers_with_vulnerabilities", layers_with_vulnerabilities cannot be nil.')
+      end
+
+      if @multi_arch.nil?
+        invalid_properties.push('invalid value for "multi_arch", multi_arch cannot be nil.')
       end
 
       if @packages.nil?
@@ -344,8 +367,10 @@ module Falcon
       return false if @highest_vulnerability_severity.nil?
       return false if @image_digest.nil?
       return false if @image_id.nil?
+      return false if @index_digest.nil?
       return false if @last_seen.nil?
       return false if @layers_with_vulnerabilities.nil?
+      return false if @multi_arch.nil?
       return false if @packages.nil?
       return false if @registry.nil?
       return false if @report_url_by_id_and_digest.nil?
@@ -373,8 +398,10 @@ module Falcon
           highest_vulnerability_severity == o.highest_vulnerability_severity &&
           image_digest == o.image_digest &&
           image_id == o.image_id &&
+          index_digest == o.index_digest &&
           last_seen == o.last_seen &&
           layers_with_vulnerabilities == o.layers_with_vulnerabilities &&
+          multi_arch == o.multi_arch &&
           packages == o.packages &&
           registry == o.registry &&
           report_url_by_id_and_digest == o.report_url_by_id_and_digest &&
@@ -394,7 +421,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [ai_related, architecture, base_os, cid, containers, detections, first_seen, highest_detection_severity, highest_vulnerability_severity, image_digest, image_id, last_seen, layers_with_vulnerabilities, packages, registry, report_url_by_id_and_digest, report_url_by_repo_and_tag, repository, tag, vulnerabilities, warning].hash
+      [ai_related, architecture, base_os, cid, containers, detections, first_seen, highest_detection_severity, highest_vulnerability_severity, image_digest, image_id, index_digest, last_seen, layers_with_vulnerabilities, multi_arch, packages, registry, report_url_by_id_and_digest, report_url_by_repo_and_tag, repository, tag, vulnerabilities, warning].hash
     end
 
     # Builds the object from hash

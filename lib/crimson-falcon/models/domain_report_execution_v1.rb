@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -55,6 +54,8 @@ module Falcon
     attr_accessor :result_metadata
 
     attr_accessor :scheduled_report_id
+
+    attr_accessor :secret_references
 
     attr_accessor :shared_with
 
@@ -89,6 +90,7 @@ module Falcon
         :'report_params' => :'report_params',
         :'result_metadata' => :'result_metadata',
         :'scheduled_report_id' => :'scheduled_report_id',
+        :'secret_references' => :'secret_references',
         :'shared_with' => :'shared_with',
         :'status' => :'status',
         :'status_display' => :'status_display',
@@ -121,6 +123,7 @@ module Falcon
         :'report_params' => :'DomainReportParams',
         :'result_metadata' => :'DomainResultMetadata',
         :'scheduled_report_id' => :'String',
+        :'secret_references' => :'DomainSecretReferencesV1',
         :'shared_with' => :'Array<String>',
         :'status' => :'String',
         :'status_display' => :'String',
@@ -200,6 +203,10 @@ module Falcon
 
       if attributes.key?(:'scheduled_report_id')
         self.scheduled_report_id = attributes[:'scheduled_report_id']
+      end
+
+      if attributes.key?(:'secret_references')
+        self.secret_references = attributes[:'secret_references']
       end
 
       if attributes.key?(:'shared_with')
@@ -341,6 +348,7 @@ module Falcon
           report_params == o.report_params &&
           result_metadata == o.result_metadata &&
           scheduled_report_id == o.scheduled_report_id &&
+          secret_references == o.secret_references &&
           shared_with == o.shared_with &&
           status == o.status &&
           status_display == o.status_display &&
@@ -361,7 +369,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [can_write, created_on, customer_id, execution_metadata, expiration_on, id, job_reference, last_updated_on, report_file_reference, report_params, result_metadata, scheduled_report_id, shared_with, status, status_display, status_msg, tracking, trigger_reference, type, user_id, user_uuid].hash
+      [can_write, created_on, customer_id, execution_metadata, expiration_on, id, job_reference, last_updated_on, report_file_reference, report_params, result_metadata, scheduled_report_id, secret_references, shared_with, status, status_display, status_msg, tracking, trigger_reference, type, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -53,6 +52,8 @@ module Falcon
     attr_accessor :containers_impacted_count
 
     attr_accessor :containers_impacted_ids
+
+    attr_accessor :custom_rego_uuid
 
     attr_accessor :description
 
@@ -146,6 +147,7 @@ module Falcon
         :'containers_impacted_ai_related' => :'containers_impacted_ai_related',
         :'containers_impacted_count' => :'containers_impacted_count',
         :'containers_impacted_ids' => :'containers_impacted_ids',
+        :'custom_rego_uuid' => :'custom_rego_uuid',
         :'description' => :'description',
         :'detect_timestamp' => :'detect_timestamp',
         :'detection_id' => :'detection_id',
@@ -207,6 +209,7 @@ module Falcon
         :'containers_impacted_ai_related' => :'Boolean',
         :'containers_impacted_count' => :'String',
         :'containers_impacted_ids' => :'Array<String>',
+        :'custom_rego_uuid' => :'String',
         :'description' => :'String',
         :'detect_timestamp' => :'String',
         :'detection_id' => :'String',
@@ -316,6 +319,10 @@ module Falcon
         if (value = attributes[:'containers_impacted_ids']).is_a?(Array)
           self.containers_impacted_ids = value
         end
+      end
+
+      if attributes.key?(:'custom_rego_uuid')
+        self.custom_rego_uuid = attributes[:'custom_rego_uuid']
       end
 
       if attributes.key?(:'description')
@@ -630,6 +637,7 @@ module Falcon
           containers_impacted_ai_related == o.containers_impacted_ai_related &&
           containers_impacted_count == o.containers_impacted_count &&
           containers_impacted_ids == o.containers_impacted_ids &&
+          custom_rego_uuid == o.custom_rego_uuid &&
           description == o.description &&
           detect_timestamp == o.detect_timestamp &&
           detection_id == o.detection_id &&
@@ -680,7 +688,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cluster_id, cluster_name, containers_impacted_ai_related, containers_impacted_count, containers_impacted_ids, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
+      [admission_review_action, admission_review_id, admission_review_msg, admission_review_operation, cid, cis_id, cluster_id, cluster_name, containers_impacted_ai_related, containers_impacted_count, containers_impacted_ids, custom_rego_uuid, description, detect_timestamp, detection_id, detection_name, detection_type, image_assessment_matched_cves, image_assessment_policy_description, image_assessment_policy_id, image_assessment_policy_name, image_digest, image_has_been_assessed, image_id, image_registry, image_repository, image_tag, last_seen_timestamp, mitigation_id, mitigation_name, namespace, nist_id, pod_label, pods_impacted_count, policy_id, policy_name, ports, prevented, remediation, resource_creation_timestamp, resource_group_name, resource_id, resource_name, resource_type, sensitive_env_vars, service_type, severity, tactic_id, tactic_name, technique_id, technique_name].hash
     end
 
     # Builds the object from hash

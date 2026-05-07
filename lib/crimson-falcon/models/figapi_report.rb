@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -32,12 +31,16 @@ require 'time'
 
 module Falcon
   class FigapiReport
+    # Slug name of the report
+    attr_accessor :slug
+
     # Title of the report
     attr_accessor :title
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'slug' => :'Slug',
         :'title' => :'Title'
       }
     end
@@ -50,6 +53,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'slug' => :'String',
         :'title' => :'String'
       }
     end
@@ -75,6 +79,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'slug')
+        self.slug = attributes[:'slug']
+      end
+
       if attributes.key?(:'title')
         self.title = attributes[:'title']
       end
@@ -98,6 +106,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          slug == o.slug &&
           title == o.title
     end
 
@@ -110,7 +119,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [title].hash
+      [slug, title].hash
     end
 
     # Builds the object from hash

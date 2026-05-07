@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -74,6 +73,8 @@ module Falcon
 
     attr_accessor :cloud_service_id
 
+    attr_accessor :cloud_service_name
+
     attr_accessor :cloud_service_subtype
 
     attr_accessor :cloud_service_type
@@ -101,6 +102,8 @@ module Falcon
     attr_accessor :internal_only
 
     attr_accessor :is_enabled
+
+    attr_accessor :is_global
 
     attr_accessor :is_remediable
 
@@ -174,6 +177,7 @@ module Falcon
         :'cloud_service' => :'cloud_service',
         :'cloud_service_friendly' => :'cloud_service_friendly',
         :'cloud_service_id' => :'cloud_service_id',
+        :'cloud_service_name' => :'cloud_service_name',
         :'cloud_service_subtype' => :'cloud_service_subtype',
         :'cloud_service_type' => :'cloud_service_type',
         :'compliance' => :'compliance',
@@ -188,6 +192,7 @@ module Falcon
         :'hitrust_benchmark_ids' => :'hitrust_benchmark_ids',
         :'internal_only' => :'internal_only',
         :'is_enabled' => :'is_enabled',
+        :'is_global' => :'is_global',
         :'is_remediable' => :'is_remediable',
         :'iso_benchmark_ids' => :'iso_benchmark_ids',
         :'mitre_attack_cloud_matrix' => :'mitre_attack_cloud_matrix',
@@ -244,6 +249,7 @@ module Falcon
         :'cloud_service' => :'Integer',
         :'cloud_service_friendly' => :'String',
         :'cloud_service_id' => :'Integer',
+        :'cloud_service_name' => :'String',
         :'cloud_service_subtype' => :'String',
         :'cloud_service_type' => :'String',
         :'compliance' => :'DomainCompliance',
@@ -258,6 +264,7 @@ module Falcon
         :'hitrust_benchmark_ids' => :'Array<Integer>',
         :'internal_only' => :'Boolean',
         :'is_enabled' => :'Boolean',
+        :'is_global' => :'Boolean',
         :'is_remediable' => :'Boolean',
         :'iso_benchmark_ids' => :'Array<Integer>',
         :'mitre_attack_cloud_matrix' => :'String',
@@ -396,6 +403,10 @@ module Falcon
         self.cloud_service_id = attributes[:'cloud_service_id']
       end
 
+      if attributes.key?(:'cloud_service_name')
+        self.cloud_service_name = attributes[:'cloud_service_name']
+      end
+
       if attributes.key?(:'cloud_service_subtype')
         self.cloud_service_subtype = attributes[:'cloud_service_subtype']
       end
@@ -456,6 +467,10 @@ module Falcon
 
       if attributes.key?(:'is_enabled')
         self.is_enabled = attributes[:'is_enabled']
+      end
+
+      if attributes.key?(:'is_global')
+        self.is_global = attributes[:'is_global']
       end
 
       if attributes.key?(:'is_remediable')
@@ -637,6 +652,7 @@ module Falcon
           cloud_service == o.cloud_service &&
           cloud_service_friendly == o.cloud_service_friendly &&
           cloud_service_id == o.cloud_service_id &&
+          cloud_service_name == o.cloud_service_name &&
           cloud_service_subtype == o.cloud_service_subtype &&
           cloud_service_type == o.cloud_service_type &&
           compliance == o.compliance &&
@@ -651,6 +667,7 @@ module Falcon
           hitrust_benchmark_ids == o.hitrust_benchmark_ids &&
           internal_only == o.internal_only &&
           is_enabled == o.is_enabled &&
+          is_global == o.is_global &&
           is_remediable == o.is_remediable &&
           iso_benchmark_ids == o.iso_benchmark_ids &&
           mitre_attack_cloud_matrix == o.mitre_attack_cloud_matrix &&
@@ -686,7 +703,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_id, cloud_service_subtype, cloud_service_type, compliance, confidence, controls, default_severity, deprecated, description, event_type, fql_policy, hipaa_benchmark_ids, hitrust_benchmark_ids, internal_only, is_enabled, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, resource_type_friendly_name, resource_type_id, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
+      [created_at, deleted_at, id, updated_at, account_scope, alert_logic, api_command, asset_type_id, attack_tool, attack_tool_command, attack_types, cis_benchmark_ids, cisa_benchmark_ids, cli_command, cloud_asset_type, cloud_document, cloud_platform, cloud_platform_type, cloud_service, cloud_service_friendly, cloud_service_id, cloud_service_name, cloud_service_subtype, cloud_service_type, compliance, confidence, controls, default_severity, deprecated, description, event_type, fql_policy, hipaa_benchmark_ids, hitrust_benchmark_ids, internal_only, is_enabled, is_global, is_remediable, iso_benchmark_ids, mitre_attack_cloud_matrix, mitre_attack_cloud_subtype, nist_benchmark_ids, pci_benchmark_ids, policy_confidence_score, policy_fail_query, policy_pass_query, policy_remediation, policy_severity, policy_severity_score, policy_statement, policy_type, remediation_summary, resource_type_friendly_name, resource_type_id, soc2_benchmark_ids, tactic, tactic_id, tactic_url, technique, technique_id, technique_url].hash
     end
 
     # Builds the object from hash

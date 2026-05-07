@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -65,6 +64,8 @@ module Falcon
     attr_accessor :cpu_signature
 
     attr_accessor :cpu_vendor
+
+    attr_accessor :criticality
 
     attr_accessor :default_gateway_ip
 
@@ -198,6 +199,8 @@ module Falcon
 
     attr_accessor :rtr_state
 
+    attr_accessor :safe_mode
+
     attr_accessor :serial_number
 
     attr_accessor :service_pack_major
@@ -242,6 +245,7 @@ module Falcon
         :'connection_mac_address' => :'connection_mac_address',
         :'cpu_signature' => :'cpu_signature',
         :'cpu_vendor' => :'cpu_vendor',
+        :'criticality' => :'criticality',
         :'default_gateway_ip' => :'default_gateway_ip',
         :'deployment_type' => :'deployment_type',
         :'detection_suppression_status' => :'detection_suppression_status',
@@ -308,6 +312,7 @@ module Falcon
         :'reduced_functionality_mode' => :'reduced_functionality_mode',
         :'release_group' => :'release_group',
         :'rtr_state' => :'rtr_state',
+        :'safe_mode' => :'safe_mode',
         :'serial_number' => :'serial_number',
         :'service_pack_major' => :'service_pack_major',
         :'service_pack_minor' => :'service_pack_minor',
@@ -348,6 +353,7 @@ module Falcon
         :'connection_mac_address' => :'String',
         :'cpu_signature' => :'String',
         :'cpu_vendor' => :'String',
+        :'criticality' => :'String',
         :'default_gateway_ip' => :'String',
         :'deployment_type' => :'String',
         :'detection_suppression_status' => :'String',
@@ -414,6 +420,7 @@ module Falcon
         :'reduced_functionality_mode' => :'String',
         :'release_group' => :'String',
         :'rtr_state' => :'String',
+        :'safe_mode' => :'String',
         :'serial_number' => :'String',
         :'service_pack_major' => :'String',
         :'service_pack_minor' => :'String',
@@ -516,6 +523,10 @@ module Falcon
 
       if attributes.key?(:'cpu_vendor')
         self.cpu_vendor = attributes[:'cpu_vendor']
+      end
+
+      if attributes.key?(:'criticality')
+        self.criticality = attributes[:'criticality']
       end
 
       if attributes.key?(:'default_gateway_ip')
@@ -794,6 +805,10 @@ module Falcon
         self.rtr_state = attributes[:'rtr_state']
       end
 
+      if attributes.key?(:'safe_mode')
+        self.safe_mode = attributes[:'safe_mode']
+      end
+
       if attributes.key?(:'serial_number')
         self.serial_number = attributes[:'serial_number']
       end
@@ -890,6 +905,7 @@ module Falcon
           connection_mac_address == o.connection_mac_address &&
           cpu_signature == o.cpu_signature &&
           cpu_vendor == o.cpu_vendor &&
+          criticality == o.criticality &&
           default_gateway_ip == o.default_gateway_ip &&
           deployment_type == o.deployment_type &&
           detection_suppression_status == o.detection_suppression_status &&
@@ -956,6 +972,7 @@ module Falcon
           reduced_functionality_mode == o.reduced_functionality_mode &&
           release_group == o.release_group &&
           rtr_state == o.rtr_state &&
+          safe_mode == o.safe_mode &&
           serial_number == o.serial_number &&
           service_pack_major == o.service_pack_major &&
           service_pack_minor == o.service_pack_minor &&
@@ -979,7 +996,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [agent_load_flags, agent_local_time, agent_version, base_image_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, filesystem_containment_status, first_login_timestamp, first_login_user, first_seen, group_hash, groups, host_deleted_status, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, license_activation_state, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, migration_completed_time, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, rtr_state, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, slow_changing_modified_timestamp, status, system_manufacturer, system_product_name, tags, zone_group].hash
+      [agent_load_flags, agent_local_time, agent_version, base_image_version, bios_manufacturer, bios_version, build_number, chassis_type, chassis_type_desc, cid, config_id_base, config_id_build, config_id_platform, connection_ip, connection_mac_address, cpu_signature, cpu_vendor, criticality, default_gateway_ip, deployment_type, detection_suppression_status, device_id, device_policies, email, external_ip, filesystem_containment_status, first_login_timestamp, first_login_user, first_seen, group_hash, groups, host_deleted_status, host_hidden_status, host_utc_offset, hostname, instance_id, internet_exposure, k8s_cluster_git_version, k8s_cluster_id, k8s_cluster_version, kernel_version, last_login_timestamp, last_login_uid, last_login_user, last_login_user_sid, last_reboot, last_seen, license_activation_state, linux_sensor_mode, local_ip, mac_address, machine_domain, major_version, managed_apps, meta, migration_completed_time, minor_version, modified_timestamp, notes, os_build, os_product_name, os_version, ou, platform_id, platform_name, pod_annotations, pod_host_ip4, pod_host_ip6, pod_hostname, pod_id, pod_ip4, pod_ip6, pod_labels, pod_name, pod_namespace, pod_service_account_name, pointer_size, policies, product_type, product_type_desc, provision_status, reduced_functionality_mode, release_group, rtr_state, safe_mode, serial_number, service_pack_major, service_pack_minor, service_provider, service_provider_account_id, site_name, slow_changing_modified_timestamp, status, system_manufacturer, system_product_name, tags, zone_group].hash
     end
 
     # Builds the object from hash

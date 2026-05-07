@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -49,6 +48,8 @@ module Falcon
     attr_accessor :device_id
 
     attr_accessor :duration
+
+    attr_accessor :execution_id
 
     attr_accessor :hostname
 
@@ -84,6 +85,7 @@ module Falcon
         :'device_details' => :'device_details',
         :'device_id' => :'device_id',
         :'duration' => :'duration',
+        :'execution_id' => :'execution_id',
         :'hostname' => :'hostname',
         :'id' => :'id',
         :'logs' => :'logs',
@@ -115,6 +117,7 @@ module Falcon
         :'device_details' => :'DomainDevice',
         :'device_id' => :'String',
         :'duration' => :'Float',
+        :'execution_id' => :'String',
         :'hostname' => :'String',
         :'id' => :'String',
         :'logs' => :'Array<ModelSessionLog>',
@@ -188,6 +191,10 @@ module Falcon
 
       if attributes.key?(:'duration')
         self.duration = attributes[:'duration']
+      end
+
+      if attributes.key?(:'execution_id')
+        self.execution_id = attributes[:'execution_id']
       end
 
       if attributes.key?(:'hostname')
@@ -339,6 +346,7 @@ module Falcon
           device_details == o.device_details &&
           device_id == o.device_id &&
           duration == o.duration &&
+          execution_id == o.execution_id &&
           hostname == o.hostname &&
           id == o.id &&
           logs == o.logs &&
@@ -361,7 +369,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [cid, cloud_request_ids, commands, commands_queued, created_at, deleted_at, device_details, device_id, duration, hostname, id, logs, offline_queued, origin, platform_id, platform_name, pwd, updated_at, user_id, user_uuid].hash
+      [cid, cloud_request_ids, commands, commands_queued, created_at, deleted_at, device_details, device_id, duration, execution_id, hostname, id, logs, offline_queued, origin, platform_id, platform_name, pwd, updated_at, user_id, user_uuid].hash
     end
 
     # Builds the object from hash

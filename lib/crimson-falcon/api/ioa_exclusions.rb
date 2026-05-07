@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -302,6 +301,636 @@ module Falcon
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: IoaExclusions#query_ioa_exclusions_v1\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Self Service IOA Exclusion aggregates as specified via json in the request body.
+    # @param body [MsaAggregateQueryRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @return [MsaAggregatesResponse]
+    def ss_ioa_exclusions_aggregates_v2(body, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_aggregates_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Get Self Service IOA Exclusion aggregates as specified via json in the request body.
+    # @param body [MsaAggregateQueryRequest]
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusion aggregations by, used alongside filter expressions provided in the request body.
+    # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
+    def ss_ioa_exclusions_aggregates_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_aggregates_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_aggregates_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/aggregates/ss-ioa-exclusions/GET/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ifn_regex'] = opts[:'ifn_regex'] if !opts[:'ifn_regex'].nil?
+      query_params[:'cl_regex'] = opts[:'cl_regex'] if !opts[:'cl_regex'].nil?
+      query_params[:'parent_ifn_regex'] = opts[:'parent_ifn_regex'] if !opts[:'parent_ifn_regex'].nil?
+      query_params[:'parent_cl_regex'] = opts[:'parent_cl_regex'] if !opts[:'parent_cl_regex'].nil?
+      query_params[:'grandparent_ifn_regex'] = opts[:'grandparent_ifn_regex'] if !opts[:'grandparent_ifn_regex'].nil?
+      query_params[:'grandparent_cl_regex'] = opts[:'grandparent_cl_regex'] if !opts[:'grandparent_cl_regex'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaAggregatesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_aggregates_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_aggregates_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create new Self Service IOA Exclusions.
+    # @param body [DomainSsIoaExclusionsCreateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSsIoaExclusionsRespV2]
+    def ss_ioa_exclusions_create_v2(body, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_create_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Create new Self Service IOA Exclusions.
+    # @param body [DomainSsIoaExclusionsCreateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSsIoaExclusionsRespV2, Integer, Hash)>] DomainSsIoaExclusionsRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_create_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_create_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_create_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_create_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_create_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete the Self Service IOA Exclusions rule by id.
+    # @param ids [Array<String>] The ids of the exclusions to delete
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :comment The comment why these ss ioa exclusions were deleted
+    # @return [DomainSsIoaExclusionsRespV2]
+    def ss_ioa_exclusions_delete_v2(ids, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_delete_v2_with_http_info(ids, opts)
+      data
+    end
+
+    # Delete the Self Service IOA Exclusions rule by id.
+    # @param ids [Array<String>] The ids of the exclusions to delete
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :comment The comment why these ss ioa exclusions were deleted
+    # @return [Array<(DomainSsIoaExclusionsRespV2, Integer, Hash)>] DomainSsIoaExclusionsRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_delete_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_delete_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusions.ss_ioa_exclusions_delete_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+      query_params[:'comment'] = opts[:'comment'] if !opts[:'comment'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_delete_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_delete_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a report of Self Service IOA Exclusions scoped by the given filters
+    # @param body [DomainExclusionsReportRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def ss_ioa_exclusions_get_reports_v2(body, opts = {})
+      ss_ioa_exclusions_get_reports_v2_with_http_info(body, opts)
+      nil
+    end
+
+    # Create a report of Self Service IOA Exclusions scoped by the given filters
+    # @param body [DomainExclusionsReportRequest]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def ss_ioa_exclusions_get_reports_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_get_reports_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_get_reports_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-exclusions/reports/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_get_reports_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_get_reports_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get the Self Service IOA Exclusions rules by id.
+    # @param ids [Array<String>] The ids of the exclusions to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSsIoaExclusionsRespV2]
+    def ss_ioa_exclusions_get_v2(ids, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_get_v2_with_http_info(ids, opts)
+      data
+    end
+
+    # Get the Self Service IOA Exclusions rules by id.
+    # @param ids [Array<String>] The ids of the exclusions to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSsIoaExclusionsRespV2, Integer, Hash)>] DomainSsIoaExclusionsRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_get_v2_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_get_v2 ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling IoaExclusions.ss_ioa_exclusions_get_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_get_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_get_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Self Service IOA Exclusions rules for matched IFN/CLI for child, parent and grandparent
+    # @param body [DomainSsIoaExclusionsMatchedRuleReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSsIoaExclusionsRespV2]
+    def ss_ioa_exclusions_matched_rule_v2(body, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_matched_rule_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Get Self Service IOA Exclusions rules for matched IFN/CLI for child, parent and grandparent
+    # @param body [DomainSsIoaExclusionsMatchedRuleReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSsIoaExclusionsRespV2, Integer, Hash)>] DomainSsIoaExclusionsRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_matched_rule_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_matched_rule_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_matched_rule_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-matched-rules/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_matched_rule_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_matched_rule_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get defaults for Self Service IOA Exclusions based on provided IFN/CLI for child, parent and grandparent.
+    # @param body [DomainSsIoaExclusionsNewRuleReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSsIoaExclusionsNewRuleRespV2]
+    def ss_ioa_exclusions_new_rules_v2(body, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_new_rules_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Get defaults for Self Service IOA Exclusions based on provided IFN/CLI for child, parent and grandparent.
+    # @param body [DomainSsIoaExclusionsNewRuleReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSsIoaExclusionsNewRuleRespV2, Integer, Hash)>] DomainSsIoaExclusionsNewRuleRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_new_rules_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_new_rules_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_new_rules_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-new-rules/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsNewRuleRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_new_rules_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_new_rules_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Search for Self Service IOA Exclusions.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters.
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [Integer] :offset The offset to start retrieving records from
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The sort expression that should be used to sort the results.
+    # @return [MsaspecQueryResponse]
+    def ss_ioa_exclusions_search_v2(opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_search_v2_with_http_info(opts)
+      data
+    end
+
+    # Search for Self Service IOA Exclusions.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :filter The filter expression that should be used to limit the results. Filtered queries involving regex fields should specify their expressions in the &#x60;ifn_regex&#x60; and &#x60;cl_regex&#x60; parameters.
+    # @option opts [String] :ifn_regex The &#x60;ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :cl_regex The &#x60;cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :parent_ifn_regex The &#x60;parent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :parent_cl_regex The &#x60;parent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :grandparent_ifn_regex The &#x60;grandparent_ifn_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [String] :grandparent_cl_regex The &#x60;grandparent_cl_regex&#x60; expression to filter exclusions by, used alongside expressions specified in the filter query parameter.
+    # @option opts [Integer] :offset The offset to start retrieving records from
+    # @option opts [Integer] :limit The maximum records to return. [1-500]
+    # @option opts [String] :sort The sort expression that should be used to sort the results.
+    # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
+    def ss_ioa_exclusions_search_v2_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_search_v2 ...'
+      end
+      allowable_values = ["name.asc", "name.desc", "pattern_id.asc", "pattern_id.desc", "pattern_name.asc", "pattern_name.desc", "created_by.asc", "created_by.desc", "last_modified.asc", "last_modified.desc", "modified_by.asc", "modified_by.desc"]
+      if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
+        fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/exclusions/queries/ss-ioa-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+      query_params[:'ifn_regex'] = opts[:'ifn_regex'] if !opts[:'ifn_regex'].nil?
+      query_params[:'cl_regex'] = opts[:'cl_regex'] if !opts[:'cl_regex'].nil?
+      query_params[:'parent_ifn_regex'] = opts[:'parent_ifn_regex'] if !opts[:'parent_ifn_regex'].nil?
+      query_params[:'parent_cl_regex'] = opts[:'parent_cl_regex'] if !opts[:'parent_cl_regex'].nil?
+      query_params[:'grandparent_ifn_regex'] = opts[:'grandparent_ifn_regex'] if !opts[:'grandparent_ifn_regex'].nil?
+      query_params[:'grandparent_cl_regex'] = opts[:'grandparent_cl_regex'] if !opts[:'grandparent_cl_regex'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MsaspecQueryResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_search_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_search_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update the Self Service IOA Exclusions rule by id.
+    # @param body [DomainSsIoaExclusionsUpdateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [DomainSsIoaExclusionsRespV2]
+    def ss_ioa_exclusions_update_v2(body, opts = {})
+      data, _status_code, _headers = ss_ioa_exclusions_update_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Update the Self Service IOA Exclusions rule by id.
+    # @param body [DomainSsIoaExclusionsUpdateReqV2]
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainSsIoaExclusionsRespV2, Integer, Hash)>] DomainSsIoaExclusionsRespV2 data, response status code and response headers
+    def ss_ioa_exclusions_update_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: IoaExclusions.ss_ioa_exclusions_update_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling IoaExclusions.ss_ioa_exclusions_update_v2"
+      end
+      # resource path
+      local_var_path = '/exclusions/entities/ss-ioa-exclusions/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+        header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainSsIoaExclusionsRespV2'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"IoaExclusions.ss_ioa_exclusions_update_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: IoaExclusions#ss_ioa_exclusions_update_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

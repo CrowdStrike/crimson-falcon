@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -49,11 +48,22 @@ describe 'CaoHunting' do
     end
   end
 
+  # unit tests for aggregate_hunting_guides
+  # Aggregate Hunting Guides
+  # @param body
+  # @param [Hash] opts the optional parameters
+  # @return [CaohuntingapiHuntingGuideAggregatesResponse]
+  describe 'aggregate_hunting_guides test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for aggregate_intelligence_queries
   # Aggregate intelligence queries
   # @param body
   # @param [Hash] opts the optional parameters
-  # @return [ApiIntelligenceQueryAggregatesResponse]
+  # @return [CaohuntingapiIntelligenceQueryAggregatesResponse]
   describe 'aggregate_intelligence_queries test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -62,10 +72,10 @@ describe 'CaoHunting' do
 
   # unit tests for get_archive_export
   # Creates an Archive Export
-  # @param language The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;
+  # @param language The Query Language. Accepted Values:  &lt;li&gt;cql&lt;/li&gt;&lt;li&gt;snort&lt;/li&gt;&lt;li&gt;suricata&lt;/li&gt;&lt;li&gt;yara&lt;/li&gt;&lt;li&gt;SPL &lt;i&gt;AI translated (Beta)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;__all__ &lt;i&gt;returns a single archive with queries in all the languages&lt;/i&gt;&lt;/li&gt;
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter The FQL Filter
-  # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39;. Defaults to &#39;zip&#39;.
+  # @option opts [String] :archive_type The Archive Type can be one of &#39;zip&#39; and &#39;gzip&#39;
   # @return [Array<Integer>]
   describe 'get_archive_export test' do
     it 'should work' do
@@ -73,19 +83,46 @@ describe 'CaoHunting' do
     end
   end
 
+  # unit tests for get_hunting_guides
+  # Retrieves a list of Hunting Guides
+  # @param ids Hunting Guides IDs
+  # @param [Hash] opts the optional parameters
+  # @return [CaohuntingapiHuntingGuideEntityResponse]
+  describe 'get_hunting_guides test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for get_intelligence_queries
-  # Retrieves a list of Intelligence queries
+  # Retrieves the details of a list of Intelligence queries IDs
   # @param ids Intelligence queries IDs
   # @param [Hash] opts the optional parameters
-  # @return [ApiIntelligenceQueryEntityResponse]
+  # @option opts [Array<String>] :include_translated_content The AI translated language that should be returned if it exists&lt;br&gt;Accepted values are: &lt;li&gt;SPL&lt;/li&gt;&lt;li&gt;\\_\\_all\\_\\_&lt;/li&gt;
+  # @return [CaohuntingapiIntelligenceQueryEntityResponse]
   describe 'get_intelligence_queries test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
+  # unit tests for search_hunting_guides
+  # Search for Hunting Guides that match the provided conditions
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :offset Starting index of result set from which to return IDs.
+  # @option opts [Integer] :limit Number of IDs to return.
+  # @option opts [String] :sort Order by fields.
+  # @option opts [String] :filter FQL query specifying the filter parameters.
+  # @option opts [String] :q Match phrase_prefix query criteria; included fields: _all (all filter string fields indexed).
+  # @return [MsaspecQueryResponse]
+  describe 'search_hunting_guides test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for search_intelligence_queries
-  # Search intelligence queries that match the provided conditions
+  # Search for a list of intelligence queries IDs that match the provided conditions
   # @param [Hash] opts the optional parameters
   # @option opts [String] :offset Starting index of result set from which to return IDs.
   # @option opts [Integer] :limit Number of IDs to return.

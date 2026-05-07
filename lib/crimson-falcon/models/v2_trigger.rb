@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -44,6 +43,8 @@ module Falcon
 
     attr_accessor :type
 
+    attr_accessor :version_constraint
+
     attr_accessor :webhook_config
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -55,6 +56,7 @@ module Falcon
         :'parameters' => :'parameters',
         :'schedule' => :'schedule',
         :'type' => :'type',
+        :'version_constraint' => :'version_constraint',
         :'webhook_config' => :'webhook_config'
       }
     end
@@ -73,7 +75,8 @@ module Falcon
         :'parameters' => :'JsonschemaSchema',
         :'schedule' => :'GraphTimerEventDefinition',
         :'type' => :'String',
-        :'webhook_config' => :'WebhooktriggerAPIRequest'
+        :'version_constraint' => :'String',
+        :'webhook_config' => :'GraphWebhookTriggerDefinition'
       }
     end
 
@@ -124,6 +127,10 @@ module Falcon
         self.type = attributes[:'type']
       end
 
+      if attributes.key?(:'version_constraint')
+        self.version_constraint = attributes[:'version_constraint']
+      end
+
       if attributes.key?(:'webhook_config')
         self.webhook_config = attributes[:'webhook_config']
       end
@@ -158,6 +165,7 @@ module Falcon
           parameters == o.parameters &&
           schedule == o.schedule &&
           type == o.type &&
+          version_constraint == o.version_constraint &&
           webhook_config == o.webhook_config
     end
 
@@ -170,7 +178,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [event, name, _next, parameters, schedule, type, webhook_config].hash
+      [event, name, _next, parameters, schedule, type, version_constraint, webhook_config].hash
     end
 
     # Builds the object from hash

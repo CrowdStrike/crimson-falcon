@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -36,9 +35,9 @@ module Falcon
 
     attr_accessor :allows_public_access
 
-    attr_accessor :application_security
-
     attr_accessor :asset_graph
+
+    attr_accessor :cloud_risks
 
     attr_accessor :cspm_license
 
@@ -66,6 +65,8 @@ module Falcon
 
     attr_accessor :managed_by
 
+    attr_accessor :open_cloud_risks
+
     attr_accessor :publicly_exposed
 
     attr_accessor :scan_type
@@ -75,8 +76,8 @@ module Falcon
       {
         :'account_name' => :'account_name',
         :'allows_public_access' => :'allows_public_access',
-        :'application_security' => :'application_security',
         :'asset_graph' => :'asset_graph',
+        :'cloud_risks' => :'cloud_risks',
         :'cspm_license' => :'cspm_license',
         :'data_classifications' => :'data_classifications',
         :'detections' => :'detections',
@@ -90,6 +91,7 @@ module Falcon
         :'legacy_type_id' => :'legacy_type_id',
         :'legacy_uuid' => :'legacy_uuid',
         :'managed_by' => :'managed_by',
+        :'open_cloud_risks' => :'open_cloud_risks',
         :'publicly_exposed' => :'publicly_exposed',
         :'scan_type' => :'scan_type'
       }
@@ -105,8 +107,8 @@ module Falcon
       {
         :'account_name' => :'String',
         :'allows_public_access' => :'Boolean',
-        :'application_security' => :'AspmInventoryData',
         :'asset_graph' => :'ResourcesAssetGraph',
+        :'cloud_risks' => :'ResourcesCloudRisks',
         :'cspm_license' => :'String',
         :'data_classifications' => :'DataclassificationsResponse',
         :'detections' => :'ResourcesDetections',
@@ -120,6 +122,7 @@ module Falcon
         :'legacy_type_id' => :'Integer',
         :'legacy_uuid' => :'String',
         :'managed_by' => :'String',
+        :'open_cloud_risks' => :'Integer',
         :'publicly_exposed' => :'Boolean',
         :'scan_type' => :'String'
       }
@@ -154,12 +157,12 @@ module Falcon
         self.allows_public_access = attributes[:'allows_public_access']
       end
 
-      if attributes.key?(:'application_security')
-        self.application_security = attributes[:'application_security']
-      end
-
       if attributes.key?(:'asset_graph')
         self.asset_graph = attributes[:'asset_graph']
+      end
+
+      if attributes.key?(:'cloud_risks')
+        self.cloud_risks = attributes[:'cloud_risks']
       end
 
       if attributes.key?(:'cspm_license')
@@ -214,6 +217,10 @@ module Falcon
         self.managed_by = attributes[:'managed_by']
       end
 
+      if attributes.key?(:'open_cloud_risks')
+        self.open_cloud_risks = attributes[:'open_cloud_risks']
+      end
+
       if attributes.key?(:'publicly_exposed')
         self.publicly_exposed = attributes[:'publicly_exposed']
       end
@@ -243,8 +250,8 @@ module Falcon
       self.class == o.class &&
           account_name == o.account_name &&
           allows_public_access == o.allows_public_access &&
-          application_security == o.application_security &&
           asset_graph == o.asset_graph &&
+          cloud_risks == o.cloud_risks &&
           cspm_license == o.cspm_license &&
           data_classifications == o.data_classifications &&
           detections == o.detections &&
@@ -258,6 +265,7 @@ module Falcon
           legacy_type_id == o.legacy_type_id &&
           legacy_uuid == o.legacy_uuid &&
           managed_by == o.managed_by &&
+          open_cloud_risks == o.open_cloud_risks &&
           publicly_exposed == o.publicly_exposed &&
           scan_type == o.scan_type
     end
@@ -271,7 +279,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_name, allows_public_access, application_security, asset_graph, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, insights, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, publicly_exposed, scan_type].hash
+      [account_name, allows_public_access, asset_graph, cloud_risks, cspm_license, data_classifications, detections, has_falcon_sensor, has_tags, host, insights, instance_id, instance_state, legacy_resource_id, legacy_type_id, legacy_uuid, managed_by, open_cloud_risks, publicly_exposed, scan_type].hash
     end
 
     # Builds the object from hash

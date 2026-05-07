@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'cgi'
@@ -103,7 +102,7 @@ module Falcon
     end
 
     # Add an activity to case. Only activities of type comment are allowed via API
-    # @param body [DomainActivityCreationRequest]
+    # @param body [MessagecenterActivityCreationRequest]
     # @param [Hash] opts the optional parameters
     # @return [MsaspecResponseFields]
     def case_add_activity(body, opts = {})
@@ -112,7 +111,7 @@ module Falcon
     end
 
     # Add an activity to case. Only activities of type comment are allowed via API
-    # @param body [DomainActivityCreationRequest]
+    # @param body [MessagecenterActivityCreationRequest]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def case_add_activity_with_http_info(body, opts = {})
@@ -174,7 +173,7 @@ module Falcon
     # @param user_uuid [String] User UUID
     # @param file [File] File Body
     # @param [Hash] opts the optional parameters
-    # @return [ApiMessageCenterAttachmentUploadResponse]
+    # @return [MessagecenterAttachmentUploadResponse]
     def case_add_attachment(case_id, user_uuid, file, opts = {})
       data, _status_code, _headers = case_add_attachment_with_http_info(case_id, user_uuid, file, opts)
       data
@@ -186,7 +185,7 @@ module Falcon
     # @param user_uuid [String] User UUID
     # @param file [File] File Body
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiMessageCenterAttachmentUploadResponse, Integer, Hash)>] ApiMessageCenterAttachmentUploadResponse data, response status code and response headers
+    # @return [Array<(MessagecenterAttachmentUploadResponse, Integer, Hash)>] MessagecenterAttachmentUploadResponse data, response status code and response headers
     def case_add_attachment_with_http_info(case_id, user_uuid, file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenter.case_add_attachment ...'
@@ -229,7 +228,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'ApiMessageCenterAttachmentUploadResponse'
+      return_type = opts[:debug_return_type] || 'MessagecenterAttachmentUploadResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -314,7 +313,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequestV2]
+    # @param body [MessagecenterCaseCreationRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyAffectedEntities]
     def create_case_v2(body, opts = {})
@@ -323,7 +322,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequestV2]
+    # @param body [MessagecenterCaseCreationRequestV2]
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def create_case_v2_with_http_info(body, opts = {})
@@ -517,7 +516,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @return [MsaspecQueryResponse]
     def query_activity_by_case_id(case_id, opts = {})
       data, _status_code, _headers = query_activity_by_case_id_with_http_info(case_id, opts)
@@ -530,7 +529,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   activity.created_time activity.type
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_activity_by_case_id_with_http_info(case_id, opts = {})
       if @api_client.config.debugging
@@ -594,7 +593,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @return [MsaspecQueryResponse]
     def query_cases_ids_by_filter(opts = {})
       data, _status_code, _headers = query_cases_ids_by_filter_with_http_info(opts)
@@ -606,7 +605,7 @@ module Falcon
     # @option opts [Integer] :limit The maximum records to return. [1-500]
     # @option opts [String] :sort The property to sort on, followed by a dot (.), followed by the sort direction, either \&quot;asc\&quot; or \&quot;desc\&quot;.
     # @option opts [String] :filter Optional filter and sort criteria in the form of an FQL query. Allowed filters are:   _all activity.body case.aids case.assigner.display_name case.assigner.first_name case.assigner.last_name case.assigner.uid case.assigner.uuid case.body case.created_time case.detections.id case.hosts case.id case.incidents.id case.ip_addresses case.key case.last_modified_time case.status case.status case.title case.type
-    # @option opts [String] :offset Starting index of overall result set from which to return ids.
+    # @option opts [Integer] :offset Starting index of overall result set from which to return ids.
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def query_cases_ids_by_filter_with_http_info(opts = {})
       if @api_client.config.debugging

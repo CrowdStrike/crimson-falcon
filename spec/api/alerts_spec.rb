@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -46,26 +45,6 @@ describe 'Alerts' do
   describe 'test an instance of Alerts' do
     it 'should create an instance of Alerts' do
       expect(@api_instance).to be_instance_of(Falcon::Alerts)
-    end
-  end
-
-  # unit tests for get_alerts_v3
-  # GET Alert by ID or GET Alerts
-  # Get a data on a specific alert or get a list of all alerts
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :id Alert ID
-  # @option opts [Integer] :limit The maximum number of objects to return
-  # @option opts [Integer] :offset The starting index of the results
-  # @option opts [String] :last_id The last id of the alert you want to get
-  # @option opts [String] :type The type of alert you want to get
-  # @option opts [String] :integration_id Comma separated list of integration ID&#39;s of the alert you want to get
-  # @option opts [Time] :from_date The start date of the alert you want to get (in YYYY-MM-DD format)
-  # @option opts [Time] :to_date The end date of the alert you want to get (in YYYY-MM-DD format)
-  # @option opts [Boolean] :ascending
-  # @return [GetAlertsResponse]
-  describe 'get_alerts_v3 test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 

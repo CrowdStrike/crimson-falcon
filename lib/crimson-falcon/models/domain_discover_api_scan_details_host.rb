@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,11 +37,15 @@ module Falcon
     # The unique identifier of the scan.
     attr_accessor :scan_id
 
+    # The id of the scan schedule configuration associated with the scan.
+    attr_accessor :schedule_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'scan_date' => :'scan_date',
-        :'scan_id' => :'scan_id'
+        :'scan_id' => :'scan_id',
+        :'schedule_id' => :'schedule_id'
       }
     end
 
@@ -55,7 +58,8 @@ module Falcon
     def self.openapi_types
       {
         :'scan_date' => :'String',
-        :'scan_id' => :'String'
+        :'scan_id' => :'String',
+        :'schedule_id' => :'String'
       }
     end
 
@@ -87,6 +91,10 @@ module Falcon
       if attributes.key?(:'scan_id')
         self.scan_id = attributes[:'scan_id']
       end
+
+      if attributes.key?(:'schedule_id')
+        self.schedule_id = attributes[:'schedule_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -108,7 +116,8 @@ module Falcon
       return true if self.equal?(o)
       self.class == o.class &&
           scan_date == o.scan_date &&
-          scan_id == o.scan_id
+          scan_id == o.scan_id &&
+          schedule_id == o.schedule_id
     end
 
     # @see the `==` method
@@ -120,7 +129,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [scan_date, scan_id].hash
+      [scan_date, scan_id, schedule_id].hash
     end
 
     # Builds the object from hash

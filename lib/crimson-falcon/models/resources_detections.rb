@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -46,6 +45,8 @@ module Falcon
 
     attr_accessor :non_compliant
 
+    attr_accessor :resource_url
+
     attr_accessor :severities
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -58,6 +59,7 @@ module Falcon
         :'iom_counts' => :'iom_counts',
         :'iom_counts_by_severity' => :'iom_counts_by_severity',
         :'non_compliant' => :'non_compliant',
+        :'resource_url' => :'resource_url',
         :'severities' => :'severities'
       }
     end
@@ -77,6 +79,7 @@ module Falcon
         :'iom_counts' => :'Integer',
         :'iom_counts_by_severity' => :'ResourcesDetectionCount',
         :'non_compliant' => :'ResourcesCompliance',
+        :'resource_url' => :'String',
         :'severities' => :'Array<String>'
       }
     end
@@ -130,6 +133,10 @@ module Falcon
         self.non_compliant = attributes[:'non_compliant']
       end
 
+      if attributes.key?(:'resource_url')
+        self.resource_url = attributes[:'resource_url']
+      end
+
       if attributes.key?(:'severities')
         if (value = attributes[:'severities']).is_a?(Array)
           self.severities = value
@@ -149,6 +156,10 @@ module Falcon
         invalid_properties.push('invalid value for "iom_counts", iom_counts cannot be nil.')
       end
 
+      if @resource_url.nil?
+        invalid_properties.push('invalid value for "resource_url", resource_url cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -157,6 +168,7 @@ module Falcon
     def valid?
       return false if @ioa_counts.nil?
       return false if @iom_counts.nil?
+      return false if @resource_url.nil?
       true
     end
 
@@ -172,6 +184,7 @@ module Falcon
           iom_counts == o.iom_counts &&
           iom_counts_by_severity == o.iom_counts_by_severity &&
           non_compliant == o.non_compliant &&
+          resource_url == o.resource_url &&
           severities == o.severities
     end
 
@@ -184,7 +197,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [compliant, highest_severity, ioa_counts, ioa_counts_by_severity, iom_counts, iom_counts_by_severity, non_compliant, severities].hash
+      [compliant, highest_severity, ioa_counts, ioa_counts_by_severity, iom_counts, iom_counts_by_severity, non_compliant, resource_url, severities].hash
     end
 
     # Builds the object from hash

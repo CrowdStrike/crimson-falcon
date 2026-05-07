@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -62,8 +61,6 @@ module Falcon
 
     attr_accessor :environment
 
-    attr_accessor :failed_permissions_str
-
     attr_accessor :ioa_status
 
     attr_accessor :iom_status
@@ -75,7 +72,8 @@ module Falcon
 
     attr_accessor :parent_management_group_name
 
-    attr_accessor :passed_permissions_str
+    # Azure Tenant Primary Domain.
+    attr_accessor :primary_domain
 
     attr_accessor :public_certificate
 
@@ -98,6 +96,9 @@ module Falcon
     # Azure Tenant ID to use.
     attr_accessor :tenant_id
 
+    # Azure Tenant Name.
+    attr_accessor :tenant_name
+
     attr_accessor :years_valid
 
     attr_accessor :obj_id
@@ -119,13 +120,12 @@ module Falcon
         :'credentials_type' => :'credentials_type',
         :'default_subscription_id' => :'default_subscription_id',
         :'environment' => :'environment',
-        :'failed_permissions_str' => :'failed_permissions_str',
         :'ioa_status' => :'ioa_status',
         :'iom_status' => :'iom_status',
         :'is_cspm_lite' => :'is_cspm_lite',
         :'parent_management_group_id' => :'parent_management_group_id',
         :'parent_management_group_name' => :'parent_management_group_name',
-        :'passed_permissions_str' => :'passed_permissions_str',
+        :'primary_domain' => :'primary_domain',
         :'public_certificate' => :'public_certificate',
         :'public_certificate_raw' => :'public_certificate_raw',
         :'role_assignments' => :'role_assignments',
@@ -134,6 +134,7 @@ module Falcon
         :'subscription_id' => :'subscription_id',
         :'subscription_name' => :'subscription_name',
         :'tenant_id' => :'tenant_id',
+        :'tenant_name' => :'tenant_name',
         :'years_valid' => :'years_valid',
         :'obj_id' => :'obj_id'
       }
@@ -161,13 +162,12 @@ module Falcon
         :'credentials_type' => :'String',
         :'default_subscription_id' => :'String',
         :'environment' => :'String',
-        :'failed_permissions_str' => :'String',
         :'ioa_status' => :'String',
         :'iom_status' => :'String',
         :'is_cspm_lite' => :'Boolean',
         :'parent_management_group_id' => :'String',
         :'parent_management_group_name' => :'String',
-        :'passed_permissions_str' => :'String',
+        :'primary_domain' => :'String',
         :'public_certificate' => :'String',
         :'public_certificate_raw' => :'String',
         :'role_assignments' => :'Array<AzureDBRoleAssignment>',
@@ -176,6 +176,7 @@ module Falcon
         :'subscription_id' => :'String',
         :'subscription_name' => :'String',
         :'tenant_id' => :'String',
+        :'tenant_name' => :'String',
         :'years_valid' => :'Integer',
         :'obj_id' => :'String'
       }
@@ -264,10 +265,6 @@ module Falcon
         self.environment = attributes[:'environment']
       end
 
-      if attributes.key?(:'failed_permissions_str')
-        self.failed_permissions_str = attributes[:'failed_permissions_str']
-      end
-
       if attributes.key?(:'ioa_status')
         self.ioa_status = attributes[:'ioa_status']
       end
@@ -288,8 +285,8 @@ module Falcon
         self.parent_management_group_name = attributes[:'parent_management_group_name']
       end
 
-      if attributes.key?(:'passed_permissions_str')
-        self.passed_permissions_str = attributes[:'passed_permissions_str']
+      if attributes.key?(:'primary_domain')
+        self.primary_domain = attributes[:'primary_domain']
       end
 
       if attributes.key?(:'public_certificate')
@@ -324,6 +321,10 @@ module Falcon
 
       if attributes.key?(:'tenant_id')
         self.tenant_id = attributes[:'tenant_id']
+      end
+
+      if attributes.key?(:'tenant_name')
+        self.tenant_name = attributes[:'tenant_name']
       end
 
       if attributes.key?(:'years_valid')
@@ -363,20 +364,12 @@ module Falcon
         invalid_properties.push('invalid value for "cid", cid cannot be nil.')
       end
 
-      if @failed_permissions_str.nil?
-        invalid_properties.push('invalid value for "failed_permissions_str", failed_permissions_str cannot be nil.')
-      end
-
       if @ioa_status.nil?
         invalid_properties.push('invalid value for "ioa_status", ioa_status cannot be nil.')
       end
 
       if @iom_status.nil?
         invalid_properties.push('invalid value for "iom_status", iom_status cannot be nil.')
-      end
-
-      if @passed_permissions_str.nil?
-        invalid_properties.push('invalid value for "passed_permissions_str", passed_permissions_str cannot be nil.')
       end
 
       if @show_modal.nil?
@@ -395,10 +388,8 @@ module Falcon
       return false if @updated_at.nil?
       return false if @azure_permissions_status.nil?
       return false if @cid.nil?
-      return false if @failed_permissions_str.nil?
       return false if @ioa_status.nil?
       return false if @iom_status.nil?
-      return false if @passed_permissions_str.nil?
       return false if @show_modal.nil?
       true
     end
@@ -422,13 +413,12 @@ module Falcon
           credentials_type == o.credentials_type &&
           default_subscription_id == o.default_subscription_id &&
           environment == o.environment &&
-          failed_permissions_str == o.failed_permissions_str &&
           ioa_status == o.ioa_status &&
           iom_status == o.iom_status &&
           is_cspm_lite == o.is_cspm_lite &&
           parent_management_group_id == o.parent_management_group_id &&
           parent_management_group_name == o.parent_management_group_name &&
-          passed_permissions_str == o.passed_permissions_str &&
+          primary_domain == o.primary_domain &&
           public_certificate == o.public_certificate &&
           public_certificate_raw == o.public_certificate_raw &&
           role_assignments == o.role_assignments &&
@@ -437,6 +427,7 @@ module Falcon
           subscription_id == o.subscription_id &&
           subscription_name == o.subscription_name &&
           tenant_id == o.tenant_id &&
+          tenant_name == o.tenant_name &&
           years_valid == o.years_valid &&
           obj_id == o.obj_id
     end
@@ -450,7 +441,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, failed_permissions_str, ioa_status, iom_status, is_cspm_lite, parent_management_group_id, parent_management_group_name, passed_permissions_str, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, years_valid, obj_id].hash
+      [created_at, deleted_at, id, updated_at, account_type, azure_permissions_status, cid, client_id, cloud_scopes, conditions, credentials_end_date, credentials_type, default_subscription_id, environment, ioa_status, iom_status, is_cspm_lite, parent_management_group_id, parent_management_group_name, primary_domain, public_certificate, public_certificate_raw, role_assignments, show_modal, status, subscription_id, subscription_name, tenant_id, tenant_name, years_valid, obj_id].hash
     end
 
     # Builds the object from hash

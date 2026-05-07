@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -78,6 +77,8 @@ module Falcon
     attr_accessor :item_type
 
     attr_accessor :logs
+
+    attr_accessor :notification_group_id
 
     # ID of the raw intel item that matched the rule
     attr_accessor :raw_intel_id
@@ -134,6 +135,7 @@ module Falcon
         :'item_site_id' => :'item_site_id',
         :'item_type' => :'item_type',
         :'logs' => :'logs',
+        :'notification_group_id' => :'notification_group_id',
         :'raw_intel_id' => :'raw_intel_id',
         :'rule_creator_name' => :'rule_creator_name',
         :'rule_creator_uid' => :'rule_creator_uid',
@@ -174,6 +176,7 @@ module Falcon
         :'item_site_id' => :'String',
         :'item_type' => :'String',
         :'logs' => :'Array<SadomainNotificationLog>',
+        :'notification_group_id' => :'String',
         :'raw_intel_id' => :'String',
         :'rule_creator_name' => :'String',
         :'rule_creator_uid' => :'String',
@@ -280,6 +283,10 @@ module Falcon
         if (value = attributes[:'logs']).is_a?(Array)
           self.logs = value
         end
+      end
+
+      if attributes.key?(:'notification_group_id')
+        self.notification_group_id = attributes[:'notification_group_id']
       end
 
       if attributes.key?(:'raw_intel_id')
@@ -436,6 +443,7 @@ module Falcon
           item_site_id == o.item_site_id &&
           item_type == o.item_type &&
           logs == o.logs &&
+          notification_group_id == o.notification_group_id &&
           raw_intel_id == o.raw_intel_id &&
           rule_creator_name == o.rule_creator_name &&
           rule_creator_uid == o.rule_creator_uid &&
@@ -459,7 +467,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, raw_intel_id, rule_creator_name, rule_creator_uid, rule_creator_uuid, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
+      [actor_slug, assigned_to_uid, assigned_to_username, assigned_to_uuid, breach_summary, cid, created_date, highlights, id, item_author, item_author_id, item_date, item_id, item_site, item_site_id, item_type, logs, notification_group_id, raw_intel_id, rule_creator_name, rule_creator_uid, rule_creator_uuid, rule_id, rule_name, rule_priority, rule_topic, source_category, status, typosquatting, updated_date].hash
     end
 
     # Builds the object from hash

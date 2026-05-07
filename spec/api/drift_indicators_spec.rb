@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -84,12 +83,12 @@ describe 'DriftIndicators' do
   end
 
   # unit tests for search_and_read_drift_indicator_entities
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve Drift Indicators by the provided search criteria
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [DriftindicatorsDriftEntityResponse]
   describe 'search_and_read_drift_indicator_entities test' do
     it 'should work' do
@@ -98,12 +97,12 @@ describe 'DriftIndicators' do
   end
 
   # unit tests for search_drift_indicators
-  # Maximum offset &#x3D; 10000 - limit
+  # Retrieve all drift indicators that match the given query
   # @param [Hash] opts the optional parameters
   # @option opts [String] :filter Filter Drift Indicators using a query in Falcon Query Language (FQL). Supported filter fields: - &#x60;cid&#x60; - &#x60;cloud_name&#x60; - &#x60;command_line&#x60; - &#x60;container_id&#x60; - &#x60;file_name&#x60; - &#x60;file_sha256&#x60; - &#x60;host_id&#x60; - &#x60;indicator_process_id&#x60; - &#x60;namespace&#x60; - &#x60;occurred_at&#x60; - &#x60;parent_process_id&#x60; - &#x60;pod_name&#x60; - &#x60;prevented&#x60; - &#x60;scheduler_name&#x60; - &#x60;severity&#x60; - &#x60;worker_node_name&#x60;
   # @option opts [String] :sort The fields to sort the records on.
-  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve.
-  # @option opts [Integer] :offset The offset from where to begin.
+  # @option opts [Integer] :limit The upper-bound on the number of records to retrieve. Maximum limit: 100.
+  # @option opts [Integer] :offset The offset from where to begin. Maximum offset &#x3D; 10000 - limit.
   # @return [MsaspecQueryResponse]
   describe 'search_drift_indicators test' do
     it 'should work' do

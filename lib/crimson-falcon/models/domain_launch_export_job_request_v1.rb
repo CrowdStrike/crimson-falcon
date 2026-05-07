@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'date'
@@ -38,7 +37,7 @@ module Falcon
     # The file type of the export. This can be one of: [`json`, `csv`]
     attr_accessor :export_type
 
-    # FQL query to filter entities by. Possible filter properties depend on the entity type.
+    # FQL query to filter entities by. Possible filter properties depend on the entity type. Examples: For 'notification-exposed-data-record': notification_id:'MjAyMy0wNS0yNVQyMDoyOToyNFpfMzAwMTI3YTgtZTJjMi0yYjA0LTBhNDctOTVkODA5ZDFhYTkw'+credential_status:['previously_reported'] or _all:*'*'. For 'historical-search-exposed-data-record': event_id:'AHsiZSI6Ik5Ub3dOR1V4TlROaU5tTmxNamxoTkRBek9USXpNekV3WkRVMFpqVTBNamRtTXpSa1pUVmtOalUzTWpJd1ptVTBOemRrTlRaaE1EQXdNakF4WldObU5tTTQiLCJmIjoiKGRvbWFpbjonY3Jvd2RzdHJpa2UuY29tJykifQ'. For 'bulk-historical-search-exposed-data-record': (domain:'crowdstrike.com')+(date_from:'2024-01-15')+(date_to:'2024-12-31')
     attr_accessor :filter
 
     # If set to true (default), the field names in the exported file will resemble the table header in the UI (e.g. \"Hash type\"), otherwise the API level field names will be used (e.g. \"hash_type\")

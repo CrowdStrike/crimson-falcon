@@ -24,7 +24,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 =end
 
 require 'spec_helper'
@@ -182,7 +181,16 @@ describe 'D4cRegistration' do
   # @option opts [String] :sensor_management_enabled
   # @option opts [String] :dspm_enabled
   # @option opts [Array<String>] :dspm_regions
+  # @option opts [String] :dspm_host_account_id
+  # @option opts [String] :dspm_host_integration_role_name
+  # @option opts [String] :dspm_host_scanner_role_name
   # @option opts [String] :dspm_role
+  # @option opts [String] :vulnerability_scanning_enabled
+  # @option opts [Array<String>] :vulnerability_scanning_regions
+  # @option opts [String] :vulnerability_scanning_host_account_id
+  # @option opts [String] :vulnerability_scanning_host_integration_role_name
+  # @option opts [String] :vulnerability_scanning_host_scanner_role_name
+  # @option opts [String] :vulnerability_scanning_role
   # @option opts [String] :use_existing_cloudtrail
   # @option opts [String] :organization_id The AWS organization ID to be registered
   # @option opts [Array<String>] :organizational_unit_ids The AWS Organizational Unit IDs to be registered
