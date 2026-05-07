@@ -48,6 +48,7 @@ Here's an overview of the key commands provided in the Makefile:
 * `make rubocop`: This command runs the RuboCop linter on the codebase to ensure the code adheres to the community Ruby style guide. It also automatically fixes any issues that RuboCop can correct (`-a` flag).
 * `make clean-generated-files`: This command removes all generated files from the project. This includes files in the `docs/`, `lib/crimson-falcon/models/`, `lib/crimson-falcon/api/`, and `spec/` directories.
 * `make generate`: This command runs a full SDK generation pipeline. It starts by cleaning up any old generated files, then generates a new SDK, fixes the regex, and finally runs RuboCop on the generated code.
+* `make sync-wiki`: This command publishes the generated documentation from `docs/` to the [wiki repo](https://github.com/CrowdStrike/crimson-falcon/wiki). It clones the wiki, syncs all generated markdown files, auto-generates `Home.md` and `_Sidebar.md` navigation pages, commits, and pushes. Run this after `make generate` to publish updated docs. Supports `DRY_RUN=1` to preview changes without pushing.
 
 To use these commands, simply type `make` followed by the command name in your terminal from the project's root directory. For example, `make build` will build the gem from the source code. These commands will help automate common tasks and make your workflow more efficient.
 
