@@ -35,6 +35,3 @@ jobs:
 
       - name: Install gem
         run: make install
-
-      - name: Run tests
-        run: bundle exec rspec

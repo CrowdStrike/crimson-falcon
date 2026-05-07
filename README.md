@@ -117,7 +117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**create_executor_node**](docs/ASPM.md#create_executor_node)
+- **Operation**: [**create_executor_node**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#create_executor_node)
 - **POST**: /aspm-api-gateway/api/v1/executor_nodes
 - **Description**: Create a new relay node
 
@@ -125,7 +125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**create_integration**](docs/ASPM.md#create_integration)
+- **Operation**: [**create_integration**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#create_integration)
 - **POST**: /aspm-api-gateway/api/v1/integrations
 - **Description**: Create a new integration
 
@@ -133,7 +133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**create_integration_task**](docs/ASPM.md#create_integration_task)
+- **Operation**: [**create_integration_task**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#create_integration_task)
 - **POST**: /aspm-api-gateway/api/v1/integration_tasks
 - **Description**: Create new integration task.
 
@@ -141,7 +141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**delete_executor_node**](docs/ASPM.md#delete_executor_node)
+- **Operation**: [**delete_executor_node**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#delete_executor_node)
 - **DELETE**: /aspm-api-gateway/api/v1/executor_nodes/{ID}
 - **Description**: Delete a relay node
 
@@ -149,7 +149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**delete_group_id_09**](docs/ASPM.md#delete_group_id_09)
+- **Operation**: [**delete_group_id_09**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#delete_group_id_09)
 - **DELETE**: /aspm-api-gateway/api/v1/group/{ID}
 - **Description**:
 
@@ -157,7 +157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**delete_integration**](docs/ASPM.md#delete_integration)
+- **Operation**: [**delete_integration**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#delete_integration)
 - **DELETE**: /aspm-api-gateway/api/v1/integrations/{ID}
 - **Description**: Delete an existing integration by its ID
 
@@ -165,7 +165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**delete_integration_task**](docs/ASPM.md#delete_integration_task)
+- **Operation**: [**delete_integration_task**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#delete_integration_task)
 - **DELETE**: /aspm-api-gateway/api/v1/integration_tasks/{ID}
 - **Description**: Delete an existing integration task by its ID
 
@@ -173,7 +173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**delete_tags**](docs/ASPM.md#delete_tags)
+- **Operation**: [**delete_tags**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#delete_tags)
 - **POST**: /aspm-api-gateway/api/v1/tags
 - **Description**: Remove existing tags
 
@@ -181,7 +181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_function_data**](docs/ASPM.md#execute_function_data)
+- **Operation**: [**execute_function_data**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_function_data)
 - **GET**: /application-security/combined/function-data/v1
 - **Description**: A selected list of queryLanguage queries. request &amp; response are in MSA format
 
@@ -189,7 +189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_function_data_count**](docs/ASPM.md#execute_function_data_count)
+- **Operation**: [**execute_function_data_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_function_data_count)
 - **POST**: /application-security/aggregates/function-data/count/v1
 - **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
 
@@ -197,7 +197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_function_data_query**](docs/ASPM.md#execute_function_data_query)
+- **Operation**: [**execute_function_data_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_function_data_query)
 - **GET**: /application-security/combined/query-function-data/v1
 - **Description**: A selected list of queryLanguage queries. request &amp; response are in MSA format
 
@@ -205,7 +205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_function_data_query_count**](docs/ASPM.md#execute_function_data_query_count)
+- **Operation**: [**execute_function_data_query_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_function_data_query_count)
 - **GET**: /application-security/aggregates/query-function-data-count/v1
 - **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
 
@@ -213,7 +213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions**](docs/ASPM.md#execute_functions)
+- **Operation**: [**execute_functions**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions)
 - **GET**: /application-security/combined/functions/v1
 - **Description**: A selected list of queryLanguage services queries. request &amp; response are in MSA format
 
@@ -221,7 +221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions_count**](docs/ASPM.md#execute_functions_count)
+- **Operation**: [**execute_functions_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions_count)
 - **POST**: /application-security/aggregates/functions/count/v1
 - **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
 
@@ -229,7 +229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions_overtime**](docs/ASPM.md#execute_functions_overtime)
+- **Operation**: [**execute_functions_overtime**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions_overtime)
 - **GET**: /application-security/combined/functions-overtime/v1
 - **Description**: A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
 
@@ -237,7 +237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions_query**](docs/ASPM.md#execute_functions_query)
+- **Operation**: [**execute_functions_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions_query)
 - **GET**: /application-security/combined/query-functions/v1
 - **Description**: A selected list of queryLanguage services queries. request &amp; response are in MSA format
 
@@ -245,7 +245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions_query_count**](docs/ASPM.md#execute_functions_query_count)
+- **Operation**: [**execute_functions_query_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions_query_count)
 - **GET**: /application-security/aggregates/query-functions-count/v1
 - **Description**: A selected list of queryLanguage count queries. request &amp; response are in MSA format
 
@@ -253,7 +253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_functions_query_overtime**](docs/ASPM.md#execute_functions_query_overtime)
+- **Operation**: [**execute_functions_query_overtime**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_functions_query_overtime)
 - **GET**: /application-security/combined/query-functions-overtime/v1
 - **Description**: A selected list of queryLanguage overtime queries. request &amp; response are in MSA format
 
@@ -261,7 +261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**execute_query**](docs/ASPM.md#execute_query)
+- **Operation**: [**execute_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#execute_query)
 - **POST**: /aspm-api-gateway/api/v1/query
 - **Description**: Execute a query. The syntax used is identical to that of the query page.
 
@@ -269,7 +269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_cloud_security_integration_state**](docs/ASPM.md#get_cloud_security_integration_state)
+- **Operation**: [**get_cloud_security_integration_state**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_cloud_security_integration_state)
 - **GET**: /aspm-api-gateway/api/v1/cloud_security_config
 - **Description**: Get Cloud Security integration state
 
@@ -277,7 +277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_cspm_inventory_ba_services**](docs/ASPM.md#get_cspm_inventory_ba_services)
+- **Operation**: [**get_cspm_inventory_ba_services**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_cspm_inventory_ba_services)
 - **GET**: /application-security/combined/cspm-inventory-ba-services/v1
 - **Description**: Gets services ordered by risk score for given BA
 
@@ -285,7 +285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_cspm_inventory_service_details**](docs/ASPM.md#get_cspm_inventory_service_details)
+- **Operation**: [**get_cspm_inventory_service_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_cspm_inventory_service_details)
 - **GET**: /application-security/combined/cspm-inventory-service-data/v1
 - **Description**: Gets all service details for CSPM Inventory.
 
@@ -293,7 +293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_executor_nodes**](docs/ASPM.md#get_executor_nodes)
+- **Operation**: [**get_executor_nodes**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_executor_nodes)
 - **GET**: /aspm-api-gateway/api/v1/executor_nodes
 - **Description**: Get all the relay nodes
 
@@ -301,7 +301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_executor_nodes_id_09_instances_csv**](docs/ASPM.md#get_executor_nodes_id_09_instances_csv)
+- **Operation**: [**get_executor_nodes_id_09_instances_csv**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_executor_nodes_id_09_instances_csv)
 - **GET**: /aspm-api-gateway/api/v1/executor_nodes/{ID}/instances/csv
 - **Description**: Retrieve the relay instances in CSV format
 
@@ -309,7 +309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_executor_nodes_metadata**](docs/ASPM.md#get_executor_nodes_metadata)
+- **Operation**: [**get_executor_nodes_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_executor_nodes_metadata)
 - **GET**: /aspm-api-gateway/api/v1/executor_nodes/metadata
 - **Description**: Get metadata about all executor nodes
 
@@ -317,7 +317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_group_id_09_v2**](docs/ASPM.md#get_group_id_09_v2)
+- **Operation**: [**get_group_id_09_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_group_id_09_v2)
 - **GET**: /aspm-api-gateway/api/v1/group/{ID}/v2
 - **Description**: Get group details
 
@@ -325,7 +325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_groups_hier_v2**](docs/ASPM.md#get_groups_hier_v2)
+- **Operation**: [**get_groups_hier_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_groups_hier_v2)
 - **GET**: /aspm-api-gateway/api/v1/groups/hier/v2
 - **Description**: Get group hierarchy
 
@@ -333,7 +333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_groups_list_v2**](docs/ASPM.md#get_groups_list_v2)
+- **Operation**: [**get_groups_list_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_groups_list_v2)
 - **GET**: /aspm-api-gateway/api/v1/groups/list/v2
 - **Description**:
 
@@ -341,7 +341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integration_tasks**](docs/ASPM.md#get_integration_tasks)
+- **Operation**: [**get_integration_tasks**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integration_tasks)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks
 - **Description**: Get all the integration tasks
 
@@ -349,7 +349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integration_tasks_admin**](docs/ASPM.md#get_integration_tasks_admin)
+- **Operation**: [**get_integration_tasks_admin**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integration_tasks_admin)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks/admin
 - **Description**: Get all the integration tasks, requires admin scope
 
@@ -357,7 +357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integration_tasks_metadata**](docs/ASPM.md#get_integration_tasks_metadata)
+- **Operation**: [**get_integration_tasks_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integration_tasks_metadata)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks/metadata
 - **Description**: Get metadata about all integration tasks
 
@@ -365,7 +365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integration_tasks_v2**](docs/ASPM.md#get_integration_tasks_v2)
+- **Operation**: [**get_integration_tasks_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integration_tasks_v2)
 - **GET**: /aspm-api-gateway/api/v1/integration_tasks/v2
 - **Description**: Get all the integration tasks
 
@@ -373,7 +373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integration_types**](docs/ASPM.md#get_integration_types)
+- **Operation**: [**get_integration_types**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integration_types)
 - **GET**: /aspm-api-gateway/api/v1/integration_types
 - **Description**: Get all the integration types
 
@@ -381,7 +381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integrations**](docs/ASPM.md#get_integrations)
+- **Operation**: [**get_integrations**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integrations)
 - **GET**: /aspm-api-gateway/api/v1/integrations
 - **Description**: Get a list of all the integrations
 
@@ -389,7 +389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_integrations_v2**](docs/ASPM.md#get_integrations_v2)
+- **Operation**: [**get_integrations_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_integrations_v2)
 - **GET**: /aspm-api-gateway/api/v1/integrations/v2
 - **Description**: Get a list of all the integrations
 
@@ -397,7 +397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_service_artifacts**](docs/ASPM.md#get_service_artifacts)
+- **Operation**: [**get_service_artifacts**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_service_artifacts)
 - **GET**: /aspm-api-gateway/api/v1/artifacts
 - **Description**:
 
@@ -405,7 +405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_service_violation_types**](docs/ASPM.md#get_service_violation_types)
+- **Operation**: [**get_service_violation_types**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_service_violation_types)
 - **GET**: /aspm-api-gateway/api/v1/services/violations/types
 - **Description**: Get the different types of violation
 
@@ -413,7 +413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_services_count**](docs/ASPM.md#get_services_count)
+- **Operation**: [**get_services_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_services_count)
 - **POST**: /aspm-api-gateway/api/v1/services/count
 - **Description**: Get the total amount of existing services
 
@@ -421,7 +421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_tags**](docs/ASPM.md#get_tags)
+- **Operation**: [**get_tags**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_tags)
 - **GET**: /aspm-api-gateway/api/v1/tags
 - **Description**: Get all the tags
 
@@ -429,7 +429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**get_users_v2**](docs/ASPM.md#get_users_v2)
+- **Operation**: [**get_users_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#get_users_v2)
 - **GET**: /aspm-api-gateway/api/v1/users/v2
 - **Description**: List users
 
@@ -437,7 +437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**post_group_id_09_update_default**](docs/ASPM.md#post_group_id_09_update_default)
+- **Operation**: [**post_group_id_09_update_default**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#post_group_id_09_update_default)
 - **POST**: /aspm-api-gateway/api/v1/group/{ID}/update_default
 - **Description**: Update default group
 
@@ -445,7 +445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**post_group_id_09_v2**](docs/ASPM.md#post_group_id_09_v2)
+- **Operation**: [**post_group_id_09_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#post_group_id_09_v2)
 - **POST**: /aspm-api-gateway/api/v1/group/{ID}/v2
 - **Description**: Update group
 
@@ -453,7 +453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**post_group_v2**](docs/ASPM.md#post_group_v2)
+- **Operation**: [**post_group_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#post_group_v2)
 - **POST**: /aspm-api-gateway/api/v1/group/v2
 - **Description**: Create group
 
@@ -461,7 +461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**run_integration_task**](docs/ASPM.md#run_integration_task)
+- **Operation**: [**run_integration_task**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#run_integration_task)
 - **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run
 - **Description**: Run an integration task by its ID
 
@@ -469,7 +469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**run_integration_task_admin**](docs/ASPM.md#run_integration_task_admin)
+- **Operation**: [**run_integration_task_admin**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#run_integration_task_admin)
 - **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/admin
 - **Description**: Run an integration task by its ID - for admin scope
 
@@ -477,7 +477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**run_integration_task_v2**](docs/ASPM.md#run_integration_task_v2)
+- **Operation**: [**run_integration_task_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#run_integration_task_v2)
 - **POST**: /aspm-api-gateway/api/v1/integration_tasks/{ID}/run/v2
 - **Description**: Run an integration task by its ID
 
@@ -485,7 +485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**service_now_get_deployments**](docs/ASPM.md#service_now_get_deployments)
+- **Operation**: [**service_now_get_deployments**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#service_now_get_deployments)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/deployments
 - **Description**:
 
@@ -493,7 +493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**service_now_get_services**](docs/ASPM.md#service_now_get_services)
+- **Operation**: [**service_now_get_services**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#service_now_get_services)
 - **GET**: /aspm-api-gateway/api/v1/servicenow/services
 - **Description**:
 
@@ -501,7 +501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**set_cloud_security_integration_state**](docs/ASPM.md#set_cloud_security_integration_state)
+- **Operation**: [**set_cloud_security_integration_state**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#set_cloud_security_integration_state)
 - **POST**: /aspm-api-gateway/api/v1/cloud_security_config
 - **Description**: Set Cloud Security integration state
 
@@ -509,7 +509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**update_executor_node**](docs/ASPM.md#update_executor_node)
+- **Operation**: [**update_executor_node**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#update_executor_node)
 - **PUT**: /aspm-api-gateway/api/v1/executor_nodes
 - **Description**: Update an existing relay node
 
@@ -517,7 +517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**update_integration**](docs/ASPM.md#update_integration)
+- **Operation**: [**update_integration**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#update_integration)
 - **PUT**: /aspm-api-gateway/api/v1/integrations/{ID}
 - **Description**: Update an existing integration by its ID
 
@@ -525,7 +525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**update_integration_task**](docs/ASPM.md#update_integration_task)
+- **Operation**: [**update_integration_task**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#update_integration_task)
 - **PUT**: /aspm-api-gateway/api/v1/integration_tasks/{ID}
 - **Description**: Update an existing integration task by its ID
 
@@ -533,7 +533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**upsert_business_applications**](docs/ASPM.md#upsert_business_applications)
+- **Operation**: [**upsert_business_applications**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#upsert_business_applications)
 - **PUT**: /aspm-api-gateway/api/v1/business_applications
 - **Description**: Create or Update Business Applications
 
@@ -541,7 +541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ASPM`
 
-- **Operation**: [**upsert_tags**](docs/ASPM.md#upsert_tags)
+- **Operation**: [**upsert_tags**](https://github.com/CrowdStrike/crimson-falcon/wiki/ASPM#upsert_tags)
 - **PUT**: /aspm-api-gateway/api/v1/tags
 - **Description**: Create new or update existing tag. You can update unique tags table or regular tags table
 
@@ -549,7 +549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ActivityMonitor`
 
-- **Operation**: [**get_activity_monitor_v3**](docs/ActivityMonitor.md#get_activity_monitor_v3)
+- **Operation**: [**get_activity_monitor_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/ActivityMonitor#get_activity_monitor_v3)
 - **GET**: /saas-security/entities/monitor/v3
 - **Description**: GET Activity Monitor
 
@@ -557,7 +557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**get_alerts_v3**](docs/Alerts.md#get_alerts_v3)
+- **Operation**: [**get_alerts_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#get_alerts_v3)
 - **GET**: /saas-security/entities/alerts/v3
 - **Description**: GET Alert by ID or GET Alerts
 
@@ -565,7 +565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**get_queries_alerts_v1**](docs/Alerts.md#get_queries_alerts_v1)
+- **Operation**: [**get_queries_alerts_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#get_queries_alerts_v1)
 - **GET**: /alerts/queries/alerts/v1
 - **Description**: Deprecated: please use version v2 of this endpoint. Retrieves all Alerts ids that match a given query.
 
@@ -573,7 +573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**get_queries_alerts_v2**](docs/Alerts.md#get_queries_alerts_v2)
+- **Operation**: [**get_queries_alerts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#get_queries_alerts_v2)
 - **GET**: /alerts/queries/alerts/v2
 - **Description**: Retrieves all Alerts ids that match a given query.
 
@@ -581,7 +581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**patch_entities_alerts_v2**](docs/Alerts.md#patch_entities_alerts_v2)
+- **Operation**: [**patch_entities_alerts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#patch_entities_alerts_v2)
 - **PATCH**: /alerts/entities/alerts/v2
 - **Description**: Deprecated: Please use version v3 of this endpoint. Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
@@ -589,7 +589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**patch_entities_alerts_v3**](docs/Alerts.md#patch_entities_alerts_v3)
+- **Operation**: [**patch_entities_alerts_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#patch_entities_alerts_v3)
 - **PATCH**: /alerts/entities/alerts/v3
 - **Description**: Perform actions on Alerts identified by composite ID(s) in request. Each action has a name and a description which describes what the action does. If a request adds and removes tag in a single request, the order of processing would be to remove tags before adding new ones in.
 
@@ -597,7 +597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**post_aggregates_alerts_v1**](docs/Alerts.md#post_aggregates_alerts_v1)
+- **Operation**: [**post_aggregates_alerts_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#post_aggregates_alerts_v1)
 - **POST**: /alerts/aggregates/alerts/v1
 - **Description**: Deprecated: Please use version v2 of this endpoint. Retrieves aggregate values for Alerts across all CIDs.
 
@@ -605,7 +605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**post_aggregates_alerts_v2**](docs/Alerts.md#post_aggregates_alerts_v2)
+- **Operation**: [**post_aggregates_alerts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#post_aggregates_alerts_v2)
 - **POST**: /alerts/aggregates/alerts/v2
 - **Description**: Retrieves aggregate values for Alerts across all CIDs.
 
@@ -613,7 +613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**post_combined_alerts_v1**](docs/Alerts.md#post_combined_alerts_v1)
+- **Operation**: [**post_combined_alerts_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#post_combined_alerts_v1)
 - **POST**: /alerts/combined/alerts/v1
 - **Description**: Retrieves all Alerts that match a particular FQL filter. This API is intended for retrieval of large amounts of Alerts(&gt;10k) using a pagination based on a &#x60;after&#x60; token. If you need to use &#x60;offset&#x60; pagination, consider using GET /alerts/queries/alerts/*and POST /alerts/entities/alerts/* APIs.
 
@@ -621,7 +621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**post_entities_alerts_v1**](docs/Alerts.md#post_entities_alerts_v1)
+- **Operation**: [**post_entities_alerts_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#post_entities_alerts_v1)
 - **POST**: /alerts/entities/alerts/v1
 - **Description**: Deprecated: please use version v2 of this endpoint. Retrieves all Alerts given their ids.
 
@@ -629,7 +629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Alerts`
 
-- **Operation**: [**post_entities_alerts_v2**](docs/Alerts.md#post_entities_alerts_v2)
+- **Operation**: [**post_entities_alerts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Alerts#post_entities_alerts_v2)
 - **POST**: /alerts/entities/alerts/v2
 - **Description**: Retrieves all Alerts given their composite ids.
 
@@ -637,7 +637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ApiIntegrations`
 
-- **Operation**: [**execute_command**](docs/ApiIntegrations.md#execute_command)
+- **Operation**: [**execute_command**](https://github.com/CrowdStrike/crimson-falcon/wiki/ApiIntegrations#execute_command)
 - **POST**: /plugins/entities/execute/v1
 - **Description**: Execute a command.
 
@@ -645,7 +645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ApiIntegrations`
 
-- **Operation**: [**execute_command_proxy**](docs/ApiIntegrations.md#execute_command_proxy)
+- **Operation**: [**execute_command_proxy**](https://github.com/CrowdStrike/crimson-falcon/wiki/ApiIntegrations#execute_command_proxy)
 - **POST**: /plugins/entities/execute-proxy/v1
 - **Description**: Execute a command and proxy the response directly.
 
@@ -653,7 +653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ApiIntegrations`
 
-- **Operation**: [**get_combined_plugin_configs**](docs/ApiIntegrations.md#get_combined_plugin_configs)
+- **Operation**: [**get_combined_plugin_configs**](https://github.com/CrowdStrike/crimson-falcon/wiki/ApiIntegrations#get_combined_plugin_configs)
 - **GET**: /plugins/combined/configs/v1
 - **Description**: Queries for config resources and returns details
 
@@ -661,7 +661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CaoHunting`
 
-- **Operation**: [**aggregate_intelligence_queries**](docs/CaoHunting.md#aggregate_intelligence_queries)
+- **Operation**: [**aggregate_intelligence_queries**](https://github.com/CrowdStrike/crimson-falcon/wiki/CaoHunting#aggregate_intelligence_queries)
 - **POST**: /hunting/aggregates/intelligence-queries/v1
 - **Description**: Aggregate intelligence queries
 
@@ -669,7 +669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CaoHunting`
 
-- **Operation**: [**get_archive_export**](docs/CaoHunting.md#get_archive_export)
+- **Operation**: [**get_archive_export**](https://github.com/CrowdStrike/crimson-falcon/wiki/CaoHunting#get_archive_export)
 - **GET**: /hunting/entities/archive-exports/v1
 - **Description**: Creates an Archive Export
 
@@ -677,7 +677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CaoHunting`
 
-- **Operation**: [**get_intelligence_queries**](docs/CaoHunting.md#get_intelligence_queries)
+- **Operation**: [**get_intelligence_queries**](https://github.com/CrowdStrike/crimson-falcon/wiki/CaoHunting#get_intelligence_queries)
 - **GET**: /hunting/entities/intelligence-queries/v1
 - **Description**: Retrieves a list of Intelligence queries
 
@@ -685,7 +685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CaoHunting`
 
-- **Operation**: [**search_intelligence_queries**](docs/CaoHunting.md#search_intelligence_queries)
+- **Operation**: [**search_intelligence_queries**](https://github.com/CrowdStrike/crimson-falcon/wiki/CaoHunting#search_intelligence_queries)
 - **GET**: /hunting/queries/intelligence-queries/v1
 - **Description**: Search intelligence queries that match the provided conditions
 
@@ -693,7 +693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**cb_exclusions_create_v1**](docs/CertificateBasedExclusions.md#cb_exclusions_create_v1)
+- **Operation**: [**cb_exclusions_create_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#cb_exclusions_create_v1)
 - **POST**: /exclusions/entities/cert-based-exclusions/v1
 - **Description**: Create new Certificate Based Exclusions.
 
@@ -701,7 +701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**cb_exclusions_delete_v1**](docs/CertificateBasedExclusions.md#cb_exclusions_delete_v1)
+- **Operation**: [**cb_exclusions_delete_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#cb_exclusions_delete_v1)
 - **DELETE**: /exclusions/entities/cert-based-exclusions/v1
 - **Description**: Delete the exclusions by id
 
@@ -709,7 +709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**cb_exclusions_get_v1**](docs/CertificateBasedExclusions.md#cb_exclusions_get_v1)
+- **Operation**: [**cb_exclusions_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#cb_exclusions_get_v1)
 - **GET**: /exclusions/entities/cert-based-exclusions/v1
 - **Description**: Find all exclusion IDs matching the query with filter
 
@@ -717,7 +717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**cb_exclusions_query_v1**](docs/CertificateBasedExclusions.md#cb_exclusions_query_v1)
+- **Operation**: [**cb_exclusions_query_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#cb_exclusions_query_v1)
 - **GET**: /exclusions/queries/cert-based-exclusions/v1
 - **Description**: Search for cert-based exclusions.
 
@@ -725,7 +725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**cb_exclusions_update_v1**](docs/CertificateBasedExclusions.md#cb_exclusions_update_v1)
+- **Operation**: [**cb_exclusions_update_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#cb_exclusions_update_v1)
 - **PATCH**: /exclusions/entities/cert-based-exclusions/v1
 - **Description**: Updates existing Certificate Based Exclusions
 
@@ -733,7 +733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CertificateBasedExclusions`
 
-- **Operation**: [**certificates_get_v1**](docs/CertificateBasedExclusions.md#certificates_get_v1)
+- **Operation**: [**certificates_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CertificateBasedExclusions#certificates_get_v1)
 - **GET**: /exclusions/entities/certificates/v1
 - **Description**: Retrieves certificate signing information for a file
 
@@ -741,7 +741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAwsRegistration`
 
-- **Operation**: [**cloud_registration_aws_create_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_create_account)
+- **Operation**: [**cloud_registration_aws_create_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAwsRegistration#cloud_registration_aws_create_account)
 - **POST**: /cloud-security-registration-aws/entities/account/v1
 - **Description**: Creates a new account in our system for a customer.
 
@@ -749,7 +749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAwsRegistration`
 
-- **Operation**: [**cloud_registration_aws_delete_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_delete_account)
+- **Operation**: [**cloud_registration_aws_delete_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAwsRegistration#cloud_registration_aws_delete_account)
 - **DELETE**: /cloud-security-registration-aws/entities/account/v1
 - **Description**: Deletes an existing AWS account or organization in our system.
 
@@ -757,7 +757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAwsRegistration`
 
-- **Operation**: [**cloud_registration_aws_get_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_get_accounts)
+- **Operation**: [**cloud_registration_aws_get_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAwsRegistration#cloud_registration_aws_get_accounts)
 - **GET**: /cloud-security-registration-aws/entities/account/v1
 - **Description**: Retrieve existing AWS accounts by account IDs
 
@@ -765,7 +765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAwsRegistration`
 
-- **Operation**: [**cloud_registration_aws_query_accounts**](docs/CloudAwsRegistration.md#cloud_registration_aws_query_accounts)
+- **Operation**: [**cloud_registration_aws_query_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAwsRegistration#cloud_registration_aws_query_accounts)
 - **GET**: /cloud-security-registration-aws/queries/account/v1
 - **Description**: Retrieve existing AWS accounts by account IDs
 
@@ -773,7 +773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAwsRegistration`
 
-- **Operation**: [**cloud_registration_aws_update_account**](docs/CloudAwsRegistration.md#cloud_registration_aws_update_account)
+- **Operation**: [**cloud_registration_aws_update_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAwsRegistration#cloud_registration_aws_update_account)
 - **PATCH**: /cloud-security-registration-aws/entities/account/v1
 - **Description**: Patches a existing account in our system for a customer.
 
@@ -781,7 +781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**cloud_registration_azure_create_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_create_registration)
+- **Operation**: [**cloud_registration_azure_create_registration**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#cloud_registration_azure_create_registration)
 - **POST**: /cloud-security-registration-azure/entities/registrations/v1
 - **Description**: Create an Azure registration for a tenant.
 
@@ -789,7 +789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**cloud_registration_azure_delete_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_delete_registration)
+- **Operation**: [**cloud_registration_azure_delete_registration**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#cloud_registration_azure_delete_registration)
 - **DELETE**: /cloud-security-registration-azure/entities/registrations/v1
 - **Description**: Deletes existing Azure registrations.
 
@@ -797,7 +797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**cloud_registration_azure_download_script**](docs/CloudAzureRegistration.md#cloud_registration_azure_download_script)
+- **Operation**: [**cloud_registration_azure_download_script**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#cloud_registration_azure_download_script)
 - **POST**: /cloud-security-registration-azure/entities/scripts/v1
 - **Description**: Retrieve script to create resources
 
@@ -805,7 +805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**cloud_registration_azure_get_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_get_registration)
+- **Operation**: [**cloud_registration_azure_get_registration**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#cloud_registration_azure_get_registration)
 - **GET**: /cloud-security-registration-azure/entities/registrations/v1
 - **Description**: Retrieve existing Azure registration for a tenant.
 
@@ -813,7 +813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**cloud_registration_azure_update_registration**](docs/CloudAzureRegistration.md#cloud_registration_azure_update_registration)
+- **Operation**: [**cloud_registration_azure_update_registration**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#cloud_registration_azure_update_registration)
 - **PATCH**: /cloud-security-registration-azure/entities/registrations/v1
 - **Description**: Update an existing Azure registration for a tenant.
 
@@ -821,7 +821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudAzureRegistration`
 
-- **Operation**: [**download_azure_script**](docs/CloudAzureRegistration.md#download_azure_script)
+- **Operation**: [**download_azure_script**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudAzureRegistration#download_azure_script)
 - **GET**: /cloud-security-registration-azure/entities/scripts/v1
 - **Description**: Download Azure deployment script (Terraform or Bicep)
 
@@ -829,7 +829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**create_or_update_aws_settings**](docs/CloudConnectAws.md#create_or_update_aws_settings)
+- **Operation**: [**create_or_update_aws_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#create_or_update_aws_settings)
 - **POST**: /cloud-connect-aws/entities/settings/v1
 - **Description**: Create or update Global Settings which are applicable to all provisioned AWS accounts
 
@@ -837,7 +837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**delete_aws_accounts**](docs/CloudConnectAws.md#delete_aws_accounts)
+- **Operation**: [**delete_aws_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#delete_aws_accounts)
 - **DELETE**: /cloud-connect-aws/entities/accounts/v1
 - **Description**: Delete a set of AWS Accounts by specifying their IDs
 
@@ -845,7 +845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**get_aws_accounts**](docs/CloudConnectAws.md#get_aws_accounts)
+- **Operation**: [**get_aws_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#get_aws_accounts)
 - **GET**: /cloud-connect-aws/entities/accounts/v1
 - **Description**: Retrieve a set of AWS Accounts by specifying their IDs
 
@@ -853,7 +853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**get_aws_settings**](docs/CloudConnectAws.md#get_aws_settings)
+- **Operation**: [**get_aws_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#get_aws_settings)
 - **GET**: /cloud-connect-aws/combined/settings/v1
 - **Description**: Retrieve a set of Global Settings which are applicable to all provisioned AWS accounts
 
@@ -861,7 +861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**provision_aws_accounts**](docs/CloudConnectAws.md#provision_aws_accounts)
+- **Operation**: [**provision_aws_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#provision_aws_accounts)
 - **POST**: /cloud-connect-aws/entities/accounts/v1
 - **Description**: Provision AWS Accounts by specifying details about the accounts to provision
 
@@ -869,7 +869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**query_aws_accounts**](docs/CloudConnectAws.md#query_aws_accounts)
+- **Operation**: [**query_aws_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#query_aws_accounts)
 - **GET**: /cloud-connect-aws/combined/accounts/v1
 - **Description**: Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS accounts which match the filter criteria
 
@@ -877,7 +877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**query_aws_accounts_for_ids**](docs/CloudConnectAws.md#query_aws_accounts_for_ids)
+- **Operation**: [**query_aws_accounts_for_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#query_aws_accounts_for_ids)
 - **GET**: /cloud-connect-aws/queries/accounts/v1
 - **Description**: Search for provisioned AWS Accounts by providing an FQL filter and paging details. Returns a set of AWS account IDs which match the filter criteria
 
@@ -885,7 +885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**update_aws_accounts**](docs/CloudConnectAws.md#update_aws_accounts)
+- **Operation**: [**update_aws_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#update_aws_accounts)
 - **PATCH**: /cloud-connect-aws/entities/accounts/v1
 - **Description**: Update AWS Accounts by specifying the ID of the account and details to update
 
@@ -893,7 +893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudConnectAws`
 
-- **Operation**: [**verify_aws_account_access**](docs/CloudConnectAws.md#verify_aws_account_access)
+- **Operation**: [**verify_aws_account_access**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudConnectAws#verify_aws_account_access)
 - **POST**: /cloud-connect-aws/entities/verify-account-access/v1
 - **Description**: Performs an Access Verification check on the specified AWS Account IDs
 
@@ -901,7 +901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_create_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_create_account)
+- **Operation**: [**cloud_security_registration_oci_create_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_create_account)
 - **POST**: /cloud-security-registration-oci/entities/accounts/v1
 - **Description**: Create OCI tenancy account in CSPM
 
@@ -909,7 +909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_delete_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_delete_account)
+- **Operation**: [**cloud_security_registration_oci_delete_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_delete_account)
 - **DELETE**: /cloud-security-registration-oci/entities/accounts/v1
 - **Description**: Delete an existing OCI tenancy in CSPM.
 
@@ -917,7 +917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_download_script**](docs/CloudOciRegistration.md#cloud_security_registration_oci_download_script)
+- **Operation**: [**cloud_security_registration_oci_download_script**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_download_script)
 - **POST**: /cloud-security-registration-oci/entities/scripts/v1
 - **Description**: Retrieve script to create resources in tenancy OCID
 
@@ -925,7 +925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_get_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_get_account)
+- **Operation**: [**cloud_security_registration_oci_get_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_get_account)
 - **GET**: /cloud-security-registration-oci/combined/accounts/v1
 - **Description**: Retrieve a list of OCI tenancies with support for FQL filtering, sorting, and pagination
 
@@ -933,7 +933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_rotate_key**](docs/CloudOciRegistration.md#cloud_security_registration_oci_rotate_key)
+- **Operation**: [**cloud_security_registration_oci_rotate_key**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_rotate_key)
 - **POST**: /cloud-security-registration-oci/entities/account-rotate-keys/v1
 - **Description**: Refresh key for the OCI Tenancy
 
@@ -941,7 +941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_update_account**](docs/CloudOciRegistration.md#cloud_security_registration_oci_update_account)
+- **Operation**: [**cloud_security_registration_oci_update_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_update_account)
 - **PATCH**: /cloud-security-registration-oci/entities/accounts/v1
 - **Description**: Patch an existing OCI account in our system for a customer.
 
@@ -949,7 +949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudOciRegistration`
 
-- **Operation**: [**cloud_security_registration_oci_validate_tenancy**](docs/CloudOciRegistration.md#cloud_security_registration_oci_validate_tenancy)
+- **Operation**: [**cloud_security_registration_oci_validate_tenancy**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudOciRegistration#cloud_security_registration_oci_validate_tenancy)
 - **POST**: /cloud-security-registration-oci/entities/account-validate/v1
 - **Description**: Validate the OCI account in CSPM for a provided CID. For internal clients only.
 
@@ -957,7 +957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSecurityAssets`
 
-- **Operation**: [**cloud_security_assets_combined_compliance_by_account**](docs/CloudSecurityAssets.md#cloud_security_assets_combined_compliance_by_account)
+- **Operation**: [**cloud_security_assets_combined_compliance_by_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSecurityAssets#cloud_security_assets_combined_compliance_by_account)
 - **GET**: /cloud-security-assets/combined/compliance-controls/by-account-region-and-resource-type/v1
 - **Description**: Gets combined compliance data aggregated by account and region. Results can be filtered and sorted.
 
@@ -965,7 +965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSecurityAssets`
 
-- **Operation**: [**cloud_security_assets_entities_get**](docs/CloudSecurityAssets.md#cloud_security_assets_entities_get)
+- **Operation**: [**cloud_security_assets_entities_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSecurityAssets#cloud_security_assets_entities_get)
 - **GET**: /cloud-security-assets/entities/resources/v1
 - **Description**: Gets raw resources based on the provided IDs param.  Maximum of 100 resources can be requested with this method.  Use POST method with same path if more are required.
 
@@ -973,7 +973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSecurityAssets`
 
-- **Operation**: [**cloud_security_assets_queries**](docs/CloudSecurityAssets.md#cloud_security_assets_queries)
+- **Operation**: [**cloud_security_assets_queries**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSecurityAssets#cloud_security_assets_queries)
 - **GET**: /cloud-security-assets/queries/resources/v1
 - **Description**: Gets a list of resource IDs for the given parameters, filters and sort criteria
 
@@ -981,7 +981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**create_deployment_entity**](docs/CloudSnapshots.md#create_deployment_entity)
+- **Operation**: [**create_deployment_entity**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#create_deployment_entity)
 - **POST**: /snapshots/entities/deployments/v1
 - **Description**: Launch a snapshot scan for a given cloud asset
 
@@ -989,7 +989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**get_credentials_mixin0_mixin60**](docs/CloudSnapshots.md#get_credentials_mixin0_mixin60)
+- **Operation**: [**get_credentials_mixin0_mixin60**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#get_credentials_mixin0_mixin60)
 - **GET**: /snapshots/entities/image-registry-credentials/v1
 - **Description**: Gets the registry credentials
 
@@ -997,7 +997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**get_scan_report**](docs/CloudSnapshots.md#get_scan_report)
+- **Operation**: [**get_scan_report**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#get_scan_report)
 - **GET**: /snapshots/entities/scanreports/v1
 - **Description**: retrieve the scan report for an instance
 
@@ -1005,7 +1005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**read_deployments_combined**](docs/CloudSnapshots.md#read_deployments_combined)
+- **Operation**: [**read_deployments_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#read_deployments_combined)
 - **GET**: /snapshots/combined/deployments/v1
 - **Description**: Retrieve snapshot jobs identified by the provided IDs
 
@@ -1013,7 +1013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**read_deployments_entities**](docs/CloudSnapshots.md#read_deployments_entities)
+- **Operation**: [**read_deployments_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#read_deployments_entities)
 - **GET**: /snapshots/entities/deployments/v1
 - **Description**: Retrieve snapshot jobs identified by the provided IDs
 
@@ -1021,7 +1021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CloudSnapshots`
 
-- **Operation**: [**register_cspm_snapshot_account**](docs/CloudSnapshots.md#register_cspm_snapshot_account)
+- **Operation**: [**register_cspm_snapshot_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CloudSnapshots#register_cspm_snapshot_account)
 - **POST**: /snapshots/entities/accounts/v1
 - **Description**: Register customer cloud account for snapshot scanning
 
@@ -1029,7 +1029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ConfigurationAssessment`
 
-- **Operation**: [**get_combined_assessments_query**](docs/ConfigurationAssessment.md#get_combined_assessments_query)
+- **Operation**: [**get_combined_assessments_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ConfigurationAssessment#get_combined_assessments_query)
 - **GET**: /configuration-assessment/combined/assessments/v1
 - **Description**: Search for assessments in your environment by providing an FQL filter and paging details. Returns a set of HostFinding entities which match the filter criteria
 
@@ -1037,7 +1037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ConfigurationAssessment`
 
-- **Operation**: [**get_rule_details**](docs/ConfigurationAssessment.md#get_rule_details)
+- **Operation**: [**get_rule_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/ConfigurationAssessment#get_rule_details)
 - **GET**: /configuration-assessment/entities/rule-details/v1
 - **Description**: Get rules details for provided one or more rule IDs
 
@@ -1045,7 +1045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ConfigurationAssessmentEvaluationLogic`
 
-- **Operation**: [**get_evaluation_logic_mixin0**](docs/ConfigurationAssessmentEvaluationLogic.md#get_evaluation_logic_mixin0)
+- **Operation**: [**get_evaluation_logic_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/ConfigurationAssessmentEvaluationLogic#get_evaluation_logic_mixin0)
 - **GET**: /configuration-assessment/entities/evaluation-logic/v1
 - **Description**: Get details on evaluation logic items by providing one or more finding IDs.
 
@@ -1053,7 +1053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerAlerts`
 
-- **Operation**: [**read_container_alerts_count**](docs/ContainerAlerts.md#read_container_alerts_count)
+- **Operation**: [**read_container_alerts_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerAlerts#read_container_alerts_count)
 - **GET**: /container-security/aggregates/container-alerts/count/v1
 - **Description**: Search Container Alerts by the provided search criteria
 
@@ -1061,7 +1061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerAlerts`
 
-- **Operation**: [**read_container_alerts_count_by_severity**](docs/ContainerAlerts.md#read_container_alerts_count_by_severity)
+- **Operation**: [**read_container_alerts_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerAlerts#read_container_alerts_count_by_severity)
 - **GET**: /container-security/aggregates/container-alerts/count-by-severity/v1
 - **Description**: Get Container Alerts counts by severity
 
@@ -1069,7 +1069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerAlerts`
 
-- **Operation**: [**search_and_read_container_alerts**](docs/ContainerAlerts.md#search_and_read_container_alerts)
+- **Operation**: [**search_and_read_container_alerts**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerAlerts#search_and_read_container_alerts)
 - **GET**: /container-security/combined/container-alerts/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1077,7 +1077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**read_combined_detections**](docs/ContainerDetections.md#read_combined_detections)
+- **Operation**: [**read_combined_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#read_combined_detections)
 - **GET**: /container-security/combined/detections/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1085,7 +1085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**read_detections**](docs/ContainerDetections.md#read_detections)
+- **Operation**: [**read_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#read_detections)
 - **GET**: /container-security/entities/detections/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1093,7 +1093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**read_detections_count**](docs/ContainerDetections.md#read_detections_count)
+- **Operation**: [**read_detections_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#read_detections_count)
 - **GET**: /container-security/aggregates/detections/count/v1
 - **Description**: Aggregate count of detections
 
@@ -1101,7 +1101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**read_detections_count_by_severity**](docs/ContainerDetections.md#read_detections_count_by_severity)
+- **Operation**: [**read_detections_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#read_detections_count_by_severity)
 - **GET**: /container-security/aggregates/detections/count-by-severity/v1
 - **Description**: Aggregate counts of detections by severity
 
@@ -1109,7 +1109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**read_detections_count_by_type**](docs/ContainerDetections.md#read_detections_count_by_type)
+- **Operation**: [**read_detections_count_by_type**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#read_detections_count_by_type)
 - **GET**: /container-security/aggregates/detections/count-by-type/v1
 - **Description**: Aggregate counts of detections by detection type
 
@@ -1117,7 +1117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerDetections`
 
-- **Operation**: [**search_detections**](docs/ContainerDetections.md#search_detections)
+- **Operation**: [**search_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerDetections#search_detections)
 - **GET**: /container-security/queries/detections/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1125,7 +1125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_cluster_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_cluster_assessments)
+- **Operation**: [**ext_aggregate_cluster_assessments**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_cluster_assessments)
 - **GET**: /container-compliance/aggregates/compliance-by-clusters/v2
 - **Description**: get the assessments for each cluster
 
@@ -1133,7 +1133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_containers_by_rules_path**](docs/ContainerImageCompliance.md#ext_aggregate_failed_containers_by_rules_path)
+- **Operation**: [**ext_aggregate_failed_containers_by_rules_path**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_containers_by_rules_path)
 - **GET**: /container-compliance/aggregates/failed-containers-by-rules/v2
 - **Description**: get the containers grouped into rules on which they failed
 
@@ -1141,7 +1141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_containers_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_containers_count_by_severity)
+- **Operation**: [**ext_aggregate_failed_containers_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_containers_count_by_severity)
 - **GET**: /container-compliance/aggregates/failed-containers-count-by-severity/v2
 - **Description**: get the failed containers count grouped into severity levels
 
@@ -1149,7 +1149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_images_by_rules_path**](docs/ContainerImageCompliance.md#ext_aggregate_failed_images_by_rules_path)
+- **Operation**: [**ext_aggregate_failed_images_by_rules_path**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_images_by_rules_path)
 - **GET**: /container-compliance/aggregates/failed-images-by-rules/v2
 - **Description**: get the images grouped into rules on which they failed
 
@@ -1157,7 +1157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_images_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_images_count_by_severity)
+- **Operation**: [**ext_aggregate_failed_images_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_images_count_by_severity)
 - **GET**: /container-compliance/aggregates/failed-images-count-by-severity/v2
 - **Description**: get the failed images count grouped into severity levels
 
@@ -1165,7 +1165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_rules_by_clusters**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_by_clusters)
+- **Operation**: [**ext_aggregate_failed_rules_by_clusters**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_rules_by_clusters)
 - **GET**: /container-compliance/aggregates/failed-rules-by-clusters/v2
 - **Description**: get the failed rules for each cluster grouped into severity levels
 
@@ -1173,7 +1173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_rules_by_images**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_by_images)
+- **Operation**: [**ext_aggregate_failed_rules_by_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_rules_by_images)
 - **GET**: /container-compliance/aggregates/failed-rules-by-images/v2
 - **Description**: get images with failed rules, rule count grouped by severity for each image
 
@@ -1181,7 +1181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_failed_rules_count_by_severity**](docs/ContainerImageCompliance.md#ext_aggregate_failed_rules_count_by_severity)
+- **Operation**: [**ext_aggregate_failed_rules_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_failed_rules_count_by_severity)
 - **GET**: /container-compliance/aggregates/failed-rules-count-by-severity/v2
 - **Description**: get the failed rules count grouped into severity levels
 
@@ -1189,7 +1189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_image_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_image_assessments)
+- **Operation**: [**ext_aggregate_image_assessments**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_image_assessments)
 - **GET**: /container-compliance/aggregates/compliance-by-images/v2
 - **Description**: get the assessments for each image
 
@@ -1197,7 +1197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_rules_assessments**](docs/ContainerImageCompliance.md#ext_aggregate_rules_assessments)
+- **Operation**: [**ext_aggregate_rules_assessments**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_rules_assessments)
 - **GET**: /container-compliance/aggregates/compliance-by-rules/v2
 - **Description**: get the assessments for each rule
 
@@ -1205,7 +1205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImageCompliance`
 
-- **Operation**: [**ext_aggregate_rules_by_status**](docs/ContainerImageCompliance.md#ext_aggregate_rules_by_status)
+- **Operation**: [**ext_aggregate_rules_by_status**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImageCompliance#ext_aggregate_rules_by_status)
 - **GET**: /container-compliance/aggregates/rules-by-status/v2
 - **Description**: get the rules grouped by their statuses
 
@@ -1213,7 +1213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**aggregate_image_assessment_history**](docs/ContainerImages.md#aggregate_image_assessment_history)
+- **Operation**: [**aggregate_image_assessment_history**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#aggregate_image_assessment_history)
 - **GET**: /container-security/aggregates/images/assessment-history/v1
 - **Description**: Image assessment history
 
@@ -1221,7 +1221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**aggregate_image_count**](docs/ContainerImages.md#aggregate_image_count)
+- **Operation**: [**aggregate_image_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#aggregate_image_count)
 - **GET**: /container-security/aggregates/images/count/v1
 - **Description**: Aggregate count of images
 
@@ -1229,7 +1229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**aggregate_image_count_by_base_os**](docs/ContainerImages.md#aggregate_image_count_by_base_os)
+- **Operation**: [**aggregate_image_count_by_base_os**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#aggregate_image_count_by_base_os)
 - **GET**: /container-security/aggregates/images/count-by-os-distribution/v1
 - **Description**: Aggregate count of images grouped by Base OS distribution
 
@@ -1237,7 +1237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**aggregate_image_count_by_state**](docs/ContainerImages.md#aggregate_image_count_by_state)
+- **Operation**: [**aggregate_image_count_by_state**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#aggregate_image_count_by_state)
 - **GET**: /container-security/aggregates/images/count-by-state/v1
 - **Description**: Aggregate count of images grouped by state
 
@@ -1245,7 +1245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**combined_base_images**](docs/ContainerImages.md#combined_base_images)
+- **Operation**: [**combined_base_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#combined_base_images)
 - **GET**: /container-security/combined/base-images/v1
 - **Description**: Retrieves a list of base images for the provided filter. Maximum page size: 100
 
@@ -1253,7 +1253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**combined_image_by_vulnerability_count**](docs/ContainerImages.md#combined_image_by_vulnerability_count)
+- **Operation**: [**combined_image_by_vulnerability_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#combined_image_by_vulnerability_count)
 - **GET**: /container-security/combined/images/by-vulnerability-count/v1
 - **Description**: Retrieve top x images with the most vulnerabilities
 
@@ -1261,7 +1261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**combined_image_detail**](docs/ContainerImages.md#combined_image_detail)
+- **Operation**: [**combined_image_detail**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#combined_image_detail)
 - **GET**: /container-security/combined/images/detail/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1269,7 +1269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**combined_image_issues_summary**](docs/ContainerImages.md#combined_image_issues_summary)
+- **Operation**: [**combined_image_issues_summary**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#combined_image_issues_summary)
 - **GET**: /container-security/combined/images/issues-summary/v1
 - **Description**: Retrieve image issues summary such as Image detections, Runtime detections, Policies, vulnerabilities
 
@@ -1277,7 +1277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**combined_image_vulnerability_summary**](docs/ContainerImages.md#combined_image_vulnerability_summary)
+- **Operation**: [**combined_image_vulnerability_summary**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#combined_image_vulnerability_summary)
 - **GET**: /container-security/combined/images/vulnerabilities-summary/v1
 - **Description**: aggregates information about vulnerabilities for an image
 
@@ -1285,7 +1285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**create_base_images_entities**](docs/ContainerImages.md#create_base_images_entities)
+- **Operation**: [**create_base_images_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#create_base_images_entities)
 - **POST**: /container-security/entities/base-images/v1
 - **Description**: Creates base images using the provided details
 
@@ -1293,7 +1293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**delete_base_images**](docs/ContainerImages.md#delete_base_images)
+- **Operation**: [**delete_base_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#delete_base_images)
 - **DELETE**: /container-security/entities/base-images/v1
 - **Description**: Delete base images by base image uuid
 
@@ -1301,7 +1301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**get_combined_images**](docs/ContainerImages.md#get_combined_images)
+- **Operation**: [**get_combined_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#get_combined_images)
 - **GET**: /container-security/combined/image-assessment/images/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1309,7 +1309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerImages`
 
-- **Operation**: [**read_combined_images_export**](docs/ContainerImages.md#read_combined_images_export)
+- **Operation**: [**read_combined_images_export**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerImages#read_combined_images_export)
 - **GET**: /container-security/combined/images/export/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1317,7 +1317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_by_fixable_vuln_count**](docs/ContainerPackages.md#read_packages_by_fixable_vuln_count)
+- **Operation**: [**read_packages_by_fixable_vuln_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_by_fixable_vuln_count)
 - **GET**: /container-security/combined/packages/app-by-fixable-vulnerability-count/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1325,7 +1325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_by_image_count**](docs/ContainerPackages.md#read_packages_by_image_count)
+- **Operation**: [**read_packages_by_image_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_by_image_count)
 - **GET**: /container-security/aggregates/packages/by-image-count/v1
 - **Description**: Retrieves the N most frequently used packages across images
 
@@ -1333,7 +1333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_by_vuln_count**](docs/ContainerPackages.md#read_packages_by_vuln_count)
+- **Operation**: [**read_packages_by_vuln_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_by_vuln_count)
 - **GET**: /container-security/combined/packages/by-vulnerability-count/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1341,7 +1341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_combined**](docs/ContainerPackages.md#read_packages_combined)
+- **Operation**: [**read_packages_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_combined)
 - **GET**: /container-security/combined/packages/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1349,7 +1349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_combined_export**](docs/ContainerPackages.md#read_packages_combined_export)
+- **Operation**: [**read_packages_combined_export**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_combined_export)
 - **GET**: /container-security/combined/packages/export/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1357,7 +1357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_combined_v2**](docs/ContainerPackages.md#read_packages_combined_v2)
+- **Operation**: [**read_packages_combined_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_combined_v2)
 - **GET**: /container-security/combined/packages/v2
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1365,7 +1365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerPackages`
 
-- **Operation**: [**read_packages_count_by_zero_day**](docs/ContainerPackages.md#read_packages_count_by_zero_day)
+- **Operation**: [**read_packages_count_by_zero_day**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerPackages#read_packages_count_by_zero_day)
 - **GET**: /container-security/aggregates/packages/count-by-zero-day/v1
 - **Description**: Retrieve packages count affected by zero day vulnerabilities
 
@@ -1373,7 +1373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_combined_vulnerabilities**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities)
+- **Operation**: [**read_combined_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_combined_vulnerabilities)
 - **GET**: /container-security/combined/vulnerabilities/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1381,7 +1381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_combined_vulnerabilities_details**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities_details)
+- **Operation**: [**read_combined_vulnerabilities_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_combined_vulnerabilities_details)
 - **GET**: /container-security/combined/vulnerabilities/details/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1389,7 +1389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_combined_vulnerabilities_info**](docs/ContainerVulnerabilities.md#read_combined_vulnerabilities_info)
+- **Operation**: [**read_combined_vulnerabilities_info**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_combined_vulnerabilities_info)
 - **GET**: /container-security/combined/vulnerabilities/info/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1397,7 +1397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerabilities_by_image_count**](docs/ContainerVulnerabilities.md#read_vulnerabilities_by_image_count)
+- **Operation**: [**read_vulnerabilities_by_image_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerabilities_by_image_count)
 - **GET**: /container-security/combined/vulnerabilities/by-image-count/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1405,7 +1405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerabilities_publication_date**](docs/ContainerVulnerabilities.md#read_vulnerabilities_publication_date)
+- **Operation**: [**read_vulnerabilities_publication_date**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerabilities_publication_date)
 - **GET**: /container-security/combined/vulnerabilities/by-published-date/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1413,7 +1413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerability_count**](docs/ContainerVulnerabilities.md#read_vulnerability_count)
+- **Operation**: [**read_vulnerability_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerability_count)
 - **GET**: /container-security/aggregates/vulnerabilities/count/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1421,7 +1421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerability_count_by_actively_exploited**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_actively_exploited)
+- **Operation**: [**read_vulnerability_count_by_actively_exploited**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerability_count_by_actively_exploited)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-actively-exploited/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1429,7 +1429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerability_count_by_cps_rating**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_cps_rating)
+- **Operation**: [**read_vulnerability_count_by_cps_rating**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerability_count_by_cps_rating)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-cps-rating/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1437,7 +1437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerability_count_by_cvss_score**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_cvss_score)
+- **Operation**: [**read_vulnerability_count_by_cvss_score**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerability_count_by_cvss_score)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-cvss-score/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1445,7 +1445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContainerVulnerabilities`
 
-- **Operation**: [**read_vulnerability_count_by_severity**](docs/ContainerVulnerabilities.md#read_vulnerability_count_by_severity)
+- **Operation**: [**read_vulnerability_count_by_severity**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContainerVulnerabilities#read_vulnerability_count_by_severity)
 - **GET**: /container-security/aggregates/vulnerabilities/count-by-severity/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -1453,7 +1453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**create_content_update_policies**](docs/ContentUpdatePolicies.md#create_content_update_policies)
+- **Operation**: [**create_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#create_content_update_policies)
 - **POST**: /policy/entities/content-update/v1
 - **Description**: Create Content Update Policies by specifying details about the policy to create
 
@@ -1461,7 +1461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**delete_content_update_policies**](docs/ContentUpdatePolicies.md#delete_content_update_policies)
+- **Operation**: [**delete_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#delete_content_update_policies)
 - **DELETE**: /policy/entities/content-update/v1
 - **Description**: Delete a set of Content Update Policies by specifying their IDs
 
@@ -1469,7 +1469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**get_content_update_policies**](docs/ContentUpdatePolicies.md#get_content_update_policies)
+- **Operation**: [**get_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#get_content_update_policies)
 - **GET**: /policy/entities/content-update/v1
 - **Description**: Retrieve a set of Content Update Policies by specifying their IDs
 
@@ -1477,7 +1477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**perform_content_update_policies_action**](docs/ContentUpdatePolicies.md#perform_content_update_policies_action)
+- **Operation**: [**perform_content_update_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#perform_content_update_policies_action)
 - **POST**: /policy/entities/content-update-actions/v1
 - **Description**: Perform the specified action on the Content Update Policies specified in the request
 
@@ -1485,7 +1485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**query_combined_content_update_policies**](docs/ContentUpdatePolicies.md#query_combined_content_update_policies)
+- **Operation**: [**query_combined_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#query_combined_content_update_policies)
 - **GET**: /policy/combined/content-update/v1
 - **Description**: Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policies which match the filter criteria
 
@@ -1493,7 +1493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**query_combined_content_update_policy_members**](docs/ContentUpdatePolicies.md#query_combined_content_update_policy_members)
+- **Operation**: [**query_combined_content_update_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#query_combined_content_update_policy_members)
 - **GET**: /policy/combined/content-update-members/v1
 - **Description**: Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -1501,7 +1501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**query_content_update_policies**](docs/ContentUpdatePolicies.md#query_content_update_policies)
+- **Operation**: [**query_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#query_content_update_policies)
 - **GET**: /policy/queries/content-update/v1
 - **Description**: Search for Content Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Content Update Policy IDs which match the filter criteria
 
@@ -1509,7 +1509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**query_content_update_policy_members**](docs/ContentUpdatePolicies.md#query_content_update_policy_members)
+- **Operation**: [**query_content_update_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#query_content_update_policy_members)
 - **GET**: /policy/queries/content-update-members/v1
 - **Description**: Search for members of a Content Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -1517,7 +1517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**query_pinnable_content_versions**](docs/ContentUpdatePolicies.md#query_pinnable_content_versions)
+- **Operation**: [**query_pinnable_content_versions**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#query_pinnable_content_versions)
 - **GET**: /policy/queries/content-update-pin-versions/v1
 - **Description**: Search for content versions available for pinning given the category.
 
@@ -1525,7 +1525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**set_content_update_policies_precedence**](docs/ContentUpdatePolicies.md#set_content_update_policies_precedence)
+- **Operation**: [**set_content_update_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#set_content_update_policies_precedence)
 - **POST**: /policy/entities/content-update-precedence/v1
 - **Description**: Sets the precedence of Content Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies when updating precedence
 
@@ -1533,7 +1533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ContentUpdatePolicies`
 
-- **Operation**: [**update_content_update_policies**](docs/ContentUpdatePolicies.md#update_content_update_policies)
+- **Operation**: [**update_content_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ContentUpdatePolicies#update_content_update_policies)
 - **PATCH**: /policy/entities/content-update/v1
 - **Description**: Update Content Update Policies by specifying the ID of the policy and details to update
 
@@ -1541,7 +1541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**aggregates_rule_versions_post_v1**](docs/CorrelationRules.md#aggregates_rule_versions_post_v1)
+- **Operation**: [**aggregates_rule_versions_post_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#aggregates_rule_versions_post_v1)
 - **POST**: /correlation-rules/aggregates/rule-versions/v1
 - **Description**: Get rules aggregates as specified via json in the request body.
 
@@ -1549,7 +1549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**combined_rules_get_v1**](docs/CorrelationRules.md#combined_rules_get_v1)
+- **Operation**: [**combined_rules_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#combined_rules_get_v1)
 - **GET**: /correlation-rules/combined/rules/v1
 - **Description**: Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
 
@@ -1557,7 +1557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**combined_rules_get_v2**](docs/CorrelationRules.md#combined_rules_get_v2)
+- **Operation**: [**combined_rules_get_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#combined_rules_get_v2)
 - **GET**: /correlation-rules/combined/rules/v2
 - **Description**: Find all rules matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
 
@@ -1565,7 +1565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_latest_rules_get_v1**](docs/CorrelationRules.md#entities_latest_rules_get_v1)
+- **Operation**: [**entities_latest_rules_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_latest_rules_get_v1)
 - **GET**: /correlation-rules/entities/latest-rules/v1
 - **Description**: Retrieve latest rule versions by rule IDs
 
@@ -1573,7 +1573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rule_versions_delete_v1**](docs/CorrelationRules.md#entities_rule_versions_delete_v1)
+- **Operation**: [**entities_rule_versions_delete_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rule_versions_delete_v1)
 - **DELETE**: /correlation-rules/entities/rule-versions/v1
 - **Description**: Delete versions by IDs
 
@@ -1581,7 +1581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rule_versions_export_post_v1**](docs/CorrelationRules.md#entities_rule_versions_export_post_v1)
+- **Operation**: [**entities_rule_versions_export_post_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rule_versions_export_post_v1)
 - **POST**: /correlation-rules/entities/rule-versions/export/v1
 - **Description**: Export rule versions
 
@@ -1589,7 +1589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rule_versions_import_post_v1**](docs/CorrelationRules.md#entities_rule_versions_import_post_v1)
+- **Operation**: [**entities_rule_versions_import_post_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rule_versions_import_post_v1)
 - **POST**: /correlation-rules/entities/rule-versions/import/v1
 - **Description**: Import rule versions
 
@@ -1597,7 +1597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rule_versions_publish_patch_v1**](docs/CorrelationRules.md#entities_rule_versions_publish_patch_v1)
+- **Operation**: [**entities_rule_versions_publish_patch_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rule_versions_publish_patch_v1)
 - **PATCH**: /correlation-rules/entities/rule-versions/publish/v1
 - **Description**: Publish existing rule version
 
@@ -1605,7 +1605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rules_delete_v1**](docs/CorrelationRules.md#entities_rules_delete_v1)
+- **Operation**: [**entities_rules_delete_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rules_delete_v1)
 - **DELETE**: /correlation-rules/entities/rules/v1
 - **Description**: Delete rules by IDs
 
@@ -1613,7 +1613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rules_get_v1**](docs/CorrelationRules.md#entities_rules_get_v1)
+- **Operation**: [**entities_rules_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rules_get_v1)
 - **GET**: /correlation-rules/entities/rules/v1
 - **Description**: Retrieve rules by IDs
 
@@ -1621,7 +1621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rules_get_v2**](docs/CorrelationRules.md#entities_rules_get_v2)
+- **Operation**: [**entities_rules_get_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rules_get_v2)
 - **GET**: /correlation-rules/entities/rules/v2
 - **Description**: Retrieve rule versions by IDs
 
@@ -1629,7 +1629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rules_patch_v1**](docs/CorrelationRules.md#entities_rules_patch_v1)
+- **Operation**: [**entities_rules_patch_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rules_patch_v1)
 - **PATCH**: /correlation-rules/entities/rules/v1
 - **Description**: Update rules
 
@@ -1637,7 +1637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**entities_rules_post_v1**](docs/CorrelationRules.md#entities_rules_post_v1)
+- **Operation**: [**entities_rules_post_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#entities_rules_post_v1)
 - **POST**: /correlation-rules/entities/rules/v1
 - **Description**: Create rule
 
@@ -1645,7 +1645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**queries_rules_get_v1**](docs/CorrelationRules.md#queries_rules_get_v1)
+- **Operation**: [**queries_rules_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#queries_rules_get_v1)
 - **GET**: /correlation-rules/queries/rules/v1
 - **Description**: Find all rule IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on Supported range filters: created_on,last_updated_on
 
@@ -1653,7 +1653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CorrelationRules`
 
-- **Operation**: [**queries_rules_get_v2**](docs/CorrelationRules.md#queries_rules_get_v2)
+- **Operation**: [**queries_rules_get_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/CorrelationRules#queries_rules_get_v2)
 - **GET**: /correlation-rules/queries/rules/v2
 - **Description**: Find all rule version IDs matching the query and filter. Supported filters: customer_id,user_id,user_uuid,status,name,created_on,last_updated_on,state,version,rule_id Supported range filters: created_on,last_updated_on
 
@@ -1661,7 +1661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspgIac`
 
-- **Operation**: [**get_credentials_mixin0**](docs/CspgIac.md#get_credentials_mixin0)
+- **Operation**: [**get_credentials_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspgIac#get_credentials_mixin0)
 - **GET**: /iac/entities/image-registry-credentials/v1
 - **Description**: Gets the registry credentials (external endpoint)
 
@@ -1669,7 +1669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**azure_download_certificate**](docs/CspmRegistration.md#azure_download_certificate)
+- **Operation**: [**azure_download_certificate**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#azure_download_certificate)
 - **GET**: /cloud-connect-cspm-azure/entities/download-certificate/v1
 - **Description**: Returns JSON object(s) that contain the base64 encoded certificate for a service principal.
 
@@ -1677,7 +1677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**azure_refresh_certificate**](docs/CspmRegistration.md#azure_refresh_certificate)
+- **Operation**: [**azure_refresh_certificate**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#azure_refresh_certificate)
 - **POST**: /cloud-connect-cspm-azure/entities/refresh-certificate/v1
 - **Description**: Refresh certificate and returns JSON object(s) that contain the base64 encoded certificate for a service principal.
 
@@ -1685,7 +1685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**connect_cspm_gcp_account**](docs/CspmRegistration.md#connect_cspm_gcp_account)
+- **Operation**: [**connect_cspm_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#connect_cspm_gcp_account)
 - **POST**: /cloud-connect-cspm-gcp/entities/account/v2
 - **Description**: Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
 
@@ -1693,7 +1693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**create_cspm_aws_account**](docs/CspmRegistration.md#create_cspm_aws_account)
+- **Operation**: [**create_cspm_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#create_cspm_aws_account)
 - **POST**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
 
@@ -1701,7 +1701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**create_cspm_azure_account**](docs/CspmRegistration.md#create_cspm_azure_account)
+- **Operation**: [**create_cspm_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#create_cspm_azure_account)
 - **POST**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
 
@@ -1709,7 +1709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**create_cspm_azure_management_group**](docs/CspmRegistration.md#create_cspm_azure_management_group)
+- **Operation**: [**create_cspm_azure_management_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#create_cspm_azure_management_group)
 - **POST**: /cloud-connect-cspm-azure/entities/management-group/v1
 - **Description**: Creates a new management group in our system for a customer.
 
@@ -1717,7 +1717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**create_cspm_gcp_account**](docs/CspmRegistration.md#create_cspm_gcp_account)
+- **Operation**: [**create_cspm_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#create_cspm_gcp_account)
 - **POST**: /cloud-connect-cspm-gcp/entities/account/v1
 - **Description**: Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
 
@@ -1725,7 +1725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**delete_cspm_aws_account**](docs/CspmRegistration.md#delete_cspm_aws_account)
+- **Operation**: [**delete_cspm_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#delete_cspm_aws_account)
 - **DELETE**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Deletes an existing AWS account or organization in our system.
 
@@ -1733,7 +1733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**delete_cspm_azure_account**](docs/CspmRegistration.md#delete_cspm_azure_account)
+- **Operation**: [**delete_cspm_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#delete_cspm_azure_account)
 - **DELETE**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Deletes an Azure subscription from the system.
 
@@ -1741,7 +1741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**delete_cspm_azure_management_group**](docs/CspmRegistration.md#delete_cspm_azure_management_group)
+- **Operation**: [**delete_cspm_azure_management_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#delete_cspm_azure_management_group)
 - **DELETE**: /cloud-connect-cspm-azure/entities/management-group/v1
 - **Description**: Deletes Azure management groups from the system.
 
@@ -1749,7 +1749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**delete_cspm_gcp_account**](docs/CspmRegistration.md#delete_cspm_gcp_account)
+- **Operation**: [**delete_cspm_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#delete_cspm_gcp_account)
 - **DELETE**: /cloud-connect-cspm-gcp/entities/account/v1
 - **Description**: Deletes a GCP account from the system.
 
@@ -1757,7 +1757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_behavior_detections**](docs/CspmRegistration.md#get_behavior_detections)
+- **Operation**: [**get_behavior_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_behavior_detections)
 - **GET**: /detects/entities/ioa/v1
 - **Description**: Get list of detected behaviors
 
@@ -1765,7 +1765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cloud_event_ids**](docs/CspmRegistration.md#get_cloud_event_ids)
+- **Operation**: [**get_cloud_event_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cloud_event_ids)
 - **GET**: /detects/queries/cloud-events/v1
 - **Description**: Get list of related cloud event LogScale IDs for a given IOA
 
@@ -1773,7 +1773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_configuration_detection_entities**](docs/CspmRegistration.md#get_configuration_detection_entities)
+- **Operation**: [**get_configuration_detection_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_configuration_detection_entities)
 - **GET**: /detects/entities/iom/v2
 - **Description**: Get misconfigurations based on the ID - including custom policy detections in addition to default policy detections.
 
@@ -1781,7 +1781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_configuration_detection_ids_v2**](docs/CspmRegistration.md#get_configuration_detection_ids_v2)
+- **Operation**: [**get_configuration_detection_ids_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_configuration_detection_ids_v2)
 - **GET**: /detects/queries/iom/v2
 - **Description**: Get list of active misconfiguration ids - including custom policy detections in addition to default policy detections.
 
@@ -1789,7 +1789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_configuration_detections**](docs/CspmRegistration.md#get_configuration_detections)
+- **Operation**: [**get_configuration_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_configuration_detections)
 - **GET**: /detects/entities/iom/v1
 - **Description**: Get list of active misconfigurations. This endpoint is deprecated, please use /queries/iom/v2 and /entities/iom/v2 instead
 
@@ -1797,7 +1797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_aws_account**](docs/CspmRegistration.md#get_cspm_aws_account)
+- **Operation**: [**get_cspm_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_aws_account)
 - **GET**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Returns information about the current status of an AWS account.
 
@@ -1805,7 +1805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_aws_console_setup_urls**](docs/CspmRegistration.md#get_cspm_aws_console_setup_urls)
+- **Operation**: [**get_cspm_aws_console_setup_urls**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_aws_console_setup_urls)
 - **GET**: /cloud-connect-cspm-aws/entities/console-setup-urls/v1
 - **Description**: Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
 
@@ -1813,7 +1813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_azure_account**](docs/CspmRegistration.md#get_cspm_azure_account)
+- **Operation**: [**get_cspm_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_azure_account)
 - **GET**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Return information about Azure account registration
 
@@ -1821,7 +1821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_azure_management_group**](docs/CspmRegistration.md#get_cspm_azure_management_group)
+- **Operation**: [**get_cspm_azure_management_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_azure_management_group)
 - **GET**: /cloud-connect-cspm-azure/entities/management-group/v1
 - **Description**: Return information about Azure management group registration
 
@@ -1829,7 +1829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_azure_user_scripts_attachment**](docs/CspmRegistration.md#get_cspm_azure_user_scripts_attachment)
+- **Operation**: [**get_cspm_azure_user_scripts_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_azure_user_scripts_attachment)
 - **GET**: /cloud-connect-cspm-azure/entities/user-scripts-download/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their Azure environment as a downloadable attachment
 
@@ -1837,7 +1837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_gcp_account**](docs/CspmRegistration.md#get_cspm_gcp_account)
+- **Operation**: [**get_cspm_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_gcp_account)
 - **GET**: /cloud-connect-cspm-gcp/entities/account/v1
 - **Description**: Returns information about the current status of an GCP account.
 
@@ -1845,7 +1845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_gcp_service_accounts_ext**](docs/CspmRegistration.md#get_cspm_gcp_service_accounts_ext)
+- **Operation**: [**get_cspm_gcp_service_accounts_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_gcp_service_accounts_ext)
 - **GET**: /cloud-connect-cspm-gcp/entities/service-accounts/v1
 - **Description**: Returns the service account id and client email for external clients.
 
@@ -1853,7 +1853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_gcp_user_scripts_attachment**](docs/CspmRegistration.md#get_cspm_gcp_user_scripts_attachment)
+- **Operation**: [**get_cspm_gcp_user_scripts_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_gcp_user_scripts_attachment)
 - **GET**: /cloud-connect-cspm-gcp/entities/user-scripts-download/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
 
@@ -1861,7 +1861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_gcp_validate_accounts_ext**](docs/CspmRegistration.md#get_cspm_gcp_validate_accounts_ext)
+- **Operation**: [**get_cspm_gcp_validate_accounts_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_gcp_validate_accounts_ext)
 - **POST**: /cloud-connect-cspm-gcp/entities/account/validate/v1
 - **Description**: Run a synchronous health check.
 
@@ -1869,7 +1869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_policies_details**](docs/CspmRegistration.md#get_cspm_policies_details)
+- **Operation**: [**get_cspm_policies_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_policies_details)
 - **GET**: /settings/entities/policy-details/v2
 - **Description**: Given an array of policy IDs, returns detailed policies information.
 
@@ -1877,7 +1877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_policy**](docs/CspmRegistration.md#get_cspm_policy)
+- **Operation**: [**get_cspm_policy**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_policy)
 - **GET**: /settings/entities/policy-details/v1
 - **Description**: Given a policy ID, returns detailed policy information.
 
@@ -1885,7 +1885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_policy_settings**](docs/CspmRegistration.md#get_cspm_policy_settings)
+- **Operation**: [**get_cspm_policy_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_policy_settings)
 - **GET**: /settings/entities/policy/v1
 - **Description**: Returns information about current policy settings.
 
@@ -1893,7 +1893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**get_cspm_scan_schedule**](docs/CspmRegistration.md#get_cspm_scan_schedule)
+- **Operation**: [**get_cspm_scan_schedule**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#get_cspm_scan_schedule)
 - **GET**: /settings/scan-schedule/v1
 - **Description**: Returns scan schedule configuration for one or more cloud platforms.
 
@@ -1901,7 +1901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**patch_cspm_aws_account**](docs/CspmRegistration.md#patch_cspm_aws_account)
+- **Operation**: [**patch_cspm_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#patch_cspm_aws_account)
 - **PATCH**: /cloud-connect-cspm-aws/entities/account/v1
 - **Description**: Patches a existing account in our system for a customer.
 
@@ -1909,7 +1909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_azure_account**](docs/CspmRegistration.md#update_cspm_azure_account)
+- **Operation**: [**update_cspm_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_azure_account)
 - **PATCH**: /cloud-connect-cspm-azure/entities/account/v1
 - **Description**: Patches a existing account in our system for a customer.
 
@@ -1917,7 +1917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_azure_account_client_id**](docs/CspmRegistration.md#update_cspm_azure_account_client_id)
+- **Operation**: [**update_cspm_azure_account_client_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_azure_account_client_id)
 - **PATCH**: /cloud-connect-cspm-azure/entities/client-id/v1
 - **Description**: Update an Azure service account in our system by with the user-created client_id created with the public key we&#39;ve provided
 
@@ -1925,7 +1925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_azure_tenant_default_subscription_id**](docs/CspmRegistration.md#update_cspm_azure_tenant_default_subscription_id)
+- **Operation**: [**update_cspm_azure_tenant_default_subscription_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_azure_tenant_default_subscription_id)
 - **PATCH**: /cloud-connect-cspm-azure/entities/default-subscription-id/v1
 - **Description**: Update an Azure default subscription_id in our system for given tenant_id
 
@@ -1933,7 +1933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_gcp_account**](docs/CspmRegistration.md#update_cspm_gcp_account)
+- **Operation**: [**update_cspm_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_gcp_account)
 - **PATCH**: /cloud-connect-cspm-gcp/entities/account/v1
 - **Description**: Patches a existing account in our system for a customer.
 
@@ -1941,7 +1941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_gcp_service_accounts_ext**](docs/CspmRegistration.md#update_cspm_gcp_service_accounts_ext)
+- **Operation**: [**update_cspm_gcp_service_accounts_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_gcp_service_accounts_ext)
 - **PATCH**: /cloud-connect-cspm-gcp/entities/service-accounts/v1
 - **Description**: Patches the service account key for external clients.
 
@@ -1949,7 +1949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_policy_settings**](docs/CspmRegistration.md#update_cspm_policy_settings)
+- **Operation**: [**update_cspm_policy_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_policy_settings)
 - **PATCH**: /settings/entities/policy/v1
 - **Description**: Updates a policy setting - can be used to override policy severity or to disable a policy entirely.
 
@@ -1957,7 +1957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**update_cspm_scan_schedule**](docs/CspmRegistration.md#update_cspm_scan_schedule)
+- **Operation**: [**update_cspm_scan_schedule**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#update_cspm_scan_schedule)
 - **POST**: /settings/scan-schedule/v1
 - **Description**: Updates scan schedule configuration for one or more cloud platforms.
 
@@ -1965,7 +1965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CspmRegistration`
 
-- **Operation**: [**validate_cspm_gcp_service_account_ext**](docs/CspmRegistration.md#validate_cspm_gcp_service_account_ext)
+- **Operation**: [**validate_cspm_gcp_service_account_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/CspmRegistration#validate_cspm_gcp_service_account_ext)
 - **POST**: /cloud-connect-cspm-gcp/entities/service-accounts/validate/v1
 - **Description**: Validates credentials for a service account
 
@@ -1973,7 +1973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**create_rule**](docs/CustomIoa.md#create_rule)
+- **Operation**: [**create_rule**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#create_rule)
 - **POST**: /ioarules/entities/rules/v1
 - **Description**: Create a rule within a rule group. Returns the rule.
 
@@ -1981,7 +1981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**create_rule_group_mixin0**](docs/CustomIoa.md#create_rule_group_mixin0)
+- **Operation**: [**create_rule_group_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#create_rule_group_mixin0)
 - **POST**: /ioarules/entities/rule-groups/v1
 - **Description**: Create a rule group for a platform with a name and an optional description. Returns the rule group.
 
@@ -1989,7 +1989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**delete_rule_groups_mixin0**](docs/CustomIoa.md#delete_rule_groups_mixin0)
+- **Operation**: [**delete_rule_groups_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#delete_rule_groups_mixin0)
 - **DELETE**: /ioarules/entities/rule-groups/v1
 - **Description**: Delete rule groups by ID.
 
@@ -1997,7 +1997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**delete_rules**](docs/CustomIoa.md#delete_rules)
+- **Operation**: [**delete_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#delete_rules)
 - **DELETE**: /ioarules/entities/rules/v1
 - **Description**: Delete rules from a rule group by ID.
 
@@ -2005,7 +2005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_patterns**](docs/CustomIoa.md#get_patterns)
+- **Operation**: [**get_patterns**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_patterns)
 - **GET**: /ioarules/entities/pattern-severities/v1
 - **Description**: Get pattern severities by ID.
 
@@ -2013,7 +2013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_platforms_mixin0**](docs/CustomIoa.md#get_platforms_mixin0)
+- **Operation**: [**get_platforms_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_platforms_mixin0)
 - **GET**: /ioarules/entities/platforms/v1
 - **Description**: Get platforms by ID.
 
@@ -2021,7 +2021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_rule_groups_mixin0**](docs/CustomIoa.md#get_rule_groups_mixin0)
+- **Operation**: [**get_rule_groups_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_rule_groups_mixin0)
 - **GET**: /ioarules/entities/rule-groups/v1
 - **Description**: Get rule groups by ID.
 
@@ -2029,7 +2029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_rule_types**](docs/CustomIoa.md#get_rule_types)
+- **Operation**: [**get_rule_types**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_rule_types)
 - **GET**: /ioarules/entities/rule-types/v1
 - **Description**: Get rule types by ID.
 
@@ -2037,7 +2037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_rules_get**](docs/CustomIoa.md#get_rules_get)
+- **Operation**: [**get_rules_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_rules_get)
 - **POST**: /ioarules/entities/rules/GET/v1
 - **Description**: Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;.
 
@@ -2045,7 +2045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**get_rules_mixin0**](docs/CustomIoa.md#get_rules_mixin0)
+- **Operation**: [**get_rules_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#get_rules_mixin0)
 - **GET**: /ioarules/entities/rules/v1
 - **Description**: Get rules by ID and optionally with cid and/or version in the following format: &#x60;[cid:]ID[:version]&#x60;. The max number of IDs is constrained by URL size.
 
@@ -2053,7 +2053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_patterns**](docs/CustomIoa.md#query_patterns)
+- **Operation**: [**query_patterns**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_patterns)
 - **GET**: /ioarules/queries/pattern-severities/v1
 - **Description**: Get all pattern severity IDs.
 
@@ -2061,7 +2061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_platforms_mixin0**](docs/CustomIoa.md#query_platforms_mixin0)
+- **Operation**: [**query_platforms_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_platforms_mixin0)
 - **GET**: /ioarules/queries/platforms/v1
 - **Description**: Get all platform IDs.
 
@@ -2069,7 +2069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_rule_groups_full**](docs/CustomIoa.md#query_rule_groups_full)
+- **Operation**: [**query_rule_groups_full**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_rule_groups_full)
 - **GET**: /ioarules/queries/rule-groups-full/v1
 - **Description**: Find all rule groups matching the query with optional filter.
 
@@ -2077,7 +2077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_rule_groups_mixin0**](docs/CustomIoa.md#query_rule_groups_mixin0)
+- **Operation**: [**query_rule_groups_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_rule_groups_mixin0)
 - **GET**: /ioarules/queries/rule-groups/v1
 - **Description**: Finds all rule group IDs matching the query with optional filter.
 
@@ -2085,7 +2085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_rule_types**](docs/CustomIoa.md#query_rule_types)
+- **Operation**: [**query_rule_types**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_rule_types)
 - **GET**: /ioarules/queries/rule-types/v1
 - **Description**: Get all rule type IDs.
 
@@ -2093,7 +2093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**query_rules_mixin0**](docs/CustomIoa.md#query_rules_mixin0)
+- **Operation**: [**query_rules_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#query_rules_mixin0)
 - **GET**: /ioarules/queries/rules/v1
 - **Description**: Finds all rule IDs matching the query with optional filter.
 
@@ -2101,7 +2101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**update_rule_group_mixin0**](docs/CustomIoa.md#update_rule_group_mixin0)
+- **Operation**: [**update_rule_group_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#update_rule_group_mixin0)
 - **PATCH**: /ioarules/entities/rule-groups/v1
 - **Description**: Update a rule group. The following properties can be modified: name, description, enabled.
 
@@ -2109,7 +2109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**update_rules**](docs/CustomIoa.md#update_rules)
+- **Operation**: [**update_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#update_rules)
 - **PATCH**: /ioarules/entities/rules/v1
 - **Description**: Update rules within a rule group. Return the updated rules.
 
@@ -2117,7 +2117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**update_rules_v2**](docs/CustomIoa.md#update_rules_v2)
+- **Operation**: [**update_rules_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#update_rules_v2)
 - **PATCH**: /ioarules/entities/rules/v2
 - **Description**: Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
 
@@ -2125,7 +2125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomIoa`
 
-- **Operation**: [**validate**](docs/CustomIoa.md#validate)
+- **Operation**: [**validate**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomIoa#validate)
 - **POST**: /ioarules/entities/rules/validate/v1
 - **Description**: Validates field values and checks for matches if a test string is provided.
 
@@ -2133,7 +2133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**delete_object**](docs/CustomStorage.md#delete_object)
+- **Operation**: [**delete_object**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#delete_object)
 - **DELETE**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
 - **Description**: Delete the specified object
 
@@ -2141,7 +2141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**delete_versioned_object**](docs/CustomStorage.md#delete_versioned_object)
+- **Operation**: [**delete_versioned_object**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#delete_versioned_object)
 - **DELETE**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}
 - **Description**: Delete the specified versioned object
 
@@ -2149,7 +2149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**describe_collection**](docs/CustomStorage.md#describe_collection)
+- **Operation**: [**describe_collection**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#describe_collection)
 - **GET**: /customobjects/v1/collections/{collection_name}
 - **Description**: Fetch metadata about an existing collection
 
@@ -2157,7 +2157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**describe_collections**](docs/CustomStorage.md#describe_collections)
+- **Operation**: [**describe_collections**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#describe_collections)
 - **PUT**: /customobjects/v1/collections
 - **Description**: Fetch metadata about one or more existing collections
 
@@ -2165,7 +2165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_object**](docs/CustomStorage.md#get_object)
+- **Operation**: [**get_object**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_object)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
 - **Description**: Get the bytes for the specified object
 
@@ -2173,7 +2173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_object_metadata**](docs/CustomStorage.md#get_object_metadata)
+- **Operation**: [**get_object_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_object_metadata)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata
 - **Description**: Get the metadata for the specified object
 
@@ -2181,7 +2181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_schema**](docs/CustomStorage.md#get_schema)
+- **Operation**: [**get_schema**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_schema)
 - **GET**: /customobjects/v1/collections/{collection_name}/schemas/{schema_version}
 - **Description**: Get the bytes of the specified schema of the requested collection
 
@@ -2189,7 +2189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_schema_metadata**](docs/CustomStorage.md#get_schema_metadata)
+- **Operation**: [**get_schema_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_schema_metadata)
 - **GET**: /customobjects/v1/collections/{collection_name}/schemas/{schema_version}/metadata
 - **Description**: Get the metadata for the specified schema of the requested collection
 
@@ -2197,7 +2197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_versioned_object**](docs/CustomStorage.md#get_versioned_object)
+- **Operation**: [**get_versioned_object**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_versioned_object)
 - **GET**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}
 - **Description**: Get the bytes for the specified object
 
@@ -2205,7 +2205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**get_versioned_object_metadata**](docs/CustomStorage.md#get_versioned_object_metadata)
+- **Operation**: [**get_versioned_object_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#get_versioned_object_metadata)
 - **GET**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}/metadata
 - **Description**: Get the metadata for the specified object
 
@@ -2213,7 +2213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**list_collections**](docs/CustomStorage.md#list_collections)
+- **Operation**: [**list_collections**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#list_collections)
 - **GET**: /customobjects/v1/collections
 - **Description**: List available collection names in alphabetical order
 
@@ -2221,7 +2221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**list_objects**](docs/CustomStorage.md#list_objects)
+- **Operation**: [**list_objects**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#list_objects)
 - **GET**: /customobjects/v1/collections/{collection_name}/objects
 - **Description**: List the object keys in the specified collection in alphabetical order
 
@@ -2229,7 +2229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**list_objects_by_version**](docs/CustomStorage.md#list_objects_by_version)
+- **Operation**: [**list_objects_by_version**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#list_objects_by_version)
 - **GET**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects
 - **Description**: List the object keys in the specified collection in alphabetical order
 
@@ -2237,7 +2237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**list_schemas**](docs/CustomStorage.md#list_schemas)
+- **Operation**: [**list_schemas**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#list_schemas)
 - **GET**: /customobjects/v1/collections/{collection_name}/schemas
 - **Description**: Get the list of schemas for the requested collection in reverse version order (latest first)
 
@@ -2245,7 +2245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**put_object**](docs/CustomStorage.md#put_object)
+- **Operation**: [**put_object**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#put_object)
 - **PUT**: /customobjects/v1/collections/{collection_name}/objects/{object_key}
 - **Description**: Put the specified new object at the given key or overwrite an existing object at the given key
 
@@ -2253,7 +2253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**put_object_by_version**](docs/CustomStorage.md#put_object_by_version)
+- **Operation**: [**put_object_by_version**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#put_object_by_version)
 - **PUT**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects/{object_key}
 - **Description**: Put the specified new object at the given key or overwrite an existing object at the given key
 
@@ -2261,7 +2261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**search_objects**](docs/CustomStorage.md#search_objects)
+- **Operation**: [**search_objects**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#search_objects)
 - **POST**: /customobjects/v1/collections/{collection_name}/objects
 - **Description**: Search for objects that match the specified filter criteria (returns metadata, not actual objects)
 
@@ -2269,7 +2269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::CustomStorage`
 
-- **Operation**: [**search_objects_by_version**](docs/CustomStorage.md#search_objects_by_version)
+- **Operation**: [**search_objects_by_version**](https://github.com/CrowdStrike/crimson-falcon/wiki/CustomStorage#search_objects_by_version)
 - **POST**: /customobjects/v1/collections/{collection_name}/{collection_version}/objects
 - **Description**: Search for objects that match the specified filter criteria (returns metadata, not actual objects)
 
@@ -2277,7 +2277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**connect_d4_cgcp_account**](docs/D4cRegistration.md#connect_d4_cgcp_account)
+- **Operation**: [**connect_d4_cgcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#connect_d4_cgcp_account)
 - **POST**: /cloud-connect-gcp/entities/account/v2
 - **Description**: Creates a new GCP account with newly-uploaded service account or connects with existing service account with only the following fields: parent_id, parent_type and service_account_id
 
@@ -2285,7 +2285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**create_d4_c_aws_account**](docs/D4cRegistration.md#create_d4_c_aws_account)
+- **Operation**: [**create_d4_c_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#create_d4_c_aws_account)
 - **POST**: /cloud-connect-aws/entities/account/v2
 - **Description**: Creates a new account in our system for a customer and generates a script for them to run in their AWS cloud environment to grant us access.
 
@@ -2293,7 +2293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**create_d4_c_gcp_account**](docs/D4cRegistration.md#create_d4_c_gcp_account)
+- **Operation**: [**create_d4_c_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#create_d4_c_gcp_account)
 - **POST**: /cloud-connect-gcp/entities/account/v1
 - **Description**: Creates a new account in our system for a customer and generates a new service account for them to add access to in their GCP environment to grant us access.
 
@@ -2301,7 +2301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**create_discover_cloud_azure_account**](docs/D4cRegistration.md#create_discover_cloud_azure_account)
+- **Operation**: [**create_discover_cloud_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#create_discover_cloud_azure_account)
 - **POST**: /cloud-connect-azure/entities/account/v1
 - **Description**: Creates a new account in our system for a customer and generates a script for them to run in their cloud environment to grant us access.
 
@@ -2309,7 +2309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**delete_d4_c_aws_account**](docs/D4cRegistration.md#delete_d4_c_aws_account)
+- **Operation**: [**delete_d4_c_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#delete_d4_c_aws_account)
 - **DELETE**: /cloud-connect-aws/entities/account/v2
 - **Description**: Deletes an existing AWS account or organization in our system.
 
@@ -2317,7 +2317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**delete_d4_cgcp_account**](docs/D4cRegistration.md#delete_d4_cgcp_account)
+- **Operation**: [**delete_d4_cgcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#delete_d4_cgcp_account)
 - **DELETE**: /cloud-connect-gcp/entities/account/v1
 - **Description**: Deletes a GCP account from the system.
 
@@ -2325,7 +2325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_c_aws_account**](docs/D4cRegistration.md#get_d4_c_aws_account)
+- **Operation**: [**get_d4_c_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_c_aws_account)
 - **GET**: /cloud-connect-aws/entities/account/v2
 - **Description**: Returns information about the current status of an AWS account.
 
@@ -2333,7 +2333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_c_aws_console_setup_urls**](docs/D4cRegistration.md#get_d4_c_aws_console_setup_urls)
+- **Operation**: [**get_d4_c_aws_console_setup_urls**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_c_aws_console_setup_urls)
 - **GET**: /cloud-connect-aws/entities/console-setup-urls/v1
 - **Description**: Return a URL for customer to visit in their cloud environment to grant us access to their AWS environment.
 
@@ -2341,7 +2341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_c_gcp_account**](docs/D4cRegistration.md#get_d4_c_gcp_account)
+- **Operation**: [**get_d4_c_gcp_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_c_gcp_account)
 - **GET**: /cloud-connect-gcp/entities/account/v1
 - **Description**: Returns information about the current status of an GCP account.
 
@@ -2349,7 +2349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_c_gcp_user_scripts**](docs/D4cRegistration.md#get_d4_c_gcp_user_scripts)
+- **Operation**: [**get_d4_c_gcp_user_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_c_gcp_user_scripts)
 - **GET**: /cloud-connect-gcp/entities/user-scripts/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment
 
@@ -2357,7 +2357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_caws_account_scripts_attachment**](docs/D4cRegistration.md#get_d4_caws_account_scripts_attachment)
+- **Operation**: [**get_d4_caws_account_scripts_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_caws_account_scripts_attachment)
 - **GET**: /cloud-connect-aws/entities/user-scripts-download/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their AWS environment as a downloadable attachment.
 
@@ -2365,7 +2365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_cgcp_service_accounts_ext**](docs/D4cRegistration.md#get_d4_cgcp_service_accounts_ext)
+- **Operation**: [**get_d4_cgcp_service_accounts_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_cgcp_service_accounts_ext)
 - **GET**: /cloud-connect-gcp/entities/service-accounts/v1
 - **Description**: Returns the service account id and client email for external clients.
 
@@ -2373,7 +2373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_d4_cgcp_user_scripts_attachment**](docs/D4cRegistration.md#get_d4_cgcp_user_scripts_attachment)
+- **Operation**: [**get_d4_cgcp_user_scripts_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_d4_cgcp_user_scripts_attachment)
 - **GET**: /cloud-connect-gcp/entities/user-scripts-download/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their GCP environment as a downloadable attachment
 
@@ -2381,7 +2381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_discover_cloud_azure_account**](docs/D4cRegistration.md#get_discover_cloud_azure_account)
+- **Operation**: [**get_discover_cloud_azure_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_discover_cloud_azure_account)
 - **GET**: /cloud-connect-azure/entities/account/v1
 - **Description**: Return information about Azure account registration
 
@@ -2389,7 +2389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_discover_cloud_azure_tenant_ids**](docs/D4cRegistration.md#get_discover_cloud_azure_tenant_ids)
+- **Operation**: [**get_discover_cloud_azure_tenant_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_discover_cloud_azure_tenant_ids)
 - **GET**: /cloud-connect-azure/entities/tenant-id/v1
 - **Description**: Return available tenant ids for discover for cloud
 
@@ -2397,7 +2397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_discover_cloud_azure_user_scripts**](docs/D4cRegistration.md#get_discover_cloud_azure_user_scripts)
+- **Operation**: [**get_discover_cloud_azure_user_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_discover_cloud_azure_user_scripts)
 - **GET**: /cloud-connect-azure/entities/user-scripts/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their Azure environment
 
@@ -2405,7 +2405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_discover_cloud_azure_user_scripts_attachment**](docs/D4cRegistration.md#get_discover_cloud_azure_user_scripts_attachment)
+- **Operation**: [**get_discover_cloud_azure_user_scripts_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_discover_cloud_azure_user_scripts_attachment)
 - **GET**: /cloud-connect-azure/entities/user-scripts-download/v1
 - **Description**: Return a script for customer to run in their cloud environment to grant us access to their Azure environment as a downloadable attachment
 
@@ -2413,7 +2413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**get_horizon_d4_c_scripts**](docs/D4cRegistration.md#get_horizon_d4_c_scripts)
+- **Operation**: [**get_horizon_d4_c_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#get_horizon_d4_c_scripts)
 - **GET**: /settings-discover/entities/gen/scripts/v1
 - **Description**: Returns static install scripts for Horizon.
 
@@ -2421,7 +2421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**update_d4_cgcp_service_accounts_ext**](docs/D4cRegistration.md#update_d4_cgcp_service_accounts_ext)
+- **Operation**: [**update_d4_cgcp_service_accounts_ext**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#update_d4_cgcp_service_accounts_ext)
 - **PATCH**: /cloud-connect-gcp/entities/service-accounts/v1
 - **Description**: Patches the service account key for external clients.
 
@@ -2429,7 +2429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::D4cRegistration`
 
-- **Operation**: [**update_discover_cloud_azure_account_client_id**](docs/D4cRegistration.md#update_discover_cloud_azure_account_client_id)
+- **Operation**: [**update_discover_cloud_azure_account_client_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/D4cRegistration#update_discover_cloud_azure_account_client_id)
 - **PATCH**: /cloud-connect-azure/entities/client-id/v1
 - **Description**: Update an Azure service account in our system by with the user-created client_id created with the public key we&#39;ve provided
 
@@ -2437,7 +2437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Default`
 
-- **Operation**: [**post_graphql_query_mixin0**](docs/Default.md#post_graphql_query_mixin0)
+- **Operation**: [**post_graphql_query_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/Default#post_graphql_query_mixin0)
 - **POST**: /cloud-data-protection/entities/schedules/graphql/v2
 - **Description**:
 
@@ -2445,7 +2445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeliverySettings`
 
-- **Operation**: [**get_delivery_settings**](docs/DeliverySettings.md#get_delivery_settings)
+- **Operation**: [**get_delivery_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeliverySettings#get_delivery_settings)
 - **GET**: /delivery-settings/entities/delivery-settings/v1
 - **Description**: Get Delivery Settings
 
@@ -2453,7 +2453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeliverySettings`
 
-- **Operation**: [**post_delivery_settings**](docs/DeliverySettings.md#post_delivery_settings)
+- **Operation**: [**post_delivery_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeliverySettings#post_delivery_settings)
 - **POST**: /delivery-settings/entities/delivery-settings/v1
 - **Description**: Create Delivery Settings
 
@@ -2461,7 +2461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Deployments`
 
-- **Operation**: [**get_deployments_external_v1**](docs/Deployments.md#get_deployments_external_v1)
+- **Operation**: [**get_deployments_external_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Deployments#get_deployments_external_v1)
 - **GET**: /deployment-coordinator/entities/deployments/external/v1
 - **Description**: Get deployment resources by ids
 
@@ -2469,7 +2469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Detects`
 
-- **Operation**: [**get_aggregate_detects**](docs/Detects.md#get_aggregate_detects)
+- **Operation**: [**get_aggregate_detects**](https://github.com/CrowdStrike/crimson-falcon/wiki/Detects#get_aggregate_detects)
 - **POST**: /detects/aggregates/detects/GET/v1
 - **Description**: Get detect aggregates as specified via json in request body.
 
@@ -2477,7 +2477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Detects`
 
-- **Operation**: [**get_detect_summaries**](docs/Detects.md#get_detect_summaries)
+- **Operation**: [**get_detect_summaries**](https://github.com/CrowdStrike/crimson-falcon/wiki/Detects#get_detect_summaries)
 - **POST**: /detects/entities/summaries/GET/v1
 - **Description**: View information about detections
 
@@ -2485,7 +2485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Detects`
 
-- **Operation**: [**query_detects**](docs/Detects.md#query_detects)
+- **Operation**: [**query_detects**](https://github.com/CrowdStrike/crimson-falcon/wiki/Detects#query_detects)
 - **GET**: /detects/queries/detects/v1
 - **Description**: Search for detection IDs that match a given query
 
@@ -2493,7 +2493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Detects`
 
-- **Operation**: [**update_detects_by_ids_v2**](docs/Detects.md#update_detects_by_ids_v2)
+- **Operation**: [**update_detects_by_ids_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Detects#update_detects_by_ids_v2)
 - **PATCH**: /detects/entities/detects/v2
 - **Description**: Modify the state, assignee, and visibility of detections
 
@@ -2501,7 +2501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceContent`
 
-- **Operation**: [**entities_states_v1**](docs/DeviceContent.md#entities_states_v1)
+- **Operation**: [**entities_states_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceContent#entities_states_v1)
 - **GET**: /device-content/entities/states/v1
 - **Description**: Retrieve the host content state for a number of ids between 1 and 100.
 
@@ -2509,7 +2509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceContent`
 
-- **Operation**: [**queries_states_v1**](docs/DeviceContent.md#queries_states_v1)
+- **Operation**: [**queries_states_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceContent#queries_states_v1)
 - **GET**: /device-content/queries/states/v1
 - **Description**: Query for the content state of the host.
 
@@ -2517,7 +2517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**create_device_control_policies**](docs/DeviceControlPolicies.md#create_device_control_policies)
+- **Operation**: [**create_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#create_device_control_policies)
 - **POST**: /policy/entities/device-control/v1
 - **Description**: Create Device Control Policies by specifying details about the policy to create
 
@@ -2525,7 +2525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**delete_device_control_policies**](docs/DeviceControlPolicies.md#delete_device_control_policies)
+- **Operation**: [**delete_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#delete_device_control_policies)
 - **DELETE**: /policy/entities/device-control/v1
 - **Description**: Delete a set of Device Control Policies by specifying their IDs
 
@@ -2533,7 +2533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**get_default_device_control_policies**](docs/DeviceControlPolicies.md#get_default_device_control_policies)
+- **Operation**: [**get_default_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#get_default_device_control_policies)
 - **GET**: /policy/entities/default-device-control/v1
 - **Description**: Retrieve the configuration for a Default Device Control Policy
 
@@ -2541,7 +2541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**get_device_control_policies**](docs/DeviceControlPolicies.md#get_device_control_policies)
+- **Operation**: [**get_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#get_device_control_policies)
 - **GET**: /policy/entities/device-control/v1
 - **Description**: Retrieve a set of Device Control Policies by specifying their IDs
 
@@ -2549,7 +2549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**perform_device_control_policies_action**](docs/DeviceControlPolicies.md#perform_device_control_policies_action)
+- **Operation**: [**perform_device_control_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#perform_device_control_policies_action)
 - **POST**: /policy/entities/device-control-actions/v1
 - **Description**: Perform the specified action on the Device Control Policies specified in the request
 
@@ -2557,7 +2557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**query_combined_device_control_policies**](docs/DeviceControlPolicies.md#query_combined_device_control_policies)
+- **Operation**: [**query_combined_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#query_combined_device_control_policies)
 - **GET**: /policy/combined/device-control/v1
 - **Description**: Search for Device Control Policies in your environment by providing an FQL filter and paging details. Returns a set of Device Control Policies which match the filter criteria
 
@@ -2565,7 +2565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**query_combined_device_control_policy_members**](docs/DeviceControlPolicies.md#query_combined_device_control_policy_members)
+- **Operation**: [**query_combined_device_control_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#query_combined_device_control_policy_members)
 - **GET**: /policy/combined/device-control-members/v1
 - **Description**: Search for members of a Device Control Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -2573,7 +2573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**query_device_control_policies**](docs/DeviceControlPolicies.md#query_device_control_policies)
+- **Operation**: [**query_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#query_device_control_policies)
 - **GET**: /policy/queries/device-control/v1
 - **Description**: Search for Device Control Policies in your environment by providing an FQL filter and paging details. Returns a set of Device Control Policy IDs which match the filter criteria
 
@@ -2581,7 +2581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**query_device_control_policy_members**](docs/DeviceControlPolicies.md#query_device_control_policy_members)
+- **Operation**: [**query_device_control_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#query_device_control_policy_members)
 - **GET**: /policy/queries/device-control-members/v1
 - **Description**: Search for members of a Device Control Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -2589,7 +2589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**set_device_control_policies_precedence**](docs/DeviceControlPolicies.md#set_device_control_policies_precedence)
+- **Operation**: [**set_device_control_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#set_device_control_policies_precedence)
 - **POST**: /policy/entities/device-control-precedence/v1
 - **Description**: Sets the precedence of Device Control Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
@@ -2597,7 +2597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**update_default_device_control_policies**](docs/DeviceControlPolicies.md#update_default_device_control_policies)
+- **Operation**: [**update_default_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#update_default_device_control_policies)
 - **PATCH**: /policy/entities/default-device-control/v1
 - **Description**: Update the configuration for a Default Device Control Policy
 
@@ -2605,7 +2605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlPolicies`
 
-- **Operation**: [**update_device_control_policies**](docs/DeviceControlPolicies.md#update_device_control_policies)
+- **Operation**: [**update_device_control_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlPolicies#update_device_control_policies)
 - **PATCH**: /policy/entities/device-control/v1
 - **Description**: Update Device Control Policies by specifying the ID of the policy and details to update
 
@@ -2613,7 +2613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**get_default_device_control_settings**](docs/DeviceControlWithBluetooth.md#get_default_device_control_settings)
+- **Operation**: [**get_default_device_control_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#get_default_device_control_settings)
 - **GET**: /policy/entities/device-control-default-settings/v1
 - **Description**: Get default device control settings (USB and Bluetooth)
 
@@ -2621,7 +2621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**get_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#get_device_control_policies_v2)
+- **Operation**: [**get_device_control_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#get_device_control_policies_v2)
 - **GET**: /policy/entities/device-control/v2
 - **Description**: Get device control policies for the given filter criteria. (USB and Bluetooth)
 
@@ -2629,7 +2629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**patch_device_control_policies_classes_v1**](docs/DeviceControlWithBluetooth.md#patch_device_control_policies_classes_v1)
+- **Operation**: [**patch_device_control_policies_classes_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#patch_device_control_policies_classes_v1)
 - **PATCH**: /policy/entities/device-control-classes/v1
 - **Description**: Update device control policy&#39;s classes (USB and Bluetooth)
 
@@ -2637,7 +2637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**patch_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#patch_device_control_policies_v2)
+- **Operation**: [**patch_device_control_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#patch_device_control_policies_v2)
 - **PATCH**: /policy/entities/device-control/v2
 - **Description**: Update device control policy base (USB and Bluetooth)
 
@@ -2645,7 +2645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**post_device_control_policies_v2**](docs/DeviceControlWithBluetooth.md#post_device_control_policies_v2)
+- **Operation**: [**post_device_control_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#post_device_control_policies_v2)
 - **POST**: /policy/entities/device-control/v2
 - **Description**: Create/clone a device control policy (USB and Bluetooth)
 
@@ -2653,7 +2653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DeviceControlWithBluetooth`
 
-- **Operation**: [**update_default_device_control_settings**](docs/DeviceControlWithBluetooth.md#update_default_device_control_settings)
+- **Operation**: [**update_default_device_control_settings**](https://github.com/CrowdStrike/crimson-falcon/wiki/DeviceControlWithBluetooth#update_default_device_control_settings)
 - **PATCH**: /policy/entities/device-control-default-settings/v1
 - **Description**: Update the configuration for Default Device Control Settings
 
@@ -2661,7 +2661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**combined_applications**](docs/Discover.md#combined_applications)
+- **Operation**: [**combined_applications**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#combined_applications)
 - **GET**: /discover/combined/applications/v1
 - **Description**: Search for applications in your environment by providing an FQL filter and paging details. Returns details on applications which match the filter criteria.
 
@@ -2669,7 +2669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**combined_hosts**](docs/Discover.md#combined_hosts)
+- **Operation**: [**combined_hosts**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#combined_hosts)
 - **GET**: /discover/combined/hosts/v1
 - **Description**: Search for assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns details on assets which match the filter criteria.
 
@@ -2677,7 +2677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**get_accounts**](docs/Discover.md#get_accounts)
+- **Operation**: [**get_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#get_accounts)
 - **GET**: /discover/entities/accounts/v1
 - **Description**: Get details on accounts by providing one or more IDs.
 
@@ -2685,7 +2685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**get_applications**](docs/Discover.md#get_applications)
+- **Operation**: [**get_applications**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#get_applications)
 - **GET**: /discover/entities/applications/v1
 - **Description**: Get details on applications by providing one or more IDs.
 
@@ -2693,7 +2693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**get_hosts**](docs/Discover.md#get_hosts)
+- **Operation**: [**get_hosts**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#get_hosts)
 - **GET**: /discover/entities/hosts/v1
 - **Description**: Get details on assets by providing one or more IDs.
 
@@ -2701,7 +2701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**get_logins**](docs/Discover.md#get_logins)
+- **Operation**: [**get_logins**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#get_logins)
 - **GET**: /discover/entities/logins/v1
 - **Description**: Get details on logins by providing one or more IDs.
 
@@ -2709,7 +2709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**query_accounts**](docs/Discover.md#query_accounts)
+- **Operation**: [**query_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#query_accounts)
 - **GET**: /discover/queries/accounts/v1
 - **Description**: Search for accounts in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of account IDs which match the filter criteria.
 
@@ -2717,7 +2717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**query_applications**](docs/Discover.md#query_applications)
+- **Operation**: [**query_applications**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#query_applications)
 - **GET**: /discover/queries/applications/v1
 - **Description**: Search for applications in your environment by providing an FQL filter and paging details. returns a set of application IDs which match the filter criteria.
 
@@ -2725,7 +2725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**query_hosts**](docs/Discover.md#query_hosts)
+- **Operation**: [**query_hosts**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#query_hosts)
 - **GET**: /discover/queries/hosts/v1
 - **Description**: Search for assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
 
@@ -2733,7 +2733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Discover`
 
-- **Operation**: [**query_logins**](docs/Discover.md#query_logins)
+- **Operation**: [**query_logins**](https://github.com/CrowdStrike/crimson-falcon/wiki/Discover#query_logins)
 - **GET**: /discover/queries/logins/v1
 - **Description**: Search for logins in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of login IDs which match the filter criteria.
 
@@ -2741,7 +2741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DiscoverIot`
 
-- **Operation**: [**get_iot_hosts**](docs/DiscoverIot.md#get_iot_hosts)
+- **Operation**: [**get_iot_hosts**](https://github.com/CrowdStrike/crimson-falcon/wiki/DiscoverIot#get_iot_hosts)
 - **GET**: /discover/entities/iot-hosts/v1
 - **Description**: Get details on IoT assets by providing one or more IDs.
 
@@ -2749,7 +2749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DiscoverIot`
 
-- **Operation**: [**query_iot_hosts**](docs/DiscoverIot.md#query_iot_hosts)
+- **Operation**: [**query_iot_hosts**](https://github.com/CrowdStrike/crimson-falcon/wiki/DiscoverIot#query_iot_hosts)
 - **GET**: /discover/queries/iot-hosts/v1
 - **Description**: Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
 
@@ -2757,7 +2757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DiscoverIot`
 
-- **Operation**: [**query_iot_hosts_v2**](docs/DiscoverIot.md#query_iot_hosts_v2)
+- **Operation**: [**query_iot_hosts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/DiscoverIot#query_iot_hosts_v2)
 - **GET**: /discover/queries/iot-hosts/v2
 - **Description**: Search for IoT assets in your environment by providing an FQL (Falcon Query Language) filter and paging details. Returns a set of asset IDs which match the filter criteria.
 
@@ -2765,7 +2765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Downloads`
 
-- **Operation**: [**download_file**](docs/Downloads.md#download_file)
+- **Operation**: [**download_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/Downloads#download_file)
 - **GET**: /csdownloads/entities/files/download/v1
 - **Description**: Gets pre-signed URL for the file
 
@@ -2773,7 +2773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DownloadsApi`
 
-- **Operation**: [**enumerate_file**](docs/DownloadsApi.md#enumerate_file)
+- **Operation**: [**enumerate_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/DownloadsApi#enumerate_file)
 - **GET**: /csdownloads/entities/files/enumerate/v1
 - **Description**: Enumerates a list of files available for CID
 
@@ -2781,7 +2781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DriftIndicators`
 
-- **Operation**: [**get_drift_indicators_values_by_date**](docs/DriftIndicators.md#get_drift_indicators_values_by_date)
+- **Operation**: [**get_drift_indicators_values_by_date**](https://github.com/CrowdStrike/crimson-falcon/wiki/DriftIndicators#get_drift_indicators_values_by_date)
 - **GET**: /container-security/aggregates/drift-indicators/count-by-date/v1
 - **Description**: Returns the count of Drift Indicators by the date. by default it&#39;s for 7 days.
 
@@ -2789,7 +2789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DriftIndicators`
 
-- **Operation**: [**read_drift_indicator_entities**](docs/DriftIndicators.md#read_drift_indicator_entities)
+- **Operation**: [**read_drift_indicator_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/DriftIndicators#read_drift_indicator_entities)
 - **GET**: /container-security/entities/drift-indicators/v1
 - **Description**: Retrieve Drift Indicator entities identified by the provided IDs
 
@@ -2797,7 +2797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DriftIndicators`
 
-- **Operation**: [**read_drift_indicators_count**](docs/DriftIndicators.md#read_drift_indicators_count)
+- **Operation**: [**read_drift_indicators_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/DriftIndicators#read_drift_indicators_count)
 - **GET**: /container-security/aggregates/drift-indicators/count/v1
 - **Description**: Returns the total count of Drift indicators over a time period
 
@@ -2805,7 +2805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DriftIndicators`
 
-- **Operation**: [**search_and_read_drift_indicator_entities**](docs/DriftIndicators.md#search_and_read_drift_indicator_entities)
+- **Operation**: [**search_and_read_drift_indicator_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/DriftIndicators#search_and_read_drift_indicator_entities)
 - **GET**: /container-security/combined/drift-indicators/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -2813,7 +2813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::DriftIndicators`
 
-- **Operation**: [**search_drift_indicators**](docs/DriftIndicators.md#search_drift_indicators)
+- **Operation**: [**search_drift_indicators**](https://github.com/CrowdStrike/crimson-falcon/wiki/DriftIndicators#search_drift_indicators)
 - **GET**: /container-security/queries/drift-indicators/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -2821,7 +2821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::EventSchema`
 
-- **Operation**: [**fdrschema_combined_event_get**](docs/EventSchema.md#fdrschema_combined_event_get)
+- **Operation**: [**fdrschema_combined_event_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/EventSchema#fdrschema_combined_event_get)
 - **GET**: /fdr/combined/schema-members/v1
 - **Description**: Fetch combined schema
 
@@ -2829,7 +2829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::EventSchema`
 
-- **Operation**: [**fdrschema_entities_event_get**](docs/EventSchema.md#fdrschema_entities_event_get)
+- **Operation**: [**fdrschema_entities_event_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/EventSchema#fdrschema_entities_event_get)
 - **GET**: /fdr/entities/schema-events/v1
 - **Description**: Fetch event schema by ID
 
@@ -2837,7 +2837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::EventSchema`
 
-- **Operation**: [**fdrschema_queries_event_get**](docs/EventSchema.md#fdrschema_queries_event_get)
+- **Operation**: [**fdrschema_queries_event_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/EventSchema#fdrschema_queries_event_get)
 - **GET**: /fdr/queries/schema-events/v1
 - **Description**: Get list of event IDs given a particular query.
 
@@ -2845,7 +2845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::EventStreams`
 
-- **Operation**: [**list_available_streams_o_auth2**](docs/EventStreams.md#list_available_streams_o_auth2)
+- **Operation**: [**list_available_streams_o_auth2**](https://github.com/CrowdStrike/crimson-falcon/wiki/EventStreams#list_available_streams_o_auth2)
 - **GET**: /sensors/entities/datafeed/v2
 - **Description**: Discover all event streams in your environment
 
@@ -2853,7 +2853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::EventStreams`
 
-- **Operation**: [**refresh_active_stream_session**](docs/EventStreams.md#refresh_active_stream_session)
+- **Operation**: [**refresh_active_stream_session**](https://github.com/CrowdStrike/crimson-falcon/wiki/EventStreams#refresh_active_stream_session)
 - **POST**: /sensors/entities/datafeed-actions/v1/{partition}
 - **Description**: Refresh an active event stream. Use the URL shown in a GET /sensors/entities/datafeed/v2 response.
 
@@ -2861,7 +2861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Execution`
 
-- **Operation**: [**read_request_body**](docs/Execution.md#read_request_body)
+- **Operation**: [**read_request_body**](https://github.com/CrowdStrike/crimson-falcon/wiki/Execution#read_request_body)
 - **GET**: /faas-gateway/entities/execution-request-body/v2
 - **Description**: retrieve a large request body, such as a file, that has spilled into object storage
 
@@ -2869,7 +2869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**aggregate_external_assets**](docs/ExposureManagement.md#aggregate_external_assets)
+- **Operation**: [**aggregate_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#aggregate_external_assets)
 - **POST**: /fem/aggregates/external-assets/v1
 - **Description**: Returns external assets aggregates.
 
@@ -2877,7 +2877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**blob_download_external_assets**](docs/ExposureManagement.md#blob_download_external_assets)
+- **Operation**: [**blob_download_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#blob_download_external_assets)
 - **GET**: /fem/entities/blobs-download/v1
 - **Description**: Download the entire contents of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request.
 
@@ -2885,7 +2885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**blob_preview_external_assets**](docs/ExposureManagement.md#blob_preview_external_assets)
+- **Operation**: [**blob_preview_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#blob_preview_external_assets)
 - **GET**: /fem/entities/blobs-preview/v1
 - **Description**: Download a preview of the blob. The relative link to this endpoint is returned in the GET /entities/external-assets/v1 request.
 
@@ -2893,7 +2893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**combined_ecosystem_subsidiaries**](docs/ExposureManagement.md#combined_ecosystem_subsidiaries)
+- **Operation**: [**combined_ecosystem_subsidiaries**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#combined_ecosystem_subsidiaries)
 - **GET**: /fem/combined/ecosystem-subsidiaries/v1
 - **Description**: Retrieves a list of ecosystem subsidiaries with their detailed information.
 
@@ -2901,7 +2901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**delete_external_assets**](docs/ExposureManagement.md#delete_external_assets)
+- **Operation**: [**delete_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#delete_external_assets)
 - **DELETE**: /fem/entities/external-assets/v1
 - **Description**: Delete multiple external assets.
 
@@ -2909,7 +2909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**get_ecosystem_subsidiaries**](docs/ExposureManagement.md#get_ecosystem_subsidiaries)
+- **Operation**: [**get_ecosystem_subsidiaries**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#get_ecosystem_subsidiaries)
 - **GET**: /fem/entities/ecosystem-subsidiaries/v1
 - **Description**: Retrieves detailed information about ecosystem subsidiaries by ID.
 
@@ -2917,7 +2917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**get_external_assets**](docs/ExposureManagement.md#get_external_assets)
+- **Operation**: [**get_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#get_external_assets)
 - **GET**: /fem/entities/external-assets/v1
 - **Description**: Get details on external assets by providing one or more IDs.
 
@@ -2925,7 +2925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**patch_external_assets**](docs/ExposureManagement.md#patch_external_assets)
+- **Operation**: [**patch_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#patch_external_assets)
 - **PATCH**: /fem/entities/external-assets/v1
 - **Description**: Update the details of external assets.
 
@@ -2933,7 +2933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**post_external_assets_inventory_v1**](docs/ExposureManagement.md#post_external_assets_inventory_v1)
+- **Operation**: [**post_external_assets_inventory_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#post_external_assets_inventory_v1)
 - **POST**: /fem/entities/external-asset-inventory/v1
 - **Description**: Add external assets for external asset scanning.
 
@@ -2941,7 +2941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**query_ecosystem_subsidiaries**](docs/ExposureManagement.md#query_ecosystem_subsidiaries)
+- **Operation**: [**query_ecosystem_subsidiaries**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#query_ecosystem_subsidiaries)
 - **GET**: /fem/queries/ecosystem-subsidiaries/v1
 - **Description**: Retrieves a list of IDs for ecosystem subsidiaries. Use these IDs with the /entities/ecosystem-subsidiaries/v1 endpoints.
 
@@ -2949,7 +2949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**query_external_assets**](docs/ExposureManagement.md#query_external_assets)
+- **Operation**: [**query_external_assets**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#query_external_assets)
 - **GET**: /fem/queries/external-assets/v1
 - **Description**: Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoints
 
@@ -2957,7 +2957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ExposureManagement`
 
-- **Operation**: [**query_external_assets_v2**](docs/ExposureManagement.md#query_external_assets_v2)
+- **Operation**: [**query_external_assets_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ExposureManagement#query_external_assets_v2)
 - **GET**: /fem/queries/external-assets/v2
 - **Description**: Get a list of external asset IDs that match the provided filter conditions. Use these IDs with the /entities/external-assets/v1 endpoint
 
@@ -2965,7 +2965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_alerts**](docs/FalconCompleteDashboard.md#aggregate_alerts)
+- **Operation**: [**aggregate_alerts**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_alerts)
 - **POST**: /falcon-complete-dashboards/aggregates/alerts/GET/v1
 - **Description**: Retrieve aggregate epp alerts values based on the matched filter
 
@@ -2973,7 +2973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_allow_list**](docs/FalconCompleteDashboard.md#aggregate_allow_list)
+- **Operation**: [**aggregate_allow_list**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_allow_list)
 - **POST**: /falcon-complete-dashboards/aggregates/allowlist/GET/v1
 - **Description**: Retrieve aggregate allowlist ticket values based on the matched filter
 
@@ -2981,7 +2981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_block_list**](docs/FalconCompleteDashboard.md#aggregate_block_list)
+- **Operation**: [**aggregate_block_list**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_block_list)
 - **POST**: /falcon-complete-dashboards/aggregates/blocklist/GET/v1
 - **Description**: Retrieve aggregate blocklist ticket values based on the matched filter
 
@@ -2989,7 +2989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_detections**](docs/FalconCompleteDashboard.md#aggregate_detections)
+- **Operation**: [**aggregate_detections**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_detections)
 - **POST**: /falcon-complete-dashboards/aggregates/detects/GET/v1
 - **Description**: Retrieve aggregate detection values based on the matched filter
 
@@ -2997,7 +2997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_device_count_collection**](docs/FalconCompleteDashboard.md#aggregate_device_count_collection)
+- **Operation**: [**aggregate_device_count_collection**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_device_count_collection)
 - **POST**: /falcon-complete-dashboards/aggregates/devicecount-collections/GET/v1
 - **Description**: Retrieve aggregate host/devices count based on the matched filter
 
@@ -3005,7 +3005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_escalations**](docs/FalconCompleteDashboard.md#aggregate_escalations)
+- **Operation**: [**aggregate_escalations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_escalations)
 - **POST**: /falcon-complete-dashboards/aggregates/escalations/GET/v1
 - **Description**: Retrieve aggregate escalation ticket values based on the matched filter
 
@@ -3013,7 +3013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_fc_incidents**](docs/FalconCompleteDashboard.md#aggregate_fc_incidents)
+- **Operation**: [**aggregate_fc_incidents**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_fc_incidents)
 - **POST**: /falcon-complete-dashboards/aggregates/incidents/GET/v1
 - **Description**: Retrieve aggregate incident values based on the matched filter
 
@@ -3021,7 +3021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_prevention_policy**](docs/FalconCompleteDashboard.md#aggregate_prevention_policy)
+- **Operation**: [**aggregate_prevention_policy**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_prevention_policy)
 - **POST**: /falcon-complete-dashboards/aggregates/prevention-policies/v1
 - **Description**: Retrieve prevention policies aggregate values based on the matched filter
 
@@ -3029,7 +3029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_remediations**](docs/FalconCompleteDashboard.md#aggregate_remediations)
+- **Operation**: [**aggregate_remediations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_remediations)
 - **POST**: /falcon-complete-dashboards/aggregates/remediations/GET/v1
 - **Description**: Retrieve aggregate remediation ticket values based on the matched filter
 
@@ -3037,7 +3037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_sensor_update_policy**](docs/FalconCompleteDashboard.md#aggregate_sensor_update_policy)
+- **Operation**: [**aggregate_sensor_update_policy**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_sensor_update_policy)
 - **POST**: /falcon-complete-dashboards/aggregates/sensor-update-policies/v1
 - **Description**: Retrieve sensor update policies aggregate values
 
@@ -3045,7 +3045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_support_issues**](docs/FalconCompleteDashboard.md#aggregate_support_issues)
+- **Operation**: [**aggregate_support_issues**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_support_issues)
 - **POST**: /falcon-complete-dashboards/aggregates/support-issues/v1
 - **Description**: Retrieve aggregate support issue ticket values based on the matched filter
 
@@ -3053,7 +3053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**aggregate_total_device_counts**](docs/FalconCompleteDashboard.md#aggregate_total_device_counts)
+- **Operation**: [**aggregate_total_device_counts**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#aggregate_total_device_counts)
 - **POST**: /falcon-complete-dashboards/aggregates/total-device-counts/v1
 - **Description**: Retrieve aggregate total host/devices based on the matched filter
 
@@ -3061,7 +3061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**get_device_count_collection_queries_by_filter**](docs/FalconCompleteDashboard.md#get_device_count_collection_queries_by_filter)
+- **Operation**: [**get_device_count_collection_queries_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#get_device_count_collection_queries_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/devicecount-collections/v1
 - **Description**: Retrieve device count collection Ids that match the provided FQL filter, criteria with scrolling enabled
 
@@ -3069,7 +3069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_alert_ids_by_filter**](docs/FalconCompleteDashboard.md#query_alert_ids_by_filter)
+- **Operation**: [**query_alert_ids_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_alert_ids_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/alerts/v1
 - **Description**: Retrieve Alerts Ids for epp that match the provided FQL filter criteria with scrolling enabled
 
@@ -3077,7 +3077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_alert_ids_by_filter_v2**](docs/FalconCompleteDashboard.md#query_alert_ids_by_filter_v2)
+- **Operation**: [**query_alert_ids_by_filter_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_alert_ids_by_filter_v2)
 - **GET**: /falcon-complete-dashboards/queries/alerts/v2
 - **Description**: Retrieve Alerts Ids for epp, idp and ngsiem that match the provided FQL filter criteria with scrolling enabled
 
@@ -3085,7 +3085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_allow_list_filter**](docs/FalconCompleteDashboard.md#query_allow_list_filter)
+- **Operation**: [**query_allow_list_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_allow_list_filter)
 - **GET**: /falcon-complete-dashboards/queries/allowlist/v1
 - **Description**: Retrieve allowlist tickets that match the provided filter criteria with scrolling enabled
 
@@ -3093,7 +3093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_block_list_filter**](docs/FalconCompleteDashboard.md#query_block_list_filter)
+- **Operation**: [**query_block_list_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_block_list_filter)
 - **GET**: /falcon-complete-dashboards/queries/blocklist/v1
 - **Description**: Retrieve block listtickets that match the provided filter criteria with scrolling enabled
 
@@ -3101,7 +3101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_detection_ids_by_filter**](docs/FalconCompleteDashboard.md#query_detection_ids_by_filter)
+- **Operation**: [**query_detection_ids_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_detection_ids_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/detects/v1
 - **Description**: Retrieve DetectionsIds that match the provided FQL filter, criteria with scrolling enabled
 
@@ -3109,7 +3109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_escalations_filter**](docs/FalconCompleteDashboard.md#query_escalations_filter)
+- **Operation**: [**query_escalations_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_escalations_filter)
 - **GET**: /falcon-complete-dashboards/queries/escalations/v1
 - **Description**: Retrieve escalation tickets that match the provided filter criteria with scrolling enabled
 
@@ -3117,7 +3117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_incident_ids_by_filter**](docs/FalconCompleteDashboard.md#query_incident_ids_by_filter)
+- **Operation**: [**query_incident_ids_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_incident_ids_by_filter)
 - **GET**: /falcon-complete-dashboards/queries/incidents/v1
 - **Description**: Retrieve incidents that match the provided filter criteria with scrolling enabled
 
@@ -3125,7 +3125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconCompleteDashboard`
 
-- **Operation**: [**query_remediations_filter**](docs/FalconCompleteDashboard.md#query_remediations_filter)
+- **Operation**: [**query_remediations_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconCompleteDashboard#query_remediations_filter)
 - **GET**: /falcon-complete-dashboards/queries/remediations/v1
 - **Description**: Retrieve remediation tickets that match the provided filter criteria with scrolling enabled
 
@@ -3133,7 +3133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainer`
 
-- **Operation**: [**get_credentials**](docs/FalconContainer.md#get_credentials)
+- **Operation**: [**get_credentials**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainer#get_credentials)
 - **GET**: /container-security/entities/image-registry-credentials/v1
 - **Description**: Gets the registry credentials
 
@@ -3141,7 +3141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerCli`
 
-- **Operation**: [**read_image_vulnerabilities**](docs/FalconContainerCli.md#read_image_vulnerabilities)
+- **Operation**: [**read_image_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerCli#read_image_vulnerabilities)
 - **POST**: /image-assessment/combined/vulnerability-lookups/v1
 - **Description**: Retrieve known vulnerabilities for the provided image
 
@@ -3149,7 +3149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**create_registry_entities**](docs/FalconContainerImage.md#create_registry_entities)
+- **Operation**: [**create_registry_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#create_registry_entities)
 - **POST**: /container-security/entities/registries/v1
 - **Description**: Create a registry entity using the provided details
 
@@ -3157,7 +3157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**delete_registry_entities**](docs/FalconContainerImage.md#delete_registry_entities)
+- **Operation**: [**delete_registry_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#delete_registry_entities)
 - **DELETE**: /container-security/entities/registries/v1
 - **Description**: Delete the registry entity identified by the entity UUID
 
@@ -3165,7 +3165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**download_export_file**](docs/FalconContainerImage.md#download_export_file)
+- **Operation**: [**download_export_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#download_export_file)
 - **GET**: /container-security/entities/exports/files/v1
 - **Description**: Download an export file
 
@@ -3173,7 +3173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**head_image_scan_inventory**](docs/FalconContainerImage.md#head_image_scan_inventory)
+- **Operation**: [**head_image_scan_inventory**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#head_image_scan_inventory)
 - **HEAD**: /image-assessment/entities/image-inventory/v1
 - **Description**: Get headers for POST request for image scan inventory
 
@@ -3181,7 +3181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**launch_export_job**](docs/FalconContainerImage.md#launch_export_job)
+- **Operation**: [**launch_export_job**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#launch_export_job)
 - **POST**: /container-security/entities/exports/v1
 - **Description**: Launch an export job of a Container Security resource. Maximum of 1 job in progress per resource
 
@@ -3189,7 +3189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**post_image_scan_inventory**](docs/FalconContainerImage.md#post_image_scan_inventory)
+- **Operation**: [**post_image_scan_inventory**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#post_image_scan_inventory)
 - **POST**: /image-assessment/entities/image-inventory/v1
 - **Description**: Post image scan inventory
 
@@ -3197,7 +3197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**query_export_jobs**](docs/FalconContainerImage.md#query_export_jobs)
+- **Operation**: [**query_export_jobs**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#query_export_jobs)
 - **GET**: /container-security/queries/exports/v1
 - **Description**: Query export jobs entities
 
@@ -3205,7 +3205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**read_export_jobs**](docs/FalconContainerImage.md#read_export_jobs)
+- **Operation**: [**read_export_jobs**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#read_export_jobs)
 - **GET**: /container-security/entities/exports/v1
 - **Description**: Read export jobs entities
 
@@ -3213,7 +3213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**read_registry_entities**](docs/FalconContainerImage.md#read_registry_entities)
+- **Operation**: [**read_registry_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#read_registry_entities)
 - **GET**: /container-security/queries/registries/v1
 - **Description**: Retrieves a list of registry entities identified by the customer id. Maximum page size: 5,000
 
@@ -3221,7 +3221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**read_registry_entities_by_uuid**](docs/FalconContainerImage.md#read_registry_entities_by_uuid)
+- **Operation**: [**read_registry_entities_by_uuid**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#read_registry_entities_by_uuid)
 - **GET**: /container-security/entities/registries/v1
 - **Description**: Retrieves a list of registry entities by the provided UUIDs. Maximum page size: 100
 
@@ -3229,7 +3229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconContainerImage`
 
-- **Operation**: [**update_registry_entities**](docs/FalconContainerImage.md#update_registry_entities)
+- **Operation**: [**update_registry_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconContainerImage#update_registry_entities)
 - **PATCH**: /container-security/entities/registries/v1
 - **Description**: Update the registry entity, as identified by the entity UUID, using the provided details
 
@@ -3237,7 +3237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**delete_report**](docs/FalconxSandbox.md#delete_report)
+- **Operation**: [**delete_report**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#delete_report)
 - **DELETE**: /falconx/entities/reports/v1
 - **Description**: Delete report based on the report ID. Operation can be checked for success by polling for the report ID on the report-summaries endpoint.
 
@@ -3245,7 +3245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**delete_sample_v2**](docs/FalconxSandbox.md#delete_sample_v2)
+- **Operation**: [**delete_sample_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#delete_sample_v2)
 - **DELETE**: /samples/entities/samples/v2
 - **Description**: Removes a sample, including file, meta and submissions from the collection
 
@@ -3253,7 +3253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_artifacts**](docs/FalconxSandbox.md#get_artifacts)
+- **Operation**: [**get_artifacts**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_artifacts)
 - **GET**: /falconx/entities/artifacts/v1
 - **Description**: Download IOC packs, PCAP files, memory dumps, and other analysis artifacts.
 
@@ -3261,7 +3261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_memory_dump**](docs/FalconxSandbox.md#get_memory_dump)
+- **Operation**: [**get_memory_dump**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_memory_dump)
 - **GET**: /falconx/entities/memory-dump/v1
 - **Description**: Get memory dump content, as binary
 
@@ -3269,7 +3269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_memory_dump_extracted_strings**](docs/FalconxSandbox.md#get_memory_dump_extracted_strings)
+- **Operation**: [**get_memory_dump_extracted_strings**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_memory_dump_extracted_strings)
 - **GET**: /falconx/entities/memory-dump/extracted-strings/v1
 - **Description**: Get extracted strings from a memory dump
 
@@ -3277,7 +3277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_memory_dump_hex_dump**](docs/FalconxSandbox.md#get_memory_dump_hex_dump)
+- **Operation**: [**get_memory_dump_hex_dump**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_memory_dump_hex_dump)
 - **GET**: /falconx/entities/memory-dump/hex-dump/v1
 - **Description**: Get hex view of a memory dump
 
@@ -3285,7 +3285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_reports**](docs/FalconxSandbox.md#get_reports)
+- **Operation**: [**get_reports**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_reports)
 - **GET**: /falconx/entities/reports/v1
 - **Description**: Get a full sandbox report.
 
@@ -3293,7 +3293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_sample_v2**](docs/FalconxSandbox.md#get_sample_v2)
+- **Operation**: [**get_sample_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_sample_v2)
 - **GET**: /samples/entities/samples/v2
 - **Description**: Retrieves the file associated with the given ID (SHA256)
 
@@ -3301,7 +3301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_submissions**](docs/FalconxSandbox.md#get_submissions)
+- **Operation**: [**get_submissions**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_submissions)
 - **GET**: /falconx/entities/submissions/v1
 - **Description**: Check the status of a sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 
@@ -3309,7 +3309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**get_summary_reports**](docs/FalconxSandbox.md#get_summary_reports)
+- **Operation**: [**get_summary_reports**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#get_summary_reports)
 - **GET**: /falconx/entities/report-summaries/v1
 - **Description**: Get a short summary version of a sandbox report.
 
@@ -3317,7 +3317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**query_reports**](docs/FalconxSandbox.md#query_reports)
+- **Operation**: [**query_reports**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#query_reports)
 - **GET**: /falconx/queries/reports/v1
 - **Description**: Find sandbox reports by providing an FQL filter and paging details. Returns a set of report IDs that match your criteria.
 
@@ -3325,7 +3325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**query_sample_v1**](docs/FalconxSandbox.md#query_sample_v1)
+- **Operation**: [**query_sample_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#query_sample_v1)
 - **POST**: /samples/queries/samples/GET/v1
 - **Description**: Retrieves a list with sha256 of samples that exist and customer has rights to access them, maximum number of accepted items is 200
 
@@ -3333,7 +3333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**query_submissions**](docs/FalconxSandbox.md#query_submissions)
+- **Operation**: [**query_submissions**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#query_submissions)
 - **GET**: /falconx/queries/submissions/v1
 - **Description**: Find submission IDs for uploaded files by providing an FQL filter and paging details. Returns a set of submission IDs that match your criteria.
 
@@ -3341,7 +3341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**submit**](docs/FalconxSandbox.md#submit)
+- **Operation**: [**submit**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#submit)
 - **POST**: /falconx/entities/submissions/v1
 - **Description**: Submit an uploaded file or a URL for sandbox analysis. Time required for analysis varies but is usually less than 15 minutes.
 
@@ -3349,7 +3349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FalconxSandbox`
 
-- **Operation**: [**upload_sample_v2**](docs/FalconxSandbox.md#upload_sample_v2)
+- **Operation**: [**upload_sample_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/FalconxSandbox#upload_sample_v2)
 - **POST**: /samples/entities/samples/v2
 - **Description**: Upload a file for sandbox analysis. After uploading, use &#x60;/falconx/entities/submissions/v1&#x60; to start analyzing the file.
 
@@ -3357,7 +3357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FieldSchema`
 
-- **Operation**: [**fdrschema_entities_field_get**](docs/FieldSchema.md#fdrschema_entities_field_get)
+- **Operation**: [**fdrschema_entities_field_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/FieldSchema#fdrschema_entities_field_get)
 - **GET**: /fdr/entities/schema-fields/v1
 - **Description**: Fetch field schema by ID
 
@@ -3365,7 +3365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FieldSchema`
 
-- **Operation**: [**fdrschema_queries_field_get**](docs/FieldSchema.md#fdrschema_queries_field_get)
+- **Operation**: [**fdrschema_queries_field_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/FieldSchema#fdrschema_queries_field_get)
 - **GET**: /fdr/queries/schema-fields/v1
 - **Description**: Get list of field IDs given a particular query.
 
@@ -3373,7 +3373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**create_policies**](docs/Filevantage.md#create_policies)
+- **Operation**: [**create_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#create_policies)
 - **POST**: /filevantage/entities/policies/v1
 - **Description**: Creates a new policy of the specified type. New policies are always added at the end of the precedence list for the provided policy type.
 
@@ -3381,7 +3381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**create_rule_groups**](docs/Filevantage.md#create_rule_groups)
+- **Operation**: [**create_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#create_rule_groups)
 - **POST**: /filevantage/entities/rule-groups/v1
 - **Description**: Creates a new rule group of the specified type.
 
@@ -3389,7 +3389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**create_rules**](docs/Filevantage.md#create_rules)
+- **Operation**: [**create_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#create_rules)
 - **POST**: /filevantage/entities/rule-groups-rules/v1
 - **Description**: Creates a new rule configuration within the specified rule group.
 
@@ -3397,7 +3397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**create_scheduled_exclusions**](docs/Filevantage.md#create_scheduled_exclusions)
+- **Operation**: [**create_scheduled_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#create_scheduled_exclusions)
 - **POST**: /filevantage/entities/policy-scheduled-exclusions/v1
 - **Description**: Creates a new scheduled exclusion configuration for the provided policy id.
 
@@ -3405,7 +3405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**delete_policies**](docs/Filevantage.md#delete_policies)
+- **Operation**: [**delete_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#delete_policies)
 - **DELETE**: /filevantage/entities/policies/v1
 - **Description**: Deletes 1 or more policies.
 
@@ -3413,7 +3413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**delete_rule_groups**](docs/Filevantage.md#delete_rule_groups)
+- **Operation**: [**delete_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#delete_rule_groups)
 - **DELETE**: /filevantage/entities/rule-groups/v1
 - **Description**: Deletes 1 or more rule groups
 
@@ -3421,7 +3421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**delete_rules**](docs/Filevantage.md#delete_rules)
+- **Operation**: [**delete_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#delete_rules)
 - **DELETE**: /filevantage/entities/rule-groups-rules/v1
 - **Description**: Deletes 1 or more rules from the specified rule group.
 
@@ -3429,7 +3429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**delete_scheduled_exclusions**](docs/Filevantage.md#delete_scheduled_exclusions)
+- **Operation**: [**delete_scheduled_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#delete_scheduled_exclusions)
 - **DELETE**: /filevantage/entities/policy-scheduled-exclusions/v1
 - **Description**: Deletes 1 or more scheduled exclusions from the provided policy id.
 
@@ -3437,7 +3437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_actions_mixin0**](docs/Filevantage.md#get_actions_mixin0)
+- **Operation**: [**get_actions_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_actions_mixin0)
 - **GET**: /filevantage/entities/actions/v1
 - **Description**: Retrieves the processing results for 1 or more actions.
 
@@ -3445,7 +3445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_changes**](docs/Filevantage.md#get_changes)
+- **Operation**: [**get_changes**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_changes)
 - **GET**: /filevantage/entities/changes/v2
 - **Description**: Retrieve information on changes
 
@@ -3453,7 +3453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_contents**](docs/Filevantage.md#get_contents)
+- **Operation**: [**get_contents**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_contents)
 - **GET**: /filevantage/entities/change-content/v1
 - **Description**: Retrieves the content captured for the provided change id
 
@@ -3461,7 +3461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_policies**](docs/Filevantage.md#get_policies)
+- **Operation**: [**get_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_policies)
 - **GET**: /filevantage/entities/policies/v1
 - **Description**: Retrieves the configuration for 1 or more policies.
 
@@ -3469,7 +3469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_rule_groups**](docs/Filevantage.md#get_rule_groups)
+- **Operation**: [**get_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_rule_groups)
 - **GET**: /filevantage/entities/rule-groups/v1
 - **Description**: Retrieves the rule group details for 1 or more rule groups.
 
@@ -3477,7 +3477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_rules**](docs/Filevantage.md#get_rules)
+- **Operation**: [**get_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_rules)
 - **GET**: /filevantage/entities/rule-groups-rules/v1
 - **Description**: Retrieves the configuration for 1 or more rules.
 
@@ -3485,7 +3485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**get_scheduled_exclusions**](docs/Filevantage.md#get_scheduled_exclusions)
+- **Operation**: [**get_scheduled_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#get_scheduled_exclusions)
 - **GET**: /filevantage/entities/policy-scheduled-exclusions/v1
 - **Description**: Retrieves the configuration of 1 or more scheduled exclusions from the provided policy id.
 
@@ -3493,7 +3493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**high_volume_query_changes**](docs/Filevantage.md#high_volume_query_changes)
+- **Operation**: [**high_volume_query_changes**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#high_volume_query_changes)
 - **GET**: /filevantage/queries/changes/v3
 - **Description**: Returns 1 or more change ids
 
@@ -3501,7 +3501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**query_actions_mixin0**](docs/Filevantage.md#query_actions_mixin0)
+- **Operation**: [**query_actions_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#query_actions_mixin0)
 - **GET**: /filevantage/queries/actions/v1
 - **Description**: Returns one or more action ids
 
@@ -3509,7 +3509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**query_changes**](docs/Filevantage.md#query_changes)
+- **Operation**: [**query_changes**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#query_changes)
 - **GET**: /filevantage/queries/changes/v2
 - **Description**: Returns 1 or more change ids
 
@@ -3517,7 +3517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**query_policies**](docs/Filevantage.md#query_policies)
+- **Operation**: [**query_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#query_policies)
 - **GET**: /filevantage/queries/policies/v1
 - **Description**: Retrieve the ids of all policies that are assigned the provided policy type.
 
@@ -3525,7 +3525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**query_rule_groups**](docs/Filevantage.md#query_rule_groups)
+- **Operation**: [**query_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#query_rule_groups)
 - **GET**: /filevantage/queries/rule-groups/v1
 - **Description**: Retrieve the ids of all rule groups that are of the provided rule group type.
 
@@ -3533,7 +3533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**query_scheduled_exclusions**](docs/Filevantage.md#query_scheduled_exclusions)
+- **Operation**: [**query_scheduled_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#query_scheduled_exclusions)
 - **GET**: /filevantage/queries/policy-scheduled-exclusions/v1
 - **Description**: Retrieve the ids of all scheduled exclusions contained within the provided policy id.
 
@@ -3541,7 +3541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**signal_changes_external**](docs/Filevantage.md#signal_changes_external)
+- **Operation**: [**signal_changes_external**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#signal_changes_external)
 - **POST**: /filevantage/entities/workflow/v1
 - **Description**: Initiates workflows for the provided change ids
 
@@ -3549,7 +3549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**start_actions**](docs/Filevantage.md#start_actions)
+- **Operation**: [**start_actions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#start_actions)
 - **POST**: /filevantage/entities/actions/v1
 - **Description**: Initiates the specified action on the provided change ids
 
@@ -3557,7 +3557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policies**](docs/Filevantage.md#update_policies)
+- **Operation**: [**update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_policies)
 - **PATCH**: /filevantage/entities/policies/v1
 - **Description**: Updates the general information of the provided policy.
 
@@ -3565,7 +3565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policy_host_groups**](docs/Filevantage.md#update_policy_host_groups)
+- **Operation**: [**update_policy_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_policy_host_groups)
 - **PATCH**: /filevantage/entities/policies-host-groups/v1
 - **Description**: Manage host groups assigned to a policy.
 
@@ -3573,7 +3573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policy_precedence**](docs/Filevantage.md#update_policy_precedence)
+- **Operation**: [**update_policy_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_policy_precedence)
 - **PATCH**: /filevantage/entities/policies-precedence/v1
 - **Description**: Updates the policy precedence for all policies of a specific type.
 
@@ -3581,7 +3581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_policy_rule_groups**](docs/Filevantage.md#update_policy_rule_groups)
+- **Operation**: [**update_policy_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_policy_rule_groups)
 - **PATCH**: /filevantage/entities/policies-rule-groups/v1
 - **Description**: Manage the rule groups assigned to the policy or set the rule group precedence for all rule groups within the policy.
 
@@ -3589,7 +3589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_rule_group_precedence**](docs/Filevantage.md#update_rule_group_precedence)
+- **Operation**: [**update_rule_group_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_rule_group_precedence)
 - **PATCH**: /filevantage/entities/rule-groups-rule-precedence/v1
 - **Description**: Updates the rule precedence for all rules in the identified rule group.
 
@@ -3597,7 +3597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_rule_groups**](docs/Filevantage.md#update_rule_groups)
+- **Operation**: [**update_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_rule_groups)
 - **PATCH**: /filevantage/entities/rule-groups/v1
 - **Description**: Updates the provided rule group.
 
@@ -3605,7 +3605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_rules**](docs/Filevantage.md#update_rules)
+- **Operation**: [**update_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_rules)
 - **PATCH**: /filevantage/entities/rule-groups-rules/v1
 - **Description**: Updates the provided rule configuration within the specified rule group.
 
@@ -3613,7 +3613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Filevantage`
 
-- **Operation**: [**update_scheduled_exclusions**](docs/Filevantage.md#update_scheduled_exclusions)
+- **Operation**: [**update_scheduled_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/Filevantage#update_scheduled_exclusions)
 - **PATCH**: /filevantage/entities/policy-scheduled-exclusions/v1
 - **Description**: Updates the provided scheduled exclusion configuration within the provided policy.
 
@@ -3621,7 +3621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**aggregate_events**](docs/FirewallManagement.md#aggregate_events)
+- **Operation**: [**aggregate_events**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#aggregate_events)
 - **POST**: /fwmgr/aggregates/events/GET/v1
 - **Description**: Aggregate events for customer
 
@@ -3629,7 +3629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**aggregate_policy_rules**](docs/FirewallManagement.md#aggregate_policy_rules)
+- **Operation**: [**aggregate_policy_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#aggregate_policy_rules)
 - **POST**: /fwmgr/aggregates/policy-rules/GET/v1
 - **Description**: Aggregate rules within a policy for customer
 
@@ -3637,7 +3637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**aggregate_rule_groups**](docs/FirewallManagement.md#aggregate_rule_groups)
+- **Operation**: [**aggregate_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#aggregate_rule_groups)
 - **POST**: /fwmgr/aggregates/rule-groups/GET/v1
 - **Description**: Aggregate rule groups for customer
 
@@ -3645,7 +3645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**aggregate_rules**](docs/FirewallManagement.md#aggregate_rules)
+- **Operation**: [**aggregate_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#aggregate_rules)
 - **POST**: /fwmgr/aggregates/rules/GET/v1
 - **Description**: Aggregate rules for customer
 
@@ -3653,7 +3653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**create_network_locations**](docs/FirewallManagement.md#create_network_locations)
+- **Operation**: [**create_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#create_network_locations)
 - **POST**: /fwmgr/entities/network-locations/v1
 - **Description**: Create new network locations provided, and return the ID.
 
@@ -3661,7 +3661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**create_rule_group**](docs/FirewallManagement.md#create_rule_group)
+- **Operation**: [**create_rule_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#create_rule_group)
 - **POST**: /fwmgr/entities/rule-groups/v1
 - **Description**: Create new rule group on a platform for a customer with a name and description, and return the ID
 
@@ -3669,7 +3669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**create_rule_group_validation**](docs/FirewallManagement.md#create_rule_group_validation)
+- **Operation**: [**create_rule_group_validation**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#create_rule_group_validation)
 - **POST**: /fwmgr/entities/rule-groups/validation/v1
 - **Description**: Validates the request of creating a new rule group on a platform for a customer with a name and description
 
@@ -3677,7 +3677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**delete_network_locations**](docs/FirewallManagement.md#delete_network_locations)
+- **Operation**: [**delete_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#delete_network_locations)
 - **DELETE**: /fwmgr/entities/network-locations/v1
 - **Description**: Delete network location entities by ID.
 
@@ -3685,7 +3685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**delete_rule_groups**](docs/FirewallManagement.md#delete_rule_groups)
+- **Operation**: [**delete_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#delete_rule_groups)
 - **DELETE**: /fwmgr/entities/rule-groups/v1
 - **Description**: Delete rule group entities by ID
 
@@ -3693,7 +3693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_events**](docs/FirewallManagement.md#get_events)
+- **Operation**: [**get_events**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_events)
 - **GET**: /fwmgr/entities/events/v1
 - **Description**: Get events entities by ID and optionally version
 
@@ -3701,7 +3701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_firewall_fields**](docs/FirewallManagement.md#get_firewall_fields)
+- **Operation**: [**get_firewall_fields**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_firewall_fields)
 - **GET**: /fwmgr/entities/firewall-fields/v1
 - **Description**: Get the firewall field specifications by ID
 
@@ -3709,7 +3709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_network_locations**](docs/FirewallManagement.md#get_network_locations)
+- **Operation**: [**get_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_network_locations)
 - **GET**: /fwmgr/entities/network-locations/v1
 - **Description**: Get a summary of network locations entities by ID
 
@@ -3717,7 +3717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_network_locations_details**](docs/FirewallManagement.md#get_network_locations_details)
+- **Operation**: [**get_network_locations_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_network_locations_details)
 - **GET**: /fwmgr/entities/network-locations-details/v1
 - **Description**: Get network locations entities by ID
 
@@ -3725,7 +3725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_platforms**](docs/FirewallManagement.md#get_platforms)
+- **Operation**: [**get_platforms**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_platforms)
 - **GET**: /fwmgr/entities/platforms/v1
 - **Description**: Get platforms by ID, e.g., windows or mac or droid
 
@@ -3733,7 +3733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_policy_containers**](docs/FirewallManagement.md#get_policy_containers)
+- **Operation**: [**get_policy_containers**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_policy_containers)
 - **GET**: /fwmgr/entities/policies/v1
 - **Description**: Get policy container entities by policy ID
 
@@ -3741,7 +3741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_rule_groups**](docs/FirewallManagement.md#get_rule_groups)
+- **Operation**: [**get_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_rule_groups)
 - **GET**: /fwmgr/entities/rule-groups/v1
 - **Description**: Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
 
@@ -3749,7 +3749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**get_rules**](docs/FirewallManagement.md#get_rules)
+- **Operation**: [**get_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#get_rules)
 - **GET**: /fwmgr/entities/rules/v1
 - **Description**: Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
 
@@ -3757,7 +3757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_events**](docs/FirewallManagement.md#query_events)
+- **Operation**: [**query_events**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_events)
 - **GET**: /fwmgr/queries/events/v1
 - **Description**: Find all event IDs matching the query with filter
 
@@ -3765,7 +3765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_firewall_fields**](docs/FirewallManagement.md#query_firewall_fields)
+- **Operation**: [**query_firewall_fields**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_firewall_fields)
 - **GET**: /fwmgr/queries/firewall-fields/v1
 - **Description**: Get the firewall field specification IDs for the provided platform
 
@@ -3773,7 +3773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_network_locations**](docs/FirewallManagement.md#query_network_locations)
+- **Operation**: [**query_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_network_locations)
 - **GET**: /fwmgr/queries/network-locations/v1
 - **Description**: Get a list of network location IDs
 
@@ -3781,7 +3781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_platforms**](docs/FirewallManagement.md#query_platforms)
+- **Operation**: [**query_platforms**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_platforms)
 - **GET**: /fwmgr/queries/platforms/v1
 - **Description**: Get the list of platform names
 
@@ -3789,7 +3789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_policy_rules**](docs/FirewallManagement.md#query_policy_rules)
+- **Operation**: [**query_policy_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_policy_rules)
 - **GET**: /fwmgr/queries/policy-rules/v1
 - **Description**: Find all firewall rule IDs matching the query with filter, and return them in precedence order
 
@@ -3797,7 +3797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_rule_groups**](docs/FirewallManagement.md#query_rule_groups)
+- **Operation**: [**query_rule_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_rule_groups)
 - **GET**: /fwmgr/queries/rule-groups/v1
 - **Description**: Find all rule group IDs matching the query with filter
 
@@ -3805,7 +3805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**query_rules**](docs/FirewallManagement.md#query_rules)
+- **Operation**: [**query_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#query_rules)
 - **GET**: /fwmgr/queries/rules/v1
 - **Description**: Find all rule IDs matching the query with filter
 
@@ -3813,7 +3813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_network_locations**](docs/FirewallManagement.md#update_network_locations)
+- **Operation**: [**update_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_network_locations)
 - **PATCH**: /fwmgr/entities/network-locations/v1
 - **Description**: Updates the network locations provided, and return the ID.
 
@@ -3821,7 +3821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_network_locations_metadata**](docs/FirewallManagement.md#update_network_locations_metadata)
+- **Operation**: [**update_network_locations_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_network_locations_metadata)
 - **POST**: /fwmgr/entities/network-locations-metadata/v1
 - **Description**: Updates the network locations metadata such as polling_intervals for the cid
 
@@ -3829,7 +3829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_network_locations_precedence**](docs/FirewallManagement.md#update_network_locations_precedence)
+- **Operation**: [**update_network_locations_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_network_locations_precedence)
 - **POST**: /fwmgr/entities/network-locations-precedence/v1
 - **Description**: Updates the network locations precedence according to the list of ids provided.
 
@@ -3837,7 +3837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_policy_container**](docs/FirewallManagement.md#update_policy_container)
+- **Operation**: [**update_policy_container**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_policy_container)
 - **PUT**: /fwmgr/entities/policies/v2
 - **Description**: Update an identified policy container, including local logging functionality.
 
@@ -3845,7 +3845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_policy_container_v1**](docs/FirewallManagement.md#update_policy_container_v1)
+- **Operation**: [**update_policy_container_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_policy_container_v1)
 - **PUT**: /fwmgr/entities/policies/v1
 - **Description**: Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
 
@@ -3853,7 +3853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_rule_group**](docs/FirewallManagement.md#update_rule_group)
+- **Operation**: [**update_rule_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_rule_group)
 - **PATCH**: /fwmgr/entities/rule-groups/v1
 - **Description**: Update name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
 
@@ -3861,7 +3861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**update_rule_group_validation**](docs/FirewallManagement.md#update_rule_group_validation)
+- **Operation**: [**update_rule_group_validation**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#update_rule_group_validation)
 - **PATCH**: /fwmgr/entities/rule-groups/validation/v1
 - **Description**: Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
 
@@ -3869,7 +3869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**upsert_network_locations**](docs/FirewallManagement.md#upsert_network_locations)
+- **Operation**: [**upsert_network_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#upsert_network_locations)
 - **PUT**: /fwmgr/entities/network-locations/v1
 - **Description**: Updates the network locations provided, and return the ID.
 
@@ -3877,7 +3877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallManagement`
 
-- **Operation**: [**validate_filepath_pattern**](docs/FirewallManagement.md#validate_filepath_pattern)
+- **Operation**: [**validate_filepath_pattern**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallManagement#validate_filepath_pattern)
 - **POST**: /fwmgr/entities/rules/validate-filepath/v1
 - **Description**: Validates that the test pattern matches the executable filepath glob pattern.
 
@@ -3885,7 +3885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**create_firewall_policies**](docs/FirewallPolicies.md#create_firewall_policies)
+- **Operation**: [**create_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#create_firewall_policies)
 - **POST**: /policy/entities/firewall/v1
 - **Description**: Create Firewall Policies by specifying details about the policy to create
 
@@ -3893,7 +3893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**delete_firewall_policies**](docs/FirewallPolicies.md#delete_firewall_policies)
+- **Operation**: [**delete_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#delete_firewall_policies)
 - **DELETE**: /policy/entities/firewall/v1
 - **Description**: Delete a set of Firewall Policies by specifying their IDs
 
@@ -3901,7 +3901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**get_firewall_policies**](docs/FirewallPolicies.md#get_firewall_policies)
+- **Operation**: [**get_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#get_firewall_policies)
 - **GET**: /policy/entities/firewall/v1
 - **Description**: Retrieve a set of Firewall Policies by specifying their IDs
 
@@ -3909,7 +3909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**perform_firewall_policies_action**](docs/FirewallPolicies.md#perform_firewall_policies_action)
+- **Operation**: [**perform_firewall_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#perform_firewall_policies_action)
 - **POST**: /policy/entities/firewall-actions/v1
 - **Description**: Perform the specified action on the Firewall Policies specified in the request
 
@@ -3917,7 +3917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**query_combined_firewall_policies**](docs/FirewallPolicies.md#query_combined_firewall_policies)
+- **Operation**: [**query_combined_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#query_combined_firewall_policies)
 - **GET**: /policy/combined/firewall/v1
 - **Description**: Search for Firewall Policies in your environment by providing an FQL filter and paging details. Returns a set of Firewall Policies which match the filter criteria
 
@@ -3925,7 +3925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**query_combined_firewall_policy_members**](docs/FirewallPolicies.md#query_combined_firewall_policy_members)
+- **Operation**: [**query_combined_firewall_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#query_combined_firewall_policy_members)
 - **GET**: /policy/combined/firewall-members/v1
 - **Description**: Search for members of a Firewall Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -3933,7 +3933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**query_firewall_policies**](docs/FirewallPolicies.md#query_firewall_policies)
+- **Operation**: [**query_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#query_firewall_policies)
 - **GET**: /policy/queries/firewall/v1
 - **Description**: Search for Firewall Policies in your environment by providing an FQL filter and paging details. Returns a set of Firewall Policy IDs which match the filter criteria
 
@@ -3941,7 +3941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**query_firewall_policy_members**](docs/FirewallPolicies.md#query_firewall_policy_members)
+- **Operation**: [**query_firewall_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#query_firewall_policy_members)
 - **GET**: /policy/queries/firewall-members/v1
 - **Description**: Search for members of a Firewall Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -3949,7 +3949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**set_firewall_policies_precedence**](docs/FirewallPolicies.md#set_firewall_policies_precedence)
+- **Operation**: [**set_firewall_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#set_firewall_policies_precedence)
 - **POST**: /policy/entities/firewall-precedence/v1
 - **Description**: Sets the precedence of Firewall Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
@@ -3957,7 +3957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FirewallPolicies`
 
-- **Operation**: [**update_firewall_policies**](docs/FirewallPolicies.md#update_firewall_policies)
+- **Operation**: [**update_firewall_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/FirewallPolicies#update_firewall_policies)
 - **PATCH**: /policy/entities/firewall/v1
 - **Description**: Update Firewall Policies by specifying the ID of the policy and details to update
 
@@ -3965,7 +3965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_dynamic_execute_alt_v1**](docs/FoundryLogscale.md#create_saved_searches_dynamic_execute_alt_v1)
+- **Operation**: [**create_saved_searches_dynamic_execute_alt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_dynamic_execute_alt_v1)
 - **POST**: /loggingapi/entities/saved-searches-dynamic-execute/v1
 - **Description**: Execute a dynamic saved search
 
@@ -3973,7 +3973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_dynamic_execute_v1**](docs/FoundryLogscale.md#create_saved_searches_dynamic_execute_v1)
+- **Operation**: [**create_saved_searches_dynamic_execute_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_dynamic_execute_v1)
 - **POST**: /loggingapi/entities/saved-searches/execute-dynamic/v1
 - **Description**: Execute a dynamic saved search
 
@@ -3981,7 +3981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_execute_alt_v1**](docs/FoundryLogscale.md#create_saved_searches_execute_alt_v1)
+- **Operation**: [**create_saved_searches_execute_alt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_execute_alt_v1)
 - **POST**: /loggingapi/entities/saved-searches-execute/v1
 - **Description**: Execute a saved search
 
@@ -3989,7 +3989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_execute_v1**](docs/FoundryLogscale.md#create_saved_searches_execute_v1)
+- **Operation**: [**create_saved_searches_execute_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_execute_v1)
 - **POST**: /loggingapi/entities/saved-searches/execute/v1
 - **Description**: Execute a saved search
 
@@ -3997,7 +3997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_ingest_alt_v1**](docs/FoundryLogscale.md#create_saved_searches_ingest_alt_v1)
+- **Operation**: [**create_saved_searches_ingest_alt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_ingest_alt_v1)
 - **POST**: /loggingapi/entities/saved-searches-ingest/v1
 - **Description**: Populate a saved search
 
@@ -4005,7 +4005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**create_saved_searches_ingest_v1**](docs/FoundryLogscale.md#create_saved_searches_ingest_v1)
+- **Operation**: [**create_saved_searches_ingest_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#create_saved_searches_ingest_v1)
 - **POST**: /loggingapi/entities/saved-searches/ingest/v1
 - **Description**: Populate a saved search
 
@@ -4013,7 +4013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**get_saved_searches_execute_alt_v1**](docs/FoundryLogscale.md#get_saved_searches_execute_alt_v1)
+- **Operation**: [**get_saved_searches_execute_alt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#get_saved_searches_execute_alt_v1)
 - **GET**: /loggingapi/entities/saved-searches-execute/v1
 - **Description**: Get the results of a saved search
 
@@ -4021,7 +4021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**get_saved_searches_execute_v1**](docs/FoundryLogscale.md#get_saved_searches_execute_v1)
+- **Operation**: [**get_saved_searches_execute_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#get_saved_searches_execute_v1)
 - **GET**: /loggingapi/entities/saved-searches/execute/v1
 - **Description**: Get the results of a saved search
 
@@ -4029,7 +4029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**get_saved_searches_job_results_download_alt_v1**](docs/FoundryLogscale.md#get_saved_searches_job_results_download_alt_v1)
+- **Operation**: [**get_saved_searches_job_results_download_alt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#get_saved_searches_job_results_download_alt_v1)
 - **GET**: /loggingapi/entities/saved-searches-job-results-download/v1
 - **Description**: Get the results of a saved search as a file
 
@@ -4037,7 +4037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**get_saved_searches_job_results_download_v1**](docs/FoundryLogscale.md#get_saved_searches_job_results_download_v1)
+- **Operation**: [**get_saved_searches_job_results_download_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#get_saved_searches_job_results_download_v1)
 - **GET**: /loggingapi/entities/saved-searches/job-results-download/v1
 - **Description**: Get the results of a saved search as a file
 
@@ -4045,7 +4045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**ingest_data_async_v1**](docs/FoundryLogscale.md#ingest_data_async_v1)
+- **Operation**: [**ingest_data_async_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#ingest_data_async_v1)
 - **POST**: /loggingapi/entities/data-ingestion/ingest-async/v1
 - **Description**: Asynchronously ingest data into the application repository
 
@@ -4053,7 +4053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**ingest_data_v1**](docs/FoundryLogscale.md#ingest_data_v1)
+- **Operation**: [**ingest_data_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#ingest_data_v1)
 - **POST**: /loggingapi/entities/data-ingestion/ingest/v1
 - **Description**: Synchronously ingest data into the application repository
 
@@ -4061,7 +4061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**list_repos_v1**](docs/FoundryLogscale.md#list_repos_v1)
+- **Operation**: [**list_repos_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#list_repos_v1)
 - **GET**: /loggingapi/combined/repos/v1
 - **Description**: Lists available repositories and views
 
@@ -4069,7 +4069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::FoundryLogscale`
 
-- **Operation**: [**list_view_v1**](docs/FoundryLogscale.md#list_view_v1)
+- **Operation**: [**list_view_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/FoundryLogscale#list_view_v1)
 - **GET**: /loggingapi/entities/views/v1
 - **Description**: List views
 
@@ -4077,7 +4077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**create_host_groups**](docs/HostGroup.md#create_host_groups)
+- **Operation**: [**create_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#create_host_groups)
 - **POST**: /devices/entities/host-groups/v1
 - **Description**: Create Host Groups by specifying details about the group to create
 
@@ -4085,7 +4085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**delete_host_groups**](docs/HostGroup.md#delete_host_groups)
+- **Operation**: [**delete_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#delete_host_groups)
 - **DELETE**: /devices/entities/host-groups/v1
 - **Description**: Delete a set of Host Groups by specifying their IDs
 
@@ -4093,7 +4093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**get_host_groups**](docs/HostGroup.md#get_host_groups)
+- **Operation**: [**get_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#get_host_groups)
 - **GET**: /devices/entities/host-groups/v1
 - **Description**: Retrieve a set of Host Groups by specifying their IDs
 
@@ -4101,7 +4101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**perform_group_action**](docs/HostGroup.md#perform_group_action)
+- **Operation**: [**perform_group_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#perform_group_action)
 - **POST**: /devices/entities/host-group-actions/v1
 - **Description**: Perform the specified action on the Host Groups specified in the request
 
@@ -4109,7 +4109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**query_combined_group_members**](docs/HostGroup.md#query_combined_group_members)
+- **Operation**: [**query_combined_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#query_combined_group_members)
 - **GET**: /devices/combined/host-group-members/v1
 - **Description**: Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -4117,7 +4117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**query_combined_host_groups**](docs/HostGroup.md#query_combined_host_groups)
+- **Operation**: [**query_combined_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#query_combined_host_groups)
 - **GET**: /devices/combined/host-groups/v1
 - **Description**: Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Groups which match the filter criteria
 
@@ -4125,7 +4125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**query_group_members**](docs/HostGroup.md#query_group_members)
+- **Operation**: [**query_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#query_group_members)
 - **GET**: /devices/queries/host-group-members/v1
 - **Description**: Search for members of a Host Group in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -4133,7 +4133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**query_host_groups**](docs/HostGroup.md#query_host_groups)
+- **Operation**: [**query_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#query_host_groups)
 - **GET**: /devices/queries/host-groups/v1
 - **Description**: Search for Host Groups in your environment by providing an FQL filter and paging details. Returns a set of Host Group IDs which match the filter criteria
 
@@ -4141,7 +4141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostGroup`
 
-- **Operation**: [**update_host_groups**](docs/HostGroup.md#update_host_groups)
+- **Operation**: [**update_host_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostGroup#update_host_groups)
 - **PATCH**: /devices/entities/host-groups/v1
 - **Description**: Update Host Groups by specifying the ID of the group and details to update
 
@@ -4149,7 +4149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**create_migration_v1**](docs/HostMigration.md#create_migration_v1)
+- **Operation**: [**create_migration_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#create_migration_v1)
 - **POST**: /host-migration/entities/migrations/v1
 - **Description**: Create a device migration job.
 
@@ -4157,7 +4157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**get_host_migration_ids_v1**](docs/HostMigration.md#get_host_migration_ids_v1)
+- **Operation**: [**get_host_migration_ids_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#get_host_migration_ids_v1)
 - **GET**: /host-migration/queries/host-migrations/v1
 - **Description**: Query host migration IDs.
 
@@ -4165,7 +4165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**get_host_migrations_v1**](docs/HostMigration.md#get_host_migrations_v1)
+- **Operation**: [**get_host_migrations_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#get_host_migrations_v1)
 - **POST**: /host-migration/entities/host-migrations/GET/v1
 - **Description**: Get host migration details.
 
@@ -4173,7 +4173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**get_migration_destinations_v1**](docs/HostMigration.md#get_migration_destinations_v1)
+- **Operation**: [**get_migration_destinations_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#get_migration_destinations_v1)
 - **POST**: /host-migration/entities/migration-destinations/GET/v1
 - **Description**: Get destinations for a migration.
 
@@ -4181,7 +4181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**get_migration_ids_v1**](docs/HostMigration.md#get_migration_ids_v1)
+- **Operation**: [**get_migration_ids_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#get_migration_ids_v1)
 - **GET**: /host-migration/queries/migrations/v1
 - **Description**: Query migration jobs.
 
@@ -4189,7 +4189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**get_migrations_v1**](docs/HostMigration.md#get_migrations_v1)
+- **Operation**: [**get_migrations_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#get_migrations_v1)
 - **GET**: /host-migration/entities/migrations/v1
 - **Description**: Get migration job details.
 
@@ -4197,7 +4197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**host_migration_aggregates_v1**](docs/HostMigration.md#host_migration_aggregates_v1)
+- **Operation**: [**host_migration_aggregates_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#host_migration_aggregates_v1)
 - **POST**: /host-migration/aggregates/host-migrations/v1
 - **Description**: Get host migration aggregates as specified via json in request body.
 
@@ -4205,7 +4205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**host_migrations_actions_v1**](docs/HostMigration.md#host_migrations_actions_v1)
+- **Operation**: [**host_migrations_actions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#host_migrations_actions_v1)
 - **POST**: /host-migration/entities/host-migrations-actions/v1
 - **Description**: Perform an action on host migrations.
 
@@ -4213,7 +4213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**migration_aggregates_v1**](docs/HostMigration.md#migration_aggregates_v1)
+- **Operation**: [**migration_aggregates_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#migration_aggregates_v1)
 - **POST**: /host-migration/aggregates/migrations/v1
 - **Description**: Get migration aggregates as specified via json in request body.
 
@@ -4221,7 +4221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::HostMigration`
 
-- **Operation**: [**migrations_actions_v1**](docs/HostMigration.md#migrations_actions_v1)
+- **Operation**: [**migrations_actions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/HostMigration#migrations_actions_v1)
 - **POST**: /host-migration/entities/migrations-actions/v1
 - **Description**: Perform an action on a migration job.
 
@@ -4229,7 +4229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**combined_devices_by_filter**](docs/Hosts.md#combined_devices_by_filter)
+- **Operation**: [**combined_devices_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#combined_devices_by_filter)
 - **GET**: /devices/combined/devices/v1
 - **Description**: Search for hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
 
@@ -4237,7 +4237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**combined_hidden_devices_by_filter**](docs/Hosts.md#combined_hidden_devices_by_filter)
+- **Operation**: [**combined_hidden_devices_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#combined_hidden_devices_by_filter)
 - **GET**: /devices/combined/devices-hidden/v1
 - **Description**: Search for hidden hosts in your environment by platform, hostname, IP, and other criteria. Returns full device records.
 
@@ -4245,7 +4245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**entities_perform_action**](docs/Hosts.md#entities_perform_action)
+- **Operation**: [**entities_perform_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#entities_perform_action)
 - **POST**: /devices/entities/group-actions/v1
 - **Description**: Performs the specified action on the provided group IDs.
 
@@ -4253,7 +4253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**get_device_details_v2**](docs/Hosts.md#get_device_details_v2)
+- **Operation**: [**get_device_details_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#get_device_details_v2)
 - **GET**: /devices/entities/devices/v2
 - **Description**: Get details on one or more hosts by providing host IDs as a query parameter.  Supports up to a maximum 100 IDs.
 
@@ -4261,7 +4261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**get_online_state_v1**](docs/Hosts.md#get_online_state_v1)
+- **Operation**: [**get_online_state_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#get_online_state_v1)
 - **GET**: /devices/entities/online-state/v1
 - **Description**: Get the online status for one or more hosts by specifying each host’s unique ID. Successful requests return an HTTP 200 response and the status for each host identified by a &#x60;state&#x60; of &#x60;online&#x60;, &#x60;offline&#x60;, or &#x60;unknown&#x60; for each host, identified by host &#x60;id&#x60;.  Make a &#x60;GET&#x60; request to &#x60;/devices/queries/devices/v1&#x60; to get a list of host IDs.
 
@@ -4269,7 +4269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**perform_action_v2**](docs/Hosts.md#perform_action_v2)
+- **Operation**: [**perform_action_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#perform_action_v2)
 - **POST**: /devices/entities/devices-actions/v2
 - **Description**: Take various actions on the hosts in your environment. Contain or lift containment on a host. Delete or restore a host.
 
@@ -4277,7 +4277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**post_device_details_v2**](docs/Hosts.md#post_device_details_v2)
+- **Operation**: [**post_device_details_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#post_device_details_v2)
 - **POST**: /devices/entities/devices/v2
 - **Description**: Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
 
@@ -4285,7 +4285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_device_login_history**](docs/Hosts.md#query_device_login_history)
+- **Operation**: [**query_device_login_history**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_device_login_history)
 - **POST**: /devices/combined/devices/login-history/v1
 - **Description**: Retrieve details about recent login sessions for a set of devices.
 
@@ -4293,7 +4293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_device_login_history_v2**](docs/Hosts.md#query_device_login_history_v2)
+- **Operation**: [**query_device_login_history_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_device_login_history_v2)
 - **POST**: /devices/combined/devices/login-history/v2
 - **Description**: Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
 
@@ -4301,7 +4301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_devices_by_filter**](docs/Hosts.md#query_devices_by_filter)
+- **Operation**: [**query_devices_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_devices_by_filter)
 - **GET**: /devices/queries/devices/v1
 - **Description**: Search for hosts in your environment by platform, hostname, IP, and other criteria.
 
@@ -4309,7 +4309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_devices_by_filter_scroll**](docs/Hosts.md#query_devices_by_filter_scroll)
+- **Operation**: [**query_devices_by_filter_scroll**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_devices_by_filter_scroll)
 - **GET**: /devices/queries/devices-scroll/v1
 - **Description**: Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
 
@@ -4317,7 +4317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_get_network_address_history_v1**](docs/Hosts.md#query_get_network_address_history_v1)
+- **Operation**: [**query_get_network_address_history_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_get_network_address_history_v1)
 - **POST**: /devices/combined/devices/network-address-history/v1
 - **Description**: Retrieve history of IP and MAC addresses of devices.
 
@@ -4325,7 +4325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**query_hidden_devices**](docs/Hosts.md#query_hidden_devices)
+- **Operation**: [**query_hidden_devices**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#query_hidden_devices)
 - **GET**: /devices/queries/devices-hidden/v1
 - **Description**: Retrieve hidden hosts that match the provided filter criteria.
 
@@ -4333,7 +4333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Hosts`
 
-- **Operation**: [**update_device_tags**](docs/Hosts.md#update_device_tags)
+- **Operation**: [**update_device_tags**](https://github.com/CrowdStrike/crimson-falcon/wiki/Hosts#update_device_tags)
 - **PATCH**: /devices/entities/devices/tags/v1
 - **Description**: Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
 
@@ -4341,7 +4341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityEntities`
 
-- **Operation**: [**get_sensor_aggregates**](docs/IdentityEntities.md#get_sensor_aggregates)
+- **Operation**: [**get_sensor_aggregates**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityEntities#get_sensor_aggregates)
 - **POST**: /identity-protection/aggregates/devices/GET/v1
 - **Description**: Get sensor aggregates as specified via json in request body.
 
@@ -4349,7 +4349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityEntities`
 
-- **Operation**: [**get_sensor_details**](docs/IdentityEntities.md#get_sensor_details)
+- **Operation**: [**get_sensor_details**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityEntities#get_sensor_details)
 - **POST**: /identity-protection/entities/devices/GET/v1
 - **Description**: Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs.
 
@@ -4357,7 +4357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityEntities`
 
-- **Operation**: [**query_sensors_by_filter**](docs/IdentityEntities.md#query_sensors_by_filter)
+- **Operation**: [**query_sensors_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityEntities#query_sensors_by_filter)
 - **GET**: /identity-protection/queries/devices/v1
 - **Description**: Search for sensors in your environment by hostname, IP, and other criteria.
 
@@ -4365,7 +4365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityProtection`
 
-- **Operation**: [**api_preempt_proxy_delete_policy_rules**](docs/IdentityProtection.md#api_preempt_proxy_delete_policy_rules)
+- **Operation**: [**api_preempt_proxy_delete_policy_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityProtection#api_preempt_proxy_delete_policy_rules)
 - **DELETE**: /identity-protection/entities/policy-rules/v1
 - **Description**: Delete policy rules
 
@@ -4373,7 +4373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityProtection`
 
-- **Operation**: [**api_preempt_proxy_get_policy_rules**](docs/IdentityProtection.md#api_preempt_proxy_get_policy_rules)
+- **Operation**: [**api_preempt_proxy_get_policy_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityProtection#api_preempt_proxy_get_policy_rules)
 - **GET**: /identity-protection/entities/policy-rules/v1
 - **Description**: Get policy rules
 
@@ -4381,7 +4381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityProtection`
 
-- **Operation**: [**api_preempt_proxy_get_policy_rules_query**](docs/IdentityProtection.md#api_preempt_proxy_get_policy_rules_query)
+- **Operation**: [**api_preempt_proxy_get_policy_rules_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityProtection#api_preempt_proxy_get_policy_rules_query)
 - **GET**: /identity-protection/queries/policy-rules/v1
 - **Description**: Query policy rule IDs
 
@@ -4389,7 +4389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityProtection`
 
-- **Operation**: [**api_preempt_proxy_post_graphql**](docs/IdentityProtection.md#api_preempt_proxy_post_graphql)
+- **Operation**: [**api_preempt_proxy_post_graphql**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityProtection#api_preempt_proxy_post_graphql)
 - **POST**: /identity-protection/combined/graphql/v1
 - **Description**: Identity Protection GraphQL API. Allows to retrieve entities, timeline activities, identity-based incidents and security assessment. Allows to perform actions on entities and identity-based incidents.
 
@@ -4397,7 +4397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IdentityProtection`
 
-- **Operation**: [**api_preempt_proxy_post_policy_rules**](docs/IdentityProtection.md#api_preempt_proxy_post_policy_rules)
+- **Operation**: [**api_preempt_proxy_post_policy_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/IdentityProtection#api_preempt_proxy_post_policy_rules)
 - **POST**: /identity-protection/entities/policy-rules/v1
 - **Description**: Create policy rule
 
@@ -4405,7 +4405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**create_policies**](docs/ImageAssessmentPolicies.md#create_policies)
+- **Operation**: [**create_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#create_policies)
 - **POST**: /container-security/entities/image-assessment-policies/v1
 - **Description**: Create Image Assessment policies
 
@@ -4413,7 +4413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**create_policy_groups**](docs/ImageAssessmentPolicies.md#create_policy_groups)
+- **Operation**: [**create_policy_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#create_policy_groups)
 - **POST**: /container-security/entities/image-assessment-policy-groups/v1
 - **Description**: Create Image Assessment Policy Group entities
 
@@ -4421,7 +4421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**delete_policy**](docs/ImageAssessmentPolicies.md#delete_policy)
+- **Operation**: [**delete_policy**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#delete_policy)
 - **DELETE**: /container-security/entities/image-assessment-policies/v1
 - **Description**: Delete Image Assessment Policy by policy UUID
 
@@ -4429,7 +4429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**delete_policy_group**](docs/ImageAssessmentPolicies.md#delete_policy_group)
+- **Operation**: [**delete_policy_group**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#delete_policy_group)
 - **DELETE**: /container-security/entities/image-assessment-policy-groups/v1
 - **Description**: Delete Image Assessment Policy Group entities
 
@@ -4437,7 +4437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**read_policies**](docs/ImageAssessmentPolicies.md#read_policies)
+- **Operation**: [**read_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#read_policies)
 - **GET**: /container-security/entities/image-assessment-policies/v1
 - **Description**: Get all Image Assessment policies
 
@@ -4445,7 +4445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**read_policy_exclusions**](docs/ImageAssessmentPolicies.md#read_policy_exclusions)
+- **Operation**: [**read_policy_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#read_policy_exclusions)
 - **GET**: /container-security/entities/image-assessment-policy-exclusions/v1
 - **Description**: Retrieve Image Assessment Policy Exclusion entities
 
@@ -4453,7 +4453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**read_policy_groups**](docs/ImageAssessmentPolicies.md#read_policy_groups)
+- **Operation**: [**read_policy_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#read_policy_groups)
 - **GET**: /container-security/entities/image-assessment-policy-groups/v1
 - **Description**: Retrieve Image Assessment Policy Group entities
 
@@ -4461,7 +4461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**update_policies**](docs/ImageAssessmentPolicies.md#update_policies)
+- **Operation**: [**update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#update_policies)
 - **PATCH**: /container-security/entities/image-assessment-policies/v1
 - **Description**: Update Image Assessment Policy entities
 
@@ -4469,7 +4469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**update_policy_exclusions**](docs/ImageAssessmentPolicies.md#update_policy_exclusions)
+- **Operation**: [**update_policy_exclusions**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#update_policy_exclusions)
 - **POST**: /container-security/entities/image-assessment-policy-exclusions/v1
 - **Description**: Update Image Assessment Policy Exclusion entities
 
@@ -4477,7 +4477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**update_policy_groups**](docs/ImageAssessmentPolicies.md#update_policy_groups)
+- **Operation**: [**update_policy_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#update_policy_groups)
 - **PATCH**: /container-security/entities/image-assessment-policy-groups/v1
 - **Description**: Update Image Assessment Policy Group entities
 
@@ -4485,7 +4485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ImageAssessmentPolicies`
 
-- **Operation**: [**update_policy_precedence**](docs/ImageAssessmentPolicies.md#update_policy_precedence)
+- **Operation**: [**update_policy_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/ImageAssessmentPolicies#update_policy_precedence)
 - **POST**: /container-security/entities/image-assessment-policy-precedence/v1
 - **Description**: Update Image Assessment Policy precedence
 
@@ -4493,7 +4493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**crowd_score**](docs/Incidents.md#crowd_score)
+- **Operation**: [**crowd_score**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#crowd_score)
 - **GET**: /incidents/combined/crowdscores/v1
 - **Description**: Query environment wide CrowdScore and return the entity data
 
@@ -4501,7 +4501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**get_behaviors**](docs/Incidents.md#get_behaviors)
+- **Operation**: [**get_behaviors**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#get_behaviors)
 - **POST**: /incidents/entities/behaviors/GET/v1
 - **Description**: Get details on behaviors by providing behavior IDs
 
@@ -4509,7 +4509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**get_incidents**](docs/Incidents.md#get_incidents)
+- **Operation**: [**get_incidents**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#get_incidents)
 - **POST**: /incidents/entities/incidents/GET/v1
 - **Description**: Get details on incidents by providing incident IDs
 
@@ -4517,7 +4517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**perform_incident_action**](docs/Incidents.md#perform_incident_action)
+- **Operation**: [**perform_incident_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#perform_incident_action)
 - **POST**: /incidents/entities/incident-actions/v1
 - **Description**: Perform a set of actions on one or more incidents, such as adding tags or comments or updating the incident name or description
 
@@ -4525,7 +4525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**query_behaviors**](docs/Incidents.md#query_behaviors)
+- **Operation**: [**query_behaviors**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#query_behaviors)
 - **GET**: /incidents/queries/behaviors/v1
 - **Description**: Search for behaviors by providing an FQL filter, sorting, and paging details
 
@@ -4533,7 +4533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Incidents`
 
-- **Operation**: [**query_incidents**](docs/Incidents.md#query_incidents)
+- **Operation**: [**query_incidents**](https://github.com/CrowdStrike/crimson-falcon/wiki/Incidents#query_incidents)
 - **GET**: /incidents/queries/incidents/v1
 - **Description**: Search for incidents by providing an FQL filter, sorting, and paging details
 
@@ -4541,7 +4541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**audit_events_query**](docs/InstallationTokens.md#audit_events_query)
+- **Operation**: [**audit_events_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#audit_events_query)
 - **GET**: /installation-tokens/queries/audit-events/v1
 - **Description**: Search for audit events by providing an FQL filter and paging details.
 
@@ -4549,7 +4549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**audit_events_read**](docs/InstallationTokens.md#audit_events_read)
+- **Operation**: [**audit_events_read**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#audit_events_read)
 - **GET**: /installation-tokens/entities/audit-events/v1
 - **Description**: Gets the details of one or more audit events by id.
 
@@ -4557,7 +4557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**customer_settings_read**](docs/InstallationTokens.md#customer_settings_read)
+- **Operation**: [**customer_settings_read**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#customer_settings_read)
 - **GET**: /installation-tokens/entities/customer-settings/v1
 - **Description**: Check current installation token settings.
 
@@ -4565,7 +4565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**tokens_create**](docs/InstallationTokens.md#tokens_create)
+- **Operation**: [**tokens_create**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#tokens_create)
 - **POST**: /installation-tokens/entities/tokens/v1
 - **Description**: Creates a token.
 
@@ -4573,7 +4573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**tokens_delete**](docs/InstallationTokens.md#tokens_delete)
+- **Operation**: [**tokens_delete**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#tokens_delete)
 - **DELETE**: /installation-tokens/entities/tokens/v1
 - **Description**: Deletes a token immediately. To revoke a token, use PATCH /installation-tokens/entities/tokens/v1 instead.
 
@@ -4581,7 +4581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**tokens_query**](docs/InstallationTokens.md#tokens_query)
+- **Operation**: [**tokens_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#tokens_query)
 - **GET**: /installation-tokens/queries/tokens/v1
 - **Description**: Search for tokens by providing an FQL filter and paging details.
 
@@ -4589,7 +4589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**tokens_read**](docs/InstallationTokens.md#tokens_read)
+- **Operation**: [**tokens_read**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#tokens_read)
 - **GET**: /installation-tokens/entities/tokens/v1
 - **Description**: Gets the details of one or more tokens by id.
 
@@ -4597,7 +4597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokens`
 
-- **Operation**: [**tokens_update**](docs/InstallationTokens.md#tokens_update)
+- **Operation**: [**tokens_update**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokens#tokens_update)
 - **PATCH**: /installation-tokens/entities/tokens/v1
 - **Description**: Updates one or more tokens. Use this endpoint to edit labels, change expiration, revoke, or restore.
 
@@ -4605,7 +4605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::InstallationTokensSettings`
 
-- **Operation**: [**customer_settings_update**](docs/InstallationTokensSettings.md#customer_settings_update)
+- **Operation**: [**customer_settings_update**](https://github.com/CrowdStrike/crimson-falcon/wiki/InstallationTokensSettings#customer_settings_update)
 - **PATCH**: /installation-tokens/entities/customer-settings/v1
 - **Description**: Update installation token settings.
 
@@ -4613,7 +4613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntegrationBuilder`
 
-- **Operation**: [**integration_builder_end_transaction_v3**](docs/IntegrationBuilder.md#integration_builder_end_transaction_v3)
+- **Operation**: [**integration_builder_end_transaction_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntegrationBuilder#integration_builder_end_transaction_v3)
 - **POST**: /saas-security/entities/custom-integration-close/v3
 - **Description**: POST Data Upload Transaction Completion
 
@@ -4621,7 +4621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntegrationBuilder`
 
-- **Operation**: [**integration_builder_get_status_v3**](docs/IntegrationBuilder.md#integration_builder_get_status_v3)
+- **Operation**: [**integration_builder_get_status_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntegrationBuilder#integration_builder_get_status_v3)
 - **GET**: /saas-security/entities/custom-integration-status/v3
 - **Description**: GET Status
 
@@ -4629,7 +4629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntegrationBuilder`
 
-- **Operation**: [**integration_builder_reset_v3**](docs/IntegrationBuilder.md#integration_builder_reset_v3)
+- **Operation**: [**integration_builder_reset_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntegrationBuilder#integration_builder_reset_v3)
 - **POST**: /saas-security/entities/custom-integration-reset/v3
 - **Description**: Reset
 
@@ -4637,7 +4637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntegrationBuilder`
 
-- **Operation**: [**integration_builder_upload_v3**](docs/IntegrationBuilder.md#integration_builder_upload_v3)
+- **Operation**: [**integration_builder_upload_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntegrationBuilder#integration_builder_upload_v3)
 - **POST**: /saas-security/entities/custom-integration-upload/v3
 - **Description**: POST Upload
 
@@ -4645,7 +4645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_actor_entities**](docs/Intel.md#get_intel_actor_entities)
+- **Operation**: [**get_intel_actor_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_actor_entities)
 - **GET**: /intel/entities/actors/v1
 - **Description**: Retrieve specific actors using their actor IDs.
 
@@ -4653,7 +4653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_indicator_entities**](docs/Intel.md#get_intel_indicator_entities)
+- **Operation**: [**get_intel_indicator_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_indicator_entities)
 - **POST**: /intel/entities/indicators/GET/v1
 - **Description**: Retrieve specific indicators using their indicator IDs.
 
@@ -4661,7 +4661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_report_entities**](docs/Intel.md#get_intel_report_entities)
+- **Operation**: [**get_intel_report_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_report_entities)
 - **GET**: /intel/entities/reports/v1
 - **Description**: Retrieve specific reports using their report IDs.
 
@@ -4669,7 +4669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_report_pdf**](docs/Intel.md#get_intel_report_pdf)
+- **Operation**: [**get_intel_report_pdf**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_report_pdf)
 - **GET**: /intel/entities/report-files/v1
 - **Description**: Return a Report PDF attachment
 
@@ -4677,7 +4677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_rule_entities**](docs/Intel.md#get_intel_rule_entities)
+- **Operation**: [**get_intel_rule_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_rule_entities)
 - **GET**: /intel/entities/rules/v1
 - **Description**: Retrieve details for rule sets for the specified ids.
 
@@ -4685,7 +4685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_intel_rule_file**](docs/Intel.md#get_intel_rule_file)
+- **Operation**: [**get_intel_rule_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_intel_rule_file)
 - **GET**: /intel/entities/rules-files/v1
 - **Description**: Download earlier rule sets.
 
@@ -4693,7 +4693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_latest_intel_rule_file**](docs/Intel.md#get_latest_intel_rule_file)
+- **Operation**: [**get_latest_intel_rule_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_latest_intel_rule_file)
 - **GET**: /intel/entities/rules-latest-files/v1
 - **Description**: Download the latest rule set.
 
@@ -4701,7 +4701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_malware_entities**](docs/Intel.md#get_malware_entities)
+- **Operation**: [**get_malware_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_malware_entities)
 - **GET**: /intel/entities/malware/v1
 - **Description**: Get malware entities for specified ids.
 
@@ -4709,7 +4709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_malware_mitre_report**](docs/Intel.md#get_malware_mitre_report)
+- **Operation**: [**get_malware_mitre_report**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_malware_mitre_report)
 - **GET**: /intel/entities/malware-mitre-reports/v1
 - **Description**: Export Mitre ATT&amp;CK information for a given malware family.
 
@@ -4717,7 +4717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_mitre_report**](docs/Intel.md#get_mitre_report)
+- **Operation**: [**get_mitre_report**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_mitre_report)
 - **GET**: /intel/entities/mitre-reports/v1
 - **Description**: Export Mitre ATT&amp;CK information for a given actor.
 
@@ -4725,7 +4725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**get_vulnerabilities**](docs/Intel.md#get_vulnerabilities)
+- **Operation**: [**get_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#get_vulnerabilities)
 - **POST**: /intel/entities/vulnerabilities/GET/v1
 - **Description**: Get vulnerabilities
 
@@ -4733,7 +4733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**post_mitre_attacks**](docs/Intel.md#post_mitre_attacks)
+- **Operation**: [**post_mitre_attacks**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#post_mitre_attacks)
 - **POST**: /intel/entities/mitre/v1
 - **Description**: Retrieves report and observable IDs associated with the given actor and attacks
 
@@ -4741,7 +4741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_actor_entities**](docs/Intel.md#query_intel_actor_entities)
+- **Operation**: [**query_intel_actor_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_actor_entities)
 - **GET**: /intel/combined/actors/v1
 - **Description**: Get info about actors that match provided FQL filters.
 
@@ -4749,7 +4749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_actor_ids**](docs/Intel.md#query_intel_actor_ids)
+- **Operation**: [**query_intel_actor_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_actor_ids)
 - **GET**: /intel/queries/actors/v1
 - **Description**: Get actor IDs that match provided FQL filters.
 
@@ -4757,7 +4757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_indicator_entities**](docs/Intel.md#query_intel_indicator_entities)
+- **Operation**: [**query_intel_indicator_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_indicator_entities)
 - **GET**: /intel/combined/indicators/v1
 - **Description**: Get info about indicators that match provided FQL filters.
 
@@ -4765,7 +4765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_indicator_ids**](docs/Intel.md#query_intel_indicator_ids)
+- **Operation**: [**query_intel_indicator_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_indicator_ids)
 - **GET**: /intel/queries/indicators/v1
 - **Description**: Get indicators IDs that match provided FQL filters.
 
@@ -4773,7 +4773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_report_entities**](docs/Intel.md#query_intel_report_entities)
+- **Operation**: [**query_intel_report_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_report_entities)
 - **GET**: /intel/combined/reports/v1
 - **Description**: Get info about reports that match provided FQL filters.
 
@@ -4781,7 +4781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_report_ids**](docs/Intel.md#query_intel_report_ids)
+- **Operation**: [**query_intel_report_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_report_ids)
 - **GET**: /intel/queries/reports/v1
 - **Description**: Get report IDs that match provided FQL filters.
 
@@ -4789,7 +4789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_intel_rule_ids**](docs/Intel.md#query_intel_rule_ids)
+- **Operation**: [**query_intel_rule_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_intel_rule_ids)
 - **GET**: /intel/queries/rules/v1
 - **Description**: Search for rule IDs that match provided filter criteria.
 
@@ -4797,7 +4797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_malware**](docs/Intel.md#query_malware)
+- **Operation**: [**query_malware**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_malware)
 - **GET**: /intel/queries/malware/v1
 - **Description**: Get malware family names that match provided FQL filters.
 
@@ -4805,7 +4805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_malware_entities**](docs/Intel.md#query_malware_entities)
+- **Operation**: [**query_malware_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_malware_entities)
 - **GET**: /intel/combined/malware/v1
 - **Description**: Get malware entities that match provided FQL filters.
 
@@ -4813,7 +4813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_mitre_attacks**](docs/Intel.md#query_mitre_attacks)
+- **Operation**: [**query_mitre_attacks**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_mitre_attacks)
 - **GET**: /intel/queries/mitre/v1
 - **Description**: Gets MITRE tactics and techniques for the given actor, returning concatenation of id and tactic and technique ids, example: fancy-bear_TA0011_T1071
 
@@ -4821,7 +4821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_mitre_attacks_for_malware**](docs/Intel.md#query_mitre_attacks_for_malware)
+- **Operation**: [**query_mitre_attacks_for_malware**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_mitre_attacks_for_malware)
 - **GET**: /intel/queries/mitre-malware/v1
 - **Description**: Gets MITRE tactics and techniques for the given malware
 
@@ -4829,7 +4829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Intel`
 
-- **Operation**: [**query_vulnerabilities**](docs/Intel.md#query_vulnerabilities)
+- **Operation**: [**query_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/Intel#query_vulnerabilities)
 - **GET**: /intel/queries/vulnerabilities/v1
 - **Description**: Get vulnerabilities IDs
 
@@ -4837,7 +4837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceFeeds`
 
-- **Operation**: [**download_feed_archive**](docs/IntelligenceFeeds.md#download_feed_archive)
+- **Operation**: [**download_feed_archive**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntelligenceFeeds#download_feed_archive)
 - **GET**: /indicator-feed/entities/feed-download/v1
 - **Description**: Downloads the content as a zip archive for a given feed item ID
 
@@ -4845,7 +4845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceFeeds`
 
-- **Operation**: [**list_feed_types**](docs/IntelligenceFeeds.md#list_feed_types)
+- **Operation**: [**list_feed_types**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntelligenceFeeds#list_feed_types)
 - **GET**: /indicator-feed/entities/feed/v1
 - **Description**: Lists the accessible feed types for a given customer
 
@@ -4853,7 +4853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceFeeds`
 
-- **Operation**: [**query_feed_archives**](docs/IntelligenceFeeds.md#query_feed_archives)
+- **Operation**: [**query_feed_archives**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntelligenceFeeds#query_feed_archives)
 - **GET**: /indicator-feed/queries/feed/v1
 - **Description**: Queries the accessible feed types for a customer. Returns a list of feed item IDs which can be later downloaded
 
@@ -4861,7 +4861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceIndicatorGraph`
 
-- **Operation**: [**lookup_indicators**](docs/IntelligenceIndicatorGraph.md#lookup_indicators)
+- **Operation**: [**lookup_indicators**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntelligenceIndicatorGraph#lookup_indicators)
 - **POST**: /intelligence/combined/lookup-indicators/v1
 - **Description**: Get indicators based on their value.
 
@@ -4869,7 +4869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IntelligenceIndicatorGraph`
 
-- **Operation**: [**search_indicators**](docs/IntelligenceIndicatorGraph.md#search_indicators)
+- **Operation**: [**search_indicators**](https://github.com/CrowdStrike/crimson-falcon/wiki/IntelligenceIndicatorGraph#search_indicators)
 - **POST**: /intelligence/combined/indicators/v1
 - **Description**: Search indicators based on FQL filter.
 
@@ -4877,7 +4877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Inventories`
 
-- **Operation**: [**get_device_inventory_v3**](docs/Inventories.md#get_device_inventory_v3)
+- **Operation**: [**get_device_inventory_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/Inventories#get_device_inventory_v3)
 - **GET**: /saas-security/entities/devices/v3
 - **Description**: GET Device Inventory
 
@@ -4885,7 +4885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Inventories`
 
-- **Operation**: [**get_user_inventory_v3**](docs/Inventories.md#get_user_inventory_v3)
+- **Operation**: [**get_user_inventory_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/Inventories#get_user_inventory_v3)
 - **GET**: /saas-security/entities/users/v3
 - **Description**: GET User Inventory
 
@@ -4893,7 +4893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IoaExclusions`
 
-- **Operation**: [**create_ioa_exclusions_v1**](docs/IoaExclusions.md#create_ioa_exclusions_v1)
+- **Operation**: [**create_ioa_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/IoaExclusions#create_ioa_exclusions_v1)
 - **POST**: /policy/entities/ioa-exclusions/v1
 - **Description**: Create the IOA exclusions
 
@@ -4901,7 +4901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IoaExclusions`
 
-- **Operation**: [**delete_ioa_exclusions_v1**](docs/IoaExclusions.md#delete_ioa_exclusions_v1)
+- **Operation**: [**delete_ioa_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/IoaExclusions#delete_ioa_exclusions_v1)
 - **DELETE**: /policy/entities/ioa-exclusions/v1
 - **Description**: Delete the IOA exclusions by id
 
@@ -4909,7 +4909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IoaExclusions`
 
-- **Operation**: [**get_ioa_exclusions_v1**](docs/IoaExclusions.md#get_ioa_exclusions_v1)
+- **Operation**: [**get_ioa_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/IoaExclusions#get_ioa_exclusions_v1)
 - **GET**: /policy/entities/ioa-exclusions/v1
 - **Description**: Get a set of IOA Exclusions by specifying their IDs
 
@@ -4917,7 +4917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IoaExclusions`
 
-- **Operation**: [**query_ioa_exclusions_v1**](docs/IoaExclusions.md#query_ioa_exclusions_v1)
+- **Operation**: [**query_ioa_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/IoaExclusions#query_ioa_exclusions_v1)
 - **GET**: /policy/queries/ioa-exclusions/v1
 - **Description**: Search for IOA exclusions.
 
@@ -4925,7 +4925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::IoaExclusions`
 
-- **Operation**: [**update_ioa_exclusions_v1**](docs/IoaExclusions.md#update_ioa_exclusions_v1)
+- **Operation**: [**update_ioa_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/IoaExclusions#update_ioa_exclusions_v1)
 - **PATCH**: /policy/entities/ioa-exclusions/v1
 - **Description**: Update the IOA exclusions
 
@@ -4933,7 +4933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**action_get_v1**](docs/Ioc.md#action_get_v1)
+- **Operation**: [**action_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#action_get_v1)
 - **GET**: /iocs/entities/actions/v1
 - **Description**: Get Actions by ids.
 
@@ -4941,7 +4941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**action_query_v1**](docs/Ioc.md#action_query_v1)
+- **Operation**: [**action_query_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#action_query_v1)
 - **GET**: /iocs/queries/actions/v1
 - **Description**: Query Actions.
 
@@ -4949,7 +4949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**get_indicators_report**](docs/Ioc.md#get_indicators_report)
+- **Operation**: [**get_indicators_report**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#get_indicators_report)
 - **POST**: /iocs/entities/indicators-reports/v1
 - **Description**: Launch an indicators report creation job
 
@@ -4957,7 +4957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_aggregate_v1**](docs/Ioc.md#indicator_aggregate_v1)
+- **Operation**: [**indicator_aggregate_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_aggregate_v1)
 - **POST**: /iocs/aggregates/indicators/v1
 - **Description**: Get Indicators aggregates as specified via json in the request body.
 
@@ -4965,7 +4965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_combined_v1**](docs/Ioc.md#indicator_combined_v1)
+- **Operation**: [**indicator_combined_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_combined_v1)
 - **GET**: /iocs/combined/indicator/v1
 - **Description**: Get Combined for Indicators.
 
@@ -4973,7 +4973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_create_v1**](docs/Ioc.md#indicator_create_v1)
+- **Operation**: [**indicator_create_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_create_v1)
 - **POST**: /iocs/entities/indicators/v1
 - **Description**: Create Indicators.
 
@@ -4981,7 +4981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_delete_v1**](docs/Ioc.md#indicator_delete_v1)
+- **Operation**: [**indicator_delete_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_delete_v1)
 - **DELETE**: /iocs/entities/indicators/v1
 - **Description**: Delete Indicators by ids.
 
@@ -4989,7 +4989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_get_device_count_v1**](docs/Ioc.md#indicator_get_device_count_v1)
+- **Operation**: [**indicator_get_device_count_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_get_device_count_v1)
 - **GET**: /iocs/aggregates/indicators/device-count/v1
 - **Description**: Get the number of devices the indicator has run on
 
@@ -4997,7 +4997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_get_devices_ran_on_v1**](docs/Ioc.md#indicator_get_devices_ran_on_v1)
+- **Operation**: [**indicator_get_devices_ran_on_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_get_devices_ran_on_v1)
 - **GET**: /iocs/queries/indicators/devices/v1
 - **Description**: Get the IDs of devices the indicator has run on
 
@@ -5005,7 +5005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_get_processes_ran_on_v1**](docs/Ioc.md#indicator_get_processes_ran_on_v1)
+- **Operation**: [**indicator_get_processes_ran_on_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_get_processes_ran_on_v1)
 - **GET**: /iocs/queries/indicators/processes/v1
 - **Description**: Get the number of processes the indicator has run on
 
@@ -5013,7 +5013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_get_v1**](docs/Ioc.md#indicator_get_v1)
+- **Operation**: [**indicator_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_get_v1)
 - **GET**: /iocs/entities/indicators/v1
 - **Description**: Get Indicators by ids.
 
@@ -5021,7 +5021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_search_v1**](docs/Ioc.md#indicator_search_v1)
+- **Operation**: [**indicator_search_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_search_v1)
 - **GET**: /iocs/queries/indicators/v1
 - **Description**: Search for Indicators.
 
@@ -5029,7 +5029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**indicator_update_v1**](docs/Ioc.md#indicator_update_v1)
+- **Operation**: [**indicator_update_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#indicator_update_v1)
 - **PATCH**: /iocs/entities/indicators/v1
 - **Description**: Update Indicators.
 
@@ -5037,7 +5037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**ioc_type_query_v1**](docs/Ioc.md#ioc_type_query_v1)
+- **Operation**: [**ioc_type_query_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#ioc_type_query_v1)
 - **GET**: /iocs/queries/ioc-types/v1
 - **Description**: Query IOC Types.
 
@@ -5045,7 +5045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**platform_query_v1**](docs/Ioc.md#platform_query_v1)
+- **Operation**: [**platform_query_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#platform_query_v1)
 - **GET**: /iocs/queries/platforms/v1
 - **Description**: Query Platforms.
 
@@ -5053,7 +5053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ioc`
 
-- **Operation**: [**severity_query_v1**](docs/Ioc.md#severity_query_v1)
+- **Operation**: [**severity_query_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ioc#severity_query_v1)
 - **GET**: /iocs/queries/severities/v1
 - **Description**: Query Severities.
 
@@ -5061,7 +5061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Iocs`
 
-- **Operation**: [**devices_count**](docs/Iocs.md#devices_count)
+- **Operation**: [**devices_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/Iocs#devices_count)
 - **GET**: /indicators/aggregates/devices-count/v1
 - **Description**: Number of hosts in your customer account that have observed a given custom IOC
 
@@ -5069,7 +5069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Iocs`
 
-- **Operation**: [**devices_ran_on**](docs/Iocs.md#devices_ran_on)
+- **Operation**: [**devices_ran_on**](https://github.com/CrowdStrike/crimson-falcon/wiki/Iocs#devices_ran_on)
 - **GET**: /indicators/queries/devices/v1
 - **Description**: Find hosts that have observed a given custom IOC. For details about those hosts, use GET /devices/entities/devices/v1
 
@@ -5077,7 +5077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Iocs`
 
-- **Operation**: [**entities_processes**](docs/Iocs.md#entities_processes)
+- **Operation**: [**entities_processes**](https://github.com/CrowdStrike/crimson-falcon/wiki/Iocs#entities_processes)
 - **GET**: /processes/entities/processes/v1
 - **Description**: For the provided ProcessID retrieve the process details
 
@@ -5085,7 +5085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Iocs`
 
-- **Operation**: [**processes_ran_on**](docs/Iocs.md#processes_ran_on)
+- **Operation**: [**processes_ran_on**](https://github.com/CrowdStrike/crimson-falcon/wiki/Iocs#processes_ran_on)
 - **GET**: /indicators/queries/processes/v1
 - **Description**: Search for processes associated with a custom IOC
 
@@ -5093,7 +5093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_assessments_grouped_by_clusters_v2**](docs/KubernetesContainerCompliance.md#aggregate_assessments_grouped_by_clusters_v2)
+- **Operation**: [**aggregate_assessments_grouped_by_clusters_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_assessments_grouped_by_clusters_v2)
 - **GET**: /container-compliance/aggregates/clusters/v2
 - **Description**: Returns cluster details along with aggregated assessment results organized by cluster, including pass/fail assessment counts for various asset types.
 
@@ -5101,7 +5101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_assessments_grouped_by_rules_v2**](docs/KubernetesContainerCompliance.md#aggregate_assessments_grouped_by_rules_v2)
+- **Operation**: [**aggregate_assessments_grouped_by_rules_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_assessments_grouped_by_rules_v2)
 - **GET**: /container-compliance/aggregates/rules/v2
 - **Description**: Returns rule details along with aggregated assessment results organized by compliance rule, including pass/fail assessment counts.
 
@@ -5109,7 +5109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_compliance_by_asset_type**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_asset_type)
+- **Operation**: [**aggregate_compliance_by_asset_type**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_compliance_by_asset_type)
 - **GET**: /container-compliance/aggregates/compliance-by-asset-type/v2
 - **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by asset type.
 
@@ -5117,7 +5117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_compliance_by_cluster_type**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_cluster_type)
+- **Operation**: [**aggregate_compliance_by_cluster_type**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_compliance_by_cluster_type)
 - **GET**: /container-compliance/aggregates/compliance-by-cluster-type/v2
 - **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by Kubernetes cluster type.
 
@@ -5125,7 +5125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_compliance_by_framework**](docs/KubernetesContainerCompliance.md#aggregate_compliance_by_framework)
+- **Operation**: [**aggregate_compliance_by_framework**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_compliance_by_framework)
 - **GET**: /container-compliance/aggregates/compliance-by-framework/v2
 - **Description**: Provides aggregated compliance assessment metrics and rule status information, organized by compliance framework.
 
@@ -5133,7 +5133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_failed_rules_by_clusters_v3**](docs/KubernetesContainerCompliance.md#aggregate_failed_rules_by_clusters_v3)
+- **Operation**: [**aggregate_failed_rules_by_clusters_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_failed_rules_by_clusters_v3)
 - **GET**: /container-compliance/aggregates/failed-rules-by-clusters/v3
 - **Description**: Retrieves the most non-compliant clusters, ranked in descending order based on the number of failed compliance rules across severity levels (critical, high, medium, and low).
 
@@ -5141,7 +5141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**aggregate_top_failed_images**](docs/KubernetesContainerCompliance.md#aggregate_top_failed_images)
+- **Operation**: [**aggregate_top_failed_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#aggregate_top_failed_images)
 - **GET**: /container-compliance/aggregates/top-failed-images/v2
 - **Description**: Retrieves the most non-compliant container images, ranked in descending order based on the number of failed assessments across severity levels (critical, high, medium, and low).
 
@@ -5149,7 +5149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**combined_images_findings**](docs/KubernetesContainerCompliance.md#combined_images_findings)
+- **Operation**: [**combined_images_findings**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#combined_images_findings)
 - **GET**: /container-compliance/combined/findings-by-images/v2
 - **Description**: Returns detailed compliance assessment results for container images, providing the information needed to identify compliance violations.
 
@@ -5157,7 +5157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**combined_nodes_findings**](docs/KubernetesContainerCompliance.md#combined_nodes_findings)
+- **Operation**: [**combined_nodes_findings**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#combined_nodes_findings)
 - **GET**: /container-compliance/combined/findings-by-nodes/v2
 - **Description**: Returns detailed compliance assessment results for kubernetes nodes, providing the information needed to identify compliance violations.
 
@@ -5165,7 +5165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesContainerCompliance`
 
-- **Operation**: [**get_rules_metadata_by_id**](docs/KubernetesContainerCompliance.md#get_rules_metadata_by_id)
+- **Operation**: [**get_rules_metadata_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesContainerCompliance#get_rules_metadata_by_id)
 - **GET**: /container-compliance/combined/rule-details-by-rule-ids/v1
 - **Description**: Retrieve detailed compliance rule information including descriptions, remediation steps, and audit procedures by specifying rule identifiers.
 
@@ -5173,7 +5173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**create_aws_account**](docs/KubernetesProtection.md#create_aws_account)
+- **Operation**: [**create_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#create_aws_account)
 - **POST**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Creates a new AWS account in our system for a customer and generates the installation script
 
@@ -5181,7 +5181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**create_azure_subscription**](docs/KubernetesProtection.md#create_azure_subscription)
+- **Operation**: [**create_azure_subscription**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#create_azure_subscription)
 - **POST**: /kubernetes-protection/entities/accounts/azure/v1
 - **Description**: Creates a new Azure Subscription in our system
 
@@ -5189,7 +5189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**delete_aws_accounts_mixin0**](docs/KubernetesProtection.md#delete_aws_accounts_mixin0)
+- **Operation**: [**delete_aws_accounts_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#delete_aws_accounts_mixin0)
 - **DELETE**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Delete AWS accounts.
 
@@ -5197,7 +5197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**delete_azure_subscription**](docs/KubernetesProtection.md#delete_azure_subscription)
+- **Operation**: [**delete_azure_subscription**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#delete_azure_subscription)
 - **DELETE**: /kubernetes-protection/entities/accounts/azure/v1
 - **Description**: Deletes a new Azure Subscription in our system
 
@@ -5205,7 +5205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**find_containers_by_container_run_time_version**](docs/KubernetesProtection.md#find_containers_by_container_run_time_version)
+- **Operation**: [**find_containers_by_container_run_time_version**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#find_containers_by_container_run_time_version)
 - **GET**: /container-security/aggregates/containers/find-by-runtimeversion/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5213,7 +5213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**find_containers_count_affected_by_zero_day_vulnerabilities**](docs/KubernetesProtection.md#find_containers_count_affected_by_zero_day_vulnerabilities)
+- **Operation**: [**find_containers_count_affected_by_zero_day_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#find_containers_count_affected_by_zero_day_vulnerabilities)
 - **GET**: /container-security/aggregates/containers/count-by-zero-day/v1
 - **Description**: Retrieve containers count affected by zero day vulnerabilities
 
@@ -5221,7 +5221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_aws_accounts_mixin0**](docs/KubernetesProtection.md#get_aws_accounts_mixin0)
+- **Operation**: [**get_aws_accounts_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_aws_accounts_mixin0)
 - **GET**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Provides a list of AWS accounts.
 
@@ -5229,7 +5229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_azure_install_script**](docs/KubernetesProtection.md#get_azure_install_script)
+- **Operation**: [**get_azure_install_script**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_azure_install_script)
 - **GET**: /kubernetes-protection/entities/user-script/azure/v1
 - **Description**: Provides the script to run for a given tenant id and subscription IDs
 
@@ -5237,7 +5237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_azure_tenant_config**](docs/KubernetesProtection.md#get_azure_tenant_config)
+- **Operation**: [**get_azure_tenant_config**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_azure_tenant_config)
 - **GET**: /kubernetes-protection/entities/config/azure/v1
 - **Description**: Gets the Azure tenant Config
 
@@ -5245,7 +5245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_azure_tenant_ids**](docs/KubernetesProtection.md#get_azure_tenant_ids)
+- **Operation**: [**get_azure_tenant_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_azure_tenant_ids)
 - **GET**: /kubernetes-protection/entities/tenants/azure/v1
 - **Description**: Provides all the azure subscriptions and tenants
 
@@ -5253,7 +5253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_clusters**](docs/KubernetesProtection.md#get_clusters)
+- **Operation**: [**get_clusters**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_clusters)
 - **GET**: /kubernetes-protection/entities/kubernetes/clusters/v1
 - **Description**: Provides the clusters acknowledged by the Kubernetes Protection service
 
@@ -5261,7 +5261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_combined_cloud_clusters**](docs/KubernetesProtection.md#get_combined_cloud_clusters)
+- **Operation**: [**get_combined_cloud_clusters**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_combined_cloud_clusters)
 - **GET**: /kubernetes-protection/entities/cloud_cluster/v1
 - **Description**: Returns a combined list of provisioned cloud accounts and known kubernetes clusters
 
@@ -5269,7 +5269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_helm_values_yaml**](docs/KubernetesProtection.md#get_helm_values_yaml)
+- **Operation**: [**get_helm_values_yaml**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_helm_values_yaml)
 - **GET**: /kubernetes-protection/entities/integration/agent/v1
 - **Description**: Provides a sample Helm values.yaml file for a customer to install alongside the agent Helm chart
 
@@ -5277,7 +5277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_locations**](docs/KubernetesProtection.md#get_locations)
+- **Operation**: [**get_locations**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_locations)
 - **GET**: /kubernetes-protection/entities/cloud-locations/v1
 - **Description**: Provides the cloud locations acknowledged by the Kubernetes Protection service
 
@@ -5285,7 +5285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**get_static_scripts**](docs/KubernetesProtection.md#get_static_scripts)
+- **Operation**: [**get_static_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#get_static_scripts)
 - **GET**: /kubernetes-protection/entities/gen/scripts/v1
 - **Description**: Gets static bash scripts that are used during registration
 
@@ -5293,7 +5293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**group_containers_by_managed**](docs/KubernetesProtection.md#group_containers_by_managed)
+- **Operation**: [**group_containers_by_managed**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#group_containers_by_managed)
 - **GET**: /container-security/aggregates/containers/group-by-managed/v1
 - **Description**: Group the containers by Managed
 
@@ -5301,7 +5301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**list_azure_accounts**](docs/KubernetesProtection.md#list_azure_accounts)
+- **Operation**: [**list_azure_accounts**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#list_azure_accounts)
 - **GET**: /kubernetes-protection/entities/accounts/azure/v1
 - **Description**: Provides the azure subscriptions registered to Kubernetes Protection
 
@@ -5309,7 +5309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**patch_azure_service_principal**](docs/KubernetesProtection.md#patch_azure_service_principal)
+- **Operation**: [**patch_azure_service_principal**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#patch_azure_service_principal)
 - **PATCH**: /kubernetes-protection/entities/service-principal/azure/v1
 - **Description**: Adds the client ID for the given tenant ID to our system
 
@@ -5317,7 +5317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_cluster_combined**](docs/KubernetesProtection.md#read_cluster_combined)
+- **Operation**: [**read_cluster_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_cluster_combined)
 - **GET**: /container-security/combined/clusters/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5325,7 +5325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_cluster_combined_v2**](docs/KubernetesProtection.md#read_cluster_combined_v2)
+- **Operation**: [**read_cluster_combined_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_cluster_combined_v2)
 - **GET**: /container-security/combined/clusters/v2
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5333,7 +5333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_cluster_count**](docs/KubernetesProtection.md#read_cluster_count)
+- **Operation**: [**read_cluster_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_cluster_count)
 - **GET**: /container-security/aggregates/clusters/count/v1
 - **Description**: Retrieve cluster counts
 
@@ -5341,7 +5341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_cluster_enrichment**](docs/KubernetesProtection.md#read_cluster_enrichment)
+- **Operation**: [**read_cluster_enrichment**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_cluster_enrichment)
 - **GET**: /container-security/aggregates/enrichment/clusters/entities/v1
 - **Description**: Retrieve cluster enrichment data
 
@@ -5349,7 +5349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_clusters_by_date_range_count**](docs/KubernetesProtection.md#read_clusters_by_date_range_count)
+- **Operation**: [**read_clusters_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_clusters_by_date_range_count)
 - **GET**: /container-security/aggregates/clusters/count-by-date/v1
 - **Description**: Retrieve clusters by date range counts
 
@@ -5357,7 +5357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_clusters_by_kubernetes_version_count**](docs/KubernetesProtection.md#read_clusters_by_kubernetes_version_count)
+- **Operation**: [**read_clusters_by_kubernetes_version_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_clusters_by_kubernetes_version_count)
 - **GET**: /container-security/aggregates/clusters/count-by-kubernetes-version/v1
 - **Description**: Bucket clusters by kubernetes version
 
@@ -5365,7 +5365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_clusters_by_status_count**](docs/KubernetesProtection.md#read_clusters_by_status_count)
+- **Operation**: [**read_clusters_by_status_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_clusters_by_status_count)
 - **GET**: /container-security/aggregates/clusters/count-by-status/v1
 - **Description**: Bucket clusters by status
 
@@ -5373,7 +5373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_combined**](docs/KubernetesProtection.md#read_container_combined)
+- **Operation**: [**read_container_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_combined)
 - **GET**: /container-security/combined/containers/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5381,7 +5381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_count**](docs/KubernetesProtection.md#read_container_count)
+- **Operation**: [**read_container_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_count)
 - **GET**: /container-security/aggregates/containers/count/v1
 - **Description**: Retrieve container counts
 
@@ -5389,7 +5389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_count_by_registry**](docs/KubernetesProtection.md#read_container_count_by_registry)
+- **Operation**: [**read_container_count_by_registry**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_count_by_registry)
 - **GET**: /container-security/aggregates/containers/count-by-registry/v1
 - **Description**: Retrieves a list with the top container image registries. Maximum page size: 200
 
@@ -5397,7 +5397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_enrichment**](docs/KubernetesProtection.md#read_container_enrichment)
+- **Operation**: [**read_container_enrichment**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_enrichment)
 - **GET**: /container-security/aggregates/enrichment/containers/entities/v1
 - **Description**: Retrieve container enrichment data
 
@@ -5405,7 +5405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_image_detections_count_by_date**](docs/KubernetesProtection.md#read_container_image_detections_count_by_date)
+- **Operation**: [**read_container_image_detections_count_by_date**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_image_detections_count_by_date)
 - **GET**: /container-security/aggregates/containers/image-detections-count-by-date/v1
 - **Description**: Retrieve count of image assessment detections on running containers over a period of time
 
@@ -5413,7 +5413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_images_by_most_used**](docs/KubernetesProtection.md#read_container_images_by_most_used)
+- **Operation**: [**read_container_images_by_most_used**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_images_by_most_used)
 - **GET**: /container-security/aggregates/images/most-used/v1
 - **Description**: Bucket container by image-digest
 
@@ -5421,7 +5421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_images_by_state**](docs/KubernetesProtection.md#read_container_images_by_state)
+- **Operation**: [**read_container_images_by_state**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_images_by_state)
 - **GET**: /container-security/aggregates/containers/images-by-state/v1
 - **Description**: Retrieve count of image states running on containers
 
@@ -5429,7 +5429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_container_vulnerabilities_by_severity_count**](docs/KubernetesProtection.md#read_container_vulnerabilities_by_severity_count)
+- **Operation**: [**read_container_vulnerabilities_by_severity_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_container_vulnerabilities_by_severity_count)
 - **GET**: /container-security/aggregates/containers/vulnerability-count-by-severity/v1
 - **Description**: Retrieve container vulnerabilities by severity counts
 
@@ -5437,7 +5437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_containers_by_date_range_count**](docs/KubernetesProtection.md#read_containers_by_date_range_count)
+- **Operation**: [**read_containers_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_containers_by_date_range_count)
 - **GET**: /container-security/aggregates/containers/count-by-date/v1
 - **Description**: Retrieve containers by date range counts
 
@@ -5445,7 +5445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_containers_sensor_coverage**](docs/KubernetesProtection.md#read_containers_sensor_coverage)
+- **Operation**: [**read_containers_sensor_coverage**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_containers_sensor_coverage)
 - **GET**: /container-security/aggregates/containers/sensor-coverage/v1
 - **Description**: Bucket containers by agent type and calculate sensor coverage
 
@@ -5453,7 +5453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_deployment_combined**](docs/KubernetesProtection.md#read_deployment_combined)
+- **Operation**: [**read_deployment_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_deployment_combined)
 - **GET**: /container-security/combined/deployments/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5461,7 +5461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_deployment_count**](docs/KubernetesProtection.md#read_deployment_count)
+- **Operation**: [**read_deployment_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_deployment_count)
 - **GET**: /container-security/aggregates/deployments/count/v1
 - **Description**: Retrieve deployment counts
 
@@ -5469,7 +5469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_deployment_enrichment**](docs/KubernetesProtection.md#read_deployment_enrichment)
+- **Operation**: [**read_deployment_enrichment**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_deployment_enrichment)
 - **GET**: /container-security/aggregates/enrichment/deployments/entities/v1
 - **Description**: Retrieve deployment enrichment data
 
@@ -5477,7 +5477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_deployments_by_date_range_count**](docs/KubernetesProtection.md#read_deployments_by_date_range_count)
+- **Operation**: [**read_deployments_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_deployments_by_date_range_count)
 - **GET**: /container-security/aggregates/deployments/count-by-date/v1
 - **Description**: Retrieve deployments by date range counts
 
@@ -5485,7 +5485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_distinct_container_image_count**](docs/KubernetesProtection.md#read_distinct_container_image_count)
+- **Operation**: [**read_distinct_container_image_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_distinct_container_image_count)
 - **GET**: /container-security/aggregates/images/count-by-distinct/v1
 - **Description**: Retrieve count of distinct images running on containers
 
@@ -5493,7 +5493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_kubernetes_iom_by_date_range**](docs/KubernetesProtection.md#read_kubernetes_iom_by_date_range)
+- **Operation**: [**read_kubernetes_iom_by_date_range**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_kubernetes_iom_by_date_range)
 - **GET**: /container-security/aggregates/kubernetes-ioms/count-by-date/v1
 - **Description**: Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days.
 
@@ -5501,7 +5501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_kubernetes_iom_count**](docs/KubernetesProtection.md#read_kubernetes_iom_count)
+- **Operation**: [**read_kubernetes_iom_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_kubernetes_iom_count)
 - **GET**: /container-security/aggregates/kubernetes-ioms/count/v1
 - **Description**: Returns the total count of Kubernetes IOMs over the past seven days
 
@@ -5509,7 +5509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_kubernetes_iom_entities**](docs/KubernetesProtection.md#read_kubernetes_iom_entities)
+- **Operation**: [**read_kubernetes_iom_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_kubernetes_iom_entities)
 - **GET**: /container-security/entities/kubernetes-ioms/v1
 - **Description**: Retrieve Kubernetes IOM entities identified by the provided IDs
 
@@ -5517,7 +5517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_namespace_count**](docs/KubernetesProtection.md#read_namespace_count)
+- **Operation**: [**read_namespace_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_namespace_count)
 - **GET**: /container-security/aggregates/namespaces/count/v1
 - **Description**: Retrieve namespace counts
 
@@ -5525,7 +5525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_namespaces_by_date_range_count**](docs/KubernetesProtection.md#read_namespaces_by_date_range_count)
+- **Operation**: [**read_namespaces_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_namespaces_by_date_range_count)
 - **GET**: /container-security/aggregates/namespaces/count-by-date/v1
 - **Description**: Retrieve namespaces by date range counts
 
@@ -5533,7 +5533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_node_combined**](docs/KubernetesProtection.md#read_node_combined)
+- **Operation**: [**read_node_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_node_combined)
 - **GET**: /container-security/combined/nodes/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5541,7 +5541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_node_count**](docs/KubernetesProtection.md#read_node_count)
+- **Operation**: [**read_node_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_node_count)
 - **GET**: /container-security/aggregates/nodes/count/v1
 - **Description**: Retrieve node counts
 
@@ -5549,7 +5549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_node_enrichment**](docs/KubernetesProtection.md#read_node_enrichment)
+- **Operation**: [**read_node_enrichment**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_node_enrichment)
 - **GET**: /container-security/aggregates/enrichment/nodes/entities/v1
 - **Description**: Retrieve node enrichment data
 
@@ -5557,7 +5557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_nodes_by_cloud_count**](docs/KubernetesProtection.md#read_nodes_by_cloud_count)
+- **Operation**: [**read_nodes_by_cloud_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_nodes_by_cloud_count)
 - **GET**: /container-security/aggregates/nodes/count-by-cloud/v1
 - **Description**: Bucket nodes by cloud providers
 
@@ -5565,7 +5565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_nodes_by_container_engine_version_count**](docs/KubernetesProtection.md#read_nodes_by_container_engine_version_count)
+- **Operation**: [**read_nodes_by_container_engine_version_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_nodes_by_container_engine_version_count)
 - **GET**: /container-security/aggregates/nodes/count-by-container-engine-version/v1
 - **Description**: Bucket nodes by their container engine version
 
@@ -5573,7 +5573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_nodes_by_date_range_count**](docs/KubernetesProtection.md#read_nodes_by_date_range_count)
+- **Operation**: [**read_nodes_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_nodes_by_date_range_count)
 - **GET**: /container-security/aggregates/nodes/count-by-date/v1
 - **Description**: Retrieve nodes by date range counts
 
@@ -5581,7 +5581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_pod_combined**](docs/KubernetesProtection.md#read_pod_combined)
+- **Operation**: [**read_pod_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_pod_combined)
 - **GET**: /container-security/combined/pods/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5589,7 +5589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_pod_count**](docs/KubernetesProtection.md#read_pod_count)
+- **Operation**: [**read_pod_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_pod_count)
 - **GET**: /container-security/aggregates/pods/count/v1
 - **Description**: Retrieve pod counts
 
@@ -5597,7 +5597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_pod_enrichment**](docs/KubernetesProtection.md#read_pod_enrichment)
+- **Operation**: [**read_pod_enrichment**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_pod_enrichment)
 - **GET**: /container-security/aggregates/enrichment/pods/entities/v1
 - **Description**: Retrieve pod enrichment data
 
@@ -5605,7 +5605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_pods_by_date_range_count**](docs/KubernetesProtection.md#read_pods_by_date_range_count)
+- **Operation**: [**read_pods_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_pods_by_date_range_count)
 - **GET**: /container-security/aggregates/pods/count-by-date/v1
 - **Description**: Retrieve pods by date range counts
 
@@ -5613,7 +5613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_running_container_images**](docs/KubernetesProtection.md#read_running_container_images)
+- **Operation**: [**read_running_container_images**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_running_container_images)
 - **GET**: /container-security/combined/container-images/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5621,7 +5621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**read_vulnerable_container_image_count**](docs/KubernetesProtection.md#read_vulnerable_container_image_count)
+- **Operation**: [**read_vulnerable_container_image_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#read_vulnerable_container_image_count)
 - **GET**: /container-security/aggregates/containers/count-vulnerable-images/v1
 - **Description**: Retrieve count of vulnerable images running on containers
 
@@ -5629,7 +5629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**regenerate_api_key**](docs/KubernetesProtection.md#regenerate_api_key)
+- **Operation**: [**regenerate_api_key**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#regenerate_api_key)
 - **POST**: /kubernetes-protection/entities/integration/api-key/v1
 - **Description**: Regenerate API key for docker registry integrations
 
@@ -5637,7 +5637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**search_and_read_kubernetes_iom_entities**](docs/KubernetesProtection.md#search_and_read_kubernetes_iom_entities)
+- **Operation**: [**search_and_read_kubernetes_iom_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#search_and_read_kubernetes_iom_entities)
 - **GET**: /container-security/combined/kubernetes-ioms/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5645,7 +5645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**search_kubernetes_ioms**](docs/KubernetesProtection.md#search_kubernetes_ioms)
+- **Operation**: [**search_kubernetes_ioms**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#search_kubernetes_ioms)
 - **GET**: /container-security/queries/kubernetes-ioms/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -5653,7 +5653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**trigger_scan**](docs/KubernetesProtection.md#trigger_scan)
+- **Operation**: [**trigger_scan**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#trigger_scan)
 - **POST**: /kubernetes-protection/entities/scan/trigger/v1
 - **Description**: Triggers a dry run or a full scan of a customer&#39;s kubernetes footprint
 
@@ -5661,7 +5661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::KubernetesProtection`
 
-- **Operation**: [**update_aws_account**](docs/KubernetesProtection.md#update_aws_account)
+- **Operation**: [**update_aws_account**](https://github.com/CrowdStrike/crimson-falcon/wiki/KubernetesProtection#update_aws_account)
 - **PATCH**: /kubernetes-protection/entities/accounts/aws/v1
 - **Description**: Updates the AWS account per the query parameters provided
 
@@ -5669,7 +5669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::LookupFiles`
 
-- **Operation**: [**create_file_v1**](docs/LookupFiles.md#create_file_v1)
+- **Operation**: [**create_file_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/LookupFiles#create_file_v1)
 - **POST**: /loggingapi/entities/lookup-files/v1
 - **Description**: Creates a lookup file
 
@@ -5677,7 +5677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::LookupFiles`
 
-- **Operation**: [**update_file_v1**](docs/LookupFiles.md#update_file_v1)
+- **Operation**: [**update_file_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/LookupFiles#update_file_v1)
 - **PATCH**: /loggingapi/entities/lookup-files/v1
 - **Description**: Updates a lookup file
 
@@ -5685,7 +5685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**get_mal_query_download_v1**](docs/Malquery.md#get_mal_query_download_v1)
+- **Operation**: [**get_mal_query_download_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#get_mal_query_download_v1)
 - **GET**: /malquery/entities/download-files/v1
 - **Description**: Download a file indexed by MalQuery. Specify the file using its SHA256. Only one file is supported at this time
 
@@ -5693,7 +5693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**get_mal_query_entities_samples_fetch_v1**](docs/Malquery.md#get_mal_query_entities_samples_fetch_v1)
+- **Operation**: [**get_mal_query_entities_samples_fetch_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#get_mal_query_entities_samples_fetch_v1)
 - **GET**: /malquery/entities/samples-fetch/v1
 - **Description**: Fetch a zip archive with password &#39;infected&#39; containing the samples. Call this once the /entities/samples-multidownload request has finished processing
 
@@ -5701,7 +5701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**get_mal_query_metadata_v1**](docs/Malquery.md#get_mal_query_metadata_v1)
+- **Operation**: [**get_mal_query_metadata_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#get_mal_query_metadata_v1)
 - **GET**: /malquery/entities/metadata/v1
 - **Description**: Retrieve indexed files metadata by their hash
 
@@ -5709,7 +5709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**get_mal_query_quotas_v1**](docs/Malquery.md#get_mal_query_quotas_v1)
+- **Operation**: [**get_mal_query_quotas_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#get_mal_query_quotas_v1)
 - **GET**: /malquery/aggregates/quotas/v1
 - **Description**: Get information about search and download quotas in your environment
 
@@ -5717,7 +5717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**get_mal_query_request_v1**](docs/Malquery.md#get_mal_query_request_v1)
+- **Operation**: [**get_mal_query_request_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#get_mal_query_request_v1)
 - **GET**: /malquery/entities/requests/v1
 - **Description**: Check the status and results of an asynchronous request, such as hunt or exact-search. Supports a single request id at this time.
 
@@ -5725,7 +5725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**post_mal_query_entities_samples_multidownload_v1**](docs/Malquery.md#post_mal_query_entities_samples_multidownload_v1)
+- **Operation**: [**post_mal_query_entities_samples_multidownload_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#post_mal_query_entities_samples_multidownload_v1)
 - **POST**: /malquery/entities/samples-multidownload/v1
 - **Description**: Schedule samples for download. Use the result id with the /request endpoint to check if the download is ready after which you can call the /entities/samples-fetch to get the zip
 
@@ -5733,7 +5733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**post_mal_query_exact_search_v1**](docs/Malquery.md#post_mal_query_exact_search_v1)
+- **Operation**: [**post_mal_query_exact_search_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#post_mal_query_exact_search_v1)
 - **POST**: /malquery/queries/exact-search/v1
 - **Description**: Search Falcon MalQuery for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity. You can filter results on criteria such as file type, file size and first seen date. Returns a request id which can be used with the /request endpoint
 
@@ -5741,7 +5741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**post_mal_query_fuzzy_search_v1**](docs/Malquery.md#post_mal_query_fuzzy_search_v1)
+- **Operation**: [**post_mal_query_fuzzy_search_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#post_mal_query_fuzzy_search_v1)
 - **POST**: /malquery/combined/fuzzy-search/v1
 - **Description**: Search Falcon MalQuery quickly, but with more potential for false positives. Search for a combination of hex patterns and strings in order to identify samples based upon file content at byte level granularity.
 
@@ -5749,7 +5749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Malquery`
 
-- **Operation**: [**post_mal_query_hunt_v1**](docs/Malquery.md#post_mal_query_hunt_v1)
+- **Operation**: [**post_mal_query_hunt_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Malquery#post_mal_query_hunt_v1)
 - **POST**: /malquery/queries/hunt/v1
 - **Description**: Schedule a YARA-based search for execution. Returns a request id which can be used with the /request endpoint
 
@@ -5757,7 +5757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**aggregate_cases**](docs/MessageCenter.md#aggregate_cases)
+- **Operation**: [**aggregate_cases**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#aggregate_cases)
 - **POST**: /message-center/aggregates/cases/GET/v1
 - **Description**: Retrieve aggregate case values based on the matched filter
 
@@ -5765,7 +5765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**case_add_activity**](docs/MessageCenter.md#case_add_activity)
+- **Operation**: [**case_add_activity**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#case_add_activity)
 - **POST**: /message-center/entities/case-activity/v1
 - **Description**: Add an activity to case. Only activities of type comment are allowed via API
 
@@ -5773,7 +5773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**case_add_attachment**](docs/MessageCenter.md#case_add_attachment)
+- **Operation**: [**case_add_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#case_add_attachment)
 - **POST**: /message-center/entities/case-attachment/v1
 - **Description**: Upload an attachment for the case.
 
@@ -5781,7 +5781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**case_download_attachment**](docs/MessageCenter.md#case_download_attachment)
+- **Operation**: [**case_download_attachment**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#case_download_attachment)
 - **GET**: /message-center/entities/case-attachment/v1
 - **Description**: retrieves an attachment for the case, given the attachment id
 
@@ -5789,7 +5789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**create_case_v2**](docs/MessageCenter.md#create_case_v2)
+- **Operation**: [**create_case_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#create_case_v2)
 - **POST**: /message-center/entities/case/v2
 - **Description**: create a new case
 
@@ -5797,7 +5797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**get_case_activity_by_ids**](docs/MessageCenter.md#get_case_activity_by_ids)
+- **Operation**: [**get_case_activity_by_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#get_case_activity_by_ids)
 - **POST**: /message-center/entities/case-activities/GET/v1
 - **Description**: Retrieve activities for given id&#39;s
 
@@ -5805,7 +5805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**get_case_entities_by_ids**](docs/MessageCenter.md#get_case_entities_by_ids)
+- **Operation**: [**get_case_entities_by_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#get_case_entities_by_ids)
 - **POST**: /message-center/entities/cases/GET/v1
 - **Description**: Retrieve message center cases
 
@@ -5813,7 +5813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**query_activity_by_case_id**](docs/MessageCenter.md#query_activity_by_case_id)
+- **Operation**: [**query_activity_by_case_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#query_activity_by_case_id)
 - **GET**: /message-center/queries/case-activities/v1
 - **Description**: Retrieve activities id&#39;s for a case
 
@@ -5821,7 +5821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MessageCenter`
 
-- **Operation**: [**query_cases_ids_by_filter**](docs/MessageCenter.md#query_cases_ids_by_filter)
+- **Operation**: [**query_cases_ids_by_filter**](https://github.com/CrowdStrike/crimson-falcon/wiki/MessageCenter#query_cases_ids_by_filter)
 - **GET**: /message-center/queries/cases/v1
 - **Description**: Retrieve case id&#39;s that match the provided filter criteria
 
@@ -5829,7 +5829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MlExclusions`
 
-- **Operation**: [**create_ml_exclusions_v1**](docs/MlExclusions.md#create_ml_exclusions_v1)
+- **Operation**: [**create_ml_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/MlExclusions#create_ml_exclusions_v1)
 - **POST**: /policy/entities/ml-exclusions/v1
 - **Description**: Create the ML exclusions
 
@@ -5837,7 +5837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MlExclusions`
 
-- **Operation**: [**delete_ml_exclusions_v1**](docs/MlExclusions.md#delete_ml_exclusions_v1)
+- **Operation**: [**delete_ml_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/MlExclusions#delete_ml_exclusions_v1)
 - **DELETE**: /policy/entities/ml-exclusions/v1
 - **Description**: Delete the ML exclusions by id
 
@@ -5845,7 +5845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MlExclusions`
 
-- **Operation**: [**get_ml_exclusions_v1**](docs/MlExclusions.md#get_ml_exclusions_v1)
+- **Operation**: [**get_ml_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/MlExclusions#get_ml_exclusions_v1)
 - **GET**: /policy/entities/ml-exclusions/v1
 - **Description**: Get a set of ML Exclusions by specifying their IDs
 
@@ -5853,7 +5853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MlExclusions`
 
-- **Operation**: [**query_ml_exclusions_v1**](docs/MlExclusions.md#query_ml_exclusions_v1)
+- **Operation**: [**query_ml_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/MlExclusions#query_ml_exclusions_v1)
 - **GET**: /policy/queries/ml-exclusions/v1
 - **Description**: Search for ML exclusions.
 
@@ -5861,7 +5861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MlExclusions`
 
-- **Operation**: [**update_ml_exclusions_v1**](docs/MlExclusions.md#update_ml_exclusions_v1)
+- **Operation**: [**update_ml_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/MlExclusions#update_ml_exclusions_v1)
 - **PATCH**: /policy/entities/ml-exclusions/v1
 - **Description**: Update the ML exclusions
 
@@ -5869,7 +5869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MobileEnrollment`
 
-- **Operation**: [**request_device_enrollment_v3**](docs/MobileEnrollment.md#request_device_enrollment_v3)
+- **Operation**: [**request_device_enrollment_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/MobileEnrollment#request_device_enrollment_v3)
 - **POST**: /enrollments/entities/details/v3
 - **Description**: Trigger on-boarding process for a mobile device
 
@@ -5877,7 +5877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::MobileEnrollment`
 
-- **Operation**: [**request_device_enrollment_v4**](docs/MobileEnrollment.md#request_device_enrollment_v4)
+- **Operation**: [**request_device_enrollment_v4**](https://github.com/CrowdStrike/crimson-falcon/wiki/MobileEnrollment#request_device_enrollment_v4)
 - **POST**: /enrollments/entities/details/v4
 - **Description**: Trigger on-boarding process for a mobile device
 
@@ -5885,7 +5885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**add_cid_group_members**](docs/Mssp.md#add_cid_group_members)
+- **Operation**: [**add_cid_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#add_cid_group_members)
 - **POST**: /mssp/entities/cid-group-members/v1
 - **Description**: Add new CID group member.
 
@@ -5893,7 +5893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**add_role**](docs/Mssp.md#add_role)
+- **Operation**: [**add_role**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#add_role)
 - **POST**: /mssp/entities/mssp-roles/v1
 - **Description**: Create a link between user group and CID group, with zero or more additional roles. The call does not replace any existing link between them. User group ID and CID group ID have to be specified in request.
 
@@ -5901,7 +5901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**add_user_group_members**](docs/Mssp.md#add_user_group_members)
+- **Operation**: [**add_user_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#add_user_group_members)
 - **POST**: /mssp/entities/user-group-members/v1
 - **Description**: Add new user group member. Maximum 500 members allowed per user group.
 
@@ -5909,7 +5909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**create_cid_groups**](docs/Mssp.md#create_cid_groups)
+- **Operation**: [**create_cid_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#create_cid_groups)
 - **POST**: /mssp/entities/cid-groups/v1
 - **Description**: Create new CID groups. Name is a required field but description is an optional field. Maximum 500 CID groups allowed.
 
@@ -5917,7 +5917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**create_user_groups**](docs/Mssp.md#create_user_groups)
+- **Operation**: [**create_user_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#create_user_groups)
 - **POST**: /mssp/entities/user-groups/v1
 - **Description**: Create new user groups. Name is a required field but description is an optional field. Maximum 500 user groups allowed per customer.
 
@@ -5925,7 +5925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**delete_cid_group_members**](docs/Mssp.md#delete_cid_group_members)
+- **Operation**: [**delete_cid_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#delete_cid_group_members)
 - **DELETE**: /mssp/entities/cid-group-members/v1
 - **Description**: Deprecated : Please use DELETE /entities/cid-group-members/v2. Delete CID group members.
 
@@ -5933,7 +5933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**delete_cid_group_members_v2**](docs/Mssp.md#delete_cid_group_members_v2)
+- **Operation**: [**delete_cid_group_members_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#delete_cid_group_members_v2)
 - **DELETE**: /mssp/entities/cid-group-members/v2
 - **Description**: Delete CID group members. Prevents removal of a cid group a cid group if it is only part of one cid group.
 
@@ -5941,7 +5941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**delete_cid_groups**](docs/Mssp.md#delete_cid_groups)
+- **Operation**: [**delete_cid_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#delete_cid_groups)
 - **DELETE**: /mssp/entities/cid-groups/v1
 - **Description**: Delete CID groups by ID.
 
@@ -5949,7 +5949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**delete_user_group_members**](docs/Mssp.md#delete_user_group_members)
+- **Operation**: [**delete_user_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#delete_user_group_members)
 - **DELETE**: /mssp/entities/user-group-members/v1
 - **Description**: Delete user group members entry.
 
@@ -5957,7 +5957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**delete_user_groups**](docs/Mssp.md#delete_user_groups)
+- **Operation**: [**delete_user_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#delete_user_groups)
 - **DELETE**: /mssp/entities/user-groups/v1
 - **Description**: Delete user groups by ID.
 
@@ -5965,7 +5965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**deleted_roles**](docs/Mssp.md#deleted_roles)
+- **Operation**: [**deleted_roles**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#deleted_roles)
 - **DELETE**: /mssp/entities/mssp-roles/v1
 - **Description**: Delete links or additional roles between user groups and CID groups. User group ID and CID group ID have to be specified in request. Only specified roles are removed if specified in request payload, else association between User Group and CID group is dissolved completely (if no roles specified).
 
@@ -5973,7 +5973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_children**](docs/Mssp.md#get_children)
+- **Operation**: [**get_children**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_children)
 - **GET**: /mssp/entities/children/v1
 - **Description**: Get link to child customer by child CID(s)
 
@@ -5981,7 +5981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_children_v2**](docs/Mssp.md#get_children_v2)
+- **Operation**: [**get_children_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_children_v2)
 - **POST**: /mssp/entities/children/GET/v2
 - **Description**: Get link to child customer by child CID(s)
 
@@ -5989,7 +5989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_cid_group_by_id**](docs/Mssp.md#get_cid_group_by_id)
+- **Operation**: [**get_cid_group_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_cid_group_by_id)
 - **GET**: /mssp/entities/cid-groups/v1
 - **Description**: Deprecated : Please use GET /mssp/entities/cid-groups/v2. Get CID groups by ID.
 
@@ -5997,7 +5997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_cid_group_by_id_v2**](docs/Mssp.md#get_cid_group_by_id_v2)
+- **Operation**: [**get_cid_group_by_id_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_cid_group_by_id_v2)
 - **GET**: /mssp/entities/cid-groups/v2
 - **Description**: Get CID Groups by ID.
 
@@ -6005,7 +6005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_cid_group_members_by**](docs/Mssp.md#get_cid_group_members_by)
+- **Operation**: [**get_cid_group_members_by**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_cid_group_members_by)
 - **GET**: /mssp/entities/cid-group-members/v1
 - **Description**: Deprecated : Please use GET /mssp/entities/cid-group-members/v2. Get CID group members by CID group ID.
 
@@ -6013,7 +6013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_cid_group_members_by_v2**](docs/Mssp.md#get_cid_group_members_by_v2)
+- **Operation**: [**get_cid_group_members_by_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_cid_group_members_by_v2)
 - **GET**: /mssp/entities/cid-group-members/v2
 - **Description**: Get CID group members by CID Group ID.
 
@@ -6021,7 +6021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_roles_by_id**](docs/Mssp.md#get_roles_by_id)
+- **Operation**: [**get_roles_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_roles_by_id)
 - **GET**: /mssp/entities/mssp-roles/v1
 - **Description**: Get link between user group and CID group by ID. Link ID is a string consisting of multiple components, but should be treated as opaque.
 
@@ -6029,7 +6029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_user_group_members_by_id**](docs/Mssp.md#get_user_group_members_by_id)
+- **Operation**: [**get_user_group_members_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_user_group_members_by_id)
 - **GET**: /mssp/entities/user-group-members/v1
 - **Description**: Deprecated : Please use GET /mssp/entities/user-group-members/v2. Get user group members by user group ID.
 
@@ -6037,7 +6037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_user_group_members_by_idv2**](docs/Mssp.md#get_user_group_members_by_idv2)
+- **Operation**: [**get_user_group_members_by_idv2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_user_group_members_by_idv2)
 - **GET**: /mssp/entities/user-group-members/v2
 - **Description**: Get user group members by user group ID.
 
@@ -6045,7 +6045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_user_groups_by_id**](docs/Mssp.md#get_user_groups_by_id)
+- **Operation**: [**get_user_groups_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_user_groups_by_id)
 - **GET**: /mssp/entities/user-groups/v1
 - **Description**: Deprecated : Please use GET /entities/user-groups/v2. Get user groups by ID.
 
@@ -6053,7 +6053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**get_user_groups_by_idv2**](docs/Mssp.md#get_user_groups_by_idv2)
+- **Operation**: [**get_user_groups_by_idv2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#get_user_groups_by_idv2)
 - **GET**: /mssp/entities/user-groups/v2
 - **Description**: Get user groups by ID.
 
@@ -6061,7 +6061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_children**](docs/Mssp.md#query_children)
+- **Operation**: [**query_children**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_children)
 - **GET**: /mssp/queries/children/v1
 - **Description**: Query for customers linked as children
 
@@ -6069,7 +6069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_cid_group_members**](docs/Mssp.md#query_cid_group_members)
+- **Operation**: [**query_cid_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_cid_group_members)
 - **GET**: /mssp/queries/cid-group-members/v1
 - **Description**: Query a CID groups members by associated CID.
 
@@ -6077,7 +6077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_cid_groups**](docs/Mssp.md#query_cid_groups)
+- **Operation**: [**query_cid_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_cid_groups)
 - **GET**: /mssp/queries/cid-groups/v1
 - **Description**: Query CID groups.
 
@@ -6085,7 +6085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_roles**](docs/Mssp.md#query_roles)
+- **Operation**: [**query_roles**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_roles)
 - **GET**: /mssp/queries/mssp-roles/v1
 - **Description**: Query links between user groups and CID groups. At least one of CID group ID or user group ID should also be provided. Role ID is optional.
 
@@ -6093,7 +6093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_user_group_members**](docs/Mssp.md#query_user_group_members)
+- **Operation**: [**query_user_group_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_user_group_members)
 - **GET**: /mssp/queries/user-group-members/v1
 - **Description**: Query user group member by user UUID.
 
@@ -6101,7 +6101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**query_user_groups**](docs/Mssp.md#query_user_groups)
+- **Operation**: [**query_user_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#query_user_groups)
 - **GET**: /mssp/queries/user-groups/v1
 - **Description**: Query user groups.
 
@@ -6109,7 +6109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**update_cid_groups**](docs/Mssp.md#update_cid_groups)
+- **Operation**: [**update_cid_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#update_cid_groups)
 - **PATCH**: /mssp/entities/cid-groups/v1
 - **Description**: Update existing CID groups. CID group ID is expected for each CID group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. CID group member(s) remain unaffected.
 
@@ -6117,7 +6117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Mssp`
 
-- **Operation**: [**update_user_groups**](docs/Mssp.md#update_user_groups)
+- **Operation**: [**update_user_groups**](https://github.com/CrowdStrike/crimson-falcon/wiki/Mssp#update_user_groups)
 - **PATCH**: /mssp/entities/user-groups/v1
 - **Description**: Update existing user group(s). User group ID is expected for each user group definition provided in request body. Name is a required field but description is an optional field. Empty description will override existing value. User group member(s) remain unaffected.
 
@@ -6125,7 +6125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**get_lookup_from_package_v1**](docs/Ngsiem.md#get_lookup_from_package_v1)
+- **Operation**: [**get_lookup_from_package_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#get_lookup_from_package_v1)
 - **GET**: /humio/api/v1/repositories/{repository}/files/{package}/{filename}
 - **Description**: Download lookup file in package from NGSIEM
 
@@ -6133,7 +6133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**get_lookup_from_package_with_namespace_v1**](docs/Ngsiem.md#get_lookup_from_package_with_namespace_v1)
+- **Operation**: [**get_lookup_from_package_with_namespace_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#get_lookup_from_package_with_namespace_v1)
 - **GET**: /humio/api/v1/repositories/{repository}/files/{namespace}/{package}/{filename}
 - **Description**: Download lookup file in namespaced package from NGSIEM
 
@@ -6141,7 +6141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**get_lookup_v1**](docs/Ngsiem.md#get_lookup_v1)
+- **Operation**: [**get_lookup_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#get_lookup_v1)
 - **GET**: /humio/api/v1/repositories/{repository}/files/{filename}
 - **Description**: Download lookup file from NGSIEM
 
@@ -6149,7 +6149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**get_search_status_v1**](docs/Ngsiem.md#get_search_status_v1)
+- **Operation**: [**get_search_status_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#get_search_status_v1)
 - **GET**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
 - **Description**: Get status of search
 
@@ -6157,7 +6157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**start_search_v1**](docs/Ngsiem.md#start_search_v1)
+- **Operation**: [**start_search_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#start_search_v1)
 - **POST**: /humio/api/v1/repositories/{repository}/queryjobs
 - **Description**: Initiate search
 
@@ -6165,7 +6165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**stop_search_v1**](docs/Ngsiem.md#stop_search_v1)
+- **Operation**: [**stop_search_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#stop_search_v1)
 - **DELETE**: /humio/api/v1/repositories/{repository}/queryjobs/{id}
 - **Description**: Stop search
 
@@ -6173,7 +6173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ngsiem`
 
-- **Operation**: [**upload_lookup_v1**](docs/Ngsiem.md#upload_lookup_v1)
+- **Operation**: [**upload_lookup_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ngsiem#upload_lookup_v1)
 - **POST**: /humio/api/v1/repositories/{repository}/files
 - **Description**: Upload file to NGSIEM
 
@@ -6181,7 +6181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Oauth2`
 
-- **Operation**: [**oauth2_access_token**](docs/Oauth2.md#oauth2_access_token)
+- **Operation**: [**oauth2_access_token**](https://github.com/CrowdStrike/crimson-falcon/wiki/Oauth2#oauth2_access_token)
 - **POST**: /oauth2/token
 - **Description**: Generate an OAuth2 access token
 
@@ -6189,7 +6189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Oauth2`
 
-- **Operation**: [**oauth2_revoke_token**](docs/Oauth2.md#oauth2_revoke_token)
+- **Operation**: [**oauth2_revoke_token**](https://github.com/CrowdStrike/crimson-falcon/wiki/Oauth2#oauth2_revoke_token)
 - **POST**: /oauth2/revoke
 - **Description**: Revoke a previously issued OAuth2 access token before the end of its standard 30-minute lifespan.
 
@@ -6197,7 +6197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**aggregate_query_scan_host_metadata**](docs/Ods.md#aggregate_query_scan_host_metadata)
+- **Operation**: [**aggregate_query_scan_host_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#aggregate_query_scan_host_metadata)
 - **POST**: /ods/aggregates/scan-hosts/v1
 - **Description**: Get aggregates on ODS scan-hosts data.
 
@@ -6205,7 +6205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**aggregate_scans**](docs/Ods.md#aggregate_scans)
+- **Operation**: [**aggregate_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#aggregate_scans)
 - **POST**: /ods/aggregates/scans/v1
 - **Description**: Get aggregates on ODS scan data.
 
@@ -6213,7 +6213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**aggregate_scheduled_scans**](docs/Ods.md#aggregate_scheduled_scans)
+- **Operation**: [**aggregate_scheduled_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#aggregate_scheduled_scans)
 - **POST**: /ods/aggregates/scheduled-scans/v1
 - **Description**: Get aggregates on ODS scheduled-scan data.
 
@@ -6221,7 +6221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**cancel_scans**](docs/Ods.md#cancel_scans)
+- **Operation**: [**cancel_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#cancel_scans)
 - **POST**: /ods/entities/scan-control-actions/cancel/v1
 - **Description**: Cancel ODS scans for the given scan ids.
 
@@ -6229,7 +6229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**create_scan**](docs/Ods.md#create_scan)
+- **Operation**: [**create_scan**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#create_scan)
 - **POST**: /ods/entities/scans/v1
 - **Description**: Create ODS scan and start or schedule scan for the given scan request.
 
@@ -6237,7 +6237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**delete_scheduled_scans**](docs/Ods.md#delete_scheduled_scans)
+- **Operation**: [**delete_scheduled_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#delete_scheduled_scans)
 - **DELETE**: /ods/entities/scheduled-scans/v1
 - **Description**: Delete ODS scheduled-scans for the given scheduled-scan ids.
 
@@ -6245,7 +6245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**get_malicious_files_by_ids**](docs/Ods.md#get_malicious_files_by_ids)
+- **Operation**: [**get_malicious_files_by_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#get_malicious_files_by_ids)
 - **GET**: /ods/entities/malicious-files/v1
 - **Description**: Get malicious files by ids.
 
@@ -6253,7 +6253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**get_scan_host_metadata_by_ids**](docs/Ods.md#get_scan_host_metadata_by_ids)
+- **Operation**: [**get_scan_host_metadata_by_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#get_scan_host_metadata_by_ids)
 - **GET**: /ods/entities/scan-hosts/v1
 - **Description**: Get scan hosts by ids.
 
@@ -6261,7 +6261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**get_scans_by_scan_ids**](docs/Ods.md#get_scans_by_scan_ids)
+- **Operation**: [**get_scans_by_scan_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#get_scans_by_scan_ids)
 - **GET**: /ods/entities/scans/v1
 - **Description**: Get Scans by IDs.
 
@@ -6269,7 +6269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**get_scans_by_scan_ids_v2**](docs/Ods.md#get_scans_by_scan_ids_v2)
+- **Operation**: [**get_scans_by_scan_ids_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#get_scans_by_scan_ids_v2)
 - **GET**: /ods/entities/scans/v2
 - **Description**: Get Scans by IDs.
 
@@ -6277,7 +6277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**get_scheduled_scans_by_scan_ids**](docs/Ods.md#get_scheduled_scans_by_scan_ids)
+- **Operation**: [**get_scheduled_scans_by_scan_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#get_scheduled_scans_by_scan_ids)
 - **GET**: /ods/entities/scheduled-scans/v1
 - **Description**: Get ScheduledScans by IDs.
 
@@ -6285,7 +6285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**query_malicious_files**](docs/Ods.md#query_malicious_files)
+- **Operation**: [**query_malicious_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#query_malicious_files)
 - **GET**: /ods/queries/malicious-files/v1
 - **Description**: Query malicious files.
 
@@ -6293,7 +6293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**query_scan_host_metadata**](docs/Ods.md#query_scan_host_metadata)
+- **Operation**: [**query_scan_host_metadata**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#query_scan_host_metadata)
 - **GET**: /ods/queries/scan-hosts/v1
 - **Description**: Query scan hosts.
 
@@ -6301,7 +6301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**query_scans**](docs/Ods.md#query_scans)
+- **Operation**: [**query_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#query_scans)
 - **GET**: /ods/queries/scans/v1
 - **Description**: Query Scans.
 
@@ -6309,7 +6309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**query_scheduled_scans**](docs/Ods.md#query_scheduled_scans)
+- **Operation**: [**query_scheduled_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#query_scheduled_scans)
 - **GET**: /ods/queries/scheduled-scans/v1
 - **Description**: Query ScheduledScans.
 
@@ -6317,7 +6317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Ods`
 
-- **Operation**: [**schedule_scan**](docs/Ods.md#schedule_scan)
+- **Operation**: [**schedule_scan**](https://github.com/CrowdStrike/crimson-falcon/wiki/Ods#schedule_scan)
 - **POST**: /ods/entities/scheduled-scans/v1
 - **Description**: Create ODS scan and start or schedule scan for the given scan request.
 
@@ -6325,7 +6325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OverwatchDashboard`
 
-- **Operation**: [**aggregates_detections_global_counts**](docs/OverwatchDashboard.md#aggregates_detections_global_counts)
+- **Operation**: [**aggregates_detections_global_counts**](https://github.com/CrowdStrike/crimson-falcon/wiki/OverwatchDashboard#aggregates_detections_global_counts)
 - **GET**: /overwatch-dashboards/aggregates/detections-global-counts/v1
 - **Description**: Get the total number of detections pushed across all customers
 
@@ -6333,7 +6333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OverwatchDashboard`
 
-- **Operation**: [**aggregates_events**](docs/OverwatchDashboard.md#aggregates_events)
+- **Operation**: [**aggregates_events**](https://github.com/CrowdStrike/crimson-falcon/wiki/OverwatchDashboard#aggregates_events)
 - **POST**: /overwatch-dashboards/aggregates/events/GET/v1
 - **Description**: Get aggregate OverWatch detection event info by providing an aggregate query
 
@@ -6341,7 +6341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OverwatchDashboard`
 
-- **Operation**: [**aggregates_events_collections**](docs/OverwatchDashboard.md#aggregates_events_collections)
+- **Operation**: [**aggregates_events_collections**](https://github.com/CrowdStrike/crimson-falcon/wiki/OverwatchDashboard#aggregates_events_collections)
 - **POST**: /overwatch-dashboards/aggregates/events-collections/GET/v1
 - **Description**: Get OverWatch detection event collection info by providing an aggregate query
 
@@ -6349,7 +6349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OverwatchDashboard`
 
-- **Operation**: [**aggregates_incidents_global_counts**](docs/OverwatchDashboard.md#aggregates_incidents_global_counts)
+- **Operation**: [**aggregates_incidents_global_counts**](https://github.com/CrowdStrike/crimson-falcon/wiki/OverwatchDashboard#aggregates_incidents_global_counts)
 - **GET**: /overwatch-dashboards/aggregates/incidents-global-counts/v1
 - **Description**: Get the total number of incidents pushed across all customers
 
@@ -6357,7 +6357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::OverwatchDashboard`
 
-- **Operation**: [**aggregates_ow_events_global_counts**](docs/OverwatchDashboard.md#aggregates_ow_events_global_counts)
+- **Operation**: [**aggregates_ow_events_global_counts**](https://github.com/CrowdStrike/crimson-falcon/wiki/OverwatchDashboard#aggregates_ow_events_global_counts)
 - **GET**: /overwatch-dashboards/aggregates/ow-events-global-counts/v1
 - **Description**: Get the total number of OverWatch events across all customers
 
@@ -6365,7 +6365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**create_prevention_policies**](docs/PreventionPolicies.md#create_prevention_policies)
+- **Operation**: [**create_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#create_prevention_policies)
 - **POST**: /policy/entities/prevention/v1
 - **Description**: Create Prevention Policies by specifying details about the policy to create
 
@@ -6373,7 +6373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**delete_prevention_policies**](docs/PreventionPolicies.md#delete_prevention_policies)
+- **Operation**: [**delete_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#delete_prevention_policies)
 - **DELETE**: /policy/entities/prevention/v1
 - **Description**: Delete a set of Prevention Policies by specifying their IDs
 
@@ -6381,7 +6381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**get_prevention_policies**](docs/PreventionPolicies.md#get_prevention_policies)
+- **Operation**: [**get_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#get_prevention_policies)
 - **GET**: /policy/entities/prevention/v1
 - **Description**: Retrieve a set of Prevention Policies by specifying their IDs
 
@@ -6389,7 +6389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**perform_prevention_policies_action**](docs/PreventionPolicies.md#perform_prevention_policies_action)
+- **Operation**: [**perform_prevention_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#perform_prevention_policies_action)
 - **POST**: /policy/entities/prevention-actions/v1
 - **Description**: Perform the specified action on the Prevention Policies specified in the request
 
@@ -6397,7 +6397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**query_combined_prevention_policies**](docs/PreventionPolicies.md#query_combined_prevention_policies)
+- **Operation**: [**query_combined_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#query_combined_prevention_policies)
 - **GET**: /policy/combined/prevention/v1
 - **Description**: Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policies which match the filter criteria
 
@@ -6405,7 +6405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**query_combined_prevention_policy_members**](docs/PreventionPolicies.md#query_combined_prevention_policy_members)
+- **Operation**: [**query_combined_prevention_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#query_combined_prevention_policy_members)
 - **GET**: /policy/combined/prevention-members/v1
 - **Description**: Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -6413,7 +6413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**query_prevention_policies**](docs/PreventionPolicies.md#query_prevention_policies)
+- **Operation**: [**query_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#query_prevention_policies)
 - **GET**: /policy/queries/prevention/v1
 - **Description**: Search for Prevention Policies in your environment by providing an FQL filter and paging details. Returns a set of Prevention Policy IDs which match the filter criteria
 
@@ -6421,7 +6421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**query_prevention_policy_members**](docs/PreventionPolicies.md#query_prevention_policy_members)
+- **Operation**: [**query_prevention_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#query_prevention_policy_members)
 - **GET**: /policy/queries/prevention-members/v1
 - **Description**: Search for members of a Prevention Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -6429,7 +6429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**set_prevention_policies_precedence**](docs/PreventionPolicies.md#set_prevention_policies_precedence)
+- **Operation**: [**set_prevention_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#set_prevention_policies_precedence)
 - **POST**: /policy/entities/prevention-precedence/v1
 - **Description**: Sets the precedence of Prevention Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
@@ -6437,7 +6437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::PreventionPolicies`
 
-- **Operation**: [**update_prevention_policies**](docs/PreventionPolicies.md#update_prevention_policies)
+- **Operation**: [**update_prevention_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/PreventionPolicies#update_prevention_policies)
 - **PATCH**: /policy/entities/prevention/v1
 - **Description**: Update Prevention Policies by specifying the ID of the policy and details to update
 
@@ -6445,7 +6445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**action_update_count**](docs/Quarantine.md#action_update_count)
+- **Operation**: [**action_update_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#action_update_count)
 - **GET**: /quarantine/aggregates/action-update-count/v1
 - **Description**: Returns count of potentially affected quarantined files for each action.
 
@@ -6453,7 +6453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**get_aggregate_files**](docs/Quarantine.md#get_aggregate_files)
+- **Operation**: [**get_aggregate_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#get_aggregate_files)
 - **POST**: /quarantine/aggregates/quarantined-files/GET/v1
 - **Description**: Get quarantine file aggregates as specified via json in request body.
 
@@ -6461,7 +6461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**get_quarantine_files**](docs/Quarantine.md#get_quarantine_files)
+- **Operation**: [**get_quarantine_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#get_quarantine_files)
 - **POST**: /quarantine/entities/quarantined-files/GET/v1
 - **Description**: Get quarantine file metadata for specified ids.
 
@@ -6469,7 +6469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**query_quarantine_files**](docs/Quarantine.md#query_quarantine_files)
+- **Operation**: [**query_quarantine_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#query_quarantine_files)
 - **GET**: /quarantine/queries/quarantined-files/v1
 - **Description**: Get quarantine file ids that match the provided filter criteria.
 
@@ -6477,7 +6477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**update_qf_by_query**](docs/Quarantine.md#update_qf_by_query)
+- **Operation**: [**update_qf_by_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#update_qf_by_query)
 - **PATCH**: /quarantine/queries/quarantined-files/v1
 - **Description**: Apply quarantine file actions by query.
 
@@ -6485,7 +6485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Quarantine`
 
-- **Operation**: [**update_quarantined_detects_by_ids**](docs/Quarantine.md#update_quarantined_detects_by_ids)
+- **Operation**: [**update_quarantined_detects_by_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/Quarantine#update_quarantined_detects_by_ids)
 - **PATCH**: /quarantine/entities/quarantined-files/v1
 - **Description**: Apply action by quarantine file ids
 
@@ -6493,7 +6493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScan`
 
-- **Operation**: [**get_scans**](docs/QuickScan.md#get_scans)
+- **Operation**: [**get_scans**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScan#get_scans)
 - **GET**: /scanner/entities/scans/v1
 - **Description**: Check the status of a volume scan. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
@@ -6501,7 +6501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScan`
 
-- **Operation**: [**get_scans_aggregates**](docs/QuickScan.md#get_scans_aggregates)
+- **Operation**: [**get_scans_aggregates**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScan#get_scans_aggregates)
 - **POST**: /scanner/aggregates/scans/GET/v1
 - **Description**: Get scans aggregations as specified via json in request body.
 
@@ -6509,7 +6509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScan`
 
-- **Operation**: [**query_submissions_mixin0**](docs/QuickScan.md#query_submissions_mixin0)
+- **Operation**: [**query_submissions_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScan#query_submissions_mixin0)
 - **GET**: /scanner/queries/scans/v1
 - **Description**: Find IDs for submitted scans by providing an FQL filter and paging details. Returns a set of volume IDs that match your criteria.
 
@@ -6517,7 +6517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScan`
 
-- **Operation**: [**scan_samples**](docs/QuickScan.md#scan_samples)
+- **Operation**: [**scan_samples**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScan#scan_samples)
 - **POST**: /scanner/entities/scans/v1
 - **Description**: Submit a volume of files for ml scanning. Time required for analysis increases with the number of samples in a volume but usually it should take less than 1 minute
 
@@ -6525,7 +6525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**delete_file**](docs/QuickScanPro.md#delete_file)
+- **Operation**: [**delete_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#delete_file)
 - **DELETE**: /quickscanpro/entities/files/v1
 - **Description**: Deletes file by its sha256 identifier.
 
@@ -6533,7 +6533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**delete_scan_result**](docs/QuickScanPro.md#delete_scan_result)
+- **Operation**: [**delete_scan_result**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#delete_scan_result)
 - **DELETE**: /quickscanpro/entities/scans/v1
 - **Description**: Deletes the result of an QuickScan Pro scan.
 
@@ -6541,7 +6541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**get_scan_result**](docs/QuickScanPro.md#get_scan_result)
+- **Operation**: [**get_scan_result**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#get_scan_result)
 - **GET**: /quickscanpro/entities/scans/v1
 - **Description**: Gets the result of an QuickScan Pro scan.
 
@@ -6549,7 +6549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**launch_scan**](docs/QuickScanPro.md#launch_scan)
+- **Operation**: [**launch_scan**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#launch_scan)
 - **POST**: /quickscanpro/entities/scans/v1
 - **Description**: Starts scanning a file uploaded through &#39;/quickscanpro/entities/files/v1&#39;.
 
@@ -6557,7 +6557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**query_scan_results**](docs/QuickScanPro.md#query_scan_results)
+- **Operation**: [**query_scan_results**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#query_scan_results)
 - **GET**: /quickscanpro/queries/scans/v1
 - **Description**: FQL query specifying the filter parameters
 
@@ -6565,7 +6565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::QuickScanPro`
 
-- **Operation**: [**upload_file_quick_scan_pro**](docs/QuickScanPro.md#upload_file_quick_scan_pro)
+- **Operation**: [**upload_file_quick_scan_pro**](https://github.com/CrowdStrike/crimson-falcon/wiki/QuickScanPro#upload_file_quick_scan_pro)
 - **POST**: /quickscanpro/entities/files/v1
 - **Description**: Uploads a file to be further analyzed with QuickScan Pro. The samples expire according to the Retention Policies set.
 
@@ -6573,7 +6573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_active_responder_cmd**](docs/RealTimeResponse.md#batch_active_responder_cmd)
+- **Operation**: [**batch_active_responder_cmd**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_active_responder_cmd)
 - **POST**: /real-time-response/combined/batch-active-responder-command/v1
 - **Description**: Batch executes a RTR active-responder command across the hosts mapped to the given batch ID.
 
@@ -6581,7 +6581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_cmd**](docs/RealTimeResponse.md#batch_cmd)
+- **Operation**: [**batch_cmd**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_cmd)
 - **POST**: /real-time-response/combined/batch-command/v1
 - **Description**: Batch executes a RTR read-only command across the hosts mapped to the given batch ID.
 
@@ -6589,7 +6589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_get_cmd**](docs/RealTimeResponse.md#batch_get_cmd)
+- **Operation**: [**batch_get_cmd**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_get_cmd)
 - **POST**: /real-time-response/combined/batch-get-command/v1
 - **Description**: Batch executes &#x60;get&#x60; command across hosts to retrieve files. After this call is made &#x60;GET /real-time-response/combined/batch-get-command/v1&#x60; is used to query for the results.
 
@@ -6597,7 +6597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_get_cmd_status**](docs/RealTimeResponse.md#batch_get_cmd_status)
+- **Operation**: [**batch_get_cmd_status**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_get_cmd_status)
 - **GET**: /real-time-response/combined/batch-get-command/v1
 - **Description**: Retrieves the status of the specified batch get command.  Will return successful files when they are finished processing.
 
@@ -6605,7 +6605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_init_sessions**](docs/RealTimeResponse.md#batch_init_sessions)
+- **Operation**: [**batch_init_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_init_sessions)
 - **POST**: /real-time-response/combined/batch-init-session/v1
 - **Description**: Batch initialize a RTR session on multiple hosts.  Before any RTR commands can be used, an active session is needed on the host.
 
@@ -6613,7 +6613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**batch_refresh_sessions**](docs/RealTimeResponse.md#batch_refresh_sessions)
+- **Operation**: [**batch_refresh_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#batch_refresh_sessions)
 - **POST**: /real-time-response/combined/batch-refresh-session/v1
 - **Description**: Batch refresh a RTR session on multiple hosts. RTR sessions will expire after 10 minutes unless refreshed.
 
@@ -6621,7 +6621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_aggregate_sessions**](docs/RealTimeResponse.md#r_tr_aggregate_sessions)
+- **Operation**: [**r_tr_aggregate_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_aggregate_sessions)
 - **POST**: /real-time-response/aggregates/sessions/GET/v1
 - **Description**: Get aggregates on session data.
 
@@ -6629,7 +6629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_check_active_responder_command_status**](docs/RealTimeResponse.md#r_tr_check_active_responder_command_status)
+- **Operation**: [**r_tr_check_active_responder_command_status**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_check_active_responder_command_status)
 - **GET**: /real-time-response/entities/active-responder-command/v1
 - **Description**: Get status of an executed active-responder command on a single host.
 
@@ -6637,7 +6637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_check_command_status**](docs/RealTimeResponse.md#r_tr_check_command_status)
+- **Operation**: [**r_tr_check_command_status**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_check_command_status)
 - **GET**: /real-time-response/entities/command/v1
 - **Description**: Get status of an executed command on a single host.
 
@@ -6645,7 +6645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_delete_file**](docs/RealTimeResponse.md#r_tr_delete_file)
+- **Operation**: [**r_tr_delete_file**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_delete_file)
 - **DELETE**: /real-time-response/entities/file/v1
 - **Description**: Delete a RTR session file.
 
@@ -6653,7 +6653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_delete_file_v2**](docs/RealTimeResponse.md#r_tr_delete_file_v2)
+- **Operation**: [**r_tr_delete_file_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_delete_file_v2)
 - **DELETE**: /real-time-response/entities/file/v2
 - **Description**: Delete a RTR session file.
 
@@ -6661,7 +6661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_delete_queued_session**](docs/RealTimeResponse.md#r_tr_delete_queued_session)
+- **Operation**: [**r_tr_delete_queued_session**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_delete_queued_session)
 - **DELETE**: /real-time-response/entities/queued-sessions/command/v1
 - **Description**: Delete a queued session command
 
@@ -6669,7 +6669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_delete_session**](docs/RealTimeResponse.md#r_tr_delete_session)
+- **Operation**: [**r_tr_delete_session**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_delete_session)
 - **DELETE**: /real-time-response/entities/sessions/v1
 - **Description**: Delete a session.
 
@@ -6677,7 +6677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_execute_active_responder_command**](docs/RealTimeResponse.md#r_tr_execute_active_responder_command)
+- **Operation**: [**r_tr_execute_active_responder_command**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_execute_active_responder_command)
 - **POST**: /real-time-response/entities/active-responder-command/v1
 - **Description**: Execute an active responder command on a single host.
 
@@ -6685,7 +6685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_execute_command**](docs/RealTimeResponse.md#r_tr_execute_command)
+- **Operation**: [**r_tr_execute_command**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_execute_command)
 - **POST**: /real-time-response/entities/command/v1
 - **Description**: Execute a command on a single host.
 
@@ -6693,7 +6693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_get_extracted_file_contents**](docs/RealTimeResponse.md#r_tr_get_extracted_file_contents)
+- **Operation**: [**r_tr_get_extracted_file_contents**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_get_extracted_file_contents)
 - **GET**: /real-time-response/entities/extracted-file-contents/v1
 - **Description**: Get RTR extracted file contents for specified session and sha256.
 
@@ -6701,7 +6701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_init_session**](docs/RealTimeResponse.md#r_tr_init_session)
+- **Operation**: [**r_tr_init_session**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_init_session)
 - **POST**: /real-time-response/entities/sessions/v1
 - **Description**: Initialize a new session with the RTR cloud.
 
@@ -6709,7 +6709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_list_all_sessions**](docs/RealTimeResponse.md#r_tr_list_all_sessions)
+- **Operation**: [**r_tr_list_all_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_list_all_sessions)
 - **GET**: /real-time-response/queries/sessions/v1
 - **Description**: Get a list of session_ids.
 
@@ -6717,7 +6717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_list_files**](docs/RealTimeResponse.md#r_tr_list_files)
+- **Operation**: [**r_tr_list_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_list_files)
 - **GET**: /real-time-response/entities/file/v1
 - **Description**: Get a list of files for the specified RTR session.
 
@@ -6725,7 +6725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_list_files_v2**](docs/RealTimeResponse.md#r_tr_list_files_v2)
+- **Operation**: [**r_tr_list_files_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_list_files_v2)
 - **GET**: /real-time-response/entities/file/v2
 - **Description**: Get a list of files for the specified RTR session.
 
@@ -6733,7 +6733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_list_queued_sessions**](docs/RealTimeResponse.md#r_tr_list_queued_sessions)
+- **Operation**: [**r_tr_list_queued_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_list_queued_sessions)
 - **POST**: /real-time-response/entities/queued-sessions/GET/v1
 - **Description**: Get queued session metadata by session ID.
 
@@ -6741,7 +6741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_list_sessions**](docs/RealTimeResponse.md#r_tr_list_sessions)
+- **Operation**: [**r_tr_list_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_list_sessions)
 - **POST**: /real-time-response/entities/sessions/GET/v1
 - **Description**: Get session metadata by session id.
 
@@ -6749,7 +6749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponse`
 
-- **Operation**: [**r_tr_pulse_session**](docs/RealTimeResponse.md#r_tr_pulse_session)
+- **Operation**: [**r_tr_pulse_session**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponse#r_tr_pulse_session)
 - **POST**: /real-time-response/entities/refresh-session/v1
 - **Description**: Refresh a session timeout on a single host.
 
@@ -6757,7 +6757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**batch_admin_cmd**](docs/RealTimeResponseAdmin.md#batch_admin_cmd)
+- **Operation**: [**batch_admin_cmd**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#batch_admin_cmd)
 - **POST**: /real-time-response/combined/batch-admin-command/v1
 - **Description**: Batch executes a RTR administrator command across the hosts mapped to the given batch ID.
 
@@ -6765,7 +6765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_check_admin_command_status**](docs/RealTimeResponseAdmin.md#r_tr_check_admin_command_status)
+- **Operation**: [**r_tr_check_admin_command_status**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_check_admin_command_status)
 - **GET**: /real-time-response/entities/admin-command/v1
 - **Description**: Get status of an executed RTR administrator command on a single host.
 
@@ -6773,7 +6773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_create_put_files**](docs/RealTimeResponseAdmin.md#r_tr_create_put_files)
+- **Operation**: [**r_tr_create_put_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_create_put_files)
 - **POST**: /real-time-response/entities/put-files/v1
 - **Description**: Upload a new put-file to use for the RTR &#x60;put&#x60; command.
 
@@ -6781,7 +6781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_create_scripts**](docs/RealTimeResponseAdmin.md#r_tr_create_scripts)
+- **Operation**: [**r_tr_create_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_create_scripts)
 - **POST**: /real-time-response/entities/scripts/v1
 - **Description**: Upload a new custom-script to use for the RTR &#x60;runscript&#x60; command.
 
@@ -6789,7 +6789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_delete_put_files**](docs/RealTimeResponseAdmin.md#r_tr_delete_put_files)
+- **Operation**: [**r_tr_delete_put_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_delete_put_files)
 - **DELETE**: /real-time-response/entities/put-files/v1
 - **Description**: Delete a put-file based on the ID given.  Can only delete one file at a time.
 
@@ -6797,7 +6797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_delete_scripts**](docs/RealTimeResponseAdmin.md#r_tr_delete_scripts)
+- **Operation**: [**r_tr_delete_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_delete_scripts)
 - **DELETE**: /real-time-response/entities/scripts/v1
 - **Description**: Delete a custom-script based on the ID given.  Can only delete one script at a time.
 
@@ -6805,7 +6805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_execute_admin_command**](docs/RealTimeResponseAdmin.md#r_tr_execute_admin_command)
+- **Operation**: [**r_tr_execute_admin_command**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_execute_admin_command)
 - **POST**: /real-time-response/entities/admin-command/v1
 - **Description**: Execute a RTR administrator command on a single host.
 
@@ -6813,7 +6813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_falcon_scripts**](docs/RealTimeResponseAdmin.md#r_tr_get_falcon_scripts)
+- **Operation**: [**r_tr_get_falcon_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_falcon_scripts)
 - **GET**: /real-time-response/entities/falcon-scripts/v1
 - **Description**: Get Falcon scripts with metadata and content of script
 
@@ -6821,7 +6821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_put_file_contents**](docs/RealTimeResponseAdmin.md#r_tr_get_put_file_contents)
+- **Operation**: [**r_tr_get_put_file_contents**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_put_file_contents)
 - **GET**: /real-time-response/entities/put-file-contents/v1
 - **Description**: Get RTR put file contents for a given file ID
 
@@ -6829,7 +6829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_put_files**](docs/RealTimeResponseAdmin.md#r_tr_get_put_files)
+- **Operation**: [**r_tr_get_put_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_put_files)
 - **GET**: /real-time-response/entities/put-files/v1
 - **Description**: Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
 
@@ -6837,7 +6837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_put_files_v2**](docs/RealTimeResponseAdmin.md#r_tr_get_put_files_v2)
+- **Operation**: [**r_tr_get_put_files_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_put_files_v2)
 - **GET**: /real-time-response/entities/put-files/v2
 - **Description**: Get put-files based on the ID&#39;s given. These are used for the RTR &#x60;put&#x60; command.
 
@@ -6845,7 +6845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_scripts**](docs/RealTimeResponseAdmin.md#r_tr_get_scripts)
+- **Operation**: [**r_tr_get_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_scripts)
 - **GET**: /real-time-response/entities/scripts/v1
 - **Description**: Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command.
 
@@ -6853,7 +6853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_get_scripts_v2**](docs/RealTimeResponseAdmin.md#r_tr_get_scripts_v2)
+- **Operation**: [**r_tr_get_scripts_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_get_scripts_v2)
 - **GET**: /real-time-response/entities/scripts/v2
 - **Description**: Get custom-scripts based on the ID&#39;s given. These are used for the RTR &#x60;runscript&#x60; command.
 
@@ -6861,7 +6861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_list_falcon_scripts**](docs/RealTimeResponseAdmin.md#r_tr_list_falcon_scripts)
+- **Operation**: [**r_tr_list_falcon_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_list_falcon_scripts)
 - **GET**: /real-time-response/queries/falcon-scripts/v1
 - **Description**: Get a list of Falcon script IDs available to the user to run
 
@@ -6869,7 +6869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_list_put_files**](docs/RealTimeResponseAdmin.md#r_tr_list_put_files)
+- **Operation**: [**r_tr_list_put_files**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_list_put_files)
 - **GET**: /real-time-response/queries/put-files/v1
 - **Description**: Get a list of put-file ID&#39;s that are available to the user for the &#x60;put&#x60; command.
 
@@ -6877,7 +6877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_list_scripts**](docs/RealTimeResponseAdmin.md#r_tr_list_scripts)
+- **Operation**: [**r_tr_list_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_list_scripts)
 - **GET**: /real-time-response/queries/scripts/v1
 - **Description**: Get a list of custom-script ID&#39;s that are available to the user for the &#x60;runscript&#x60; command.
 
@@ -6885,7 +6885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAdmin`
 
-- **Operation**: [**r_tr_update_scripts**](docs/RealTimeResponseAdmin.md#r_tr_update_scripts)
+- **Operation**: [**r_tr_update_scripts**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAdmin#r_tr_update_scripts)
 - **PATCH**: /real-time-response/entities/scripts/v1
 - **Description**: Upload a new scripts to replace an existing one.
 
@@ -6893,7 +6893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RealTimeResponseAudit`
 
-- **Operation**: [**r_tr_audit_sessions**](docs/RealTimeResponseAudit.md#r_tr_audit_sessions)
+- **Operation**: [**r_tr_audit_sessions**](https://github.com/CrowdStrike/crimson-falcon/wiki/RealTimeResponseAudit#r_tr_audit_sessions)
 - **GET**: /real-time-response-audit/combined/sessions/v1
 - **Description**: Get all the RTR sessions created for a customer in a specified duration
 
@@ -6901,7 +6901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**aggregate_notifications_exposed_data_records_v1**](docs/Recon.md#aggregate_notifications_exposed_data_records_v1)
+- **Operation**: [**aggregate_notifications_exposed_data_records_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#aggregate_notifications_exposed_data_records_v1)
 - **POST**: /recon/aggregates/notifications-exposed-data-records/GET/v1
 - **Description**: Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
 
@@ -6909,7 +6909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**aggregate_notifications_v1**](docs/Recon.md#aggregate_notifications_v1)
+- **Operation**: [**aggregate_notifications_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#aggregate_notifications_v1)
 - **POST**: /recon/aggregates/notifications/GET/v1
 - **Description**: Get notification aggregates as specified via JSON in request body.
 
@@ -6917,7 +6917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**create_actions_v1**](docs/Recon.md#create_actions_v1)
+- **Operation**: [**create_actions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#create_actions_v1)
 - **POST**: /recon/entities/actions/v1
 - **Description**: Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
 
@@ -6925,7 +6925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**create_export_jobs_v1**](docs/Recon.md#create_export_jobs_v1)
+- **Operation**: [**create_export_jobs_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#create_export_jobs_v1)
 - **POST**: /recon/entities/exports/v1
 - **Description**: Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
 
@@ -6933,7 +6933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**create_rules_v1**](docs/Recon.md#create_rules_v1)
+- **Operation**: [**create_rules_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#create_rules_v1)
 - **POST**: /recon/entities/rules/v1
 - **Description**: Create monitoring rules.
 
@@ -6941,7 +6941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**delete_action_v1**](docs/Recon.md#delete_action_v1)
+- **Operation**: [**delete_action_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#delete_action_v1)
 - **DELETE**: /recon/entities/actions/v1
 - **Description**: Delete an action from a monitoring rule based on the action ID.
 
@@ -6949,7 +6949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**delete_export_jobs_v1**](docs/Recon.md#delete_export_jobs_v1)
+- **Operation**: [**delete_export_jobs_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#delete_export_jobs_v1)
 - **DELETE**: /recon/entities/exports/v1
 - **Description**: Delete export jobs (and their associated file(s)) based on their IDs.
 
@@ -6957,7 +6957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**delete_notifications_v1**](docs/Recon.md#delete_notifications_v1)
+- **Operation**: [**delete_notifications_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#delete_notifications_v1)
 - **DELETE**: /recon/entities/notifications/v1
 - **Description**: Delete notifications based on IDs. Notifications cannot be recovered after they are deleted.
 
@@ -6965,7 +6965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**delete_rules_v1**](docs/Recon.md#delete_rules_v1)
+- **Operation**: [**delete_rules_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#delete_rules_v1)
 - **DELETE**: /recon/entities/rules/v1
 - **Description**: Delete monitoring rules.
 
@@ -6973,7 +6973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_actions_v1**](docs/Recon.md#get_actions_v1)
+- **Operation**: [**get_actions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_actions_v1)
 - **GET**: /recon/entities/actions/v1
 - **Description**: Get actions based on their IDs. IDs can be retrieved using the GET /queries/actions/v1 endpoint.
 
@@ -6981,7 +6981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_export_jobs_v1**](docs/Recon.md#get_export_jobs_v1)
+- **Operation**: [**get_export_jobs_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_export_jobs_v1)
 - **GET**: /recon/entities/exports/v1
 - **Description**: Get the status of export jobs based on their IDs. Export jobs can be launched by calling POST /entities/exports/v1. When a job is complete, use the job ID to download the file(s) associated with it using GET entities/export-files/v1.
 
@@ -6989,7 +6989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_file_content_for_export_jobs_v1**](docs/Recon.md#get_file_content_for_export_jobs_v1)
+- **Operation**: [**get_file_content_for_export_jobs_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_file_content_for_export_jobs_v1)
 - **GET**: /recon/entities/export-files/v1
 - **Description**: Download the file associated with a job ID.
 
@@ -6997,7 +6997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_notifications_detailed_translated_v1**](docs/Recon.md#get_notifications_detailed_translated_v1)
+- **Operation**: [**get_notifications_detailed_translated_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_notifications_detailed_translated_v1)
 - **GET**: /recon/entities/notifications-detailed-translated/v1
 - **Description**: Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it.
 
@@ -7005,7 +7005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_notifications_detailed_v1**](docs/Recon.md#get_notifications_detailed_v1)
+- **Operation**: [**get_notifications_detailed_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_notifications_detailed_v1)
 - **GET**: /recon/entities/notifications-detailed/v1
 - **Description**: Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it.
 
@@ -7013,7 +7013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_notifications_exposed_data_records_v1**](docs/Recon.md#get_notifications_exposed_data_records_v1)
+- **Operation**: [**get_notifications_exposed_data_records_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_notifications_exposed_data_records_v1)
 - **GET**: /recon/entities/notifications-exposed-data-records/v1
 - **Description**: Get notifications exposed data records based on their IDs. IDs can be retrieved using the GET /queries/notifications-exposed-data-records/v1 endpoint. The associate notification can be fetched using the /entities/notifications/v* endpoints
 
@@ -7021,7 +7021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_notifications_translated_v1**](docs/Recon.md#get_notifications_translated_v1)
+- **Operation**: [**get_notifications_translated_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_notifications_translated_v1)
 - **GET**: /recon/entities/notifications-translated/v1
 - **Description**: Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint. This endpoint will return translated notification content. The only target language available is English.
 
@@ -7029,7 +7029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_notifications_v1**](docs/Recon.md#get_notifications_v1)
+- **Operation**: [**get_notifications_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_notifications_v1)
 - **GET**: /recon/entities/notifications/v1
 - **Description**: Get notifications based on their IDs. IDs can be retrieved using the GET /queries/notifications/v1 endpoint.
 
@@ -7037,7 +7037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**get_rules_v1**](docs/Recon.md#get_rules_v1)
+- **Operation**: [**get_rules_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#get_rules_v1)
 - **GET**: /recon/entities/rules/v1
 - **Description**: Get monitoring rules based on their IDs. IDs can be retrieved using the GET /queries/rules/v1 endpoint.
 
@@ -7045,7 +7045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**preview_rule_v1**](docs/Recon.md#preview_rule_v1)
+- **Operation**: [**preview_rule_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#preview_rule_v1)
 - **POST**: /recon/aggregates/rules-preview/GET/v1
 - **Description**: Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
 
@@ -7053,7 +7053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**query_actions_v1**](docs/Recon.md#query_actions_v1)
+- **Operation**: [**query_actions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#query_actions_v1)
 - **GET**: /recon/queries/actions/v1
 - **Description**: Query actions based on provided criteria. Use the IDs from this response to get the action entities on GET /entities/actions/v1.
 
@@ -7061,7 +7061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**query_notifications_exposed_data_records_v1**](docs/Recon.md#query_notifications_exposed_data_records_v1)
+- **Operation**: [**query_notifications_exposed_data_records_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#query_notifications_exposed_data_records_v1)
 - **GET**: /recon/queries/notifications-exposed-data-records/v1
 - **Description**: Query notifications exposed data records based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications-exposed-data-records/v1
 
@@ -7069,7 +7069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**query_notifications_v1**](docs/Recon.md#query_notifications_v1)
+- **Operation**: [**query_notifications_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#query_notifications_v1)
 - **GET**: /recon/queries/notifications/v1
 - **Description**: Query notifications based on provided criteria. Use the IDs from this response to get the notification +entities on GET /entities/notifications/v1, GET /entities/notifications-detailed/v1, +GET /entities/notifications-translated/v1 or GET /entities/notifications-detailed-translated/v1.
 
@@ -7077,7 +7077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**query_rules_v1**](docs/Recon.md#query_rules_v1)
+- **Operation**: [**query_rules_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#query_rules_v1)
 - **GET**: /recon/queries/rules/v1
 - **Description**: Query monitoring rules based on provided criteria. Use the IDs from this response to fetch the rules on /entities/rules/v1.
 
@@ -7085,7 +7085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**update_action_v1**](docs/Recon.md#update_action_v1)
+- **Operation**: [**update_action_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#update_action_v1)
 - **PATCH**: /recon/entities/actions/v1
 - **Description**: Update an action for a monitoring rule.
 
@@ -7093,7 +7093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**update_notifications_v1**](docs/Recon.md#update_notifications_v1)
+- **Operation**: [**update_notifications_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#update_notifications_v1)
 - **PATCH**: /recon/entities/notifications/v1
 - **Description**: Update notification status or assignee. Accepts bulk requests
 
@@ -7101,7 +7101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Recon`
 
-- **Operation**: [**update_rules_v1**](docs/Recon.md#update_rules_v1)
+- **Operation**: [**update_rules_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Recon#update_rules_v1)
 - **PATCH**: /recon/entities/rules/v1
 - **Description**: Update monitoring rules.
 
@@ -7109,7 +7109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReleaseNotes`
 
-- **Operation**: [**combined_release_notes_v1**](docs/ReleaseNotes.md#combined_release_notes_v1)
+- **Operation**: [**combined_release_notes_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReleaseNotes#combined_release_notes_v1)
 - **GET**: /deployment-coordinator/combined/release-notes/v1
 - **Description**: Queries for release-notes resources and returns details
 
@@ -7117,7 +7117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReleaseNotes`
 
-- **Operation**: [**get_entity_ids_by_query_post**](docs/ReleaseNotes.md#get_entity_ids_by_query_post)
+- **Operation**: [**get_entity_ids_by_query_post**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReleaseNotes#get_entity_ids_by_query_post)
 - **POST**: /deployment-coordinator/entities/release-notes/GET/v1
 - **Description**: returns the release notes for the IDs in the request
 
@@ -7125,7 +7125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReleaseNotes`
 
-- **Operation**: [**get_entity_ids_by_query_postv2**](docs/ReleaseNotes.md#get_entity_ids_by_query_postv2)
+- **Operation**: [**get_entity_ids_by_query_postv2**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReleaseNotes#get_entity_ids_by_query_postv2)
 - **POST**: /deployment-coordinator/entities/release-notes/GET/v2
 - **Description**: returns the release notes for the IDs in the request with EA and GA dates in ISO 8601 format
 
@@ -7133,7 +7133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReleaseNotes`
 
-- **Operation**: [**query_release_notes_v1**](docs/ReleaseNotes.md#query_release_notes_v1)
+- **Operation**: [**query_release_notes_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReleaseNotes#query_release_notes_v1)
 - **GET**: /deployment-coordinator/queries/release-notes/v1
 - **Description**: Queries for release-notes resources and returns ids
 
@@ -7141,7 +7141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Releases`
 
-- **Operation**: [**combined_releases_v1_mixin0**](docs/Releases.md#combined_releases_v1_mixin0)
+- **Operation**: [**combined_releases_v1_mixin0**](https://github.com/CrowdStrike/crimson-falcon/wiki/Releases#combined_releases_v1_mixin0)
 - **GET**: /deployment-coordinator/combined/releases/v1
 - **Description**: Queries for releases resources and returns details
 
@@ -7149,7 +7149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReportExecutions`
 
-- **Operation**: [**report_executions_download_get**](docs/ReportExecutions.md#report_executions_download_get)
+- **Operation**: [**report_executions_download_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReportExecutions#report_executions_download_get)
 - **GET**: /reports/entities/report-executions-download/v1
 - **Description**: Get report entity download. Returns either a JSON object or a CSV string.
 
@@ -7157,7 +7157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReportExecutions`
 
-- **Operation**: [**report_executions_get**](docs/ReportExecutions.md#report_executions_get)
+- **Operation**: [**report_executions_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReportExecutions#report_executions_get)
 - **GET**: /reports/entities/report-executions/v1
 - **Description**: Retrieve report details for the provided report IDs.
 
@@ -7165,7 +7165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReportExecutions`
 
-- **Operation**: [**report_executions_query**](docs/ReportExecutions.md#report_executions_query)
+- **Operation**: [**report_executions_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReportExecutions#report_executions_query)
 - **GET**: /reports/queries/report-executions/v1
 - **Description**: Find all report execution IDs matching the query with filter
 
@@ -7173,7 +7173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ReportExecutions`
 
-- **Operation**: [**report_executions_retry**](docs/ReportExecutions.md#report_executions_retry)
+- **Operation**: [**report_executions_retry**](https://github.com/CrowdStrike/crimson-falcon/wiki/ReportExecutions#report_executions_retry)
 - **POST**: /reports/entities/report-executions-retry/v1
 - **Description**: This endpoint will be used to retry report executions
 
@@ -7181,7 +7181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**create_rt_response_policies**](docs/ResponsePolicies.md#create_rt_response_policies)
+- **Operation**: [**create_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#create_rt_response_policies)
 - **POST**: /policy/entities/response/v1
 - **Description**: Create Response Policies by specifying details about the policy to create
 
@@ -7189,7 +7189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**delete_rt_response_policies**](docs/ResponsePolicies.md#delete_rt_response_policies)
+- **Operation**: [**delete_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#delete_rt_response_policies)
 - **DELETE**: /policy/entities/response/v1
 - **Description**: Delete a set of Response Policies by specifying their IDs
 
@@ -7197,7 +7197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**get_rt_response_policies**](docs/ResponsePolicies.md#get_rt_response_policies)
+- **Operation**: [**get_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#get_rt_response_policies)
 - **GET**: /policy/entities/response/v1
 - **Description**: Retrieve a set of Response Policies by specifying their IDs
 
@@ -7205,7 +7205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**perform_rt_response_policies_action**](docs/ResponsePolicies.md#perform_rt_response_policies_action)
+- **Operation**: [**perform_rt_response_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#perform_rt_response_policies_action)
 - **POST**: /policy/entities/response-actions/v1
 - **Description**: Perform the specified action on the Response Policies specified in the request
 
@@ -7213,7 +7213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**query_combined_rt_response_policies**](docs/ResponsePolicies.md#query_combined_rt_response_policies)
+- **Operation**: [**query_combined_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#query_combined_rt_response_policies)
 - **GET**: /policy/combined/response/v1
 - **Description**: Search for Response Policies in your environment by providing an FQL filter and paging details. Returns a set of Response Policies which match the filter criteria
 
@@ -7221,7 +7221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**query_combined_rt_response_policy_members**](docs/ResponsePolicies.md#query_combined_rt_response_policy_members)
+- **Operation**: [**query_combined_rt_response_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#query_combined_rt_response_policy_members)
 - **GET**: /policy/combined/response-members/v1
 - **Description**: Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -7229,7 +7229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**query_rt_response_policies**](docs/ResponsePolicies.md#query_rt_response_policies)
+- **Operation**: [**query_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#query_rt_response_policies)
 - **GET**: /policy/queries/response/v1
 - **Description**: Search for Response Policies in your environment by providing an FQL filter with sort and/or paging details. This returns a set of Response Policy IDs that match the given criteria.
 
@@ -7237,7 +7237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**query_rt_response_policy_members**](docs/ResponsePolicies.md#query_rt_response_policy_members)
+- **Operation**: [**query_rt_response_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#query_rt_response_policy_members)
 - **GET**: /policy/queries/response-members/v1
 - **Description**: Search for members of a Response policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -7245,7 +7245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**set_rt_response_policies_precedence**](docs/ResponsePolicies.md#set_rt_response_policies_precedence)
+- **Operation**: [**set_rt_response_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#set_rt_response_policies_precedence)
 - **POST**: /policy/entities/response-precedence/v1
 - **Description**: Sets the precedence of Response Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
@@ -7253,7 +7253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ResponsePolicies`
 
-- **Operation**: [**update_rt_response_policies**](docs/ResponsePolicies.md#update_rt_response_policies)
+- **Operation**: [**update_rt_response_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/ResponsePolicies#update_rt_response_policies)
 - **PATCH**: /policy/entities/response/v1
 - **Description**: Update Response Policies by specifying the ID of the policy and details to update
 
@@ -7261,7 +7261,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::RuntimeDetections`
 
-- **Operation**: [**get_runtime_detections_combined_v2**](docs/RuntimeDetections.md#get_runtime_detections_combined_v2)
+- **Operation**: [**get_runtime_detections_combined_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/RuntimeDetections#get_runtime_detections_combined_v2)
 - **GET**: /container-security/combined/runtime-detections/v2
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -7269,7 +7269,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SaaS`
 
-- **Operation**: [**get_integrations_v3**](docs/SaaS.md#get_integrations_v3)
+- **Operation**: [**get_integrations_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SaaS#get_integrations_v3)
 - **GET**: /saas-security/entities/integrations/v3
 - **Description**: GET Integrations
 
@@ -7277,7 +7277,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SaaS`
 
-- **Operation**: [**get_supported_saas_v3**](docs/SaaS.md#get_supported_saas_v3)
+- **Operation**: [**get_supported_saas_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SaaS#get_supported_saas_v3)
 - **GET**: /saas-security/entities/supported-saas/v3
 - **Description**: GET Supported SaaS
 
@@ -7285,7 +7285,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**archive_delete_v1**](docs/SampleUploads.md#archive_delete_v1)
+- **Operation**: [**archive_delete_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#archive_delete_v1)
 - **DELETE**: /archives/entities/archives/v1
 - **Description**: Delete an archive that was uploaded previously
 
@@ -7293,7 +7293,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**archive_get_v1**](docs/SampleUploads.md#archive_get_v1)
+- **Operation**: [**archive_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#archive_get_v1)
 - **GET**: /archives/entities/archives/v1
 - **Description**: Retrieves the archives upload operation statuses. Status &#x60;done&#x60; means that archive was processed successfully. Status &#x60;error&#x60; means that archive was not processed successfully.
 
@@ -7301,7 +7301,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**archive_list_v1**](docs/SampleUploads.md#archive_list_v1)
+- **Operation**: [**archive_list_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#archive_list_v1)
 - **GET**: /archives/entities/archive-files/v1
 - **Description**: Retrieves the archives files in chunks.
 
@@ -7309,7 +7309,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**archive_upload_v1**](docs/SampleUploads.md#archive_upload_v1)
+- **Operation**: [**archive_upload_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#archive_upload_v1)
 - **POST**: /archives/entities/archives/v1
 - **Description**: Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis. This method is deprecated in favor of &#x60;/archives/entities/archives/v2&#x60;
 
@@ -7317,7 +7317,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**archive_upload_v2**](docs/SampleUploads.md#archive_upload_v2)
+- **Operation**: [**archive_upload_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#archive_upload_v2)
 - **POST**: /archives/entities/archives/v2
 - **Description**: Uploads an archive and extracts files list from it. Operation is asynchronous use &#x60;/archives/entities/archives/v1&#x60; to check the status. After uploading, use &#x60;/archives/entities/extractions/v1&#x60; to copy the file to internal storage making it available for content analysis.
 
@@ -7325,7 +7325,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**delete_sample_v3**](docs/SampleUploads.md#delete_sample_v3)
+- **Operation**: [**delete_sample_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#delete_sample_v3)
 - **DELETE**: /samples/entities/samples/v3
 - **Description**: Removes a sample, including file, meta and submissions from the collection
 
@@ -7333,7 +7333,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**extraction_create_v1**](docs/SampleUploads.md#extraction_create_v1)
+- **Operation**: [**extraction_create_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#extraction_create_v1)
 - **POST**: /archives/entities/extractions/v1
 - **Description**: Extracts files from an uploaded archive and copies them to internal storage making it available for content analysis.
 
@@ -7341,7 +7341,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**extraction_get_v1**](docs/SampleUploads.md#extraction_get_v1)
+- **Operation**: [**extraction_get_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#extraction_get_v1)
 - **GET**: /archives/entities/extractions/v1
 - **Description**: Retrieves the files extraction operation statuses. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed.
 
@@ -7349,7 +7349,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**extraction_list_v1**](docs/SampleUploads.md#extraction_list_v1)
+- **Operation**: [**extraction_list_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#extraction_list_v1)
 - **GET**: /archives/entities/extraction-files/v1
 - **Description**: Retrieves the files extractions in chunks. Status &#x60;done&#x60; means that all files were processed successfully. Status &#x60;error&#x60; means that at least one of the file could not be processed.
 
@@ -7357,7 +7357,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**get_sample_v3**](docs/SampleUploads.md#get_sample_v3)
+- **Operation**: [**get_sample_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#get_sample_v3)
 - **GET**: /samples/entities/samples/v3
 - **Description**: Retrieves the file associated with the given ID (SHA256)
 
@@ -7365,7 +7365,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SampleUploads`
 
-- **Operation**: [**upload_sample_v3**](docs/SampleUploads.md#upload_sample_v3)
+- **Operation**: [**upload_sample_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SampleUploads#upload_sample_v3)
 - **POST**: /samples/entities/samples/v3
 - **Description**: Upload a file for further cloud analysis. After uploading, call the specific analysis API endpoint.
 
@@ -7373,7 +7373,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ScheduledReports`
 
-- **Operation**: [**scheduled_reports_get**](docs/ScheduledReports.md#scheduled_reports_get)
+- **Operation**: [**scheduled_reports_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/ScheduledReports#scheduled_reports_get)
 - **GET**: /reports/entities/scheduled-reports/v1
 - **Description**: Retrieve scheduled reports for the provided report IDs.
 
@@ -7381,7 +7381,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ScheduledReports`
 
-- **Operation**: [**scheduled_reports_launch**](docs/ScheduledReports.md#scheduled_reports_launch)
+- **Operation**: [**scheduled_reports_launch**](https://github.com/CrowdStrike/crimson-falcon/wiki/ScheduledReports#scheduled_reports_launch)
 - **POST**: /reports/entities/scheduled-reports/execution/v1
 - **Description**: Launch scheduled reports executions for the provided report IDs.
 
@@ -7389,7 +7389,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ScheduledReports`
 
-- **Operation**: [**scheduled_reports_query**](docs/ScheduledReports.md#scheduled_reports_query)
+- **Operation**: [**scheduled_reports_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/ScheduledReports#scheduled_reports_query)
 - **GET**: /reports/queries/scheduled-reports/v1
 - **Description**: Find all report IDs matching the query with filter
 
@@ -7397,7 +7397,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**dismiss_affected_entity_v3**](docs/SecurityCheck.md#dismiss_affected_entity_v3)
+- **Operation**: [**dismiss_affected_entity_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#dismiss_affected_entity_v3)
 - **POST**: /saas-security/entities/check-dismiss-affected/v3
 - **Description**: POST Dismiss Affected Entity
 
@@ -7405,7 +7405,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**dismiss_security_check_v3**](docs/SecurityCheck.md#dismiss_security_check_v3)
+- **Operation**: [**dismiss_security_check_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#dismiss_security_check_v3)
 - **POST**: /saas-security/entities/check-dismiss/v3
 - **Description**: POST Dismiss Security Check by ID
 
@@ -7413,7 +7413,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**get_metrics_v3**](docs/SecurityCheck.md#get_metrics_v3)
+- **Operation**: [**get_metrics_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#get_metrics_v3)
 - **GET**: /saas-security/aggregates/check-metrics/v3
 - **Description**: GET Metrics
 
@@ -7421,7 +7421,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**get_security_check_affected_v3**](docs/SecurityCheck.md#get_security_check_affected_v3)
+- **Operation**: [**get_security_check_affected_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#get_security_check_affected_v3)
 - **GET**: /saas-security/entities/check-affected/v3
 - **Description**: GET Security Check Affected
 
@@ -7429,7 +7429,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**get_security_check_compliance_v3**](docs/SecurityCheck.md#get_security_check_compliance_v3)
+- **Operation**: [**get_security_check_compliance_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#get_security_check_compliance_v3)
 - **GET**: /saas-security/entities/compliance/v3
 - **Description**: GET Compliance
 
@@ -7437,7 +7437,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SecurityCheck`
 
-- **Operation**: [**get_security_checks_v3**](docs/SecurityCheck.md#get_security_checks_v3)
+- **Operation**: [**get_security_checks_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/SecurityCheck#get_security_checks_v3)
 - **GET**: /saas-security/entities/checks/v3
 - **Description**: GET Security Check by ID or GET List Security Checks
 
@@ -7445,7 +7445,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**download_sensor_installer_by_id**](docs/SensorDownload.md#download_sensor_installer_by_id)
+- **Operation**: [**download_sensor_installer_by_id**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#download_sensor_installer_by_id)
 - **GET**: /sensors/entities/download-installer/v1
 - **Description**: Download sensor installer by SHA256 ID
 
@@ -7453,7 +7453,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**download_sensor_installer_by_id_v2**](docs/SensorDownload.md#download_sensor_installer_by_id_v2)
+- **Operation**: [**download_sensor_installer_by_id_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#download_sensor_installer_by_id_v2)
 - **GET**: /sensors/entities/download-installer/v2
 - **Description**: Download sensor installer by SHA256 ID
 
@@ -7461,7 +7461,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_combined_sensor_installers_by_query**](docs/SensorDownload.md#get_combined_sensor_installers_by_query)
+- **Operation**: [**get_combined_sensor_installers_by_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_combined_sensor_installers_by_query)
 - **GET**: /sensors/combined/installers/v1
 - **Description**: Get sensor installer details by provided query
 
@@ -7469,7 +7469,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_combined_sensor_installers_by_query_v2**](docs/SensorDownload.md#get_combined_sensor_installers_by_query_v2)
+- **Operation**: [**get_combined_sensor_installers_by_query_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_combined_sensor_installers_by_query_v2)
 - **GET**: /sensors/combined/installers/v2
 - **Description**: Get sensor installer details by provided query
 
@@ -7477,7 +7477,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_sensor_installers_by_query**](docs/SensorDownload.md#get_sensor_installers_by_query)
+- **Operation**: [**get_sensor_installers_by_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_sensor_installers_by_query)
 - **GET**: /sensors/queries/installers/v1
 - **Description**: Get sensor installer IDs by provided query
 
@@ -7485,7 +7485,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_sensor_installers_by_query_v2**](docs/SensorDownload.md#get_sensor_installers_by_query_v2)
+- **Operation**: [**get_sensor_installers_by_query_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_sensor_installers_by_query_v2)
 - **GET**: /sensors/queries/installers/v2
 - **Description**: Get sensor installer IDs by provided query
 
@@ -7493,7 +7493,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_sensor_installers_ccidby_query**](docs/SensorDownload.md#get_sensor_installers_ccidby_query)
+- **Operation**: [**get_sensor_installers_ccidby_query**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_sensor_installers_ccidby_query)
 - **GET**: /sensors/queries/installers/ccid/v1
 - **Description**: Get CCID to use with sensor installers
 
@@ -7501,7 +7501,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_sensor_installers_entities**](docs/SensorDownload.md#get_sensor_installers_entities)
+- **Operation**: [**get_sensor_installers_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_sensor_installers_entities)
 - **GET**: /sensors/entities/installers/v1
 - **Description**: Get sensor installer details by provided SHA256 IDs
 
@@ -7509,7 +7509,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorDownload`
 
-- **Operation**: [**get_sensor_installers_entities_v2**](docs/SensorDownload.md#get_sensor_installers_entities_v2)
+- **Operation**: [**get_sensor_installers_entities_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorDownload#get_sensor_installers_entities_v2)
 - **GET**: /sensors/entities/installers/v2
 - **Description**: Get sensor installer details by provided SHA256 IDs
 
@@ -7517,7 +7517,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**create_sensor_update_policies**](docs/SensorUpdatePolicies.md#create_sensor_update_policies)
+- **Operation**: [**create_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#create_sensor_update_policies)
 - **POST**: /policy/entities/sensor-update/v1
 - **Description**: Create Sensor Update Policies by specifying details about the policy to create
 
@@ -7525,7 +7525,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**create_sensor_update_policies_v2**](docs/SensorUpdatePolicies.md#create_sensor_update_policies_v2)
+- **Operation**: [**create_sensor_update_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#create_sensor_update_policies_v2)
 - **POST**: /policy/entities/sensor-update/v2
 - **Description**: Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
 
@@ -7533,7 +7533,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**delete_sensor_update_policies**](docs/SensorUpdatePolicies.md#delete_sensor_update_policies)
+- **Operation**: [**delete_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#delete_sensor_update_policies)
 - **DELETE**: /policy/entities/sensor-update/v1
 - **Description**: Delete a set of Sensor Update Policies by specifying their IDs
 
@@ -7541,7 +7541,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**get_sensor_update_policies**](docs/SensorUpdatePolicies.md#get_sensor_update_policies)
+- **Operation**: [**get_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#get_sensor_update_policies)
 - **GET**: /policy/entities/sensor-update/v1
 - **Description**: Retrieve a set of Sensor Update Policies by specifying their IDs
 
@@ -7549,7 +7549,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**get_sensor_update_policies_v2**](docs/SensorUpdatePolicies.md#get_sensor_update_policies_v2)
+- **Operation**: [**get_sensor_update_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#get_sensor_update_policies_v2)
 - **GET**: /policy/entities/sensor-update/v2
 - **Description**: Retrieve a set of Sensor Update Policies with additional support for uninstall protection by specifying their IDs
 
@@ -7557,7 +7557,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**perform_sensor_update_policies_action**](docs/SensorUpdatePolicies.md#perform_sensor_update_policies_action)
+- **Operation**: [**perform_sensor_update_policies_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#perform_sensor_update_policies_action)
 - **POST**: /policy/entities/sensor-update-actions/v1
 - **Description**: Perform the specified action on the Sensor Update Policies specified in the request
 
@@ -7565,7 +7565,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_combined_sensor_update_builds**](docs/SensorUpdatePolicies.md#query_combined_sensor_update_builds)
+- **Operation**: [**query_combined_sensor_update_builds**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_combined_sensor_update_builds)
 - **GET**: /policy/combined/sensor-update-builds/v1
 - **Description**: Retrieve available builds for use with Sensor Update Policies
 
@@ -7573,7 +7573,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_combined_sensor_update_kernels**](docs/SensorUpdatePolicies.md#query_combined_sensor_update_kernels)
+- **Operation**: [**query_combined_sensor_update_kernels**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_combined_sensor_update_kernels)
 - **GET**: /policy/combined/sensor-update-kernels/v1
 - **Description**: Retrieve kernel compatibility info for Sensor Update Builds
 
@@ -7581,7 +7581,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_combined_sensor_update_policies**](docs/SensorUpdatePolicies.md#query_combined_sensor_update_policies)
+- **Operation**: [**query_combined_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_combined_sensor_update_policies)
 - **GET**: /policy/combined/sensor-update/v1
 - **Description**: Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
@@ -7589,7 +7589,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_combined_sensor_update_policies_v2**](docs/SensorUpdatePolicies.md#query_combined_sensor_update_policies_v2)
+- **Operation**: [**query_combined_sensor_update_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_combined_sensor_update_policies_v2)
 - **GET**: /policy/combined/sensor-update/v2
 - **Description**: Search for Sensor Update Policies with additional support for uninstall protection in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policies which match the filter criteria
 
@@ -7597,7 +7597,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_combined_sensor_update_policy_members**](docs/SensorUpdatePolicies.md#query_combined_sensor_update_policy_members)
+- **Operation**: [**query_combined_sensor_update_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_combined_sensor_update_policy_members)
 - **GET**: /policy/combined/sensor-update-members/v1
 - **Description**: Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of host details which match the filter criteria
 
@@ -7605,7 +7605,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_sensor_update_kernels_distinct**](docs/SensorUpdatePolicies.md#query_sensor_update_kernels_distinct)
+- **Operation**: [**query_sensor_update_kernels_distinct**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_sensor_update_kernels_distinct)
 - **GET**: /policy/queries/sensor-update-kernels/{distinct_field}/v1
 - **Description**: Retrieve kernel compatibility info for Sensor Update Builds
 
@@ -7613,7 +7613,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_sensor_update_policies**](docs/SensorUpdatePolicies.md#query_sensor_update_policies)
+- **Operation**: [**query_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_sensor_update_policies)
 - **GET**: /policy/queries/sensor-update/v1
 - **Description**: Search for Sensor Update Policies in your environment by providing an FQL filter and paging details. Returns a set of Sensor Update Policy IDs which match the filter criteria
 
@@ -7621,7 +7621,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**query_sensor_update_policy_members**](docs/SensorUpdatePolicies.md#query_sensor_update_policy_members)
+- **Operation**: [**query_sensor_update_policy_members**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#query_sensor_update_policy_members)
 - **GET**: /policy/queries/sensor-update-members/v1
 - **Description**: Search for members of a Sensor Update Policy in your environment by providing an FQL filter and paging details. Returns a set of Agent IDs which match the filter criteria
 
@@ -7629,7 +7629,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**reveal_uninstall_token**](docs/SensorUpdatePolicies.md#reveal_uninstall_token)
+- **Operation**: [**reveal_uninstall_token**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#reveal_uninstall_token)
 - **POST**: /policy/combined/reveal-uninstall-token/v1
 - **Description**: Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39;
 
@@ -7637,7 +7637,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**set_sensor_update_policies_precedence**](docs/SensorUpdatePolicies.md#set_sensor_update_policies_precedence)
+- **Operation**: [**set_sensor_update_policies_precedence**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#set_sensor_update_policies_precedence)
 - **POST**: /policy/entities/sensor-update-precedence/v1
 - **Description**: Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
 
@@ -7645,7 +7645,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**update_sensor_update_policies**](docs/SensorUpdatePolicies.md#update_sensor_update_policies)
+- **Operation**: [**update_sensor_update_policies**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#update_sensor_update_policies)
 - **PATCH**: /policy/entities/sensor-update/v1
 - **Description**: Update Sensor Update Policies by specifying the ID of the policy and details to update
 
@@ -7653,7 +7653,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUpdatePolicies`
 
-- **Operation**: [**update_sensor_update_policies_v2**](docs/SensorUpdatePolicies.md#update_sensor_update_policies_v2)
+- **Operation**: [**update_sensor_update_policies_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUpdatePolicies#update_sensor_update_policies_v2)
 - **PATCH**: /policy/entities/sensor-update/v2
 - **Description**: Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
 
@@ -7661,7 +7661,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorUsage`
 
-- **Operation**: [**get_sensor_usage_weekly**](docs/SensorUsage.md#get_sensor_usage_weekly)
+- **Operation**: [**get_sensor_usage_weekly**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorUsage#get_sensor_usage_weekly)
 - **GET**: /billing-dashboards-usage/aggregates/weekly-average/v1
 - **Description**: Fetches weekly average. Each data point represents the average of how many unique AIDs were seen per week for the previous 28 days.
 
@@ -7669,7 +7669,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorVisibilityExclusions`
 
-- **Operation**: [**create_sv_exclusions_v1**](docs/SensorVisibilityExclusions.md#create_sv_exclusions_v1)
+- **Operation**: [**create_sv_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorVisibilityExclusions#create_sv_exclusions_v1)
 - **POST**: /policy/entities/sv-exclusions/v1
 - **Description**: Create the sensor visibility exclusions
 
@@ -7677,7 +7677,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorVisibilityExclusions`
 
-- **Operation**: [**delete_sensor_visibility_exclusions_v1**](docs/SensorVisibilityExclusions.md#delete_sensor_visibility_exclusions_v1)
+- **Operation**: [**delete_sensor_visibility_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorVisibilityExclusions#delete_sensor_visibility_exclusions_v1)
 - **DELETE**: /policy/entities/sv-exclusions/v1
 - **Description**: Delete the sensor visibility exclusions by id
 
@@ -7685,7 +7685,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorVisibilityExclusions`
 
-- **Operation**: [**get_sensor_visibility_exclusions_v1**](docs/SensorVisibilityExclusions.md#get_sensor_visibility_exclusions_v1)
+- **Operation**: [**get_sensor_visibility_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorVisibilityExclusions#get_sensor_visibility_exclusions_v1)
 - **GET**: /policy/entities/sv-exclusions/v1
 - **Description**: Get a set of Sensor Visibility Exclusions by specifying their IDs
 
@@ -7693,7 +7693,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorVisibilityExclusions`
 
-- **Operation**: [**query_sensor_visibility_exclusions_v1**](docs/SensorVisibilityExclusions.md#query_sensor_visibility_exclusions_v1)
+- **Operation**: [**query_sensor_visibility_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorVisibilityExclusions#query_sensor_visibility_exclusions_v1)
 - **GET**: /policy/queries/sv-exclusions/v1
 - **Description**: Search for sensor visibility exclusions.
 
@@ -7701,7 +7701,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SensorVisibilityExclusions`
 
-- **Operation**: [**update_sensor_visibility_exclusions_v1**](docs/SensorVisibilityExclusions.md#update_sensor_visibility_exclusions_v1)
+- **Operation**: [**update_sensor_visibility_exclusions_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/SensorVisibilityExclusions#update_sensor_visibility_exclusions_v1)
 - **PATCH**: /policy/entities/sv-exclusions/v1
 - **Description**: Update the sensor visibility exclusions
 
@@ -7709,7 +7709,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ServerlessVulnerabilities`
 
-- **Operation**: [**get_combined_vulnerabilities_sarif**](docs/ServerlessVulnerabilities.md#get_combined_vulnerabilities_sarif)
+- **Operation**: [**get_combined_vulnerabilities_sarif**](https://github.com/CrowdStrike/crimson-falcon/wiki/ServerlessVulnerabilities#get_combined_vulnerabilities_sarif)
 - **GET**: /lambdas/combined/vulnerabilities/sarif/v1
 - **Description**: Retrieve all lambda vulnerabilities that match the given query and return in the SARIF format
 
@@ -7717,7 +7717,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightEvaluationLogic`
 
-- **Operation**: [**combined_query_evaluation_logic**](docs/SpotlightEvaluationLogic.md#combined_query_evaluation_logic)
+- **Operation**: [**combined_query_evaluation_logic**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightEvaluationLogic#combined_query_evaluation_logic)
 - **GET**: /spotlight/combined/evaluation-logic/v1
 - **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic entities which match the filter criteria.
 
@@ -7725,7 +7725,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightEvaluationLogic`
 
-- **Operation**: [**get_evaluation_logic**](docs/SpotlightEvaluationLogic.md#get_evaluation_logic)
+- **Operation**: [**get_evaluation_logic**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightEvaluationLogic#get_evaluation_logic)
 - **GET**: /spotlight/entities/evaluation-logic/v1
 - **Description**: Get details on evaluation logic items by providing one or more IDs.
 
@@ -7733,7 +7733,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightEvaluationLogic`
 
-- **Operation**: [**query_evaluation_logic**](docs/SpotlightEvaluationLogic.md#query_evaluation_logic)
+- **Operation**: [**query_evaluation_logic**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightEvaluationLogic#query_evaluation_logic)
 - **GET**: /spotlight/queries/evaluation-logic/v1
 - **Description**: Search for evaluation logic in your environment by providing a FQL filter and paging details. Returns a set of evaluation logic IDs which match the filter criteria.
 
@@ -7741,7 +7741,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**combined_query_vulnerabilities**](docs/SpotlightVulnerabilities.md#combined_query_vulnerabilities)
+- **Operation**: [**combined_query_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightVulnerabilities#combined_query_vulnerabilities)
 - **GET**: /spotlight/combined/vulnerabilities/v1
 - **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability entities which match the filter criteria
 
@@ -7749,7 +7749,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**get_remediations_v2**](docs/SpotlightVulnerabilities.md#get_remediations_v2)
+- **Operation**: [**get_remediations_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightVulnerabilities#get_remediations_v2)
 - **GET**: /spotlight/entities/remediations/v2
 - **Description**: Get details on remediation by providing one or more IDs
 
@@ -7757,7 +7757,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**get_vulnerabilities**](docs/SpotlightVulnerabilities.md#get_vulnerabilities)
+- **Operation**: [**get_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightVulnerabilities#get_vulnerabilities)
 - **GET**: /spotlight/entities/vulnerabilities/v2
 - **Description**: Get details on vulnerabilities by providing one or more IDs
 
@@ -7765,7 +7765,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::SpotlightVulnerabilities`
 
-- **Operation**: [**query_vulnerabilities**](docs/SpotlightVulnerabilities.md#query_vulnerabilities)
+- **Operation**: [**query_vulnerabilities**](https://github.com/CrowdStrike/crimson-falcon/wiki/SpotlightVulnerabilities#query_vulnerabilities)
 - **GET**: /spotlight/queries/vulnerabilities/v1
 - **Description**: Search for Vulnerabilities in your environment by providing an FQL filter and paging details. Returns a set of Vulnerability IDs which match the filter criteria
 
@@ -7773,7 +7773,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::System`
 
-- **Operation**: [**get_system_logs_v3**](docs/System.md#get_system_logs_v3)
+- **Operation**: [**get_system_logs_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/System#get_system_logs_v3)
 - **GET**: /saas-security/entities/system-logs/v3
 - **Description**: GET System Logs
 
@@ -7781,7 +7781,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::System`
 
-- **Operation**: [**get_system_users_v3**](docs/System.md#get_system_users_v3)
+- **Operation**: [**get_system_users_v3**](https://github.com/CrowdStrike/crimson-falcon/wiki/System#get_system_users_v3)
 - **GET**: /saas-security/entities/system-users/v3
 - **Description**: GET System Users
 
@@ -7789,7 +7789,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::TailoredIntelligence`
 
-- **Operation**: [**get_events_body**](docs/TailoredIntelligence.md#get_events_body)
+- **Operation**: [**get_events_body**](https://github.com/CrowdStrike/crimson-falcon/wiki/TailoredIntelligence#get_events_body)
 - **GET**: /ti/events/entities/events-full-body/v2
 - **Description**: Get event body for the provided event ID
 
@@ -7797,7 +7797,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::TailoredIntelligence`
 
-- **Operation**: [**get_events_entities**](docs/TailoredIntelligence.md#get_events_entities)
+- **Operation**: [**get_events_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/TailoredIntelligence#get_events_entities)
 - **POST**: /ti/events/entities/events/GET/v2
 - **Description**: Get events entities for specified ids.
 
@@ -7805,7 +7805,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::TailoredIntelligence`
 
-- **Operation**: [**get_rules_entities**](docs/TailoredIntelligence.md#get_rules_entities)
+- **Operation**: [**get_rules_entities**](https://github.com/CrowdStrike/crimson-falcon/wiki/TailoredIntelligence#get_rules_entities)
 - **POST**: /ti/rules/entities/rules/GET/v2
 - **Description**: Get rules entities for specified ids.
 
@@ -7813,7 +7813,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::TailoredIntelligence`
 
-- **Operation**: [**query_events**](docs/TailoredIntelligence.md#query_events)
+- **Operation**: [**query_events**](https://github.com/CrowdStrike/crimson-falcon/wiki/TailoredIntelligence#query_events)
 - **GET**: /ti/events/queries/events/v2
 - **Description**: Get events ids that match the provided filter criteria.
 
@@ -7821,7 +7821,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::TailoredIntelligence`
 
-- **Operation**: [**query_rules**](docs/TailoredIntelligence.md#query_rules)
+- **Operation**: [**query_rules**](https://github.com/CrowdStrike/crimson-falcon/wiki/TailoredIntelligence#query_rules)
 - **GET**: /ti/rules/queries/rules/v2
 - **Description**: Get rules ids that match the provided filter criteria.
 
@@ -7829,7 +7829,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**combined_edges_get**](docs/Threatgraph.md#combined_edges_get)
+- **Operation**: [**combined_edges_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#combined_edges_get)
 - **GET**: /threatgraph/combined/edges/v1
 - **Description**: Retrieve edges for a given vertex id.  One edge type must be specified
 
@@ -7837,7 +7837,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**combined_ran_on_get**](docs/Threatgraph.md#combined_ran_on_get)
+- **Operation**: [**combined_ran_on_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#combined_ran_on_get)
 - **GET**: /threatgraph/combined/ran-on/v1
 - **Description**: Look up instances of indicators such as hashes, domain names, and ip addresses that have been seen on devices in your environment.
 
@@ -7845,7 +7845,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**combined_summary_get**](docs/Threatgraph.md#combined_summary_get)
+- **Operation**: [**combined_summary_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#combined_summary_get)
 - **GET**: /threatgraph/combined/{vertex-type}/summary/v1
 - **Description**: Retrieve summary for a given vertex ID
 
@@ -7853,7 +7853,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**entities_vertices_get**](docs/Threatgraph.md#entities_vertices_get)
+- **Operation**: [**entities_vertices_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#entities_vertices_get)
 - **GET**: /threatgraph/entities/{vertex-type}/v1
 - **Description**: Retrieve metadata for a given vertex ID. Note: This is a legacy endpoint used by CrowdStrike Store partners prior to release of the ThreatGraph OAuth 2.0 APIs. If you’re not currently using this endpoint, use the /v2 endpoint instead.
 
@@ -7861,7 +7861,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**entities_vertices_getv2**](docs/Threatgraph.md#entities_vertices_getv2)
+- **Operation**: [**entities_vertices_getv2**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#entities_vertices_getv2)
 - **GET**: /threatgraph/entities/{vertex-type}/v2
 - **Description**: Retrieve metadata for a given vertex ID
 
@@ -7869,7 +7869,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Threatgraph`
 
-- **Operation**: [**queries_edgetypes_get**](docs/Threatgraph.md#queries_edgetypes_get)
+- **Operation**: [**queries_edgetypes_get**](https://github.com/CrowdStrike/crimson-falcon/wiki/Threatgraph#queries_edgetypes_get)
 - **GET**: /threatgraph/queries/edge-types/v1
 - **Description**: Show all available edge types
 
@@ -7877,7 +7877,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UnidentifiedContainers`
 
-- **Operation**: [**read_unidentified_containers_by_date_range_count**](docs/UnidentifiedContainers.md#read_unidentified_containers_by_date_range_count)
+- **Operation**: [**read_unidentified_containers_by_date_range_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/UnidentifiedContainers#read_unidentified_containers_by_date_range_count)
 - **GET**: /container-security/aggregates/unidentified-containers/count-by-date/v1
 - **Description**: Returns the count of Unidentified Containers over the last 7 days
 
@@ -7885,7 +7885,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UnidentifiedContainers`
 
-- **Operation**: [**read_unidentified_containers_count**](docs/UnidentifiedContainers.md#read_unidentified_containers_count)
+- **Operation**: [**read_unidentified_containers_count**](https://github.com/CrowdStrike/crimson-falcon/wiki/UnidentifiedContainers#read_unidentified_containers_count)
 - **GET**: /container-security/aggregates/unidentified-containers/count/v1
 - **Description**: Returns the total count of Unidentified Containers over a time period
 
@@ -7893,7 +7893,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UnidentifiedContainers`
 
-- **Operation**: [**search_and_read_unidentified_containers**](docs/UnidentifiedContainers.md#search_and_read_unidentified_containers)
+- **Operation**: [**search_and_read_unidentified_containers**](https://github.com/CrowdStrike/crimson-falcon/wiki/UnidentifiedContainers#search_and_read_unidentified_containers)
 - **GET**: /container-security/combined/unidentified-containers/v1
 - **Description**: Maximum offset &#x3D; 10000 - limit
 
@@ -7901,7 +7901,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**aggregate_users_v1**](docs/UserManagement.md#aggregate_users_v1)
+- **Operation**: [**aggregate_users_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#aggregate_users_v1)
 - **POST**: /user-management/aggregates/users/v1
 - **Description**: Get host aggregates as specified via json in request body.
 
@@ -7909,7 +7909,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**combined_user_roles_v1**](docs/UserManagement.md#combined_user_roles_v1)
+- **Operation**: [**combined_user_roles_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#combined_user_roles_v1)
 - **GET**: /user-management/combined/user-roles/v1
 - **Description**: Deprecated : Please use GET /user-management/combined/user-roles/v2. Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
@@ -7917,7 +7917,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**combined_user_roles_v2**](docs/UserManagement.md#combined_user_roles_v2)
+- **Operation**: [**combined_user_roles_v2**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#combined_user_roles_v2)
 - **GET**: /user-management/combined/user-roles/v2
 - **Description**: Get User Grant(s). This endpoint lists both direct as well as flight control grants between a User and a Customer.
 
@@ -7925,7 +7925,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**create_user**](docs/UserManagement.md#create_user)
+- **Operation**: [**create_user**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#create_user)
 - **POST**: /users/entities/users/v1
 - **Description**: Deprecated : Please use POST /user-management/entities/users/v1. Create a new user. After creating a user, assign one or more roles with POST /user-roles/entities/user-roles/v1
 
@@ -7933,7 +7933,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**create_user_v1**](docs/UserManagement.md#create_user_v1)
+- **Operation**: [**create_user_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#create_user_v1)
 - **POST**: /user-management/entities/users/v1
 - **Description**: Create a new user. After creating a user, assign one or more roles with POST &#39;/user-management/entities/user-role-actions/v1&#39;
 
@@ -7941,7 +7941,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**delete_user**](docs/UserManagement.md#delete_user)
+- **Operation**: [**delete_user**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#delete_user)
 - **DELETE**: /users/entities/users/v1
 - **Description**: Deprecated : Please use DELETE /user-management/entities/users/v1. Delete a user permanently
 
@@ -7949,7 +7949,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**delete_user_v1**](docs/UserManagement.md#delete_user_v1)
+- **Operation**: [**delete_user_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#delete_user_v1)
 - **DELETE**: /user-management/entities/users/v1
 - **Description**: Delete a user permanently.
 
@@ -7957,7 +7957,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**entities_roles_v1**](docs/UserManagement.md#entities_roles_v1)
+- **Operation**: [**entities_roles_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#entities_roles_v1)
 - **GET**: /user-management/entities/roles/v1
 - **Description**: Get info about a role
 
@@ -7965,7 +7965,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**get_available_role_ids**](docs/UserManagement.md#get_available_role_ids)
+- **Operation**: [**get_available_role_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#get_available_role_ids)
 - **GET**: /user-roles/queries/user-role-ids-by-cid/v1
 - **Description**: Deprecated : Please use GET /user-management/queries/roles/v1. Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;.
 
@@ -7973,7 +7973,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**get_roles**](docs/UserManagement.md#get_roles)
+- **Operation**: [**get_roles**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#get_roles)
 - **GET**: /user-roles/entities/user-roles/v1
 - **Description**: Deprecated : Please use GET /user-management/entities/roles/v1. Get info about a role
 
@@ -7981,7 +7981,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**get_user_role_ids**](docs/UserManagement.md#get_user_role_ids)
+- **Operation**: [**get_user_role_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#get_user_role_ids)
 - **GET**: /user-roles/queries/user-role-ids-by-user-uuid/v1
 - **Description**: Deprecated : Please use GET /user-management/combined/user-roles/v1. Show role IDs of roles assigned to a user. For more information on each role, provide the role ID to &#x60;/customer/entities/roles/v1&#x60;.
 
@@ -7989,7 +7989,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**grant_user_role_ids**](docs/UserManagement.md#grant_user_role_ids)
+- **Operation**: [**grant_user_role_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#grant_user_role_ids)
 - **POST**: /user-roles/entities/user-roles/v1
 - **Description**: Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Assign one or more roles to a user
 
@@ -7997,7 +7997,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**queries_roles_v1**](docs/UserManagement.md#queries_roles_v1)
+- **Operation**: [**queries_roles_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#queries_roles_v1)
 - **GET**: /user-management/queries/roles/v1
 - **Description**: Show role IDs for all roles available in your customer account. For more information on each role, provide the role ID to &#x60;/user-management/entities/roles/v1&#x60;.
 
@@ -8005,7 +8005,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**query_user_v1**](docs/UserManagement.md#query_user_v1)
+- **Operation**: [**query_user_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#query_user_v1)
 - **GET**: /user-management/queries/users/v1
 - **Description**: List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/user-management/entities/users/GET/v1&#x60;.
 
@@ -8013,7 +8013,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**retrieve_emails_by_cid**](docs/UserManagement.md#retrieve_emails_by_cid)
+- **Operation**: [**retrieve_emails_by_cid**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#retrieve_emails_by_cid)
 - **GET**: /users/queries/emails-by-cid/v1
 - **Description**: Deprecated : Please use POST /user-management/entities/users/GET/v1. List the usernames (usually an email address) for all users in your customer account
 
@@ -8021,7 +8021,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**retrieve_user**](docs/UserManagement.md#retrieve_user)
+- **Operation**: [**retrieve_user**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#retrieve_user)
 - **GET**: /users/entities/users/v1
 - **Description**: Deprecated : Please use POST /user-management/entities/users/GET/v1. Get info about a user
 
@@ -8029,7 +8029,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**retrieve_user_uuid**](docs/UserManagement.md#retrieve_user_uuid)
+- **Operation**: [**retrieve_user_uuid**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#retrieve_user_uuid)
 - **GET**: /users/queries/user-uuids-by-email/v1
 - **Description**: Deprecated : Please use GET /user-management/queries/users/v1. Get a user&#39;s ID by providing a username (usually an email address)
 
@@ -8037,7 +8037,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**retrieve_user_uuids_by_cid**](docs/UserManagement.md#retrieve_user_uuids_by_cid)
+- **Operation**: [**retrieve_user_uuids_by_cid**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#retrieve_user_uuids_by_cid)
 - **GET**: /users/queries/user-uuids-by-cid/v1
 - **Description**: Deprecated : Please use GET /user-management/queries/users/v1. List user IDs for all users in your customer account. For more information on each user, provide the user ID to &#x60;/users/entities/user/v1&#x60;.
 
@@ -8045,7 +8045,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**retrieve_users_getv1**](docs/UserManagement.md#retrieve_users_getv1)
+- **Operation**: [**retrieve_users_getv1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#retrieve_users_getv1)
 - **POST**: /user-management/entities/users/GET/v1
 - **Description**: Get info about users including their name, UID and CID by providing user UUIDs
 
@@ -8053,7 +8053,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**revoke_user_role_ids**](docs/UserManagement.md#revoke_user_role_ids)
+- **Operation**: [**revoke_user_role_ids**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#revoke_user_role_ids)
 - **DELETE**: /user-roles/entities/user-roles/v1
 - **Description**: Deprecated : Please use POST /user-management/entities/user-role-actions/v1. Revoke one or more roles from a user
 
@@ -8061,7 +8061,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**update_user**](docs/UserManagement.md#update_user)
+- **Operation**: [**update_user**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#update_user)
 - **PATCH**: /users/entities/users/v1
 - **Description**: Deprecated : Please use PATCH /user-management/entities/users/v1. Modify an existing user&#39;s first or last name
 
@@ -8069,7 +8069,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**update_user_v1**](docs/UserManagement.md#update_user_v1)
+- **Operation**: [**update_user_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#update_user_v1)
 - **PATCH**: /user-management/entities/users/v1
 - **Description**: Modify an existing user&#39;s first or last name.
 
@@ -8077,7 +8077,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**user_action_v1**](docs/UserManagement.md#user_action_v1)
+- **Operation**: [**user_action_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#user_action_v1)
 - **POST**: /user-management/entities/user-actions/v1
 - **Description**: Apply actions to one or more User. Available action names: reset_2fa, reset_password. User UUIDs can be provided in &#x60;ids&#x60; param as part of request payload.
 
@@ -8085,7 +8085,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::UserManagement`
 
-- **Operation**: [**user_roles_action_v1**](docs/UserManagement.md#user_roles_action_v1)
+- **Operation**: [**user_roles_action_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/UserManagement#user_roles_action_v1)
 - **POST**: /user-management/entities/user-role-actions/v1
 - **Description**: Grant or Revoke one or more role(s) to a user against a CID. User UUID, CID and Role ID(s) can be provided in request payload. Available Action(s) : grant, revoke
 
@@ -8093,7 +8093,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_activities_combined**](docs/Workflows.md#workflow_activities_combined)
+- **Operation**: [**workflow_activities_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_activities_combined)
 - **GET**: /workflows/combined/activities/v1
 - **Description**: Search for activities by name. Returns all supported activities if no filter specified
 
@@ -8101,7 +8101,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_activities_content_combined**](docs/Workflows.md#workflow_activities_content_combined)
+- **Operation**: [**workflow_activities_content_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_activities_content_combined)
 - **GET**: /workflows/combined/activity-content/v1
 - **Description**: Search for activities by name. Returns all supported activities if no filter specified
 
@@ -8109,7 +8109,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_definitions_combined**](docs/Workflows.md#workflow_definitions_combined)
+- **Operation**: [**workflow_definitions_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_definitions_combined)
 - **GET**: /workflows/combined/definitions/v1
 - **Description**: Search workflow definitions based on the provided filter
 
@@ -8117,7 +8117,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_definitions_export**](docs/Workflows.md#workflow_definitions_export)
+- **Operation**: [**workflow_definitions_export**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_definitions_export)
 - **GET**: /workflows/entities/definitions/export/v1
 - **Description**: Exports a workflow definition for the given definition ID
 
@@ -8125,7 +8125,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_definitions_import**](docs/Workflows.md#workflow_definitions_import)
+- **Operation**: [**workflow_definitions_import**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_definitions_import)
 - **POST**: /workflows/entities/definitions/import/v1
 - **Description**: Imports a workflow definition based on the provided model
 
@@ -8133,7 +8133,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_definitions_update**](docs/Workflows.md#workflow_definitions_update)
+- **Operation**: [**workflow_definitions_update**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_definitions_update)
 - **PUT**: /workflows/entities/definitions/v1
 - **Description**: Updates a workflow definition based on the provided model
 
@@ -8141,7 +8141,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_execute**](docs/Workflows.md#workflow_execute)
+- **Operation**: [**workflow_execute**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_execute)
 - **POST**: /workflows/entities/execute/v1
 - **Description**: Executes an on-demand Workflow, the body is JSON used to trigger the execution, the response the execution ID(s)
 
@@ -8149,7 +8149,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_execute_internal**](docs/Workflows.md#workflow_execute_internal)
+- **Operation**: [**workflow_execute_internal**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_execute_internal)
 - **POST**: /workflows/entities/execute/internal/v1
 - **Description**: Executes an on-demand Workflow - internal workflows permitted, the body is JSON used to trigger the execution, the response the execution ID(s)
 
@@ -8157,7 +8157,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_execution_results**](docs/Workflows.md#workflow_execution_results)
+- **Operation**: [**workflow_execution_results**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_execution_results)
 - **GET**: /workflows/entities/execution-results/v1
 - **Description**: Get execution result of a given execution
 
@@ -8165,7 +8165,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_executions_action**](docs/Workflows.md#workflow_executions_action)
+- **Operation**: [**workflow_executions_action**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_executions_action)
 - **POST**: /workflows/entities/execution-actions/v1
 - **Description**: Allows a user to resume/retry a failed workflow execution.
 
@@ -8173,7 +8173,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_executions_combined**](docs/Workflows.md#workflow_executions_combined)
+- **Operation**: [**workflow_executions_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_executions_combined)
 - **GET**: /workflows/combined/executions/v1
 - **Description**: Search workflow executions based on the provided filter
 
@@ -8181,7 +8181,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_get_human_input_v1**](docs/Workflows.md#workflow_get_human_input_v1)
+- **Operation**: [**workflow_get_human_input_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_get_human_input_v1)
 - **GET**: /workflows/entities/human-inputs/v1
 - **Description**: Gets one or more specific human inputs by their IDs.
 
@@ -8189,7 +8189,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_mock_execute**](docs/Workflows.md#workflow_mock_execute)
+- **Operation**: [**workflow_mock_execute**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_mock_execute)
 - **POST**: /workflows/entities/mock-executions/v1
 - **Description**: Executes a workflow definition with mocks
 
@@ -8197,7 +8197,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_system_definitions_de_provision**](docs/Workflows.md#workflow_system_definitions_de_provision)
+- **Operation**: [**workflow_system_definitions_de_provision**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_system_definitions_de_provision)
 - **POST**: /workflows/system-definitions/deprovision/v1
 - **Description**: Deprovisions a system definition that was previously provisioned on the target CID
 
@@ -8205,7 +8205,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_system_definitions_promote**](docs/Workflows.md#workflow_system_definitions_promote)
+- **Operation**: [**workflow_system_definitions_promote**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_system_definitions_promote)
 - **POST**: /workflows/system-definitions/promote/v1
 - **Description**: Promotes a version of a system definition for a customer. The customer must already have been provisioned. This allows the caller to apply an updated template version to a specific cid and expects all parameters to be supplied. If the template supports multi-instance the customer scope definition ID must be supplied to determine which customer workflow should be updated.
 
@@ -8213,7 +8213,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_system_definitions_provision**](docs/Workflows.md#workflow_system_definitions_provision)
+- **Operation**: [**workflow_system_definitions_provision**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_system_definitions_provision)
 - **POST**: /workflows/system-definitions/provision/v1
 - **Description**: Provisions a system definition onto the target CID by using the template and provided parameters
 
@@ -8221,7 +8221,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_triggers_combined**](docs/Workflows.md#workflow_triggers_combined)
+- **Operation**: [**workflow_triggers_combined**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_triggers_combined)
 - **GET**: /workflows/combined/triggers/v1
 - **Description**: Search for triggers by namespaced identifier, i.e. FalconAudit, Detection, or FalconAudit/Detection/Status. Returns all triggers if no filter specified
 
@@ -8229,7 +8229,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::Workflows`
 
-- **Operation**: [**workflow_update_human_input_v1**](docs/Workflows.md#workflow_update_human_input_v1)
+- **Operation**: [**workflow_update_human_input_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/Workflows#workflow_update_human_input_v1)
 - **PATCH**: /workflows/entities/human-inputs/v1
 - **Description**: Provides an input in response to a human input action. Depending on action configuration, one or more of Approve, Decline, and/or Escalate are permitted.
 
@@ -8237,7 +8237,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ZeroTrustAssessment`
 
-- **Operation**: [**get_assessment_v1**](docs/ZeroTrustAssessment.md#get_assessment_v1)
+- **Operation**: [**get_assessment_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ZeroTrustAssessment#get_assessment_v1)
 - **GET**: /zero-trust-assessment/entities/assessments/v1
 - **Description**: Get Zero Trust Assessment data for one or more hosts by providing agent IDs (AID) and a customer ID (CID).
 
@@ -8245,7 +8245,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ZeroTrustAssessment`
 
-- **Operation**: [**get_assessments_by_score_v1**](docs/ZeroTrustAssessment.md#get_assessments_by_score_v1)
+- **Operation**: [**get_assessments_by_score_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ZeroTrustAssessment#get_assessments_by_score_v1)
 - **GET**: /zero-trust-assessment/queries/assessments/v1
 - **Description**: Get Zero Trust Assessment data for one or more hosts by providing a customer ID (CID) and a range of scores.
 
@@ -8253,7 +8253,7 @@ We appreciate your interest in our project and look forward to collaborating wit
 
 **Class**: `Falcon::ZeroTrustAssessment`
 
-- **Operation**: [**get_audit_v1**](docs/ZeroTrustAssessment.md#get_audit_v1)
+- **Operation**: [**get_audit_v1**](https://github.com/CrowdStrike/crimson-falcon/wiki/ZeroTrustAssessment#get_audit_v1)
 - **GET**: /zero-trust-assessment/entities/audit/v1
 - **Description**: Get the Zero Trust Assessment audit report for one customer ID (CID).
 

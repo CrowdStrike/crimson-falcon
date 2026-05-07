@@ -12,7 +12,7 @@ Much of the project is built using mustache templates. Mustache is a simple, log
 
 Key directories in the project include:
 
-* `docs/`: This directory contains the auto-generated documentation for the SDK.
+* `docs/` (gitignored): Auto-generated documentation for the SDK, published to the [wiki](https://github.com/CrowdStrike/crimson-falcon/wiki).
 * `lib/crimson-falcon/`: This directory contains the generated SDK client code. It includes the `api/` and `models/` directories, which contain the API and model classes, respectively.
   > **Note:** Not all files in this directory are generated. The `api/` and `models/` directories are generated, but the `api_client.rb`, `configuration.rb` and `cloud.rb` files are not.
   >
